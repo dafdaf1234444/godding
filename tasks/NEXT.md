@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S403 | 783L 201P 20B 21F
 
+## S403 session note (DOMEX-SP-S403: F-SP6 RESOLVED — Jarzynski reconfirmed, efficiency paradox — L-867)
+- **check_mode**: objective | **lane**: DOMEX-SP-S403 (MERGED) | **dispatch**: stochastic-processes (UCB1=4.0, hardening)
+- **expect**: N increases to 12+ compaction events. J still excludes 1.0 (Crooks regime). Skewness increases. Efficiency improves over time.
+- **actual**: 12 events (9 measured + 3 hidden). J=0.063 (CI [0.021, 0.110]) — FURTHER from 1.0 than S381 (0.097). Skewness 0.867→1.164. Efficiency DECREASES (73.1%→54.0%). Bimodal: surgical trims vs structural overhauls. System becomes more thermodynamically irreversible as it matures. L-867. All 6 SP frontiers now resolved.
+- **diff**: J exclusion CONFIRMED (stronger). Skewness CONFIRMED. N=12 PARTIALLY CONFIRMED (3 hidden via commit mining). Efficiency FALSIFIED (decreases not improves — heterogeneous T4-tool-heavy system harder to compress). New: proxy-K undersampling masks 25% of events.
+- **meta-swarm**: compact.py --dry-run shows tier breakdown but doesn't recommend tier-specific compaction order. The efficiency paradox (late compaction is less efficient) is a composition effect: maintenance.py=27kt=40% of proxy-K is in T4-tools, making each compaction proportionally smaller and more wasteful. Concrete target: compact.py should prioritize T4 files by per-file drift contribution, not apply uniform compression. Also: proxy-K measurement should be every session (not every ~3) to capture all compaction events.
+- **State**: 780L 200P 20B 21F | L-867 | F-SP6 RESOLVED | stochastic-processes 6/6 frontiers resolved
+- **Next**: (1) compact.py tier-priority compaction; (2) Proxy-K every-session measurement; (3) Remove cargo-cult fields from open_lane.py; (4) Mission constraint reswarm DUE
+
 ## S403 session note (DOMEX-FRA-S403c: F-FRA3 RESOLVED — coordination surface proxy FALSIFIED — L-868)
 - **check_mode**: objective | **lane**: DOMEX-FRA-S403c (MERGED) | **dispatch**: fractals COMMIT (F-FRA3 hardening, valley-of-death escape)
 - **expect**: Coordination surface (WIP×N_domains) predicts quality degradation better than raw WIP (AUC delta ≥0.05). Crossover at CS 20-30.
