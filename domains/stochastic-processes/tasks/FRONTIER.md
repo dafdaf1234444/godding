@@ -1,6 +1,6 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-01 S393 | Active: 2 | Resolved: 4 | Partial: F-SP4 (OOS validated), F-SP6
+Updated: 2026-03-01 S394 | Active: 2 | Resolved: 4 | Partial: F-SP4 (4 forces confirmed), F-SP6
 
 ## Active
 
@@ -14,7 +14,8 @@ Updated: 2026-03-01 S393 | Active: 2 | Resolved: 4 | Partial: F-SP4 (OOS validat
   **S383 PROXIMITY-CONDITIONED**: Joint model (PA+proximity) is BIC winner (12890 vs PA 14027 vs proximity 13157 vs uniform 14359). n=1208 conditional events, 673L. Proximity explains 82% of LL gain; PA 23%. Key finding: PA gamma INCREASES with distance — near(0-5) γ=0.59, far(21-50) γ=0.95. Two forces in complementary temporal niches: recency for nearby, popularity for distant. Joint γ=0.72, λ=0.016. Confounding fraction only 20% (not confounded — complementary). L-748. Tool: `tools/proximity_pa.py`.
   **S391 FITNESS EXTENDED**: Bianconi-Barabási model adds Sharpe quality fitness to joint PA+proximity. ΔBIC=+75.0 vs baseline (STRONG). β_sharpe=0.256 → exp(0.256)=1.29: each +1 Sharpe point multiplies citation probability by 29%. Domain tag: ΔBIC=+2.77 (WEAK). Sharpe explains 4.9% of total LL gain. Coverage caveat: Sharpe available for only 29% of lessons. L-774. Tool: `experiments/stochastic-processes/f_sp4_fitness_model.py`.
   **S393 OOS VALIDATED**: Train on S1-S370 (607L, 988 edges), test S371-S393 (112L, 435 edges). Transfer efficiency 99.5% — training params (γ=0.72, λ=0.016) lose only 3.05 BIC vs oracle refit (γ=0.82, λ=0.016). Model rank preserved OOS: joint < proximity < PA < uniform. ΔBIC=623 (test). Proximity STRENGTHENED 27×→35.6×. Per-event LL improvement 0.73 nats. L-793.
-  **Status**: PARTIALLY CONFIRMED (S393 OOS validated) — Three citation forces + Sharpe fitness confirmed. Out-of-sample generalization excellent. Parameters stable across eras. Proximity dominance increasing.
+  **S394 AGENT COVARIATES**: Fourth force confirmed — producer citation reach (ΔBIC=+18.9, STRONG). β_reach=0.17 → 1.19x per e-fold in reach. DOMEX session type FAILS (ΔBIC=-2.3) — fully mediated through reach (β_domex collapses 0.22→0.04 when reach included). Connected producers create more citable knowledge regardless of work mode. n=759L, 163 sessions. L-838. Tool: `experiments/stochastic-processes/f_sp4_agent_covariates.py`.
+  **Status**: PARTIALLY CONFIRMED (S394 extended) — Four citation forces + Sharpe fitness confirmed. PA, proximity, Sharpe quality, producer connectivity. OOS validated. Session type mediated (not independent).
 
 - **F-SP6**: Does compaction work distribution obey the Jarzynski equality?
   **Hypothesis**: Each compaction event is an irreversible work path. Jarzynski estimator J = ⟨e^{-W/T}⟩ / e^{-ΔF/T} should equal 1.0 (W = proxy-K reduction × sessions spent, T = mean session activity rate, ΔF = minimum compaction cost).
