@@ -7331,7 +7331,7 @@
     },
     {
       "session": 414,
-      "timestamp": "2026-03-01T22:55:15Z",
+      "timestamp": "2026-03-01T22:56:24Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7468,11 +7468,9 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -7510,8 +7508,10 @@
         },
         "check_domain_frontier_consistency": {
           "fired": true,
-          "count": 1,
+          "count": 3,
           "severities": [
+            "NOTICE",
+            "NOTICE",
             "NOTICE"
           ]
         },
@@ -7523,11 +7523,9 @@
           ]
         },
         "check_count_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_structure_layout": {
           "fired": false,
@@ -7609,9 +7607,9 @@
         }
       },
       "totals": {
-        "NOTICE": 12,
+        "NOTICE": 13,
         "PERIODIC": 15,
-        "DUE": 3
+        "DUE": 2
       }
     }
   ],

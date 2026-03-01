@@ -1,8 +1,10 @@
 # Evaluation Domain — Frontier Questions
 Domain agent: write here for evaluation-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S410 | Active: 3 | Resolved: 0
+Updated: 2026-03-01 S414 | Active: 4 | Resolved: 0
 
 ## Active
+
+- **F-EVAL4** (level=L3): L-919 shows avg_lp=2.0 is a zero-margin artifact of a 20-session window with only 2 sessions. What metric design properties prevent threshold artifacts in swarm self-evaluation? Hypothesis: evaluation metrics should have (a) continuous rather than threshold scoring, (b) session-count-aware windows (require ≥10 qualifying sessions), (c) domain-stratified rather than global aggregation. Test: redesign eval_sufficiency.py with these properties and compare diagnosis on S309/S414 data. Expect: current SUFFICIENT rating would downgrade to INSUFFICIENT with proper window. Cites: L-919, L-907, F-EVAL3. (S414)
 
 - **F-EVAL1**: Can we compute a composite mission-achievement score per PHIL-14 goal using existing swarm data? Hypothesis (B-EVAL1): current health metrics measure process integrity, not mission achievement — a goal-by-goal sufficiency score will reveal that 0/4 goals have external grounding. Design: (1) for each PHIL-14 goal, collect 3-5 proxy metrics from `tasks/SWARM-LANES.md`, `memory/lessons/`, `beliefs/DEPS.md`, and `memory/HUMAN-SIGNALS.md`; (2) score each goal 0-3 (insufficient/adequate/sufficient/excellent) on threshold + rate + grounding; (3) compute composite score; (4) identify lowest-scoring dimension as next improvement target. Tool: `tools/eval_sufficiency.py` (BUILT S193). Expected outcome: Collaborate=2, Increase=1, Protect=2, Truthful=1. Overall: 1.5/3 (partially sufficient).
   **S193 First Run**: Collaborate=2/SUFFICIENT (merge 48.5%, C1 1.3%, signal 100%), Increase=1/ADEQUATE (1.14 L+P/session, 12.1% resolution, 31 domains), Protect=1/ADEQUATE (proxy-K 0.3% drift, validator PASS, zero challenge drops = soft-acceptance bias risk), Truthful=2/SUFFICIENT (50% evidence-grounded, 0.26 signals/session). Composite: 50% (avg 1.5/3). Overall: PARTIAL. Hypothesis partially confirmed: Protect and Truthful swapped vs expectation. Next target: Increase (resolution rate, L+P velocity). Artifact: experiments/evaluation/eval-sufficiency-s193.json. Related: PHIL-14, PHIL-16, B-EVAL1, F-QC1 (quality domain baseline), F110 (coordination).

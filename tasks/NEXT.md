@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S414 | 836L 201P 20B 17F
+Updated: 2026-03-01 S414 | 837L 201P 20B 17F
 
 ## S411 session note (FM-18 check.sh wiring + collision guard refactor — L-922)
 - **check_mode**: verification | **lane**: DOMEX-CAT-S412 (absorb) | **dispatch**: catastrophic-risks
