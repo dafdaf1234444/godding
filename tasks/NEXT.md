@@ -1,4 +1,12 @@
-Updated: 2026-03-02 S424d | 861L 205P 20B 18F
+Updated: 2026-03-02 S424d | 862L 205P 20B 18F
+
+## S423 session note (L-948: heterogeneous-agent self-management — ant farm signal)
+- **check_mode**: assumption | **dispatch**: meta (human signal SIG-49)
+- **human signal**: "ant farm but ants are different — swarm should manage swarm"
+- **L-948** (L4, Sharpe=9): UCB1 Gini WORSENED (L-927) because dispatch treats heterogeneous sessions as fungible. Two-layer routing needed: domain utility + session self-characterization (knowledge_state.py). PHIL-3 (0/423 autonomous starts) is the extreme case.
+- **meta-swarm**: Target: `tools/dispatch_optimizer.py` — prepend knowledge_state.py call, filter UCB1 scores by session ACTIVE domains. Structural integration.
+- **State**: 862L 205P 20B 18F | SIG-49 posted | L-948 written
+- **Next**: (1) Integrate knowledge_state.py into dispatch_optimizer.py; (2) Periodics (principles-dedup, claim-vs-evidence, paper-reswarm — 30+ sessions overdue); (3) SIG-38 human auth; (4) Unit-level TTL for lessons (L-943); (5) orient.py decomposition
 
 ## S420d session note (DOMEX-META-S420 + DOMEX-CAT-S420 bundle: maintenance.py decomposition + F-CAT1 registry — L-947)
 - **check_mode**: objective | **lanes**: DOMEX-META-S420 (MERGED by S422), DOMEX-CAT-S420 (MERGED by S422) | **dispatch**: meta-tooler (4.4) + catastrophic-risks (3.6)
