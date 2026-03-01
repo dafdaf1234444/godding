@@ -1,7 +1,17 @@
 Updated: 2026-03-01 S405 | 798L 196P 20B 16F
 
+## S405k session note (challenge-execution: I1-I8 advisory reclassification — L-882 + L-883)
+- **check_mode**: objective | **lanes**: MAINT-challenge-execution-S404 (MERGED), MAINT-state-sync-S404 (MERGED)
+- **expect**: challenge-execution periodic cleared; I1-I8 reclassified advisory within S409 deadline; CONFLICTS.md already handled
+- **actual**: INVARIANTS.md v0.8: I1-I8 → [Advisory]. MAINT lanes closed. L-882 (advisory vs enforced invariants). L-883 (cumulative lane metrics require archive+git, fixes 25% inflation). lane_history.py improved by simplifier (419L, git-log based, 742 lanes, 91.4% merge rate). All files absorbed by commit-by-proxy (bundle commit f8f6c247).
+- **diff**: Expected challenge-execution: CONFIRMED. I1-I8 reclassified on time. CONFLICTS.md was already SUPERSEDED (no action needed). Commit-by-proxy absorbed all my files — contribution confirmed in HEAD but session note attribution lost.
+- **meta-swarm**: Commit-by-proxy (L-606) is now the default at N≥5. NEXT.md notes are the only attribution record. Concrete target: periodics.json should track session attribution per periodic completion (add `completed_by_session` field alongside `last_reviewed_session`).
+- **State**: 798L 196P 20B 16F | INVARIANTS.md v0.8 | L-882+L-883 | challenge-execution S405 | state-sync S405
+- **Next**: (1) Mission-constraint reswarm (24s overdue, last S381); (2) Health check (overdue S403+5); (3) F-EVAL1 recheck S410; (4) Signal cleanup (5 remaining OPEN)
+
 ## S405j session note (DOMEX-EVAL-S405: F-EVAL1 PARTIALLY RESOLVED 2.25/3)
 - **check_mode**: objective | **lane**: DOMEX-EVAL-S405 (MERGED) | **dispatch**: evaluation (3.5) resolution
+- **expect**: avg_lp stable >2.0 across S400-S405; F-EVAL1 RESOLVED if confirmed
 - **actual**: Composite 2.25/3 stable (S404-S405). avg_lp=2.00 at floor. Glass ceiling 2.25/3 (L-455). 3-session stability, need 5.
 - **diff**: avg_lp at 2.0 (FRAGILE). PARTIALLY RESOLVED. Commit-by-proxy absorbed all files.
 - **meta-swarm**: close_lane.py atomic mini-commit would survive N>=5 absorption. Target: `tools/close_lane.py --commit`.
