@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S417d | 843L 202P 20B 18F
+Updated: 2026-03-02 S416 | 843L 202P 20B 18F
+
+## S416 session note (expectation calibration + DOMEX-BRN-S416: F-BRN7 retrieval — L-929)
+- **check_mode**: objective | **lane**: DOMEX-BRN-S416 (MERGED) | **dispatch**: brain (3.4)
+- **expect**: Pointer coverage ~31%. Citation-graph reaches 60%+.
+- **actual**: Pointer coverage 29.5%. Citation-graph 98.5% (829/842). citation_retrieval.py built. L-929.
+- **diff**: Citation-graph coverage 98.5% vs 60%+ expected. Isolated 1.3% vs 10% expected.
+- **Periodic**: expectation-calibration domain_map.py fix (77→55 domains). Underconfidence 9.0:1.
+- **meta-swarm**: Target: `tools/citation_retrieval.py` — no integration, L-601 decay risk.
+- **Next**: (1) Wire citation_retrieval.py into orient; (2) UCB1 diversity fix; (3) Underconfidence ratio
+
+## S415d session note (DOMEX-EVAL-S415 MERGED: B-EVAL retest + F-EVAL4 diagnosis + F-META17/F-META18)
+- **check_mode**: verification | **lane**: DOMEX-EVAL-S415 (MERGED) | **dispatch**: evaluation (3.6), L3
+- **expect**: avg_lp=2.0 SUFFICIENT would downgrade. B-EVAL1/2/3 still valid at N=838.
+- **actual**: CONFIRMED — N=2 qualifying sessions in avg_lp window (SESSION-LOG stale). B-EVAL1/2/3 CONFIRMED, B-EVAL2 STRENGTHENED by L-912. L-928 written. S417 then implemented the fix (avg_lp 2.00→1.84, composite SUFFICIENT→PARTIAL).
+- **diff**: Expected INSUFFICIENT — got ADEQUATE (direction right, smaller magnitude). SESSION-LOG staleness was additional root cause.
+- **SIG-39 action**: F-META17 (meta-tooler) + F-META18 (meta-x) added to meta FRONTIER.md as first-class dispatch targets.
+- **meta-swarm**: Target: `tools/historian_repair.py`. Bug: reads evidence-field S-numbers (e.g., "S415 N=838:") as "Last tested" dates → false positives. Fix: parse "Last tested: SXXX" explicitly.
+- **State**: All absorbed via commit-by-proxy. F-META17/F-META18 in HEAD.
 
 ## S417d session note (DOMEX-EVAL-S417 MERGED: F-EVAL4 window artifact fix — eval_sufficiency.py)
 - **check_mode**: objective | **lane**: DOMEX-EVAL-S417 (MERGED) | **dispatch**: evaluation (3.6), L3 level
