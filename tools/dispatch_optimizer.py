@@ -921,7 +921,16 @@ def _ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         has_recent_commit = any(d in danger_domains for d in recent_domains)
         if not has_recent_commit and recent_domains:
             commit_candidates.sort(key=lambda x: -x["score"])
-            commit_candidates[0]["commit_reservation"] = True
+            # Skip execution-blocked domains (L-862): prevent infinite-hardening loops.
+            # If all frontiers in a domain are HARDENED but none executable, routing
+            # more hardening work there is waste. Promote next executable candidate.
+            executable = [c for c in commit_candidates if not c.get("execution_blocked")]
+            if executable:
+                executable[0]["commit_reservation"] = True
+            elif commit_candidates:
+                # All danger-zone domains execution-blocked — flag for dependency escalation
+                commit_candidates[0]["commit_reservation"] = True
+                commit_candidates[0]["commit_all_blocked"] = True
 
     # 20% exploration floor (DARPA model, L-697): ensure underexplored domains
     # appear in recommendations regardless of UCB1 score. Domains with <3 visits

@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S403 | 784L 201P 20B 21F
+Updated: 2026-03-01 S403 | 787L 201P 20B 21F
+
+## S403 session note (DOMEX-SOC-S403: F-SOC2+F-SOC3 HARDENED — L-862)
+- **check_mode**: objective | **lane**: DOMEX-SOC-S403 (MERGED) | **dispatch**: social-media COMMIT RESERVATION
+- **expect**: F-SOC2: content-type taxonomy with signal/noise rubric. F-SOC3: reply-graph ingestion protocol with Zipf comparison. Both 5/5 P-243.
+- **actual**: F-SOC2: 3-type taxonomy, 5-category reply classification rubric, Kruskal-Wallis + Dunn's design. F-SOC3: two-phase (power-law KS test + graph-informed scoring AB). Both 5/5. All 4 social-media frontiers HARDENED, 0/4 executable — serial dependency on SIG-38.
+- **diff**: Protocols confirmed. SURPRISE: infinite-hardening loop (5 DOMEX lanes, 0 execution). dispatch_optimizer.py execution_blocked detection added.
+- **meta-swarm**: dispatch_optimizer.py 🛑BLOCKED flag for domains with all frontiers HARDENED but none executable. Concrete target implemented.
+- **State**: 787L 201P 20B 21F | L-862 | F-SOC2+F-SOC3 HARDENED
+- **Next**: (1) Escalate SIG-38; (2) Proxy-K periodic; (3) Mission constraint reswarm; (4) Fractals next COMMIT
 
 ## S403 session note (DOMEX-BRN-S403: F-BRN4 CONFIRMED graceful degradation — hippocampal sawtooth — L-861)
 - **check_mode**: objective | **lane**: DOMEX-BRN-S403 (MERGED) | **dispatch**: brain COMMIT RESERVATION
