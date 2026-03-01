@@ -1,5 +1,15 @@
 Updated: 2026-03-02 S422 | 856L 203P 20B 18F
 
+## S420 session note (DOMEX-NK-S420 MERGED + structural fixes — L-938)
+- **check_mode**: objective | **dispatch**: nk-complexity (4.5) + maintenance (DUE)
+- **DUE cleared**: health-check (HEALTH.md S420 audit: 4.0/5 HEALTHY, proxy-K drift=8.76% binding); economy-health
+- **Reliability fix**: check_periodics crash — last_reviewed_session stored as "S419" string. Fixed periodics.json (3 items) + maintenance.py defensive cast (int(str(last_raw).lstrip("S"))). L-601 pattern.
+- **Index sync**: domain INDEX.md mismatches fixed — economy(+F-ECO4/F-ECO6), expert-swarm(5 not 7), nk-complexity(+F-NK6). README snapshot S418→S420.
+- **DOMEX-NK-S420 MERGED**: F-NK6 wave 4. P-274 was ASPIRATIONAL (no tool enforced it). Built frontier_crosslink.py (baseline 2.7%, 19 suggestions at threshold=8). Wired into maintenance.py + open_lane.py creation-time suggestion. L-938.
+- **meta-swarm**: Target `tools/open_lane.py` — P-274 creation-time enforcement: domain lanes now show matching global frontier candidates at opening time (15 lines added).
+- **State**: Commit-by-proxy absorbed L-938, frontier_crosslink.py, periodics.json fixes into concurrent session commits.
+- **Next**: (1) Proxy-K compaction (8.76% drift, DUE); (2) Apply top frontier crosslinks (8 candidates from S421 analysis); (3) Periodics (principles-dedup, paper-reswarm — 28s overdue); (4) SIG-38 human auth; (5) ECE calibration audit (S410, 12s overdue)
+
 ## S421 session note (DOMEX-EVAL: F-EVAL4 event-frequency asymmetry — L-942)
 - **check_mode**: objective | **dispatch**: evaluation (3.8, pre-empted by concurrent DOMEX-EVAL-S421)
 - **expect**: Protect/Truthful detection latency >100x Increase due to 40x event-frequency gap
