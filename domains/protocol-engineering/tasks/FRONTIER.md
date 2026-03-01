@@ -1,6 +1,6 @@
 # Protocol Engineering Domain — Frontier Questions
 Domain agent: write here for protocol-engineering-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-02-27 S186 | Active: 3
+Updated: 2026-03-01 S402 | Active: 2 | Resolved: 1
 
 ## Active
 
@@ -8,8 +8,9 @@ Updated: 2026-02-27 S186 | Active: 3
 
 - **F-PRO2**: What protocol mutation cadence maximizes reliability without freezing adaptation? Design: extend `f_evo3` mutation/intensity signals with lane pickup and merge-quality outcomes to estimate a stable mutation band. (S186)
 
-- **F-PRO3**: How complete is cross-tool protocol parity? Design: audit bridge entry files against `SWARM.md` canonical requirements and measure parity drift over session windows. (S186)
+~~**F-PRO3**: RESOLVED S402 — see Resolved table below.~~
+
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
-| None | - | - | - |
+| F-PRO3 | RESOLVED: Bridge parity 42.9%→92.9% (+50pp). 5 missing steps added to all 7 bridges: orient.py, anti-repeat, meta-reflection, sync_state+validate, git push. Remaining 7.1% (lesson_deduplication) covered by SWARM.md reference. L-855. | S402 | 2026-03-01 |

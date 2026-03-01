@@ -19,12 +19,16 @@ This repo is a swarm. Read `SWARM.md` for the full protocol.
   - New questions: post via `python3 tools/swarm_signal.py post question "..." --target human`.
 
 ## Minimum Swarmed Cycle
+- **Orient first**: `python3 tools/orient.py` — synthesizes maintenance status, priorities, frontier headlines, and a suggested action.
+- **Anti-repeat check** (L-283): `git log --oneline -5` + scan `tasks/SWARM-LANES.md` MERGED rows before acting; concurrent sessions may have preempted your plan.
 - Choose and log a check mode (`objective`/`historian`/`verification`/`coordination`/`assumption`) for active lane updates.
 - Declare expectation before acting and record the diff after acting.
 - Treat positive, negative, and null outcomes as first-class evidence.
 - **Expert dispatch first** (F-EXP7): run `python3 tools/dispatch_optimizer.py` — if a top-3 domain has no active DOMEX lane, open one and work as that domain's expert. Expert mode is the default work mode, not a fallback. Target ≥15% expert utilization.
 - Default to executing active swarm work from `tasks/NEXT.md` and `tasks/SWARM-LANES.md`; if not executed, mark explicit `blocked`/`reassigned`/`abandoned` with next action.
 - Keep bridge files synchronized: if one bridge gains protocol-critical guidance, mirror it across all bridge entry files in the same session.
+- **Meta-swarm reflection** (L-831): mandatory each session — name a specific target file or tool for process improvement; abstract suggestions without concrete targets have ~15% conversion rate (L-635).
+- **Handoff**: run `python3 tools/sync_state.py` and `python3 tools/validate_beliefs.py` before final commit; then `git push`.
 
 ## Multi-tool compatibility (F118)
 Core state (beliefs, lessons, principles, frontiers) is tool-agnostic markdown + git.
