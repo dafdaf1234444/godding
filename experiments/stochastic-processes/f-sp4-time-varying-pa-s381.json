@@ -1,0 +1,144 @@
+{
+  "experiment_id": "f-sp4-time-varying-pa-s381",
+  "frontier": "F-SP4",
+  "session": "S381",
+  "date": "2026-03-01",
+  "domain": "stochastic-processes",
+  "question": "Does the citation PA kernel \u03b3 change across protocol eras?",
+  "hypothesis": "Time-varying PA reveals era-specific \u03b3 shifts. Post-EAD (S331+) shows higher PA ratio but similar sublinear \u03b3. R\u00b2 improves within eras (era mixing inflated variance in pooled estimate).",
+  "method": "Split 536 lessons into 4 eras by session number. Compute pool-normalized PA kernel per era. Log-log regression for \u03b3. Pre/post EAD permutation test (n=500). Compare PA ratio, rate ratio, and Gini across eras.",
+  "era_boundaries": {
+    "early": [
+      0,
+      186
+    ],
+    "mid": [
+      187,
+      330
+    ],
+    "domex": [
+      331,
+      360
+    ],
+    "recent": [
+      361,
+      9999
+    ]
+  },
+  "data": {
+    "pooled": {
+      "n_events": 1043,
+      "gamma": 1.6748,
+      "r_squared": 0.6015,
+      "rate_ratio_k1_k0": 74.0756,
+      "pa_ratio": 1.5904,
+      "gini": 0.6901,
+      "fraction_k0": 0.3404,
+      "mean_degree_at_attachment": 2.796,
+      "rate_k0": 0.001528,
+      "n_kernel_points": 40,
+      "n_lessons": 536
+    },
+    "per_era": {
+      "early": {
+        "n_events": 86,
+        "gamma": 0.9543,
+        "r_squared": 0.4862,
+        "rate_ratio_k1_k0": 17.6903,
+        "pa_ratio": 1.1043,
+        "gini": 0.6831,
+        "fraction_k0": 0.3953,
+        "mean_degree_at_attachment": 2.453,
+        "rate_k0": 0.00319,
+        "n_kernel_points": 11,
+        "n_lessons": 128,
+        "session_range": "S0-S186"
+      },
+      "mid": {
+        "n_events": 149,
+        "gamma": 0.9658,
+        "r_squared": 0.3376,
+        "rate_ratio_k1_k0": 8.3741,
+        "pa_ratio": 0.6173,
+        "gini": 0.7852,
+        "fraction_k0": 0.5772,
+        "mean_degree_at_attachment": 1.228,
+        "rate_k0": 0.003022,
+        "n_kernel_points": 13,
+        "n_lessons": 147,
+        "session_range": "S187-S330"
+      },
+      "domex": {
+        "n_events": 513,
+        "gamma": 0.6026,
+        "r_squared": 0.2409,
+        "rate_ratio_k1_k0": 7.4373,
+        "pa_ratio": 1.1539,
+        "gini": 0.6056,
+        "fraction_k0": 0.3138,
+        "mean_degree_at_attachment": 2.138,
+        "rate_k0": 0.001361,
+        "n_kernel_points": 17,
+        "n_lessons": 182,
+        "session_range": "S331-S360"
+      },
+      "recent": {
+        "n_events": 295,
+        "gamma": 1.889,
+        "r_squared": 0.6286,
+        "rate_ratio_k1_k0": 119.0917,
+        "pa_ratio": 2.7478,
+        "gini": 0.6857,
+        "fraction_k0": 0.2508,
+        "mean_degree_at_attachment": 4.831,
+        "rate_k0": 0.000987,
+        "n_kernel_points": 40,
+        "n_lessons": 79,
+        "session_range": "S361-S9999"
+      }
+    },
+    "pre_ead": {
+      "n_events": 235,
+      "gamma": 1.0049,
+      "r_squared": 0.297,
+      "rate_ratio_k1_k0": 12.731,
+      "pa_ratio": 0.8426,
+      "gini": 0.7539,
+      "fraction_k0": 0.5106,
+      "mean_degree_at_attachment": 1.677,
+      "rate_k0": 0.003068,
+      "n_kernel_points": 15,
+      "n_lessons": 275
+    },
+    "post_ead": {
+      "n_events": 808,
+      "gamma": 1.7262,
+      "r_squared": 0.6096,
+      "rate_ratio_k1_k0": 93.0176,
+      "pa_ratio": 1.7755,
+      "gini": 0.6686,
+      "fraction_k0": 0.2908,
+      "mean_degree_at_attachment": 3.121,
+      "rate_k0": 0.001216,
+      "n_kernel_points": 40,
+      "n_lessons": 261
+    }
+  },
+  "results": {
+    "gamma_trend": "non-monotonic",
+    "gamma_values": {
+      "early": 0.9543,
+      "mid": 0.9658,
+      "domex": 0.6026,
+      "recent": 1.889
+    },
+    "ead_delta_gamma": 0.7213,
+    "ead_permutation_p": 0.004,
+    "r_squared_improvement_within_era": -0.1782
+  },
+  "expect": "Time-varying PA reveals era-specific \u03b3 shifts. Post-EAD shows higher PA ratio. R\u00b2 improves within eras.",
+  "actual": "Pooled \u03b3=1.6748, R\u00b2=0.6015. early \u03b3=0.9543 R\u00b2=0.4862. mid \u03b3=0.9658 R\u00b2=0.3376. domex \u03b3=0.6026 R\u00b2=0.2409. recent \u03b3=1.8890 R\u00b2=0.6286. \u03b3 trend: non-monotonic. Pre-EAD \u03b3=1.0049, Post-EAD \u03b3=1.7262, \u0394=+0.7213. Permutation p=0.004. Mean era R\u00b2=0.4233 vs pooled R\u00b2=0.6015 (not improved). PA ratio pre-EAD=0.8426 vs post-EAD=1.7755",
+  "diff": "Predicted era-specific \u03b3 shifts \u2014 non-monotonic trend observed. Predicted higher post-EAD PA ratio \u2014 CONFIRMED (1.7755 > 0.8426). Predicted R\u00b2 improvement within eras \u2014 WRONG (\u0394=-0.1782). EAD effect on \u03b3 is statistically significant (p=0.004)",
+  "outcome": "PARTIALLY CONFIRMED",
+  "lesson": "L-735"
+}

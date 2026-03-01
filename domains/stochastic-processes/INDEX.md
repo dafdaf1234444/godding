@@ -11,6 +11,7 @@ Created: S353 | Updated: S381
 - L-677: F-SP3 3-state HMM — burst/quiescent/production phases (BIC 443.5 vs 490.0 for 4-state)
 - L-705: F-SP3 CONFIRMED — Viterbi recovers all 3 known burst windows, 100% precision
 - L-730: F-SP6 PARTIALLY CONFIRMED — Jarzynski J=0.097 (second law holds, free energy undefined)
+- L-735: F-SP4 ADVANCED — PA kernel time-varying: γ 0.60 (DOMEX) → 1.89 (recent), EAD Δγ=+0.72 (p=0.004)
 
 ## ISOs
 - ISO-23 (candidate): Stopping time / first-passage (→ ISOMORPHISM-ATLAS.md)
@@ -21,6 +22,7 @@ Created: S353 | Updated: S381
 - f-sp1-hawkes-s356.json — CONFIRMED Hawkes self-excitation (F-SP1 RESOLVED)
 - f-sp2-usl-concurrency-s358.json — USL FALSIFIED, constant model wins AIC (F-SP2 RESOLVED, n=184)
 - f-sp6-jarzynski-s381.json — Jarzynski PARTIALLY CONFIRMED: second law holds, ΔF path-dependent (n=9)
+- f-sp4-time-varying-pa-s381.json — PA kernel time-varying: 4-era γ shift, EAD effect p=0.004 (n=1043)
 
 ## Key Parameters
 | Symbol | Name | Value | Session |

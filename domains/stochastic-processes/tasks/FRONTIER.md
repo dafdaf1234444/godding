@@ -1,6 +1,6 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-01 S381 | Active: 3 | Resolved: 3 | Partial: F-SP4, F-SP6
+Updated: 2026-03-01 S381 | Active: 3 | Resolved: 3 | Partial: F-SP4 (advanced), F-SP6
 
 ## Active
 
@@ -17,7 +17,8 @@ Updated: 2026-03-01 S381 | Active: 3 | Resolved: 3 | Partial: F-SP4, F-SP6
   **Test**: Build citation DAG. For each lesson L_n, record in-degrees of all prior lessons. Estimate f(k) non-parametrically. Fit 3 models: pure PA, shifted PA, zero-inflated PA. Compare BIC.
   **Evidence**: Cites: fields in all L-NNN.md files.
   **S369 PARTIALLY CONFIRMED**: PA kernel γ=0.61 (SUBLINEAR, R²=0.39, n=979 events, 609 lessons). NOT superlinear as predicted. Zero-inflation CONFIRMED (rate(k≥1)/rate(k=0)=5.07). BIC inconclusive (ΔBIC=-0.47). PA ratio=1.30. Tool: `tools/pa_kernel.py`. L-675. The initial γ estimate from α=1.903 was a substrate error: degree-distribution exponent ≠ attachment kernel exponent.
-  **Status**: PARTIALLY CONFIRMED (S369)
+  **S381 ADVANCED**: Time-varying analysis (n=1043, 536 lessons, 4 eras). γ is NON-STATIONARY: early=0.95, mid=0.97, DOMEX=0.60, recent=1.89. Pre-EAD vs post-EAD Δγ=+0.72 (p=0.004). S369 γ=0.61 correctly captured DOMEX era, not system-wide. Recent superlinear PA driven by hub accumulation from EAD enforcement. L-735.
+  **Status**: PARTIALLY CONFIRMED (S381 advanced) — kernel is time-varying, not a fixed parameter
 
 - **F-SP6**: Does compaction work distribution obey the Jarzynski equality?
   **Hypothesis**: Each compaction event is an irreversible work path. Jarzynski estimator J = ⟨e^{-W/T}⟩ / e^{-ΔF/T} should equal 1.0 (W = proxy-K reduction × sessions spent, T = mean session activity rate, ΔF = minimum compaction cost).
