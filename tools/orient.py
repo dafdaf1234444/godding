@@ -1172,6 +1172,32 @@ def main():
     except Exception:
         pass
 
+    # Prescription gap (L-831/L-843: enforcement_router)
+    try:
+        er_path = ROOT / "tools" / "enforcement_router.py"
+        if er_path.exists():
+            import subprocess as _sp
+            er_result = _sp.run(
+                [sys.executable, str(er_path), "--json", "--min-sharpe", "9"],
+                capture_output=True, text=True, timeout=10
+            )
+            if er_result.returncode == 0:
+                import json as _json_er
+                er_data = _json_er.loads(er_result.stdout)
+                gap_rate = er_data.get("prescription_gap_rate", 0)
+                n_asp = er_data.get("all_aspirational_count", 0)
+                hs_asp = er_data.get("high_sharpe_aspirational", [])
+                if gap_rate > 0.5:
+                    print(f"--- Prescription Gap (L-843) ---")
+                    print(f"  ASPIRATIONAL (unimplemented): {gap_rate:.0%} of rule-bearing lessons ({n_asp} total)")
+                    if hs_asp:
+                        top = hs_asp[0]
+                        print(f"  Top gap: {top['lesson']} Sh={top['sharpe']} — {top['rule'][:70]}")
+                    print(f"  Full report: python3 tools/enforcement_router.py")
+                    print()
+    except Exception:
+        pass
+
     # Stale domain experiments (L-246: design debt)
     stale_experiments = check_stale_experiments()
     if stale_experiments:
