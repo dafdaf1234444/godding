@@ -58,6 +58,12 @@ EXPLORATION_COLD_BOOST = 4.0  # extra bonus for dormant domains in exploration m
 COOLDOWN_SESSIONS = 3         # window: domain blocked for 3 sessions after dispatch
 COOLDOWN_MAX_PENALTY = 15.0   # strong enough to drop #1 below #2 (meta gap was ~9.4)
 
+# Campaign wave scoring (F-STR3, L-755): non-monotonic resolution rates.
+# 1-wave=28%, 2-wave=11% (valley of death), 3-wave=31%, 4+-wave=50%.
+# Boost 2-wave domains to escape danger zone; boost 3-wave to close out.
+WAVE_DANGER_BOOST = 1.5     # 2-wave → attract 3rd wave (11% → 31% resolution)
+WAVE_COMMITTED_BOOST = 0.5  # 3-wave → approaching resolution (31% → 50%)
+
 # Outcome feedback (F-EXP10, L-501 P1): reward consistently productive domains.
 # Closes PHIL-2 self-application gap — expert dispatch learns from its own outcomes.
 LANE_ABBREV_TO_DOMAIN = {
@@ -164,6 +170,105 @@ def _get_domain_heat() -> dict[str, int]:
     return heat
 
 
+def _get_campaign_waves() -> dict[str, dict]:
+    """Parse lanes to compute campaign wave state per domain (F-STR3, L-755).
+
+    Groups closed+active lanes by frontier to form campaigns.
+    Returns {domain: {
+        "frontiers": {fid: {"waves": N, "last_mode": str, "last_session": int,
+                            "resolved": bool, "mode_repeat": bool, "all_modes": [str]}},
+        "max_wave": int, "wave_2_stalls": [fid], "mode_repeats": [fid]
+    }}
+    Key evidence: 1-wave 28%, 2-wave 11% (valley of death), 3-wave 31%, 4+-wave 50%.
+    """
+    contents: list[str] = []
+    for f in (LANES_FILE, LANES_ARCHIVE):
+        if f.exists():
+            contents.append(f.read_text())
+    if not contents:
+        return {}
+
+    frontier_lanes: dict[str, list[dict]] = {}
+    for line in "\n".join(contents).splitlines():
+        if not line.startswith("|") or line.startswith("| ---") or line.startswith("| Date"):
+            continue
+        cols = [c.strip() for c in line.split("|")]
+        if len(cols) < 12:
+            continue
+
+        lane_id = cols[2] if len(cols) > 2 else ""
+        etc = cols[10] if len(cols) > 10 else ""
+        status = (cols[11] if len(cols) > 11 else "").upper().strip()
+
+        frontier_m = re.search(r"frontier=(F-[A-Z0-9]+)", etc)
+        if not frontier_m:
+            continue
+        frontier = frontier_m.group(1)
+
+        dom = None
+        m = re.match(r"DOMEX-([A-Z]+)", lane_id)
+        if m:
+            dom = LANE_ABBREV_TO_DOMAIN.get(m.group(1))
+        if not dom:
+            focus_m = re.search(r"focus=(?:domains/)?([a-z0-9-]+)", etc)
+            if focus_m and focus_m.group(1) not in ("global", ""):
+                dom = focus_m.group(1)
+        if not dom:
+            continue
+
+        sess_str = cols[3] if len(cols) > 3 else ""
+        sess_m = re.search(r"S?(\d+)", sess_str)
+        sess = int(sess_m.group(1)) if sess_m else 0
+
+        intent = ""
+        intent_m = re.search(r"intent=([^;]+)", etc)
+        if intent_m:
+            intent = intent_m.group(1).lower()
+
+        mode = "exploration"
+        if any(kw in intent for kw in ("harden", "validat", "retest", "prospective",
+                                        "verify", "audit", "replicat", "correct")):
+            mode = "hardening"
+        elif any(kw in intent for kw in ("resolve", "close", "final", "build",
+                                          "implement", "integrat", "wire")):
+            mode = "resolution"
+
+        frontier_lanes.setdefault(frontier, []).append({
+            "domain": dom, "session": sess, "status": status,
+            "mode": mode, "lane_id": lane_id,
+        })
+
+    domain_campaigns: dict[str, dict] = {}
+    for frontier, lanes in frontier_lanes.items():
+        lanes.sort(key=lambda x: x["session"])
+        dom = lanes[0]["domain"]
+        wave_count = len(lanes)
+        last_mode = lanes[-1]["mode"]
+        last_session = lanes[-1]["session"]
+        resolved = any(l["status"] == "MERGED" for l in lanes)
+        modes = [l["mode"] for l in lanes]
+        mode_repeat = len(modes) >= 2 and modes[-1] == modes[-2]
+
+        if dom not in domain_campaigns:
+            domain_campaigns[dom] = {
+                "frontiers": {}, "max_wave": 0,
+                "wave_2_stalls": [], "mode_repeats": [],
+            }
+        domain_campaigns[dom]["frontiers"][frontier] = {
+            "waves": wave_count, "last_mode": last_mode,
+            "last_session": last_session, "resolved": resolved,
+            "mode_repeat": mode_repeat, "all_modes": modes,
+        }
+        domain_campaigns[dom]["max_wave"] = max(
+            domain_campaigns[dom]["max_wave"], wave_count
+        )
+        if wave_count == 2 and not resolved:
+            domain_campaigns[dom]["wave_2_stalls"].append(frontier)
+        if mode_repeat and not resolved:
+            domain_campaigns[dom]["mode_repeats"].append(frontier)
+
+    return domain_campaigns
+
 
 def _get_active_lane_domains() -> dict[str, list[str]]:
     """Find domains with currently ACTIVE/CLAIMED/READY lanes in SWARM-LANES.md.
@@ -203,6 +308,24 @@ def _get_active_lane_domains() -> dict[str, list[str]]:
         if dom:
             active.setdefault(dom, []).append(lane_id)
     return active
+
+
+def _campaign_phase(waves: int) -> tuple[str, str]:
+    """Classify campaign phase and prescription based on wave count (F-STR3, L-755).
+
+    Resolution rates are non-monotonic: 1w=28%, 2w=11% (danger), 3w=31%, 4w+=50%.
+    Wave count = completed DOMEX lanes for a domain (merged + abandoned).
+    """
+    if waves == 0:
+        return "new", ""
+    elif waves == 1:
+        return "single", "if revisiting, commit to 3+ waves (avoid 2-wave trap)"
+    elif waves == 2:
+        return "danger", "COMMIT 3rd wave or CLOSE (11% resolution at 2 waves)"
+    elif waves == 3:
+        return "committed", "continue — approaching resolution (31%)"
+    else:
+        return "veteran", f"sustained ({waves} waves, ~50% resolution)"
 
 
 def _get_claimed_domains() -> set[str]:
@@ -382,6 +505,7 @@ def score_domain(domain: str) -> dict | None:
 
 def _ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
                 current_session: int, claimed: set[str],
+                campaign_waves: dict[str, dict] | None = None,
                 c: float = 1.414, cold_floor_pct: float = 0.20) -> list[dict]:
     """Score domains using UCB1 multi-armed bandit formula (F-ECO5, L-697).
 
@@ -487,6 +611,30 @@ def _ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["saturation_penalty"] = 0.0
         r["exploration_boost"] = 0.0
 
+        # Campaign wave scoring (F-STR3, L-755)
+        # Use frontier-accurate wave count if available, fallback to domain n
+        cw = (campaign_waves or {}).get(dom, {})
+        max_unresolved_wave = 0
+        wave_2_stalls = cw.get("wave_2_stalls", [])
+        mode_repeats = cw.get("mode_repeats", [])
+        for _fid, fdata in cw.get("frontiers", {}).items():
+            if not fdata["resolved"]:
+                max_unresolved_wave = max(max_unresolved_wave, fdata["waves"])
+        wave_input = max_unresolved_wave if cw else n
+        phase, rx = _campaign_phase(wave_input)
+        r["campaign_phase"] = phase
+        r["campaign_rx"] = rx
+        r["wave_2_stalls"] = wave_2_stalls
+        r["mode_repeats"] = mode_repeats
+        if phase == "danger":
+            r["score"] += WAVE_DANGER_BOOST
+            r["campaign_boost"] = WAVE_DANGER_BOOST
+        elif phase == "committed":
+            r["score"] += WAVE_COMMITTED_BOOST
+            r["campaign_boost"] = WAVE_COMMITTED_BOOST
+        else:
+            r["campaign_boost"] = 0.0
+
     # 20% exploration floor (DARPA model, L-697): ensure underexplored domains
     # appear in recommendations regardless of UCB1 score. Domains with <3 visits
     # are floor-eligible; at least cold_floor_pct of results get floor protection.
@@ -521,6 +669,7 @@ def run(args: argparse.Namespace) -> None:
     claimed = _get_claimed_domains()
     outcome_map = _get_domain_outcomes()
     active_lanes = _get_active_lane_domains()
+    campaign_waves = _get_campaign_waves()
 
     mode = getattr(args, 'mode', 'heuristic')
     compare = getattr(args, 'compare', False)
@@ -528,7 +677,8 @@ def run(args: argparse.Namespace) -> None:
     if mode == "ucb1" or compare:
         import copy
         ucb1_results = copy.deepcopy(results) if compare else results
-        _ucb1_score(ucb1_results, outcome_map, heat_map, current_session, claimed)
+        _ucb1_score(ucb1_results, outcome_map, heat_map, current_session, claimed,
+                    campaign_waves=campaign_waves)
         ucb1_results.sort(key=lambda x: x["score"], reverse=True)
 
         if compare:
@@ -582,6 +732,53 @@ def run(args: argparse.Namespace) -> None:
             print(f"  Floor (20%): {floor_count} domains protected ({', '.join(floor_doms[:5])})")
             print(f"  Formula: avg_yield + {1.414:.3f} * sqrt(log(total_dispatches) / domain_dispatches)")
             print(f"  Unvisited domains ranked first (UCB1 = ∞), then by structural tiebreaker")
+
+            # Campaign advisory (F-STR3, L-755) — frontier-accurate wave data
+            danger_doms = [r for r in results if r.get("campaign_phase") == "danger"]
+            committed_doms = [r for r in results if r.get("campaign_phase") == "committed"]
+            veteran_doms = [r for r in results if r.get("campaign_phase") == "veteran"]
+            # Collect mode-stall frontiers across all domains
+            mode_stall_items = []
+            for r in results:
+                for fid in r.get("mode_repeats", []):
+                    cw = campaign_waves.get(r["domain"], {})
+                    fdata = cw.get("frontiers", {}).get(fid, {})
+                    modes = fdata.get("all_modes", [])
+                    mode_stall_items.append((r["domain"], fid, modes))
+
+            if danger_doms or committed_doms or veteran_doms or mode_stall_items:
+                print(f"\n--- Campaign Advisory (F-STR3, L-755) ---")
+                print(f"  Resolution: 1w=28%, 2w=11% (valley), 3w=31%, 4w+=50%")
+                if danger_doms:
+                    print(f"  Valley of death (2 waves — 11% resolution):")
+                    for r in danger_doms:
+                        stalls = r.get("wave_2_stalls", [])
+                        if stalls:
+                            for fid in stalls:
+                                cw = campaign_waves.get(r["domain"], {})
+                                fdata = cw.get("frontiers", {}).get(fid, {})
+                                last_mode = fdata.get("last_mode", "?")
+                                next_mode = "hardening" if last_mode == "exploration" else "resolution"
+                                print(f"    ⚠ {r['domain']}: {fid} ({' -> '.join(fdata.get('all_modes', []))}) -> recommend {next_mode}")
+                        else:
+                            print(f"    ⚠ {r['domain']} — {r['campaign_rx']}")
+                if committed_doms:
+                    print(f"  Approaching resolution (3 waves — 31%):")
+                    for r in committed_doms:
+                        print(f"    -> {r['domain']} — {r['campaign_rx']}")
+                if veteran_doms:
+                    print(f"  Veteran campaigns (4+ waves — ~50%):")
+                    for r in veteran_doms[:5]:
+                        cw = campaign_waves.get(r["domain"], {})
+                        fids = [f for f, d in cw.get("frontiers", {}).items() if not d["resolved"]]
+                        fid_str = f" ({', '.join(fids[:2])})" if fids else ""
+                        print(f"    + {r['domain']}{fid_str}")
+                if mode_stall_items:
+                    print(f"  Mode stalls (same mode >=2 consecutive waves):")
+                    for dom, fid, modes in mode_stall_items[:5]:
+                        mode_str = " -> ".join(modes)
+                        next_mode = "hardening" if modes[-1] == "exploration" else "resolution"
+                        print(f"    ! {dom}: {fid} ({mode_str}) -> MODE SHIFT to {next_mode}")
             return
 
     # Heuristic mode (default) — apply domain heat
