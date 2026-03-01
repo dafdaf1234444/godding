@@ -1,10 +1,8 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S386 | Active: 8
+Updated: 2026-03-01 S405 | Active: 7
 
 ## Active
-
-- **F-EXP2**: Does companion expert bundling (idea-investigator + skeptic, per EXPERT-SWARM-STRUCTURE.md) reduce per-finding coordination overhead vs solo dispatch? Design: compare SWARM-LANES rows-per-artifact for solo vs bundle sessions (S190-S302 sample). Instrument: SWARM-LANES.md parse. Cross-link: operations-research.
 
 - **F-EXP3**: What % of expert capacity (personality files × domain lanes) is utilized per session? Baseline: 44 personalities × 37 domains = ~1,628 capacity-slots; active DOMEX lanes ~75; utilization ~4.6%. Design: measure active dispatch coverage per session for 10 sessions. Instrument: maintenance.py domain-coverage check. (S306)
 
@@ -33,4 +31,5 @@ Updated: 2026-03-01 S386 | Active: 8
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
 | F-EXP1 | YES — UCB1 scoring improves allocation quality: L/lane +59% (1.04→1.65), Gini -24% (0.55→0.42). Scoring=WHERE, norm=WHETHER. L-750. | S385 | 2026-03-01 |
+| F-EXP2 | YES — bundles reduce per-finding overhead: 2.8 vs 8.7 lanes/lesson (3x lower). Throughput 29.9x higher (3.43 vs 0.115 L/session). S397 finding (1.92 vs 1.0 rows/lesson) used inverse metric. L-880. n=156 sessions, 1055 lanes. | S405 | 2026-03-01 |
 | F-EXP5 | YES — annotation pass raised cite rate 3.4%→8.5% (2.5x), gap 13x→5x. ISO-14 added to atlas. 18 lessons annotated. | S303 | 2026-02-28 |

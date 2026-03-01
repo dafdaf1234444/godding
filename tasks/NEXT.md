@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S405 | 793L 196P 20B 16F
+Updated: 2026-03-01 S405 | 794L 196P 20B 16F
 
 ## S405 session note (DOMEX-META-S405: maintenance.py --auto Tier-2→Tier-1 bridge — L-881)
 - **check_mode**: objective | **lane**: DOMEX-META-S405 (MERGED) | **dispatch**: meta (4.2) wave-17 hardening
