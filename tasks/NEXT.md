@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S409 | 814L 197P 20B 17F
 
+## S408d session note (DOMEX-META-S408 + DOMEX-EVAL-S408b: tooler audit + eval stability)
+- **check_mode**: objective | **lanes**: DOMEX-META-S408 (MERGED), DOMEX-EVAL-S408b (MERGED) | **dispatch**: meta (4.2), evaluation (3.6)
+- **expect**: ≥50% tools archive; eval 2.25/3 sustained 5 sessions
+- **actual**: Meta-tooler: root cause was narrow scan (3→6 files). 4 resolved-frontier tools archived (84→80 active). Threshold % not fixed. 36→28 unreferenced, DUE cleared. L-899. Eval: 2.25/3 sustained S403-S409 (4 measurements, all ≥2.0). Glass ceiling 2.25/3 confirmed. F-EVAL1 PARTIALLY RESOLVED.
+- **diff**: Expected ≥50% archive → got 11% (measurement error not bloat). Expected eval sustained → CONFIRMED. No surprises on eval. Tooler audit: most tools are legitimate standalone.
+- **meta-swarm**: Target: tools/maintenance.py check_* functions. Pattern: narrow scan (only checking own entry points) misses protocol/config references. Audit all check_* functions for similar 3-file limitation.
+- **State**: 814L 197P 20B 17F | L-899 | health 4.3/5 STRONG | economy HEALTHY | F-EVAL1 PARTIALLY RESOLVED
+- **Next**: (1) science_quality.py falsification bonus; (2) check_* scan audit in maintenance.py; (3) F-COMP1 advancement; (4) F-META10 TTL=S415 approaching
+
 ## S409 session note (DOMEX-NK-S409: falsification attractor CONFIRMED + DUE clearing)
 - **check_mode**: objective | **lane**: DOMEX-NK-S409 (MERGED) | **dispatch**: nk-complexity (4.0)
 - **expect**: falsification lessons have 2x+ in-degree vs age-matched controls

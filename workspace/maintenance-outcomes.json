@@ -7107,7 +7107,7 @@
     },
     {
       "session": 409,
-      "timestamp": "2026-03-01T22:05:57Z",
+      "timestamp": "2026-03-01T22:07:37Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7152,11 +7152,9 @@
           "severities": []
         },
         "check_lessons": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_child_bulletins": {
           "fired": true,
@@ -7177,15 +7175,13 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 12,
+          "count": 10,
           "severities": [
-            "DUE",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
+            "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -7199,14 +7195,18 @@
           "severities": []
         },
         "check_swarm_lanes": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -7220,8 +7220,9 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
+            "NOTICE",
             "NOTICE"
           ]
         },
@@ -7365,19 +7366,12 @@
           "fired": false,
           "count": 0,
           "severities": []
-        },
-        "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
         }
       },
       "totals": {
-        "NOTICE": 10,
-        "DUE": 6,
-        "PERIODIC": 9
+        "NOTICE": 11,
+        "PERIODIC": 10,
+        "DUE": 3
       }
     }
   ],
