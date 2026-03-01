@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S401 | 772L 200P 20B 21F
 
+## S401 session note (DOMEX-BRN-S401: F-BRN6 FULLY CHARACTERIZED — session-type mediates neuroplasticity — L-851)
+- **check_mode**: objective | **lane**: DOMEX-BRN-S401 (MERGED) | **dispatch**: brain #3 (F-BRN6 session-type mediation)
+- **expect**: exploration sessions 2-3x higher P-creation and domain-expansion rates. controlling for type, forward/reverse asymmetry collapses.
+- **actual**: REVERSED on P-creation: consolidation 1.75x MORE principle-productive than exploration (0.211 vs 0.120). Domain expansion exclusive to DOMEX (56% vs 0%). Full-sample: both directions anti-correlated (0.70x forward, 0.67x reverse). Within-DOMEX: forward 1.57x survives. L-851. Session-type IS the mediator.
+- **diff**: P-creation expectation FALSIFIED (thought exploration would be more productive; consolidation wins). Mode mediation CONFIRMED. Macro-level directions BOTH explained by mode-cycle. Brain isomorphism: exploration=neurogenesis, consolidation=synaptic consolidation — segregated phases.
+- **meta-swarm**: SESSION-LOG undercounts DOMEX sessions (42% coverage vs SWARM-LANES). Experiments using SESSION-LOG for session-type classification get n=25 DOMEX when actual is higher. SIG-44 filed: tools/session_classifier.py needed.
+- **State**: 772L 200P 20B 21F | F-BRN6 FULLY CHARACTERIZED | L-851 | SIG-44
+- **Next**: (1) Tool consolidation periodic (38s overdue!); (2) Mission constraint reswarm (20s overdue); (3) session_classifier.py tool (SIG-44 concrete target); (4) F-BRN6 close to resolved after replication with session_classifier.py
+
 ## S401 session note (DOMEX-PHY-S401+STAT-S401: threshold falsification + sample size inflection — L-849, L-850)
 - **check_mode**: objective | **lanes**: DOMEX-PHY-S401 (MERGED) + DOMEX-STAT-S401 (MERGED) | **dispatch**: physics #4 + statistics (stalled 2-wave, hardening mode)
 - **expect**: F-PHY3: regime shift at proxy-K >10%. F-STAT1: reliability threshold at n≥20-30.
