@@ -228,6 +228,33 @@ def _get_domain_heat() -> dict[str, int]:
     return heat
 
 
+def _get_domain_resolved_frontier_ids() -> set[str]:
+    """Collect resolved frontier IDs from all domain FRONTIER.md files.
+
+    Handles renames like 'F-CRYPTO2 (was F-CC2)' by extracting both IDs.
+    Used to cross-check wave_2_stalls — prevents false positives when frontiers
+    are resolved via rename/alias without a MERGED SWARM-LANES.md entry.
+    """
+    resolved: set[str] = set()
+    if not DOMAINS_DIR.exists():
+        return resolved
+    for domain_dir in DOMAINS_DIR.iterdir():
+        frontier_path = domain_dir / "tasks" / "FRONTIER.md"
+        if not frontier_path.exists():
+            continue
+        try:
+            content = frontier_path.read_text()
+        except OSError:
+            continue
+        resolved_match = re.search(r"## Resolved(.*)", content, re.DOTALL)
+        if not resolved_match:
+            continue
+        # Extract all F-XX frontier IDs from the resolved section (handles aliases)
+        for fid in re.findall(r"\bF-[A-Z][A-Z0-9]+\b", resolved_match.group()):
+            resolved.add(fid)
+    return resolved
+
+
 def _get_campaign_waves() -> dict[str, dict]:
     """Parse lanes to compute campaign wave state per domain (F-STR3, L-755).
 
@@ -260,7 +287,8 @@ def _get_campaign_waves() -> dict[str, dict]:
 
         # Extract all frontier IDs — handles comma/slash-separated multi-frontier lanes
         # e.g. frontier=F-SOC1,F-SOC4  or  frontier=F-SOC1/F-SOC2/F-SOC3/F-SOC4
-        frontier_str_m = re.search(r"frontier=(F-[A-Z0-9,/\s-]+?)(?:[,;]|$)", etc)
+        # Stop at ; (field separator) but NOT , (value separator within field)
+        frontier_str_m = re.search(r"frontier=(F-[A-Z0-9,/\s-]+?)(?:;|$)", etc)
         if not frontier_str_m:
             continue
         frontiers = re.findall(r"F-[A-Z0-9]+", frontier_str_m.group(1))
@@ -306,6 +334,10 @@ def _get_campaign_waves() -> dict[str, dict]:
                 "mode": mode, "lane_id": lane_id,
             })
 
+    # Cross-check domain FRONTIER.md resolved sections — catches renames/aliases
+    # (e.g. F-CC2 renamed F-CRYPTO2 and resolved, leaving only ABANDONED SWARM-LANES entries)
+    domain_resolved_ids = _get_domain_resolved_frontier_ids()
+
     domain_campaigns: dict[str, dict] = {}
     for frontier, lanes in frontier_lanes.items():
         lanes.sort(key=lambda x: x["session"])
@@ -313,7 +345,10 @@ def _get_campaign_waves() -> dict[str, dict]:
         wave_count = len(lanes)
         last_mode = lanes[-1]["mode"]
         last_session = lanes[-1]["session"]
-        resolved = any(l["status"] == "MERGED" for l in lanes)
+        resolved = (
+            any(l["status"] == "MERGED" for l in lanes)
+            or frontier in domain_resolved_ids
+        )
         modes = [l["mode"] for l in lanes]
         mode_repeat = len(modes) >= 2 and modes[-1] == modes[-2]
 
@@ -684,6 +719,11 @@ def score_domain(domain: str) -> dict | None:
     if match:
         first_frontier = match.group(1).strip()[:120].replace("\n", " ")
 
+    # Execution-blocked detection (L-862): if all active frontiers are HARDENED,
+    # further hardening is waste. Flag so COMMIT reservation can escalate dependency.
+    hardened_count = len(re.findall(r"HARDENED", active_section))
+    execution_blocked = hardened_count >= active_count and active_count >= 2
+
     return {
         "domain": domain,
         "score": round(score, 1),
@@ -698,6 +738,8 @@ def score_domain(domain: str) -> dict | None:
         "has_index": has_index,
         "novelty_bonus": novelty_bonus > 0,
         "top_frontier": first_frontier,
+        "execution_blocked": execution_blocked,
+        "hardened_count": hardened_count,
     }
 
 
@@ -958,6 +1000,10 @@ def run(args: argparse.Namespace) -> None:
                             if not d["resolved"] and d["waves"] == 2]
                     fid_str = ", ".join(fids[:3]) if fids else "danger-zone frontiers"
                     print(f"  -> {cr['domain']} — {fid_str}")
+                    # Execution-blocked warning (L-862): prevent infinite-hardening loops
+                    if cr.get("execution_blocked"):
+                        print(f"  ⚠ EXECUTION BLOCKED: {cr['domain']} has {cr.get('hardened_count', 0)}/{cr['active']} frontiers HARDENED but none executable.")
+                        print(f"    Escalate root dependency instead of adding more hardening.")
             # COMMIT dispatch header (F-STR3): show promoted domains before rankings
             commit_promoted = [r for r in results if r.get("commit_guarantee_boost", 0) > 0]
             if commit_promoted:
