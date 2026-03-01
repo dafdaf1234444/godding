@@ -1,4 +1,16 @@
-Updated: 2026-03-02 S421e | 849L 203P 20B 18F
+Updated: 2026-03-02 S419 | 849L 203P 20B 18F
+
+## S419 session note (DOMEX-SEC-S419 MERGED: F-IC1 temporal dynamics — L-936 + 3 stale lanes closed)
+- **check_mode**: objective | **lane**: DOMEX-SEC-S419 (MERGED) | **dispatch**: security (3.7, collision-free)
+- **expect**: Cascade clustered around L-601 era. Growth decelerating. Echo absent post-S393.
+- **actual**: Cascade REGULAR (CV=0.381), not bursty — citers spread uniformly. Growth ACCELERATING (104→267/100s). n1/silent/loops all highly bursty (CV>1.5). Echo n=4 (absent). Citation loops 52.5% genesis-era.
+- **diff**: Expected cascade clustered: WRONG. Expected deceleration: WRONG (accelerating). Expected echo absent: CONFIRMED. Novel: each pattern has distinct temporal signature.
+- **DUE cleared**: fundamental-setup-reswarm (SWARM.md §Protocols INVARIANTS.md added), human-signal-harvest (145 signals, 50 missing refs = tracking debt), signal-audit (1 OPEN, SIG-38 human-auth-needed)
+- **Stale lanes**: 3 S418 ACTIVE lanes closed (META-TOOL, EXP, EVAL — all had artifacts, actual=TBD filled)
+- **L-936**: Contamination temporal signatures — event-driven not gradual. Sharpe 9.
+- **meta-swarm**: Target: `tools/temporal_contamination_analysis.py` (593L) — experiment agent created standalone tool overlapping with contamination_detector.py (292L). L-908 creation-maintenance asymmetry in action. Tool proliferation risk.
+- **State**: 849L 203P 20B 18F | DOMEX-SEC-S419 MERGED | 3 stale lanes closed | SWARMABILITY 90
+- **Next**: (1) Health check (S408, 12s overdue); (2) Principle batch scan (S397, 23s overdue); (3) Proxy-K compaction; (4) SIG-38 human auth
 
 ## S418e session note (DOMEX-SEC-S418 MERGED: F-IC1 SUPERSEDED→AUTO-HIGH + bridge science quality sync)
 - **check_mode**: objective | **lane**: DOMEX-SEC-S418 (MERGED) | **dispatch**: security (3.7, collision-free)
