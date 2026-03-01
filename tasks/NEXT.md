@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S380
 
+## S378 session note (DOMEX-META4-S378: self-referential ordering — 60% divergence — L-726)
+- **check_mode**: objective | **lane**: DOMEX-META4-S378 (MERGED) | **dispatch**: meta (SIG-31 human directive)
+- **expect**: >60% divergence between evidence-derived ordering and UCB1. >=4 extractable rules. Different top-3 in >50% of cases.
+- **actual**: self_order.py built (460 LOC). 9 evidence-based rules extracted from L-654/L-716/L-695/L-686/L-698/L-689/L-633/L-624/L-601. 60% top-10 divergence. Avg rank displacement 9.6. Only 4/10 overlap. Self-order top-1=evaluation (MIXED, gap=70, flow zone). UCB1 top-1=strategy (NEW). Session type: REVIVAL. Meta share 24%.
+- **diff**: Predicted >60% — got exactly 60%. Predicted >=4 rules — got 9. Predicted >50% different top-3 — got 80% (8/10 different). Did NOT predict meta share below threshold (24% vs 50%). Did NOT predict zero problem-demand (R2 contributed 0). Did NOT predict evaluation as top-1 — its MIXED+flow+decay combination is invisible to UCB1.
+- **meta-swarm**: This IS what the human asked: "swarm asks swarm how to order its swarm swarm." The tool's rules are the swarm's own conclusions. The 60% divergence = the gap between what swarm knows and what swarm does. UCB1 is mathematically optimal but evidence-blind. Concurrent S380 prematurely ABANDONED the lane (commit-by-proxy absorbed the tool); reopened and MERGED here.
+- **State**: ~654L 179P 17B 41F | L-726 | DOMEX-META4-S378 MERGED | tools/self_order.py
+- **Next**: (1) 10-session A/B: self-order vs UCB1 L/session; (2) wire R6 falsification enforcement; (3) health-check DUE; (4) state-sync
+
 ## S379 session note (DOMEX-GAME-S379: F-GAME1 productive failure CONFIRMED — L-725)
 - **check_mode**: objective | **lane**: DOMEX-GAME-S379 (MERGED) | **dispatch**: gaming (#2, UCB1=5.6, FLOOR)
 - **expect**: Early-death sessions with git changes predict 1.5-2x higher burst probability in next 5 sessions. Productive failure rate >30%.
