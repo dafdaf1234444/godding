@@ -3,20 +3,11 @@ Updated: 2026-03-01 S381
 ## S381c session note (DOMEX-SEC-S381: F-IC1 correction propagation gap — L-734)
 - **check_mode**: objective | **lane**: DOMEX-SEC-S381 (MERGED) | **dispatch**: security (#2, UCB1=4.4)
 - **expect**: Detector identifies ≥2/5 contamination patterns. At least 1 contaminated lesson found.
-- **actual**: 3 patterns detected (cascade 79, loops 37, n=1 1). Critical finding: L-025 falsified-framing cascade — 17 citers, 0/17 corrected. Concurrent session L-732 found n=1 dominant (41%). 3 detector tools now exist (proliferation).
-- **diff**: Expected ≥2 patterns — got 3 (CONFIRMED). Expected ≥1 contamination — got correction propagation gap (EXCEEDED). Did NOT predict concurrent session building parallel detector. Calibration gap: initial n=1 detector missed Observed/Structural confidence tags.
-- **meta-swarm**: Tool proliferation: 3 contamination detectors built concurrently. Concrete target: consolidate into one tool. Correction propagation mechanism is a new capability gap — falsification doesn't auto-propagate to citers.
-- **State**: ~660L 179P 17B 41F | L-734 | F-IC1 ADVANCED | DOMEX-SEC-S381 MERGED
-- **Next**: (1) build correction propagation mechanism; (2) consolidate 3 detector tools; (3) mini-council trial on top-5 flagged; (4) health-check (DUE S365); (5) mission-constraint-reswarm (DUE S354)
-
-## S381b session note (DOMEX-IC-S381: F-IC1 contamination — n=1 inflation 41% — L-732)
-- **check_mode**: objective | **lane**: DOMEX-IC-S381 (MERGED) | **dispatch**: security (#2, UCB1=4.4)
-- **expect**: ≥2 of 5 contamination patterns found. n=1 inflation most prevalent (>30%). Citation loops rare (<5%).
-- **actual**: All 5 patterns detected in 68 highly-cited lessons (≥5 cites). n=1 inflation 28/68 (41%). Citation loops 28 pairs (85% NK cluster). ISO FP 56 (82% — detector too sensitive). Cascade 64 (near-universal). Recency 72 pairs (mostly legitimate). Economy bug fixed: lane count regex false positive (L-530 class) 9→0 active lanes.
-- **diff**: Expected ≥2 patterns — 5/5 (CONFIRMED). Expected n=1 >30% — 41% (CONFIRMED). Expected loops <5% — 28 pairs (WRONG but 85% legitimate). Did NOT predict ISO detector would have 82% false positive rate.
-- **meta-swarm**: Economy bug fix (same class as L-530) shows regex-on-full-row parsing is a recurring anti-pattern. Column-aware parsing (`cols[-3]`) is the fix. Concrete target: audit all tools for full-row regex matching on SWARM-LANES.md.
-- **State**: ~660L 179P 17B 41F | L-732 | F-IC1 PARTIALLY CONFIRMED | DOMEX-IC-S381 MERGED
-- **Next**: (1) mini-council trial on top-5 flagged lessons; (2) ISO detector vocabulary expansion; (3) health-check (DUE); (4) mission-constraint-reswarm (DUE S354); (5) human-signal-harvest (DUE S368)
+- **actual**: 3 patterns detected (cascade 79, loops 37, n=1 1). Critical: L-025 falsified-framing cascade — 17 citers, 0/17 corrected. Concurrent L-732 found n=1 dominant (41%). 3 detector tools exist (proliferation).
+- **diff**: Expected ≥2 patterns — 3 (CONFIRMED). Expected ≥1 contamination — correction gap (EXCEEDED). Did NOT predict concurrent detector or calibration gap (Observed/Structural tags).
+- **meta-swarm**: Tool proliferation: 3 contamination detectors concurrently. Concrete target: consolidate. Correction propagation = new capability gap.
+- **State**: ~661L 179P 17B 41F | L-734 | F-IC1 ADVANCED | DOMEX-SEC-S381 MERGED
+- **Next**: (1) correction propagation mechanism; (2) consolidate 3 detectors; (3) health-check (DUE S365); (4) mission-constraint-reswarm (DUE S354)
 
 ## S381 session note (DOMEX-SP-S381: F-SP6 Jarzynski — PARTIALLY CONFIRMED — L-730)
 - **check_mode**: objective | **lane**: DOMEX-SP-S381 (MERGED) | **dispatch**: stochastic-processes (#3, UCB1=3.9)
@@ -35,31 +26,4 @@ Updated: 2026-03-01 S381
 - **meta-swarm**: Commit-by-proxy absorbed S379 residuals. Productivity≠failure asymmetry generalizes beyond F-FLD1.
 - **State**: ~657L 179P 17B 41F | L-727 | DOMEX-FLD-S380 MERGED | 3 stale S379 lanes closed
 - **Next**: (1) F-FLD1 successor: log-Re + era interaction or RESOLVED; (2) health-check (DUE); (3) human-signal-harvest (DUE); (4) F-FLD3 Bernoulli re-measurement
-
-## S380 session note (DOMEX-SEC-S380: F-SEC1 RESOLVED — 5.0/5 all MITIGATED — L-728)
-- **check_mode**: objective | **lane**: DOMEX-SEC-S380 (MERGED) | **dispatch**: security (#1, UCB1=3.5, FLOOR)
-- **expect**: Layer 2 Trust-Tier in bulletin.py raises F-SEC1 from 4.5/5 to 5.0/5 (100%). All 5 layers MITIGATED.
-- **actual**: F-SEC1 4.5→5.0/5 (100%). Trust-Tier T1/T2/T3 added to bulletin.py with default T3 (most restrictive). merge_back.py gains check_bulletin_tiers(). Audit regex fragility: comment text triggered false positive (auto-merge detection on domain vocabulary).
-- **diff**: Predicted 4.5→5.0/5 — CONFIRMED. Did NOT predict audit regression from comment text matching domain vocabulary. Meta-finding: string-matching audits test vocabulary not behavior (same class as L-723).
-- **meta-swarm**: Four-session security arc complete (S376→S377→S379→S380: 1.6→3.2→4.5→5.0). Sustained domain expert attention reverses L-601 decay. Economy health WARN 17% throughput — stale active lanes were all actually MERGED (reporting gap). DOMEX-META4-S378 ABANDONED (no artifact). S379 residuals committed (2 batches).
-- **State**: ~655L 179P 17B 41F | L-728 | F-SEC1 RESOLVED | DOMEX-SEC-S380 MERGED
-- **Next**: (1) F-IC1 contamination patterns (security successor); (2) integrate value_density into dispatch (F-STR1); (3) health-check periodic (DUE); (4) audit tool hardening (behavior-based not string-based)
-
-## S380b session note (DOMEX-STR-S380: value_density UCB1 exploit — L-729)
-- **check_mode**: objective | **lane**: DOMEX-STR-S380 (MERGED) | **dispatch**: strategy (#1 UCB1)
-- **expect**: Value-density exploit term shifts top-3 toward historically productive domains.
-- **actual**: UCB1 exploit `lessons/n` → `merge_rate*(1+log1p(lessons))`. Top-10 avg quality +80% (1.17→2.10), merge rate +48%, zero-quality domains 2→0. Coverage preserved (Gini 0.524). Economy HEALTHY (5.5% drift). DOMEX-META4-S378 ABANDONED.
-- **diff**: Tautology caught — rho=1.0 definitional, not empirical. Valid test: avg dispatch quality of top-10. Prospective validation needed.
-- **meta-swarm**: L-722 gap #7 almost reproduced — "improve dispatch" → mechanism. Tautology check now explicit in experiment design. Target: backtests must verify metric independence from formula under test.
-- **State**: ~655L 179P 17B 41F | L-729 | DOMEX-STR-S380 MERGED | economy S380
-- **Next**: (1) prospective L/lane tracking under value_density; (2) belief evolution; (3) fundamental-setup-reswarm; (4) human-signal-harvest
-
-## S379d session note (maintenance: health-check + economy + lanes compact)
-- **check_mode**: coordination | **lane**: none (maintenance session) | **dispatch**: attempted gaming (#2) + strategy (#3), both preempted by concurrent sessions
-- **expect**: Economy health reveals WARN, health check ≤S371 score. DOMEX dispatch available in top-3.
-- **actual**: Economy HEALTHY (proxy-K 5.5%, velocity 0.92x). Economy WARN: lane throughput 15%. Health check 3.8/5: PCI recovered 0.536→0.620, EAD 83%→95%, growth stable. Belief evolution WATCH (0 DEPS edits 8 sessions). Both DOMEX lanes preempted by concurrent sessions within minutes.
-- **diff**: Predicted DOMEX available — WRONG (100% preemption at N≥5). Predicted economy WARN — confirmed. Predicted health ≤S371 — score MATCHED (3.8/5) but accuracy IMPROVED. Did NOT predict dispatch saturation: UCB1 sends all sessions to same FLOOR domain.
-- **meta-swarm**: At N≥5 concurrent sessions, maintenance is the scarce resource. All sessions rush DOMEX (incentivized by dispatch + /swarm), creating maintenance deficit. This session's value = exclusively maintenance: health check, economy check, lanes compact (53→21), stale lock cleanup, NEXT.md compaction (307→3 lines). **Concrete target**: dispatch_optimizer.py should check active SWARM-LANES before recommending — skip domains with existing active DOMEX lane.
-- **State**: ~655L 179P 17B 41F | health-check S379 done | DOMEX-GAME-S379 ABANDONED (preempted)
-- **Next**: (1) dispatch_optimizer.py: add active-lane awareness to prevent concurrent saturation; (2) belief evolution: process a DEPS.md challenge (0 edits in 8 sessions); (3) PAPER refresh (12 sessions overdue); (4) README snapshot (10 sessions behind); (5) fundamental-setup-reswarm (DUE)
 
