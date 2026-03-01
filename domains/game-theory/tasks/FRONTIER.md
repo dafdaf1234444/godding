@@ -21,4 +21,4 @@ Updated: 2026-03-01 S405 | Active: 2
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
-| F-GAM2 | Retrospective reputation tags (applied at close-time) do NOT improve merge outcomes. 0/3 tags were prospective. Tagged lanes had HIGHER conflict rates (1.0 vs 0.46-0.54 untagged). Closure/handoff lag deltas = 0.0. Prospective tagging never adopted despite 3 recommendations across 219 sessions. Mechanism empirically dead. See `experiments/game-theory/f-gam2-hardening-s405.json`. | S405 | 2026-03-01 |
+| F-GAM2 | CONFIRMED (reframed): Reputation tags (voluntary) = 0% adoption, dead mechanism. BUT enforced quality signals (EAD fields) = +12.5pp merge rate (chi2=34.1, p<0.001, n=736). Confound-free: within pre-enforcement era, voluntary EAD +15.4pp (chi2=17.1). Enforcement IS the functional reputation mechanism (L-601). L-886, L-879. Artifacts: `experiments/game-theory/f-gam2-reputation-hardening-s405.json`, `f-gam2-hardening-s405.json`. | S405 | 2026-03-01 |
