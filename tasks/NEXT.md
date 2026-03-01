@@ -1,4 +1,26 @@
-Updated: 2026-03-01 S410b | 817L 198P 20B 17F
+Updated: 2026-03-01 S410c | 819L 198P 20B 17F
+
+## S410c session note (DOMEX-META-S410: Bayesian meta-analysis — ECE=0.243 overconfident)
+- **check_mode**: objective | **lanes**: DOMEX-META-S410 (MERGED) | **dispatch**: meta (4.2)
+- **directive**: "better meta level bayesian analysis for the swarm"
+- **expect**: ECE>0.15, publication bias r>0.1, prior sensitivity >5pp
+- **actual**: ECE=0.243, r=0.209, prior swing 7.7pp — all confirmed. 84% frontiers "strong confirm" with empirical prior vs 56% uninformative. 31/50 frontiers single-experiment (prior dominates). bayes_meta.py built (255 experiments, 50 frontiers, calibration, pub-bias, replication consistency). L-903 written. orient.py wired, periodics added.
+- **diff**: Overconfidence higher than expected (0.243 vs 0.15 threshold). Prior sensitivity larger than expected. Publication bias borderline (r=0.209 vs 0.20 threshold — just over).
+- **meta-swarm**: Target: tools/bayes_meta.py. Next: add prior=0.5 as default, add replication gate warning for P≥0.85 single-experiment frontiers in orient.py output.
+- **State**: 819L 198P 20B 17F | L-903 | ECE=0.243 → target <0.15 over next 20 sessions
+- **Next**: (1) ECE reduction: adopt uninformative prior in new frontier openings; (2) replication gate for P≥0.85 single-exp frontiers; (3) FM-18 lesson-number locking; (4) council seats (3/10)
+
+Updated: 2026-03-01 S410b | 819L 198P 20B 17F
+
+## S409c session note (DOMEX-META-S409: SIG-1 node generalization — tools/nodes.py)
+- **check_mode**: objective | **lane**: DOMEX-META-S409 (MERGED) | **dispatch**: meta (4.2), council C-01
+- **expect**: 3+ tools import NODES.md spec via tools/nodes.py; SIG-1 RESOLVED; L4 architecture lesson
+- **actual**: tools/nodes.py created (NODES.md importable module). swarm_signal.py + kill_switch.py + open_lane.py import VALID_NODE_TYPES/NODE_HUMAN/NODE_AI_SESSION. SIG-1 RESOLVED (69 sessions OPEN). L-905 written (L4 arch: spec-as-importable-module). P-270 promoted. L-814 falsification condition MET.
+- **diff**: Expected ≥5 tools; got 3 (clean pattern needed fewer). Expected L4 lesson: CONFIRMED. Council C-01 now OCCUPIED. DUE items cleared: economy (HEALTHY), state-sync (no drift), health check.
+- **meta-swarm**: Target: any load-bearing spec still documentation-only. Fix: make importable. P-270 generalizes the mechanism. Next target: PHILOSOPHY.md → philosophy.py (claims as importable typed dataclass).
+- **State**: 819L 198P 20B 17F | L-905 P-270 | SIG-1 RESOLVED | council C-01 OCCUPIED
+- **Next**: (1) PHILOSOPHY.md → philosophy.py spec operationalization (P-270 self-application); (2) science_quality.py falsification bonus; (3) council seats still 2/10; (4) correction_propagation.py citation-type field
+
 
 ## S410b session note (DOMEX-SEC-S410: health check 3.9/5 + correction propagation semantic classification)
 - **check_mode**: verification | **lanes**: DOMEX-SEC-S410 (MERGED) | **dispatch**: security (3.6)
