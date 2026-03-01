@@ -259,15 +259,20 @@ def bic(ll, k_params, n_events):
 
 def grid_search_agent(lessons, session_attrs, session_types, model,
                       gamma_base=0.72, lam_base=0.016):
-    """Grid search for agent covariate parameters, holding baseline params near known optima."""
+    """Grid search for agent covariate parameters.
+
+    Strategy: Fix γ, λ at baseline optimum for agent-covariate models
+    (only search β parameters). This is valid because agent covariates
+    are orthogonal to degree/proximity — they describe the PRODUCER,
+    not the CITATION EVENT.
+    """
     best_ll = -float("inf")
     best_params = {}
 
-    # Narrow search around known joint optima (γ=0.72, λ=0.016 from S383)
-    gamma_range = [gamma_base + x * 0.04 for x in range(-3, 4)]
-    lam_range = [lam_base + x * 0.002 for x in range(-3, 4)]
-
+    # For baseline: search γ, λ normally
     if model == "baseline":
+        gamma_range = [gamma_base + x * 0.04 for x in range(-3, 4)]
+        lam_range = [lam_base + x * 0.002 for x in range(-3, 4)]
         for g in gamma_range:
             for l in lam_range:
                 if l <= 0:
@@ -280,54 +285,75 @@ def grid_search_agent(lessons, session_attrs, session_types, model,
                                    "ll": ll, "n_events": n}
         return best_params
 
+    # For agent models: fix γ, λ at baseline optimum and search β only
+    g_fixed = gamma_base
+    l_fixed = lam_base
+
     if model == "domex":
-        beta_range = [x * 0.1 for x in range(-10, 20)]
-        for g in gamma_range:
-            for l in lam_range:
-                if l <= 0:
-                    continue
-                for bd in beta_range:
-                    ll, n = compute_ll(lessons, session_attrs, session_types,
-                                       g, l, beta_domex=bd, model="domex")
-                    if ll > best_ll:
-                        best_ll = ll
-                        best_params = {"gamma": round(g, 3), "lambda": round(l, 4),
-                                       "beta_domex": round(bd, 2), "ll": ll, "n_events": n}
+        for bd in [x * 0.1 for x in range(-15, 25)]:
+            ll, n = compute_ll(lessons, session_attrs, session_types,
+                               g_fixed, l_fixed, beta_domex=bd, model="domex")
+            if ll > best_ll:
+                best_ll = ll
+                best_params = {"gamma": g_fixed, "lambda": l_fixed,
+                               "beta_domex": round(bd, 2), "ll": ll, "n_events": n}
+        # Refine
+        bd0 = best_params["beta_domex"]
+        for bd in [bd0 + x * 0.02 for x in range(-5, 6)]:
+            ll, n = compute_ll(lessons, session_attrs, session_types,
+                               g_fixed, l_fixed, beta_domex=bd, model="domex")
+            if ll > best_ll:
+                best_ll = ll
+                best_params = {"gamma": g_fixed, "lambda": l_fixed,
+                               "beta_domex": round(bd, 3), "ll": ll, "n_events": n}
         return best_params
 
     if model == "reach":
-        beta_range = [x * 0.05 for x in range(-10, 20)]
-        for g in gamma_range:
-            for l in lam_range:
-                if l <= 0:
-                    continue
-                for br in beta_range:
-                    ll, n = compute_ll(lessons, session_attrs, session_types,
-                                       g, l, beta_reach=br, model="reach")
-                    if ll > best_ll:
-                        best_ll = ll
-                        best_params = {"gamma": round(g, 3), "lambda": round(l, 4),
-                                       "beta_reach": round(br, 3), "ll": ll, "n_events": n}
+        for br in [x * 0.05 for x in range(-15, 25)]:
+            ll, n = compute_ll(lessons, session_attrs, session_types,
+                               g_fixed, l_fixed, beta_reach=br, model="reach")
+            if ll > best_ll:
+                best_ll = ll
+                best_params = {"gamma": g_fixed, "lambda": l_fixed,
+                               "beta_reach": round(br, 3), "ll": ll, "n_events": n}
+        # Refine
+        br0 = best_params["beta_reach"]
+        for br in [br0 + x * 0.01 for x in range(-5, 6)]:
+            ll, n = compute_ll(lessons, session_attrs, session_types,
+                               g_fixed, l_fixed, beta_reach=br, model="reach")
+            if ll > best_ll:
+                best_ll = ll
+                best_params = {"gamma": g_fixed, "lambda": l_fixed,
+                               "beta_reach": round(br, 3), "ll": ll, "n_events": n}
         return best_params
 
     if model == "full":
-        bd_range = [x * 0.2 for x in range(-5, 10)]
-        br_range = [x * 0.1 for x in range(-5, 10)]
-        for g in gamma_range:
-            for l in lam_range:
-                if l <= 0:
-                    continue
-                for bd in bd_range:
-                    for br in br_range:
-                        ll, n = compute_ll(lessons, session_attrs, session_types,
-                                           g, l, beta_domex=bd, beta_reach=br, model="full")
-                        if ll > best_ll:
-                            best_ll = ll
-                            best_params = {
-                                "gamma": round(g, 3), "lambda": round(l, 4),
-                                "beta_domex": round(bd, 2), "beta_reach": round(br, 3),
-                                "ll": ll, "n_events": n
-                            }
+        # Search β_domex and β_reach jointly but with coarser grid
+        for bd in [x * 0.2 for x in range(-8, 13)]:
+            for br in [x * 0.1 for x in range(-8, 13)]:
+                ll, n = compute_ll(lessons, session_attrs, session_types,
+                                   g_fixed, l_fixed, beta_domex=bd, beta_reach=br, model="full")
+                if ll > best_ll:
+                    best_ll = ll
+                    best_params = {
+                        "gamma": g_fixed, "lambda": l_fixed,
+                        "beta_domex": round(bd, 2), "beta_reach": round(br, 3),
+                        "ll": ll, "n_events": n
+                    }
+        # Refine
+        bd0 = best_params["beta_domex"]
+        br0 = best_params["beta_reach"]
+        for bd in [bd0 + x * 0.04 for x in range(-5, 6)]:
+            for br in [br0 + x * 0.02 for x in range(-5, 6)]:
+                ll, n = compute_ll(lessons, session_attrs, session_types,
+                                   g_fixed, l_fixed, beta_domex=bd, beta_reach=br, model="full")
+                if ll > best_ll:
+                    best_ll = ll
+                    best_params = {
+                        "gamma": g_fixed, "lambda": l_fixed,
+                        "beta_domex": round(bd, 3), "beta_reach": round(br, 3),
+                        "ll": ll, "n_events": n
+                    }
         return best_params
 
     return best_params
