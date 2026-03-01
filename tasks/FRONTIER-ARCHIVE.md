@@ -114,3 +114,4 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 | F69 | MOOT — context routing Level 2 (coordinator auto-summaries at 50K lines). Feature never triggered; orient.py now serves startup routing. No active need. | stale | 2026-02-28 |
 | F106 | MOOT — max_depth=2 recursive limit. Colony architecture (F-STRUCT1) supersedes raw depth limit; colony boundary is the practical recursion gate. | stale | 2026-02-28 |
 | F-GOV4 | RESOLVED — 3/3 decision paths tested: CONDITIONAL (S303), APPROVE (S367, genesis_selector.py), BLOCK (S368). Council discriminates quality: 0.89→APPROVE, 0.33→BLOCK. Lifecycle mgmt validated (TTL, SUPERSEDED). L-634, L-666, L-670. | 368 | 2026-03-01 |
+| F-SEC1 | RESOLVED — 5-layer genesis protocol: 5.0/5, all MITIGATED. Four-session arc S376→S380. Trust-Tier T1/T2/T3 in bulletin.py. L-728. | 380 | 2026-03-01 |

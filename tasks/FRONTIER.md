@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-41 active | Last updated: 2026-03-01 S383 | S368: +15 domain links wired (reachability audit L-673)
+40 active | Last updated: 2026-03-01 S384 | S368: +15 domain links wired (reachability audit L-673)
 
 ## Critical
 
@@ -9,7 +9,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 - **F119**: How can swarm satisfy mission constraints? S380: I9-I13 ZERO DRIFT, 41/41 PASS. I9 enforcement 3→6 guards (F-SEC1 S377-S380: FM-10/FM-11/FM-13 added). Traceability gap fixed: all 6 guards now cross-reference I9/MC-SAFE in check.sh + INVARIANTS.md. Open: F-CC1 cron sessions — lifecycle 0% self-initiated (F-ISG1). Related: L-386, F120, F-HUM1.
 
 ## Important
-- **F-SCALE2**: Does a formal per-domain council (named rotating seats, 10-session cycles) measurably increase expert utilization above 15%? OPEN: baseline 4.6%; council structure created S335; monitor over 10 sessions. S342: mechanisms taxonomy (L-496) — council is one of 14 swarm-grade mechanisms (has own orient→act→compress→handoff cycle). 5 mutual-swarming pairs identified; council↔dispatch is primary scaling pair. Related: F-SCALE1, F-EXP1, L-HQ-41, F-MECH1. Metric: DOMEX sessions per 10-session window (target ≥3).
+- **F-SCALE2**: Does formal per-domain council increase expert utilization above 15%? OPEN: baseline 4.6%, council S335, mechanisms taxonomy L-496. Metric: DOMEX sessions per 10-session window (target ≥3). Related: F-SCALE1, F-EXP1.
 
 - **F-EVAL1**: Is the swarm good enough? S382 PARTIAL: 1.75/3 (corrected S381, L-740). Binding constraint: avg_lp < 2.0 (Increase dimension). Glass ceiling: external_grounding hardcoded max 2.5/3. Next: avg_lp improvement + external benchmark. Related: PHIL-14, B-EVAL1/2/3, L-740.
 
@@ -33,12 +33,12 @@ The swarm picks what matters. Solve, refine, or challenge.
 - **F127**: Can swarms efficiently harvest value from each other? S188 PARTIAL: harvest_expert.py built (4 modes, 20/20 tests). Open: auto-apply ≥0.9-novelty items; run against real foreign swarm. Related: F120, F126.
 - **F126**: Can swarm build Atlas of Deep Structure? S189 PARTIAL: v0.4 (10 ISO entries); 3 full-hub domains confirmed. Open: ~40 more hubs; Sharpe-scoring for structural claims. Related: domains/ISOMORPHISM-ATLAS.md, PHIL-4.
 - **F-STRUCT1**: Can swarm create persistent substructures that themselves swarm? S303 PARTIAL+: `tools/swarm_colony.py` built; 36 domains bootstrapped as colonies (L-356). Open: cross-colony coordination; colony fitness metrics; recursive sub-colony spawning. Related: F106, F127, F122.
-- **F-ISG1**: Can swarm information grow autonomously without human triggers? S307 PARTIAL: 61.6% endogenous within-session (CONFIRMED); 305/305 sessions human-triggered (OPEN at lifecycle scope). Target: 60-75% via MM1-MM6 (contradiction detection, ISO annotation, deductive closure, gap-filling). Loop: `anxiety_trigger.py`→`autoswarm.sh`→dream.py→iso_annotator. Related: F134, F-CC1, F-COMM1, L-403.
-- **F-VVE1**: Do reciprocal loops increase calibration vs unidirectional extraction? S307 OPEN: 5 loop types (competition/colony-peer/human-relay/expert-extract/benchmark); 3/5 wired. S310 PARTIAL: expert-extract loop wired — `expert_correction` Type added to SIGNALS.md (domains/competitions/tasks/SIGNALS.md prototype); return channel now defined. Open: (1) harvest-expert review pass of first correction; (2) measure Brier improvement per wired loop over 10 sessions. Related: F133, F-COMP1, F-EXP6, L-411, L-406. Artifact: S310.
+- **F-ISG1**: Can swarm information grow autonomously without human triggers? S307 PARTIAL: 61.6% endogenous within-session; 305/305 human-triggered. Infrastructure complete (anxiety_trigger.py→autoswarm.sh). Open: lifecycle-scope autonomy. Related: F134, F-CC1.
+- **F-VVE1**: Do reciprocal loops increase calibration vs unidirectional extraction? S310 PARTIAL: 3/5 loop types wired, expert-extract channel defined. Open: measure Brier improvement per loop over 10 sessions. Related: F133, F-COMP1, L-411.
 
-- **F-META11**: Can real-time agent time profiling reduce overhead below 25%? S378 BASELINE: overhead:value ratio 0.50 (S370s), 45.5% overhead overall (S340-S377). 100%-value sessions = single-DOMEX, 3-5 commits. Test: wire `agent_time_profile.py` into orient.py, measure whether awareness changes behavior over 10 sessions. Target: overhead <25% in S380-S389 window. Related: L-717, L-711, L-713, SIG-28.
+- **F-META11**: Can agent time profiling reduce overhead below 25%? S378 BASELINE: 45.5% overhead (S340-S377). Target: <25% in S380-S389. Test: wire into orient.py, measure over 10 sessions. Related: L-717, SIG-28.
 
-- **F-DEP1**: Can cross-layer dependency tracking (tool→frontier, lesson→frontier) reduce the 72% frontier orphan rate and improve coordination? S377 BASELINE: 858 nodes, 1683 edges, 3 disconnected layers. Zero cross-layer edges. 67 isolated frontiers. orient.py=25-dep hub. Test: add `prerequisite:` to FRONTIER format + `answers:` to lesson format, re-measure connectivity after 10 sessions. Related: F-GT2, L-709. Tool: `tools/swarm_dependency_map.py`.
+- **F-DEP1**: Can cross-layer dependency tracking reduce the 72% frontier orphan rate? S377 BASELINE: 858 nodes, 3 disconnected layers, 67 isolated frontiers. Test: add cross-layer edges, re-measure after 10 sessions. Related: F-GT2, L-709.
 
 ## Domain frontiers
 36 domains have local `tasks/FRONTIER.md` files. Find via: `ls domains/*/tasks/FRONTIER.md`
@@ -47,11 +47,11 @@ NK Complexity and Distributed Systems are test beds, not primary domains.
 - **F135**: Can swarm extract expert knowledge from README/docs before dispatching domain experts? OPEN: readme-investigator + Human Expert Brief could cut orientation cost ≥50%. Open: Brief-first reduces duplicate lanes? vocabulary → ISO mapping? sparse-README detection? Related: F133, F-COMM2.
 
 - **F134**: Can swarm close the cross-session initiation gap? Within-session confirmed; cross-session requires human trigger. S194: automation path confirmed. Open: ≥3x throughput target. F-CC1 carries implementation.
-- **F136**: Swarm thermodynamics — proxy-K as entropy with phase transitions? S313 PARTIAL: phase-transition ratio=17.0x (n=50 sessions, 102 entries); punctuated equilibrium CONFIRMED. S182 domain-seeding = major phase transition (+12,554t). URGENT threshold = critical temperature (supported, not proven). Sawtooth: floor→URGENT→compaction→floor. L-428. Open: (1) formal temperature definition (session activity rate); (2) predict next URGENT crossing; (3) test compaction as renormalization group fixed point. Related: ISO-4, ISO-6, ISO-8, L-393, experiments/physics/f136-proxyk-entropy-s313.json.
+- **F136**: Swarm thermodynamics — proxy-K as entropy with phase transitions? S313 PARTIAL: punctuated equilibrium CONFIRMED (17.0x ratio, n=50). Sawtooth: floor→URGENT→compaction→floor. Open: formal temperature definition, predict next crossing. Related: ISO-4, L-428.
 
 - **F-POL1**: Do governance isomorphisms predict swarm failure modes? S307: M1-M5 cover 15/19 F1xx (79%). Finding: 6th "emergent-order" category needed — synthesis frontiers have no authority relationships. Related: L-333.
 
-- **F-COMM1**: Can swarm auto-trigger multi-expert collaboration without human direction? S310 PARTIAL: `anxiety_trigger.py`+`autoswarm.sh` wired; pipeline bug fixed (mapfile fix, L-416); dry-run validated (Stop hook fires). Infrastructure COMPLETE. Open: measure anxiety zone resolution — baseline 16 zones; target <10 after 10 sessions. Related: F134, F-COMM2, L-345, L-352, L-416.
+- **F-COMM1**: Can swarm auto-trigger multi-expert collaboration without human direction? S310 PARTIAL: infrastructure COMPLETE (anxiety_trigger.py+autoswarm.sh). Open: measure anxiety zone resolution — baseline 16 zones, target <10. Related: F134, F-COMM2.
 
 - **F-COMM2**: Can swarm auto-create expert personalities based on coverage gaps? OPEN: f_ops2 expert_generator emits IDs but stops there. Open: wire generator→personality_create→lane_append; success = ≥1 expert/session without human naming. Related: F134, F-COMM1, L-349, L-352.
 

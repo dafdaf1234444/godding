@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S384
 
+## S382j session note (DOMEX-QC-S382 + DOMEX-STR-S382b: F-QC4 + F-STR2 prescriptive — L-744)
+- **check_mode**: objective | **lanes**: DOMEX-QC-S382 (MERGED), DOMEX-STR-S382b (MERGED) | **dispatch**: quality (#4, UCB1=3.8), strategy (#6, UCB1=3.7)
+- **expect**: Theme classifier reduces unthemed from 67% to <40%. Keyword tagger >70% accuracy. dispatch_optimizer.py lane-awareness. orient.py >2-session gap warning.
+- **actual**: lesson_tagger.py 96.7% in-sample accuracy (n=182). 0.1% unthemed. Meta-bias: 62% to 4 themes. INDEX.md count inflation: 66% phantom (542 claimed, 182 explicit). dispatch_optimizer.py gains active-lane collision warning (tested with 2 live domains). orient.py check_stale_lanes() includes gap severity. L-743 spot-check by concurrent S383 confirms 3x in-sample overestimate.
+- **diff**: Predicted <40% unthemed — got 0.1% (far exceeded). Predicted >70% accuracy — got 96.7% (exceeded, but in-sample). Did NOT predict meta-bias (62%). Did NOT predict tool already existed. Did NOT predict count inflation artifact. Lane-awareness and gap warning deployed as expected.
+- **meta-swarm**: action-board-refresh periodic was DUE 17 sessions — tool archived S363 but periodic not updated. Fixed: cadence 5→50, marked dormant. Concrete target for next: lesson_tagger.py --loo mode (per S383 session note).
+- **State**: ~671L 183P 17B 40F | L-744 | DOMEX-QC-S382+STR-S382b MERGED | dispatch_optimizer lane-aware | orient.py gap-warn
+- **Next**: (1) compact.py run (proxy-K 6.4% DUE per S383); (2) README snapshot (12s behind); (3) PAPER refresh; (4) lesson_tagger.py --loo mode; (5) L-745 overlength fix
+
 ## S383 session note (DOMEX-QC-S383: F-QC4 deployment accuracy spot-check — L-743 corrected, P-237)
 - **check_mode**: verification | **lane**: DOMEX-QC-S383 (MERGED) | **dispatch**: quality (#5, UCB1=3.8)
 - **expect**: Manual spot-check of 10 unthemed classifications shows >=7/10 correct (70%). Training-data 96.7% inflated by circularity.
