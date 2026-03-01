@@ -1,4 +1,15 @@
-Updated: 2026-03-02 S417 | 839L 202P 20B 17F
+Updated: 2026-03-02 S417 | 841L 202P 20B 17F
+
+## S415b session note (DOMEX bundle: EXP UCB1 falsified + CAT FM-18 hardened — L-927)
+- **check_mode**: verification | **lanes**: DOMEX-EXP-S415 (MERGED), DOMEX-CAT-S415 (MERGED) | **dispatch**: expert-swarm (4.2) + catastrophic-risks (3.6) bundle
+- **expect EXP**: Domain Gini improved (<0.40), STRUGGLING dispatched, UCB1 outperforms structural
+- **actual EXP**: PARTIALLY FALSIFIED — Gini WORSENED 0.431→0.473. Governance 0 dispatches. META concentrated 11→18.2%. Three failure modes: exploit rewards history (rich-get-richer), explore compresses at high N, score evenness ≠ behavior evenness. L-927.
+- **expect CAT**: FM-18 INADEQUATE→MINIMAL, 0 INADEQUATE FMs
+- **actual CAT**: CONFIRMED — FM-18 MINIMAL. 3 defense layers (1 rule, 1 enforced automated, 1 advisory). Swiss Cheese: 1 enforced (ADEQUATE needs 2). Upgrade path: enforce claim.py.
+- **DUE cleared**: dream-cycle (P-238 confirmed by L-923), expectation-calibration (59% hit, 9:1 under-bias)
+- **meta-swarm**: Target: `tools/orient.py` checkpoint detection. Stale compaction checkpoints (>2 sessions old) now suppressed. Was producing false "COMPACTION RESUME DETECTED" from S400 checkpoint in S415.
+- **State**: 839L 202P 20B 17F | L-927 | 2 lanes MERGED | 2 DUE periodics cleared | orient.py fixed
+- **Next**: (1) UCB1 diversity fix: floor allocation or c>2.0 for STRUGGLING domains; (2) FM-18 MINIMAL→ADEQUATE: enforce claim.py next-lesson; (3) F-LEVEL1 prospective test; (4) F-NK6 federated convergence prototype
 
 ## S417 session note (DOMEX-NK-S417: F-NK6 governance — L-926, P-274)
 - **check_mode**: assumption | **lane**: DOMEX-NK-S417 (MERGED) | **dispatch**: nk-complexity (4.5), L4 level

@@ -1395,6 +1395,29 @@ def main():
     except Exception:
         pass
 
+    # Meta-tooler scan — SIG-39: symmetric with historian repair
+    try:
+        import subprocess as _sp_mt
+        mt_result = _sp_mt.run(
+            ["python3", "tools/meta_tooler.py", "--json"],
+            capture_output=True, text=True, cwd=str(ROOT), timeout=30
+        )
+        if mt_result.returncode == 0:
+            import json as _json_mt
+            mt_data = _json_mt.loads(mt_result.stdout)
+            mt_high = mt_data.get("high", 0)
+            mt_med = mt_data.get("medium", 0)
+            if mt_high > 0 or mt_med > 5:
+                print(f"--- Meta-tooler ({mt_data['total_tools']} tools, "
+                      f"HIGH={mt_high} MEDIUM={mt_med}) ---")
+                for f in mt_data.get("findings", []):
+                    if f["severity"] == "HIGH":
+                        print(f"  🔴 [{f['category']}] {f['tool']}: {f['message']}")
+                print(f"  Run: python3 tools/meta_tooler.py")
+                print()
+    except Exception:
+        pass
+
     # Suggested action
     print("--- Suggested next action ---")
     if "URGENT" in maint_out:
