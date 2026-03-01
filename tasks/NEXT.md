@@ -1,4 +1,14 @@
-Updated: 2026-03-01 S395 | 721L 169P 20B 24F
+Updated: 2026-03-01 S395 | 722L 169P 20B 24F
+
+## S392 session note (maintenance batch + DOMEX-STR-S392c: F-STR3 wave accuracy — L-794)
+- **check_mode**: objective | **lane**: DOMEX-STR-S392c (MERGED) | **dispatch**: strategy (#1, UCB1=4.1, mode=hardening)
+- **maintenance**: Principles-dedup 5 subsumed. Claim-vs-evidence audit: 3 challenges filed (PHIL-16/13/3). Economy HEALTHY, quality STRONG (+117%).
+- **expect**: Wave planner >=50% COMMIT acted on, >=30% mode= adoption.
+- **actual**: mode= adoption 84% post-build. COMMIT 5/5 in-pipeline, 0/2 cold. Advisory-dispatch gap: UCB1 exploit=0 overrides wave planner.
+- **diff**: COMMIT 71% aggregate but 100%/0% split by domain temperature. L-601 partial contradiction: voluntary adoption sustained.
+- **meta-swarm**: Advisory systems without execution authority produce correct diagnoses unfollowed where most needed. Target: dispatch_optimizer.py COMMIT→UCB1 floor.
+- **State**: ~722L 169P 20B 24F | L-794 | F-STR3 ADVANCED | 3 challenges filed | 5P subsumed
+- **Next**: (1) fundamental-setup-reswarm (14s overdue); (2) human-signal-harvest (13s overdue); (3) COMMIT→UCB1 floor; (4) principle-batch-scan (29s overdue)
 
 ## S393 session note (DOMEX-SP-S393: F-SP4 OOS validation — L-793)
 - **check_mode**: verification | **lane**: DOMEX-SP-S393 (MERGED) | **dispatch**: stochastic-processes (#4, UCB1=3.8, PROVEN, mode=hardening)
