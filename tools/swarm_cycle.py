@@ -142,12 +142,57 @@ def sense_active_lanes() -> list[str]:
     return sorted(active)
 
 
+def sense_problem_routing() -> list[dict]:
+    """Run problem_router.py to get problem→expert mapping (L-716)."""
+    try:
+        import importlib.util
+        spec = importlib.util.spec_from_file_location(
+            "problem_router", str(TOOLS / "problem_router.py"))
+        if not spec or not spec.loader:
+            return []
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)
+
+        problems = []
+        problems.extend(mod.detect_due_items())
+        problems.extend(mod.detect_firing_triggers())
+        problems.extend(mod.detect_open_signals())
+
+        routed = []
+        for p in problems:
+            routes = mod.route_problem(p)
+            if routes:
+                routed.append({**p, "routes": routes})
+
+        # Aggregate: domain → total demand score
+        from collections import defaultdict
+        demand = defaultdict(float)
+        for rp in routed:
+            urgency_weight = {"HIGH": 3.0, "MEDIUM": 2.0, "LOW": 1.0}.get(
+                rp.get("urgency", "LOW"), 1.0
+            )
+            for route in rp["routes"]:
+                demand[route["domain"]] += route["confidence"] * urgency_weight
+
+        return sorted(
+            [{"domain": d, "demand": round(s, 2)} for d, s in demand.items()],
+            key=lambda x: x["demand"], reverse=True
+        )
+    except Exception:
+        return []
+
+
 # ---------------------------------------------------------------------------
 # PLAN: prioritize actions
 # ---------------------------------------------------------------------------
 
-def plan(triggers, signals, dispatch, next_items, active_lanes, current_session) -> dict:
-    """Compute a ranked session plan from sensed state."""
+def plan(triggers, signals, dispatch, next_items, active_lanes,
+         current_session, problem_demand=None) -> dict:
+    """Compute a ranked session plan from sensed state.
+
+    L-716 integration: when problem_demand is provided, inject problem-routed
+    dispatch recommendations at Priority 2.5 (between triggers and UCB1).
+    """
     actions = []
 
     # Priority 1: HIGH FIRING triggers
@@ -172,14 +217,28 @@ def plan(triggers, signals, dispatch, next_items, active_lanes, current_session)
                 "reason": f"MEDIUM trigger: {t['condition'][:80]}",
             })
 
-    # Priority 3: Top dispatch domain (if no active lane for it)
     active_domains = set()
     for lane in active_lanes:
-        # DOMEX-BRN-S377 → BRN → brain (approximate)
         parts = lane.split("-")
         if len(parts) >= 2:
             active_domains.add(parts[1].lower())
 
+    # Priority 2.5: Problem-routed dispatch (L-716)
+    # Problems indicate which domains NEED attention, not just which are unexplored
+    if problem_demand:
+        for pd in problem_demand[:3]:
+            domain = pd["domain"]
+            abbrev = domain[:3].upper()
+            if abbrev.lower() not in active_domains:
+                actions.append({
+                    "priority": 2,  # same as MEDIUM triggers — problem demand IS urgency
+                    "type": "problem_dispatch",
+                    "domain": domain,
+                    "demand": pd["demand"],
+                    "reason": f"Problem demand: {domain} ({pd['demand']:.1f} weighted problems)",
+                })
+
+    # Priority 3: Top UCB1 dispatch domain (if no active lane for it)
     for d in dispatch[:3]:
         domain = d.get("domain", "")
         abbrev = domain[:3].upper()
@@ -190,7 +249,7 @@ def plan(triggers, signals, dispatch, next_items, active_lanes, current_session)
                 "domain": domain,
                 "score": d.get("score", 0),
                 "frontier": d.get("top_frontier", ""),
-                "reason": f"UCB1 top domain: {domain} (score={d.get('score', '?')})",
+                "reason": f"UCB1 exploration: {domain} (score={d.get('score', '?')})",
             })
 
     # Priority 4: Follow-up items from last session
@@ -241,6 +300,7 @@ def plan(triggers, signals, dispatch, next_items, active_lanes, current_session)
         "trigger_count": len(triggers),
         "signal_count": len(signals),
         "dispatch_top3": [d.get("domain", "") for d in dispatch[:3]],
+        "problem_demand_top3": [pd["domain"] for pd in (problem_demand or [])[:3]],
     }
 
 
@@ -257,6 +317,11 @@ def generate_prompt(plan_result: dict) -> str:
     if primary["type"] == "trigger":
         parts.append(f"\nPRIORITY: Address trigger {primary['id']}: {primary['action']}.")
         parts.append(f"Reason: {primary['reason']}.")
+
+    elif primary["type"] == "problem_dispatch":
+        domain = primary.get("domain", "unknown")
+        parts.append(f"\nPRIORITY: Domain '{domain}' has {primary.get('demand', '?')} weighted problem demand.")
+        parts.append("Problems need this domain's expertise. Open DOMEX lane or address maintenance directly.")
 
     elif primary["type"] == "dispatch":
         domain = primary.get("domain", "unknown")
@@ -402,9 +467,11 @@ def main():
     dispatch = sense_dispatch()
     next_items = sense_next_items()
     active_lanes = sense_active_lanes()
+    problem_demand = sense_problem_routing()
 
-    # PLAN
-    result = plan(triggers, signals, dispatch, next_items, active_lanes, current)
+    # PLAN (L-716: problem-routed dispatch augments UCB1)
+    result = plan(triggers, signals, dispatch, next_items, active_lanes,
+                  current, problem_demand)
 
     # LOG
     if not args.no_log:
