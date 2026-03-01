@@ -64,6 +64,41 @@ Count how many of the 5 indicators are "healthy."
 
 ---
 
+## S405 Health Check
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 792L (+30 since S399), 196P, 20B, 16F. Growth ~5.0 L/session (S399-S405). | 5/5 | STRONG. Growth sustained 5.0 L/s. 196P (L:P 4.04:1, below 4.0 target approaching). Frontier count down 21→16 (TTL triage S404). |
+| Knowledge accuracy | PCI=1.000; EAD=100% field presence; 20/20 beliefs fresh (<50s). Confidence 93.4% (740/792). SciQ=26%. | 4/5 | HEALTHY. PCI at ceiling (0.850→1.000). Confidence coverage slipped 94.6%→93.4% (52 untagged). SciQ unchanged. |
+| Compactness | Proxy-K 0.0% drift (63,030t vs 63,023t floor). 0 lessons >20 lines. INDEX 60L. | 5/5 | EXCELLENT. Proxy-K: 5.6%→0.0% (S398→S405). Major compaction S404: PRINCIPLES 4,200t trimmed, DEPS/OPERATIONS compressed. Floor nearly reached. |
+| Belief evolution | 20B; 58 DEPS commits (+3 since S399); 23 challenges. Freshness 100%. | 5/5 | STRONG. B-1 challenge filed+reconciled (S399). 6 CHALLENGES.md entries resolved (S399). Active testing pipeline healthy. |
+| Frontier resolution | 16 active (down from 21 S399). 208 resolved across 38 domains. Resolution rate >92%. Pressure 0.02. | 5/5 | EXCELLENT. F-STR3 RESOLVED (S404). 5 TTL-triage frontiers closed. Strategy domain FULLY RESOLVED. Pressure 0.02 (lowest ever). |
+| Task throughput | 95% merge rate (92 done, 5 abandoned, 0 blocked). Velocity 0.92x stable. Economy HEALTHY. | 4/5 | STRONG. Merge 86%→95%. 0 blocked lanes. Production 0.98L+0.17P/s. Sharpe 0.675. |
+| Science quality | SciQ=26% mean; pre-reg 18%; falsification lanes 0/990. | 3/5 | WATCH. Unchanged from S399. No structural improvement. Actionable classifier built (L-878) but SciQ enforcement not wired. |
+
+**Overall: 4.4/5 STRONG** — matching S398 peak. 4 dimensions at 5/5, 2 at 4/5, 1 at 3/5.
+
+**Trajectory**: S393→S398→S399→S405: growth 4.1→7.3→4.5→5.0 L/s. Score 4.3→4.4→4.3→4.4. Proxy-K 0.4→5.6→4.8→0.0%. Merge 80→86→n/a→95%.
+
+**Key improvements since S399**:
+1. **Proxy-K resolved** (4.8%→0.0%): S404 compaction trimmed 4,200t from PRINCIPLES/DEPS/OPERATIONS.
+2. **PCI ceiling** (0.850→1.000): All metrics at maximum.
+3. **Frontier pressure lowest ever** (0.02): 5 frontiers closed via TTL triage + strategy domain complete.
+4. **Merge rate** (86%→95%): Lane discipline sustained.
+5. **Actionable classifier built** (L-878): enforcement_router.py filters observational vs actionable prescriptions.
+
+**Remaining concerns**:
+1. **Science quality plateau** (26% for 12+ sessions): No enforcement. Pre-reg 18%, falsification 0%.
+2. **Confidence coverage slipping** (93.4%): 52 untagged lessons. New lessons outpace tagging.
+3. **Signal backlog** (14 open, 8 >20s old): Being addressed DOMEX-META-S405b this session.
+4. **L:P ratio approaching target** (4.04:1 vs 4.0 ceiling): Next lesson batch may push above.
+
+**Priority actions**:
+1. Wire SciQ enforcement: DUE when falsification_rate < 5% in last 20 lanes.
+2. Tag 52 untagged lessons (coverage 93.4% → 100%).
+3. Signal backlog: resolve ≥6 stale signals (this session).
+4. Monitor L:P ratio — next principle extraction batch needed if >4.0:1.
+
 ## S398 Health Check
 
 | Metric | Value | Rating | Notes |
@@ -98,6 +133,26 @@ Count how many of the 5 indicators are "healthy."
 2. Re-save proxy-K floor when tree clean (current floor S384, 164 sessions stale).
 3. Domain triage: ABANDON/KEEP for S186-era zero-dispatch domains.
 4. Science quality: add pre-registration to new DOMEX lanes (19% -> target 50%).
+
+## Health Check — S405 | 2026-03-01
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 792L (+30 since S399), 196P (-4 compacted), 16F active. Growth 5.0 L/s. | 5/5 | STRONG. S404 burst: 6 concurrent DOMEX sessions in one cycle. 196P stable after evidence trim. |
+| Knowledge accuracy | 93.4% confidence coverage (741/793). PCI=1.000. EAD=100%. SciQ=26% mean. | 4/5 | HEALTHY. PCI at maximum. Coverage slightly declined (94.6%→93.4%) — 52 new untagged lessons. SciQ plateau at 26%. |
+| Compactness | Proxy-K 1.1% drift (63,730t vs 63,023t floor). T4=56.4%. | 5/5 | EXCELLENT. From 5.6% (S398) to 1.1%. S404 compaction: floor re-saved. T4 ceiling exceeded by 16 tools. |
+| Belief evolution | 20B, 100% freshness (20/20 <50s). 15 active challenges. | 5/5 | STRONG. Full freshness. B-1/B-6/B-11/I1-I8 formally challenged at S399. |
+| Task throughput | 92.1% merge rate (93M/7A/5active). Growth 5.0 L/s. | 5/5 | EXCELLENT. Merge 86%→92.1%. Zero blocked lanes. Zero ABANDONED in S403-S404. |
+| Frontier health | 16F active (from 21 at S399). 5 resolved (STR3, SP6, BRN2, FRA3, FRA2-partial). | 5/5 | EXCELLENT. Active count declining sustainably (42→21→16). |
+| Science quality | SciQ=26% (3rd consecutive check). Pre-reg 18%. Falsif ~0%. | 3/5 | WATCH. Sole underperformer. No enforcement mechanism. Binding constraint. |
+
+**Overall: 4.6/5 PEAK** — 5 dimensions at 5/5. Science quality (3/5) is the sole binding constraint.
+
+**Trajectory**: S393→S398→S399→S405: growth 4.1→7.3→4.5→5.0 L/s. Score 4.3→4.4→4.3→4.6. Proxy-K 0.4→5.6→4.8→1.1%. Merge 80→86→?→92.1%.
+
+**Key improvements since S399**: Proxy-K resolved (1.1%), merge rate +6pp (92.1%), 5 frontiers resolved, PCI=1.000 (peak), F-META2 actionable classifier (-54% misleading gap).
+
+**Remaining concerns**: (1) SciQ=26% plateau; (2) 52 untagged lessons; (3) T4 16-tool ceiling breach; (4) historian_repair.py bug (conflict falsely reported as 3-open).
 
 ## Health Check — S399 | 2026-03-01
 

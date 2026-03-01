@@ -1,0 +1,188 @@
+{
+  "experiment": "F-META2 signal backlog audit — match open signals to existing implementations",
+  "session": "S405",
+  "domain": "meta",
+  "lane": "DOMEX-META-S405b",
+  "frontier": "F-META2",
+  "timestamp": "2026-03-01",
+
+  "baselines": {
+    "s403_total_signals": 41,
+    "s403_open_partially_resolved": 17,
+    "s403_resolution_rate": 0.609,
+    "s405_pre_audit_total": 45,
+    "s405_pre_audit_open": 1,
+    "s405_pre_audit_partially_resolved": 13,
+    "orient_report": "14 unresolved signals, 8 >20 sessions old, 3 P1"
+  },
+
+  "audit_results": {
+    "total_signals_audited": 14,
+    "resolved_count": 9,
+    "stale_count": 0,
+    "active_count": 4,
+    "human_blocked_count": 1,
+    "post_audit_open_plus_partial": 5,
+    "post_audit_resolution_rate": 0.889,
+    "signal_loss_reduced": "14 unresolved → 5 unresolved (64% reduction)",
+    "resolved_ids": ["SIG-6", "SIG-7", "SIG-24", "SIG-25", "SIG-28", "SIG-34", "SIG-35", "SIG-36", "SIG-40"],
+    "remaining_ids": ["SIG-1", "SIG-2", "SIG-27", "SIG-38", "SIG-39"]
+  },
+
+  "per_signal": [
+    {
+      "id": "SIG-1",
+      "content_summary": "Node generalization — all participants modeled as nodes",
+      "priority": "P1",
+      "age_sessions": 65,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "PARTIALLY RESOLVED",
+      "category": "ACTIVE",
+      "evidence": "NODES.md v1.0 exists but 0/207 tools reference it (L-814). 11 tools hardcode human_*. Spec exists; operationalization does not. Genuine remaining gap.",
+      "next_action": "Refactor >=3 tools to read NODES.md properties instead of hardcoding human_*. Start with kill_switch.py, maintenance.py, open_lane.py."
+    },
+    {
+      "id": "SIG-2",
+      "content_summary": "Improve inter-agent communication — structured signals",
+      "priority": "P1",
+      "age_sessions": 65,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "PARTIALLY RESOLVED",
+      "category": "ACTIVE",
+      "evidence": "swarm_signal.py built. orient.py SIGNAL-DUE routing added S397. 97.6% addressed. Gap: signals inform but don't trigger lanes automatically.",
+      "next_action": "Wire signal-to-lane routing: P1 directive signals >30 sessions should auto-generate DOMEX lane suggestions in orient.py."
+    },
+    {
+      "id": "SIG-6",
+      "content_summary": "Context window as swarm medium — 3 threads",
+      "priority": "P2",
+      "age_sessions": 64,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "STALE-ABSORBED",
+      "evidence": "All 3 threads addressed operationally: compact.py (resource allocation), orient.py (topology), INDEX.md (swarmed). No dedicated analysis in 64 sessions. Absorbed into tooling."
+    },
+    {
+      "id": "SIG-7",
+      "content_summary": "Knowledge archaeology as first-class swarm mechanism",
+      "priority": "P2",
+      "age_sessions": 64,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "STALE-ABSORBED",
+      "evidence": "PHIL-19 filed S342. compact.py preserves archaeological traces. F-META14 genesis-era re-verification (L-781, 40% non-current) IS knowledge archaeology in practice. Operationalized under different names, 64 sessions stale."
+    },
+    {
+      "id": "SIG-24",
+      "content_summary": "Domain-expert-driven dependency management",
+      "priority": "P2",
+      "age_sessions": 29,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "problem_router.py built (L-716, SIG-29 RESOLVED). DEPS.md exists. L-772 council on circular dependencies. F-DEP1 frontier tracks cross-layer dependency. Concrete dependency tooling addresses directive."
+    },
+    {
+      "id": "SIG-25",
+      "content_summary": "Tools should self-improve if coordination is sufficient",
+      "priority": "P2",
+      "age_sessions": 29,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "Coordination achieved: dispatch_optimizer.py + UCB1 + knowledge_state.py. Tool self-calibration: dispatch_calibration.json auto-recalibrates from outcome data (L-776). Remaining gap (tools rewrite own code) is substrate ceiling (L-789 gap 4) — not addressable without architectural change."
+    },
+    {
+      "id": "SIG-27",
+      "content_summary": "Epistemological state model — must-know/should-know/knew",
+      "priority": "P1",
+      "age_sessions": 28,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "PARTIALLY RESOLVED",
+      "category": "ACTIVE",
+      "evidence": "knowledge_state.py built with 5-state model. Wired into orient.py (S396). BLIND-SPOT 15.8%, DECAYED 20.7%. F-META10 remains open for substrate-violation tripwire at creation time. Core epistemological model exists; integration incomplete.",
+      "next_action": "Wire substrate-violation tripwire into open_lane.py per F-META10 test criteria (TTL=S415)."
+    },
+    {
+      "id": "SIG-28",
+      "content_summary": "Understand agents better — time allocation",
+      "priority": "P2",
+      "age_sessions": 28,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "agent_time_profile.py built (S378) — classifies all commits into VALUE/OVERHEAD/MIXED, reports per-session and trend data. F-META11 frontier tracks overhead reduction (45.5% baseline). Core directive (understand agent time allocation) has working tool producing actionable output."
+    },
+    {
+      "id": "SIG-34",
+      "content_summary": "Self-surprise as swarm criterion",
+      "priority": "P2",
+      "age_sessions": 13,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "F-META15 baseline established (S393, L-787). 58:1 confirm/discover ratio measured. 3 challenges filed. F-META15 actively tracked in FRONTIER.md with concrete test criteria (surprise_rate >20% per 20-session window). P2 directive operationalized into active frontier with clear metrics."
+    },
+    {
+      "id": "SIG-35",
+      "content_summary": "Reliability across all swarm systems",
+      "priority": "P2",
+      "age_sessions": 13,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "L-788 systematic audit: 18 gaps, 8 fixes, 6 root causes. frontier_triage.py O(N*M)->O(N). Hardcoded sessions auto-detected. check_observer_staleness wired (L-820, S403). Structural improvements deployed; ongoing reliability is operational work."
+    },
+    {
+      "id": "SIG-36",
+      "content_summary": "Swarm science must improve",
+      "priority": "P2",
+      "age_sessions": 10,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "L-804 diagnosis + P-243 5-criteria gate + science_quality.py built + open_lane.py pre-registration enforcement (S396). Confirmation bias 9:1 -> 2:1 post-S396 (L-821, n=13). Structural enforcement of science quality deployed and measured."
+    },
+    {
+      "id": "SIG-38",
+      "content_summary": "F-SOC1/F-SOC4 authorization needed from human",
+      "priority": "P2",
+      "age_sessions": 9,
+      "pre_status": "OPEN",
+      "post_status": "OPEN",
+      "category": "HUMAN-BLOCKED",
+      "evidence": "Genuinely blocked on human authorization for social media accounts and posting approval. Cannot be resolved by swarm alone.",
+      "next_action": "Awaiting human response on social media authorization."
+    },
+    {
+      "id": "SIG-39",
+      "content_summary": "All swarm supports meta functions as first-class work",
+      "priority": "P1",
+      "age_sessions": 9,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "PARTIALLY RESOLVED",
+      "category": "ACTIVE",
+      "evidence": "historian_repair.py wired into orient.py (S397). 5 beliefs retested. Meta support visible in orient.py output. Gap: meta-tooler and meta-x not yet first-class dispatch categories.",
+      "next_action": "Add meta-tooler and meta-x as dispatch categories in dispatch_optimizer.py. Make tool maintenance and meta-experimentation first-class work types."
+    },
+    {
+      "id": "SIG-40",
+      "content_summary": "Swarm must learn from own lessons — apply to own protocol",
+      "priority": "P1",
+      "age_sessions": 9,
+      "pre_status": "PARTIALLY RESOLVED",
+      "post_status": "RESOLVED",
+      "category": "RESOLVED",
+      "evidence": "science_quality.py committed (L-808). enforcement_router.py wired into orient.py (S404, L-878). Actionable prescription gap measured at 41.7% (L-878 classify_actionability). SIGNAL-DUE routing surfaces P1 signals. Prescription enforcement now structural — orient.py surfaces top aspirational gaps as DUE items."
+    }
+  ],
+
+  "key_finding": "9 of 14 unresolved signals already have sufficient implementations to close. Signal backlog reduced from 14 to 5 (64% reduction). Three categories of false-open signals: (1) STALE-ABSORBED (SIG-6, SIG-7: 64 sessions old, absorbed into operational tooling without explicit closure), (2) STRUCTURALLY-RESOLVED (SIG-24/25/28/35/36/40: concrete tools deployed but signal status not updated), (3) FRONTIER-TRACKED (SIG-34: P2 directive fully operationalized into active frontier F-META15 with clear test criteria). Remaining 5 signals: SIG-1/SIG-2 (P1, genuine operationalization gaps), SIG-27 (P1, F-META10 incomplete), SIG-38 (human-blocked), SIG-39 (P1, meta-tooler gap).",
+
+  "pattern": "Signal-loss root cause is asymmetric: implementation happens but closure lags. Of 9 resolved signals, 7 had all artifacts deployed for 9-64 sessions without status update. Fix: wire signal-status-check into close_lane.py — when a lane merges, scan for signals whose content matches the lane topic.",
+
+  "methodology": {
+    "search_strategy": "For each signal: (1) grep tools/ for implementation artifacts, (2) check lessons for diagnosis/resolution, (3) check FRONTIER.md for frontier tracking, (4) verify tool existence and wiring into orient.py",
+    "resolution_criteria": "RESOLVED if: concrete structural change deployed AND remaining gap is either aspirational/substrate-ceiling or tracked by a specific frontier. ACTIVE if: genuine operational gap exists with clear next action. STALE-ABSORBED if: >50 sessions with partial operational coverage but no dedicated progress."
+  }
+}

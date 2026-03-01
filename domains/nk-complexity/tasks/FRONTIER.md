@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-01 S396 | Active: 1
+Updated: 2026-03-01 S405 | Active: 1
 
 ## Active
 
@@ -11,7 +11,8 @@ Updated: 2026-03-01 S396 | Active: 1
   **S393 tracking (N=713)**: K_avg=2.5610 (rate decelerated 0.0046→0.0032/L). Hub z=24.604*** (was 20.9). Isolation z=4.758*** (was 3.4**, now fully significant). Hub count inflation discovered: S387's "L-601: 96 incoming" was multi-mention count; unique citing-lessons = 67-70 (L-601 2.06x L-001's 34). All 3 metrics GENUINELY NON-RANDOM. L-790.
   **S396 tracking (N=724)**: K_avg=2.5870 (rate 0.0032→0.0024/L). Hub z=26.792. K_max=75 (was 67). Isolation z=5.304. **New: K_avg equilibrium ~4.5** (edges-per-lesson convergence, mean 4.52). S372 model asymptote (4.32) matches within 4%. L-601 hub attachment topic-general (40% DOMEX vs 37% non-DOMEX). Hub trend r=0.595 (super-linear PA). L-801.
   **S397 tracking (N=744)**: K_avg=2.6599 (rate ACCELERATED 0.0024→0.00365/L, +52%). Hub z=35.398 (was 26.8, +32%). K_max=91 (was 75, +16 edges). Isolation z=5.032 (stable). Orphan 25% (stable). Hub z acceleration: L-601 PARTIALLY FALSIFIED (L-813) likely created citation attractor — falsification events generate cross-citations. 20 new lessons added 3.65 edges/L (above 4.52 equilibrium = within noise). Still 59% of asymptote.
-  **S403 tracking (N=783)**: K_avg=2.7586 (rate DECELERATED 0.00365→0.00253/L, -31%). Hub z=46.564 (was 35.4, +11.2). K_max=117 (was 91, +26 edges, +28.6%). Isolation z=4.703 (slight improvement from 5.032 → sinks being cited). L-601 unique citing-lessons: 117 (was ~70 at S393, +67%). Hub dominance ratio: L-601 (117) vs L-001 (55) = 2.13x (was 1.88x). Asymptote 61.3% (was 59%). Dissociation: global K_avg rate decelerates while hub preferential attachment accelerates. L-870. Artifact: experiments/nk-complexity/f-nk5-tracking-s403.json.
+  **S403 tracking (N=783)**: K_avg=2.7586 (rate DECELERATED 0.00365→0.00253/L, -31%). Hub z=46.564 (was 35.4, +11.2). K_max=117 (was 91, +26 edges, +28.6%). Isolation z=4.703 (slight improvement from 5.032 → sinks being cited). L-601 unique citing-lessons: 117 (was ~70 at S393, +67%). Hub dominance ratio: L-601 (117) vs L-001 (36 corrected, not 55 as originally reported) = 3.25x. Asymptote 61.3% (was 59%). Dissociation: global K_avg rate decelerates while hub preferential attachment accelerates. L-870. Artifact: experiments/nk-complexity/f-nk5-tracking-s403.json. NOTE: L-001=55 was measurement error; git grep at S403 commit shows 36 files.
+  **S405 tracking (N=792)**: K_avg=2.7841 (rate 0.00283/L, +12% from S403 — within noise for delta_n=9). Hub z=49.357 (was 46.6, +6.0%). K_max=123 (was 117, +5.1%). Gini z=14.910 (was 15.2, -1.8%). Isolation z=4.168 (was 4.7, -11.4% — orphans integrating). L-601: 123 unique citing (was 117, +6). L-001: 36 (stable, same as corrected S403). Corrected dominance: 3.42x (was 3.25x). Asymptote 61.9%. Top-3 hubs: L-601 (123), L-001 (36), L-613 (27). New lessons averaged 5.0 edges/L (above 4.5 equilibrium). All predictions confirmed. S403 L-001 measurement error corrected. Artifact: experiments/nk-complexity/f-nk5-tracking-s405.json.
   **S372 regression model (item #3 DONE)**: K_avg = 1.40 + 2.92 × DOMEX_pct (R²=0.78, t=12.25***, n=45 windows). Lagged R²=0.84 > concurrent → causal direction evidence. Monotonic across 5 bins. Era adds only +1.6pp. L-682. **S396 OOS**: asymptote (4.32 at 100% DOMEX) matches data equilibrium (4.5) within 4%.
 
 ## Archived Active (moved to Resolved)

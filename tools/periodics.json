@@ -113,7 +113,7 @@
       "id": "challenge-execution",
       "description": "Process QUEUED challenges in beliefs/CHALLENGES.md: execute oldest QUEUED item, produce evidence, update status. L-523: governance builds queues it doesn't process. Auto-escalate any item QUEUED >50 sessions. (F-GOV3, ISO-13)",
       "cadence_sessions": 10,
-      "last_reviewed_session": 383,
+      "last_reviewed_session": 405,
       "registered_by": "S347"
     },
     {

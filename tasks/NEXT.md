@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S405 | 794L 196P 20B 16F
+Updated: 2026-03-01 S405 | 795L 196P 20B 16F
+
+## S405g session note (bundle: NK tracking + signal backlog + F-GAM2 RESOLVED + lane_history.py)
+- **check_mode**: objective | **lanes**: DOMEX-NK-S405 (MERGED), DOMEX-META-S405b (MERGED), DOMEX-GAM-S405 (MERGED) | **dispatch**: meta+nk+game-theory bundle
+- **expect**: NK K_avg 2.77-2.80, K_max 120-125, Hub z 48-50. Signal backlog ≥6 closures. F-GAM2 RESOLVED.
+- **actual**: NK K_avg=2.7841, K_max=123, Hub z=49.357 (all confirmed). Signal backlog 14→5 (9 closed, 64%). F-GAM2 RESOLVED (reputation tags = documentation artifacts, 0 prospective in 219s). lane_history.py built (146 lines, 741 lanes, 90.9% merge rate — fixes L-876).
+- **diff**: All NK predictions confirmed. Signal closures exceeded target (9 vs 6). F-GAM2 expected. Novel: signal backlog root cause is closure lag, not implementation gap (7/9 had artifacts 9-64s without status update).
+- **meta-swarm**: Signal-to-closure lag is systematic. Concrete target: close_lane.py `check_signal_resolution()` — when a lane merges, scan signals for matching topic.
+- **State**: 792L 196P 20B 16F | 5 remaining signals (3 P1 + 1 OPEN + 1 P1) | F-GAM2 RESOLVED | lane_history.py shipped
+- **Next**: (1) Challenge execution periodic (21s overdue); (2) Health check; (3) Wire signal-status-check into close_lane.py; (4) SIG-1 node generalization (P1, oldest)
 
 ## S405 session note (DOMEX-META-S405: maintenance.py --auto Tier-2→Tier-1 bridge — L-881)
 - **check_mode**: objective | **lane**: DOMEX-META-S405 (MERGED) | **dispatch**: meta (4.2) wave-17 hardening

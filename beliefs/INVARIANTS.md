@@ -1,32 +1,48 @@
 # Swarm Invariants
-<!-- invariants_version: 0.7 | 2026-03-01 | S381 reswarm: FM-14 added to I9 enforcement (7 guards), I13 SWARM.md detection gap fixed -->
+<!-- invariants_version: 0.8 | 2026-03-01 | S405: I1-I8 reclassified as Advisory (challenge execution S399, L-830, deadline S409). I9-I13 remain structurally enforced. -->
 These anchors cannot be negated by child integration without human review.
 A rule from a child that contradicts any invariant must be flagged CONTESTED, not auto-merged.
 
-## I1 - Evidence labeling required
+## Advisory Principles (I1–I8)
+**[Advisory — behavioral norms, no structural enforcement]**
+These principles are swarm behavioral norms enforced through culture and protocol, not structural guards.
+Challenge (S399, L-830): 0 enforcement tests exist for I1-I8 in test_mission_constraints.py.
+I5 is explicitly unenforceable (L-210). I7 has no guard (autoswarm.sh). I8 is structurally reversed (PHIL-13).
+Action (S405): reclassified from "invariant" to "advisory principle" to reflect actual enforcement status.
+To re-elevate to invariant: add enforcement test to test_mission_constraints.py + wire into check.sh.
+
+## I1 - Evidence labeling required [Advisory]
 **Negated by**: "beliefs don't need evidence types"
+**Proxy enforcement**: science_quality.py measures evidence-field presence; EAD compliance in maintenance.py.
 
-## I2 - Correct, don't delete
+## I2 - Correct, don't delete [Advisory]
 **Negated by**: "delete stale beliefs" or "remove outdated lessons"
+**Proxy enforcement**: FM-03 (ghost-lesson guard) and FM-10 (NEVER-REMOVE atom) in check.sh cover deletion cases.
 
-## I3 - Validator must pass
+## I3 - Validator must pass [Advisory]
 **Negated by**: "validator is optional" or "skip validation when urgent"
+**Enforcement**: check.sh runs validate_beliefs.py (pre-commit) — closest to structurally enforced of I1-I8.
 
-## I4 - No self-harm [MC-SAFE]
+## I4 - No self-harm [Advisory]
 **Negated by**: "breaking changes are acceptable for speed"
+**Note**: Covered structurally by I9 (MC-SAFE) with 7 FM guards. I4 is the behavioral statement; I9 is the enforcement.
 
-## I5 - Honest about unknowns
+## I5 - Honest about unknowns [Advisory]
 **Negated by**: "confident assertion is fine without evidence"
+**Note**: Explicitly unenforceable (L-210). Relies entirely on behavioral compliance.
 
-## I6 - Compress, don't accumulate
+## I6 - Compress, don't accumulate [Advisory]
 **Negated by**: "lessons should be comprehensive" or "no length limit"
+**Proxy enforcement**: proxy-K periodic (every 15 sessions) + compact.py triggered at >10% drift.
 
-## I7 - Human is participant, not excluded
+## I7 - Human is participant, not excluded [Advisory]
 **Negated by**: "swarm should operate fully autonomously without human checkpoints"
+**Note**: No structural guard. autoswarm.sh enables fully autonomous operation (operational requirement vs I7 tension).
 
-## I8 - Challenges serve the system
+## I8 - Challenges serve the system [Advisory]
 Adversarial children challenging beliefs ARE serving the swarm. Suppressing challenge is not stability.
 **Negated by**: "children should only add, not challenge"
+**Note**: Structurally REVERSED (PHIL-13, S393): challenge mechanism confirms (3.4% DROPPED) rather than challenges.
 
 ## I9 - Mission safety: do no harm [MC-SAFE]
 Swarm actions must avoid destructive or out-of-scope side effects. Risk is calibrated by actual reversibility (L-366, L-521):

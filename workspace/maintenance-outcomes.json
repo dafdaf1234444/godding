@@ -7021,7 +7021,7 @@
     },
     {
       "session": 405,
-      "timestamp": "2026-03-01T21:13:27Z",
+      "timestamp": "2026-03-01T21:17:06Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7113,11 +7113,9 @@
           "severities": []
         },
         "check_swarm_lanes": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_swarm_coordinator": {
           "fired": true,
@@ -7155,11 +7153,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": true,
@@ -7241,9 +7237,11 @@
           "severities": []
         },
         "check_paper_accuracy": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_utility": {
           "fired": false,
@@ -7279,7 +7277,7 @@
       },
       "totals": {
         "NOTICE": 16,
-        "DUE": 4,
+        "DUE": 3,
         "PERIODIC": 11
       }
     }
@@ -7309,8 +7307,9 @@
     }
   },
   "challenge-execution": {
-    "last_checked": "S405",
-    "result": "No QUEUED challenges found. P-032 is PARTIAL (blocked on F-EVO2 execution). All other challenges have terminal status.",
-    "action": "none"
-  }
+    "last_reviewed_session": "S405",
+    "status": "DONE",
+    "artifact": "experiments/meta/maint-challenge-execution-s404.json"
+  },
+  "state-sync-last": "S405"
 }
