@@ -105,7 +105,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: none
 - **Depended on by**: B14
 - **Source**: Yuan et al. (OSDI 2014, 92%) + S47 F94 audit (53% Jepsen-biased); spread explained by population difference
-- **Last tested**: 2026-03-01 S342 (re-test: F94 100-bug taxonomy confirms 53% EH in Jepsen sample + Yuan 92% user-reported; EH 2.0x next category; 4 independent studies corroborate; falsification condition NOT met)
+- **Last tested**: 2026-03-01 S394 (re-test: F94 100-bug taxonomy confirms 53% EH in Jepsen sample + Yuan 92% user-reported; 4 independent studies corroborate; recent 2025 systems (NATS 2.12.1, TigerBeetle 0.16) confirm trend. Falsification NOT met — EH remains >50% even in protocol-bug-biased samples.)
 - **Domain**: distributed-systems
 
 ### B14: Most distributed systems bugs (98%) are reproducible with 3 or fewer nodes and are deterministic (74%)
@@ -131,7 +131,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A re-audit finds principles decay at the same rate as specific claims (>30% stale principles), OR stale-lesson fraction increases proportionally with session count (i.e., growth metrics DO track decay)
 - **Depends on**: B7
 - **Evidence note**: S47 F99 (L-001..L-030): 67% actionable, 33% partially stale, 0% fully stale; decay in time-bound literals; principle extraction mitigates
-- **Last tested**: 2026-03-01 S342 (re-test: PARTIALLY CHALLENGED — F99 confirms decay exists (33% partially stale at L-001..L-030) and principles durable (100% actionable), but "invisible to metrics" claim challenged — decay IS visible on reading. Refined: asymmetric decay with visible context drift but durable principles)
+- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED WITH REFINEMENT. Asymmetry holds: 15% mechanism-superseded vs 0% principle-contradicted in top-20 cited (L-633/P-226). L-781 genesis audit: 40% non-current but 0% principle-falsified. "Invisible to metrics" refined: invisible to volume-growth metrics (lesson count), visible to quality-aware metrics (citation reach L-792, Sharpe, mechanism validity). Falsification NOT met — 0% principle staleness, well below 30% threshold.)
 - **Convergence**: 3/6 variants
 
 ### B17: In multi-agent systems, information asymmetry between agents is the dominant accuracy bottleneck — pre-reasoning evidence surfacing (not reasoning quality) determines outcome, with a 30.1→80.7% accuracy gap from surfacing alone
@@ -139,7 +139,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B6 (vestigial — evidence stands independently of architecture model; S391 audit)
 - **Evidence note**: L-220, cross-variant harvest R5 (S175): 3 children, 50pp accuracy gap from info asymmetry; agents integrate evidence at 96.7% once received; failure is upstream of reasoning
 - **Falsified if**: A multi-agent configuration achieves >80% accuracy without resolving information asymmetry, relying only on reasoning protocol improvements
-- **Last tested**: 2026-03-01 S342 (re-test: CONFIRMED — L-220 50pp accuracy gap, 3 independent children converged on same bottleneck, agents integrate at 96.7% once evidence surfaced; falsification condition NOT met)
+- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED — L-220 50pp accuracy gap holds; L-792 strengthens mechanism: network topology (surfacing) r=0.564 vs absorption r=0.066. F-AI1 multi-lang surfacing confirms directional improvement (+6.7pp at optimal threshold). No config achieves >80% without surfacing. Falsification NOT met.)
 - **Domain**: ai
 
 ### B18: In multi-agent systems, capability (task performance) and vigilance/verification discipline are statistically independent axes — improving capability does not automatically improve verification quality
@@ -147,7 +147,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: none
 - **Evidence note**: L-219, cross-variant harvest R5 (S175): t(45)=-0.99, p=.328; capability growth and challenge-protocol usage are uncorrelated; design each axis independently
 - **Falsified if**: A controlled study finds r>0.5 between capability metrics and verification-discipline metrics across ≥30 agents
-- **Last tested**: 2026-03-01 S342 (re-test: CONFIRMED — L-219 t(45)=-0.99 p=.328 statistical independence; Grok4Fast 98% capability + lowest vigilance vs GPT-5 100% + highest vigilance; external arxiv 2602.21262 corroborates)
+- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED — L-219 t(45)=-0.99 p=.328 statistical independence uncontradicted. External arxiv 2602.21262 corroborates. 52-session follow-up: no lessons report r>0.5 between capability and verification. Independence holds by original evidence + no contradicting post-S342 data.)
 - **Domain**: ai
 
 ### B19: Asynchronous information sharing prevents cascade anchoring in multi-agent systems — synchronous coordination converts positive cascades to negative; asynchrony preserves independent state reads
