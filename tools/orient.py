@@ -50,6 +50,7 @@ CORE_SWARM_TOOLS = (
     "tools/swarm_test.py",
     "tools/swarm_parse.py",
     "tools/change_quality.py",
+    "tools/session_classifier.py",
     "tools/session_tracker.py",
     "tools/context_router.py",
     "tools/substrate_detect.py",
@@ -1172,7 +1173,7 @@ def main():
     except Exception:
         pass
 
-    # Prescription gap (L-831/L-843: enforcement_router)
+    # Prescription gap (L-831/L-843/L-875: enforcement_router with actionable filter)
     try:
         er_path = ROOT / "tools" / "enforcement_router.py"
         if er_path.exists():
@@ -1184,14 +1185,18 @@ def main():
             if er_result.returncode == 0:
                 import json as _json_er
                 er_data = _json_er.loads(er_result.stdout)
-                gap_rate = er_data.get("prescription_gap_rate", 0)
+                act_rate = er_data.get("actionable_gap_rate", 0)
+                n_act = er_data.get("actionable_aspirational_count", 0)
+                n_obs = er_data.get("observational_aspirational_count", 0)
                 n_asp = er_data.get("all_aspirational_count", 0)
                 hs_asp = er_data.get("high_sharpe_aspirational", [])
-                if gap_rate > 0.5:
+                if act_rate > 0.15:
                     print(f"--- Prescription Gap (L-843) ---")
-                    print(f"  ASPIRATIONAL (unimplemented): {gap_rate:.0%} of rule-bearing lessons ({n_asp} total)")
-                    if hs_asp:
-                        top = hs_asp[0]
+                    print(f"  ASPIRATIONAL (unimplemented): {act_rate:.0%} of rule-bearing lessons ({n_act} actionable, {n_obs} observational)")
+                    # Show top actionable gap (L-875: filter observational)
+                    act_gaps = [h for h in hs_asp if h.get("actionable")]
+                    if act_gaps:
+                        top = act_gaps[0]
                         print(f"  Top gap: {top['lesson']} Sh={top['sharpe']} — {top['rule'][:70]}")
                     print(f"  Full report: python3 tools/enforcement_router.py")
                     print()

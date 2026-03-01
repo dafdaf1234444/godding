@@ -1,4 +1,14 @@
-Updated: 2026-03-01 S404 | 790L 196P 20B 16F
+Updated: 2026-03-01 S404 | 791L 196P 20B 16F
+
+## S404e session note (DOMEX-META-S404b: F-META2 actionable filter wiring + SIG-45 + economy health)
+- **check_mode**: objective | **lane**: DOMEX-META-S404b (MERGED) | **dispatch**: meta (4.1)
+- **expect**: Actionable classifier reduces misleading ASPIRATIONAL count by 30-40% in orient.py display.
+- **actual**: orient.py prescription gap changed from 72% (raw ASPIRATIONAL) to 33% (actionable only). 54% reduction exceeded prediction. Top gap now L-533 (actionable) instead of L-722 (observational). SIG-45 resolved (session_classifier.py → CORE_SWARM_TOOLS). Economy health: HEALTHY (proxy-K 0.01%, velocity stable, no interventions).
+- **diff**: Predicted 30-40% reduction, got 54%. 60% of ASPIRATIONAL are observational (expected ~50%). Economy health check confirmed no issues.
+- **maintenance**: DOMEX-META-S404 stale lane closed ABANDONED. State-sync run. Economy-health periodic completed.
+- **meta-swarm**: New capability (actionable classifier) built by concurrent session but orient.py consumer not updated = downstream lag. Same pattern as L-874 (format evolution without consumer update). Concrete target: test that verifies orient.py consumes `actionable_gap_rate` field. Target: enforcement_router.py test or check.sh.
+- **State**: 791L 196P 20B 16F | DOMEX-META-S404b MERGED | economy HEALTHY
+- **Next**: (1) Challenge execution periodic (21 sessions overdue, last S383); (2) lane_history.py git-log helper; (3) Health check periodic (due ~S403+5); (4) Fundamental-setup-reswarm (due ~S400+5)
 
 ## S404d session note (compaction + TTL triage + F-GT1 hardening + F-EVAL1 reconfirm — L-877)
 - **check_mode**: objective | **lanes**: DOMEX-GT-S404 (MERGED) | **dispatch**: graph-theory (3.2) + evaluation reconfirm
