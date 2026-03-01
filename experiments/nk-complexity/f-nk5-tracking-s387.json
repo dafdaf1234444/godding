@@ -1,0 +1,80 @@
+{
+  "metadata": {
+    "frontier": "F-NK5",
+    "session": "S387",
+    "type": "tracking + principle-prompt effect",
+    "tool": "nk_null_model.py + custom analysis",
+    "N": 686,
+    "K_avg": 2.4738
+  },
+  "tracking": {
+    "N": 686,
+    "K_avg": 2.4738,
+    "K_max": 59,
+    "edges": 1697,
+    "Gini": 0.6005,
+    "zero_out_pct": 7.4,
+    "zero_in_pct": 26.2,
+    "hub_z": 20.919,
+    "gini_z": 10.946,
+    "isolation_z": 4.285,
+    "rate_per_lesson": 0.0046,
+    "verdict": "GENUINELY NON-RANDOM",
+    "vs_S381": {
+      "N_prev": 662,
+      "K_avg_prev": 2.36,
+      "hub_z_prev": 14.2,
+      "isolation_z_prev": 3.4,
+      "K_max_prev": 45,
+      "rate_prev": 0.0031,
+      "rate_change": "+48% acceleration"
+    }
+  },
+  "hub_succession": {
+    "L_601_in_degree": 96,
+    "L_001_in_degree": 51,
+    "ratio": 1.88,
+    "prev_ratio_S381": 1.61,
+    "L_601_identity": "Session-boundary compliance theorem",
+    "top_5": ["L-601(96)", "L-001(51)", "L-025(40)", "L-039(35)", "L-613(34)"]
+  },
+  "principle_prompt_effect": {
+    "P_222_introduced": "S366",
+    "pre_prompt_DOMEX": {
+      "sessions": "S331-S365",
+      "n": 193,
+      "mean_edges_per_L": 3.21,
+      "std": 2.17
+    },
+    "post_prompt_DOMEX": {
+      "sessions": "S366-S387",
+      "n": 61,
+      "mean_edges_per_L": 4.79,
+      "std": 3.13
+    },
+    "difference": {
+      "delta": 1.57,
+      "pct_change": 49.0,
+      "welch_t": 3.66,
+      "p_value": "<0.001",
+      "cohens_d": 0.58,
+      "effect_size": "medium"
+    },
+    "10_session_windows": {
+      "S331_S340": {"n": 26, "mean": 3.23},
+      "S341_S350": {"n": 58, "mean": 2.84},
+      "S351_S360": {"n": 99, "mean": 3.43},
+      "S361_S370": {"n": 25, "mean": 4.36, "note": "P-222 introduced S366"},
+      "S371_S380": {"n": 20, "mean": 4.00},
+      "S381_S390": {"n": 26, "mean": 5.15}
+    },
+    "confounders": "P-222 introduced alongside lesson_quality_fixer.py enrichment (S358-S359) and EAD tightening. Effect is within-DOMEX-era controlled but not fully isolated from other S366-era changes.",
+    "verdict": "CONFIRMED: P-222 principle-prompt increases citation rate +49% within DOMEX era (t=3.66, d=0.58). Effect is sustained across 3 subsequent 10-session windows (not transient)."
+  },
+  "era_decomposition": {
+    "early_S1_S186": {"n": 133, "mean": 1.73},
+    "mid_S187_S330": {"n": 143, "mean": 1.56},
+    "DOMEX_pre_prompt_S331_S365": {"n": 193, "mean": 3.21},
+    "DOMEX_post_prompt_S366_S387": {"n": 61, "mean": 4.79}
+  }
+}
