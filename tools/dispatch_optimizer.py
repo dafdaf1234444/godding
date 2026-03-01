@@ -34,6 +34,7 @@ DOMAINS_DIR = Path("domains")
 EXPERIMENTS_DIR = Path("experiments")
 LANES_FILE = Path("tasks/SWARM-LANES.md")
 LANES_ARCHIVE = Path("tasks/SWARM-LANES-ARCHIVE.md")
+CALIBRATION_FILE = Path("tools/dispatch_calibration.json")
 
 # Domain heat: evaporation constant per session gap (S340 council: 5/5 convergence)
 # Domains touched recently get a penalty; dormant domains get a bonus.
@@ -120,6 +121,45 @@ OUTCOME_FAILURE_THRESHOLD = 0.50  # MERGED rate below which domain is STRUGGLING
 OUTCOME_BONUS = 0.5        # score bonus for PROVEN domains (reduced from 1.5 — L-654 diminishing returns)
 OUTCOME_MIXED_BONUS = 2.0  # score bonus for MIXED domains (L-654: highest L/lane yield at 1.42)
 OUTCOME_PENALTY = 1.0      # score penalty for STRUGGLING domains
+
+
+def _load_calibration() -> dict | None:
+    """Load empirically-derived weights from calibration artifact.
+
+    Self-calibration (F-EXP10, SIG-32): dispatch weights should be empirically
+    derived from outcome data, not hardcoded. The calibration file is produced
+    by experiments/expert-swarm/f_exp10_self_calibration.py.
+
+    Returns calibration dict or None if no calibration exists.
+    """
+    if not CALIBRATION_FILE.exists():
+        return None
+    try:
+        with open(CALIBRATION_FILE) as f:
+            return json.load(f)
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def _recalibrate() -> dict | None:
+    """Re-derive dispatch weights from current outcome data.
+
+    Runs the self-calibration experiment and returns the calibration dict.
+    """
+    import subprocess
+    script = Path("experiments/expert-swarm/f_exp10_self_calibration.py")
+    if not script.exists():
+        print("ERROR: calibration script not found at", script, file=sys.stderr)
+        return None
+    result = subprocess.run(
+        [sys.executable, str(script)],
+        capture_output=True, text=True, timeout=60
+    )
+    print(result.stdout)
+    if result.returncode != 0:
+        print(result.stderr, file=sys.stderr)
+        return None
+    return _load_calibration()
 
 
 def _compute_gini(values: list[int | float]) -> float:
@@ -538,19 +578,29 @@ def score_domain(domain: str) -> dict | None:
     has_index = index_path.exists()
 
     # --- Yield score formula ---
-    # Multi-concept scoring (S346 human signal: expertise beyond isomorphisms)
-    # S347 rebalancing: reduce ISO hegemony, weight principles (was unweighted bug),
-    # increase lesson weight, lower belief weight (rare/sparse), boost diversity bonus.
-    # iso_count * 1.5      : cross-domain leverage (down from 2.0 — still highest per-item)
-    # lesson_count * 0.8   : empirical grounding (up from 0.5 — 32% of concept signal)
-    # belief_count * 1.5   : tested claims (down from 2.0 — sparse, shouldn't over-reward)
-    # principle_count * 1.5 : distilled knowledge (NEW — was 0, fixing unweighted bug)
-    # resolved * 2.0       : domain maturity (team knows how to extract lessons here)
-    # active * 1.5         : open work (demand signal)
-    # novelty +2.0         : uncharted territory bonus (exp_count == 0)
-    # has_index +1.0       : orientation artifact present
-    # concept_diversity * 2.5 : breadth reward (up from 2.0 — mastering multiple types)
-    novelty_bonus = 2.0 if exp_count == 0 else 0.0
+    # CALIBRATION STATUS (S391, F-EXP10, SIG-32):
+    # Empirical R² = -0.089 — structural features have ZERO predictive power for L/lane.
+    # UCB1 exploit explains 17.6% (12x better). Structural score retained ONLY as
+    # tiebreaker for unvisited domains in UCB1 mode. Weights loaded from calibration
+    # artifact when available; fallback to legacy constants below.
+    #
+    # Legacy weights (pre-calibration, S347):
+    # iso_count * 1.5, lesson_count * 0.8, belief_count * 1.5, principle_count * 1.5,
+    # resolved * 2.0, active * 1.5, novelty +2.0, has_index +1.0, concept_types * 2.5
+    #
+    # Empirically derived weights (S391, n=267 lanes, 28 domains):
+    # iso: 0.11 (14x lower), lessons: -0.03 (WRONG sign), beliefs: 0.03,
+    # principles: -0.02 (WRONG sign), concept_types: 0.09, resolved: 0.01,
+    # active: -0.03 (WRONG sign), novelty: 0.00, has_index: 0.37
+    cal = _load_calibration()
+    if cal and cal.get("weights"):
+        w = cal["weights"]
+    else:
+        w = {"iso": 1.5, "lessons": 0.8, "beliefs": 1.5, "principles": 1.5,
+             "concept_types": 2.5, "resolved": 2.0, "active": 1.5,
+             "novelty": 2.0, "has_index": 1.0}
+
+    novelty_bonus = w.get("novelty", 2.0) if exp_count == 0 else 0.0
     concept_types = sum([
         iso_count > 0,
         lesson_count > 0,
@@ -559,15 +609,15 @@ def score_domain(domain: str) -> dict | None:
         exp_count > 0,
     ])
     score = (
-        iso_count * 1.5
-        + lesson_count * 0.8
-        + belief_count * 1.5
-        + principle_count * 1.5
-        + concept_types * 2.5
-        + resolved_count * 2.0
-        + active_count * 1.5
+        iso_count * w.get("iso", 1.5)
+        + lesson_count * w.get("lessons", 0.8)
+        + belief_count * w.get("beliefs", 1.5)
+        + principle_count * w.get("principles", 1.5)
+        + concept_types * w.get("concept_types", 2.5)
+        + resolved_count * w.get("resolved", 2.0)
+        + active_count * w.get("active", 1.5)
         + novelty_bonus
-        + (1.0 if has_index else 0.0)
+        + (w.get("has_index", 1.0) if has_index else 0.0)
     )
 
     # Extract first open frontier description (dispatch target)
@@ -1060,9 +1110,17 @@ def run(args: argparse.Namespace) -> None:
     if exploration_on:
         print(f"  Exploration boost: +{EXPLORATION_NEW_BOOST} unvisited, +{EXPLORATION_COLD_BOOST} dormant")
 
-    print(f"\n--- Scoring formula (multi-concept, S347 + coverage S358 + cooldown S370) ---")
+    cal = _load_calibration()
+    cal_status = f"CALIBRATED (S{cal['calibrated_session']}, R²={cal.get('regression_r_squared', '?')})" if cal else "UNCALIBRATED (legacy weights)"
+    print(f"\n--- Scoring formula ({cal_status}) ---")
     print("  Columns: Act=active frontiers, Res=resolved, ISO=isomorphisms, L=lessons, B=beliefs, P=principles, CT=concept types")
-    print("  score = iso*1.5 + lessons*0.8 + beliefs*1.5 + principles*1.5 + concept_types*2.5 + resolved*2 + active*1.5 + novelty(2) + index(1)")
+    if cal and cal.get("weights"):
+        w = cal["weights"]
+        print(f"  score = iso*{w.get('iso', '?')} + lessons*{w.get('lessons', '?')} + beliefs*{w.get('beliefs', '?')} + principles*{w.get('principles', '?')} + concept_types*{w.get('concept_types', '?')} + resolved*{w.get('resolved', '?')} + active*{w.get('active', '?')} + novelty + index*{w.get('has_index', '?')}")
+        print(f"  NOTE: Structural R²=-0.089 (S391). These weights are tiebreakers, not predictors. UCB1 exploit is the real signal.")
+    else:
+        print("  score = iso*1.5 + lessons*0.8 + beliefs*1.5 + principles*1.5 + concept_types*2.5 + resolved*2 + active*1.5 + novelty(2) + index(1)")
+        print(f"  WARNING: Uncalibrated legacy weights. Run --recalibrate to derive from outcome data.")
     print(f"  + dormant_bonus(+{DORMANT_BONUS} if >5 sessions cold, +{FIRST_VISIT_BONUS} if never visited) - heat_penalty(up to -{HEAT_PENALTY_MAX} if <3 sessions)")
     print(f"  - cooldown(max -{COOLDOWN_MAX_PENALTY}, linear decay over {COOLDOWN_SESSIONS} sessions) [L-671: hard rotation]")
     print(f"  - visit_saturation({VISIT_SATURATION_SCALE} × ln(1+n)) + exploration_boost(Gini>{EXPLORATION_GINI_THRESHOLD})")
@@ -1122,7 +1180,18 @@ def main() -> None:
                        help="Run both modes and show comparison")
     parser.add_argument("--wave-plan", action="store_true",
                        help="Show prescriptive per-frontier wave plan (F-STR3)")
+    parser.add_argument("--recalibrate", action="store_true",
+                       help="Re-derive dispatch weights from outcome data (F-EXP10, SIG-32)")
     args = parser.parse_args()
+    if args.recalibrate:
+        cal = _recalibrate()
+        if cal:
+            print(f"\nCalibration updated: {CALIBRATION_FILE}")
+            print(f"  R²: {cal.get('regression_r_squared', '?')}")
+            print(f"  From: {cal.get('calibrated_from_n_lanes', '?')} lanes, {cal.get('calibrated_from_n_domains', '?')} domains")
+        else:
+            print("Calibration failed.", file=sys.stderr)
+        return
     run(args)
 
 
