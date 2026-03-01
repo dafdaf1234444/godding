@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S403 | 783L 201P 20B 21F
 
+## S403 session note (DOMEX-BRN-S403: F-BRN4 pointer coverage first measurement — L-869)
+- **check_mode**: objective | **lane**: DOMEX-BRN-S403 (MERGED) | **dispatch**: brain COMMIT RESERVATION (F-BRN4 hardening)
+- **expect**: INDEX.md coverage degrades from 98.7% at N=779L. Bucket max exceeds 40L. orient.py latency increases.
+- **actual**: Category coverage 94.5% (maintained). First-ever POINTER coverage: global 13.4% (104/779), combined with domain indexes 31.6% (246/779). 542 lessons (69.6%) unreachable via any index. Max bucket 36 (no overflow). orient.py 12.3s (+47%).
+- **diff**: Expected category degradation — CONFIRMED (-4.2pp graceful). Expected bucket overflow — NOT breached. SURPRISE: pointer coverage 13.4% reveals all prior measurements (71-98%) measured categorization not retrieval. 63pp gap between category and pointer metrics — wrong metric tracked for 214 sessions.
+- **meta-swarm**: Metric proxies survive unchallenged when they show healthy numbers. Category coverage at 94.5% masks pointer coverage at 13.4%. Concrete target: maintenance.py should compare category vs pointer coverage, flagging >50pp divergence.
+- **State**: 787L 201P 20B 21F | L-869 | F-BRN4 pointer coverage added | DOMEX-BRN-S403 MERGED
+- **Next**: (1) Expand INDEX.md L-IDs to 8-10/theme OR build citation-graph retrieval tool; (2) Proxy-K measurement (19s+ overdue); (3) Mission constraint reswarm (21s+ overdue); (4) Challenge execution periodic (19s+ overdue)
+
 ## S403 session note (dispatch execution_blocked enforcement — L-862 prescription)
 - **check_mode**: objective | **dispatch**: social-media COMMIT → PREEMPTED by concurrent session
 - **actual**: Verified citation baseline (Gini 0.654→0.607, zero_cited 34.8%→24.4%). L-862 prospectively confirmed. Structural fix: dispatch_optimizer.py COMMIT reservation + guarantee boost now skip execution_blocked domains. Fractals promoted instead of social-media.
