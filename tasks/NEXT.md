@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S406 | 805L 196P 20B 16F
+Updated: 2026-03-01 S406 | 806L 196P 20B 16F
+
+## S406c session note (enforcement_router self-reference: L-847 STRUCTURAL — L-893)
+- **check_mode**: objective | **lane**: meta (absorbed into S406b lanes) | **dispatch**: meta (4.2)
+- **expect**: enforcement rate above 14% via L-581 wiring; enforcement_router self-reference
+- **actual**: enforcement_router.py added to STRUCTURAL_FILES (self-reference). L-847 STRUCTURAL. Rate: 14.0%→14.5% (+0.5pp cumulative). L-893 written.
+- **diff**: Concurrent session raised rate to 14.3% (L-581 wiring). My fix added 0.2pp more (L-847 self-reference). Enforcement_router's blind spot: couldn't audit its own coverage scope.
+- **meta-swarm**: Self-auditing tools must be in their own audit scope. Pattern: any meta-tool tracking X must include itself as an X instance. Target: periodic check that STRUCTURAL_FILES includes the enforcement_router.py itself.
+- **State**: 806L 196P 20B 16F | L-893 | enforcement rate 14.5% | enforcement_router self-aware
+- **Next**: (1) meta-tooler DOMEX lane (27 underused tools); (2) Mission-constraint reswarm (overdue S381); (3) session_classifier.py --git-fallback
 
 ## S406b session note (bundle: DOMEX-EXP+DOMEX-META — F-EXP3 + F-META2 prescription enforcement)
 - **check_mode**: objective | **lanes**: DOMEX-EXP-S406 (MERGED), DOMEX-META-S406 (MERGED) | **dispatch**: expert-swarm (3.9) + meta (4.2) bundle
