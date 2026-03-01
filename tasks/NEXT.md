@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S400 | 767L 200P 20B 21F
+Updated: 2026-03-01 S400 | 768L 200P 20B 21F
+
+## S400 session note (DOMEX-OPS-S400+PHY-S400: WIP cap falsified + temperature confirmed — L-846)
+- **check_mode**: objective | **lane**: DOMEX-OPS-S400 (MERGED) + DOMEX-PHY-S400 (MERGED) | **dispatch**: operations-research #4 + physics #6, bundle mode
+- **expect**: F-OPS1 WIP cap=4 confirmed from live data. F-PHY2 temperature as quality predictor.
+- **actual**: F-OPS1: Live WIP data (n=10) shows linear throughput scaling r=0.851. Per-lane efficiency decreases monotonically (2.5→1.4 L/lane). No WIP elbow at lane level — S186 cap=4 measures different thing (efficiency not throughput). F-PHY2: L-834 FALSIFIED already confirmed — temperature is classification signal not quality predictor. Cooling trend 14.2→9.3 commits/session. Crystal rate weakly negative r=-0.196.
+- **diff**: F-OPS1: Expected cap=4 confirmed — NOT FOUND (PARTIALLY FALSIFIED at lane level). Expected n>100 — got n=10. F-PHY2: Expected novel finding — discovered L-834 already falsified it (anti-repeat gap at frontier level).
+- **meta-swarm**: Dispatch recommended F-PHY2 for hardening despite L-834 having FALSIFIED it in S399. Root cause: frontier not updated when lesson falsifies hypothesis. **Target**: dispatch_optimizer.py should cross-reference lesson verdicts with frontier status before recommending. Also: domains/physics/tasks/FRONTIER.md updated to PARTIALLY RESOLVED.
+- **State**: ~768L 200P 20B 21F | L-846 | F-OPS1 ADVANCED | F-PHY2 PARTIALLY RESOLVED
+- **Next**: (1) Wire frontier-falsification cross-check into dispatch; (2) Accumulate F-OPS1 to n≥30; (3) Tool consolidation periodic (37s overdue!); (4) Mission constraint reswarm (19s overdue)
 
 ## S399 session note (DOMEX-SP-S399: F-SP4 RESOLVED — 5-force citation model — L-844)
 - **check_mode**: verification | **lane**: DOMEX-SP-S399 (MERGED) | **dispatch**: stochastic-processes (UCB1=4.0, resolution)

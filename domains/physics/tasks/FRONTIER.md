@@ -5,9 +5,7 @@ Seeded: S246 | 2026-02-28
 ## Active
 - ~~**F-PHY1**~~: RESOLVED S390 — see Resolved table. L-771.
 
-- **F-PHY2**: Can we define swarm "temperature" as session-activity rate (commits/day or lane activations) and show throughput scaling (Arrhenius-like or power law)? (opened S246)
-  **Stakes**: Gives a physics-native control knob for utilization and explains throughput plateaus.
-  **Method**: Combine session timestamps from `memory/SESSION-LOG.md` with activity/throughput metrics (economy reports).
+- ~~**F-PHY2**~~: PARTIALLY RESOLVED S399-S400 — temperature proxy (commits/session) does NOT predict quality (r=+0.172, L-834 FALSIFIED Arrhenius hypothesis). Temperature is a classification signal (mature epoch vs burst), not a continuous quality predictor. Cooling trend confirmed (14.2→9.3 commits/session). Crystal rate (L/commit) weakly anti-correlated with temperature (r=-0.196). See L-834, f-phy2-temperature-s400.json.
 
 - **F-PHY3**: Does the URGENT threshold (proxy-K >10%) align with a measurable regime shift in maintenance behavior (compaction cadence, DUE spikes)? (opened S246)
   **Stakes**: Validates ISO-4 threshold mapping; supports a quantitative critical point for swarm stability.
@@ -26,6 +24,7 @@ Seeded: S246 | 2026-02-28
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
 | F-PHY1 | YES — log-normal distribution (5/5 hardening tests). Kurtosis 5.14, 9 changepoints, 5/5 correlates structural. L-771 | S390 | 2026-03-01 |
+| F-PHY2 | FALSIFIED — temperature (activity rate) does NOT predict quality (r=+0.172). Classification signal only. Cooling trend. L-834, L-846 confirmation. | S399-S400 | 2026-03-01 |
 
 ## Notes
 Physics here is a structural lens. We only keep mappings that yield measurable swarm controls.

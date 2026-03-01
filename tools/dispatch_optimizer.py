@@ -538,7 +538,7 @@ def _get_domain_outcomes() -> dict[str, dict]:
     Outcome feedback: reward proven domains, flag struggling ones.
     """
     outcomes: dict[str, dict] = {}
-    # Read both active lanes and archive for complete outcome history (L-562, F-EXP10)
+    # Read both active lanes and archive for complete outcome history (L-562, L-572, F-EXP10)
     contents = []
     for f in (LANES_FILE, LANES_ARCHIVE):
         if f.exists():
@@ -705,7 +705,7 @@ def _ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
                 current_session: int, claimed: set[str],
                 campaign_waves: dict[str, dict] | None = None,
                 c: float = 1.414, cold_floor_pct: float = 0.20) -> list[dict]:
-    """Score domains using UCB1 multi-armed bandit formula (F-ECO5, L-697).
+    """Score domains using UCB1 multi-armed bandit formula (F-ECO5, L-543, L-697).
 
     Replaces 10+ heuristic constants (HEAT_DECAY, COOLDOWN_MAX_PENALTY,
     DORMANT_BONUS, VISIT_SATURATION_SCALE, EXPLORATION_GINI_THRESHOLD, etc.)
