@@ -10,8 +10,7 @@ Updated: 2026-03-01 S403 | Active: 2
 - **S402** (L-862): Two bifurcation classes identified: Class A (WIP capacity ~20), Class B (enforcement step at S393).
 - **S403 era-controlled** (L-863, n=1029): **Class A FALSIFIED** — late-era (S331+) WIP response surface FLAT: 95.2%/91.9%/92.0%/93.3% across WIP bands 1-3/4-6/7-9/10+. Class B CONFIRMED. **PARTIALLY RESOLVED**. Artifact: `experiments/fractals/f-fra2-bifurcation-s403.json`.
 
-- **F-FRA3**: Can a fractal-complexity proxy predict when coordination overhead will dominate throughput? Design: define boundary-growth metrics from active-lane topology and compare against quality/throughput degradation windows. (S186)
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
-| None | - | - | - |
+| F-FRA3 | FALSIFIED — coordination surface (WIP×N_domains) adds no predictive power over raw WIP (AUC delta=-0.017, r weaker). Era/enforcement maturity (L-601) dominates all continuous topology metrics. Fractal boundary-growth metaphor inapplicable: quality function is step-shaped (discrete enforcement events), not continuous. L-868. | S403 | 2026-03-01 |

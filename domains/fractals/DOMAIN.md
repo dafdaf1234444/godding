@@ -14,7 +14,7 @@ Only fractal concepts with direct structural isomorphisms to swarm operation qua
 | Fractal concept | Swarm parallel | Isomorphism type | Status |
 |-----------------|----------------|------------------|--------|
 | Self-similarity | Similar lane-level patterns reappear at session/domain/multiswarm levels | Multi-scale invariance | OBSERVED |
-| Fractal dimension | Boundary complexity of active work versus merged output | Complexity-density metric | THEORIZED |
+| Fractal dimension | Boundary complexity of active work versus merged output | Complexity-density metric | FALSIFIED (L-868: coordination surface proxy has no predictive power) |
 | Bifurcation point | Small threshold changes (for example WIP caps/guards) flip stable operating regimes | Phase-transition control | OBSERVED |
 | Iterated map | Expect -> act -> diff repetition generates emergent long-run structure | Recursive dynamics | OBSERVED |
 | Attractor basin | Stable policy modes pull execution toward recurring lane-state patterns | Dynamic attractor model | THEORIZED |

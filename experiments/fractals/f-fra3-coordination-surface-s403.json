@@ -1,0 +1,86 @@
+{
+  "experiment": "F-FRA3: Fractal-complexity proxy \u2014 coordination surface",
+  "session": "S403",
+  "frontier": "F-FRA3",
+  "mode": "hardening",
+  "date": "2026-03-01",
+  "method": "Parsed SWARM-LANES.md + archive (n=1043 total lanes, 1040 closed, 155 sessions). Coordination surface = WIP \u00d7 N_domains per session. AUC comparison for merge<80% prediction. Era-controlled (early/mid/late). Pearson r for correlation.",
+  "hypotheses": {
+    "H1_auc_improvement": {
+      "prediction": "AUC(coordination surface) > AUC(WIP) + 0.05",
+      "threshold": "delta \u2265 0.05",
+      "result": "AUC(CS)=0.7173 vs AUC(WIP)=0.7344, delta=-0.0171",
+      "verdict": "FALSIFIED"
+    },
+    "H2_crossover_alignment": {
+      "prediction": "Crossover point at CS ~20-30 aligns with L-629 ceiling",
+      "threshold": "L/lane decline at CS 20-30",
+      "result": "CS 26-36 merge=55.4%, CS 37+ merge=63.2% — but driven by early-era sessions (CS_avg=941). Late-era CS range (4-25) is flat at 84-97% merge. No clean crossover within mature era.",
+      "verdict": "FALSIFIED"
+    },
+    "H3_scale_invariance": {
+      "prediction": "r(CS, merge) stronger than r(WIP, merge)",
+      "threshold": "|r(CS)| > |r(WIP)|",
+      "result": "r(CS,merge)=-0.0945, r(WIP,merge)=-0.1687",
+      "verdict": "FALSIFIED"
+    }
+  },
+  "data": {
+    "n_total_lanes": 1043,
+    "n_closed_lanes": 1040,
+    "n_sessions": 155,
+    "auc_wip": 0.7344,
+    "auc_cs": 0.7173,
+    "auc_delta": -0.0171,
+    "r_cs_merge": -0.0945,
+    "r_wip_merge": -0.1687,
+    "crossover_bucket": "26-36",
+    "degraded_sessions": 27,
+    "total_sessions": 155
+  },
+  "era_controlled": {
+    "early (<S200)": {
+      "n": 15,
+      "avg_cs": 941.4,
+      "avg_wip": 32.1,
+      "avg_merge_pct": 75.0
+    },
+    "mid (S200-S330)": {
+      "n": 77,
+      "avg_cs": 29.4,
+      "avg_wip": 3.5,
+      "avg_merge_pct": 84.4
+    },
+    "late (S331+)": {
+      "n": 63,
+      "avg_cs": 21.9,
+      "avg_wip": 4.6,
+      "avg_merge_pct": 93.7
+    }
+  },
+  "findings": [
+    "n=1040 closed lanes across 155 sessions. Coordination surface (WIP*N_domains) DOES NOT improve quality prediction over raw WIP.",
+    "H1 FALSIFIED: AUC delta = -0.0171 (CS=0.7173 vs WIP=0.7344). CS is WORSE, not better.",
+    "H2 FALSIFIED: Crossover at CS=26-36 is entirely early-era (CS_avg=941.4). Late-era CS range (4-25) shows flat 84-97% merge — no crossover.",
+    "H3 FALSIFIED: r(CS, merge) = -0.0945 vs r(WIP, merge) = -0.1687. WIP captures MORE variance, not less.",
+    "Domain diversity gradient weak: 1-domain 93%, 3-domain 82%, 4-7 domain 86-93%. Vanishes after era control.",
+    "Root cause: era/protocol maturity (L-601 enforcement) dominates all continuous topology metrics. Fractal boundary-growth metaphor does not apply — quality degradation is driven by discrete enforcement transitions, not continuous complexity growth.",
+    "Degraded sessions (merge<80%): 27/155 (17.4%). All 3 hypotheses FALSIFIED — strongest negative result in fractals domain."
+  ],
+  "science_quality_score": {
+    "pre_registered": 1,
+    "falsifiable": 1,
+    "external": 0,
+    "replicated": 0,
+    "significance_tested": 0,
+    "total": "2/5 (40%)"
+  },
+  "cites": [
+    "L-629",
+    "L-863",
+    "L-606",
+    "L-862",
+    "F-FRA3",
+    "F-OPS1"
+  ]
+}

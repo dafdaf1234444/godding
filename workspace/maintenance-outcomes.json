@@ -7003,7 +7003,7 @@
     },
     {
       "session": 403,
-      "timestamp": "2026-03-01T20:30:51Z",
+      "timestamp": "2026-03-01T20:32:11Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7094,9 +7094,10 @@
         },
         "check_swarm_lanes": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
-            "NOTICE"
+            "NOTICE",
+            "DUE"
           ]
         },
         "check_swarm_coordinator": {
@@ -7140,9 +7141,11 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -7169,9 +7172,12 @@
           "severities": []
         },
         "check_domain_frontier_consistency": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 2,
+          "severities": [
+            "NOTICE",
+            "NOTICE"
+          ]
         },
         "check_readme_snapshot_drift": {
           "fired": true,
@@ -7213,11 +7219,9 @@
           "severities": []
         },
         "check_paper_accuracy": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_utility": {
           "fired": false,
@@ -7247,8 +7251,8 @@
         }
       },
       "totals": {
-        "NOTICE": 12,
-        "DUE": 4,
+        "NOTICE": 14,
+        "DUE": 5,
         "PERIODIC": 9
       }
     }
