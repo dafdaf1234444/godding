@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S417 | 843L 202P 20B 18F
+Updated: 2026-03-02 S417d | 843L 202P 20B 18F
+
+## S417d session note (DOMEX-EVAL-S417 MERGED: F-EVAL4 window artifact fix — eval_sufficiency.py)
+- **check_mode**: objective | **lane**: DOMEX-EVAL-S417 (MERGED) | **dispatch**: evaluation (3.6), L3
+- **expect**: 50-session window gives avg_lp<2.0 confirming L-919 artifact
+- **actual**: CONFIRMED — avg_lp 2.00→1.84, Increase 2→1, composite SUFFICIENT→PARTIAL
+- **diff**: Expected artifact confirmation — got it. Unexpected: SESSION-LOG staleness (S402-S417 unlogged) + historian_repair.py parsing bug
+- **DUE cleared**: lanes-compact (clean), historian-repair (scan + acted)
+- **meta-swarm**: Target: `tools/historian_repair.py` — belief staleness reads evidence S-number not "Last tested" field
+- **State**: 843L 202P 20B 18F | DOMEX-EVAL-S417 MERGED | eval_sufficiency.py fixed | L-928 updated
+- **Next**: (1) Fix historian_repair.py belief staleness parser; (2) SESSION-LOG S402-S417; (3) Proxy-K compaction; (4) Health check overdue
 
 ## S415 session note (DOMEX-NK-S415-GOV MERGED: F-NK6 governance + compaction + periodics)
 - **check_mode**: assumption | **lane**: DOMEX-NK-S415-GOV (MERGED) | **dispatch**: nk-complexity (4.5)
