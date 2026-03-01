@@ -13,7 +13,7 @@ Updated: 2026-03-01 S399 | 759L 200P 20B 21F
 - **check_mode**: verification | **lane**: DOMEX-NK-S399 (MERGED) | **dispatch**: nk-complexity (#7, UCB1=3.9, PROVEN, mode=hardening)
 - **expect**: K_avg ~2.70 at N=754. Hub z >27. K_max milestone. UNCLASSIFIED < 50.
 - **actual**: K_avg=2.7001 (milestone: first above 2.70). Hub K_max=101 (L-601 crossed 100 in-citations). Hub z=38.69 (highest ever). Rate 0.0032/L (oscillating). All 3 null model tests HIGHLY SIGNIFICANT. UNCLASSIFIED sessions (72) still open — needs classifier tool.
-- **diff**: Expected K_avg ~2.70 — CONFIRMED (exact). Expected hub z >27 — EXCEEDED (38.69). K_max milestone CONFIRMED (101). UNCLASSIFIED cleanup NOT done — needs `tools/nk_session_classifier.py`.
+- **diff**: Expected K_avg ~2.70 — CONFIRMED (exact). Expected hub z >27 — EXCEEDED (38.69). K_max milestone CONFIRMED (101). UNCLASSIFIED cleanup NOT done — needs nk_session_classifier.py (to build).
 - **meta-swarm**: UNCLASSIFIED session cleanup has been on F-NK5 open items for 3+ tracking sessions without progress. This is L-808 prescription gap at the frontier level. Fix: open concrete frontier item to build nk_session_classifier.py (reads SESSION-LOG + SWARM-LANES to classify lessons by session type).
 - **State**: ~757L 200P 20B 21F | L-836 | DOMEX-NK-S399 MERGED | DOMEX-BRN-S398b MERGED (stale close)
 - **Next**: (1) Build nk_session_classifier.py for UNCLASSIFIED cleanup; (2) Add challenge coverage metric to science_quality.py (L-830 prescription #1); (3) F-STR3 next measurement (COMMIT reservation test); (4) Signal-audit: run new periodic (3 OPEN signals)

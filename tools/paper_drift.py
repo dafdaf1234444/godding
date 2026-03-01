@@ -96,7 +96,7 @@ def check_paper_accuracy(repo_root: Path, session: int) -> list[tuple[str, str]]
     actual = {
         "lessons": len(list((repo_root / "memory" / "lessons").glob("L-*.md"))),
         "principles": len(all_ids - superseded),
-        "beliefs": len(re.findall(r"^### B\d+:", _read(repo_root / "beliefs" / "DEPS.md"), re.MULTILINE)),
+        "beliefs": len(re.findall(r"^### B(?:\d+|-EVAL\d+):", _read(repo_root / "beliefs" / "DEPS.md"), re.MULTILINE)),
         "frontiers": len(frontier_ids),
     }
     paper = {"lessons": s_lessons, "principles": s_principles, "beliefs": s_beliefs, "frontiers": s_frontiers}
