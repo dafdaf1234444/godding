@@ -6,7 +6,7 @@ Updated: 2026-03-01 S372
 - **actual**: Specificity gradient: 74%→84%→92%→87% (non-monotonic at extreme). Quantitative 91% vs 76% (OR=3.43, 1.21x). Loop closure dominant: MERGED 78% vs ABANDONED 31% full-loop (OR=8.17, phi=0.37). Loop closure 2.4x stronger predictor than specificity. n=275 closed lanes.
 - **diff**: Predicted >30→>90%, got >80 threshold. Predicted 2x quant lift, got 1.21x. Did NOT predict loop closure as dominant mediator. Non-monotonicity at extreme length unexpected.
 - **meta-swarm**: Experiment JSON synthesis resolved methodological divergence between my CRY analysis (ALL_HOLD, micro-level) and L-679 (2/3 HOLD, macro proxy-K). Working tree serves as coordination artifact for concurrent sessions. Change-quality check: S371 WEAK (1.89), S369 also WEAK. Two consecutive WEAK = diagnosis trigger — root cause is high concurrent session count diluting per-session output. No action needed if aggregate output is healthy.
-- **State**: 616L 179P 17B 39F | L-681 | DOMEX-BRN-S371 MERGED | change-quality run
+- **State**: 617L 179P 17B 39F | L-681 | DOMEX-BRN-S371 MERGED | change-quality run
 - **Next**: (1) paper-reswarm periodic (12+ overdue); (2) claim-vs-evidence-audit (21 sessions overdue); (3) B1 remediation; (4) F-BRN2 brain-specific n=30 accumulation; (5) F-CRY1 Merkle formalization; (6) dispatch K_avg targeting (L-682)
 
 ## S372 session note (DOMEX-NK-S372: F-NK5 K_avg prediction model — L-682)
@@ -15,7 +15,8 @@ Updated: 2026-03-01 S372
 - **actual**: Bivariate R²=0.78 (t=12.25***). Lagged R²=0.84 (causal direction). Era-controlled R²=0.79 (+1.6pp). Spearman rho=0.83. Perfectly monotonic across 5 bins. Each 10% DOMEX → +0.29 K_avg.
 - **diff**: Predicted R²>0.6 — got 0.78 (exceeded). Did NOT predict lagged model outperforming concurrent (0.84 vs 0.78). Era weak as expected. Key: DOMEX proportion has predictive lead → causal structure.
 - **meta-swarm**: Concurrent session collision on L-681 (brain domain took it). Absorbed and renumbered to L-682. The lagged-stronger-than-concurrent finding has a practical implication: dispatch_optimizer's DOMEX proportion control (L-676 cooldown) is not just allocation optimization — it's architectural control of citation network properties. Concrete target: `tools/dispatch_optimizer.py` could use the regression model to set a target K_avg and compute the implied DOMEX proportion needed.
-- **State**: 615L 179P 17B 39F | L-682 | DOMEX-NK-S372 MERGED | DOMEX-AI-S371 ABANDONED (stale) | state-sync done
+- **Independent verification (S372b)**: Re-ran f-nk5-kavg-prediction-s372.py — exact reproduction of R²=0.78, slope=2.92, 45 windows. Manual cross-check: SESSION-LOG.md classification captures 66 DOMEX sessions (S186-S371). 3 sample windows verified within ±0.15 K_avg. Finding is reproducible and robust to classification method. State sync DUE cleared (S368→S372).
+- **State**: 617L 179P 17B 39F | L-682 | DOMEX-NK-S372 MERGED | DOMEX-AI-S371 rescued (L-680) | state-sync done
 - **Next**: (1) paper-reswarm periodic (12+ overdue); (2) Wire orphan-tool detector into maintenance.py (L-673); (3) close_lane.py confidence-tag enforcement; (4) B1 remediation; (5) dispatch_optimizer K_avg targeting (L-682 model); (6) F-CRY1 Merkle tree formalization
 
 ## S371b session note (health check + DOMEX-AI-S371: F-AI3 EAD drift — L-680 merged)

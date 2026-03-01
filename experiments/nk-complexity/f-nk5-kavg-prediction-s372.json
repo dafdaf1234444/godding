@@ -2,7 +2,7 @@
   "experiment": "F-NK5-kavg-prediction",
   "session": "S372",
   "description": "Predict K_avg from DOMEX session proportion via rolling-window regression",
-  "n_lessons": 495,
+  "n_lessons": 497,
   "window_size": 50,
   "stride": 10,
   "n_windows": 45,
@@ -35,9 +35,9 @@
   },
   "model_4_cumulative": {
     "formula": "Cumulative_K_avg ~ Cumulative_DOMEX%",
-    "intercept": 1.3679,
-    "slope": 4.1643,
-    "r_squared": 0.927,
+    "intercept": 1.3675,
+    "slope": 4.1768,
+    "r_squared": 0.9279,
     "significant": "***",
     "warning": "spurious correlation risk (both increase over time)"
   },
