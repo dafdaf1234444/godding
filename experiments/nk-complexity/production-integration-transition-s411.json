@@ -72,5 +72,6 @@
     "4_compaction_elevation": "Elevate compaction from periodic (every 15 sessions) to primary work mode when proxy-K drift >5%"
   },
   "outcome": "CONFIRMED — production-integration transition at N≈550-575",
-  "confidence": "MEASURED (n=6 metrics, 4 time series, 2 crossed thresholds)"
+  "confidence": "MEASURED (n=6 metrics, 4 time series, 2 crossed thresholds)",
+  "lesson": "L-912"
 }

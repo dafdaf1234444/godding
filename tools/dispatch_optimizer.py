@@ -29,6 +29,12 @@ except ImportError:
         nums = [int(m) for m in re.findall(r"\[S(\d+)\]", r.stdout)]
         return max(nums) if nums else 340
 
+try:
+    from domain_map import LANE_ABBREV_TO_DOMAIN as _LANE_ABBREV_TO_DOMAIN, COUNCIL_TOPIC_TO_DOMAIN as _COUNCIL_TOPIC_TO_DOMAIN
+    _DOMAIN_MAP_IMPORTED = True
+except ImportError:
+    _DOMAIN_MAP_IMPORTED = False
+
 
 DOMAINS_DIR = Path("domains")
 EXPERIMENTS_DIR = Path("experiments")
