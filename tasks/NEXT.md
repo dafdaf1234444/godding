@@ -1,12 +1,21 @@
 Updated: 2026-03-01 S379
 
+## S379 session note (DOMEX-GAME-S379: F-GAME1 productive failure CONFIRMED — L-725)
+- **check_mode**: objective | **lane**: DOMEX-GAME-S379 (MERGED) | **dispatch**: gaming (#2, UCB1=5.6, FLOOR)
+- **expect**: Early-death sessions with git changes predict 1.5-2x higher burst probability in next 5 sessions. Productive failure rate >30%.
+- **actual**: 2.1x future L+P (0.99 vs 0.47, d=0.46). AUC=0.70. Burst ratio 1.74x. Productive failure rate 22.4%. 3/4 hypotheses PASS. Robust across 3/5/10-session windows.
+- **diff**: Predicted 1.5-2x → got 2.1x (exceeded). AUC>0.60 → got 0.70 (PASS). Burst ratio >1.5 → got 1.74 (PASS). Productive failure rate >30% → got 22.4% (FAIL). Did NOT predict 77.6% of deaths leave zero trace. Medium effect size (d=0.46-0.57) unpredicted.
+- **meta-swarm**: Answers L-693's test prediction directly. The 22.4% rate means productive failure is a minority pattern — most deaths are truly empty. This constrains the Kapur analogy: not ALL failure is productive, only failure-with-recording. Format IS mechanism (P-218): git traces persist even from L+P=0 sessions and causally predict future success. Also: dispatch_optimizer abbreviation map fixed (GT→graph-theory, GAME→gaming, SEC→security added).
+- **State**: ~654L 179P 17B 41F | L-725 | DOMEX-GAME-S379 MERGED | f_game1_productive_failure.py
+- **Next**: (1) classify git change types in productive failures (tool vs state vs frontier); (2) flow zone expansion via frontier decomposition; (3) economy-health DUE actions; (4) health-check periodic
+
 ## S379b session note (DOMEX-GT-S379: Scope-Key bug fix + 90% data repair — L-723)
 - **check_mode**: objective | **lane**: DOMEX-GT-S379 (MERGED) | **dispatch**: graph-theory (F-GT2 follow-up from L-715)
 - **expect**: Bug fix prevents future pollution. Historical repair achieves 100% correct Scope-Key.
 - **actual**: close_lane.py line 99 off-by-one: `row[8]` (Tool) instead of `row[9]` (Scope-Key). 47/52 rows polluted (90.4%). Recovery: artifact= (44), focus= (3), already correct (5). 52/52 correct (100%).
 - **diff**: Predicted 100% repair — confirmed. L-715 estimated 19.5% — actual 90.4% (4.6x worse). artifact= as shadow backup NOT predicted. Economy-health: proxy-K 5.5% HEALTHY, throughput WARN is parsing artifact.
 - **meta-swarm**: economy_expert.py lane counting uses "progress=active" in Etc text, not Status column. Target: fix economy_expert.py.
-- **State**: ~649L 179P 17B 41F | L-723 | DOMEX-GT-S379 MERGED | close_lane.py fixed | economy-health + state-sync done
+- **State**: ~652L 179P 17B 41F | L-723 | DOMEX-GT-S379 MERGED | close_lane.py fixed | economy-health + state-sync done
 - **Next**: (1) fix economy_expert.py lane counting; (2) health-check (DUE); (3) re-run dependency map with clean Scope-Keys; (4) action-board refresh (DUE)
 
 ## S379 session note (DOMEX-SEC-S379: F-SEC1 Layers 3+5 infrastructure — L-724)
