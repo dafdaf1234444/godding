@@ -1,0 +1,57 @@
+{
+  "experiment": "F-STR3 wave planner prospective accuracy check",
+  "session": "S392",
+  "lane": "DOMEX-STR-S392c",
+  "frontier": "F-STR3",
+  "mode": "hardening",
+  "hypothesis": "Wave planner recommendations (COMMIT/CLOSE) are followed >=50% and mode= adoption >=30%",
+  "method": "Count explicit mode= fields in S389-S394 lanes. Track COMMIT and CLOSE recommendation follow-through against actual lanes opened. Measure mode-shift compliance.",
+  "results": {
+    "mode_adoption": {
+      "overall_s389_s394": "16/31 = 52%",
+      "post_build_s391_plus": "16/19 = 84%",
+      "post_build_excl_first_wave": "16/18 = 89%",
+      "by_session": {
+        "S389": "0/7 (0%, pre-build)",
+        "S390": "0/5 (0%, build session)",
+        "S391": "3/5 (60%, voluntary WARN)",
+        "S392": "7/7 (100%, voluntary adoption)",
+        "S393": "5/6 (83%, 1 exempt 1st-wave)",
+        "S394": "1/1 (100%)"
+      },
+      "note": "Voluntary adoption hit 100% by S392 BEFORE enforcement added in S393. Creation-time WARN sufficient when cost is low (single field)."
+    },
+    "commit_follow_through": {
+      "s389_danger_zone_5_frontiers": "5/5 = 100% (F-IS4, F-GT1, F-PHY1, F-GUE1, F-PRO1 all received 3rd waves)",
+      "s389_resolutions": "2/5 (F-PHY1 RESOLVED L-771, F-GUE1 CONFIRMED L-782)",
+      "current_commit_f_soc1_f_soc4": "0/2 = 0% (zero social-media lanes since S302)",
+      "aggregate": "5/7 = 71%"
+    },
+    "close_follow_through": {
+      "f_cc1_cryptocurrency": "0/1 = 0% (domain inactive 94+ sessions)",
+      "aggregate": "0/1 = 0%"
+    },
+    "mode_shift_compliance": {
+      "shifts": 10,
+      "repeats": 3,
+      "new_frontier_exempt": 3,
+      "rate_excl_new": "10/13 = 77%",
+      "dominant_pattern": "exploration -> hardening (9/10 shifts)",
+      "full_traversal_explore_harden_resolve": "0% (only 1 lane ever used mode=resolution)"
+    },
+    "campaign_totals": {
+      "total_campaigns": 93,
+      "resolved": "26 (28%)",
+      "unresolved_current": 8,
+      "valley_of_death_resolution": "11%"
+    }
+  },
+  "verdict": "PARTIAL — adoption exceeds targets (84% vs 30%), in-pipeline COMMIT 100%, but cold-domain recommendations 0% follow-through. Wave planner diagnoses correctly but cannot dispatch.",
+  "structural_gap": "Wave planner recommendations are advisory-only. UCB1 controls execution. For domains with exploit=0 (social-media, cryptocurrency), +1.5 danger boost insufficient to overcome 0.0 exploit term. Fix: inject COMMIT priorities as UCB1 floor, or accept cold domains require manual dispatch.",
+  "l601_partial_contradiction": "mode= voluntary adoption sustained at 100% before structural enforcement. Creation-time WARNs with low adoption cost can sustain compliance — L-601 may have a cost threshold below which voluntary protocols persist.",
+  "prescriptions": [
+    "Add UCB1 floor for COMMIT-flagged frontiers (minimum score = median domain score)",
+    "Or: flag cold-domain COMMITs in orient.py DUE section for human/manual dispatch",
+    "Track full explore->harden->resolve traversal rate as F-STR3 health metric"
+  ]
+}
