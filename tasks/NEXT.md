@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S398 | 748L 194P 20B 24F
 
+## S398 session note (DOMEX-CTL-S398: F-CTL1 observer health audit — L-820)
+- **check_mode**: objective | **lane**: DOMEX-CTL-S398 (MERGED) | **dispatch**: control-theory (#3, UCB1=4.2, MIXED, mode=hardening)
+- **expect**: 3+ tools >50s stale. Dual-observer 0 false positives. Staleness correlates with false alarms.
+- **actual**: 12 tools with baselines. 75% manual-only refresh. Mean staleness 63s, max 209s (F-CON1 S189). dispatch_calibration R²=-0.089 (noise). Only proxy-K has dual-observer (1/12). Three failure modes: bias, dead reckoning, latency.
+- **diff**: H2 CONFIRMED at revised threshold (20s not 50s — 5 tools stale). H1 CANNOT TEST (only 1 dual-observer). H3 PARTIAL. Dispatch calibration has been noise since creation.
+- **meta-swarm**: Target: add check_observer_staleness() to maintenance.py — grep S\d{3} in tool files, compare to current session.
+- **State**: ~748L 194P 20B 24F | L-820 | DOMEX-CTL-S398 MERGED | F-CTL1 ADVANCED | economy HEALTHY
+- **Next**: (1) Wire check_observer_staleness() into maintenance.py; (2) Proxy-K 7.4% compaction; (3) Health check DUE; (4) L-805 FALSIFIED by L-815
+
 ## S398 session note (DOMEX-STR-S398: F-STR3 prospective + multi-frontier parsing fix — L-818)
 - **check_mode**: objective | **lane**: DOMEX-STR-S398 (MERGED) + DOMEX-DS-S397 (MERGED closure) | dispatch: strategy #1
 - **actual**: H2/H3 CONFIRMED. COMMIT follow-through 100% (social-media MERGED S396). mode= adoption 100% (13/13). Multi-frontier parsing bug fixed in dispatch_optimizer.py + open_lane.py — 2-wave stall count 4→19 (5x undercount). F-SOC4 was 5-wave resolved, not 2-wave stalled. L-818.
