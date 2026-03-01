@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S374
 
+## S374b session note (task coordination: claim.py + task_order.py + orient.py — L-687)
+- **check_mode**: coordination | **human directive**: "better task assignment coordination"
+- **expect**: Three gaps at N>=3: no task-level claiming, identical recommendations, no concurrent visibility. Building all three enables automatic task divergence.
+- **actual**: All three built and tested. claim.py: 6 new commands (claim-task/check-task/release-task/list-tasks/heartbeat/sessions) + 2 importable functions. task_order.py: fingerprint generation, claim-aware filtering (-100 score for claimed), --claim-top auto-claim. orient.py: concurrent activity section showing sessions + task claims.
+- **diff**: No prediction errors — gaps were structural and obvious. Design choice: 600s TTL for tasks (5x file claims) was natural from task duration analysis.
+- **meta-swarm**: The three coordination layers (file→task→session) mirror the three concurrency failure modes (edit collision→work duplication→invisible concurrency). This is an isomorphism with defense-in-depth (security domain). Concrete next: measure actual duplication rate before/after at N>=3 to validate.
+- **State**: 621L 179P 17B 39F | L-687 | experiment: task-coordination-s374.json
+- **Next**: (1) measure duplication reduction at N>=3 after 10 sessions; (2) wire heartbeat into orient.py auto-call; (3) add claim-task to open_lane.py for automatic dispatch claiming
+
 ## S374 session note (DOMEX-FAR-S374: F-FAR3 monoculture HHI — L-686, verified + committed)
 - **check_mode**: objective | **lane**: DOMEX-FAR-S374 (MERGED) | **dispatch**: farming (#5, 35.9, DORMANT)
 - **expect**: HHI per 10-session window correlates negatively with L+P (r<-0.3). Monoculture windows (HHI>0.4) produce >20% less L+P than diversified windows.
