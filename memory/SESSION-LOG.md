@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S401	| 2026-03-01 | +2L (L-851) +0P | DOMEX-BRN-S401: F-BRN6 FULLY CHARACTERIZED — session-type mediates neuroplasticity directions. Consolidation 1.75x more P-productive; within-DOMEX forward 1.57x. Both macro directions mode-cycle epiphenomena. Brain isomorphism phase-level confirmed. 772L 200P.
 S385	| 2026-03-01 | +1L (L-751) +1P (P-239) | DOMEX-FLD-S385: F-FLD1 RESOLVED (regime classifier confirmed), F-FLD3 Bernoulli FALSIFIED (r=+0.354 reverses F-EVO1 r=-0.835). P-239 scope-neutrality. /swarm prescription updated. 680L 184P.
 S380	| 2026-03-01 | +1L (L-727) +0P | DOMEX-FLD-S380: F-FLD1 failure detection — Re_structural AUC=0.643 (below 0.70 target). Era dominates failure: Mature 0% vs Pre-DOMEX 31.6%. Productivity ≠ failure. L-727.
 S379	| 2026-03-01 | +1L (L-725) +0P | DOMEX-GAME-S379: F-GAME1 productive failure CONFIRMED — d=0.46, AUC=0.70, burst 1.74x. 22.4% productive failure rate. L-725.

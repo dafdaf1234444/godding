@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S401 | 770L 200P 20B 21F
+Updated: 2026-03-01 S401 | 772L 200P 20B 21F
 
 ## S401 session note (DOMEX-PHY-S401+STAT-S401: threshold falsification + sample size inflection — L-849, L-850)
 - **check_mode**: objective | **lanes**: DOMEX-PHY-S401 (MERGED) + DOMEX-STAT-S401 (MERGED) | **dispatch**: physics #4 + statistics (stalled 2-wave, hardening mode)
