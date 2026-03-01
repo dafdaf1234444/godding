@@ -234,18 +234,31 @@ def read_lanes() -> dict:
     if not lanes_path.exists():
         return {}
     text = lanes_path.read_text(encoding="utf-8")
-    # Only count statuses in table rows (lines starting with '|') to avoid
-    # false positives from header/legend lines that list the status names.
-    table_rows = "\n".join(l for l in text.splitlines() if l.startswith("|"))
-    active = len(re.findall(r"\bACTIVE\b", table_rows))
-    ready = len(re.findall(r"\bREADY\b", table_rows))
-    done = len(re.findall(r"\bDONE\b", table_rows))
-    blocked = len(re.findall(r"\bBLOCKED\b", table_rows))
-    total = active + ready + done + blocked
+    # Extract Status from the ACTUAL Status column, not by regex matching
+    # the whole row (which false-positives on Etc metadata like
+    # "progress=active").  The table format ends: ... | Etc | Status | Notes |
+    # so Status is always the third-from-last pipe-delimited field (cols[-3]),
+    # which is robust even if Etc contains extra '|' characters.
+    statuses: list[str] = []
+    for line in text.splitlines():
+        if not line.startswith("|") or line.startswith("| ---") or line.startswith("| Date"):
+            continue
+        cols = line.split("|")
+        # Minimum: | ... | Status | Notes | → at least 4 parts (empty, ..., Status, Notes, empty)
+        if len(cols) < 4:
+            continue
+        statuses.append(cols[-3].strip())
+    active = sum(1 for s in statuses if s == "ACTIVE" or s == "CLAIMED")
+    ready = sum(1 for s in statuses if s == "READY")
+    done = sum(1 for s in statuses if s == "MERGED")
+    abandoned = sum(1 for s in statuses if s == "ABANDONED")
+    blocked = sum(1 for s in statuses if s == "BLOCKED")
+    total = active + ready + done + abandoned + blocked
     return {
         "active": active,
         "ready": ready,
         "done": done,
+        "abandoned": abandoned,
         "blocked": blocked,
         "total": total,
         "throughput_rate": round(done / total, 3) if total else 0,
@@ -470,7 +483,8 @@ def _fmt(report: dict) -> None:
     if lanes:
         print(
             f"  Lanes: {lanes['active']} active | {lanes['ready']} ready"
-            f" | {lanes['done']} done | {lanes['blocked']} blocked"
+            f" | {lanes['done']} done | {lanes.get('abandoned', 0)} abandoned"
+            f" | {lanes['blocked']} blocked"
         )
         print(
             f"  Throughput:  {lanes['throughput_rate']:.0%}"

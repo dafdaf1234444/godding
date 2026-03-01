@@ -1,0 +1,107 @@
+{
+  "frontier": "F-STR2",
+  "session": "S381",
+  "domain": "strategy",
+  "hypothesis": "Plan-to-execution conversion predictable from gap and EAD compliance",
+  "method": "Parse SWARM-LANES.md for all DOMEX lanes, compute execution gap and EAD fields, correlate with outcome",
+  "results": {
+    "total_lanes": 29,
+    "merged": 21,
+    "abandoned": 3,
+    "conversion_rate": 72.4,
+    "mean_gap_merged": 0.48,
+    "mean_gap_abandoned": 5.0,
+    "gap_gt1_abandon_rate": 66.7,
+    "gap_le1_abandon_rate": 3.8,
+    "ead_compliance": 82.8,
+    "artifact_compliance": 3.4,
+    "ead_merged_rate": 42.9,
+    "ead_compliance_corrected": {
+      "expect": 86.7,
+      "actual": 86.7,
+      "artifact": 86.7,
+      "note": "First parse only checked first event per lane; corrected checks all events"
+    },
+    "note": "artifact= parsing initially checked only first event (3%); corrected to check all events (87%). EAD compliance is HIGH."
+  },
+  "per_domain": {
+    "LNG": {
+      "total": 1,
+      "merged": 0,
+      "rate": 0.0
+    },
+    "META": {
+      "total": 8,
+      "merged": 7,
+      "rate": 87.5
+    },
+    "ECO": {
+      "total": 1,
+      "merged": 1,
+      "rate": 100.0
+    },
+    "SP": {
+      "total": 1,
+      "merged": 1,
+      "rate": 100.0
+    },
+    "FLD": {
+      "total": 3,
+      "merged": 2,
+      "rate": 66.7
+    },
+    "SEC": {
+      "total": 5,
+      "merged": 4,
+      "rate": 80.0
+    },
+    "GT": {
+      "total": 2,
+      "merged": 2,
+      "rate": 100.0
+    },
+    "CAT": {
+      "total": 3,
+      "merged": 1,
+      "rate": 33.3
+    },
+    "STR": {
+      "total": 3,
+      "merged": 2,
+      "rate": 66.7
+    },
+    "GAME": {
+      "total": 1,
+      "merged": 1,
+      "rate": 100.0
+    },
+    "IC": {
+      "total": 1,
+      "merged": 0,
+      "rate": 0.0
+    }
+  },
+  "abandoned_detail": [
+    {
+      "lane": "DOMEX-LNG-S313",
+      "gap": 12,
+      "cause": "No execution in 4+ sessions. F-LNG1 already confirmed at n=359 (S313). F-LNG2 forward validation deferred \u2014 re-open when linguistics focus returns. L-"
+    },
+    {
+      "lane": "DOMEX-FLD-S376",
+      "gap": 1,
+      "cause": "stale \u2014 no artifact produced. Re-open when fluid-dynamics dispatched."
+    },
+    {
+      "lane": "DOMEX-META-S376c",
+      "gap": 2,
+      "cause": "stale \u2014 no artifact produced, scope collision with DOMEX-META2-S377"
+    }
+  ],
+  "prediction_test": {
+    "hypothesis": "gap > 1 session predicts abandonment with precision > 0.70",
+    "gt1_abandon_rate": 66.7,
+    "le1_abandon_rate": 3.8,
+    "result": "TESTED"
+  }
+}

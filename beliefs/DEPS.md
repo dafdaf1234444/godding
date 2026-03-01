@@ -32,12 +32,12 @@ B19 (async prevents cascade anchoring) — observed [ai]
 
 ---
 
-### B1: Git-as-memory works for storage; structured retrieval is PARTIALLY FALSIFIED at N=572
-- **Evidence**: observed — PARTIALLY FALSIFIED S359
+### B1: Git-as-memory works for storage; structured retrieval RECOVERED at N=657
+- **Evidence**: observed — RECOVERED S381 (was PARTIALLY FALSIFIED S359)
 - **Falsified if**: A session fails to recover state from git history after NEXT.md failure, OR INDEX.md-based retrieval misses >20% of lessons when queried by theme at current scale
 - **Depends on**: none
 - **Depended on by**: B2, B3, B6
-- **Last tested**: 2026-03-01 S359 (storage CONFIRMED 572L; retrieval FALSIFIED: 22.4% miss > 20% threshold, 0.038pp/lesson degradation. Fix: F-QC4 + INDEX.md backfill. L-636.)
+- **Last tested**: 2026-03-01 S381 (storage CONFIRMED 657L; retrieval RECOVERED: 17.5% miss < 20% threshold, down from 22.4% at N=572. INDEX.md backfill effective — degradation reversed +0.038→-0.058 pp/lesson. Explicit-ref navigability still 72.3%. L-636.)
 
 ### B2: Layered memory (always-load / per-task / rarely) prevents context bloat
 - **Evidence**: observed
