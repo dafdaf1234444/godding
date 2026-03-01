@@ -37,67 +37,66 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A session fails to recover state from git history after NEXT.md failure, OR INDEX.md-based retrieval misses >20% of lessons when queried by theme at current scale
 - **Depends on**: none
 - **Depended on by**: B2, B3, B6
-- **Last tested**: 2026-03-01 S381 (storage CONFIRMED 657L; retrieval RECOVERED: 17.5% miss < 20% threshold, down from 22.4% at N=572. INDEX.md backfill effective — degradation reversed +0.038→-0.058 pp/lesson. Explicit-ref navigability still 72.3%. L-636.)
+- **Last tested**: S381 (CONFIRMED — retrieval RECOVERED 17.5% miss, L-636)
 
 ### B2: Layered memory (always-load / per-task / rarely) prevents context bloat
 - **Evidence**: observed
 - **Falsified if**: A session following the layered protocol hits context limit before completing a standard task, OR sessions ignoring layering complete equivalent tasks at equal context cost
 - **Depends on**: B1
 - **Depended on by**: B7
-- **Last tested**: 2026-03-01 S392 (CONFIRMED N=710: 0 context-limit hits S341-S392 despite 430→710L growth. B1 dependency RECOVERED S381 to 17.5% miss rate. 85% context savings sustained. Layering protocol operationalized in INDEX.md "What to load when" + context_router.py. Qualification: B1b miss rate >19% would weaken per-task tier accuracy.)
+- **Last tested**: S392 (CONFIRMED — 0 context-limit hits despite 430→710L growth, 85% savings sustained)
 
 ### B3: Small commits aid backtracking and session handoff
 - **Evidence**: observed
 - **Falsified if**: Recovery from a broken-state session takes more tool calls with small commits than with large-batch commits, OR cross-session handoffs fail at equivalent rates regardless of commit granularity
 - **Depends on**: B1
 - **Depended on by**: B11
-- **Last tested**: 2026-03-01 S396 (re-test at N≥10 concurrency, 732L: CONFIRMED. L-526 proves at N≥3: small commits prevent staging absorption — concurrent sessions absorb large staged batches. S359 MEMORY.md: N≥8 staging failure mode. L-602: claim.py reduced 82% wasted commits. L-525 two-layer safety: small commits reduce overwrite window. 700+ commits since genesis with 0 backtracking regression. Falsification NOT met.)
+- **Last tested**: S396 (CONFIRMED — N≥10 concurrency, 700+ commits, 0 regressions, L-526)
 
 ### B6: The system's architecture is blackboard+stigmergy; "swarm" is brand name only
 - **Evidence**: observed
 - **Falsified if**: A coordination mechanism observed in ≥3 sessions cannot be classified as either blackboard or stigmergy, OR an alternative architecture model makes better predictions about observed coordination failures
 - **Depends on**: B1
 - **Depended on by**: B7, B8, B17, B19
-- **Last tested**: 2026-03-01 S395 (re-test: WEAKENED — base layer BB+stigmergy CONFIRMED (git, signals, lanes, claim.py all fit patterns). Upper-layer "emergent" claim overstated: council is synchronous deliberation, dispatch is centralized UCB1, self-application is prescribed meta-cycle — all explicitly engineered, not emergent from base. Refined framing: "base layer exhibits BB+stigmergy; upper layers are engineered governance." B7/B8/B17 dependents safe. B19 DANGEROUS — sync upper layers reintroduce cascade risk.)
-- **Dependency audit (S391)**: B7/B8 safe under refinement (architecture-agnostic evidence). B17 safe (evidence stands independently; B6 dependency is vestigial cross-reference). **B19 DANGEROUS under refinement** — sync upper layer (council/dispatch) reintroduces cascade anchoring that B19 claims async prevents. See COUNCIL-DEPS-S391.md.
+- **Last tested**: S395 (WEAKENED — base BB+stigmergy CONFIRMED; upper layers are engineered governance not emergent. B19 DANGEROUS — sync upper layers reintroduce cascade risk)
 
 ### B7: Regularly-invoked protocols compound system quality over time
 - **Evidence**: observed
 - **Falsified if**: Quality metrics (accuracy, swarmability, context load) show no improvement over 20+ consecutive protocol-following sessions, OR ad-hoc sessions achieve equivalent quality without protocol invocation
 - **Depends on**: B2, B6
 - **Depended on by**: B12, B16
-- **Last tested**: 2026-03-01 S381 (380 sessions: PCI 0.587, EAD 90%, 657L. Quality compounds — PCI 0.364→0.587 in 30 sessions. F-META1 RESOLVED (100% EAD post-enforcement). Falsification NOT met.)
+- **Last tested**: 2026-03-01 S398 (FALSIFICATION ATTEMPT — CONFIRMED. SciQ compounds: 0.019→0.247 (13x, n=417 experiments). Post-EAD SciQ acceleration 6.4x. PCI 0.950 vs SciQ 0.247 = 70pp gap — compliance 4x faster than quality. L/session peaked pre-enforcement (5.77→4.41, -23%). Falsification NOT met: quality improves monotonically. L-824.)
 
 ### B8: The frontier is a self-sustaining task generation mechanism
 - **Evidence**: observed
 - **Falsified if**: 5+ consecutive active sessions close frontiers without generating new ones, OR new frontier questions consistently require external injection rather than emerging from work
 - **Depends on**: B6
-- **Last tested**: 2026-03-01 S381 (152 total frontiers: 42 active + 110 resolved; resolution rate 88%. Self-sustaining confirmed at 380+ sessions. 36/36 domains generating frontiers via UCB1 dispatch. Falsification condition "5+ consecutive sessions close without opening" NOT met.)
+- **Last tested**: S381 (CONFIRMED — 152 frontiers, 88% resolution, 36/36 domains generating via UCB1)
 
 ### B9: K_avg*N+Cycles is a reliable predictor of software maintenance burden across different codebases and languages
 - **Evidence**: observed
 - **Falsified if**: K_avg*N+Cycles fails to correctly rank maintenance burden on 3+ non-Python codebases, OR raw line count proves equally predictive
 - **Depends on**: none
 - **Depended on by**: B10
-- **Last tested**: 2026-03-01 S396 (re-test: CONFIRMED — original 14-package, 4-language evidence uncontradicted. Swarm NK data (K_avg=2.587 at N=724, L-801) corroborates K_avg measurement validity. No new cross-codebase test since genesis — remains the best available external comparison. Falsification NOT met.)
+- **Last tested**: S396 (CONFIRMED — 14-package 4-language evidence uncontradicted, swarm NK K_avg=2.587 corroborates)
 
 ### B10: Cycle count is a stronger predictor of unresolvable (long-lived) bugs than K_avg or K_max
 - **Evidence**: observed
 - **Falsified if**: High cycle count (>5) codebase has fewer long-lived bugs than zero-cycle similar composite, OR cycles add no predictive power over K_avg*N across 5+ packages
 - **Depends on**: B9
-- **Last tested**: 2026-03-01 S396 (re-test: CONFIRMED — original 9-module evidence uncontradicted. Swarm NK shows K_avg rising (2.587) while cycle_count remains 0 (pure DAG) — B10 prediction: swarm should have low long-lived bug count, consistent with observed <5% bug-fix sessions. No new external codebase test. Falsification NOT met.)
+- **Last tested**: S396 (CONFIRMED — 9-module evidence holds, swarm pure DAG with <5% bug-fix sessions as predicted)
 
 ### B11: Knowledge files are monotonic/CRDT-like structures — append-only with supersession markers enables safe concurrent agent writes
 - **Evidence**: observed
 - **Falsified if**: Two concurrent sessions produce an unrecoverable merge conflict in a knowledge file despite both following append-only protocol, OR a superseded entry is silently overwritten rather than marked superseded
 - **Depends on**: B3
-- **Last tested**: 2026-03-01 S396 (re-test at N≥10 concurrency: CONFIRMED at massive scale. 700+ commits since genesis, 0 unrecoverable merge conflicts. N≥10 concurrent sessions (S347-S396) all writing to knowledge files simultaneously. L-122 claim-before-write protocol operational. L-525 two-layer safety model preserves CRDT property. L-228: "correct, don't delete" = append-only/supersede. Falsification NOT met.)
+- **Last tested**: S396 (CONFIRMED — N≥10 concurrency, 700+ commits, 0 unrecoverable merge conflicts)
 
 ### B12: Coordination tool adoption follows a power law — workflow-embedded tools achieve ~100% adoption while invocation tools achieve <20%
 - **Evidence**: observed
 - **Falsified if**: An invocation tool achieves >50% adoption across 10+ consecutive sessions without workflow embedding, OR a workflow-embedded tool falls below 60% adoption
 - **Depends on**: B7
-- **Last tested**: 2026-03-01 S396 (re-test: CONFIRMED + REFINED to bimodal. L-775 (n=65 lanes): tool-enforced 91.8% vs spec-only 2.5% — not a smooth power law but bimodal attractor. L-601 structural enforcement theorem: voluntary protocols decay to structural floor at creation. L-128: 28 tools audited (6 embedded ~100%, 9 invocation <20%, 13 dead 0%). L-136: utilization ∝ embedding depth. Falsification NOT met — no invocation tool exceeded 50%.)
+- **Last tested**: S396 (CONFIRMED BIMODAL — tool-enforced 91.8% vs spec-only 2.5%, L-775 n=65)
 
 ### B13: Incorrect error handling is the dominant cause of catastrophic distributed systems failures (53-92% depending on methodology)
 - **Evidence**: observed (100-bug classification across 24 systems; 5 studies)
@@ -105,7 +104,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: none
 - **Depended on by**: B14
 - **Source**: Yuan et al. (OSDI 2014, 92%) + S47 F94 audit (53% Jepsen-biased); spread explained by population difference
-- **Last tested**: 2026-03-01 S394 (re-test: F94 100-bug taxonomy confirms 53% EH in Jepsen sample + Yuan 92% user-reported; 4 independent studies corroborate; recent 2025 systems (NATS 2.12.1, TigerBeetle 0.16) confirm trend. Falsification NOT met — EH remains >50% even in protocol-bug-biased samples.)
+- **Last tested**: S394 (CONFIRMED — 53% EH Jepsen + 92% user-reported, 4 independent studies + recent 2025 systems corroborate)
 - **Domain**: distributed-systems
 
 ### B14: Most distributed systems bugs (98%) are reproducible with 3 or fewer nodes and are deterministic (74%)
@@ -114,7 +113,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B13
 - **Source**: Yuan et al. OSDI 2014; S45 Jepsen review (node-count strong; determinism weaker: Redis-Raft 3/21)
 - **Path to observed**: Docker 3-node reproduction of Redis-Raft #14/#19 (deterministic, low complexity)
-- **Last tested**: 2026-03-01 S359 (F95 analytical verification: 5 Jepsen bugs classified via web research. Node-count: 4/5 clearly ≤3 nodes, CockroachDB marginal. Determinism: 3/5 deterministic, 1 wide-window timing, 1 narrow. Architecture layer predicts determinism gradient. L-642.)
+- **Last tested**: S359 (CONFIRMED — 4/5 ≤3 nodes, 3/5 deterministic, architecture layer predicts gradient, L-642)
 - **Domain**: distributed-systems
 
 ### B15: During network partitions, linearizability and availability are mutually exclusive in distributed systems (CAP theorem)
@@ -122,23 +121,21 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A system proves linearizable read/write plus availability for all non-failed nodes during verified partition, confirmed by independent testing
 - **Depends on**: none
 - **Source**: Gilbert & Lynch 2002 (formal proof); Brewer 2012; PACELC (Abadi 2012); Jepsen analyses 2014-2026
-- **Last tested**: 2026-03-01 S397 (CONFIRMED via falsification attempt: Jepsen evidence: etcd blocks during partition (CP), Cassandra serves stale reads (AP), Redis-Raft #17/#19 bugs are CAP violations caught empirically, NATS 49.7% loss in CP mode. Zero counterexamples in 24 years. Formal proof information-theoretic. L-816. P-267.)
+- **Last tested**: S397 (CONFIRMED via falsification — 7 Jepsen cases, 0 counterexamples in 24 years, L-816, P-267)
 - **Domain**: distributed-systems
 
 ### B16: Knowledge decay is present but asymmetric — specific claims decay faster than extracted principles, making it visible on reading but invisible to growth metrics
 - **Evidence**: observed
 - **Falsified if**: A re-audit finds principles decay at the same rate as specific claims (>30% stale principles), OR stale-lesson fraction increases proportionally with session count (i.e., growth metrics DO track decay)
 - **Depends on**: B7
-- **Evidence note**: S47 F99 (L-001..L-030): 67% actionable, 33% partially stale, 0% fully stale; decay in time-bound literals; principle extraction mitigates
-- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED WITH REFINEMENT. Asymmetry holds: 15% mechanism-superseded vs 0% principle-contradicted in top-20 cited (L-633/P-226). L-781 genesis audit: 40% non-current but 0% principle-falsified. "Invisible to metrics" refined: invisible to volume-growth metrics (lesson count), visible to quality-aware metrics (citation reach L-792, Sharpe, mechanism validity). Falsification NOT met — 0% principle staleness, well below 30% threshold.)
-- **Convergence**: 3/6 variants
+- **Last tested**: S394 (CONFIRMED — 15% mechanism-superseded vs 0% principle-contradicted, L-633/P-226)
 
 ### B17: In multi-agent systems, information asymmetry between agents is the dominant accuracy bottleneck — pre-reasoning evidence surfacing (not reasoning quality) determines outcome, with a 30.1→80.7% accuracy gap from surfacing alone
 - **Evidence**: observed
 - **Depends on**: B6 (vestigial — evidence stands independently of architecture model; S391 audit)
 - **Evidence note**: L-220, cross-variant harvest R5 (S175): 3 children, 50pp accuracy gap from info asymmetry; agents integrate evidence at 96.7% once received; failure is upstream of reasoning
 - **Falsified if**: A multi-agent configuration achieves >80% accuracy without resolving information asymmetry, relying only on reasoning protocol improvements
-- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED — L-220 50pp accuracy gap holds; L-792 strengthens mechanism: network topology (surfacing) r=0.564 vs absorption r=0.066. F-AI1 multi-lang surfacing confirms directional improvement (+6.7pp at optimal threshold). No config achieves >80% without surfacing. Falsification NOT met.)
+- **Last tested**: S394 (CONFIRMED — 50pp accuracy gap holds, surfacing r=0.564 vs absorption r=0.066)
 - **Domain**: ai
 
 ### B18: In multi-agent systems, capability (task performance) and vigilance/verification discipline are statistically independent axes — improving capability does not automatically improve verification quality
@@ -146,7 +143,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: none
 - **Evidence note**: L-219, cross-variant harvest R5 (S175): t(45)=-0.99, p=.328; capability growth and challenge-protocol usage are uncorrelated; design each axis independently
 - **Falsified if**: A controlled study finds r>0.5 between capability metrics and verification-discipline metrics across ≥30 agents
-- **Last tested**: 2026-03-01 S394 (re-test: CONFIRMED — L-219 t(45)=-0.99 p=.328 statistical independence uncontradicted. External arxiv 2602.21262 corroborates. 52-session follow-up: no lessons report r>0.5 between capability and verification. Independence holds by original evidence + no contradicting post-S342 data.)
+- **Last tested**: S394 (CONFIRMED — t(45)=-0.99 p=.328 independence holds, external arxiv corroborates)
 - **Domain**: ai
 
 ### B19: Asynchronous information sharing prevents cascade anchoring in multi-agent systems — synchronous coordination converts positive cascades to negative; asynchrony preserves independent state reads
@@ -154,8 +151,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B6 — **DANGEROUS under B6 refinement** (S391 audit: sync upper-layer channels in council/dispatch directly undermine async-only cascade defense claim)
 - **Evidence note**: L-218, cross-variant harvest R5 (S175): async model preserves per-agent independent state; sync coordination amplifies early errors by anchoring subsequent agents to first-mover outputs
 - **Falsified if**: A controlled study shows equivalent cascade rates between synchronized and asynchronized multi-agent protocols on the same task set
-- **Last tested**: 2026-03-01 S395 (re-test: UNSUPPORTED→PARTIALLY FALSIFIED. Base-layer async claim holds (L-218, L-228). But swarm added sync upper layers (council deliberation, centralized dispatch, commit-by-proxy at N≥5) that reintroduce cascade anchoring. B19 is conditionally true for pure-async systems but falsified for THIS system's hybrid architecture. 0+ 5- 15~ scores now stronger negative.)
-- **S391 finding**: B6 two-layer refinement introduces synchronous upper layers (council deliberation, dispatch assignment) that CAN reintroduce cascade anchoring. B19 was tested only against base-layer async; upper-layer sync channels untested.
+- **Last tested**: S395 (PARTIALLY FALSIFIED — base async holds but sync upper layers reintroduce cascade anchoring in hybrid architecture)
 - **Domain**: ai
 
 ### B-EVAL1: Internal health metrics (score 5/5, proxy-K healthy, validator PASS) are necessary but not sufficient for mission adequacy — process integrity ≠ outcome effectiveness

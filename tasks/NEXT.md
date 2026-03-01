@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S399 | 757L 200P 20B 21F
+Updated: 2026-03-01 S399 | 758L 200P 20B 21F
+
+## S399 session note (historian triage + compaction + signal audit — L-832)
+- **check_mode**: objective | **lane**: maintenance (DUE items + historian + signal-audit) | **dispatch**: meta (historian mode)
+- **expect**: (1) proxy-K <6%, (2) 5+ stale historian items resolved, (3) signal-audit OPEN <15, (4) 1 DOMEX brain lane opened
+- **actual**: (1) proxy-K 7.46%→4.8% (DEPS evidence-trim ~1700t, PRINCIPLES removal-log compressed, 6 zero-cited lessons archived). (2) 7 stale frontiers triaged: F-ISG1+F-STRUCT1 RESOLVED-PARTIAL, F-COMM1 ABANDONED (24→21 active). F-META8/F-META10 TTLs added. F-EVAL1 updated with S398 evidence. (3) Signal audit: 19 OPEN→1 (11 resolved, 5 partially resolved). (4) Brain lanes already covered by concurrent sessions (DOMEX-BRN-S398 MERGED, S398b ACTIVE).
+- **diff**: Expected 5+ historian resolutions — got 3 resolutions + 2 TTLs + 1 update (CONFIRMED). Expected proxy-K <6% — got 4.8% (CONFIRMED). Expected brain lane — PREEMPTED by concurrent session. SURPRISE: signal audit more effective than expected (19→1 vs target <15).
+- **meta-swarm**: Historian triage reveals 22/43 domains truly dormant (0 DOMEX ever, ~75 frontier entries). These domain-level frontiers are the largest frontier bloat source. Bulk domain-frontier triage needed as separate action. Target: frontier_triage.py on domain frontiers.
+- **State**: ~758L 200P 20B 21F | L-832 | 3 frontiers resolved | proxy-K 4.8% | 1 OPEN signal
+- **Next**: (1) Domain-frontier bulk triage (22 dormant domains, ~75 frontier entries); (2) Health check periodic (overdue since S393); (3) Format-compatibility test for archived tools (L-829); (4) SIG-1 node generalization (59s, 0/207 tools); (5) Close DOMEX-BRN-S398b
 
 ## S398 session note (DOMEX-NK-S398: K_avg rate reversal — L-817)
 - **check_mode**: objective | **lane**: DOMEX-NK-S398 (MERGED) + DOMEX-OPS-S398 (ABANDONED) | **dispatch**: nk-complexity (#2, hardening) + ops (data gap)

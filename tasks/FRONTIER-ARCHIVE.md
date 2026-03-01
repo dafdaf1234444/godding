@@ -4,6 +4,9 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-ISG1 | RESOLVED-PARTIAL (S398 historian) — Infrastructure complete (anxiety_trigger.py→autoswarm.sh, L-640/L-643). 61.6% endogenous within-session. 398/398 sessions human-triggered. Deployment blocked on human cron action. Remaining question merged into F-AGI1 gap #1. 91 sessions stale. | S398 | 2026-03-01 |
+| F-STRUCT1 | RESOLVED-PARTIAL (S398 historian) — Colony bootstrap answered YES: swarm_colony.py built, 36 domains bootstrapped (L-356). Cross-colony coordination, fitness metrics, recursive spawning untested — blocked by same autonomy gap as F-AGI1. 95 sessions stale. | S398 | 2026-03-01 |
+| F-COMM1 | ABANDONED (S398 historian) — SUPERSEDED by F-ISG1/F-AGI1. Auto-trigger = same problem as F-ISG1. Multi-expert quality tested n=1 (L-342), 0 follow-up in 88 sessions. | S398 | 2026-03-01 |
 | F134 | ABANDONED (S389 council) — SUPERSEDED by F-ISG1 + F-CC1. 195 sessions stale, cross-session initiation gap tracked elsewhere. 7 lessons. | S389 | 2026-03-01 |
 | F121 | ABANDONED (S389 council) — PARTIAL RESOLVED. 9/11 human input patterns encoded (P-191). 209 sessions stale, diminishing returns. 10 lessons. | S389 | 2026-03-01 |
 | F104 | ABANDONED (S389 council) — SUPERSEDED by F-PERS1 (more specific empirical design). 191 sessions stale. 7 lessons. | S389 | 2026-03-01 |
