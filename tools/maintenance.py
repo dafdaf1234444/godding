@@ -518,245 +518,32 @@ def check_human_queue() -> list[tuple[str, str]]:
     return results
 
 def check_swarm_lanes() -> list[tuple[str, str]]:
-    results = []
-    parsed = _active_lane_rows()
-    if not parsed: return results
-    rows, active = parsed
-
-    current_session = _session_number()
-    stale_notice: list[str] = []
-    stale_due: list[str] = []
-    if current_session > 0:
-        for row in active:
-            lane = row.get("lane", "").strip() or "<unknown>"
-            m = re.search(r"S(\d+)", row.get("session", ""))
-            if not m: continue
-            lane_session = int(m.group(1)); age = current_session - lane_session
-            if age > LANE_STALE_DUE_SESSIONS: stale_due.append(f"{lane}(S{lane_session},+{age})")
-            elif age > LANE_STALE_NOTICE_SESSIONS: stale_notice.append(f"{lane}(S{lane_session},+{age})")
-    if stale_due: results.append(("DUE", f"{len(stale_due)} active lane(s) stale >{LANE_STALE_DUE_SESSIONS} sessions: {_truncated(stale_due, 5)}"))
-    if stale_notice: results.append(("NOTICE", f"{len(stale_notice)} active lane(s) stale >{LANE_STALE_NOTICE_SESSIONS} sessions: {_truncated(stale_notice, 5)}"))
-
-    row_counts: dict[str, int] = {}
-    for row in rows:
-        lane = row.get("lane", "").strip()
-        if lane: row_counts[lane] = row_counts.get(lane, 0) + 1
-    antiwindup = [f"{(row.get('lane','').strip() or '<unknown>')}({row_counts.get(row.get('lane','').strip(),0)}rows)"
-                  for row in active if row_counts.get(row.get("lane", "").strip(), 0) >= LANE_ANTIWINDUP_ROWS]
-    if antiwindup: results.append(("NOTICE", f"{len(antiwindup)} active lane(s) with >={LANE_ANTIWINDUP_ROWS} total rows (anti-windup, consider ABANDONED): {_truncated(antiwindup, 5)}"))
-
-    latest_active: dict[str, dict] = {}
-    for row in active: latest_active[row.get("lane", "")] = row
-    missing_meta = [f"{row.get('lane')}({','.join(lbl for key, lbl in (('branch','branch'),('model','model'),('platform','platform'),('scope_key','scope')) if _is_lane_placeholder(row.get(key,'')))})"
-                   for row in sorted(latest_active.values(), key=lambda item: item.get("lane", ""))
-                   if any(_is_lane_placeholder(row.get(k, "")) for k in ("branch", "model", "platform", "scope_key"))]
-    if missing_meta: results.append(("NOTICE", f"{len(missing_meta)} active lane(s) missing metadata: {_truncated(missing_meta, 5)}"))
-
-    missing_coordination_tags: list[str] = []
-    missing_domain_memory_tags: list[str] = []
-    invalid_domain_sync_tags: list[str] = []
-    invalid_available_tags: list[str] = []
-    legacy_available_tags: list[str] = []
-    high_risk_missing_human: list[str] = []
-    setup_values: set[str] = set()
-    has_global_focus = False
-    for row in active:
-        lane = row.get("lane", "").strip() or "<unknown>"
-        tags = _parse_lane_tags(row.get("etc", ""))
-        domain_focus = next((m.group(1) for raw in (tags.get("focus", ""), row.get("scope_key", ""))
-                             for m in [re.search(r"domains/([a-z0-9][a-z0-9-]*)", (raw or "").strip().lower())] if m), None)
-        if domain_focus:
-            domain_missing = []
-            domain_sync = tags.get("domain_sync", "").strip().lower()
-            memory_target = tags.get("memory_target", "").strip().lower()
-            if _is_lane_placeholder(domain_sync): domain_missing.append("domain_sync")
-            elif domain_sync not in DOMAIN_SYNC_ALLOWED_VALUES: invalid_domain_sync_tags.append(f"{lane}(domain_sync={domain_sync})")
-            if _is_lane_placeholder(memory_target): domain_missing.append("memory_target")
-            if domain_missing: missing_domain_memory_tags.append(f"{lane}({','.join(domain_missing)})")
-        missing = [k for k in ("setup", "focus") if _is_lane_placeholder(tags.get(k, ""))]
-        if not any(k in tags for k in ("available", "capacity", "availability", "ready")): missing.append("available")
-        if not any(k in tags for k in ("blocked", "blocker")): missing.append("blocked")
-        if not any(k in tags for k in ("next_step", "next", "action", "plan")): missing.append("next_step")
-        if not any(k in tags for k in ("human_open_item", "human_open")): missing.append("human_open_item")
-        if missing: missing_coordination_tags.append(f"{lane}({','.join(missing)})"); continue
-
-        human_open_value = (tags.get("human_open_item", "") or tags.get("human_open", "")).strip().lower()
-        high_risk_signal = _lane_high_risk_signal(row, tags)
-        if high_risk_signal and _is_lane_placeholder(human_open_value): high_risk_missing_human.append(f"{lane}({high_risk_signal})")
-        available_raw = (tags.get("available", "") or "").strip().lower()
-        if available_raw:
-            if available_raw in LANE_AVAILABLE_LEGACY_MAP: legacy_available_tags.append(f"{lane}(available={available_raw}->{LANE_AVAILABLE_LEGACY_MAP[available_raw]})")
-            elif available_raw not in LANE_AVAILABLE_ALLOWED_VALUES: invalid_available_tags.append(f"{lane}(available={available_raw})")
-
-        setup_value = tags.get("setup", "").strip().lower()
-        focus_value = tags.get("focus", "").strip().lower()
-        setup_values.add(setup_value)
-        if focus_value in LANE_GLOBAL_FOCUS_VALUES:
-            has_global_focus = True
-
-    if missing_coordination_tags:
-        results.append(("DUE", f"{len(missing_coordination_tags)} active lane(s) missing coordination contract tags (setup/focus/available/blocked/next_step/human_open_item): {_truncated(missing_coordination_tags, 5)}"))
-    if missing_domain_memory_tags:
-        results.append(("DUE", f"{len(missing_domain_memory_tags)} active domain-focused lane(s) missing domain-memory coordination tags (domain_sync/memory_target): {_truncated(missing_domain_memory_tags, 5)}"))
-    if invalid_domain_sync_tags:
-        results.append(("NOTICE", f"{len(invalid_domain_sync_tags)} active domain-focused lane(s) with invalid domain_sync value (allowed: {','.join(sorted(DOMAIN_SYNC_ALLOWED_VALUES))}): {_truncated(invalid_domain_sync_tags, 5)}"))
-    if invalid_available_tags:
-        results.append(("DUE", f"{len(invalid_available_tags)} active lane(s) with invalid available value (allowed: {','.join(sorted(LANE_AVAILABLE_ALLOWED_VALUES))}): {_truncated(invalid_available_tags, 5)}"))
-    if legacy_available_tags:
-        results.append(("NOTICE", f"{len(legacy_available_tags)} active lane(s) using legacy available value (normalize to {','.join(sorted(LANE_AVAILABLE_ALLOWED_VALUES))}): {_truncated(legacy_available_tags, 5)}"))
-    if high_risk_missing_human:
-        results.append(("DUE", f"{len(high_risk_missing_human)} active lane(s) declare high-risk intent without `human_open_item=HQ-N` (MC-SAFE): {_truncated(high_risk_missing_human, 5)}"))
-
-    missing_evidence_tags: list[str] = []
-    for row in active:
-        lane = row.get("lane", "").strip() or "<unknown>"
-        tags = _parse_lane_tags(row.get("etc", ""))
-        missing_ev = [k for k in ("expect", "artifact") if not tags.get(k, "").strip()]
-        if missing_ev:
-            missing_evidence_tags.append(f"{lane}({','.join(missing_ev)})")
-    if missing_evidence_tags:
-        results.append(("NOTICE", f"{len(missing_evidence_tags)} active lane(s) missing evidence fields (expect/artifact — use open_lane.py, F-META1 S331): {_truncated(missing_evidence_tags, 5)}"))
-
-    if len(setup_values) > 1 and not has_global_focus:
-        results.append(("NOTICE", "Multi-setup active lanes have no global coordination focus (`focus=global|system|coordination`) in Etc"))
-
-    # Branch values that are non-collidable trunk names (all sessions share them)
-    _TRUNK_BRANCHES = {"master", "main"}
-
-    def _detect_collisions(key_field: str, label: str) -> None:
-        mapping: dict[str, set[str]] = {}
-        for row in active:
-            lane = row.get("lane", "")
-            val = row.get(key_field, "").strip().lower()
-            if not _is_lane_placeholder(val) and val not in _TRUNK_BRANCHES:
-                mapping.setdefault(val, set()).add(lane)
-        conflicts = sorted((k, sorted(v)) for k, v in mapping.items() if len(v) > 1)
-        if conflicts:
-            sample = "; ".join(f"{k}:{'/'.join(v[:3])}" for k, v in conflicts[:3])
-            results.append(("DUE", f"Active lane {label} collision(s): {sample}"))
-
-    _detect_collisions("branch", "branch")
-    _detect_collisions("scope_key", "scope")
-
-    return results
+    # Extracted to maintenance_lanes.py (DOMEX-META-S420)
+    from maintenance_lanes import check_swarm_lanes as _impl
+    return _impl(
+        _active_lane_rows, _session_number, _parse_lane_tags, _is_lane_placeholder,
+        _lane_high_risk_signal, _truncated,
+        LANE_ACTIVE_STATUSES, LANE_STALE_NOTICE_SESSIONS, LANE_STALE_DUE_SESSIONS,
+        LANE_ANTIWINDUP_ROWS, DOMAIN_SYNC_ALLOWED_VALUES, LANE_AVAILABLE_ALLOWED_VALUES,
+        LANE_AVAILABLE_LEGACY_MAP, LANE_GLOBAL_FOCUS_VALUES,
+    )
 
 def check_swarm_coordinator() -> list[tuple[str, str]]:
-    results: list[tuple[str, str]] = []
-    parsed = _active_lane_rows()
-    if not parsed: return results
-    _, active = parsed
-    if len(active) < 2:
-        return results
-
-    dispatch_rows: list[tuple[dict[str, str], dict[str, str]]] = []
-    coordinator_rows: list[tuple[dict[str, str], dict[str, str]]] = []
-    for row in active:
-        tags = _parse_lane_tags(row.get("etc", ""))
-        lane_low = (row.get("lane", "") or "").strip().lower()
-        if any(k in tags for k in ("dispatch", "slot", "wip_cap")) or re.search(r"(?:^|[-_/])(msw\d*|domex|slot)(?:$|[-_/])", lane_low):
-            dispatch_rows.append((row, tags))
-        scope_low = (row.get("scope_key", "") or "").strip().lower()
-        if re.search(r"(?:^|[-_/])(coord|coordinator)(?:$|[-_/])", lane_low) or "coordinator" in scope_low or "tasks/swarm-lanes.md" in scope_low:
-            coordinator_rows.append((row, tags))
-
-    # Single dispatch lane can run without a dedicated coordinator row; fan-out swarms cannot.
-    if len(dispatch_rows) < 2:
-        return results
-
-    if not coordinator_rows:
-        dispatch_lanes = [row.get("lane", "").strip() or "<unknown>" for row, _ in dispatch_rows]
-        results.append(("DUE", f"{len(dispatch_rows)} active dispatch lane(s) have no active coordinator lane: {_truncated(dispatch_lanes, 5)}"))
-        return results
-
-    missing_contract: list[str] = []
-    for row, tags in coordinator_rows:
-        lane = row.get("lane", "").strip() or "<unknown>"
-        missing: list[str] = []
-        if tags.get("focus", "").strip().lower() not in LANE_GLOBAL_FOCUS_VALUES: missing.append("focus")
-        if not _lane_has_any_tag(tags, ("intent", "objective", "goal")): missing.append("intent")
-        if not _lane_has_any_tag(tags, ("progress", "status_note", "evidence", "artifact")): missing.append("progress")
-        if not _lane_has_any_tag(tags, ("available", "capacity", "availability", "ready")): missing.append("available")
-        if not _lane_has_any_tag(tags, ("blocked", "blocker")): missing.append("blocked")
-        if not _lane_has_any_tag(tags, ("next_step", "next", "action", "plan")): missing.append("next_step")
-        if not _lane_has_any_tag(tags, ("human_open_item", "human_open")): missing.append("human_open_item")
-        if not _lane_has_any_tag(tags, ("check_focus",)): missing.append("check_focus")
-        if missing: missing_contract.append(f"{lane}({','.join(missing)})")
-
-    if missing_contract:
-        results.append(("DUE", f"{len(missing_contract)} coordinator lane(s) missing coordinator contract fields (focus,intent,progress,available,blocked,next_step,human_open_item,check_focus): {_truncated(missing_contract, 5)}"))
-
-    return results
+    # Extracted to maintenance_lanes.py (DOMEX-META-S420)
+    from maintenance_lanes import check_swarm_coordinator as _impl
+    return _impl(
+        _active_lane_rows, _parse_lane_tags, _lane_has_any_tag, _truncated,
+        LANE_GLOBAL_FOCUS_VALUES,
+    )
 
 def check_lane_reporting_quality() -> list[tuple[str, str]]:
-    results: list[tuple[str, str]] = []
-    parsed = _active_lane_rows()
-    if not parsed: return results
-    _, active = parsed
-
-    missing_contract: list[str] = []
-    missing_historian_contract: list[str] = []
-    explicit_counts = {key: 0 for key in LANE_REPORT_KEYS}
-    dispatchable = 0
-
-    for row in sorted(active, key=lambda item: item.get("lane", "")):
-        lane = row.get("lane", "").strip() or "<unknown>"
-        tags = _parse_lane_tags(row.get("etc", ""))
-
-        fields = {
-            "capabilities": (
-                not _is_lane_placeholder(row.get("model", ""))
-                and not _is_lane_placeholder(row.get("platform", ""))
-                and not _is_lane_placeholder(tags.get("setup", ""))
-            ),
-            "intent": any(k in tags for k in ("intent", "objective", "goal", "frontier", "dispatch", "task")),
-            "progress": any(k in tags for k in ("progress", "status_note", "evidence", "artifact")),
-            "available": any(k in tags for k in ("available", "capacity", "availability", "ready")),
-            "blocked": "blocked" in tags or "blocker" in tags,
-            "next_step": any(k in tags for k in ("next_step", "next", "action", "plan")),
-            "human_open_item": "human_open_item" in tags or "human_open" in tags,
-        }
-
-        missing = [key for key in LANE_REPORT_KEYS if not fields[key]]
-        if missing:
-            missing_contract.append(f"{lane}({','.join(missing)})")
-        else:
-            dispatchable += 1
-        for key, present in fields.items():
-            if present:
-                explicit_counts[key] += 1
-
-        check_modes = {tok for tok in re.split(r"[+,/;|]+", (tags.get("check_focus", "") or "").strip().lower()) if tok}
-        if check_modes & CHECK_FOCUS_HISTORIAN_REQUIRED:
-            if "objective" in check_modes and _is_lane_placeholder(tags.get("objective_check", "")):
-                missing_historian_contract.append(f"{lane}(objective_check)")
-            historian_raw = tags.get("historian_check", "")
-            if _is_lane_placeholder(historian_raw):
-                missing_historian_contract.append(f"{lane}(historian_check)")
-            else:
-                _hlow = (historian_raw or "").strip().lower()
-                has_self = any(t in _hlow for t in HISTORIAN_SELF_ANCHOR_TOKENS)
-                has_surroundings = any(t in _hlow for t in HISTORIAN_SURROUNDINGS_ANCHOR_TOKENS)
-                anchor_missing: list[str] = []
-                if not has_self:
-                    anchor_missing.append("self_anchor")
-                if not has_surroundings:
-                    anchor_missing.append("surroundings_anchor")
-                if anchor_missing:
-                    missing_historian_contract.append(f"{lane}({','.join(anchor_missing)})")
-
-    lane_count = len(active)
-    dispatchable_rate = dispatchable / lane_count if lane_count else 0.0
-    if missing_contract:
-        severity = "DUE" if dispatchable_rate < 0.5 else "NOTICE"
-        results.append((severity, f"{len(missing_contract)} active lane(s) missing explicit reporting contract fields ({dispatchable}/{lane_count} dispatchable): {_truncated(missing_contract, 5)}"))
-        weakest = sorted(explicit_counts.items(), key=lambda item: (item[1], item[0]))[:3]
-        if weakest:
-            results.append(("NOTICE", f"Lane explicit-reporting weakest keys: {', '.join(f'{k}={c}/{lane_count}' for k, c in weakest)}"))
-
-    if missing_historian_contract:
-        results.append(("DUE", f"{len(missing_historian_contract)} active lane(s) with historian/objective check focus missing historian grounding (self+surroundings anchors): {_truncated(missing_historian_contract, 5)}"))
-
-    return results
+    # Extracted to maintenance_lanes.py (DOMEX-META-S420)
+    from maintenance_lanes import check_lane_reporting_quality as _impl
+    return _impl(
+        _active_lane_rows, _parse_lane_tags, _is_lane_placeholder, _truncated,
+        LANE_REPORT_KEYS, CHECK_FOCUS_HISTORIAN_REQUIRED,
+        HISTORIAN_SELF_ANCHOR_TOKENS, HISTORIAN_SURROUNDINGS_ANCHOR_TOKENS,
+    )
 
 def check_github_swarm_intake() -> list[tuple[str, str]]:
     results: list[tuple[str, str]] = []
@@ -898,56 +685,14 @@ def check_zombie_tools() -> list[tuple[str, str]]:
     return results
 
 def check_frontier_decay() -> list[tuple[str, str]]:
-    results = []
-    frontier_path = REPO_ROOT / "tasks" / "FRONTIER.md"
-    decay_file = REPO_ROOT / "experiments" / "frontier-decay.json"
-    if not frontier_path.exists(): return results
-    open_text = _read(frontier_path).split("## Archive", 1)[0]
-    try: decay = json.loads(_read(decay_file)) if decay_file.exists() else {}
-    except Exception as e:
-        results.append(("NOTICE", f"frontier-decay JSON parse failed ({decay_file.name}): {e}"))
-        decay = {}
-    open_ids = {f"F{m.group(1)}" for m in re.finditer(r"^- \*\*F(\d+)\*\*:", open_text, re.MULTILINE)}
-    for fid in open_ids:
-        decay.setdefault(fid, {"last_active": date.today().isoformat()})
-    try:
-        decay_file.parent.mkdir(parents=True, exist_ok=True)
-        decay_file.write_text(json.dumps(decay, indent=2))
-    except Exception: pass
-    today = date.today()
-    weak, archive = [], []
-    for fid in sorted(open_ids):
-        last = decay.get(fid, {}).get("last_active", today.isoformat())
-        try: strength = 0.9 ** ((today - date.fromisoformat(last)).days)
-        except Exception: strength = 1.0
-        if strength < 0.1: archive.append(fid)
-        elif strength < 0.3: weak.append(fid)
-    if archive: results.append(("DUE", f"{len(archive)} frontier(s) below archive threshold: {', '.join(archive)}"))
-    if weak: results.append(("NOTICE", f"{len(weak)} frontier(s) weakening: {', '.join(weak)}"))
-    return results
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_frontier_decay as _impl
+    return _impl(REPO_ROOT, _read)
 
 def check_anxiety_zones() -> list[tuple[str, str]]:
-    results = []
-    current = _session_number()
-    ANXIETY_THRESHOLD = 15
-    frontier_path = REPO_ROOT / "tasks" / "FRONTIER.md"
-    if not frontier_path.exists():
-        return results
-    open_text = _read(frontier_path).split("## Archive", 1)[0]
-    anxiety_zones = []
-    for match in re.finditer(r"^- \*\*(F[^*]+)\*\*:(.*?)(?=^- \*\*F|\Z)", open_text, re.MULTILINE | re.DOTALL):
-        s_nums = [int(m) for m in re.findall(r"\bS(\d+)\b", match.group(2))]
-        if not s_nums: continue
-        last_active = max(s_nums)
-        age = current - last_active
-        if age > ANXIETY_THRESHOLD:
-            anxiety_zones.append((match.group(1).strip(), last_active, age))
-    if anxiety_zones:
-        anxiety_zones.sort(key=lambda x: x[2], reverse=True)
-        ids = ", ".join(f"{fid}(S{s},+{age})" for fid, s, age in anxiety_zones[:5])
-        tail = f"... +{len(anxiety_zones)-5} more" if len(anxiety_zones) > 5 else ""
-        results.append(("NOTICE", f"{len(anxiety_zones)} anxiety-zone frontier(s) open >{ANXIETY_THRESHOLD} sessions without update (F-COMM1: auto-trigger multi-expert synthesis): {ids}{tail}"))
-    return results
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_anxiety_zones as _impl
+    return _impl(REPO_ROOT, _read, _session_number)
 
 
 def check_dispatch_log() -> list[tuple[str, str]]:
@@ -972,21 +717,9 @@ def check_dispatch_log() -> list[tuple[str, str]]:
 
 
 def check_domain_expert_coverage() -> list[tuple[str, str]]:
-    domains_dir = REPO_ROOT / "domains"
-    lanes_path = REPO_ROOT / "tasks" / "SWARM-LANES.md"
-    if not domains_dir.exists() or not lanes_path.exists():
-        return []
-    lanes_text = _read(lanes_path)
-    uncovered = []
-    for fp in sorted(domains_dir.glob("*/tasks/FRONTIER.md")):
-        domain = fp.parts[-3]
-        active_section = _read(fp).split("## Resolved", 1)[0].split("## Archive", 1)[0]
-        if not re.search(r"^\s*[-*]\s*\*\*F", active_section, re.MULTILINE): continue
-        if not [r for r in lanes_text.splitlines() if "DOMEX" in r and domain.lower() in r.lower() and "ABANDONED" not in r and "MERGED" not in r]:
-            uncovered.append(domain)
-    if uncovered:
-        return [("NOTICE", f"Domain expert coverage gap ({len(uncovered)} domains with active frontiers but no DOMEX lane): {', '.join(uncovered)}")]
-    return []
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_domain_expert_coverage as _impl
+    return _impl(REPO_ROOT, _read)
 
 
 def check_council_health() -> list[tuple[str, str]]:
@@ -1048,68 +781,9 @@ def check_signal_staleness() -> list[tuple[str, str]]:
 
 
 def check_historian_integrity() -> list[tuple[str, str]]:
-    results = []
-    _his1_path = REPO_ROOT / "tools" / "f_his1_historian_grounding.py"
-    if _his1_path.exists():
-        try:
-            import importlib.util as _ilu
-            import sys as _sys
-            _mod_name = "f_his1_historian_grounding"
-            if _mod_name not in _sys.modules:
-                _spec = _ilu.spec_from_file_location(_mod_name, _his1_path)
-                _his1 = _ilu.module_from_spec(_spec)
-                _sys.modules[_mod_name] = _his1
-                _spec.loader.exec_module(_his1)
-            else:
-                _his1 = _sys.modules[_mod_name]
-            lanes_text = _read(REPO_ROOT / "tasks" / "SWARM-LANES.md")
-            rows = _his1.parse_rows(lanes_text)
-            analysis = _his1.analyze(rows)
-            score = analysis["mean_grounding_score"]
-            active = analysis["active_lane_count"]
-            if active >= 3 and score < 0.40:
-                results.append(("DUE", f"historian grounding low: mean_score={score:.2f} across {active} active lanes (target ≥0.5) — run python3 tools/f_his1_historian_grounding.py"))
-            elif active >= 3 and score < 0.60:
-                results.append(("NOTICE", f"historian grounding below target: mean_score={score:.2f} across {active} lanes"))
-        except Exception as e:
-            results.append(("NOTICE", f"check_historian_integrity lane-check error: {e}"))
-
-    SESSION_ANCHOR = re.compile(r"\bS\d{2,}\b")
-    domains_dir = REPO_ROOT / "domains"
-    if not domains_dir.exists():
-        return results
-    unanchored: list[str] = []
-    total_active = 0
-    for fp in sorted(domains_dir.glob("*/tasks/FRONTIER.md")):
-        domain = fp.parts[-3]
-        active_section = _read(fp).split("## Resolved", 1)[0].split("## Archive", 1)[0]
-        lines = active_section.splitlines()
-        i = 0
-        while i < len(lines):
-            m = re.match(r"\s*[-*]\s*\*\*(\S+)\*\*", lines[i])
-            if m:
-                total_active += 1
-                block = [lines[i]]
-                j = i + 1
-                while j < len(lines):
-                    nxt = lines[j]
-                    if re.match(r"\s*[-*]\s*\*\*\S", nxt) or re.match(r"^##", nxt): break
-                    block.append(nxt)
-                    j += 1
-                if not SESSION_ANCHOR.search("\n".join(block)):
-                    unanchored.append(f"{domain}:{m.group(1)}")
-                i = j
-            else:
-                i += 1
-    if total_active > 0:
-        rate = len(unanchored) / total_active
-        sample = ", ".join(unanchored[:8])
-        if rate > 0.70:
-            results.append(("DUE", f"domain frontier historian gap: {len(unanchored)}/{total_active} active frontiers lack session anchor (SNN): {sample}"))
-        elif rate > 0.40:
-            results.append(("NOTICE", f"domain frontier historian partial: {len(unanchored)}/{total_active} unanchored: {sample}"))
-
-    return results
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_historian_integrity as _impl
+    return _impl(REPO_ROOT, _read, PYTHON_EXE)
 
 
 def check_periodics() -> list[tuple[str, str]]:
@@ -1129,7 +803,11 @@ def check_periodics() -> list[tuple[str, str]]:
         item_id = item.get("id", "<unknown>")
         description = item.get("description", item_id)
         cadence = item.get("cadence_sessions", 10)
-        last = item.get("last_reviewed_session", 0)
+        last_raw = item.get("last_reviewed_session", 0)
+        try:
+            last = int(str(last_raw).lstrip("S")) if last_raw else 0
+        except (ValueError, TypeError):
+            last = 0
         if last > session:
             if not dirty:
                 results.append(("NOTICE", f"periodics marker {item_id} S{last} > session log S{session}"))
@@ -1306,57 +984,14 @@ def check_cross_references() -> list[tuple[str, str]]:
     return results
 
 def check_domain_frontier_consistency() -> list[tuple[str, str]]:
-    results: list[tuple[str, str]] = []
-    domains_dir = REPO_ROOT / "domains"
-    if not domains_dir.exists():
-        return results
-
-    frontier_header_mismatch: list[str] = []
-    index_count_mismatch: list[str] = []
-    index_active_line_mismatch: list[str] = []
-    index_open_section_mismatch: list[str] = []
-
-    for frontier_path in sorted(domains_dir.glob("*/tasks/FRONTIER.md")):
-        domain = frontier_path.parent.parent.name
-        frontier_text = _read(frontier_path)
-        if not frontier_text:
-            continue
-
-        frontier_ids, has_active_section = _extract_domain_frontier_active_ids(frontier_text)
-        frontier_count = len(frontier_ids)
-        frontier_header_count = _parse_domain_frontier_active_count(frontier_text)
-        if has_active_section and frontier_header_count is not None and frontier_header_count != frontier_count:
-            frontier_header_mismatch.append(f"{domain}(header={frontier_header_count}, parsed={frontier_count})")
-
-        index_path = frontier_path.parent.parent / "INDEX.md"
-        if not index_path.exists():
-            continue
-        index_text = _read(index_path)
-        if not index_text:
-            continue
-
-        index_count = _parse_domain_index_active_count(index_text)
-        if index_count is not None and index_count != frontier_count:
-            index_count_mismatch.append(f"{domain}(index={index_count}, frontier={frontier_count})")
-
-        active_line_ids = _parse_domain_index_active_line_ids(index_text)
-        if active_line_ids is not None and active_line_ids != frontier_ids:
-            index_active_line_mismatch.append(f"{domain}({_format_frontier_id_diff(frontier_ids, active_line_ids)})")
-
-        has_open_section, open_ids = _parse_domain_index_open_ids(index_text)
-        if has_open_section and open_ids != frontier_ids:
-            index_open_section_mismatch.append(f"{domain}({_format_frontier_id_diff(frontier_ids, open_ids)})")
-
-    if frontier_header_mismatch:
-        results.append(("NOTICE", f"Domain FRONTIER Active header mismatch: {_truncated(frontier_header_mismatch, 5)}"))
-    if index_count_mismatch:
-        results.append(("NOTICE", f"Domain INDEX active-count mismatch vs FRONTIER: {_truncated(index_count_mismatch, 5)}"))
-    if index_active_line_mismatch:
-        results.append(("NOTICE", f"Domain INDEX active frontier list mismatch: {_truncated(index_active_line_mismatch, 4)}"))
-    if index_open_section_mismatch:
-        results.append(("NOTICE", f"Domain INDEX 'What's open' mismatch: {_truncated(index_open_section_mismatch, 4)}"))
-
-    return results
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_domain_frontier_consistency as _impl
+    return _impl(
+        REPO_ROOT, _read, _truncated,
+        _extract_domain_frontier_active_ids, _parse_domain_frontier_active_count,
+        _parse_domain_index_active_count, _parse_domain_index_active_line_ids,
+        _parse_domain_index_open_ids, _format_frontier_id_diff,
+    )
 
 def check_readme_snapshot_drift() -> list[tuple[str, str]]:
     results = []
@@ -1466,18 +1101,9 @@ def check_structure_layout() -> list[tuple[str, str]]:
     return results
 
 def check_frontier_registry() -> list[tuple[str, str]]:
-    results = []
-    active_ids = [int(m.group(1)) for m in re.finditer(r"^- \*\*F(\d+)\*\*:", _read(REPO_ROOT / "tasks" / "FRONTIER.md"), re.MULTILINE)]
-    archived_ids = [int(m.group(1)) for m in re.finditer(r"\|\s*F(\d+)\s*\|", _read(REPO_ROOT / "tasks" / "FRONTIER-ARCHIVE.md"))]
-    def _dupes(ids):
-        counts: dict[int, int] = {}
-        for fid in ids: counts[fid] = counts.get(fid, 0) + 1
-        return sorted((fid, c) for fid, c in counts.items() if c > 1)
-    for label, dupes in (("FRONTIER", _dupes(active_ids)), ("FRONTIER-ARCHIVE", _dupes(archived_ids))):
-        if dupes: results.append(("DUE", f"{label} duplicate ID(s): {_truncated(dupes, 5, fmt=lambda x: f'F{x[0]} x{x[1]}')}"))
-    overlap = sorted(set(active_ids) & set(archived_ids))
-    if overlap: results.append(("DUE", f"Frontier ID(s) both open and archived: {_truncated(overlap, 8, fmt=lambda x: f'F{x}')}"))
-    return results
+    # Extracted to maintenance_domains.py (DOMEX-META-S420)
+    from maintenance_domains import check_frontier_registry as _impl
+    return _impl(REPO_ROOT, _read, _truncated)
 
 def check_handoff_staleness() -> list[tuple[str, str]]:
     next_text = _read(REPO_ROOT / "tasks" / "NEXT.md")
@@ -2043,195 +1669,33 @@ def _inter_swarm_connectivity(capabilities: dict, commands: dict[str, bool]) -> 
             "protocols": protocol_state, "missing": missing}
 
 def build_inventory() -> dict:
-    T = lambda *ns: [f"tools/{n}" for n in ns]
-    cap_sets: dict[str, list[str]] = {
-        "orientation": T("maintenance.py", "orient.py", "sync_state.py", "pulse.py", "context_router.py", "substrate_detect.py", "alignment_check.py"),
-        "validation": T("validate_beliefs.py", "check.sh", "check.ps1", "maintenance.sh", "maintenance.ps1", "install-hooks.sh", "repair.py", "pre-commit.hook", "commit-msg.hook"),
-        "evolution": T("evolve.py", "swarm_test.py", "agent_swarm.py", "colony.py", "swarm_colony.py", "spawn_coordinator.py"),
-        "collaboration": T("swarm_pr.py"),
-        "inter_swarm": T("bulletin.py", "merge_back.py", "propagate_challenges.py", "close_lane.py", "harvest_expert.py"),
-        "compaction": T("compact.py", "proxy_k.py", "frontier_decay.py"),
-        "analysis": T("nk_analyze.py", "nk_analyze_go.py", "wiki_swarm.py", "dream.py", "change_quality.py", "task_recognizer.py", "generalizer_expert.py", "contamination_investigator.py"),
-        "benchmarks": T("f92_benchmark.py", "f92_real_coop_benchmark.py", "spawn_quality.py", "p155_live_trace.py"),
-        "support": T("swarm_parse.py", "novelty.py", "validate_beliefs_extras.py"),
-    }
-    commands = {"python3": _python_command_runs("python3"), "python": _python_command_runs("python"),
-                "git": _command_runs("git", ["--version"]), "bash": _command_runs("bash", ["--version"])}
-    if platform.system().lower().startswith("windows") or _command_exists("pwsh"):
-        commands["pwsh"] = _command_runs("pwsh", ["-NoProfile", "-Command", "$PSVersionTable.PSVersion.Major"], timeout=8)
-    elif _command_exists("powershell"):
-        commands["powershell"] = _command_runs("powershell", ["-NoProfile", "-Command", "$PSVersionTable.PSVersion.Major"], timeout=8)
-    if platform.system().lower().startswith("windows") or _command_exists("py"):
-        commands["py -3"] = _py_launcher_runs()
-    capabilities = {name: {"present": sum(1 for p in files if _exists(p)), "total": len(files), "files": files}
-                    for name, files in cap_sets.items()}
-    return {
-        "host": {"platform": platform.platform(), "python_executable": PYTHON_EXE, "python_command_hint": PYTHON_CMD, "commands": commands},
-        "bridges": [{"path": p, "exists": _exists(p)} for p in BRIDGE_FILES],
-        "core_state": [{"path": p, "exists": _exists(p)} for p in ("beliefs/CORE.md", "memory/INDEX.md", "tasks/FRONTIER.md", "tasks/NEXT.md", "memory/PRINCIPLES.md")],
-        "capabilities": capabilities,
-        "inter_swarm_connectivity": _inter_swarm_connectivity(capabilities, commands),
-    }
+    # Extracted to maintenance_inventory.py (DOMEX-META-S420)
+    from maintenance_inventory import build_inventory as _impl
+    return _impl(
+        REPO_ROOT, PYTHON_EXE, PYTHON_CMD, BRIDGE_FILES,
+        _exists, _python_command_runs, _py_launcher_runs,
+        _command_runs, _command_exists, _inter_swarm_connectivity,
+    )
 
 def print_inventory(inv: dict):
-    _ok = lambda v: "OK " if v else "NO "
-    host = inv["host"]
-    print(f"=== SWARM INVENTORY ===\nHost: {host['platform']}\nPython: {host['python_executable']}  hint: {host['python_command_hint']}\n")
-    print("Commands:")
-    for name, ok in host["commands"].items():
-        print(f"  {_ok(ok)}{name}")
-    for section, key in (("Bridge files", "bridges"), ("Core state", "core_state")):
-        print(f"\n{section}:")
-        for item in inv[key]:
-            print(f"  {_ok(item['exists'])}{item['path']}")
-    print("\nCapabilities:")
-    for name, info in inv["capabilities"].items():
-        print(f"  {name:<12} {info['present']}/{info['total']}")
-    inter_swarm = inv.get("inter_swarm_connectivity", {})
-    if isinstance(inter_swarm, dict) and inter_swarm:
-        tooling = inter_swarm.get("tooling", {}) if isinstance(inter_swarm.get("tooling"), dict) else {}
-        status = "READY" if inter_swarm.get("ready") else "NOT READY"
-        print(f"\nInter-swarm: {status} (tooling {tooling.get('present', '?')}/{tooling.get('total', '?')}, python {_ok(inter_swarm.get('python_command_ready'))})")
-        missing = inter_swarm.get("missing", [])
-        if isinstance(missing, list) and missing:
-            print(f"  Missing: {', '.join(str(item) for item in missing)}")
-    print()
+    # Extracted to maintenance_inventory.py (DOMEX-META-S420)
+    from maintenance_inventory import print_inventory as _impl
+    return _impl(inv)
 
 PRIORITY_ORDER = {"URGENT": 0, "DUE": 1, "PERIODIC": 2, "NOTICE": 3}
 PRIORITY_SYMBOLS = {"URGENT": "!!!", "DUE": " ! ", "PERIODIC": " ~ ", "NOTICE": " . "}
 
 # --- Swarm-grade outcome tracking (F-MECH1, GAP-1) ---
-
-def _load_outcomes() -> dict:
-    if not OUTCOMES_PATH.exists():
-        return {"schema": "maintenance-outcomes-v1", "sessions": []}
-    try:
-        return json.loads(OUTCOMES_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {"schema": "maintenance-outcomes-v1", "sessions": []}
+# Extracted to maintenance_outcomes.py (DOMEX-META-S420)
+from maintenance_outcomes import load_outcomes as _load_outcomes
+from maintenance_outcomes import save_outcomes_direct as _save_outcomes_direct_impl
+from maintenance_outcomes import learn_from_outcomes as _learn_from_outcomes_impl
 
 def _save_outcomes_direct(check_items: dict[str, list[tuple[str, str]]], session: int):
-    data = _load_outcomes()
-    checks = {}
-    totals: dict[str, int] = {}
-    for name, fn_items in check_items.items():
-        severities = [sev for sev, _ in fn_items]
-        checks[name] = {
-            "fired": len(fn_items) > 0,
-            "count": len(fn_items),
-            "severities": severities,
-        }
-        for sev in severities:
-            totals[sev] = totals.get(sev, 0) + 1
-    from datetime import datetime, timezone
-    entry = {
-        "session": session,
-        "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "checks": checks,
-        "totals": totals,
-    }
-    # Deduplicate: replace if same session already recorded
-    data["sessions"] = [s for s in data["sessions"] if s.get("session") != session]
-    data["sessions"].append(entry)
-    # Trim to max sessions
-    data["sessions"].sort(key=lambda s: s.get("session", 0))
-    if len(data["sessions"]) > OUTCOMES_MAX_SESSIONS:
-        data["sessions"] = data["sessions"][-OUTCOMES_MAX_SESSIONS:]
-    OUTCOMES_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTCOMES_PATH.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    _save_outcomes_direct_impl(check_items, session, OUTCOMES_PATH, OUTCOMES_MAX_SESSIONS)
 
 def _learn_from_outcomes():
-    data = _load_outcomes()
-    sessions = data.get("sessions", [])
-    if len(sessions) < 2:
-        print("  Need ≥2 recorded sessions to learn. Run maintenance checks first.")
-        return
-    # Collect all check names across sessions
-    all_checks: set[str] = set()
-    for s in sessions:
-        all_checks.update(s.get("checks", {}).keys())
-    n = len(sessions)
-    print(f"=== MAINTENANCE LEARNING (n={n} sessions, S{sessions[0].get('session','?')}..S{sessions[-1].get('session','?')}) ===\n")
-    # Per-check statistics
-    stats: list[dict] = []
-    for check_name in sorted(all_checks):
-        fires = []
-        for s in sessions:
-            c = s.get("checks", {}).get(check_name, {})
-            fires.append(c.get("fired", False))
-        fire_count = sum(fires)
-        fire_rate = fire_count / n if n > 0 else 0
-        # Resolution: fired in session i, not fired in session i+1
-        resolutions = 0
-        resolution_opportunities = 0
-        for i in range(len(fires) - 1):
-            if fires[i]:
-                resolution_opportunities += 1
-                if not fires[i + 1]:
-                    resolutions += 1
-        resolve_rate = resolutions / resolution_opportunities if resolution_opportunities > 0 else 0
-        # Max severity seen
-        max_sev = "NOTICE"
-        for s in sessions:
-            c = s.get("checks", {}).get(check_name, {})
-            for sev in c.get("severities", []):
-                if PRIORITY_ORDER.get(sev, 99) < PRIORITY_ORDER.get(max_sev, 99):
-                    max_sev = sev
-        # Classify
-        if fire_rate > 0.8 and resolve_rate < 0.2:
-            label = "CHRONIC"
-        elif fire_rate > 0.3 and resolve_rate > 0.5:
-            label = "ACTIONABLE"
-        elif fire_rate == 0:
-            label = "SILENT"
-        else:
-            label = "-"
-        stats.append({
-            "name": check_name, "fire_rate": fire_rate, "resolve_rate": resolve_rate,
-            "fire_count": fire_count, "max_sev": max_sev, "label": label,
-            "resolutions": resolutions, "opportunities": resolution_opportunities,
-        })
-    # Sort: CHRONIC first (problem), then ACTIONABLE (productive), then by fire rate
-    label_order = {"CHRONIC": 0, "ACTIONABLE": 1, "-": 2, "SILENT": 3}
-    stats.sort(key=lambda s: (label_order.get(s["label"], 9), -s["fire_rate"]))
-    # Print chronic checks (anti-windup)
-    chronic = [s for s in stats if s["label"] == "CHRONIC"]
-    if chronic:
-        print("  CHRONIC (anti-windup — fire >80%, resolve <20%):")
-        for s in chronic:
-            print(f"    {s['name']:<40} fire={s['fire_rate']:.0%}  resolve={s['resolve_rate']:.0%}  max={s['max_sev']}")
-        print()
-    # Print actionable checks
-    actionable = [s for s in stats if s["label"] == "ACTIONABLE"]
-    if actionable:
-        print("  ACTIONABLE (fire >30%, resolve >50% — these drive real fixes):")
-        for s in actionable:
-            print(f"    {s['name']:<40} fire={s['fire_rate']:.0%}  resolve={s['resolve_rate']:.0%}  resolved={s['resolutions']}/{s['opportunities']}")
-        print()
-    # Print all non-silent
-    active = [s for s in stats if s["label"] != "SILENT"]
-    if active:
-        print(f"  All active checks ({len(active)}/{len(stats)}):")
-        for s in active:
-            tag = f" [{s['label']}]" if s["label"] not in ("-",) else ""
-            print(f"    {s['name']:<40} fire={s['fire_rate']:.0%}  resolve={s['resolve_rate']:.0%}  max={s['max_sev']}{tag}")
-        print()
-    # Trend: total check items over time
-    if len(sessions) >= 3:
-        totals_over_time = []
-        for s in sessions:
-            t = s.get("totals", {})
-            totals_over_time.append(sum(t.values()))
-        recent_3 = totals_over_time[-3:]
-        direction = "declining" if recent_3[-1] < recent_3[0] else ("rising" if recent_3[-1] > recent_3[0] else "stable")
-        print(f"  Trend (last 3): {' → '.join(str(t) for t in recent_3)} ({direction})")
-    # Silent checks (never fire — candidates for removal)
-    silent = [s for s in stats if s["label"] == "SILENT"]
-    if silent:
-        print(f"  Silent ({len(silent)} checks never fired — may be vestigial):")
-        for s in silent[:5]:
-            print(f"    {s['name']}")
-    print()
+    _learn_from_outcomes_impl(OUTCOMES_PATH)
 
 def main():
     if "--inventory" in sys.argv:

@@ -81,13 +81,13 @@
     },
     {
       "id": "change-quality-check",
-      "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223)",
+      "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S422: S419-S420 consecutive WEAK \u2014 root cause: integration-bound maintenance dominance (L-912). Fix: prioritize expert DOMEX lanes over maintenance.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 421,
+      "last_reviewed_session": 422,
       "registered_by": "S178",
       "last": "S409",
-      "last_session": "S421",
-      "last_run": "S398"
+      "last_session": "S422",
+      "last_run": "S422"
     },
     {
       "id": "dream-cycle",
@@ -186,10 +186,11 @@
     },
     {
       "id": "enforcement-audit",
-      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400). See L-843, L-846, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601.",
+      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422). See L-843, L-846, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601.",
       "cadence_sessions": 10,
-      "last_reviewed_session": 400,
-      "registered_by": "S401"
+      "last_reviewed_session": 422,
+      "registered_by": "S401",
+      "last_session": "S422"
     }
   ]
 }

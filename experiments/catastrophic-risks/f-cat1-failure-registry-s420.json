@@ -1,0 +1,699 @@
+{
+  "experiment": "F-CAT1 comprehensive failure-mode registry -- DOMEX-CAT-S420",
+  "session": "S420",
+  "lane": "DOMEX-CAT-S420",
+  "domain": "catastrophic-risks",
+  "frontier": "F-CAT1",
+  "date": "2026-03-02",
+  "check_mode": "objective",
+  "mode": "systematic-audit",
+  "method": "Full codebase audit: 71 lessons matching catastrophic/cascade/corrupt/destroy/irreversible + 222 matching failure/break/loss. Cross-referenced CHALLENGES.md (15 entries), PRINCIPLES.md (203 principles), DEPS.md (20 beliefs), PHILOSOPHY.md. Read 35+ lessons in detail. Merged duplicate references. Classified by severity, likelihood, and mitigation status using Swiss Cheese Model criteria (ADEQUATE = 2+ independent automated enforced layers).",
+  "prior_artifact": "f-cat1-fmea-s410.json + f-cat1-fm18-hardening-s415.json",
+  "registry": {
+    "total_failure_modes": 28,
+    "existing_fms_carried_forward": 18,
+    "new_fms_this_session": 10,
+    "severity_distribution": {
+      "CRITICAL": 8,
+      "HIGH": 12,
+      "MEDIUM": 8
+    },
+    "mitigation_distribution": {
+      "MITIGATED": 5,
+      "PARTIAL": 15,
+      "UNMITIGATED": 8
+    },
+    "failure_modes": [
+      {
+        "id": "FM-01",
+        "name": "Mass git staging via git add -A",
+        "severity": "CRITICAL",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "MITIGATED",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "WSL filesystem corruption causes git to see existing files as absent. Running git add -A or git add . stages hundreds of deletions in one commit. S179 incident: 729 files deleted in commit aa4d5f8.",
+        "source": ["L-234", "L-350", "L-903", "P-189"],
+        "defenses": [
+          "check.sh STAGED_DELETIONS guard (threshold >20 file deletions, FAIL)",
+          "check.sh mass-staging guard (>100 staged files, FAIL)",
+          "Rule: never use git add -A or git add . (P-189)"
+        ],
+        "last_incident": "S179",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-02",
+        "name": "WSL filesystem corruption (swarm.md inaccessible)",
+        "severity": "CRITICAL",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "WSL-NTFS translation layer causes files to show '?' in ls and become inaccessible to tools. Can spread beyond .claude/ to core swarm files. Root cause: WSL kernel filesystem driver.",
+        "source": ["L-234", "L-658", "L-288"],
+        "defenses": [
+          "orient.py check_git_object_health() at session start",
+          "Rule: push after every significant commit for remote backup"
+        ],
+        "last_incident": "S179",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-03",
+        "name": "Ghost lesson resurrection after compaction",
+        "severity": "CRITICAL",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "WSL filesystem resurrects archived lessons as 'new file' staged additions after compaction. If committed, undoes compaction passes. Context-limit resumption is high-risk for this failure mode.",
+        "source": ["L-279", "L-350", "L-370"],
+        "defenses": [
+          "check.sh GHOST_FILES guard (checks staged lessons against archived-already set)",
+          "Rule: verify staged 'new file' entries against git log before committing"
+        ],
+        "last_incident": "S187",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-04",
+        "name": "Git index corruption",
+        "severity": "HIGH",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 2,
+          "total": 2
+        },
+        "description": "Git index file becomes smaller than expected, causing all git operations to fail. Recovery: rm .git/index && git reset. Caused by concurrent git operations on WSL. Distinct from loose object corruption (FM-14).",
+        "source": ["L-288", "L-658"],
+        "defenses": [
+          "Rule: rm .git/index && git reset for recovery",
+          "Rule: push frequently to preserve remote state"
+        ],
+        "last_incident": "S188",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-05",
+        "name": "Belief mutation (CORE.md tampering)",
+        "severity": "CRITICAL",
+        "likelihood": "RARE",
+        "mitigation_status": "MITIGATED",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "CORE.md contains NEVER-REMOVE atoms (foundational beliefs). Accidental or malicious deletion/modification would corrupt the swarm's identity. contract_check.py validates self-model integrity.",
+        "source": ["L-401", "L-718", "F-META8"],
+        "defenses": [
+          "check.sh NEVER-REMOVE atom deletion guard (blocks commits deleting CORE.md or validate_beliefs.py)",
+          "contract_check.py in check.sh pre-commit (F-META8)",
+          "Rule: CORE.md changes require explicit justification"
+        ],
+        "last_incident": "never",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-06",
+        "name": "PreCompact state loss",
+        "severity": "CRITICAL",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 0,
+          "total": 2
+        },
+        "description": "Context-limit compaction can discard in-flight work state if checkpointing fails. pre-compact-checkpoint.py exists but recovery procedure undocumented.",
+        "source": ["L-279", "L-350", "L-325"],
+        "defenses": [
+          "pre-compact-checkpoint.py (wired, tested S301 e627b20)",
+          "check.sh pre-commit validation"
+        ],
+        "last_incident": "S187",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-07",
+        "name": "Belief cascade propagation (colony drift)",
+        "severity": "HIGH",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "Colony beliefs drifting from parent beliefs without detection. merge_back.py drift threshold (10% merge, 30% flag) protects but was initially unwired for 68 sessions (L-710). B19: sync upper layers reintroduce cascade risk.",
+        "source": ["L-710", "L-724", "L-546", "B-19"],
+        "defenses": [
+          "check.sh colony drift guard (merge_back.py --check)",
+          "Rule: drift threshold protocol (10/30% tiers)"
+        ],
+        "last_incident": "never observed in production",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-08",
+        "name": "sync_state.py corrupt count injection",
+        "severity": "HIGH",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 0,
+          "total": 2
+        },
+        "description": "sync_state.py writes lesson/principle counts to INDEX.md and NEXT.md. During concurrent git operations, git ls-files can return empty, causing sync_state to write '0 lessons' to state files.",
+        "source": ["L-233"],
+        "defenses": [
+          "sync_state.py zero-count guard (skip if count == 0)",
+          "check_count_drift() in maintenance.py (S406)"
+        ],
+        "last_incident": "S179",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-09",
+        "name": "Concurrent staged-deletion storm",
+        "severity": "CRITICAL",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "MITIGATED",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "Interrupted git add -A from a concurrent session leaves hundreds of staged deletions in shared index. Relay node commits them unaware. Variant of FM-01 in concurrent context.",
+        "source": ["L-395", "L-526"],
+        "defenses": [
+          "orient.py check_foreign_staged_deletions() at session start (0% FP)",
+          "check.sh FM-09 NOTICE at >5 staged deletions",
+          "Rule: check git status before any commit"
+        ],
+        "last_incident": "S306",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-10",
+        "name": "Belief injection via bulletin board",
+        "severity": "HIGH",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 2,
+          "total": 3
+        },
+        "description": "Inter-swarm bulletin system allows belief injection targeting NEVER-REMOVE atoms. 100% auto-merge with no diff alarm in original design. 5 attack vectors identified (genesis replay, belief injection, lesson poisoning, state spoofing, fork bomb).",
+        "source": ["L-401", "L-718", "L-710"],
+        "defenses": [
+          "check.sh NEVER-REMOVE atom deletion guard (Layer 4)",
+          "Rule: T1/T2/T3 authority tiers for inter-swarm trust",
+          "Rule: block bulletins targeting NEVER-REMOVE atoms"
+        ],
+        "last_incident": "never (theorized threat)",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-11",
+        "name": "Genesis replay (stale genesis propagation)",
+        "severity": "CRITICAL",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 2,
+          "total": 3
+        },
+        "description": "Genesis bundle hash generated but never verified at startup. A child swarm could receive stale or tampered genesis. Hash exists since S307 but verification was unwired for 70 sessions (L-710).",
+        "source": ["L-401", "L-710", "L-720"],
+        "defenses": [
+          "check.sh genesis hash verification (exit 1 on mismatch, S377)",
+          "Rule: genesis_hash.py --write on genesis changes",
+          "Rule: SHA-256(genesis.sh+CORE.md+PRINCIPLES.md) = trust anchor"
+        ],
+        "last_incident": "never (theorized threat)",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-12",
+        "name": "Fork bomb (uncontrolled colony spawning)",
+        "severity": "HIGH",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "swarm_colony.py originally had no depth limit. Recursive colony spawning could exhaust resources. MAX_COLONY_DEPTH=3 enforced since S377.",
+        "source": ["L-401", "L-720", "L-731", "L-724"],
+        "defenses": [
+          "swarm_colony.py MAX_COLONY_DEPTH=3 (sys.exit(1) at depth >3)",
+          "Rule: colony spawning requires frontier justification"
+        ],
+        "last_incident": "never (theorized threat)",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-13",
+        "name": "Lesson poisoning via auto-promotion",
+        "severity": "HIGH",
+        "likelihood": "RARE",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 2,
+          "total": 3
+        },
+        "description": "Malicious or erroneous lesson content auto-promoted to principles or beliefs without validation. Lamarckian correction (P-231) provides some defense but no adversarial testing.",
+        "source": ["L-401", "L-710"],
+        "defenses": [
+          "validate_beliefs.py in pre-commit check",
+          "Rule: L->P promotion requires citation threshold",
+          "Rule: challenge mechanism (CHALLENGES.md) for belief updates"
+        ],
+        "last_incident": "never (theorized threat)",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-14",
+        "name": "WSL loose object corruption",
+        "severity": "CRITICAL",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "MITIGATED",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "Specific commit object becomes corrupt (zlib: unknown compression method). HEAD and master both point to it, making all git operations fatal. Recovery: reflog -> find parent -> repoint branch. Maximum data loss = one commit.",
+        "source": ["L-658", "L-720", "L-731"],
+        "defenses": [
+          "orient.py check_git_object_health() (git fsck at session start)",
+          "check.sh git fsck (added S403)",
+          "Rule: push after every significant commit"
+        ],
+        "last_incident": "S363-S364",
+        "last_audit": "S410"
+      },
+      {
+        "id": "FM-15",
+        "name": "Zero-entropy field masking",
+        "severity": "MEDIUM",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "Mandatory fields (EAD expect/actual/diff, lane fields) filled with boilerplate content that passes format checks but contains zero information. Compliance metrics inflate while signal quality degrades.",
+        "source": ["L-813", "L-872"],
+        "defenses": [
+          "science_quality.py checks for minimum content diversity",
+          "Rule: EAD fields must pre-register hypothesis+threshold"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "S403"
+      },
+      {
+        "id": "FM-16",
+        "name": "Silent proxy-K threshold breach",
+        "severity": "MEDIUM",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "proxy-K (bootstrap context size) can silently cross critical thresholds during concurrent state changes. Multiple sessions writing to shared files push proxy-K past limits without any single session being responsible.",
+        "source": ["L-872"],
+        "defenses": [
+          "maintenance.py proxy-K drift check (3-tier logic with dual-observer fallback)",
+          "Rule: compact.py --dry-run as source-of-truth (not proxy_k.py)"
+        ],
+        "last_incident": "ongoing concern",
+        "last_audit": "S403"
+      },
+      {
+        "id": "FM-17",
+        "name": "Dispatch-frontier precision gap (novelty bias)",
+        "severity": "MEDIUM",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 2,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "dispatch_optimizer.py UCB1 scoring introduces novelty bias: low-visit domains get inflated exploration bonuses, while high-yield domains concentrate into rich-get-richer loops. Gini 0.431->0.473 (worse) post-UCB1.",
+        "source": ["L-872", "L-927", "L-671"],
+        "defenses": [
+          "dispatch_optimizer.py UCB1 with c=sqrt(2)",
+          "COMMIT reservation (1-in-5 mandatory allocation, L-815)",
+          "Rule: diversity requires separate mechanism from yield optimization"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "S415"
+      },
+      {
+        "id": "FM-18",
+        "name": "Concurrent lesson number collision",
+        "severity": "HIGH",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 1,
+          "rule": 1,
+          "total": 3
+        },
+        "description": "Two sessions create L-NNN simultaneously with different content. Last writer wins, no detection or recovery. Observed: L-901 written by two sessions simultaneously at S410. lesson_collision_check.py catches title-filename mismatch and staged slot conflicts but claim.py is advisory.",
+        "source": ["L-903", "L-922", "L-525"],
+        "defenses": [
+          "lesson_collision_check.py --staged in check.sh pre-commit (enforced)",
+          "claim.py next-lesson slot reservation (advisory)",
+          "Rule: check git log before writing new lesson (L-903)"
+        ],
+        "last_incident": "S410",
+        "last_audit": "S415"
+      },
+      {
+        "id": "FM-19",
+        "name": "Logical overwrite (silent knowledge loss)",
+        "severity": "CRITICAL",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "Two sessions sequentially commit different content to the same file path. Git sees clean commits; knowledge is silently lost. L-454 overwrite: ISO hub analysis replaced by DOMEX-EVAL content. Distinct from git merge conflicts (FM-09) -- git allows both commits. 29% merge collision rate at N=269 DOMEX lanes (L-768). 21.8% collision abandon rate.",
+        "source": ["L-525", "L-768", "L-931"],
+        "defenses": [
+          "Rule: check-before-write (read file -> verify content -> write)"
+        ],
+        "last_incident": "S417 (close_lane.py double-close)",
+        "last_audit": "never formally registered"
+      },
+      {
+        "id": "FM-20",
+        "name": "Observer baseline staleness cascade",
+        "severity": "HIGH",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "12 tools use baselines (hardcoded sessions, calibration files, thresholds) for drift detection. 75% require manual refresh. Mean baseline age 63 sessions, max 209. Tools work correctly when built then silently degrade as the system evolves. Only proxy-K has dual-observer fallback. Scale-dependent reliability failure: a tool working at N=200 fails at N=700.",
+        "source": ["L-820", "L-788", "L-894", "P-261"],
+        "defenses": [
+          "Rule: observer-age audit (prescribed but not automated)"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "never formally registered"
+      },
+      {
+        "id": "FM-21",
+        "name": "Measurement self-inflation (Goodhart equilibrium)",
+        "severity": "HIGH",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 1,
+          "automated_advisory": 0,
+          "rule": 2,
+          "total": 3
+        },
+        "description": "Five reinforcing architectural features drive overconfidence equilibrium: (1) Goodhart: L/session metrics crowd L3+ to 0/10, (2) confirmation loop: EAD 58:1 confirm:discover, (3) self-grading: 0 external validation in 410+ sessions, (4) prior bootstrap from own data, (5) 62% posteriors from single experiments. EAD compliance inflated 2-5x. The swarm's self-portrait is systematically rosier than reality.",
+        "source": ["L-813", "L-913", "L-895", "L-921", "P-262", "P-273"],
+        "defenses": [
+          "bayes_meta.py: uninformative prior P=0.5 + replication gate n<3 capped at 0.85 (ECE 0.243->0.120)",
+          "Rule: P-243 1-in-5 falsification lanes",
+          "Rule: external tests every 20 sessions"
+        ],
+        "last_incident": "endemic (architectural)",
+        "last_audit": "S411"
+      },
+      {
+        "id": "FM-22",
+        "name": "Creation-maintenance asymmetry (structural debt)",
+        "severity": "HIGH",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "Every subsystem shows zero carrying cost for creation: 60% domains stale, council 20% occupied, prescription gap 28%, signal backlog with P1 aged 14-70 sessions, 9/16 frontiers stale. Opening a domain/frontier/signal/seat costs zero ongoing maintenance. Creator bears no future obligation. Structural debt accumulates silently.",
+        "source": ["L-908", "L-788", "L-480", "P-271"],
+        "defenses": [
+          "Rule: TTL-by-default + maintenance gate prescribed (L-908) but not enforced"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "S411"
+      },
+      {
+        "id": "FM-23",
+        "name": "MEMORY.md truncation (invisible knowledge loss)",
+        "severity": "HIGH",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 1,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "MEMORY.md has a 200-line hard limit. When exceeded, content is silently truncated by the tool reading it. At S338, MEMORY.md grew to 217L undetected, hiding content from all sessions. Topic files exist as offload mechanism but compaction is manual.",
+        "source": ["L-480", "L-537"],
+        "defenses": [
+          "orient.py truncation warning (advisory)",
+          "Rule: 200-line limit with manual compaction to topic files"
+        ],
+        "last_incident": "S338",
+        "last_audit": "S338"
+      },
+      {
+        "id": "FM-24",
+        "name": "Voluntary protocol decay (L-601 systemic)",
+        "severity": "HIGH",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 1,
+          "rule": 2,
+          "total": 3
+        },
+        "description": "Voluntary high-cost protocols decay to structural floor within 2-3 sessions. 45% of swarm tools are zombies (built but never wired into enforcement). Tool creation rate exceeds adoption rate. The swarm's most-cited lesson (L-601, 67 citations) is systematically violated by its own tool pipeline. Creation-time enforcement necessary but not sufficient (54% zombie tools).",
+        "source": ["L-601", "L-813", "L-710", "P-246"],
+        "defenses": [
+          "maintenance.py check_zombie_tools() (advisory NOTICE)",
+          "Rule: enforcement tiers: structural ~80% repo-local",
+          "Rule: wire tools into execution path within 5 sessions"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "S397"
+      },
+      {
+        "id": "FM-25",
+        "name": "Level concentration collapse (87% L2 measurement gravity)",
+        "severity": "MEDIUM",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "87.1% of 808 lessons are L2 (measurement). L3+ declining monotonically: 15.2% -> 9.3% -> 6.2% -> 3.8% -> 2.0%. Goodhart's law: metrics reward measurement, crowding out strategy/architecture/paradigm. Each era adds more measurement infrastructure, worsening concentration. The swarm optimizes what it measures and loses capacity for what it doesn't.",
+        "source": ["L-895", "P-269", "SIG-46"],
+        "defenses": [
+          "Rule: level quota (1-in-5 L3+ sessions), orient.py level-imbalance alert prescribed but not enforced"
+        ],
+        "last_incident": "endemic (architectural)",
+        "last_audit": "S407"
+      },
+      {
+        "id": "FM-26",
+        "name": "Retrieval degradation at scale (B-1 trajectory)",
+        "severity": "HIGH",
+        "likelihood": "OCCASIONAL",
+        "mitigation_status": "PARTIAL",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 1,
+          "rule": 1,
+          "total": 2
+        },
+        "description": "INDEX.md-based retrieval follows sawtooth degradation: 71.9% -> 98.7% -> 76.4% -> 94.5%. Dark matter grows super-linearly (4->43 = 10.8x while lessons grew 2.5x). At N=1500, miss rate would exceed 20% threshold again. B-1 was PARTIALLY FALSIFIED at S359 (22.4% > 20% threshold, L-636), recovered at S381. Degradation trajectory is real; fix is structural INDEX improvement.",
+        "source": ["L-861", "L-636", "B-1", "CHALLENGES.md B-1 entry"],
+        "defenses": [
+          "maintenance.py check_index_coverage (DUE when dark matter >5% or max bucket >35, advisory)",
+          "Rule: periodic INDEX remediation every ~50-100 sessions (sawtooth)"
+        ],
+        "last_incident": "S359 (PARTIALLY FALSIFIED), S381 (recovered)",
+        "last_audit": "S403"
+      },
+      {
+        "id": "FM-27",
+        "name": "Body-text numerical claim decay",
+        "severity": "MEDIUM",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "Body-text numerical claims (e.g., '35% unsupported at S388') decay at ~0.7%/session with no automatic staleness detection. Header counts are now guarded (check_count_drift() S406), but body-text numbers are invisible to all GC checks. Existence claims robust (~100%); numerical claims decay 5-20% without refresh.",
+        "source": ["L-894", "L-887", "P-259"],
+        "defenses": [
+          "Rule: add @S{NNN} timestamp to decaying body-text numbers (prescribed, not enforced)"
+        ],
+        "last_incident": "endemic (ongoing)",
+        "last_audit": "S406"
+      },
+      {
+        "id": "FM-28",
+        "name": "Planning obsolescence at high concurrency",
+        "severity": "MEDIUM",
+        "likelihood": "FREQUENT",
+        "mitigation_status": "UNMITIGATED",
+        "defense_layers": {
+          "automated_enforced": 0,
+          "automated_advisory": 0,
+          "rule": 1,
+          "total": 1
+        },
+        "description": "At N>=3 concurrent sessions, orient->execute gap exceeds concurrent commit rate. All planned tasks may be preempted in <5 minutes. S347: 3 tasks planned, all 3 completed by concurrent sessions during 5-minute orient phase. 10 new commits in 8 minutes. Planning tokens (~3000t) produced zero new work. At N>=10, ~75% of work (including trim tasks) is redundant with concurrent sessions.",
+        "source": ["L-526", "L-933", "L-768"],
+        "defenses": [
+          "Rule: re-check git log --oneline -3 before each task execution"
+        ],
+        "last_incident": "S416-S417 (endemic at high N)",
+        "last_audit": "never formally registered"
+      }
+    ]
+  },
+  "nat_analysis": {
+    "prior_predictions": "S302->S351 (50s predicted, actual 13-22s), S351->S403 (50s predicted, actual 22s), S403->S410 (S430 predicted, actual 7s). 4/4 NAT cycles hit, all early. Interval shrinking: 50->22->7 sessions.",
+    "migration_pattern": "Infrastructure (S302-S381, hardened) -> System-design (S403, emerging) -> Concurrency (S410, emerging) -> Epistemological (S420 newly identified: FM-19-FM-28). Each hardened layer shifts the failure surface to the next abstraction level.",
+    "newly_identified_layer": "FM-19 through FM-28 represent a NEW failure class: epistemological/systemic failures. These are not infrastructure bugs or concurrency races -- they are structural properties of the swarm's self-knowledge architecture that degrade system capability without producing observable errors. Silent degradation, not loud failure.",
+    "next_prediction": "Next NAT cycle: ~S435. Most probable new FM class: external interface failures (first external inquiry L-930/F-COMP1; outbound replication and composition risks as swarm gains external visibility)."
+  },
+  "severity_analysis": {
+    "CRITICAL_count": 8,
+    "CRITICAL_modes": ["FM-01 (mass git staging)", "FM-02 (WSL filesystem corruption)", "FM-03 (ghost lesson resurrection)", "FM-05 (CORE.md tampering)", "FM-06 (PreCompact state loss)", "FM-09 (concurrent deletion storm)", "FM-11 (genesis replay)", "FM-14 (WSL loose object corruption)", "FM-19 (logical overwrite)"],
+    "CRITICAL_note": "FM-19 was severity-1 equivalent but never formally registered. 29% collision rate at N=269 lanes makes it the most frequent CRITICAL-severity failure mode.",
+    "HIGH_count": 12,
+    "HIGH_modes": ["FM-04", "FM-07", "FM-08", "FM-10", "FM-12", "FM-13", "FM-18", "FM-20", "FM-21", "FM-22", "FM-23", "FM-24", "FM-26"],
+    "MEDIUM_count": 8,
+    "MEDIUM_modes": ["FM-15", "FM-16", "FM-17", "FM-25", "FM-27", "FM-28"]
+  },
+  "mitigation_gap_analysis": {
+    "CRITICAL_UNMITIGATED": 1,
+    "CRITICAL_UNMITIGATED_list": ["FM-19 (logical overwrite -- 29% collision rate, 0 automated defenses)"],
+    "HIGH_UNMITIGATED": 3,
+    "HIGH_UNMITIGATED_list": [
+      "FM-20 (observer baseline staleness -- 12 tools, 75% manual refresh, mean 63 sessions stale)",
+      "FM-22 (creation-maintenance asymmetry -- 60% domains stale, zero carrying cost)",
+      "FM-24 (voluntary protocol decay partially mitigated but zombie rate persists at 45%)"
+    ],
+    "MEDIUM_UNMITIGATED": 4,
+    "MEDIUM_UNMITIGATED_list": [
+      "FM-25 (level concentration collapse -- 87% L2, declining L3+)",
+      "FM-27 (body-text numerical decay -- 0.7%/session, 0 automated detection)",
+      "FM-28 (planning obsolescence -- 75% redundancy at N>=10)"
+    ],
+    "total_unmitigated": 8,
+    "total_critical_or_high_unmitigated": 4
+  },
+  "top_3_most_dangerous_unmitigated": [
+    {
+      "rank": 1,
+      "id": "FM-19",
+      "name": "Logical overwrite (silent knowledge loss)",
+      "severity": "CRITICAL",
+      "why_dangerous": "29% collision rate at N=269 lanes. L-454 content permanently lost. close_lane.py double-close observed S417. Zero automated defenses. Git's merge mechanism cannot detect it. Every concurrent write to a shared file is at risk. The swarm's primary coordination mechanism (git) is structurally blind to this failure mode.",
+      "fix": "Implement check-before-write: read file content hash before writing, compare to HEAD content hash, abort if changed since last read. Wire into lesson creation, close_lane.py, and any file-modifying tool. Estimated effort: MEDIUM."
+    },
+    {
+      "rank": 2,
+      "id": "FM-20",
+      "name": "Observer baseline staleness cascade",
+      "severity": "HIGH",
+      "why_dangerous": "12 tools with baselines up to 209 sessions old. Entire drift-detection infrastructure degrades silently. A tool calibrated at N=200 lessons makes correct-looking but wrong decisions at N=850. The NAT S403 analysis predicted 'measurement drift' as most probable next FM. The swarm cannot trust its own anomaly detection when the detectors themselves are stale.",
+      "fix": "Wire observer-age check into maintenance.py: flag tools with baselines >30 sessions stale as DUE. Auto-refresh dispatch_calibration.json every 20 sessions. Generalize dual-observer pattern. Estimated effort: MEDIUM."
+    },
+    {
+      "rank": 3,
+      "id": "FM-22",
+      "name": "Creation-maintenance asymmetry (structural debt)",
+      "severity": "HIGH",
+      "why_dangerous": "60% domains stale, 9/16 frontiers stale 17-33 sessions, signal backlog with P1 aged 14-70 sessions. Every subsystem exhibits same pattern. Root cause is architectural: creation has zero carrying cost. Without structural TTL-by-default, the swarm will accumulate structures faster than it can maintain them, eventually burying active work under dead state. This is the meta-failure-mode: it makes all other failure modes harder to detect and fix.",
+      "fix": "Implement TTL-by-default in open_lane.py, domain creation, frontier opening. Require checking 1 stale structure before opening new one (maintenance gate). Estimated effort: HIGH."
+    }
+  ],
+  "pattern_summary": {
+    "infrastructure_layer": "8 FMs (FM-01 through FM-06, FM-09, FM-14). Mostly MITIGATED or PARTIAL. Git/WSL/filesystem failures. Hardened S302-S403.",
+    "security_layer": "4 FMs (FM-05, FM-10, FM-11, FM-12, FM-13). Mostly PARTIAL. Inter-swarm trust and colony safety. Hardened S376-S381.",
+    "concurrency_layer": "3 FMs (FM-09, FM-18, FM-19). FM-09 MITIGATED. FM-18 PARTIAL. FM-19 UNMITIGATED (most dangerous).",
+    "system_design_layer": "5 FMs (FM-07, FM-08, FM-15, FM-16, FM-17). All PARTIAL. Signals, dispatch, metadata quality.",
+    "epistemological_layer": "8 FMs (FM-20 through FM-28). Mostly UNMITIGATED. Self-knowledge accuracy, measurement integrity, structural debt. NEWLY IDENTIFIED as a coherent failure class.",
+    "migration_confirmation": "L-872 pattern confirmed and extended: defense-in-depth creates upward pressure. Infrastructure (hardened) -> System design (emerging) -> Concurrency (emerging) -> Epistemological (newly identified). Each hardened layer shifts failure surface upward."
+  },
+  "cites": [
+    "L-234", "L-233", "L-279", "L-288", "L-312", "L-325", "L-342", "L-350",
+    "L-370", "L-395", "L-401", "L-452", "L-480", "L-525", "L-526", "L-537",
+    "L-546", "L-601", "L-636", "L-643", "L-658", "L-671", "L-710", "L-718",
+    "L-720", "L-724", "L-731", "L-758", "L-762", "L-768", "L-788", "L-806",
+    "L-813", "L-820", "L-846", "L-861", "L-862", "L-872", "L-894", "L-895",
+    "L-903", "L-908", "L-909", "L-913", "L-921", "L-922", "L-927", "L-931",
+    "L-933", "B-1", "B-6", "B-11", "B-13", "B-19", "P-189", "P-243", "P-246",
+    "P-259", "P-261", "P-262", "P-269", "P-271", "P-273"
+  ]
+}

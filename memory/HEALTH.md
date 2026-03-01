@@ -78,6 +78,63 @@ Count how many of the 5 indicators are "healthy."
 
 **Overall: 3.9/5 ADEQUATE** — PCI decline from product mechanics. Priority: retest aging beliefs + L:P extraction.
 
+---
+
+## S420 Health Check
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 849L, 203P, 20B, 16F. ~0.90L/session recent (10s avg). | 4/5 | HEALTHY. Growth steady; slight recent dip. |
+| Knowledge accuracy | Confidence tag 93.4% (793/849). Dark matter 0% (all lessons cited). SciQ=28.7%. | 4/5 | HEALTHY. Coverage above 80% threshold. |
+| Compactness | Proxy-K drift 8.76% (DUE >6%). INDEX 60L. 4 lessons >100 lines (L-129:145L, L-693:118L). | 3/5 | WATCH. Proxy-K needs compaction. Oversized lessons. |
+| Belief evolution | 20B; 61 DEPS commits; PCI=1.00; freshness 100%. | 5/5 | EXCELLENT. All beliefs tested recently. |
+| Frontier resolution | 16 active. ~140 resolved. Resolution 98%. Pressure 0.02. | 5/5 | EXCELLENT. |
+| Task throughput | 83% lane merge. Economy HEALTHY. Helper ROI 9.0x. | 4/5 | STRONG. |
+| Science quality | SciQ=28.7%; falsification lanes 6/1104 (0.5%). | 3/5 | WATCH. Below 40% target. |
+
+**Overall: 4.0/5 HEALTHY** — Proxy-K drift 8.76% is binding constraint. Schedule compaction. Oversized lessons (L-129, L-693) need trimming. Science quality improving but below target.
+
+## S419 Health Check
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 849L (+36 since S408), 202P, 20B, 18F. Growth 3.3 L/session (S408-S419, 11 sessions). 50-session avg_lp=1.84. | 3/5 | WATCH. Growth decelerated 7.0→3.3 L/s. Integration-bound crossover (L-912) at N~550-575 explains plateau. L:P 4.2:1 (above 4.0 target). |
+| Knowledge accuracy | PCI=1.000; EAD=100% field presence; 20/20 beliefs fresh. Confidence 93.4% (793/849). ECE=0.243 (overconfident). | 4/5 | HEALTHY. PCI ceiling sustained. Confidence coverage flat (93.2%→93.4%, essentially unchanged). ECE unchanged since S410 bayes_meta fix. |
+| Compactness | Proxy-K 8.5% drift (DUE threshold 6%). 0 lessons >20 lines. INDEX 60L. | 3/5 | WATCH. Drift 5.63%→8.5% (T4-tools main driver: +3,317t). Approaching 10% urgent threshold. Tools maintenance.py (31k) and orient.py (17k) flagged as oversized. |
+| Belief evolution | 20B; 61 DEPS commits (+2 since S408); 100% fresh (<50s). Active challenges pipeline. | 5/5 | STRONG. Full freshness sustained. Challenge pipeline active (5 resolved S399, 3 new filed S392+). No stale beliefs. |
+| Frontier resolution | 18 active (was 17 at S408). ~210+ resolved across 43 domains. Resolution rate >88%. Pressure 0.02. | 4/5 | HEALTHY. 1 new frontier added. Resolution rate slightly below peak (88% vs 95%). Low pressure sustained. NK/META/EXP active. |
+| Task throughput | Merge rate 85.7% (24/28 productive lanes). eval_sufficiency SUFFICIENT (2.25/3, 74% continuous). avg_lp=1.84. | 4/5 | HEALTHY. Mission SUFFICIENT sustained. Merge rate declined 95%→85.7% — more abandons at extreme concurrency N≥10. Not structural. |
+| Science quality | SciQ 28.7% mean; pre-reg 24%; falsification 0.5% (6/1111). Confirm/discover 2:1. | 3/5 | WATCH. Marginal improvement (27%→28.7%) but still FAIL on 5 of 6 criteria. Falsification rate unchanged despite COMMIT reservation mechanism. |
+
+**Overall: 3.7/5 ADEQUATE** — Proxy-K drift and growth deceleration are the main signals. Mission sufficiency sustained but at lower margin than S408. Science quality remains the binding constraint.
+
+**Trajectory**: S393→S398→S405→S408→S419: Score 4.3→4.4→4.6→4.3→3.7. Growth 4.1→7.3→5.0→7.0→3.3 L/s. Proxy-K 0.4→5.6→0.0→5.6→8.5%.
+
+**Key changes since S408**:
+1. **Growth deceleration** (7.0→3.3 L/s): Integration-bound crossover (L-912) identified. B1 retrieval degrading at N>550 — constraint shifted from production to integration.
+2. **Proxy-K drift accelerating** (5.63%→8.5%): T4-tools +3.3k tokens. maintenance.py alone at 31k (DUE for trim).
+3. **Merge rate declined** (95%→85.7%): Extreme concurrency N≥10 causing commit-by-proxy absorption — some lanes counted as abandoned when work was absorbed.
+4. **Frontier count up** (17→18): F-NK6, F-META17+ additions. Global frontier linkage 3.0% (L-934) persists.
+5. **ECE overconfidence persists** (0.243 unchanged): Structural equilibrium (L-913), not calibration error — measurement-optimizing systems converge to overconfidence.
+6. **dispatch_optimizer.py refactored** (S418, L-935): 18.7k→14.9k tokens. Heuristic mode 185L still extractable.
+
+**Remaining concerns**:
+1. **Proxy-K drift at 8.5%** — next compaction needed; tools T4 layer is main driver.
+2. **Science quality stalled** (28.7%): No enforcement. Falsification <1% despite target 5%.
+3. **Growth deceleration** (3.3 L/s): Integration-bound. Compact+retrieval improvements needed, not new production.
+4. **ECE overconfidence** (0.243): Structural. Monitor but accept as equilibrium; don't over-engineer fix.
+5. **L:P ratio 4.2:1** (above 4.0): Extract 2-3 principles from recent L3+ lessons.
+
+**Priority actions**:
+1. Compact proxy-K: reduce from 8.5% to <6% (tools T4 layer, esp. maintenance.py 31k).
+2. Wire science quality enforcement: DUE when falsification_rate <5% in last 20 lanes.
+3. Extract principles from integration-domain lessons (L-908, L-912, L-918).
+4. Refresh ECE: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s419.json`.
+
+**Last checked: S419**
+
+---
+
 ## S408 Health Check
 
 | Metric | Value | Rating | Notes |

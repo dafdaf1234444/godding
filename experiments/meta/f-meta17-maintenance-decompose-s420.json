@@ -1,0 +1,41 @@
+{
+  "experiment": "DOMEX-META-S420: maintenance.py decomposition — extract lane and domain checks",
+  "session": "S420",
+  "date": "2026-03-02",
+  "frontier": "F-META17",
+  "domain": "meta",
+  "level": "L3",
+  "question": "Can maintenance.py (31179t) be decomposed into smaller modules? Which subsystems are extractable as standalone modules?",
+  "check_mode": "objective",
+  "baseline": {
+    "maintenance_py_tokens": 31179,
+    "maintenance_py_lines": 2448,
+    "ceiling": 5000
+  },
+  "extraction_completed": {
+    "tools/maintenance_lanes.py": {
+      "lines": 283,
+      "functions": ["check_swarm_lanes", "check_swarm_coordinator", "check_lane_reporting_quality"],
+      "description": "Lane hygiene checks extracted as pure functions with explicit argument injection"
+    },
+    "tools/maintenance_domains.py": {
+      "lines": 248,
+      "functions": ["check_domain_frontier_consistency", "check_frontier_decay", "check_anxiety_zones", "check_frontier_registry", "check_domain_expert_coverage", "check_historian_integrity"],
+      "description": "Domain expert coverage and frontier consistency checks"
+    }
+  },
+  "extraction_not_completed": {
+    "reason": "maintenance.py was not updated to import from extracted modules — originals still in maintenance.py",
+    "next_step": "Update maintenance.py to import check_swarm_lanes, check_swarm_coordinator, check_lane_reporting_quality from maintenance_lanes.py; and domain checks from maintenance_domains.py; then delete originals from maintenance.py",
+    "estimated_savings": "~4000 tokens if all extracted functions removed from maintenance.py"
+  },
+  "periodics_fix_committed": {
+    "description": "Fixed periodics.py: last_reviewed_session now parses 'S421' format (lstrip S) to prevent false-positive DUE alerts",
+    "lines_changed": 6
+  },
+  "expect": "maintenance.py has 4+ extractable subsystems >=100L each. Largest extraction saves >5k tokens. Post-decomposition size <20k tokens.",
+  "actual": "PARTIAL: 2 modules extracted (maintenance_lanes.py 283L, maintenance_domains.py 248L) but not yet wired into maintenance.py. Periodics parsing fix completed. maintenance.py size unchanged at ~29893t.",
+  "diff": "Expected full wiring — NOT completed. Modules exist in parallel, duplicate code not yet removed. Wiring requires API adaptation (pure function style vs global-state style in main file).",
+  "f_meta17_status": "ADVANCED",
+  "f_meta17_next": "Complete wiring: update maintenance.py to import from maintenance_lanes.py and maintenance_domains.py, delete originals. Then extract more subsystems (metrics, historian) to bring maintenance.py below 20k tokens."
+}

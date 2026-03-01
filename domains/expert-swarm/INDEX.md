@@ -2,7 +2,7 @@
 Updated: 2026-02-28 | Sessions: 306
 
 ## What this domain knows
-- **Active frontiers**: 7 in `domains/expert-swarm/tasks/FRONTIER.md` (F-EXP3, F-EXP4, F-EXP6–F-EXP10). F-EXP2 RESOLVED S405: bundle sessions 3x lower lanes/lesson (2.8 vs 8.7), 30x throughput. L-880.
+- **Active frontiers**: 5 in `domains/expert-swarm/tasks/FRONTIER.md` (F-EXP6–F-EXP10). F-EXP2 RESOLVED S405; F-EXP3 RESOLVED S410; F-EXP4 RESOLVED S412.
 - Expert swarm = the meta-layer where swarm capacity is created, dispatched, and measured.
 - Structural gaps: (1) 64+ unrun domain experiments (2% throughput), (2) companion bundling
   under-utilized, (3) colony interaction passive-only — 5.4% active signals (F-EXP6). (4) no tier-routing — 4.6% utilization despite 48 personalities (F-EXP7).
