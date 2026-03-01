@@ -99,13 +99,25 @@ def parse_lesson(path: Path, current_session: int) -> dict:
         return None
     num = int(num_m.group())
     title_m = re.search(r"^#\s+L-\d+[:\s]*(.+)", text, re.M)
-    session_m = re.search(r"Session:\s*S?(\d+)", text)
-    domain_m = re.search(r"[Dd]omain:\s*([^\n|]+)", text)
-    conf_m = re.search(r"Confidence:\s*(\w+)", text, re.I)
-    cites_m = re.search(r"^Cites?:\s*(.+)", text, re.M)
 
+    # Session: try multiple formats
+    # Format 1: 'Session: S375' or 'Session: 375'
+    session_m = re.search(r"Session:\s*S?(\d+)", text)
+    # Format 2: HTML comment '<!-- lesson: L-706 | session: S375 | ... -->'
+    if not session_m:
+        session_m = re.search(r"session:\s*S?(\d+)", text)
     session = int(session_m.group(1)) if session_m else 0
     age = current_session - session if session else current_session
+
+    # Domain: try multiple formats
+    # Format 1: 'Domain: meta' (standalone line)
+    domain_m = re.search(r"^[Dd]omain:\s*([^\n|]+)", text, re.M)
+    # Format 2: HTML comment '<!-- ... | domain: economy -->'
+    if not domain_m:
+        domain_m = re.search(r"\|\s*domain:\s*([^|>\n]+)", text)
+
+    conf_m = re.search(r"Confidence:\s*(\w+)", text, re.I)
+    cites_m = re.search(r"^Cites?:\s*(.+)", text, re.M)
 
     # Citations from Cites: header
     cited_lessons = set()
@@ -137,14 +149,25 @@ def parse_principles(current_session: int, lesson_sessions: dict[int, int]) -> l
     """Parse principles from PRINCIPLES.md. Uses lesson_sessions to approximate age."""
     text = read_text(REPO_ROOT / "memory" / "PRINCIPLES.md")
     results = []
-    for m in re.finditer(r"\*\*(P-(\d+))\*\*:?\s*([^|*\n]+)", text):
-        pid, pnum, ptext = m.group(1), int(m.group(2)), m.group(3).strip()
-        # Approximate session from cited lessons
-        lesson_refs = [int(x) for x in re.findall(r"\bL-(\d+)\b", ptext)]
+    seen = set()
+    # Match P-NNN anywhere: 'P-008 text | P-011 text' or '**P-008** text'
+    for m in re.finditer(r"\bP-(\d+)\b\s+([^|*\n(]+)", text):
+        pnum = int(m.group(1))
+        if pnum in seen:
+            continue
+        seen.add(pnum)
+        ptext = m.group(2).strip()
+        pid = f"P-{pnum}"
+        # Approximate session from cited lessons in the surrounding text
+        # Look at the full line for L-refs
+        line_start = text.rfind("\n", 0, m.start()) + 1
+        line_end = text.find("\n", m.end())
+        line = text[line_start:line_end if line_end != -1 else len(text)]
+        lesson_refs = [int(x) for x in re.findall(r"\bL-(\d+)\b", line)]
         session = 0
         if lesson_refs:
             sessions = [lesson_sessions.get(lr, 0) for lr in lesson_refs]
-            session = max(sessions) if sessions else 0
+            session = max(s for s in sessions if s > 0) if any(s > 0 for s in sessions) else 0
         age = current_session - session if session else current_session
         results.append({
             "id": pid,
@@ -218,11 +241,24 @@ def find_indexed_refs() -> set[str]:
 
 
 def build_citation_index(lessons: list[dict]) -> dict[str, set[int]]:
-    """Build reverse citation index: which sessions cite each lesson ID."""
+    """Build reverse citation index: which sessions cite each L/P/B ID."""
     cited_by_session = defaultdict(set)
     for lsn in lessons:
+        # L→L citations
         for cited_num in lsn["cites"]:
             cited_by_session[f"L-{cited_num}"].add(lsn["session"])
+    # Also scan lesson files for P-NNN and B-NNN references
+    for path in lesson_paths():
+        text = read_text(path)
+        num_m = re.search(r"\d+", path.stem)
+        if not num_m:
+            continue
+        session_m = re.search(r"[Ss]ession:\s*S?(\d+)", text)
+        session = int(session_m.group(1)) if session_m else 0
+        for p_ref in re.findall(r"\bP-(\d+)\b", text):
+            cited_by_session[f"P-{p_ref}"].add(session)
+        for b_ref in re.findall(r"\bB(\d+)\b", text):
+            cited_by_session[f"B{b_ref}"].add(session)
     return cited_by_session
 
 

@@ -6,7 +6,7 @@ Updated: 2026-03-01 S378
 - **actual**: 993 items classified (644L + 186P + 20B + 141F). 3/3 F-META10 hypotheses PASS: SHOULD-KNOW > ACTIVE in 89.5%, revival 0.52%/s (<1%), gap-ranked dispatch 5/5 different from UCB1. 165 BLIND-SPOT items (16.6%). Domain metadata gap: 91% lessons lack Domain: fields.
 - **diff**: SHOULD-KNOW dominance predicted >=30% — got 89.5% (much stronger). Dispatch integration confirmed. Did NOT predict 91% domain metadata gap. Did NOT predict 62 orphaned principles. Revival 0.52%/s validates L-633 decay pattern.
 - **meta-swarm**: Tool partially built by concurrent S377 session. This session improved: domain normalization, BLIND-SPOT detection, P/B citation tracking, hypothesis testing, dispatch integration. Next: batch Domain: field addition.
-- **State**: ~650L 179P 17B 41F | L-719 | DOMEX-META2-S377 MERGED | F-META10 step 1 CONFIRMED
+- **State**: ~652L 179P 17B 41F | L-719 | DOMEX-META2-S377 MERGED | F-META10 step 1 CONFIRMED
 - **Next**: (1) batch Domain: field addition (91% gap); (2) integrate gap-score into dispatch; (3) economy-health (DUE); (4) health-check (DUE); (5) proxy-K compaction
 
 ## S377 session note (DOMEX-SEC-S377: F-SEC1 enforcement wiring — L-718)
