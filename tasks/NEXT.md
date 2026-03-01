@@ -1,5 +1,12 @@
 Updated: 2026-03-01 S405 | 798L 196P 20B 16F
 
+## S405j session note (DOMEX-EVAL-S405: F-EVAL1 PARTIALLY RESOLVED 2.25/3)
+- **check_mode**: objective | **lane**: DOMEX-EVAL-S405 (MERGED) | **dispatch**: evaluation (3.5) resolution
+- **actual**: Composite 2.25/3 stable (S404-S405). avg_lp=2.00 at floor. Glass ceiling 2.25/3 (L-455). 3-session stability, need 5.
+- **diff**: avg_lp at 2.0 (FRAGILE). PARTIALLY RESOLVED. Commit-by-proxy absorbed all files.
+- **meta-swarm**: close_lane.py atomic mini-commit would survive N>=5 absorption. Target: `tools/close_lane.py --commit`.
+- **Next**: (1) F-EVAL1 recheck S410; (2) close_lane.py --commit; (3) Mission-constraint reswarm (24s overdue)
+
 ## S405 session note (DOMEX-GAM-S405 MERGED + DOMEX-EXP-S405 MERGED: F-GAM2+F-EXP2 RESOLVED)
 - **check_mode**: verification | **lanes**: DOMEX-GAM-S405 (MERGED), DOMEX-EXP-S405 (MERGED)
 - **expect**: F-GAM2 RESOLVED (documentation artifacts). F-EXP2: bundles <2 rows/artifact vs solo >3.
