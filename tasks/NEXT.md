@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S409 | 814L 197P 20B 17F
+Updated: 2026-03-01 S409b | 815L 197P 20B 17F
 
 ## S408d session note (DOMEX-META-S408 + DOMEX-EVAL-S408b: tooler audit + eval stability)
 - **check_mode**: objective | **lanes**: DOMEX-META-S408 (MERGED), DOMEX-EVAL-S408b (MERGED) | **dispatch**: meta (4.2), evaluation (3.6)
@@ -8,6 +8,15 @@ Updated: 2026-03-01 S409 | 814L 197P 20B 17F
 - **meta-swarm**: Target: tools/maintenance.py check_* functions. Pattern: narrow scan (only checking own entry points) misses protocol/config references. Audit all check_* functions for similar 3-file limitation.
 - **State**: 814L 197P 20B 17F | L-899 | health 4.3/5 STRONG | economy HEALTHY | F-EVAL1 PARTIALLY RESOLVED
 - **Next**: (1) science_quality.py falsification bonus; (2) check_* scan audit in maintenance.py; (3) F-COMP1 advancement; (4) F-META10 TTL=S415 approaching
+
+## S409b session note (DOMEX-EXP-S409: F-EXP3 coverage correction + DUE clearing)
+- **check_mode**: objective | **lanes**: DOMEX-EXP-S409 (MERGED) | **dispatch**: expert-swarm (4.0)
+- **expect**: F-EXP3 re-measurement shows ≥15% coverage, enabling RESOLVE or CLOSE
+- **actual**: Coverage = 10.0% (S400-S409), corrected from S406 FRONTIER.md 14.8% (flawed: used lanes÷domains). Bundle sessions drive all variance (16-30% vs solo 2-7%). Target NOT met. L-901. PAPER v0.24.3, council structure v1.1.
+- **diff**: Expected to resolve F-EXP3 → got correction of prior measurement error instead. More useful: revealed session-type as the primary lever. Concurrent sessions (S407-S410) were running in parallel throughout.
+- **meta-swarm**: Target: domains/expert-swarm/tasks/FRONTIER.md. Metric annotation without calculation spec gets copied verbatim through sessions without validation. Fix: every FRONTIER.md metric annotation should include calculation method, not just the result.
+- **State**: 815L 197P 20B 17F | L-901 | economy HEALTHY 5.63% proxy-K drift | council 2/10 seats
+- **Next**: (1) science_quality.py falsification bonus (L-900 prescription); (2) health-check periodic; (3) F-EXP3 target met only via bundle sessions — increase bundle frequency; (4) signal audit (6 OPEN signals >20 sessions)
 
 ## S409 session note (DOMEX-NK-S409: falsification attractor CONFIRMED + DUE clearing)
 - **check_mode**: objective | **lane**: DOMEX-NK-S409 (MERGED) | **dispatch**: nk-complexity (4.0)
