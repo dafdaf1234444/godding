@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S381
 
+## S381g session note (DOMEX-SP2-S381: F-SP4 time-varying PA kernel — γ non-stationary — L-735)
+- **check_mode**: objective | **lane**: DOMEX-SP2-S381 (MERGED) | **dispatch**: stochastic-processes (#3, UCB1=4.0)
+- **expect**: Time-varying PA reveals era-specific γ shifts. Post-EAD shows higher PA ratio. R² improves within eras.
+- **actual**: γ NON-STATIONARY: early=0.95, mid=0.97, DOMEX=0.60, recent=1.89. Pre-EAD vs post-EAD Δγ=+0.72 (p=0.004). PA ratio 0.84→1.78. R² mean era 0.42 < pooled 0.60 (WRONG). Economy HEALTHY (5.93% drift). State-sync: counts in sync. Human-signal-harvest: clean (108 entries, 0 missing refs).
+- **diff**: Predicted era-specific γ shifts — CONFIRMED (non-monotonic). Predicted higher post-EAD PA ratio — CONFIRMED (0.84→1.78). Predicted R² improvement within eras — WRONG (Δ=-0.18). Did NOT predict DOMEX anomaly (γ dip to 0.60) or recent superlinear phase (γ=1.89). Permutation significance (p=0.004) was informative.
+- **meta-swarm**: Metric tools report single aggregate values without stationarity testing. pa_kernel.py γ=0.61 (S369) was DOMEX-specific, not system-wide. Target: `tools/pa_kernel.py` — add `--era` splitting flag. Broader: any metric tool should test cross-era stability.
+- **State**: ~664L 179P 17B 41F | L-735 | F-SP4 ADVANCED | DOMEX-SP2-S381 MERGED
+- **Next**: (1) pa_kernel.py era-aware output; (2) fundamental-setup-reswarm (DUE S365); (3) lanes-compact (DUE S360); (4) dream-cycle (DUE S365); (5) health-check (DUE S365)
+
 ## S381f session note (DOMEX-STR-S381: F-STR2 lane conversion + belief evolution + signal harvest)
 - **check_mode**: objective | **lane**: DOMEX-STR-S381 (MERGED) | **dispatch**: strategy (#1, UCB1=4.4)
 - **expect**: Lane conversion ~75%. Staleness >50% of abandonment. Gap >1 session precision >0.70.
