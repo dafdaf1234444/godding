@@ -1,0 +1,50 @@
+{
+  "experiment": "swarm-profiler-baseline-s375",
+  "frontier": "F-META3",
+  "session": "S375",
+  "date": "2026-03-01",
+  "hypothesis": "Unified profiling reveals tool bottlenecks invisible to per-tool timing. Expect orient.py to be dominant cost.",
+  "method": "Built tools/swarm_profiler.py: times 18 operations (5 git, 8 tool subprocesses, 5 filesystem). Thresholds from L-637/L-688 baselines. Wall-clock via time.monotonic(). WSL2 environment.",
+  "results": {
+    "total_s": 56.198,
+    "phases": {
+      "git_s": 5.021,
+      "git_pct": 8.9,
+      "tools_s": 44.623,
+      "tools_pct": 79.4,
+      "filesystem_s": 0.030,
+      "filesystem_pct": 0.1,
+      "other_s": 6.524,
+      "other_pct": 11.6
+    },
+    "bottlenecks": [
+      {"tool": "task_order.py", "elapsed_s": 14.684, "threshold_s": 5.0, "over_by": 9.684},
+      {"tool": "validate_beliefs.py", "elapsed_s": 10.883, "threshold_s": 5.0, "over_by": 5.883},
+      {"tool": "git status", "elapsed_s": 2.140, "threshold_s": 1.0, "over_by": 1.140},
+      {"tool": "git diff --stat", "elapsed_s": 2.367, "threshold_s": 1.5, "over_by": 0.867}
+    ],
+    "all_timings": {
+      "git_rev_parse": 0.082,
+      "git_status": 2.140,
+      "git_log_5": 0.119,
+      "git_log_50": 0.313,
+      "git_diff_stat": 2.367,
+      "orient_py": 10.968,
+      "maintenance_py": 5.276,
+      "dispatch_optimizer_py": 1.320,
+      "task_order_py": 14.684,
+      "contract_check_py": 0.898,
+      "sync_state_py": 0.594,
+      "validate_beliefs_py": 10.883,
+      "compact_py_dry": 6.524,
+      "lesson_count": 0.009,
+      "file_glob_tools": 0.005,
+      "file_glob_lessons": 0.009,
+      "read_index_md": 0.004,
+      "read_frontier_md": 0.003
+    },
+    "surprise": "task_order.py (14.7s) exceeds orient.py (11.0s) — newest tool is slowest. validate_beliefs.py (10.9s) also twice threshold. orient.py NOT dominant — it's third.",
+    "quick_mode_total_s": 7.441
+  },
+  "verdict": "CONFIRMED — profiling revealed task_order.py as #1 bottleneck (not orient.py). 79% of 56s overhead is tool subprocess execution. Filesystem I/O is negligible (0.03s). git operations are moderate (5s, WSL penalty). Tool persists results for trend tracking across sessions."
+}

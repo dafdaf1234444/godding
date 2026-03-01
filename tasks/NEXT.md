@@ -1,12 +1,30 @@
 Updated: 2026-03-01 S374
 
+## S374e session note (DOMEX-DS-S374: Jepsen gradient self-application — L-691)
+- **check_mode**: objective | **lane**: DOMEX-DS-S374 (MERGED) | **dispatch**: distributed-systems (#1, 37.2)
+- **expect**: Jepsen 4-layer architecture→determinism gradient (L-642) predicts swarm bugs. Accuracy >70%. Higher overall determinism than databases.
+- **actual**: 24 swarm failures classified. 19/19 in-model accuracy (100%). Fifth infrastructure/substrate layer discovered (21% of bugs, not in Jepsen). Cliff not gradient: swarm determinism binary (100%/0%) vs Jepsen smooth decay. Threshold behavior at N=3/5/8. No Byzantine faults. Overall determinism 50-67% LOWER than Jepsen 60-80%.
+- **diff**: Gradient transfer CONFIRMED. Accuracy exceeded (79-100% vs >70%). Overall determinism WRONG direction (lower, not higher) — infrastructure layer drags average down. Cliff behavior, fifth layer, and threshold activation were all unpredicted. Experienced L-602 (lesson-slot contention, 2 collisions) during experiment — live demonstration.
+- **meta-swarm**: Human S374 signal "swarm has to know swarm state more" interpreted as self-knowledge directive. Applied via cross-domain experiment: DS expertise used to classify swarm itself. The experiment demonstrates the human's point — knowing the swarm's own failure taxonomy IS improved self-state-awareness. Concrete target: build auto-classifier that tags new bugs by architecture layer (like contract_check.py but for distributed failures).
+- **State**: ~627L 179P 17B 39F | L-691 | DOMEX-DS-S374 MERGED
+- **Next**: (1) Test gradient on third substrate (K8s, CI/CD); (2) auto-classifier tool for swarm bugs; (3) connect N=3/5/8 thresholds to F-SP2 throughput ceiling; (4) ISO-21 filing if third substrate holds; (5) paper-reswarm periodic (13+ overdue)
+
+## S375 session note (swarm profiler tool — L-692)
+- **check_mode**: objective | **task**: "profiler for swarm"
+- **expect**: Unified profiling reveals tool bottlenecks invisible to per-tool timing. orient.py is dominant cost.
+- **actual**: Built tools/swarm_profiler.py. 18 operations profiled. Total 56.2s. task_order.py (14.7s) is #1 bottleneck, NOT orient.py (11.0s). validate_beliefs.py (10.9s) is #2. Tool execution = 79% of overhead. Filesystem = 0.05%.
+- **diff**: orient.py was NOT dominant (prediction wrong) — it's third after task_order.py and validate_beliefs.py. Bottleneck migration: L-637 + L-688 optimized orient, shifting bottleneck to unoptimized tools that were never measured. Quick mode (7.4s) viable for fast-path.
+- **meta-swarm**: The profiler IS the meta-swarm reflection — it profiles the swarm's own tooling. Concrete target: task_order.py (14.7s→<5s via HEAD caching), validate_beliefs.py (10.9s→<5s). History tracking enables regression detection.
+- **State**: ~626L 179P 17B 39F | L-692 | experiment: swarm-profiler-baseline-s375.json
+- **Next**: (1) cache task_order.py dispatch call + LANES parse; (2) cache validate_beliefs.py cross-refs; (3) re-profile after optimizations; (4) wire --quick into orient.py preamble for fast orient
+
 ## S374d session note (adversarial blind-spot audit — L-689)
 - **check_mode**: assumption | **human directive**: "focus swarm on what human might have fundamentally missed"
 - **expect**: Internal metrics hide structural blind spots. Adversarial lesson surfaces ≥3 things 374 sessions missed. Finding = framing-level, not metric-level.
 - **actual**: 7 findings (3 human, 4 swarm, 1 shared). Core: PHIL-2+15+P14 = unfalsifiable tautology; 0/28+ DROPPED = confirmation machine; 0 external outputs in 374s; human language colonized by swarm vocabulary (SIG-22). 3 PHIL challenges filed.
 - **diff**: Expected ≥3, got 7. Expected framing-level — confirmed. Did NOT predict language colonization finding.
 - **meta-swarm**: Asking the swarm to audit itself IS the self-referential loop this audit identifies. Corrective requires EXTERNAL input (T1: competition, T2: outside expert, T3: belief falsification). Concrete target: F-COMP1 is 45+ sessions stale and the only path to external grounding.
-- **State**: 623L 179P 17B 39F | L-689 | 3 PHIL challenges filed
+- **State**: 626L 179P 17B 39F | L-689 | 3 PHIL challenges filed
 - **Next**: (1) F-COMP1 execution (BLOCKING); (2) T3 belief falsification by S400; (3) F-EVAL1 Truthful; (4) frontier→behavioral-change audit
 
 ## S374c session note (DOMEX-CACHE-S374: HEAD-keyed caching — L-688)
