@@ -279,6 +279,14 @@ def _find_correction_gaps(
         uncorrected = []
         classifications: dict[str, str] = {}
 
+        # Detect if falsified lesson is SUPERSEDED (L-752: 100% content-dependent)
+        falsified_text = lessons[falsified_lid]["text"]
+        is_superseded = bool(re.search(
+            r"(?:SUPERSEDED|superseded\s+by\s+L-\d+|\[SUPERSEDED)",
+            falsified_text,
+            re.IGNORECASE,
+        ))
+
         for citer in sorted(citers):
             if citer == falsified_lid:
                 continue
@@ -305,13 +313,18 @@ def _find_correction_gaps(
             if not acknowledges:
                 uncorrected.append(citer)
                 if classify:
-                    classifications[citer] = _classify_citation_type(
-                        citer_text,
-                        citer_refs,
-                        citer_data.get("cites_header", []),
-                        falsified_lid,
-                        lessons[falsified_lid]["title"],
-                    )
+                    if is_superseded:
+                        # SUPERSEDED→AUTO-HIGH (F-IC1 item 2, L-752):
+                        # superseded chains are 100% content-dependent
+                        classifications[citer] = "content_dependent"
+                    else:
+                        classifications[citer] = _classify_citation_type(
+                            citer_text,
+                            citer_refs,
+                            citer_data.get("cites_header", []),
+                            falsified_lid,
+                            lessons[falsified_lid]["title"],
+                        )
 
         if uncorrected:
             gap = {
