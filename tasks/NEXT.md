@@ -1,12 +1,20 @@
-Updated: 2026-03-01 S374
+Updated: 2026-03-01 S375
 
-## S374e session note (DOMEX-DS-S374: Jepsen gradient self-application — L-691)
+## S374f session note (2 DOMEX lanes: FIN-S374 L-694 + GAME-S374 L-695)
+- **check_mode**: objective | **lanes**: DOMEX-FIN-S374 (MERGED), DOMEX-GAME-S374 (MERGED)
+- **FIN-S374**: F-FIN1 complementarity analysis. Concurrent DOMEX sessions cross-cite at 12.9% = 17.9x random baseline (0.72%). All 7 concurrent sessions were domain-diverse. Factor-loaded diversification: shared context (14x same-session lift) + idiosyncratic domain findings. Cross-citation inversely correlates with domain count. L-694.
+- **GAME-S374**: F-GAME3 citation impact. Inverted-U confirmed (n=142 frontiers). Flow zone (2-10 sessions): 1.30x global. Boredom (≤1): 1.09x. Anxiety (>15): 0.81x. Flow zone rarest (5.6%) but highest quality. Anxiety zone produces most lessons (3.5/frontier) but each less cited. L-695.
+- **meta-swarm**: Session metadata parsing inconsistency discovered (14/623 lessons matched old regex). Fixed multi-format parser for both tools. Concurrent session S374 absorbed L-686-L-693 while this session ran, requiring lesson-slot collision avoidance. Both experiments are novel cross-domain applications (finance portfolio theory → knowledge production; game design flow theory → frontier difficulty).
+- **State**: ~627L 179P 17B 39F | L-694, L-695 | 2 lanes MERGED
+- **Next**: (1) accumulate n=20+ concurrent sessions for F-FIN1 complementarity power; (2) decompose anxiety frontiers into flow-zone sub-questions; (3) dispatch optimizer resolution-time scoring; (4) paper-reswarm periodic (14+ overdue); (5) session metadata format standardization (14/623 coverage gap)
+
+## S374e session note (DOMEX-DS-S374: Jepsen gradient self-application — L-699)
 - **check_mode**: objective | **lane**: DOMEX-DS-S374 (MERGED) | **dispatch**: distributed-systems (#1, 37.2)
 - **expect**: Jepsen 4-layer architecture→determinism gradient (L-642) predicts swarm bugs. Accuracy >70%. Higher overall determinism than databases.
 - **actual**: 24 swarm failures classified. 19/19 in-model accuracy (100%). Fifth infrastructure/substrate layer discovered (21% of bugs, not in Jepsen). Cliff not gradient: swarm determinism binary (100%/0%) vs Jepsen smooth decay. Threshold behavior at N=3/5/8. No Byzantine faults. Overall determinism 50-67% LOWER than Jepsen 60-80%.
 - **diff**: Gradient transfer CONFIRMED. Accuracy exceeded (79-100% vs >70%). Overall determinism WRONG direction (lower, not higher) — infrastructure layer drags average down. Cliff behavior, fifth layer, and threshold activation were all unpredicted. Experienced L-602 (lesson-slot contention, 2 collisions) during experiment — live demonstration.
 - **meta-swarm**: Human S374 signal "swarm has to know swarm state more" interpreted as self-knowledge directive. Applied via cross-domain experiment: DS expertise used to classify swarm itself. The experiment demonstrates the human's point — knowing the swarm's own failure taxonomy IS improved self-state-awareness. Concrete target: build auto-classifier that tags new bugs by architecture layer (like contract_check.py but for distributed failures).
-- **State**: ~627L 179P 17B 39F | L-691 | DOMEX-DS-S374 MERGED
+- **State**: ~629L 179P 17B 39F | L-699 | DOMEX-DS-S374 MERGED
 - **Next**: (1) Test gradient on third substrate (K8s, CI/CD); (2) auto-classifier tool for swarm bugs; (3) connect N=3/5/8 thresholds to F-SP2 throughput ceiling; (4) ISO-21 filing if third substrate holds; (5) paper-reswarm periodic (13+ overdue)
 
 ## S375 session note (swarm profiler tool — L-692)

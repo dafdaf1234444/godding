@@ -335,7 +335,7 @@
     "overall": "2/3 predictions confirmed, 1/3 wrong (direction of overall determinism)"
   },
   "iso_candidate": "ISO-21: Architecture-layer → determinism gradient transfers from databases (Jepsen) to knowledge systems (swarm). Lower abstraction = more deterministic. Independent of substrate.",
-  "lesson": "L-691",
+  "lesson": "L-699",
   "next_steps": [
     "Test gradient on third substrate (e.g., Kubernetes failure modes, CI/CD pipeline bugs)",
     "Build swarm-internal bug classifier tool that auto-tags new failures by architecture layer",
