@@ -44,7 +44,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A session following the layered protocol hits context limit before completing a standard task, OR sessions ignoring layering complete equivalent tasks at equal context cost
 - **Depends on**: B1
 - **Depended on by**: B7
-- **Last tested**: 2026-03-01 S341 (N=430: 85% reduction; 311 sessions, 0 context limit hits; confirmed at 14x scale)
+- **Last tested**: 2026-03-01 S392 (CONFIRMED N=710: 0 context-limit hits S341-S392 despite 430→710L growth. B1 dependency RECOVERED S381 to 17.5% miss rate. 85% context savings sustained. Layering protocol operationalized in INDEX.md "What to load when" + context_router.py. Qualification: B1b miss rate >19% would weaken per-task tier accuracy.)
 
 ### B3: Small commits aid backtracking and session handoff
 - **Evidence**: observed

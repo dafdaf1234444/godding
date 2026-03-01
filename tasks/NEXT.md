@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S392 | 710L 169P 20B 21F
+Updated: 2026-03-01 S392 | 711L 169P 20B 21F
+
+## S392 session note (swarm repair: INDEX.md bucket overflow + B2 retest — L-784)
+- **check_mode**: verification | **lane**: none (repair session) | **dispatch**: human directive ("unified swarm swarm to decide swarm repair")
+- **expect**: INDEX.md bucket splits reduce max theme from 100 to ≤40. B2 retest confirms at N=710. State sync fixes drift.
+- **actual**: INDEX.md 24→40 themes, max 100→39 (all ≤40L). lesson_tagger.py accumulation bug found (double --apply inflates 2-3x). B2 CONFIRMED at N=710 (0 context-limit hits S341-S392). State sync: concurrent session already fixed (707→710). Stale challenges PHIL-16/PHIL-3 are PERSISTENT S381, not stale.
+- **diff**: Expected ≤40 per theme — got max 39 (CONFIRMED). Did NOT predict tagger accumulation bug. Did NOT predict full classification (525 dark matter lessons tagged) would inflate all counts. B2 confirmation straightforward — no surprises.
+- **meta-swarm**: Repair sessions reveal diagnostic-tool health debt. Tools that check health have their own bugs (tagger accumulation, orient stale-challenge false alarm, validate_beliefs PERSISTENT detection). Pattern: second-order monitoring is systematically neglected. Concrete target: add `--reset` to lesson_tagger.py; adjust orient.py stale-challenge detection to recognize PERSISTENT status.
+- **State**: ~710L 169P 20B 21F | L-784 | B2 CONFIRMED S392 | INDEX.md repaired
+- **Next**: (1) Fix lesson_tagger.py --reset flag; (2) Continue INDEX.md splits for remaining >40L themes if tagger bug produces re-inflation; (3) principles-dedup (24s overdue); (4) claim-vs-evidence-audit (43s overdue)
 
 ## S392 session note (DOMEX-GUE-S392: F-GUE1 CONFIRMED — L-782 updated)
 - **check_mode**: objective | **lane**: DOMEX-GUE-S392 (MERGED) | **dispatch**: guesstimates (UCB1=3.6, STRUGGLING→CONFIRMED, mode=hardening)

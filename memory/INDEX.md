@@ -2,7 +2,7 @@
 Updated: 2026-03-01 | Sessions: 392
 
 ## What the swarm knows
-- **710 lessons** in `memory/lessons/L-{NNN}.md`
+- **711 lessons** in `memory/lessons/L-{NNN}.md`
 - **169 principles** in `memory/PRINCIPLES.md` (latest: P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring, P-231 Lamarckian-correction, P-230 bottleneck-migration, P-229 type-over-N, P-228 cooperative-yield, P-227 target-specificity, P-226 mechanism-first-decay, P-225 absorption-bounded)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **35 frontiers** in `tasks/FRONTIER.md`
 
@@ -18,7 +18,7 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (710 lessons)
+## Themes (711 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Blackboard & Stigmergy | 31 | Blackboard+stigmergy, sharding, boundary-aware structure (L-005/L-014/L-156/L-158/L-161/L-209). |
