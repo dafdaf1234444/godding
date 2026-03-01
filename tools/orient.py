@@ -217,126 +217,22 @@ def check_stale_infrastructure(current_session: int, stale_threshold: int = 50) 
 
 def evaluate_session_triggers(current_session: int, maint_out: str = "",
                                stale_infra: list | None = None):
-    """Read SESSION-TRIGGER.md and evaluate trigger conditions (L-640).
-
-    Accepts pre-computed maint_out and stale_infra to avoid redundant subprocess
-    calls (orient.py already runs these in main). Before this fix, maintenance.py
-    was called 3 times per orient — ~60s on WSL. Now: 1 call, result reused.
-    """
-    trigger_path = ROOT / "domains" / "meta" / "SESSION-TRIGGER.md"
-    if not trigger_path.exists():
-        return None, []
-
-    try:
-        trigger_text = trigger_path.read_text(encoding="utf-8")
-    except Exception:
-        return None, []
-
-    # Extract trigger definitions - look for lines with pattern "- **name**: description | urgency | ..."
-    trigger_lines = []
-    for line in trigger_text.splitlines():
-        if line.startswith("- **") and ": " in line and " | " in line:
-            trigger_lines.append(line)
-
-    active_triggers = []
-    urgency_order = {"CRITICAL": 4, "HIGH": 3, "MEDIUM": 2, "LOW": 1}
-
-    for line in trigger_lines:
-        parts = line.split(" | ")
-        if len(parts) < 2:
-            continue
-
-        name_desc = parts[0].replace("- **", "").replace("**", "")
-        if ": " not in name_desc:
-            continue
-
-        trigger_name, description = name_desc.split(": ", 1)
-        urgency = parts[1].strip()
-
-        # Simple heuristic trigger evaluation based on current state
-        triggered = False
-
-        if trigger_name == "maintenance_due":
-            if "[DUE]" in maint_out:
-                triggered = True
-
-        elif trigger_name == "stale_tools":
-            stale = stale_infra if stale_infra is not None else check_stale_infrastructure(current_session, 50)
-            if len(stale) > 10:
-                triggered = True
-
-        elif trigger_name == "periodics_due":
-            if "[PERIODIC]" in maint_out and maint_out.count("~") > 5:
-                triggered = True
-
-        elif trigger_name == "dispatch_imbalance":
-            triggered = True  # Common case - there are usually unworked domains
-
-        elif trigger_name == "belief_staleness":
-            stale_beliefs = check_stale_beliefs(current_session, 100)
-            if len(stale_beliefs) > 0:
-                triggered = True
-
-        if triggered:
-            active_triggers.append((trigger_name, description, urgency, urgency_order.get(urgency, 1)))
-
-    # Sort by urgency descending
-    active_triggers.sort(key=lambda x: x[3], reverse=True)
-
-    top_trigger = active_triggers[0] if active_triggers else None
-    return top_trigger, active_triggers[:5]
+    # Extracted to orient_triggers.py (DOMEX-META-S423)
+    from orient_triggers import evaluate_session_triggers as _impl
+    from orient_checks import check_stale_beliefs
+    return _impl(current_session, ROOT, maint_out, stale_infra, check_stale_beliefs)
 
 
 def check_stale_beliefs(current_session: int, stale_threshold: int = 50) -> list:
-    """Find beliefs not tested in the last stale_threshold sessions. L-483."""
-    deps_path = ROOT / "beliefs" / "DEPS.md"
-    if not deps_path.exists():
-        return []
-    deps_text = deps_path.read_text(encoding="utf-8")
-    stale = []
-    for block in re.split(r"\n(?=### B\d)", deps_text):
-        bid_m = re.match(r"### (B\d+)[^:]*: ([^\n]+)", block)
-        if not bid_m:
-            continue
-        bid, desc = bid_m.group(1), bid_m.group(2)
-        lt_m = re.search(r"\*\*Last tested\*\*: ([^\n]+)", block)
-        if not lt_m:
-            continue
-        tested_text = lt_m.group(1)
-        if "Not yet tested" in tested_text:
-            continue
-        sessions = [int(s) for s in re.findall(r"S(\d+)", tested_text)]
-        if not sessions:
-            continue
-        last_session = max(sessions)
-        drift = current_session - last_session
-        if drift > stale_threshold:
-            stale.append(f"{bid}: {desc[:45].strip()} (S{last_session}, {drift}s ago)")
-    return stale
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_stale_beliefs as _impl
+    return _impl(current_session, ROOT, stale_threshold)
 
 
 def check_underused_core_tools(log_text, window_sessions=20):
-    """Find core swarm tools not referenced in recent session-log entries."""
-    rows = []
-    for raw in log_text.splitlines():
-        m = re.match(r"^S(\d+)\b", raw)
-        if m:
-            rows.append((int(m.group(1)), raw.lower().replace("\\", "/")))
-    if not rows:
-        return [], None, None
-
-    latest_session = max(sid for sid, _ in rows)
-    start_session = max(1, latest_session - window_sessions + 1)
-    haystack = "\n".join(text for sid, text in rows if sid >= start_session)
-
-    underused = []
-    for tool in CORE_SWARM_TOOLS:
-        normalized = tool.lower().replace("\\", "/")
-        filename = Path(normalized).name
-        pattern = rf"(?<![A-Za-z0-9_])(?:{re.escape(normalized)}|{re.escape(filename)})(?![A-Za-z0-9_])"
-        if not re.search(pattern, haystack):
-            underused.append(tool)
-    return underused, latest_session, start_session
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_underused_core_tools as _impl
+    return _impl(log_text, CORE_SWARM_TOOLS, window_sessions)
 
 
 def _get_classify_task() -> str | None:
@@ -407,61 +303,15 @@ def _auto_repair_swarm_md() -> None:
 
 
 def check_foreign_staged_deletions():
-    """FM-09 guard: detect staged file deletions at session start.
-
-    At orient time the node has not staged anything yet, so any staged
-    deletions are foreign (left by a concurrent/interrupted session).
-    """
-    try:
-        result = subprocess.run(
-            ["git", "diff", "--cached", "--diff-filter=D", "--name-only"],
-            capture_output=True, text=True, timeout=10,
-        )
-        if result.returncode != 0:
-            return
-        deleted = [l for l in result.stdout.strip().splitlines() if l.strip()]
-        if not deleted:
-            return
-        count = len(deleted)
-        print(f"--- !! FM-09: {count} foreign staged file deletion(s) detected ---")
-        print("  These were staged by a concurrent/interrupted session, not by you.")
-        for f in deleted[:10]:
-            print(f"    D {f}")
-        if count > 10:
-            print(f"    ... and {count - 10} more")
-        print("  Fix: git restore --staged . — to clear foreign staged state")
-        print()
-    except Exception:
-        pass
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_foreign_staged_deletions as _impl
+    _impl(ROOT)
 
 
 def check_git_object_health():
-    """FM-14 guard: detect loose object corruption at session start.
-
-    WSL can corrupt git objects under heavy concurrent I/O (S364, L-658).
-    Early detection prevents cascading failures during the session.
-    """
-    try:
-        result = subprocess.run(
-            ["git", "fsck", "--no-dangling", "--connectivity-only"],
-            capture_output=True, text=True, timeout=30, cwd=str(ROOT),
-        )
-        # fsck outputs errors to stderr
-        errors = result.stderr.strip() if result.stderr else ""
-        if result.returncode != 0 or errors:
-            error_lines = [l for l in errors.splitlines()
-                           if l.strip() and not l.startswith("Checking")]
-            if error_lines:
-                print(f"--- !! FM-14: git object corruption detected ---")
-                for line in error_lines[:10]:
-                    print(f"    {line}")
-                if len(error_lines) > 10:
-                    print(f"    ... and {len(error_lines) - 10} more")
-                print("  Fix: git reflog expire --expire=now --all && git gc --prune=now")
-                print("  Or:  git clone <remote> fresh-copy (nuclear option)")
-                print()
-    except Exception:
-        pass
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_git_object_health as _impl
+    _impl(ROOT)
 
 
 def _scan_lesson_domains(lesson_dir: Path) -> dict:

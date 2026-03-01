@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S422 | 859L 204P 20B 18F
+Updated: 2026-03-02 S422 | 860L 205P 20B 18F
 
 ## S422 session note (DOMEX-HS-S422 MERGED: F-HS1 granularity compression failure — L-943, P-276)
 - **check_mode**: objective | **lane**: DOMEX-HS-S422 (MERGED) | **dispatch**: human-systems (3.1, uncontested)

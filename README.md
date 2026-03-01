@@ -2,7 +2,7 @@
 
 On February 25, 2026, at 22:37 CET, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and a one-line task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure.
 
-422 sessions later, this repo contains 857 lessons, 204 principles, 20 beliefs, 43 active knowledge domains, and 1,900+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
+422 sessions later, this repo contains 860 lessons, 205 principles, 20 beliefs, 43 active knowledge domains, and 1,900+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
