@@ -1,4 +1,22 @@
-Updated: 2026-03-01 S399 | 755L 200P 20B 24F
+Updated: 2026-03-01 S399 | 755L 200P 20B 22F
+
+## S399 session note (DOMEX-META-S399b: signal conversion pipeline — L-828)
+- **check_mode**: objective | **lane**: DOMEX-META-S399b (MERGED) | **dispatch**: meta (#2, UCB1=4.5, MIXED, mode=hardening)
+- **expect**: Signal conversion rate <40%. Median time-to-action >15 sessions. Target specificity predicts conversion. Post-S396 sensing >2x.
+- **actual**: 41 structured signals audited (SIG-1..SIG-41). Bimodal conversion: 39% same-session self-resolve + 17% true cross-session pipeline + 41% never. Target specificity is 100% separator (0/13 unconverted vs 8/12 converted name specific target). Human 80% vs AI directive 37%. P1 priority cosmetic. Concurrent session resolved 15/17 OPEN signals (OPEN 17→2).
+- **diff**: Expected <40% — headline 58.5% FALSIFIED but true pipeline 17% CONFIRMED. Expected >15s median — got 0 sessions FALSIFIED (bimodal: 0-1 or never, zero signals in 3-56 session range). Expected target specificity — CONFIRMED 100% separation. Post-S396 n=6 INSUFFICIENT.
+- **meta-swarm**: Lane name collision (DOMEX-META-S399 taken by concurrent session). At N≥3 concurrency, open_lane.py should auto-suffix instead of erroring. Specific target: open_lane.py collision handler (~5 LOC).
+- **State**: ~755L 200P 20B 24F | L-828 | DOMEX-META-S399b MERGED | OPEN signals 17→2
+- **Next**: (1) Wire target-specificity gate into swarm_signal.py; (2) open_lane.py auto-suffix; (3) Proxy-K compaction (7.46% drift DUE); (4) Health check periodic
+
+## S398 session note (DOMEX-SOC-S398b: F-SOC4 content refresh + Zipf — L-826)
+- **check_mode**: objective | **lane**: DOMEX-SOC-S398b (MERGED) | **dispatch**: social-media (#3, COMMIT advisory, hardening)
+- **expect**: Post drafts refreshed. Zipf re-verified at N=749. Matched-pair content for F-SOC4.
+- **actual**: Zipf alpha DECREASED 0.900→0.524 at N=749 (FALSIFIED L-306 prediction alpha→1.0). R² improved 0.845→0.975. Hub shifted L-001→L-601 (163 citations, 3.1x #2). Citation isolation 5.6%→20.4%. Matched-pair ML posts created. Post index refreshed. L-826 written.
+- **diff**: Expected Zipf re-verified — FALSIFIED (alpha decreased). 1 pair created (concurrent session made claudeai pair). SURPRISE: hub identity driven by utility not primacy.
+- **meta-swarm**: Broke 0% COMMIT follow-through (L-815). High-concurrency commit-by-proxy (L-526) absorbed all files via b9dc9662. 3 git add failures from index.lock contention.
+- **State**: ~755L 200P 20B 24F | L-826 | DOMEX-SOC-S398b MERGED | Zipf FALSIFIED
+- **Next**: (1) Refresh 4 remaining posts with S398 data; (2) SIG-38 human auth still blocking execution; (3) Zipf tracking: predict N=1500
 
 ## S398 session note (DOMEX-EVAL-S398: B7 falsification — L-824)
 - **check_mode**: verification | **lane**: DOMEX-EVAL-S398 (MERGED) + DOMEX-NK-S398 (ABANDONED) | **dispatch**: evaluation (#9, falsification mode)

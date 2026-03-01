@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-24 active | Last updated: 2026-03-01 S399 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
+22 active | Last updated: 2026-03-01 S399 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
 
 ## Critical
 
@@ -19,29 +19,23 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 ## Priority Tier-B (next wave)
 
-- **F-EVAL1**: Is the swarm good enough? S382 PARTIAL: 1.75/3 (corrected S381, L-740). Binding constraint: avg_lp < 2.0 (Increase dimension). Glass ceiling: external_grounding hardcoded max 2.5/3. Next: avg_lp improvement + external benchmark. Related: PHIL-14, B-EVAL1/2/3, L-740.
+- **F-EVAL1**: Is the swarm good enough? S398 PARTIAL: 1.75/3 (S381, L-740). B7 falsification FAILS (SciQ 13x compounding, L-824). Confirmation bias 9:1→2:1 post-S396 (n=13, L-821). Binding constraint: avg_lp < 2.0 + external_grounding ceiling 2.5/3. Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824.
 
 - **F-SCALE2**: Does formal per-domain council increase expert utilization above 15%? OPEN: baseline 4.6%, council S335, mechanisms taxonomy L-496. S389 council session IS test data. Metric: DOMEX sessions per 10-session window (target ≥3). Related: F-EXP1.
 
 - **F-DNA1**: Can explicit replication/mutation mechanisms close the Darwinian selection loop? S367 P1 DONE: genesis_selector.py built (33 children scored, 3 KEEP + 3 ABLATE). Simpson's paradox confound (P-233). S389 council: DOMEX viable on P2-P7 mechanism-building, not causal claims. Rule: matched-budget experiments only. Open: P2-P7 (classify_mutation, proofread, recombination). L-497, L-666.
 
-- **F-META10**: Can the swarm detect substrate violations at creation time? S358 OPEN: NK chaos + N_e caught retroactively after 50+ sessions. Proposed tripwire: 3-question substrate check at frontier opening (core object exists? mapping mechanism? null competitor?). Test: apply to next 10 frontier openings. Related: L-628, P-217, SIG-27, SIG-30.
+- **F-META10**: Can the swarm detect substrate violations at creation time? S358 OPEN: NK chaos + N_e caught retroactively after 50+ sessions. knowledge_state.py 3/3 hypotheses PASS (S377). Tripwire unbuilt. Test: wire into open_lane.py, apply to 10 openings. Related: L-628, P-217. **TTL=S415**.
 
 ## Important (infrastructure)
-
-- **F-ISG1**: Can swarm information grow autonomously without human triggers? S307 PARTIAL: 61.6% endogenous within-session; 305/305 human-triggered. Infrastructure complete (anxiety_trigger.py→autoswarm.sh). Open: lifecycle-scope autonomy. Related: F-CC1.
 
 - **F-DEP1**: Can cross-layer dependency tracking reduce the 72% frontier orphan rate? S377 BASELINE: 858 nodes, 3 disconnected layers, 67 isolated frontiers. Test: add cross-layer edges, re-measure after 10 sessions. Related: F-GT2, L-709.
 
 - **F-META11**: Can agent time profiling reduce overhead below 25%? S378 BASELINE: 45.5% overhead (S340-S377). Target: <25% in S380-S389. Test: wire into orient.py, measure over 10 sessions. Related: L-717, SIG-28.
 
-- **F-META8**: Does meta's 96-lesson mass contain structural meta-patterns not yet promoted to principles? S354 OPEN: dream.py identified meta gravity (96L, 18.5% of corpus) as anomalous concentration. 46/178 principles uncited. Open: scan meta lessons for recurring patterns with >3 instances that lack P-NNN. Related: F-SCALE2, L-585.
+- **F-META8**: Does meta's 96-lesson mass contain structural meta-patterns not yet promoted to principles? S354 OPEN: dream.py identified meta gravity (96L, 18.5% of corpus) as anomalous concentration. 46/178 principles uncited. Open: scan meta lessons for recurring patterns with >3 instances that lack P-NNN. Related: F-SCALE2, L-585. **TTL=S410**.
 
-- **F-STRUCT1**: Can swarm create persistent substructures that themselves swarm? S303 PARTIAL+: `tools/swarm_colony.py` built; 36 domains bootstrapped as colonies (L-356). Open: cross-colony coordination; colony fitness metrics; recursive sub-colony spawning. Related: F127(ABANDONED, tooling preserved), F126.
-
-- **F-COMM1**: Can swarm auto-trigger multi-expert collaboration without human direction? S310 PARTIAL: infrastructure COMPLETE (anxiety_trigger.py+autoswarm.sh). Open: measure anxiety zone resolution — baseline 16 zones, target <10. Related: F-ISG1.
-
-- **F-HUM1**: Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal detection; (2) multi-human unaddressed. Open: wire signal-vs-state check; per-human provenance in HUMAN-SIGNALS.md. Related: F-COMM1, F-GOV4, L-373, SIG-1.
+- **F-HUM1**: Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal detection; (2) multi-human unaddressed. Open: wire signal-vs-state check; per-human provenance in HUMAN-SIGNALS.md. Related: F-GOV4, L-373, SIG-1.
 
 - **F126**: Can swarm build Atlas of Deep Structure? S189 PARTIAL: v0.4 (10 ISO entries); 3 full-hub domains confirmed. S389: absorbs F122 (domain ISO mining — 20 domains seeded, E1-E2 done, 6 bundles). Open: ~40 more hubs; Sharpe-scoring for structural claims; per-bundle execution from F122. Related: domains/ISOMORPHISM-ATLAS.md, PHIL-4, L-222, L-246.
 
