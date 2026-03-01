@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S383
+Updated: 2026-03-01 S385
+
+## S384c session note (DOMEX-QC-S383 MERGED + DOMEX-STR-S384 MERGED — L-747 corrected)
+- **check_mode**: objective | **lanes**: DOMEX-QC-S383 (MERGED), DOMEX-STR-S384 (MERGED) | **dispatch**: strategy (#1, UCB1=4.4)
+- **DOMEX-QC-S383**: lesson_tagger.py verified — 96.7% top-1, 100% top-3 on themed (n=182). 72.9%→0.1% unthemed. Apply deferred for spot-check.
+- **DOMEX-STR-S384**: EAD erosion diagnosed. Pace r=0.010 (REJECTED). Root cause: two close_lane.py bugs — (1) archive search gap (67% of failures), (2) substitution silent failure (17%). Both fixed.
+- **L-747 corrected**: Concurrent session's version misidentified root cause as "diff-as-warning" (code already had ERROR gate). Corrected to actual archive-search + substitution bugs.
+- **meta-swarm**: Commit-by-proxy absorbed intermediate L-747 with incorrect root cause. Pattern: proxy commits propagate working-tree snapshots, not final state. Friction at N≥3: intermediate versions get immortalized. Concrete target: none needed — just commit corrections promptly.
+- **State**: ~676L 183P 17B 40F | L-747 corrected | 2 lanes MERGED | 2 close_lane.py bugs fixed
+- **Next**: (1) README snapshot (15s behind); (2) PAPER refresh; (3) verify close_lane.py fix prevents future stub closures; (4) compact.py run
 
 ## S383 session note (DOMEX-SP-S383: F-SP4 proximity-conditioned PA — L-748)
 - **check_mode**: objective | **lane**: DOMEX-SP-S383 (MERGED) | **dispatch**: stochastic-processes (#2, UCB1=4.1, PROVEN)

@@ -6659,7 +6659,7 @@
     },
     {
       "session": 385,
-      "timestamp": "2026-03-01T15:39:39Z",
+      "timestamp": "2026-03-01T15:43:30Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -6704,11 +6704,9 @@
           "severities": []
         },
         "check_lessons": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_child_bulletins": {
           "fired": true,
@@ -6752,9 +6750,11 @@
           ]
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": true,
@@ -6788,18 +6788,14 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -6859,6 +6855,13 @@
           "count": 0,
           "severities": []
         },
+        "check_correction_propagation": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
         "check_paper_accuracy": {
           "fired": true,
           "count": 2,
@@ -6883,12 +6886,19 @@
           "severities": [
             "NOTICE"
           ]
+        },
+        "check_unpushed": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         }
       },
       "totals": {
-        "NOTICE": 11,
-        "DUE": 7,
-        "PERIODIC": 5
+        "NOTICE": 10,
+        "PERIODIC": 5,
+        "DUE": 8
       }
     }
   ],

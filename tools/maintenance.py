@@ -1646,6 +1646,40 @@ def check_claim_gc() -> list[tuple[str, str]]:
     return []
 
 
+def check_correction_propagation() -> list[tuple[str, str]]:
+    """F-IC1: detect HIGH-priority uncorrected citations of falsified lessons."""
+    try:
+        cp_path = REPO_ROOT / "tools" / "correction_propagation.py"
+        if not cp_path.exists():
+            return []
+        import importlib.util as _ilu
+        import sys as _sys
+        _mod = "correction_propagation"
+        if _mod not in _sys.modules:
+            _spec = _ilu.spec_from_file_location(_mod, cp_path)
+            _cp = _ilu.module_from_spec(_spec)
+            _sys.modules[_mod] = _cp
+            _spec.loader.exec_module(_cp)
+        else:
+            _cp = _sys.modules[_mod]
+        result = _cp.run_analysis(session="S?", classify=True)
+        high_items = [q for q in result.get("correction_queue", [])
+                      if q.get("priority") == "HIGH"]
+        total = result.get("total_uncorrected_citations", 0)
+        if high_items:
+            ids = ", ".join(q["citer"] for q in high_items[:5])
+            extra = f"... +{len(high_items)-5} more" if len(high_items) > 5 else ""
+            return [("DUE", f"{len(high_items)} HIGH-priority uncorrected citation(s) "
+                     f"of falsified lessons: {ids}{extra} "
+                     f"({total} total uncorrected). Run: python3 tools/correction_propagation.py --classify")]
+        if total > 20:
+            return [("NOTICE", f"{total} uncorrected citations of falsified lessons "
+                     f"(0 HIGH). Run: python3 tools/correction_propagation.py --classify")]
+    except Exception as e:
+        return [("NOTICE", f"correction_propagation check error: {e}")]
+    return []
+
+
 def _inter_swarm_connectivity(capabilities: dict, commands: dict[str, bool]) -> dict:
     protocol_paths = ["experiments/inter-swarm/PROTOCOL.md", "memory/OPERATIONS.md"]
     protocol_state = [{"path": p, "exists": _exists(p)} for p in protocol_paths]
@@ -1905,6 +1939,7 @@ def main():
         check_frontier_registry,
         check_file_graph,
         check_claim_gc,
+        check_correction_propagation,
         check_paper_accuracy,
         check_utility,
         check_proxy_k_drift,
