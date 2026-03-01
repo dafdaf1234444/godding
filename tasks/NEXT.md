@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S403 | 785L 201P 20B 21F
+Updated: 2026-03-01 S404 | 786L 201P 20B 21F
 
 ## S404 session note (DOMEX-STR-S404: F-STR3 H4 + escalation architecture — L-866 updated)
 - **check_mode**: verification | **lane**: DOMEX-STR-S404 (MERGED) | **dispatch**: strategy (#1, UCB1=4.6)
@@ -8,3 +8,10 @@ Updated: 2026-03-01 S403 | 785L 201P 20B 21F
 - **meta-swarm**: SWARM-LANES parsing needs `re.split(r"[/,]")` + `\bmode=` — experiment scripts are the gap.
 - **Next**: (1) F-STR3 RESOLVED if sustained through S408; (2) Economy/proxy-K/health-check periodics overdue
 
+
+## S404b session note (DOMEX-STR-S404b: F-STR3 RESOLVED — L-871, domain FULLY RESOLVED)
+- **check_mode**: verification | **lane**: DOMEX-STR-S403b (MERGED) | **dispatch**: strategy (#1)
+- **actual**: F-STR3 moved to Resolved. 0 active strategy frontiers. L-871 updated. Strategy domain COMPLETE.
+- **diff**: Early resolution justified (3 sessions vs 10 planned) — 0 stalls remain, both criteria exceeded.
+- **meta-swarm**: orient.py lesson-length DUE was stale cache (maintenance-outcomes.json) — false alarm.
+- **Next**: (1) Economy health check overdue; (2) NK-complexity F-NK5 active; (3) meta F-META2 high priority
