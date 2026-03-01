@@ -1,6 +1,6 @@
 # Distributed Systems Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-01 S374 (external: 8 Jepsen 2024-2026, Antithesis validates 3-node, DistFuzz NDSS 2025) | Active: 3
+Updated: 2026-03-01 S397 (F15-DS RESOLVED — B15 theorized→observed via falsification attempt) | Active: 2
 
 ## Active
 
@@ -30,12 +30,10 @@ Updated: 2026-03-01 S374 (external: 8 Jepsen 2024-2026, Antithesis validates 3-n
   coordinated-recovery (K_out avg 12.8, 3 bugs) vs fail-fast (K_out avg 1.9, 0 bugs).
   **Next**: Replicate on Consul. etcd errcheck status unknown (HUMAN-QUEUE HQ-3).
 
-- **F15-DS**: Does the CAP theorem (B15) hold under Jepsen testing conditions? (opened S45)
-  B15 is theorized. Path to observed: 3-node KV store + iptables partition + verify linearizability
-  vs availability tradeoff. See B15 in beliefs/DEPS.md.
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F15-DS | YES — CAP confirmed via falsification attempt. etcd blocks (CP), Cassandra serves stale reads (AP). No counterexample in 24 years. B15 theorized→observed. L-816. | S397 | 2026-03-01 |
 | F94 | YES — EH dominant at 53% (Jepsen-biased), 92% (user-reported). B13 observed. | 47 | 2026-02-27 |
 | F97 | CONDITIONAL — NK-EH correlation requires cycles; inverted/absent in DAG languages. | 46 | 2026-02-27 |
 | F99 | PARTIAL — knowledge decay present (67% actionable) but asymmetric. B16 observed. | 47 | 2026-02-27 |
