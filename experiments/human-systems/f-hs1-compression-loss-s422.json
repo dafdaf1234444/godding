@@ -5,6 +5,8 @@
   "frontier": "F-HS1",
   "domain": "human-systems",
   "level": "L4",
+  "lesson": "L-943",
+  "principle": "P-276",
   "prior_work": "S375 established three-tier compaction gradient (tools 55% > principles 12.3% > lessons 2.7%). This experiment adds temporal dynamics and identifies the granularity mechanism.",
   "method": "Analyze lesson survival rates, proxy-K sawtooth dynamics, production-compaction ratios across 5 eras (S1-S422), and granularity-level compaction mechanisms. N=856 lesson files, 63 proxy-K measurements, 670 session-attributed lessons.",
   "expect": "Two regimes (early rapid, late stabilization). Half-life ~150 sessions. Compaction is sunset mechanism.",
