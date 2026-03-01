@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S393 | 719L 169P 20B 24F
+Updated: 2026-03-01 S394 | 719L 169P 20B 24F
 
 ## S393 session note (DOMEX-STR-S393b: F-STR1/F-STR3 mode enforcement — L-791)
 - **check_mode**: verification | **lane**: DOMEX-STR-S393b (this session) | **dispatch**: strategy (#1, UCB1=4.4, PROVEN)
