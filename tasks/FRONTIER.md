@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-16 active | Last updated: 2026-03-01 S406 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
+17 active | Last updated: 2026-03-01 S407 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
 
 ## Critical
 
@@ -40,6 +40,8 @@ The swarm picks what matters. Solve, refine, or challenge.
 - **F126**: Can swarm build Atlas of Deep Structure? S189 PARTIAL: v0.4 (10 ISO entries); 3 full-hub domains confirmed. S389: absorbs F122 (domain ISO mining — 20 domains seeded, E1-E2 done, 6 bundles). Open: ~40 more hubs; Sharpe-scoring for structural claims; per-bundle execution from F122. Related: domains/ISOMORPHISM-ATLAS.md, PHIL-4, L-222, L-246.
 
 - **F-META14**: Can systematic re-verification of genesis-era lessons (L-001 to L-030) with mature infrastructure find overturned claims? S392 PARTIAL: YES — 40% non-current (4 refined, 3 stale, 2 overturned, 2 falsified, 1 archived). Mean Sharpe 4.7 vs modern 7.8 (Δ+3.1). Verification-confidence paradox: 21.4% of "Verified" genesis lessons falsified vs 0% "Assumed". Key falsifications: L-025/L-029 (edge-of-chaos), L-005 (naming), L-007 (phase ratios). Open: extend to L-031..L-060 for genesis-era boundary measurement. L-781. Related: L-761, F-META12, L-633.
+
+- **F-LEVEL1**: What should the swarm work on and why? (STRATEGIC — not a hypothesis but a direction question.) S407 OPEN: L-895 shows 87% measurement, L3+ declining from 15.2% to 2.0%. The swarm measures excellently but doesn't direct, design, or reimagine. This frontier is itself the test: can the swarm sustain L3+ work across 10 sessions? Test: measure L3+% in L-895..L-945 (next 50 lessons). Target: L3+ ≥15% (restore to L-001..L-200 era baseline). Fail: <5% = PHIL-21 unachievable. Mechanism: orient.py level-imbalance alert + level tag adoption. Related: L-895, PHIL-21, SIG-46.
 
 - **F-META15**: Can the swarm generate genuine self-surprise? S393 BASELINE: confirmation-dominant (27.3% "confirmed" verbs, 0.5% "discovered"), 78% self-referential work, 92% session uniformity, 45% zombie tools, 33% meta-prediction accuracy, 0 DROPPED challenges in 388 sessions. Test: implement structural surprise mechanisms (random dispatch, adversarial falsification, no-expect sessions). Target: surprise_rate >20% per 20-session window. L-787, SIG-34.
 

@@ -19,6 +19,7 @@ This repo is a swarm. Read `SWARM.md` for the full protocol.
 
 ## Minimum Swarmed Cycle
 - **Orient first**: `python3 tools/orient.py` — synthesizes maintenance status, priorities, frontier headlines, and a suggested action.
+- **Task order**: `python3 tools/task_order.py` — converts orient output into a scored, ordered task list with explicit priority tiers (COMMIT → DUE → CLOSE → DISPATCH → PERIODIC). Re-run after each task to re-rank.
 - **Anti-repeat check** (L-283): `git log --oneline -5` + scan `tasks/SWARM-LANES.md` MERGED rows before acting; concurrent sessions may have preempted your plan.
 - Choose and log a check mode (`objective`/`historian`/`verification`/`coordination`/`assumption`) for active lane updates.
 - Declare expectation before acting and record the diff after acting.

@@ -1639,6 +1639,39 @@ def check_dark_matter() -> list[tuple[str, str]]:
              f"— within 15-40% safe zone (L-581; optimal 15-25%)")]
 
 
+def check_meta_tooler_gap() -> list[tuple[str, str]]:
+    """L-896: When >20 tools are unreferenced by automation, surface meta-tooler DUE."""
+    tools_dir = REPO_ROOT / "tools"
+    if not tools_dir.exists():
+        return []
+    tool_files = sorted(
+        f.stem for f in tools_dir.glob("*.py")
+        if not f.stem.startswith("test_") and f.stem != "__init__"
+    )
+    if not tool_files:
+        return []
+    entry_files = ["tools/check.sh", "tools/orient.py", "tools/maintenance.py"]
+    ref_text = ""
+    for ef in entry_files:
+        ef_path = REPO_ROOT / ef
+        if ef_path.exists():
+            try:
+                ref_text += ef_path.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+    unreferenced = [t for t in tool_files if t not in ref_text]
+    if len(unreferenced) <= 20:
+        return []
+    # Check if a meta-tooler lane is already active
+    lanes_path = REPO_ROOT / "tasks" / "SWARM-LANES.md"
+    if lanes_path.exists():
+        lanes_text = _read(lanes_path)
+        if re.search(r"meta.tooler.*(?:ACTIVE|CLAIMED|READY)", lanes_text, re.IGNORECASE):
+            return []
+    return [("DUE", f"{len(unreferenced)} tools unreferenced by automation (>20 threshold, L-896) "
+             f"— open a meta-tooler DOMEX lane to wire or archive")]
+
+
 def check_proxy_k_drift() -> list[tuple[str, str]]:
     results = []
     log_path = REPO_ROOT / "experiments" / "proxy-k-log.json"
@@ -2176,6 +2209,7 @@ def main():
         check_proxy_k_drift,
         check_t4_tool_size,
         check_zombie_tools,
+        check_meta_tooler_gap,
     ]
 
     # check_utility was excluded from --quick due to 10s runtime (2200+ file reads).

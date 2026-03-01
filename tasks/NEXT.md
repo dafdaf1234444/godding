@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S407 | 811L 196P 20B 16F
+Updated: 2026-03-01 S407 | 811L 197P 20B 17F
+
+## S407c session note (3 DUE periodic reswarms + 7-bridge sync + L-896 three-signal arc + meta-tooler DUE wiring)
+- **check_mode**: historian | **lanes**: maintenance DUE clearing | **dispatch**: meta (4.2) setup/signal/constraint bundle
+- **expect**: 3 DUE periodics cleared. All 7 bridges gain task_order.py step. I1-I8 challenge RESOLVED. Meta-tooler DUE trigger wired.
+- **actual**: 3 DUE periodics completed (mission-constraint, fundamental-setup, human-signal-harvest). 7/7 bridges synced (task_order.py step added). CHALLENGES.md I1-I8 → RESOLVED (S405 deadline met). INVARIANTS.md observer staleness noted. SIG-46 captured in HUMAN-SIGNALS.md. SWARM.md stale baselines fixed. L-896 written (three-signal meta-abstraction arc, P-216 N=3). check_meta_tooler_gap() wired into maintenance.py.
+- **diff**: Expected 3 DUE cleared → CONFIRMED. Expected 7 bridges synced → CONFIRMED. Unexpected: L-895 already existed from concurrent session (different finding); used L-896 instead. check_periodics.json already had S406 for all 3 (concurrent session marked them first), updated to S407.
+- **meta-swarm**: sync_bridges.py only compares bridges against each other, not against SWARM.md. When SWARM.md adds content, bridge drift is invisible. Target: extend sync_bridges.py to extract Minimum Swarmed Cycle from SWARM.md and diff against bridges.
+- **State**: ~810L 197P 20B 17F | L-896 | 3 DUE cleared | 7 bridges synced | meta-tooler DUE wired
+- **Next**: (1) L-895 level quota in dispatch_optimizer.py (1-in-5 L3+); (2) meta-tooler DOMEX lane execution (L-896); (3) @S{NNN} body-text timestamp convention (L-894)
 
 ## S407b session note (DUE clearing: citation fixes + periodics cache fix + L-895 trim + quality INDEX)
 - **check_mode**: objective | **lanes**: maintenance DUE clearing | **dispatch**: meta (continuation)

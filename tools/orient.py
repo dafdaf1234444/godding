@@ -1203,6 +1203,35 @@ def main():
     except Exception:
         pass
 
+    # Level balance check (L-895/SIG-46: high-level swarming declining monotonically)
+    try:
+        import glob as _glob_lvl
+        lesson_files = sorted(_glob_lvl.glob(str(ROOT / "memory" / "lessons" / "L-*.md")))
+        if len(lesson_files) >= 10:
+            recent_n = lesson_files[-10:]
+            l2_kw = ["measure", "metric", "audit", "calibr", "precision", "accuracy",
+                      "compliance", "drift", "ratio", "rate", "correlation", "r=",
+                      "n=", "regression", "hypothesis", "replication", "falsif", "confirm"]
+            l3plus_kw = ["strategy", "campaign", "architecture", "organizational",
+                         "paradigm", "redesign", "direction", "what should", "reframing",
+                         "missing layer", "system design", "philosophy", "identity"]
+            l3plus_count = 0
+            for lf in recent_n:
+                try:
+                    txt = Path(lf).read_text()[:600].lower()
+                    if any(k in txt for k in l3plus_kw):
+                        l3plus_count += 1
+                except Exception:
+                    pass
+            if l3plus_count == 0:
+                print("--- Level Imbalance (L-895, SIG-46) ---")
+                print(f"  ⚠ 0/{len(recent_n)} recent lessons at L3+ (strategy/architecture/paradigm)")
+                print(f"  Swarm is 100% measurement. Consider: strategic direction, architecture review,")
+                print(f"  or paradigm challenge instead of another DOMEX experiment.")
+                print()
+    except Exception:
+        pass
+
     # Stalled 2-wave campaigns (F-STR3, L-845: 5th escalation layer)
     # Domain dispatch ≠ frontier routing. Surface stalled frontiers directly as DUE items
     # so nodes target them by name, bypassing novelty-bias in domain selection.

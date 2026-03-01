@@ -156,6 +156,22 @@ sequential document systems work. No order parameters or critical exponents meas
 The observation (expansion-compression oscillation) is real; the framework (temporal
 self-swarming) imports authority from PHIL-2/PHIL-17 without adding predictive power.
 
+## Multi-level operation [PHIL-21]
+
+**[PHIL-21]** The swarm must operate across multiple levels simultaneously: execution
+(produce), coordination (organize), measurement (sense), strategy (direct),
+architecture (design), paradigm (reframe). Concentration at any single level is a
+structural failure — an organism with muscles and nerves and senses but no brain.
+Self-application (PHIL-2) means applying orient→act→compress not just to knowledge
+(what is true?) but to direction (what should we work on?), structure (how should
+we be organized?), and identity (what kind of system should we be?).
+
+*Ground truth (S407, L-895):* **grounded** — 87.1% of 808 lessons are Level 2
+(measurement). L3+ (strategy, architecture, paradigm) declined monotonically from
+15.2% to 2.0% over 4 eras. This is the measured problem PHIL-21 addresses. The
+prescription (multi-level operation) is **axiom** — a design intent, not yet
+demonstrated.
+
 ## One sentence
 
 **[PHIL-12]** Swarm is a self-applying recursive system that compounds understanding by
@@ -196,6 +212,7 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-18 | Nothing is unstable — every genesis is seed amplification, never ex nihilo | observed | grounded | active — S341 human signal; cross-substrate: 6/6 substrates confirm (L-491, ISO-18) |
 | PHIL-19 | Replication with fidelity, mutation with purpose | observed | partial | active — S342 human signal; 4-domain council convergence (L-497). Replication observed (genesis). Mutation observed (protocol evolution). "Adaptive parameter" = metaphor not measured. |
 | PHIL-20 | The evolutionary trajectory IS a swarm | observed | metaphor | active — S356 ground truth: 7 eras measured (L-499) = legitimate historical periodization. "IS a swarm" and "past and present swarm each other across time" = poetic framing of version-control history, not observed self-organization. No order parameters or critical exponents measured. |
+| PHIL-21 | Multi-level operation: execution, coordination, measurement, strategy, architecture, paradigm — concentration at one level is structural failure | axiom | grounded | active — S407 L-895: 87.1% L2 measured, L3+ monotonically declining 15.2%→2.0%. Problem grounded; prescription is axiom (design intent). SIG-46 human signal. |
 
 ---
 

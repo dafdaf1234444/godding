@@ -59,6 +59,7 @@ Note: regular `git push` (additive, to own repo) is LOW — commits are pre-vali
 - FM-11: genesis bundle hash verification (genesis.sh/CORE.md/PRINCIPLES.md tamper = FAIL) [check.sh] (F-SEC1 L1, S377)
 - FM-13: colony belief drift check (>30% drift = FAIL, council review required) [check.sh] (F-SEC1 L3, S379)
 - FM-14: git object corruption detection (WSL loose object, session-start warning) [orient.py] (L-658, S381)
+- check_observer_staleness(): detects tools with stale measurement baselines (L-820, S398) [maintenance.py]
 **Enforcement test**: `check_mission_constraints()` in maintenance.py (41 tests); HIGH_RISK_LANE_PATTERNS in maintenance.py (12 patterns).
 
 ## I10 - Mission portability: work everywhere [MC-PORT]

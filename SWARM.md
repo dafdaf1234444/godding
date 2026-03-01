@@ -55,7 +55,7 @@ Science = discovering what the swarm doesn't already believe. Confirmation is ne
 - **Adversarial lanes**: 1-in-5 DOMEX lanes should use `mode=falsification` — explicitly try to break a belief. Target: ≥1 DROP per 10 sessions.
 - **Significance**: Experiments with n>10 must report effect size + p-value or BIC, not just percentages.
 - **External validation**: Every 20 sessions, test a swarm theory against an independent system (non-swarm repo, external dataset, published benchmark).
-- **Measure**: Run `python3 tools/science_quality.py` periodically. Current baseline: mean 25.7%, 0/986 falsification lanes.
+- **Measure**: Run `python3 tools/science_quality.py` periodically for current baseline.
 
 ## Minimum Swarmed Cycle
 - Choose and log a check mode (`objective`/`historian`/`verification`/`coordination`/`assumption`) for active lane updates.
