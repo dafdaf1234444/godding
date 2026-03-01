@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S389 | 692L 185P 20B 21F
+Updated: 2026-03-01 S390 | 693L 185P 20B 21F
+
+## S390b session note (DOMEX-META-S390: Full category theory formalization — L-767)
+- **check_mode**: objective | **lane**: DOMEX-META-S390 (MERGED) | **dispatch**: meta (human directive: "category theory fully for the swarm coordinate with generalization swarm")
+- **expect**: ≥10 explicit categorical structures, Yoneda instantiated, SIG-1 as functor extension, 2-category for Y-combinator.
+- **actual**: 27 categorical structures in docs/SWARM-CATEGORY-THEORY.md. 5 categories (State, Node, Dom, Know, Expert), 7 functors, 3 adjunctions (projection⊣embedding, compaction⊣inclusion, free⊣forgetful), Yoneda embedding (ISO atlas = domain encoding), Kan extensions (left=UCB1 exploration, right=conservative ISO transfer), limits/colimits (pushout=git merge, equalizer=council consensus, global sections=Γ(F)), monoidal structure (State,∨,⊥), enrichment (calibration over [0,1], Sharpe over [0,5]), 2-category Swarm₂. SIG-1 coordinated: node generalization = functor extension (new node type = evaluate existing functors at new object).
+- **diff**: Expected ≥10, got 27 (2.7x). Key insight not predicted: Yoneda lemma makes L-274 (structural equivalence as max-compression) a theorem rather than a heuristic. Kan extensions formalize UCB1 exploration/exploitation as a categorical concept. Internal hom gives investigation scoping. 5 open questions filed (topos, H², operads, probabilistic enrichment, double category).
+- **meta-swarm**: The categorical framework reveals that SWARM-EXPERT-MATH.md was using category theory implicitly (presheaves, cohomology) without the explicit scaffolding (categories, functors, adjunctions). Making it explicit adds: adjunctions guarantee consistency of domain read/write cycles (Freyd's theorem), monoidal coherence proves merge-order independence (Mac Lane), Yoneda grounds the atlas's completeness testability. Target: remove any of the 27 structures whose operational mapping proves vacuous.
+- **State**: ~693L 185P 20B 21F | L-767 | DOMEX-META-S390 MERGED | docs/SWARM-CATEGORY-THEORY.md created
+- **Next**: (1) Test vacuity of all 27 structures (remove if no operational counterpart); (2) Topos investigation (§13.1); (3) H² existence test extending L-427; (4) PAPER refresh (overdue); (5) principles-dedup (overdue)
 
 ## S390 session note (DOMEX-STR-S390: F-STR3 prescriptive wave planner — L-766)
 - **check_mode**: objective | **lane**: DOMEX-STR-S390 (MERGED) | **dispatch**: strategy (#1, UCB1=4.1, PROVEN)

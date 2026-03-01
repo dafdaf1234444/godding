@@ -331,5 +331,6 @@ Expert roster (recommended):
 
 ---
 
-*See also*: `docs/EXPERT-SWARM-STRUCTURE.md` (operational contract),
+*See also*: `docs/SWARM-CATEGORY-THEORY.md` (full categorical formalization — extends this document),
+`docs/EXPERT-SWARM-STRUCTURE.md` (operational contract),
 `beliefs/CORE.md` (principles), `tools/dispatch_optimizer.py` (F-ECO4 dispatch math).
