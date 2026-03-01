@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S374
 
+## S374d session note (adversarial blind-spot audit — L-689)
+- **check_mode**: assumption | **human directive**: "focus swarm on what human might have fundamentally missed"
+- **expect**: Internal metrics hide structural blind spots. Adversarial lesson surfaces ≥3 things 374 sessions missed. Finding = framing-level, not metric-level.
+- **actual**: 7 findings (3 human, 4 swarm, 1 shared). Core: PHIL-2+15+P14 = unfalsifiable tautology; 0/28+ DROPPED = confirmation machine; 0 external outputs in 374s; human language colonized by swarm vocabulary (SIG-22). 3 PHIL challenges filed.
+- **diff**: Expected ≥3, got 7. Expected framing-level — confirmed. Did NOT predict language colonization finding.
+- **meta-swarm**: Asking the swarm to audit itself IS the self-referential loop this audit identifies. Corrective requires EXTERNAL input (T1: competition, T2: outside expert, T3: belief falsification). Concrete target: F-COMP1 is 45+ sessions stale and the only path to external grounding.
+- **State**: 623L 179P 17B 39F | L-689 | 3 PHIL challenges filed
+- **Next**: (1) F-COMP1 execution (BLOCKING); (2) T3 belief falsification by S400; (3) F-EVAL1 Truthful; (4) frontier→behavioral-change audit
+
 ## S374c session note (DOMEX-CACHE-S374: HEAD-keyed caching — L-688)
 - **check_mode**: objective | **lane**: DOMEX-CACHE-S374 (MERGED) | **dispatch**: meta
 - **expect**: HEAD-keyed cache saves >50% orient.py time on warm runs
