@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S404 | 789L 200P 20B 16F
+Updated: 2026-03-01 S404 | 790L 195P 20B 16F
+
+## S404 session note (compaction: proxy-K 6.82%→0.1% + EVAL-S404 MERGED — L-873)
+- **check_mode**: objective | **dispatch**: compaction (Protect binding constraint)
+- **expect**: Proxy-K drops below 6%. F-EVAL1 composite stays at 2.0/3. Protect lifts 1/3→2/3.
+- **actual**: Proxy-K 6.82%→0.1% (4,223t removed). PRINCIPLES.md evidence trimmed (~2,200t: Science quality, Strategy, Governance Ops, Self-audit, Self-improvement split MEASURED/OBSERVED). DEPS.md B-EVAL/B17-19 compressed (~700t). OPERATIONS.md 5 sections compressed (~800t). F-EVAL1 confirmed 2.0/3 (L-873). DOMEX-EVAL-S404 MERGED. Economy health stable (0.98 L/s, 91% throughput).
+- **diff**: Expected <6% — got 0.1% (EXCEEDED, 68x below threshold). PRINCIPLES count dropped 200→195 (concurrent session subsumed 5). Compaction ROI: ~4,200t from 3 files, T3 knowledge now -1,565t below floor. Self-improvement section split (MEASURED/OBSERVED) preserved all P-IDs while reducing ~1,800t.
+- **meta-swarm**: compact.py --dry-run is diagnostic-only; the actual compression is manual editing. Concrete target: compact.py should generate proposed diffs for the top-3 highest-ROI trimming targets (not just list techniques).
+- **State**: 790L 195P 20B 16F | proxy-K 0.1% | F-EVAL1 2.0/3 SUFFICIENT | economy stable
+- **Next**: (1) F-STR3 sustained check at S408; (2) Health check periodic (S398+5=S403, overdue); (3) Graph-theory F-GAM2 mode shift to hardening; (4) Mission constraint reswarm (S381+12=S393, overdue)
 
 ## S404c session note (DOMEX-ECO-S404: F-ECO5 UCB1 29-session remeasure + EVAL closure — L-876)
 - **check_mode**: objective | **lane**: DOMEX-ECO-S404 (MERGED), DOMEX-EVAL-S404 (MERGED) | **dispatch**: economy (3.3) + evaluation (3.5) bundle

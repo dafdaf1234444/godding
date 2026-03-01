@@ -1,7 +1,7 @@
 # Principles — Atomic Building Blocks
-Extracted from lessons. Scan for recombination. 200 live principles, 8 themes.
+Extracted from lessons. Scan for recombination. 195 live principles, 8 themes.
 Last batch scan: S397 (+1 promoted P-267 secondary-research-as-observed). S398 (L-660→L-808 continued, +2 promoted P-265/P-266 + 2 expanded P-221/P-245). S403 (+1 promoted P-268 execution-blocked-dispatch).
-Last compacted: S392c dedup (5 subsumed) | S392 dedup (12 subsumed) | S368 dedup (8 subsumed) | S350 evidence-trim (~700t, P-193→P-084 merged) | S341 (12 subsumed) | S325 | S313 | S303. Full removal log at EOF.
+Last compacted: S404 evidence-trim (~2,200t, 6.82%→0.1% drift) | S392c dedup (5 subsumed) | S392 dedup (12 subsumed) | S368 dedup (8 subsumed) | S350 evidence-trim (~700t) | S341 (12 subsumed) | S325 | S313 | S303. Full removal log at EOF.
 
 ## Architecture
 **Structure**: P-008 validate by usage not theory | P-011 flat→hierarchical when outgrown | P-030 healthy redundancy = reconstructible from raw
