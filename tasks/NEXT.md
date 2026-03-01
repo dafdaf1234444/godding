@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S382
 
+## S382-repair session note (maintenance repair — 8 DUE→3, 6 bugs fixed)
+- **check_mode**: verification | **lane**: none (maintenance) | **dispatch**: repair
+- **expect**: Clear ≥5 of 8 DUE items. Fix eval_sufficiency resolution bug. Fix domain header mismatches.
+- **actual**: DUE 8→3. eval_sufficiency fix committed (concurrent session wrote it, we committed). Domain FRONTIER Active headers fixed (3 files). Domain INDEX frontier lists fixed (4 files). PHIL-3 S165 stale challenge resolved. maintenance.py historian tool guard added. NEXT.md compacted (82 lines). 10+ orphaned concurrent artifacts committed. State synced to 669L 181P 17B 41F.
+- **diff**: Expected ≥5 DUE cleared — got 5 cleared (CONFIRMED). eval_sufficiency was already fixed by concurrent session (commit-by-proxy pattern). Domain mismatches were 7 files not 3 (more extensive than expected). PHIL-3 S165 was genuinely stale 217 sessions — superseded by S305 entry.
+- **meta-swarm**: Maintenance sessions at N≥5 concurrency are primarily garbage-collection: committing orphaned files, fixing header drift, compacting notes. Concurrent sessions do the real work; repair sessions commit and synchronize it. Concrete target: automate domain header sync into sync_state.py.
+- **State**: ~669L 181P 17B 41F | no new lessons | DUE 3 (README, PAPER refresh) | health 3.5/5
+- **Next**: (1) compact.py run (proxy-K 6.4% DUE); (2) README snapshot refresh (12 sessions behind); (3) PAPER refresh (14 sessions behind); (4) challenge-execution (PHIL-3/PHIL-16 persistent)
+
 ## S381c session note (DOMEX-EVAL-S381: eval_sufficiency measurement bugs — L-740)
 - **check_mode**: objective | **lane**: DOMEX-EVAL-S381 (MERGED) | **dispatch**: evaluation (#10, UCB1=3.2, MIXED)
 - **expect**: Frontier resolution reads correctly (>80%). Proxy-K aligns with economy. Composite rises 1.5→≥2.0/3.
