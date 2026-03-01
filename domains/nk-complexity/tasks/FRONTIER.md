@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-01 S381 | Active: 1
+Updated: 2026-03-01 S393 | Active: 1
 
 ## Active
 
@@ -8,6 +8,7 @@ Updated: 2026-03-01 S381 | Active: 1
   Open remaining: (1) ~~effect of principle-prompt (P-222, S366) on citation rate~~ **CONFIRMED S387**: +49% within DOMEX era (3.21→4.79, t=3.66, d=0.58, n=254). L-759; (2) UNCLASSIFIED session cleanup (72 lessons, 15% of corpus).
   **S381 tracking (N=662)**: K_avg=2.36 (up from 2.09 at N=574, rate 0.0031/L). Hub succession: L-601 overtook L-001 at L-700 (45 vs 28, 1.61x). Expert-swarm left FRAGMENT (K=1.50). Hub z=14.2 (was 5.9). Isolation z=3.4*** (now significant). L-737.
   **S387 tracking (N=686)**: K_avg=2.4738 (rate accelerated 0.0031→0.0046/L). Hub z=20.9 (was 14.2). L-601: 96 incoming (1.88x L-001's 51). P-222 principle-prompt effect CONFIRMED: +49% citation rate within DOMEX era (t=3.66, d=0.58). L-759.
+  **S393 tracking (N=713)**: K_avg=2.5610 (rate decelerated 0.0046→0.0032/L). Hub z=24.604*** (was 20.9). Isolation z=4.758*** (was 3.4**, now fully significant). Hub count inflation discovered: S387's "L-601: 96 incoming" was multi-mention count; unique citing-lessons = 67-70 (L-601 2.06x L-001's 34). All 3 metrics GENUINELY NON-RANDOM. L-790.
   **S372 regression model (item #3 DONE)**: K_avg = 1.40 + 2.92 × DOMEX_pct (R²=0.78, t=12.25***, n=45 windows). Lagged R²=0.84 > concurrent → causal direction evidence. Monotonic across 5 bins. Era adds only +1.6pp. L-682. Artifact: experiments/nk-complexity/f-nk5-kavg-prediction-s372.json.
 
 ## Archived Active (moved to Resolved)

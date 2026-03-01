@@ -2,221 +2,6 @@
   "schema": "maintenance-outcomes-v1",
   "sessions": [
     {
-      "session": 363,
-      "timestamp": "2026-03-01T05:20:42Z",
-      "checks": {
-        "check_kill_switch": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_validator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_mission_constraints": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_runtime_portability": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_commit_hooks": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_version_drift": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_open_challenges": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_compaction": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_lessons": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_child_bulletins": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        },
-        "check_help_requests": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_frontier_decay": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_periodics": {
-          "fired": true,
-          "count": 3,
-          "severities": [
-            "PERIODIC",
-            "PERIODIC",
-            "PERIODIC"
-          ]
-        },
-        "check_human_queue": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_swarm_lanes": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_lane_reporting_quality": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_github_swarm_intake": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_uncommitted": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        },
-        "check_handoff_staleness": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_session_log_integrity": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_state_header_sync": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_cross_references": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_anxiety_zones": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        },
-        "check_dispatch_log": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_domain_expert_coverage": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        },
-        "check_historian_integrity": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_domain_frontier_consistency": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        },
-        "check_readme_snapshot_drift": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "DUE",
-            "NOTICE"
-          ]
-        },
-        "check_structure_layout": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_frontier_registry": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_file_graph": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_claim_gc": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_paper_accuracy": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_utility": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_proxy_k_drift": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_t4_tool_size": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
-        }
-      },
-      "totals": {
-        "NOTICE": 7,
-        "PERIODIC": 3,
-        "DUE": 1
-      }
-    },
-    {
       "session": 364,
       "timestamp": "2026-03-01T05:25:04Z",
       "checks": {
@@ -6789,7 +6574,7 @@
     },
     {
       "session": 392,
-      "timestamp": "2026-03-01T17:03:31Z",
+      "timestamp": "2026-03-01T17:04:16Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -6995,6 +6780,252 @@
           "severities": []
         },
         "check_claim_gc": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        },
+        "check_correction_propagation": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_paper_accuracy": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_utility": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_proxy_k_drift": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_t4_tool_size": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        }
+      },
+      "totals": {
+        "NOTICE": 15,
+        "DUE": 12,
+        "PERIODIC": 7
+      }
+    },
+    {
+      "session": 393,
+      "timestamp": "2026-03-01T17:12:07Z",
+      "checks": {
+        "check_kill_switch": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_validator": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_mission_constraints": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        },
+        "check_runtime_portability": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_commit_hooks": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_version_drift": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_open_challenges": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_compaction": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_lessons": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_child_bulletins": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        },
+        "check_help_requests": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_frontier_decay": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_periodics": {
+          "fired": true,
+          "count": 12,
+          "severities": [
+            "PERIODIC",
+            "PERIODIC",
+            "DUE",
+            "PERIODIC",
+            "DUE",
+            "DUE",
+            "PERIODIC",
+            "PERIODIC",
+            "PERIODIC",
+            "PERIODIC",
+            "PERIODIC",
+            "PERIODIC"
+          ]
+        },
+        "check_human_queue": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_swarm_lanes": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_swarm_coordinator": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_lane_reporting_quality": {
+          "fired": true,
+          "count": 2,
+          "severities": [
+            "DUE",
+            "NOTICE"
+          ]
+        },
+        "check_github_swarm_intake": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_uncommitted": {
+          "fired": true,
+          "count": 2,
+          "severities": [
+            "NOTICE",
+            "NOTICE"
+          ]
+        },
+        "check_handoff_staleness": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_session_log_integrity": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_state_header_sync": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_cross_references": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_anxiety_zones": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        },
+        "check_dispatch_log": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_domain_expert_coverage": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
+        },
+        "check_historian_integrity": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_domain_frontier_consistency": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_readme_snapshot_drift": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
+        },
+        "check_structure_layout": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_frontier_registry": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_file_graph": {
+          "fired": false,
+          "count": 0,
+          "severities": []
+        },
+        "check_claim_gc": {
           "fired": false,
           "count": 0,
           "severities": []
@@ -7032,9 +7063,9 @@
         }
       },
       "totals": {
-        "NOTICE": 14,
-        "DUE": 12,
-        "PERIODIC": 7
+        "NOTICE": 8,
+        "DUE": 11,
+        "PERIODIC": 9
       }
     }
   ],
