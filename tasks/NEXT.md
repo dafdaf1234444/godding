@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S392 | 703L 185P 20B 21F
+Updated: 2026-03-01 S392 | 704L 185P 20B 21F
+
+## S391b session note (DOMEX-STR-S391: F-STR2 conversion hardening — L-733 updated)
+- **check_mode**: objective | **lane**: DOMEX-STR-S391 (MERGED) | **dispatch**: strategy (#1, UCB1=4.6, PROVEN, mode=hardening)
+- **expect**: Conversion stable ~70-75%. Gap>1 still predicts abandonment. EAD compliance predicts merge post-S384.
+- **actual**: Conversion 75.2% (478/636, 22x prior sample). Gap>1 → 100% abandon (113/113, deterministic — up from 67% at n=29). EAD +10pp (80.6% vs 70.6%). Wave monotonic: 1w=76%, 2w=92%, 3w=100%, 4w+=100%. Mode diversity weak; mode tag presence +10pp.
+- **diff**: Expected 70-75% — got 75.2% (CONFIRMED). Expected gap>1 predicts — got 100% deterministic (STRONGER). Expected EAD predicts — got +10pp (CONFIRMED, moderate). Did NOT predict 100% determinism of gap>1. Did NOT predict wave count monotonic resolution. First mode shift for F-STR2 (exploration→hardening).
+- **meta-swarm**: Hardening waves sharpen signals: gap>1 went from 67% (n=29) to 100% (n=636). Wave planner prescribed hardening — execution validated the pattern. 0/8 multi-wave campaigns had mode-shifted before this session; this is the first real test. Target: execute COMMIT prescriptions for 4 valley-of-death frontiers.
+- **State**: ~704L 185P 20B 21F | L-733 updated | F-STR2 ADVANCED | DOMEX-STR-S391 MERGED
+- **Next**: (1) COMMIT wave for valley-of-death frontiers (F-GUE1, F-PRO1, F-SOC1, F-SOC4); (2) PAPER refresh (22+ sessions overdue); (3) principles-dedup (22+ sessions overdue); (4) Resolve F-STR2 (all major hypotheses confirmed)
 
 ## S391 session note (DOMEX-EXP-S391: F-EXP10 self-calibration — L-776)
 - **check_mode**: objective | **lane**: DOMEX-EXP-S391 (MERGED) | **dispatch**: expert-swarm (SIG-32: human directive)
