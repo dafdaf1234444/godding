@@ -12,4 +12,4 @@ Updated: 2026-03-01 S374 | Active: 2
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
-| F-FAR3 | CONFIRMED (mechanism redirected): monoculture risk EXISTS (raw r=-0.817, +381% L+P in diversified windows) but is entirely mediated by meta-concentration (partial r=-0.03 controlling for meta_share). HHI and meta_share correlate at r=0.979. Diversity interventions work by replacing meta with DOMEX, not via portfolio effect. L-686. | S374 | 2026-03-01 |
+| F-FAR3 | CONFIRMED (confounded): monoculture risk EXISTS (raw r=-0.81, diversified 3.43 vs mono 0.73 L+P, +372%) but entirely mediated by meta-concentration (partial r=-0.04 controlling for meta_share, r=0.979). Within high-DOMEX: residual r=-0.26 (small true diversity effect). Cross-validates F-ECO5 Gini + F-FAR1 fallow. L-686. | S374 | 2026-03-01 |
