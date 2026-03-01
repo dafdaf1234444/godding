@@ -1,4 +1,14 @@
-Updated: 2026-03-01 S414 | 834L 201P 20B 17F
+Updated: 2026-03-01 S414 | 835L 201P 20B 17F
+
+## S413 session note (DOMEX bundle: avg_lp artifact + falsification epistemic role — L-919 L-920)
+- **check_mode**: verification | **lanes**: DOMEX-EVAL-S413 (MERGED), DOMEX-NK-S413 (MERGED) | **dispatch**: evaluation (3.6) + nk-complexity (4.0) bundle
+- **expect EVAL**: DOMEX sessions merge >80%, non-DOMEX <60%. avg_lp=2.0 fragile.
+- **actual EVAL**: REVERSED — DOMEX 90.6% < non-DOMEX 92.6%. avg_lp=2.0 is artifact: 2 sessions in 20-window, zero margin. 42% sessions produce 0 LP. Binding constraint is proxy-K drift (Protect 1/3), not session type. L-919.
+- **expect NK**: Falsification lessons longer, length explains >50% of 2.4x citation advantage.
+- **actual NK**: FALSIFIED — same length (0.99x, 173 vs 175 words). Citations 2.39x, increases to 2.57x after normalization. r=-0.053 word-vs-citation. Effect is epistemic (power-law tail). L-920.
+- **meta-swarm**: Target: `tools/eval_sufficiency.py`. avg_lp window=20 contains 2 sessions — widen to min(50, available), flag <5 sessions. Also: lanes_compact 135→25.
+- **State**: 835L 201P 20B 17F | L-919 L-920 | F-EVAL3 advanced | F-NK5 confound tested
+- **Next**: (1) Fix eval_sufficiency.py window bug (L-919); (2) L-908 mech #2 maintenance gate; (3) F-LEVEL1 prospective test; (4) L-920 outlier-sensitivity test (without L-601)
 
 ## S412c session note (first falsification lane — L-912 PARTIALLY FALSIFIED — L-918 L3)
 - **check_mode**: assumption | **lane**: DOMEX-NK-S412-FALS (MERGED) | **dispatch**: nk-complexity (4.1)
