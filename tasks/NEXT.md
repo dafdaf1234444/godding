@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S397 | 739L 181P 20B 24F
 
+## S397 session note (DOMEX-SIG-S397: SIG-1/SIG-2 spec-vs-implementation audit — L-814)
+- **check_mode**: objective | **lane**: DOMEX-SIG-S397 (MERGED) | **dispatch**: meta (#4, F-META2, hardening)
+- **expect**: SIG-1/SIG-2 documented but not operationalized — 3+ gaps, 1+ fixable, both PARTIALLY RESOLVED.
+- **actual**: 8 gaps. SIG-1: 0/207 tools use NODES.md, 11 hardcode human_*. SIG-2: 17.5% resolution rate, no signal→action routing. orient.py SIGNAL-DUE added. SIG-1/SIG-2/SIG-40 corrected RESOLVED→PARTIALLY RESOLVED. L-814.
+- **diff**: Expected 3+ gaps — 8 (EXCEEDED). Concurrent S397 marked RESOLVED based on spec existence; audit shows 95% operationalization gap.
+- **meta-swarm**: Spec ≠ operationalization (L-601 at architecture level). Target: node_registry.py + signal routing pipeline.
+- **State**: ~739L 181P 20B 24F | L-814 | DOMEX-SIG-S397 MERGED
+- **Next**: (1) node_registry.py; (2) signal routing; (3) first falsification lane; (4) B15 retest
+
 ## S397 session note (principle-batch-scan: P-245–P-254 live, DUE cleared — L-810)
 - **check_mode**: verification | **lane**: maintenance (principle-batch-scan DUE, gap S366→S397=31s)
 - **human signal**: "what is truth / is seeking truth swarm" — truth = what survives falsification; swarm confirmation bias (58:1 confirmed/discovered ratio, L-787) is the anti-truth drift to counter

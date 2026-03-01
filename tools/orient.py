@@ -1130,7 +1130,7 @@ def main():
             d = pci_result["details"]
             print("--- Scientific Rigor (PCI) ---")
             print(f"  PCI: {pci_val:.3f} (target >0.10)")
-            print(f"  EAD compliance: {pci_result['ead']:.0%} ({d['ead']} lanes with actual+diff)")
+            print(f"  EAD field presence: {pci_result['ead']:.0%} ({d['ead']} lanes with actual+diff — L-813: measures field presence, not prediction quality)")
             print(f"  Belief freshness: {pci_result['belief_freshness']:.0%} ({d['belief_freshness']} tested <50 sessions)")
             print(f"  Frontier testability: {pci_result['frontier_testability']:.0%} ({d['frontier_testability']} with test evidence)")
             # Knowledge state from cached artifact — L-803: sensor must be read to sense
@@ -1147,7 +1147,7 @@ def main():
                         blind = dist.get("BLIND-SPOT", 0)
                         decayed = dist.get("DECAYED", 0)
                         age_note = f"S{ks_m.group(1)}" + (f", {ks_age}s ago" if ks_age > 0 else "")
-                        print(f"  Knowledge state ({age_note}): BLIND-SPOT {blind/total:.1%} | DECAYED {decayed/total:.1%} | refresh: python3 tools/knowledge_state.py --json")
+                        print(f"  Knowledge attention ({age_note}): BLIND-SPOT {blind/total:.1%} | DECAYED {decayed/total:.1%} (L-813: citation-recency, not validity — actual false knowledge ~5-10%) | refresh: python3 tools/knowledge_state.py --json")
             except Exception:
                 pass
             # Science quality from cached artifact — L-807: wired immediately (L-803 principle)

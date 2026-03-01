@@ -1,0 +1,70 @@
+{
+  "experiment": "SIG-1/SIG-2 implementation audit",
+  "session": "S397",
+  "lane": "DOMEX-SIG-S397",
+  "frontier": "F-META2",
+  "domain": "meta",
+  "date": "2026-03-01",
+  "hypothesis": {
+    "H1": "SIG-1 (node generalization) documented but not operationalized: 0 tools use NODES.md",
+    "H2": "SIG-2 (structured signals) system exists but is write-only: <30% signal resolution rate",
+    "H3": "Both signals should be PARTIALLY RESOLVED, not RESOLVED or OPEN"
+  },
+  "method": "Systematic codebase audit: grep for hardcoded 'human' references, check NODES.md imports, measure signal resolution rates, trace signal processing pipeline",
+  "results": {
+    "sig1_node_generalization": {
+      "nodes_md_exists": true,
+      "nodes_md_version": "v1.0 (S340)",
+      "tools_using_nodes_md": 0,
+      "tools_total": 207,
+      "tools_hardcoding_human_literal": 3,
+      "tools_with_human_prefixed_fields": 11,
+      "lane_contract_human_lines": 120,
+      "kill_switch_default_human": true,
+      "node_properties_used_in_code": 0,
+      "implementation_rate_pct": 5,
+      "specific_gaps": [
+        "No node registry (runtime data structure mapping node_id to properties)",
+        "kill_switch.py defaults --requested-by to 'human'",
+        "maintenance.py gates HIGH-RISK lanes on human_open_item (not capability-based)",
+        "HUMAN-QUEUE.md still checked separately from SIGNALS.md",
+        "No ai_open_item or node_open_item equivalent in lane contracts",
+        "swarm_signal.py defaults source to 'ai-session' (hardcoded)"
+      ]
+    },
+    "sig2_structured_communication": {
+      "total_signals": 40,
+      "open": 22,
+      "resolved": 7,
+      "partially_resolved": 2,
+      "resolution_rate_pct": 17.5,
+      "automated_pipeline": false,
+      "signal_routing": false,
+      "duplicate_mechanisms": 3,
+      "duplicate_details": ["SIGNALS.md (main)", "domain SIGNALS.md (5 files, abandoned)", "bulletin.py (inter-swarm)"],
+      "directive_priority_in_swarm_cycle": 5,
+      "orient_shows_signals": true,
+      "orient_routes_action": false,
+      "oldest_open_signal_age_sessions": 56,
+      "specific_gaps": [
+        "No signal-to-action routing pipeline (sense without act)",
+        "Directive signals at priority 5 (lowest) in swarm_cycle.py",
+        "17.5% resolution rate (7/40 total)",
+        "SIG-2 itself was open 56 sessions (recursive dysfunction)",
+        "Domain SIGNALS.md files abandoned (5 empty files)",
+        "Manual-only resolution via swarm_signal.py resolve",
+        "No auto-detection of when signal work is complete",
+        "No escalation mechanism for aging signals"
+      ]
+    },
+    "combined_gap_count": 8,
+    "prediction_accuracy": "Expected 3+ gaps, found 8 (EXCEEDED)"
+  },
+  "fixes_applied": {
+    "orient_py_signal_due": "P1 signals >30 sessions old now surface as SIGNAL-DUE in suggested action section",
+    "orient_py_partial_resolved_tracking": "PARTIALLY RESOLVED signals now included in signal backlog count",
+    "sig1_sig2_resolution_correction": "Downgraded from premature RESOLVED to PARTIALLY RESOLVED with evidence"
+  },
+  "conclusion": "SIG-1 and SIG-2 represent a specification-implementation gap: the swarm documented the solution (NODES.md v1.0, swarm_signal.py) but never operationalized it in tools. 0/207 tools reference NODES.md. Signal resolution rate is 17.5%. The gap between designing a system and wiring it into the workflow is the root failure. L-601 applies: measurement/specification without structural enforcement decays to documentation.",
+  "falsification": "Falsified if: SIGNAL-DUE mechanism produces 0 signal resolutions in 10 sessions"
+}
