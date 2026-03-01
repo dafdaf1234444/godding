@@ -187,17 +187,30 @@ def parse_phil_claims() -> list[dict]:
         pid = cells[1]
         if not re.match(r"PHIL-\d+$", pid):
             continue
-        claims.append({
-            "id": pid,
-            "claim": cells[2],
-            "type": cells[3].strip().lower(),
-            "status": cells[4],
-        })
+        # S356 added Grounding column: | ID | Claim | Type | Grounding | Status |
+        # Handle both 4-column (pre-S356) and 5-column (post-S356) formats (L-599)
+        if len(cells) >= 7:  # 5 data columns + 2 empty borders
+            claims.append({
+                "id": pid,
+                "claim": cells[2],
+                "type": cells[3].strip().lower(),
+                "grounding": cells[4].strip().lower(),
+                "status": cells[5],
+            })
+        else:
+            claims.append({
+                "id": pid,
+                "claim": cells[2],
+                "type": cells[3].strip().lower(),
+                "grounding": "",
+                "status": cells[4],
+            })
     return claims
 
 
 def check_phil_format(claims: list[dict]) -> list[str]:
-    """Validate PHIL claims have required fields."""
+    """Validate PHIL claims have required fields and grounding labels (L-599)."""
+    VALID_GROUNDING = {"grounded", "partial", "axiom", "aspirational", "unverified", "metaphor"}
     out = []
     for c in claims:
         if c["type"] not in ("observed", "axiom"):
@@ -207,6 +220,13 @@ def check_phil_format(claims: list[dict]) -> list[str]:
             )
         if not c["status"].startswith("active"):
             out.append(f"WARN PHIL: {c['id']} status not active: '{c['status'][:50]}'")
+        # L-599 grounding enforcement: every PHIL claim must have a grounding label
+        grounding = c.get("grounding", "")
+        if grounding and grounding not in VALID_GROUNDING:
+            out.append(f"WARN PHIL: {c['id']} invalid grounding '{grounding}' "
+                       f"(valid: {', '.join(sorted(VALID_GROUNDING))})")
+        if not grounding:
+            out.append(f"WARN PHIL: {c['id']} missing grounding label (L-599)")
     return out
 
 
