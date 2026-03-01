@@ -1,0 +1,1288 @@
+{
+  "self_ordered": [
+    {
+      "domain": "evaluation",
+      "self_score": 7.1,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "4s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 70s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.60",
+          "avg yield 3L/5"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 4,
+      "problems": 0,
+      "gap": 70,
+      "visits": 5,
+      "lessons": 3
+    },
+    {
+      "domain": "fluid-dynamics",
+      "self_score": 6.5,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+1.00",
+          "avg yield 3L/3"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 2,
+      "visits": 3,
+      "lessons": 3
+    },
+    {
+      "domain": "catastrophic-risks",
+      "self_score": 6.17,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.67",
+          "avg yield 2L/3"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 1,
+      "visits": 3,
+      "lessons": 2
+    },
+    {
+      "domain": "human-systems",
+      "self_score": 6.1,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "4s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.60",
+          "avg yield 3L/5"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 4,
+      "problems": 0,
+      "gap": 4,
+      "visits": 5,
+      "lessons": 3
+    },
+    {
+      "domain": "farming",
+      "self_score": 6.07,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "6s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.57",
+          "avg yield 4L/7"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 6,
+      "problems": 0,
+      "gap": 5,
+      "visits": 7,
+      "lessons": 4
+    },
+    {
+      "domain": "economy",
+      "self_score": 6.06,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "9s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.56",
+          "avg yield 5L/9"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 9,
+      "problems": 0,
+      "gap": 3,
+      "visits": 9,
+      "lessons": 5
+    },
+    {
+      "domain": "brain",
+      "self_score": 5.83,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "9s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.33",
+          "avg yield 3L/9"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 9,
+      "problems": 0,
+      "gap": 8,
+      "visits": 9,
+      "lessons": 3
+    },
+    {
+      "domain": "finance",
+      "self_score": 5.83,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "6s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.33",
+          "avg yield 2L/6"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 6,
+      "problems": 0,
+      "gap": 4,
+      "visits": 6,
+      "lessons": 2
+    },
+    {
+      "domain": "governance",
+      "self_score": 5.8,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "9s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.30",
+          "avg yield 3L/10"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 9,
+      "problems": 0,
+      "gap": 11,
+      "visits": 10,
+      "lessons": 3
+    },
+    {
+      "domain": "helper-swarm",
+      "self_score": 5.8,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "7s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.30",
+          "avg yield 3L/10"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 7,
+      "problems": 0,
+      "gap": 10,
+      "visits": 10,
+      "lessons": 3
+    },
+    {
+      "domain": "cryptography",
+      "self_score": 5.75,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.25",
+          "avg yield 1L/4"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 7,
+      "visits": 4,
+      "lessons": 1
+    },
+    {
+      "domain": "gaming",
+      "self_score": 5.67,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "7s in flow zone [2-10]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.17",
+          "avg yield 1L/6"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 7,
+      "problems": 0,
+      "gap": 0,
+      "visits": 6,
+      "lessons": 1
+    },
+    {
+      "domain": "information-science",
+      "self_score": 4.0,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.50",
+          "avg yield 7L/14"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 13,
+      "problems": 0,
+      "gap": 4,
+      "visits": 14,
+      "lessons": 7
+    },
+    {
+      "domain": "philosophy",
+      "self_score": 3.5,
+      "rules": [
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+1.50",
+          "avg yield 3L/2"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 36,
+      "visits": 2,
+      "lessons": 3
+    },
+    {
+      "domain": "linguistics",
+      "self_score": 3.3,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "9s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 33s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.80",
+          "avg yield 12L/15"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 9,
+      "problems": 0,
+      "gap": 33,
+      "visits": 15,
+      "lessons": 12
+    },
+    {
+      "domain": "strategy",
+      "self_score": 3.0,
+      "rules": [
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+1.00",
+          "avg yield 2L/2"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 0,
+      "visits": 2,
+      "lessons": 2
+    },
+    {
+      "domain": "dream",
+      "self_score": 2.57,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "4s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 76s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.57",
+          "avg yield 4L/7"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 4,
+      "problems": 0,
+      "gap": 76,
+      "visits": 7,
+      "lessons": 4
+    },
+    {
+      "domain": "ai",
+      "self_score": 2.5,
+      "rules": [
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.50",
+          "avg yield 1L/2"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 8,
+      "visits": 2,
+      "lessons": 1
+    },
+    {
+      "domain": "game-theory",
+      "self_score": 2.5,
+      "rules": [
+        [
+          "R3",
+          "+1.0",
+          "uncharted territory"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "never visited = maximum uncertainty"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 0,
+      "problems": 0,
+      "gap": null,
+      "visits": 0,
+      "lessons": 0
+    },
+    {
+      "domain": "history",
+      "self_score": 2.5,
+      "rules": [
+        [
+          "R3",
+          "+1.0",
+          "uncharted territory"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "never visited = maximum uncertainty"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 0,
+      "problems": 0,
+      "gap": null,
+      "visits": 0,
+      "lessons": 0
+    },
+    {
+      "domain": "security",
+      "self_score": 2.5,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+1.00",
+          "avg yield 3L/3"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 0,
+      "visits": 3,
+      "lessons": 3
+    },
+    {
+      "domain": "meta",
+      "self_score": 2.49,
+      "rules": [
+        [
+          "R1",
+          "+2.0",
+          "MIXED yield premium"
+        ],
+        [
+          "R3",
+          "-1.5",
+          "34s anxiety zone [>15]"
+        ],
+        [
+          "R5",
+          "+1.5",
+          "MIXED = high surprise potential"
+        ],
+        [
+          "BASE",
+          "+0.49",
+          "avg yield 36L/73"
+        ]
+      ],
+      "outcome": "MIXED",
+      "sessions": 34,
+      "problems": 0,
+      "gap": 0,
+      "visits": 73,
+      "lessons": 36
+    },
+    {
+      "domain": "physics",
+      "self_score": 2.2,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "5s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 28s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.20",
+          "avg yield 1L/5"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 5,
+      "problems": 0,
+      "gap": 28,
+      "visits": 5,
+      "lessons": 1
+    },
+    {
+      "domain": "cryptocurrency",
+      "self_score": 2.17,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "5s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 66s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.17",
+          "avg yield 1L/6"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 5,
+      "problems": 0,
+      "gap": 66,
+      "visits": 6,
+      "lessons": 1
+    },
+    {
+      "domain": "empathy",
+      "self_score": 2.17,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.67",
+          "avg yield 2L/3"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 11,
+      "visits": 3,
+      "lessons": 2
+    },
+    {
+      "domain": "quality",
+      "self_score": 2.17,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.67",
+          "avg yield 2L/3"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 20,
+      "visits": 3,
+      "lessons": 2
+    },
+    {
+      "domain": "competitions",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 63s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/3"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 63,
+      "visits": 3,
+      "lessons": 0
+    },
+    {
+      "domain": "control-theory",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "BASE",
+          "+2.00",
+          "avg yield 2L/1"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 1,
+      "problems": 0,
+      "gap": 27,
+      "visits": 1,
+      "lessons": 2
+    },
+    {
+      "domain": "fractals",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 66s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/3"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 66,
+      "visits": 3,
+      "lessons": 0
+    },
+    {
+      "domain": "guesstimates",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 66s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/3"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 66,
+      "visits": 3,
+      "lessons": 0
+    },
+    {
+      "domain": "protocol-engineering",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 66s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/3"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 66,
+      "visits": 3,
+      "lessons": 0
+    },
+    {
+      "domain": "psychology",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "5s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 31s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/5"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 5,
+      "problems": 0,
+      "gap": 31,
+      "visits": 5,
+      "lessons": 0
+    },
+    {
+      "domain": "social-media",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "R7",
+          "+1.0",
+          "gap 66s \u2014 mechanisms may be stale"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/3"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 66,
+      "visits": 3,
+      "lessons": 0
+    },
+    {
+      "domain": "statistics",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R3",
+          "+2.0",
+          "2s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/2"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 2,
+      "problems": 0,
+      "gap": 35,
+      "visits": 2,
+      "lessons": 0
+    },
+    {
+      "domain": "stochastic-processes",
+      "self_score": 2.0,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "3s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.50",
+          "avg yield 2L/4"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 3,
+      "problems": 0,
+      "gap": 3,
+      "visits": 4,
+      "lessons": 2
+    },
+    {
+      "domain": "expert-swarm",
+      "self_score": 1.92,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "9s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.42",
+          "avg yield 5L/12"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 9,
+      "problems": 0,
+      "gap": 6,
+      "visits": 12,
+      "lessons": 5
+    },
+    {
+      "domain": "graph-theory",
+      "self_score": 1.55,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "6s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.55",
+          "avg yield 6L/11"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 6,
+      "problems": 0,
+      "gap": 0,
+      "visits": 11,
+      "lessons": 6
+    },
+    {
+      "domain": "distributed-systems",
+      "self_score": 1.4,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "5s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.40",
+          "avg yield 2L/5"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 5,
+      "problems": 0,
+      "gap": 4,
+      "visits": 5,
+      "lessons": 2
+    },
+    {
+      "domain": "evolution",
+      "self_score": 1.2,
+      "rules": [
+        [
+          "R1",
+          "-1.0",
+          "STRUGGLING"
+        ],
+        [
+          "R3",
+          "+2.0",
+          "5s in flow zone [2-10]"
+        ],
+        [
+          "BASE",
+          "+0.20",
+          "avg yield 1L/5"
+        ]
+      ],
+      "outcome": "STRUGGLING",
+      "sessions": 5,
+      "problems": 0,
+      "gap": 4,
+      "visits": 5,
+      "lessons": 1
+    },
+    {
+      "domain": "nk-complexity",
+      "self_score": 0.15,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "BASE",
+          "+0.65",
+          "avg yield 15L/23"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 15,
+      "problems": 0,
+      "gap": 8,
+      "visits": 23,
+      "lessons": 15
+    },
+    {
+      "domain": "conflict",
+      "self_score": 0.14,
+      "rules": [
+        [
+          "R1",
+          "-0.5",
+          "PROVEN diminishing returns"
+        ],
+        [
+          "BASE",
+          "+0.64",
+          "avg yield 9L/14"
+        ]
+      ],
+      "outcome": "PROVEN",
+      "sessions": 11,
+      "problems": 0,
+      "gap": 16,
+      "visits": 14,
+      "lessons": 9
+    },
+    {
+      "domain": "operations-research",
+      "self_score": 0.0,
+      "rules": [
+        [
+          "BASE",
+          "+0.00",
+          "avg yield 0L/1"
+        ]
+      ],
+      "outcome": "NEW",
+      "sessions": 1,
+      "problems": 0,
+      "gap": 193,
+      "visits": 1,
+      "lessons": 0
+    }
+  ],
+  "ucb1_top10": [
+    "strategy",
+    "fluid-dynamics",
+    "security",
+    "catastrophic-risks",
+    "stochastic-processes",
+    "human-systems",
+    "evaluation",
+    "competitions",
+    "guesstimates",
+    "protocol-engineering"
+  ],
+  "divergence": {
+    "top10_overlap": 4,
+    "top10_divergence_pct": 60.0,
+    "avg_rank_displacement": 9.6,
+    "details": [
+      {
+        "rank": 1,
+        "self": "evaluation",
+        "ucb1": "strategy",
+        "match": false
+      },
+      {
+        "rank": 2,
+        "self": "fluid-dynamics",
+        "ucb1": "fluid-dynamics",
+        "match": true
+      },
+      {
+        "rank": 3,
+        "self": "catastrophic-risks",
+        "ucb1": "security",
+        "match": false
+      },
+      {
+        "rank": 4,
+        "self": "human-systems",
+        "ucb1": "catastrophic-risks",
+        "match": false
+      },
+      {
+        "rank": 5,
+        "self": "farming",
+        "ucb1": "stochastic-processes",
+        "match": false
+      },
+      {
+        "rank": 6,
+        "self": "economy",
+        "ucb1": "human-systems",
+        "match": false
+      },
+      {
+        "rank": 7,
+        "self": "brain",
+        "ucb1": "evaluation",
+        "match": false
+      },
+      {
+        "rank": 8,
+        "self": "finance",
+        "ucb1": "competitions",
+        "match": false
+      },
+      {
+        "rank": 9,
+        "self": "governance",
+        "ucb1": "guesstimates",
+        "match": false
+      },
+      {
+        "rank": 10,
+        "self": "helper-swarm",
+        "ucb1": "protocol-engineering",
+        "match": false
+      }
+    ]
+  },
+  "meta_share": 0.235,
+  "session_type": {
+    "recommendation": "REVIVAL",
+    "reason": "evaluation dormant for 70 sessions"
+  },
+  "falsification": {
+    "due": true,
+    "note": "0 beliefs DROPPED in 378 sessions. 10% falsification allocation unmet."
+  },
+  "rules_count": 9,
+  "current_session": 379
+}
