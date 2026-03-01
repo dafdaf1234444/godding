@@ -48,6 +48,14 @@ Swarm always checks, but not always with the same lens.
 - Other valid modes: historian grounding, verification quality, coordination clarity, and assumption stress-test.
 Log chosen check mode + result in `tasks/NEXT.md` and/or `tasks/SWARM-LANES.md` for continuity.
 
+## Science Quality (P-243, SIG-36, L-804)
+Science = discovering what the swarm doesn't already believe. Confirmation is necessary but not sufficient.
+- **Pre-register**: Every DOMEX lane must have a quantitative, falsifiable `--expect` before work begins. `open_lane.py` enforces this.
+- **Adversarial lanes**: 1-in-5 DOMEX lanes should use `mode=falsification` — explicitly try to break a belief. Target: ≥1 DROP per 10 sessions.
+- **Significance**: Experiments with n>10 must report effect size + p-value or BIC, not just percentages.
+- **External validation**: Every 20 sessions, test a swarm theory against an independent system (non-swarm repo, external dataset, published benchmark).
+- **Measure**: Run `python3 tools/science_quality.py` periodically. Current baseline: mean 25.7%, 0/986 falsification lanes.
+
 ## Minimum Swarmed Cycle
 - Choose and log a check mode (`objective`/`historian`/`verification`/`coordination`/`assumption`) for active lane updates.
 - Declare expectation before acting and record the diff after acting.

@@ -24,7 +24,15 @@ REPO_ROOT = Path(__file__).parent.parent
 LANES_FILE = REPO_ROOT / "tasks" / "SWARM-LANES.md"
 LANES_ARCHIVE = REPO_ROOT / "tasks" / "SWARM-LANES-ARCHIVE.md"
 
-VALID_MODES = ("exploration", "hardening", "replication", "resolution")
+VALID_MODES = ("exploration", "hardening", "replication", "resolution", "falsification")
+
+# P-243 science quality: vague expect values that don't constitute pre-registration
+VAGUE_EXPECT_PATTERNS = [
+    r"^TBD$",
+    r"^(?:expect\s+)?(?:CONFIRMED|confirmed)$",
+    r"^(?:will\s+)?confirm",
+    r"^(?:should\s+)?(?:be\s+)?(?:stable|similar|same)",
+]
 
 
 def lane_exists(lane_id: str) -> bool:
@@ -201,6 +209,66 @@ def main():
         args.intent = f"advance-{args.frontier}" if args.frontier else "swarm-work"
     if not args.note:
         args.note = f"Lane opened via open_lane.py. Frontier: {args.frontier or 'TBD'}."
+
+    # P-243 science quality: reject vague --expect values (pre-registration enforcement)
+    # Post-hoc threshold selection is the most common methodology weakness (L-804)
+    for pattern in VAGUE_EXPECT_PATTERNS:
+        if re.match(pattern, args.expect.strip(), re.IGNORECASE):
+            print(
+                f"ERROR: --expect value '{args.expect}' is too vague for pre-registration (P-243). "
+                f"A falsifiable hypothesis must include: (1) a specific quantitative prediction, "
+                f"(2) a threshold for confirmation/falsification. "
+                f"Example: 'K_avg ~2.6 at N=724; S372 model holds within 5% OOS'",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
+    # P-243 science quality: check if expect contains a number (quantitative prediction)
+    if not re.search(r"\d", args.expect):
+        print(
+            f"WARN: --expect '{args.expect[:60]}...' contains no numeric prediction. "
+            f"P-243 requires quantitative thresholds for pre-registration. "
+            f"Add a number (e.g., '>50%', '~2.6', 'n>=10', 'ΔBIC>10').",
+            file=sys.stderr,
+        )
+
+    # P-243 falsification mandate: track recent lanes and warn if no falsification lanes
+    # Count recent lanes to check 1-in-5 adversarial ratio
+    if args.mode == "falsification":
+        print(
+            f"INFO: Adversarial lane — explicitly testing against a belief/claim. "
+            f"Target: prove the expect WRONG. Record DROP if falsified (P-243, L-804).",
+        )
+    elif args.frontier:
+        # Count recent falsification lanes vs total to nudge the ratio
+        recent_falsification = 0
+        recent_total = 0
+        for lanes_file in (LANES_FILE, LANES_ARCHIVE):
+            if not lanes_file.exists():
+                continue
+            for line in lanes_file.read_text().splitlines():
+                if not line.startswith("|") or line.startswith("| ---") or line.startswith("| Date"):
+                    continue
+                cols = [c.strip() for c in line.split("|")]
+                if len(cols) < 12:
+                    continue
+                etc = cols[10] if len(cols) > 10 else ""
+                sess_m = re.search(r"S?(\d+)", cols[3] if len(cols) > 3 else "")
+                if not sess_m:
+                    continue
+                sess = int(sess_m.group(1))
+                if sess < max(1, int(re.search(r"\d+", args.session).group()) - 20):
+                    continue
+                recent_total += 1
+                if "mode=falsification" in etc:
+                    recent_falsification += 1
+        if recent_total >= 5 and recent_falsification == 0:
+            print(
+                f"WARN: 0/{recent_total} recent lanes use mode=falsification. "
+                f"P-243 requires 1-in-5 adversarial lanes. Consider: "
+                f"--mode falsification --expect '<belief> is FALSE because <reason>'",
+                file=sys.stderr,
+            )
 
     # Wave-mode enforcement: require --mode for 2nd+ wave lanes (F-STR3, L-766, L-601)
     # L-601: voluntary protocols decay to structural floor at creation. Only creation-time

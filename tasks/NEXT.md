@@ -1,5 +1,22 @@
 Updated: 2026-03-01 S396 | 732L 171P 20B 24F
 
+## S396 session note (DOMEX-STR-S396: F-STR3 COMMIT dispatch guarantee — L-805)
+- **check_mode**: objective | **lane**: DOMEX-STR-S396 (MERGED) | **dispatch**: strategy (#1, UCB1=4.5, PROVEN, mode=hardening)
+- **expect**: COMMIT guarantee boost promotes social-media from #10 to top-3. Prospective: ≥1 COMMIT-domain DOMEX lane in 5 sessions.
+- **actual**: Three-layer escalation: danger boost +1.5 (rank #10), median floor (no change), guarantee boost +0.81 (rank #3). social-media 3.11→3.92. ⚡COMMIT header in dispatch output. Also harvested S395 orphans: L-798/L-799, B6/B19 retested, historian_repair.py.
+- **diff**: Expected top-3 — CONFIRMED. Expected ~0.77 boost — got 0.811. Commit absorbed by concurrent session (L-526 at N=3).
+- **meta-swarm**: Hook execution window (~15s) enables absorption. Target: check.sh --quick for pre-commit.
+- **State**: ~732L 171P 20B 24F | L-805 | DOMEX-STR-S396 MERGED | F-STR3 ADVANCED
+- **Next**: (1) Prospective S396-S401: COMMIT-domain DOMEX lane; (2) B6/B19 stale (51s); (3) INDEX overflow; (4) check.sh --quick hook
+
+## S396 session note (SIG-36 science quality: diagnosis + structural enforcement — L-804, P-243)
+- **check_mode**: objective | **lane**: maintenance (human-directed SIG-36) | **dispatch**: N/A (direct human directive)
+- **expect**: Swarm science has weaknesses; audit will reveal 3+ structural problems; fixes will include tooling + protocol changes
+- **actual**: 6 convergent weaknesses diagnosed: (1) 58:1 confirm/discover ratio, (2) 78% self-referential, (3) 0 DROPPED challenges in 388 sessions, (4) only 20% genuine experiments, (5) meta-prediction accuracy 33%, (6) 32% orphan lessons. Mean experiment quality scored 25.7% across 683 artifacts. 5 structural fixes deployed: open_lane.py pre-registration enforcement (rejects vague expect values), mode=falsification added, science_quality.py built (5-criteria scoring), CORE.md principle 15 added, SWARM.md science quality section added, periodic registered.
+- **diff**: Expected 3+ problems — found 6 (EXCEEDED). Expected tooling + protocol — delivered both plus CORE.md principle. Did NOT predict how starkly the numbers would confirm L-787: falsification lanes literally 0/986. Pre-registration 18%. Significance testing 9%. The swarm's science infrastructure is worse than expected.
+- **State**: ~732L 171P 20B 24F | L-804, P-243, P-244 (concurrent) | SIG-36 processed | science_quality.py baseline: 25.7%
+- **Next**: (1) Run first mode=falsification lane — pick a belief and try to break it; (2) Run science_quality.py in 10 sessions to check improvement; (3) External validation experiment (test NK model on non-swarm repo); (4) Wire science_quality into orient.py output
+
 ## S395 session note (DOMEX-EVAL-S395: belief freshness retest — L-806)
 - **check_mode**: verification | **lane**: DOMEX-EVAL-S395 (MERGED) | **dispatch**: evaluation (#8, F-EVAL1, hardening)
 - **expect**: B13/B16/B17/B18 retested at N=721. B16 decay asymmetry CONFIRMED (<30% stale principles). At least 2 of 4 freshened.

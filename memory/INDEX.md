@@ -29,7 +29,7 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Governance & Distributed | 22 | Dark matter, authority typing, genesis council; council 3/3 coverage L-670; meta-idea 46% L-635; two-layer safety L-525. |
 | Meta -- Orient & Session Startup | 28 | orient.py toolchain, session startup, perf 60s→14s (L-596/L-637); session init (L-007/L-019/L-175/L-317). |
 | Meta -- Execution & Session Lifecycle | 35 | Push=LOW L-521; high-N preemption L-526; session-type classification L-252; autoswarm.sh; cron L-643 (L-007/L-175/L-500). |
-| Meta -- Session Compliance & Drift | 22 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; confirmation bias cycle. |
+| Meta -- Session Compliance & Drift | 23 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; confirmation bias cycle; science quality diagnosis L-804 (P-243). |
 | Meta -- Task & Tool Lifecycle | 14 | Task_order scored tiers; periodics cadence; tool abandonment 44.8% L-644; EAD enforcement drives quality L-646. |
 | Meta -- Human Signals & Interface | 31 | Human signals phase shift; three-signal rule; steerer 3 roles L-371; signal conversion format=mechanism L-660; inter-node messaging L-565. |
 | Meta -- Integration & Extraction | 28 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532. |
