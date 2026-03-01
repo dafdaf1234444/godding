@@ -65,8 +65,9 @@ def get_frontier_previous_mode(frontier_id: str) -> tuple[str | None, int]:
             if len(cols) < 12:
                 continue
             etc = cols[10] if len(cols) > 10 else ""
-            fid_m = re.search(r"frontier=(F-[A-Z0-9]+)", etc)
-            if not fid_m or fid_m.group(1) != frontier_id:
+            # Handle comma/slash-separated multi-frontier lanes (L-818)
+            fid_str_m = re.search(r"frontier=(F-[A-Z0-9,/\s-]+?)(?:;|$)", etc)
+            if not fid_str_m or frontier_id not in re.findall(r"F-[A-Z0-9]+", fid_str_m.group(1)):
                 continue
             sess_str = cols[3] if len(cols) > 3 else ""
             sess_m = re.search(r"S?(\d+)", sess_str)

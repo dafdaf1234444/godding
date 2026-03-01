@@ -2,7 +2,7 @@
 Updated: 2026-03-01 | Sessions: 398
 
 ## What the swarm knows
-- **747 lessons** in `memory/lessons/L-{NNN}.md`
+- **748 lessons** in `memory/lessons/L-{NNN}.md`
 - **194 principles** in `memory/PRINCIPLES.md` (latest: P-264 score-behavior-decoupling, P-263 productive-failure, P-262 confirmation-machine, P-261 scale-reliability, P-260 campaign-threshold)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **21 frontiers** in `tasks/FRONTIER.md`
 
@@ -18,7 +18,7 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (747 lessons)
+## Themes (748 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |
@@ -35,7 +35,8 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Meta -- Human Signals & Interface | 31 | Human signals phase shift; three-signal rule; steerer 3 roles L-371; signal conversion format=mechanism L-660; inter-node messaging L-565. |
 | Meta -- Integration & Extraction | 28 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532. |
 | Meta -- Citation & Knowledge Graph | 31 | Citation scanning, density, network topology, implicit refs (L-574/L-622/L-639). |
-| Meta -- Compaction, Archival & Retrieval | 61 | Compression cycles, proxy-K drift, MDL; INDEX/NEXT archival; B1 retrieval L-636; dark matter L-573 (L-002/L-106/L-512/L-556). |
+| Meta -- Compaction & Compression | 29 | Compression cycles, proxy-K drift, MDL, compact.py; oracle summaries; proxy-K log-normal L-771 (L-002/L-106/L-512). |
+| Meta -- Archival & Retrieval | 32 | INDEX/NEXT archival; B1 retrieval L-636; dark matter L-573; SESSION-LOG (L-556/L-573/L-636). |
 | Meta -- Knowledge & Lesson Quality | 26 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678. |
 | Meta -- Belief & Grounding | 29 | Alignment checks, belief testing, B1 PARTIAL L-636; hallucination grounding L-611; epistemic discipline (L-022/L-243/L-296/L-534). |
 | Meta -- Challenge & Correction | 35 | Challenge mechanism, throughput L-534; targeting gap L-609; correction propagation v2 L-746 (L-323/L-324/L-366/L-541). |

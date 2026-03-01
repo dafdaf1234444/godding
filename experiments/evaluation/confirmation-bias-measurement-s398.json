@@ -1,0 +1,45 @@
+{
+  "experiment": "confirmation-bias-measurement-s398",
+  "frontier": "F-EVAL1",
+  "domain": "evaluation",
+  "session": "S398",
+  "date": "2026-03-01",
+  "type": "measurement",
+  "mode": "hardening",
+  "hypothesis": "L-787 keyword-based 58:1 confirmation ratio is a measurement artifact. Lane-outcome method gives true ratio. Post-S396 intervention (P-243, science_quality.py, mode=falsification) reduced confirmation bias.",
+  "expect": "Lane-outcome method shows lower ratio than 58:1 keyword. Post-S396 shows improvement. But n<20 post means not statistically significant.",
+  "methodology": "Parse all MERGED lanes from SWARM-LANES.md (HEAD). Classify outcomes as CONFIRMED/FALSIFIED/NEGATIVE/RESOLVED/OTHER using actual/diff/notes fields. Split by era (pre/post S396). Compare confirmation rates.",
+  "results": {
+    "total_merged_lanes": 37,
+    "methods_compared": {
+      "keyword_counting_L787": {"ratio": "58:1", "note": "vocabulary artifact — 'confirmed' used descriptively"},
+      "loose_lane_outcome": {"ratio": "1.7:1", "note": "broader keyword match in full lane text"},
+      "strict_lane_outcome": {"ratio": "9:1 pre, 2:1 post", "note": "outcome-specific field classification"}
+    },
+    "pre_s396": {
+      "n": 24,
+      "confirmed": 9,
+      "challenged": 1,
+      "other": 14,
+      "confirmation_rate": "90%",
+      "ratio": "9:1"
+    },
+    "post_s396": {
+      "n": 13,
+      "confirmed": 4,
+      "challenged": 2,
+      "other": 7,
+      "confirmation_rate": "67%",
+      "ratio": "2:1"
+    },
+    "delta": "-23pp confirmation rate",
+    "direction": "IMPROVED",
+    "significance": "INSUFFICIENT (n=13 post, need n>=25 for significance)",
+    "unclassifiable_rate": "54% (outcome embedded in free-text, not structured field)",
+    "falsification_mode_lanes": 1,
+    "organic_falsification_outcomes": 3,
+    "modes_used": {"objective": 23, "verification": 9, "unspecified": 4, "assumption": 1}
+  },
+  "prescription": "Add outcome_class to close_lane.py. Retest at S410.",
+  "lesson": "L-821"
+}

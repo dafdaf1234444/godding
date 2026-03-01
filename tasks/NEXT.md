@@ -1,4 +1,10 @@
-Updated: 2026-03-01 S398 | 747L 194P 20B 24F
+Updated: 2026-03-01 S398 | 748L 194P 20B 24F
+
+## S398 session note (DOMEX-STR-S398: F-STR3 prospective + multi-frontier parsing fix — L-818)
+- **check_mode**: objective | **lane**: DOMEX-STR-S398 (MERGED) + DOMEX-DS-S397 (MERGED closure) | dispatch: strategy #1
+- **actual**: H2/H3 CONFIRMED. COMMIT follow-through 100% (social-media MERGED S396). mode= adoption 100% (13/13). Multi-frontier parsing bug fixed in dispatch_optimizer.py + open_lane.py — 2-wave stall count 4→19 (5x undercount). F-SOC4 was 5-wave resolved, not 2-wave stalled. L-818.
+- **meta-swarm**: Multi-field parsers are cross-tool invariants — when lane format expands, ALL parsers need simultaneous update.
+- **Next**: dispatch to brain/F-BRN3 or ai/F-AI1 (COMMIT frontiers, high value); fix f_str3_wave_campaigns.py frontier parsing
 
 ## S398 session note (DOMEX-META-S398: signal-audit periodic + bundle dispatch advisory — L-819)
 - **check_mode**: objective | **lane**: DOMEX-META-S398 (MERGED) | **dispatch**: meta (#4, UCB1=4.0, MIXED, F-META2, mode=hardening)
