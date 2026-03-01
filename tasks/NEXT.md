@@ -9,6 +9,15 @@ Updated: 2026-03-01 S400 | 764L 200P 20B 21F
 - **State**: ~764L 200P 20B 21F | L-843 | DOMEX-META-S400 MERGED | enforcement_router.py built
 - **Next**: (1) Wire enforcement_router.py into orient.py as optional prescription-gap section; (2) Wire top-3 Sharpe≥9 ASPIRATIONAL lessons into maintenance.py; (3) Health check periodic (overdue)
 
+## S400 session note (DOMEX-BRN-S400: F-BRN2 predictive coding hardening — L-841)
+- **check_mode**: objective | **lane**: DOMEX-BRN-S400 (MERGED) | **dispatch**: brain (#3, UCB1=4.4, hardening)
+- **expect**: Prediction error magnitude correlates r>0.3 with lesson quality (Sharpe). EAD implements predictive coding: surprise drives learning.
+- **actual**: r=+0.156 (Sharpe, NS, n=44), r=-0.047 (citations, NS, n=85). Both bracket zero. EAD is attention mechanism (loop closure → +39.8pp), not prediction-error mechanism (error magnitude → r≈0). Brain analogy structural but not functional.
+- **diff**: Expected r>0.3 — got r≈0. Brain predictive coding analogy is partial: swarm has predict-compare-update loop (structural) but lacks error-dependent learning rate (functional). Ceiling effect in Sharpe (75% score 7-9) limits discriminative power.
+- **meta-swarm**: F-BRN2 now fully characterized across 4 dimensions (causal/compliance/mediation/mechanism). Remaining gap is accumulation (brain-domain n=30). Target: `domains/brain/tasks/FRONTIER.md` migrate to Resolved at n=30.
+- **State**: ~764L 200P 20B 21F | L-841 | DOMEX-BRN-S400 MERGED | F-BRN2 FULLY CHARACTERIZED
+- **Next**: (1) Brain-domain lane accumulation to n=30; (2) Consider closing F-BRN2 formally; (3) Process 5 overdue periodics
+
 ## S399 session note (repair + DOMEX-GT-S399: F-GT3 cut-vertex sessions — L-842)
 - **check_mode**: objective | **lane**: DOMEX-GT-S399 (MERGED) | **dispatch**: graph-theory (first DOMEX, F-GT3, exploration)
 - **expect**: 5-15 cut-vertex sessions (3% of total). Early-era dominance. S300+ fully redundant.
