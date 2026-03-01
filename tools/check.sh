@@ -103,8 +103,8 @@ if [ "$ATOM_DELETED" -eq 0 ]; then
     echo "  NEVER-REMOVE atom guard: PASS"
 fi
 
-# F-SEC1 Layer 1: Genesis bundle hash verification.
-# If a genesis hash file exists, verify current bundle matches. Drift = warning, not failure.
+# F-SEC1 Layer 1: Genesis bundle hash verification (FM-11 hardening S377).
+# If a genesis hash file exists, verify current bundle matches. Mismatch = FAIL (was warning pre-S377).
 LATEST_HASH_FILE=$(ls -t workspace/genesis-bundle-*.hash 2>/dev/null | head -1)
 if [ -n "$LATEST_HASH_FILE" ]; then
     STORED_HASH=$(head -1 "$LATEST_HASH_FILE" | tr -d '[:space:]')
@@ -132,10 +132,15 @@ print(h.hexdigest())
         elif [ "$CURRENT_HASH" = "$STORED_HASH" ]; then
             echo "  Genesis hash check: PASS (matches $(basename "$LATEST_HASH_FILE"))"
         else
-            echo "  Genesis hash check: DRIFT (current ${CURRENT_HASH:0:12}... != stored ${STORED_HASH:0:12}...)"
+            echo "  Genesis hash check: FAIL (current ${CURRENT_HASH:0:12}... != stored ${STORED_HASH:0:12}...)"
             echo "    Genesis bundle files changed since $(basename "$LATEST_HASH_FILE") was written."
             echo "    If intentional: python3 tools/genesis_evolve.py --write-hash to update."
             echo "    If unexpected: investigate genesis.sh / CORE.md / PRINCIPLES.md changes."
+            echo "    FM-11 hardening (L-720): genesis replay prevention requires hash match."
+            echo "    Bypass: ALLOW_GENESIS_DRIFT=1 git commit ..."
+            if [ "${ALLOW_GENESIS_DRIFT:-0}" != "1" ]; then
+                exit 1
+            fi
         fi
     fi
 fi
