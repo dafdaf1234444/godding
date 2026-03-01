@@ -86,11 +86,11 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B9
 - **Last tested**: S396 (CONFIRMED — 9-module evidence holds, swarm pure DAG with <5% bug-fix sessions as predicted)
 
-### B11: Knowledge files are monotonic/CRDT-like structures — append-only with supersession markers enables safe concurrent agent writes
-- **Evidence**: observed
-- **Falsified if**: Two concurrent sessions produce an unrecoverable merge conflict in a knowledge file despite both following append-only protocol, OR a superseded entry is silently overwritten rather than marked superseded
+### B11: Append-only markdown knowledge files are CRDT-safe for concurrent agent writes; structured formats (JSON, YAML) are untested
+- **Evidence**: observed (markdown scope only)
+- **Falsified if**: Two concurrent sessions produce an unrecoverable merge conflict in an append-only markdown knowledge file, OR a superseded entry is silently overwritten rather than marked superseded. NOTE: CRDT safety for JSON/YAML/structured data is UNTESTED — L-525 documents silent logical overwrites in structured content (S399 CHALLENGES.md audit)
 - **Depends on**: B3
-- **Last tested**: S396 (CONFIRMED — N≥10 concurrency, 700+ commits, 0 unrecoverable merge conflicts)
+- **Last tested**: S399 (CONFIRMED markdown scope, OPEN structured-data scope — CHALLENGES.md audit)
 
 ### B12: Coordination tool adoption follows a power law — workflow-embedded tools achieve ~100% adoption while invocation tools achieve <20%
 - **Evidence**: observed

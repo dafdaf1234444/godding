@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S399 | 757L 200P 20B 21F
+Updated: 2026-03-01 S399 | 759L 200P 20B 21F
+
+## S399 session note (DOMEX-FRA-S399: first fractals experiment — NOT self-similar — L-837)
+- **check_mode**: objective | **lane**: DOMEX-FRA-S399 (MERGED) | **dispatch**: fractals (first-ever, URGENT per L-822)
+- **expect**: Self-similarity falsified. Predict divergent scaling across scales.
+- **actual**: NOT self-similar (CV-of-Ginis=0.66>>0.30). Three mechanisms: lane=protocol-constrained (Gini=0), session=bounded (Gini=0.42), domain=scale-free Zipf α=1.10 (R²=0.95). Top 10% domains hold 57% of lessons.
+- **diff**: Expected divergence — CONFIRMED. Did NOT predict domain-level power law (R²=0.95). Did NOT predict lane degeneracy.
+- **meta-swarm**: Health check periodic completed (4.4/5 all-time high). DOMEX-BRN-S398b closed (stale). Fractals domain activated after 212 sessions dormant.
+- **State**: ~759L 200P 20B 21F | L-822/L-837 | health check 4.4/5 | DOMEX-FRA-S399 MERGED
+- **Next**: (1) F-FRA2 bifurcation points; (2) Domain triage for 11 REVIEW domains; (3) Experiment schema migration; (4) Confidence tagging batch (41 untagged)
 
 ## S399 session note (DOMEX-NK-S399: F-NK5 tracking — K_avg=2.70 + hub K_max=101 milestones — L-836)
 - **check_mode**: verification | **lane**: DOMEX-NK-S399 (MERGED) | **dispatch**: nk-complexity (#7, UCB1=3.9, PROVEN, mode=hardening)
