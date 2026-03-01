@@ -1332,6 +1332,65 @@ def check_readme_snapshot_drift() -> list[tuple[str, str]]:
         results.append(("NOTICE", "README onboarding missing orient.py fast-path reference"))
     return results
 
+def check_count_drift() -> list[tuple[str, str]]:
+    """Verify INDEX.md L/P/B/F header counts match filesystem reality. (L-887, L-216)
+    Numerical claims drift at ~0.7%/session; auto-count verification catches this."""
+    results = []
+    index_text = _read(REPO_ROOT / "memory" / "INDEX.md")
+    if not index_text:
+        return results
+
+    # Parse stated counts from INDEX.md
+    l_m = re.search(r"\*\*(\d+) lessons\*\*", index_text)
+    p_m = re.search(r"\*\*(\d+) principles\*\*", index_text)
+    b_m = re.search(r"\*\*(\d+) beliefs\*\*", index_text)
+    f_m = re.search(r"\*\*(\d+) frontiers?\*\*", index_text)
+    if not (l_m and p_m and b_m and f_m):
+        return results  # Can't parse — don't false-alarm
+
+    stated = {
+        "L": int(l_m.group(1)),
+        "P": int(p_m.group(1)),
+        "B": int(b_m.group(1)),
+        "F": int(f_m.group(1)),
+    }
+
+    # Count actual values from filesystem
+    tracked_lessons = _git("ls-files", "memory/lessons/").splitlines()
+    actual_L = sum(1 for f in tracked_lessons if re.match(r"memory/lessons/L-\d+\.md$", f))
+
+    principles_text = _read(REPO_ROOT / "memory" / "PRINCIPLES.md")
+    # Count non-superseded P-NNN entries (active principles)
+    all_p = set(re.findall(r"^### P-(\d+):", principles_text, re.MULTILINE))
+    superseded_p = set(re.findall(r"^<!--\s*SUPERSEDED.*?P-(\d+)", principles_text, re.MULTILINE))
+    actual_P = len(all_p - superseded_p)
+
+    deps_text = _read(REPO_ROOT / "beliefs" / "DEPS.md")
+    actual_B = len(set(re.findall(r"^### B[-\w]+:", deps_text, re.MULTILINE)))
+
+    frontier_text = _read(REPO_ROOT / "tasks" / "FRONTIER.md")
+    # Active frontiers: sections starting with ## F-NNN (not archived/resolved)
+    active_frontiers = re.findall(r"^## (F-\w+)", frontier_text, re.MULTILINE)
+    actual_F = len(active_frontiers)
+
+    drifts = []
+    for key, stated_val, actual_val in [
+        ("L", stated["L"], actual_L),
+        ("P", stated["P"], actual_P),
+        ("B", stated["B"], actual_B),
+        ("F", stated["F"], actual_F),
+    ]:
+        if actual_val > 0 and stated_val != actual_val:
+            drifts.append(f"{key}: stated {stated_val} vs actual {actual_val}")
+
+    if drifts:
+        delta = sum(abs(stated[k[0]] - a) for k, a in [
+            ("L", actual_L), ("P", actual_P), ("B", actual_B), ("F", actual_F)
+        ])
+        level = "DUE" if delta >= 2 else "NOTICE"
+        results.append((level, f"Count drift in INDEX.md ({'; '.join(drifts)}) — run python3 tools/sync_state.py"))
+    return results
+
 def check_structure_layout() -> list[tuple[str, str]]:
     results: list[tuple[str, str]] = []
     missing_required = [path for path in STRUCTURE_REQUIRED_PATHS if not _exists(path)]
@@ -2075,6 +2134,7 @@ def main():
         check_historian_integrity,
         check_domain_frontier_consistency,
         check_readme_snapshot_drift,
+        check_count_drift,
         check_structure_layout,
         check_frontier_registry,
         check_file_graph,

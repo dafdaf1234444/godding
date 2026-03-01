@@ -413,6 +413,36 @@ def _get_active_lane_domains() -> dict[str, list[str]]:
     return active
 
 
+def _get_session_merged_domains(session: int) -> dict[str, list[str]]:
+    """Return domains with MERGED lanes from the given session.
+
+    Used to show 'DONE this session' marker in dispatch output, preventing
+    duplicate lane-open attempts when prior concurrent work already covered domain.
+    """
+    merged: dict[str, list[str]] = {}
+    if not LANES_FILE.exists():
+        return merged
+    session_tag = f"-S{session}"
+    for line in LANES_FILE.read_text().splitlines():
+        if not line.startswith("|") or line.startswith("| ---") or line.startswith("| Date"):
+            continue
+        cols = [c.strip() for c in line.split("|")]
+        if len(cols) < 12:
+            continue
+        lane_id = cols[2] if len(cols) > 2 else ""
+        status = cols[11].upper() if len(cols) > 11 else ""
+        if not lane_id or lane_id == "Lane":
+            continue
+        if status == "MERGED" and session_tag in lane_id:
+            dom = None
+            m = re.match(r"DOMEX-([A-Z]+)", lane_id)
+            if m:
+                dom = LANE_ABBREV_TO_DOMAIN.get(m.group(1))
+            if dom:
+                merged.setdefault(dom, []).append(lane_id)
+    return merged
+
+
 def _get_recent_lane_domains(n: int = COMMIT_RESERVATION_WINDOW) -> list[str]:
     """Return the domains of the most recent N closed lanes (chronological order).
 
@@ -969,6 +999,7 @@ def run(args: argparse.Namespace) -> None:
     claimed = _get_claimed_domains()
     outcome_map = _get_domain_outcomes()
     active_lanes = _get_active_lane_domains()
+    session_merged = _get_session_merged_domains(current_session)
     campaign_waves = _get_campaign_waves()
 
     # Wave plan mode: standalone prescriptive output
@@ -1054,6 +1085,9 @@ def run(args: argparse.Namespace) -> None:
                     f"{n:3d}  {r.get('outcome_lessons', 0):3d}  {heat_icon:>4}"
                     f" [{label}]{floor_mark}{commit_mark}{reservation_mark}{blocked_mark}"
                 )
+                if r["domain"] in session_merged:
+                    merged_lanes = session_merged[r["domain"]]
+                    print(f"         ✓ DONE S{current_session}: {', '.join(merged_lanes[:3])} — already MERGED this session")
                 if r["domain"] in active_lanes:
                     lanes = active_lanes[r["domain"]]
                     print(f"         ⚠ ACTIVE LANE(S): {', '.join(lanes[:3])} — collision risk")

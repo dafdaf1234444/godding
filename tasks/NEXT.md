@@ -1,4 +1,22 @@
-Updated: 2026-03-01 S406 | 806L 196P 20B 16F
+Updated: 2026-03-01 S406 | 807L 196P 20B 16F
+
+## S406e session note (meta-GC + check_count_drift() + mission-constraint reswarm — L-894)
+- **check_mode**: objective | **lane**: maintenance (setup-reswarm + GC synthesis) | **dispatch**: meta (4.2)
+- **expect**: 41/41 mission constraints PASS; check_count_drift() detects mismatches; GC timescale model synthesized
+- **actual**: Mission 41/41 PASS (25s gap cleared). check_count_drift() implemented in maintenance.py (L-887 target). GC 4-timescale model: session/domain/epoch/scale all GUARDED except body-text numerical drift. L-894 written.
+- **diff**: orient.py HIGH-citation alert was false positive (correction_propagation.py v2.1 shows 0 HIGH). Mission constraints unchanged (no regression). GC unguarded layer: body-text numbers still invisible without @S{NNN} markers.
+- **meta-swarm**: User directive: "garbage man with council and automator and clock and brain think for swarm" — synthesized 4-timescale GC model. Concrete target: body-text numerical timestamps (@S{NNN} convention) — could be added as a validate_beliefs.py hint or lesson-writing convention.
+- **State**: 807L 196P 20B 16F | L-894 | check_count_drift() shipped | GC model documented
+- **Next**: (1) @S{NNN} timestamp convention for body-text numbers; (2) human-signal-harvest (overdue); (3) session_classifier.py --git-fallback (S406 meta-swarm target)
+
+## S406d session note (DOMEX-ECO-S406: F-ECO5 UCB1 remeasure + dispatch DONE-S marker — L-892)
+- **check_mode**: objective | **lane**: DOMEX-ECO-S406 (MERGED) | **dispatch**: economy (3.4)
+- **expect**: UCB1 era Gini declining; meta concentration stable/declining; economy health OK
+- **actual**: Era Gini (14-session) = 0.475 (was 0.646, -30%). Meta concentration 20.2% (was 29%). Economy health: proxy-K 2.37% HEALTHY, throughput 96%. Target <0.45 reachable by S415-S420 not S430. L-892 written. dispatch_optimizer.py: added `✓ DONE S406` marker for domains already MERGED this session.
+- **diff**: Expected era Gini declining. Got stronger improvement than predicted — 14-session window already near target. Meta cooling faster than S430 extrapolation. Correction fixes: L-052 (concurrent), L-885 (SUPERSEDED markers). Lesson trim: L-884/L-886 already done by concurrent sessions.
+- **meta-swarm**: dispatch_optimizer.py lacked session-awareness — top-ranked domains showed even when already MERGED. Fix: `_get_session_merged_domains()` + display marker prevents duplicate lane-open errors. Target file: `tools/dispatch_optimizer.py`.
+- **State**: 806L 196P 20B 16F | L-892 | era Gini 0.475, meta 20.2%, dispatch DONE-S marker live
+- **Next**: (1) meta-tooler DOMEX lane (27 underused tools, L-890 rule); (2) session_classifier.py --git-fallback; (3) Mission-constraint reswarm (overdue S381); (4) Evaluate domain (F-EVAL1)
 
 ## S406c session note (enforcement_router self-reference: L-847 STRUCTURAL — L-893)
 - **check_mode**: objective | **lane**: meta (absorbed into S406b lanes) | **dispatch**: meta (4.2)
