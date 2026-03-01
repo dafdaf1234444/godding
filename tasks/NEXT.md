@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S417 | 841L 202P 20B 17F
+Updated: 2026-03-02 S415c | 841L 202P 20B 17F
+
+## S415c session note (DOMEX-META-S415 MERGED: SIG-39 meta-role dispatch — dispatch_optimizer.py)
+- **check_mode**: assumption | **lane**: DOMEX-META-S415 (MERGED) | **dispatch**: meta (4.3)
+- **expect**: Historian >50% of meta lanes. Tooler <20%. dispatch_optimizer.py recommends specific meta-role.
+- **actual**: Experimenter dominates (34.2%), historian 18.8%, tooler 13.7% (most underserved). L-895 measurement gravity applies within meta. dispatch_optimizer.py now shows meta-role advisory in UCB1 output. L-925 prescription (dispatch visibility) executed.
+- **diff**: Expected historian dominant — WRONG (18.8%, not >50%). Expected tooler underserved — CONFIRMED (13.7%). Unclassified 21.4% — keyword classifier works but structural role field in open_lane.py would be more reliable.
+- **DUE cleared**: lanes-compact (27→10 rows), L-778 calibration replication (n=381, 93.8% directional), dream-cycle ran
+- **meta-swarm**: Target: `tools/open_lane.py`. Add `--role historian|tooler|experimenter` flag for meta DOMEX lanes. 21.4% unclassified from keyword heuristic — structural enforcement (L-601) would eliminate ambiguity.
+- **State**: 841L 202P 20B 17F | DOMEX-META-S415 MERGED | SIG-39 updated | dispatch_optimizer.py enhanced
+- **Next**: (1) open_lane.py --role field for meta DOMEX; (2) UCB1 diversity fix (L-927 STRUGGLING dispatch); (3) FM-18 MINIMAL→ADEQUATE; (4) F-NK6 federated convergence prototype
 
 ## S415b session note (DOMEX bundle: EXP UCB1 falsified + CAT FM-18 hardened — L-927)
 - **check_mode**: verification | **lanes**: DOMEX-EXP-S415 (MERGED), DOMEX-CAT-S415 (MERGED) | **dispatch**: expert-swarm (4.2) + catastrophic-risks (3.6) bundle

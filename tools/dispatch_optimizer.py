@@ -140,6 +140,81 @@ OUTCOME_BONUS = 0.5        # score bonus for PROVEN domains (reduced from 1.5 �
 OUTCOME_MIXED_BONUS = 2.0  # score bonus for MIXED domains (L-654: highest L/lane yield at 1.42)
 OUTCOME_PENALTY = 1.0      # score penalty for STRUGGLING domains
 
+# Meta-role classification (SIG-39, L-925): meta-historian/tooler/experimenter as
+# first-class dispatch roles. Keyword-based classification of meta DOMEX lane intent.
+META_ROLE_KEYWORDS: dict[str, list[str]] = {
+    "historian": [
+        "historian", "repair", "stale", "belief retest", "health-check",
+        "freshness", "staleness", "decay", "retested", "retest belief",
+    ],
+    "tooler": [
+        "tool", "build", "wire", "implement", "fix", "bug", "enforce",
+        "wiring", "default-on", "automation", "pipeline", "refactor",
+        "maintenance gate", "extraction", "module",
+    ],
+    "experimenter": [
+        "measure", "experiment", "quantif", "falsif", "calibrat", "audit",
+        "score", "analysis", "compare", "baseline", "survey", "count",
+        "ratio", "test", "diagnos", "distribution", "model",
+    ],
+}
+
+
+def _classify_meta_role(intent: str, notes: str = "") -> str:
+    """Classify a meta DOMEX lane into historian/tooler/experimenter role."""
+    text = (intent + " " + notes).lower()
+    scores = {}
+    for role, keywords in META_ROLE_KEYWORDS.items():
+        scores[role] = sum(1 for kw in keywords if kw in text)
+    if max(scores.values()) == 0:
+        return "unclassified"
+    top_role = max(scores, key=scores.get)
+    vals = sorted(scores.values(), reverse=True)
+    if vals[0] > 0 and (len(vals) < 2 or vals[0] > vals[1]):
+        return top_role
+    return "mixed"
+
+
+def _get_meta_role_stats() -> dict:
+    """Scan SWARM-LANES for meta domain lanes and classify by role.
+
+    Returns {"historian": n, "tooler": n, "experimenter": n, "mixed": n,
+             "unclassified": n, "total": n, "suggested_role": str}.
+    """
+    role_counts = {"historian": 0, "tooler": 0, "experimenter": 0, "mixed": 0, "unclassified": 0}
+    for f in (LANES_FILE, LANES_ARCHIVE):
+        if not f.exists():
+            continue
+        for line in f.read_text().splitlines():
+            if not line.startswith("|") or "Lane" in line or "---" in line:
+                continue
+            cols = [c.strip() for c in line.split("|")]
+            if len(cols) < 12:
+                continue
+            lane_id = cols[2]
+            status = cols[11] if len(cols) > 11 else ""
+            etc = cols[10] if len(cols) > 10 else ""
+            notes = cols[12] if len(cols) > 12 else ""
+            if status not in ("MERGED", "ABANDONED", "ACTIVE"):
+                continue
+            # Is meta?
+            m = re.match(r"DOMEX-([A-Z]+)", lane_id)
+            domain = LANE_ABBREV_TO_DOMAIN.get(m.group(1)) if m else None
+            if domain != "meta":
+                fm = re.search(r"focus=(?:domains/)?([a-z0-9-]+)", etc)
+                if not fm or fm.group(1) != "meta":
+                    continue
+            intent_m = re.search(r"intent=([^;]+)", etc)
+            intent = intent_m.group(1) if intent_m else ""
+            role = _classify_meta_role(intent, notes)
+            role_counts[role] += 1
+
+    total = sum(role_counts.values())
+    # Suggest the most underserved role (historian/tooler/experimenter only)
+    core_roles = {r: role_counts[r] for r in ("historian", "tooler", "experimenter")}
+    suggested = min(core_roles, key=core_roles.get) if total > 0 else "experimenter"
+    return {**role_counts, "total": total, "suggested_role": suggested}
+
 
 def _load_calibration() -> dict | None:
     """Load empirically-derived weights from calibration artifact.
@@ -1050,6 +1125,14 @@ def run(args: argparse.Namespace) -> None:
             # Pure UCB1 mode
             results = ucb1_results
             results_limited = results if args.all or args.domain else results[:10]
+            # Inject meta-role stats for meta domain (SIG-39)
+            for r in results:
+                if r["domain"] == "meta":
+                    try:
+                        r["meta_roles"] = _get_meta_role_stats()
+                    except Exception:
+                        pass
+                    break
             if args.json:
                 print(json.dumps(results_limited, indent=2, default=str))
                 return
@@ -1115,6 +1198,20 @@ def run(args: argparse.Namespace) -> None:
                     print(f"         ⚠ ACTIVE LANE(S): {', '.join(lanes[:3])} — collision risk")
                 if r.get("top_frontier"):
                     print(f"         → {r['top_frontier'][:72]}")
+                # Meta-role advisory (SIG-39): when meta is in display, show role balance
+                if r["domain"] == "meta":
+                    try:
+                        mstats = _get_meta_role_stats()
+                        if mstats["total"] > 0:
+                            h, t, e = mstats["historian"], mstats["tooler"], mstats["experimenter"]
+                            tot = mstats["total"]
+                            print(
+                                f"         Meta-roles: historian {h}/{tot} ({100*h//tot}%) | "
+                                f"tooler {t}/{tot} ({100*t//tot}%) | experimenter {e}/{tot} ({100*e//tot}%)"
+                            )
+                            print(f"         → Suggested: meta-{mstats['suggested_role']} (most underserved)")
+                    except Exception:
+                        pass
             # Active lane summary
             if active_lanes:
                 print(f"\n--- Active Lane Collision Warning (L-733, F-STR2) ---")
