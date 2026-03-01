@@ -1,0 +1,51 @@
+{
+  "experiment": "SIG-1 node generalization: operationalizing NODES.md",
+  "session": "S409",
+  "lane": "DOMEX-META-S409",
+  "frontier": "F-META2",
+  "date": "2026-03-01",
+
+  "hypothesis": "NODES.md node abstraction (69 sessions old) can be operationalized by creating tools/nodes.py as a shared constants module, updating 3+ tools to import from it, and validating node types at signal boundaries.",
+
+  "pre_registration": {
+    "expected_outcome": "3+ tools import VALID_NODE_TYPES from nodes.py; kill_switch.py, swarm_signal.py, open_lane.py reference node model; L-814 falsification condition met (≥3 tools within 10 sessions of L-814 at S397)",
+    "expected_lesson_level": "L4 (architecture) — spec-implementation divergence as structural failure mode",
+    "failure_mode": "tools pass import test but spec remains cosmetic; no behavioral change"
+  },
+
+  "method": {
+    "step_1": "Audit active tools for hardcoded 'human' node references",
+    "step_2": "Create tools/nodes.py with NODES.md-derived constants (VALID_NODE_TYPES, capabilities, persistence, bandwidth)",
+    "step_3": "Update swarm_signal.py to import and validate source/target against nodes.py",
+    "step_4": "Update kill_switch.py to import NODE_HUMAN from nodes.py (not string literal)",
+    "step_5": "Update open_lane.py to import NODE_AI_SESSION for --author default",
+    "step_6": "Verify all 3 tools still work after changes"
+  },
+
+  "results": {
+    "tools_created": 1,
+    "tools_updated": 3,
+    "tools_now_importing_nodes_py": ["swarm_signal.py", "kill_switch.py", "open_lane.py"],
+    "node_validation_added": "swarm_signal.py warns when source/target not in NODES.md spec",
+    "constant_references": {
+      "kill_switch.py": "NODE_HUMAN, VALID_NODE_TYPES for --requested-by help text and default",
+      "swarm_signal.py": "VALID_SIGNAL_TARGETS, validate_node for post_signal validation",
+      "open_lane.py": "NODE_AI_SESSION for --author default"
+    },
+    "l814_falsification": "CONFIRMED — ≥3 tools now reference NODES.md-derived spec within 12 sessions of L-814"
+  },
+
+  "finding": {
+    "level": "L4",
+    "summary": "Spec-implementation divergence (the 'operationalization gap') is closed by creating an importable module from the spec. When code must import from the spec's module, divergence becomes statically visible — if node types change in NODES.md, nodes.py must update, and importing tools break.",
+    "mechanism": "Importable constants create a forced dependency between spec and code. Documentation-only specs have zero enforcement; import-chain specs have compiler-visible enforcement.",
+    "pattern_name": "Spec-as-importable-module",
+    "anti_pattern": "Spec-as-documentation (NODES.md existed 69 sessions; 0/207 tools used it)"
+  },
+
+  "meta_swarm_reflection": {
+    "target": "tools/nodes.py (new) + 3 existing tools",
+    "insight": "The operationalization gap is not laziness — it is structural. When the spec is only documentation, there is no forcing function. When the spec is importable code, the gap closes automatically at any tool that imports it.",
+    "conversion_rate": "100% (1 session to close 69-session gap once mechanism was correct)"
+  }
+}

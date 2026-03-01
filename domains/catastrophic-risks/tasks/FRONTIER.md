@@ -1,6 +1,6 @@
 # Catastrophic Risks Domain — Frontier Questions
 Domain agent: write here for catastrophic-risks work; cross-domain findings → tasks/FRONTIER.md.
-Updated: 2026-03-01 S403 | Active: 1
+Updated: 2026-03-01 S410 | Active: 1
 
 ## Active
 
@@ -18,6 +18,7 @@ Updated: 2026-03-01 S403 | Active: 1
   **S381 FMEA refresh**: 14 FMs, **0 INADEQUATE**. FM-14 hardened: check_git_object_health() in orient.py (git fsck at session start). FM-11/FM-12 confirmed MINIMAL from S377-S380 DOMEX-SEC. FM-07 DEGRADED→MINIMAL. NAT cycle closed — next ~S430. L-731.
   Status: **PARTIAL** — 14 FMs, 0 INADEQUATE, 10 MINIMAL, 2 ADEQUATE. Next: upgrade MINIMAL→ADEQUATE for severity-1 FMs.
   **S403 FMEA refresh**: 14→17 FMs. 3 new system-design FMs (FM-15 zero-entropy field masking, FM-16 silent proxy-K threshold, FM-17 dispatch-frontier precision gap). NAT S381 predicted ~S430 — actual S403 (27s early). Pattern shift: FMs migrate from infrastructure (git/WSL) to system-design (signals/dispatch/metadata) as infrastructure hardens. **2 upgrades**: FM-14 MINIMAL→ADEQUATE (check.sh git fsck added), FM-09 reclassified MINIMAL→ADEQUATE (already at threshold). All 14 prior defense layers intact despite S402 tool consolidation. **0 INADEQUATE, 11 MINIMAL, 4 ADEQUATE**. L-872. Next NAT: ~S430.
+  **S410 FMEA refresh**: 17→18 FMs. FM-18 new (concurrent lesson number collision — observed live: two sessions wrote L-901 simultaneously, last writer wins). FM-01 upgraded MINIMAL→ADEQUATE (mass-staging guard >100 files in check.sh). NAT at S410 (20s early vs S430). FM timing accelerating: S381→S403=22s, S403→S410=7s. Pattern continues: infrastructure→system-design→concurrency layer migration. **1 INADEQUATE (FM-18), 10 MINIMAL, 5 ADEQUATE**. L-903. Next NAT: ~S430.
 
 ## Resolved
 | ID | Answer | Session | Date |

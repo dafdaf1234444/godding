@@ -20,6 +20,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from nodes import NODE_AI_SESSION  # noqa: E402 — node model (SIG-1, L-814)
+
 REPO_ROOT = Path(__file__).parent.parent
 LANES_FILE = REPO_ROOT / "tasks" / "SWARM-LANES.md"
 LANES_ARCHIVE = REPO_ROOT / "tasks" / "SWARM-LANES-ARCHIVE.md"
@@ -195,7 +198,8 @@ def main():
     parser.add_argument("--domain", default="", help="Domain shortname for auto-filling domain fields")
     parser.add_argument("--note", default="",
                         help="Opening note for Notes column")
-    parser.add_argument("--author", default="claude-code", help="Author identifier")
+    parser.add_argument("--author", default=NODE_AI_SESSION,
+                        help=f"Author node type (default: {NODE_AI_SESSION}, per NODES.md)")
     parser.add_argument("--model", default="claude-sonnet-4-6", help="Model used")
     parser.add_argument("--branch", default="master", help="Branch (default: master)")
     parser.add_argument("--mode", default="", choices=list(VALID_MODES) + [""],

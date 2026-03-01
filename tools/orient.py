@@ -1166,6 +1166,21 @@ def main():
                         print(f"  Science quality ({age_note}): mean {mean_q:.0%} | pre-reg {pre_reg:.0%} | falsif lanes {falsif} | refresh: python3 tools/science_quality.py --json")
             except Exception:
                 pass
+            # Bayesian calibration (L-903: ECE target <0.10; refresh every 10 sessions)
+            try:
+                bm_files = sorted((ROOT / "experiments" / "meta").glob("bayes-meta-s*.json"))
+                if bm_files:
+                    bm_data = _json_pci.loads(bm_files[-1].read_text())
+                    bm_m = re.search(r"bayes-meta-s(\d+)", bm_files[-1].name)
+                    bm_age = (int(sess_pci_m.group(1)) - int(bm_m.group(1))) if bm_m else -1
+                    if -5 <= bm_age <= 30:
+                        ece = bm_data.get("results", {}).get("ece", "?")
+                        n_front = bm_data.get("n_frontiers_with_posteriors", "?")
+                        age_note2 = f"S{bm_m.group(1)}" + (f", {bm_age}s ago" if bm_age > 0 else "")
+                        ece_flag = " ⚠ OVERCONFIDENT" if isinstance(ece, float) and ece > 0.15 else ""
+                        print(f"  Bayesian calibration ({age_note2}): ECE={ece:.3f}{ece_flag} | {n_front} frontiers | refresh: python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json")
+            except Exception:
+                pass
             if pci_val < 0.10:
                 print(f"  Tip: use `python3 tools/think.py --stale` to find untested beliefs,")
                 print(f"       `python3 tools/think.py --test \"hypothesis\"` to test claims with evidence")

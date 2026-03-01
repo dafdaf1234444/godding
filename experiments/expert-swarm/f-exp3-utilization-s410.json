@@ -1,0 +1,35 @@
+{
+  "experiment": "f-exp3-utilization-s410",
+  "session": "S410",
+  "domain": "expert-swarm",
+  "lane": "DOMEX-EXP-S410",
+  "frontier": "F-EXP3",
+  "analysis_window": "S391-S410 (19 sessions)",
+  "total_domains": 43,
+  "global_metrics": {
+    "mean_coverage_pct": 10.8,
+    "median_coverage_pct": 9.3,
+    "stdev_pct": 7.2,
+    "pct_sessions_above_15": 21.1,
+    "trend_slope": -0.013
+  },
+  "window_metrics": {
+    "S396_S406_mean": 14.0,
+    "S406_S410_mean": 5.8
+  },
+  "l889_correction": {
+    "l889_claimed": "14.8% per-session domain coverage",
+    "l889_artifact_actual": "11.9% (mean unique domains/total domains)",
+    "cause": "L-889 divided mean_lanes (7.5) by total_domains (43) = 17.4%, or used 6.4 lanes from text. Correct metric uses unique domains per session, not total lane count.",
+    "corrected_s396_s406": "14.0%"
+  },
+  "key_finding": "15% utilization target is bundle-dependent. Only 21% of sessions reach it (all are bundle sessions with >5 concurrent lanes). Solo sessions: 5-10% coverage. Median 9.3%. Trend slightly negative (-0.013%/session). L-889 inflated: text claims 14.8% but artifact unique-domains metric = 11.9%. Corrected S396-S406 = 14.0% (includes S399 bundle outlier at 34.9%). Current S406-S410 = 5.8% (post-bundle decline).",
+  "verdict": "RESOLVE \u2014 utilization 10.8% mean (9.3% median). 15% target miscalibrated: achievable only in bundle sessions. Solo ceiling ~10%. Real metric is domains-per-session (median 4). Expert dispatch works (UCB1 spreads 28/43 domains over 19 sessions) but per-session breadth constrained by session length, not dispatch quality.",
+  "bundle_analysis": {
+    "bundle_sessions_pct": 52.6,
+    "bundle_mean_coverage": 16.2,
+    "solo_mean_coverage": 6.4,
+    "bundle_ratio": "2.5x coverage vs solo",
+    "threshold": ">5 lanes = bundle"
+  }
+}

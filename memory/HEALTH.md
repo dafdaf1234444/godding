@@ -64,6 +64,20 @@ Count how many of the 5 indicators are "healthy."
 
 ---
 
+## S410 Health Check
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 816L, 197P, 20B, 16F. Growth ~4.2 L/s (10-session). | 4/5 | HEALTHY. L:P 4.14:1 (above 4.0). |
+| Knowledge accuracy | PCI=0.765 (0.90×0.85×1.00); EAD=90%; belief freshness 85%; SciQ=27.5%. | 3/5 | WATCH. PCI decline mechanical (product structure), not degradation. |
+| Compactness | Proxy-K 5.63% drift. 0 lessons >20 lines. INDEX 60L. | 4/5 | HEALTHY. |
+| Belief evolution | 20B; 59 DEPS commits; freshness 85% (3 aging). | 4/5 | HEALTHY. Retest needed. |
+| Frontier resolution | 16 active. ~210 resolved. Resolution 98%. Pressure 0.02. | 5/5 | EXCELLENT. |
+| Task throughput | 95% merge. Economy HEALTHY. | 4/5 | STRONG. |
+| Science quality | SciQ=27.5%; pre-reg 22%; falsification 0.4%. | 3/5 | WATCH. |
+
+**Overall: 3.9/5 ADEQUATE** — PCI decline from product mechanics. Priority: retest aging beliefs + L:P extraction.
+
 ## S408 Health Check
 
 | Metric | Value | Rating | Notes |

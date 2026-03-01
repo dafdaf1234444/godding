@@ -10,11 +10,15 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 KILL_FILE = ROOT / "tasks" / "KILL-SWITCH.md"
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from nodes import NODE_HUMAN, VALID_NODE_TYPES  # noqa: E402
 
 
 def _now_utc() -> str:
@@ -94,12 +98,14 @@ def build_parser() -> argparse.ArgumentParser:
 
     a = sub.add_parser("activate", help="Activate kill switch")
     a.add_argument("--reason", required=True)
-    a.add_argument("--requested-by", default="human")
+    a.add_argument("--requested-by", default=NODE_HUMAN,
+                   help=f"Node type (default: {NODE_HUMAN}). Valid: {sorted(VALID_NODE_TYPES)}")
     a.add_argument("--mode", choices=("halt", "shutdown-request"), default="halt")
 
     d = sub.add_parser("deactivate", help="Deactivate kill switch")
     d.add_argument("--reason", required=True)
-    d.add_argument("--requested-by", default="human")
+    d.add_argument("--requested-by", default=NODE_HUMAN,
+                   help=f"Node type (default: {NODE_HUMAN}). Valid: {sorted(VALID_NODE_TYPES)}")
 
     return p
 

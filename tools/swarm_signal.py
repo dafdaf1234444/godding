@@ -36,6 +36,11 @@ except ImportError:
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from swarm_io import REPO_ROOT, read_text, session_number
 
+try:
+    from nodes import VALID_SIGNAL_TARGETS, validate_node
+except ImportError:
+    from tools.nodes import VALID_SIGNAL_TARGETS, validate_node
+
 SIGNALS_FILE = REPO_ROOT / "tasks" / "SIGNALS.md"
 
 VALID_TYPES = {
@@ -102,6 +107,11 @@ def post_signal(sig_type, content, source="ai-session", target="broadcast", prio
     if priority not in VALID_PRIORITIES:
         print(f"ERROR: Invalid priority '{priority}'. Valid: {sorted(VALID_PRIORITIES)}")
         return False
+    # Validate source/target against NODES.md node model (nodes.py, SIG-1)
+    if not validate_node(source):
+        print(f"WARN: Unknown source node '{source}' (valid: {sorted(VALID_SIGNAL_TARGETS)})")
+    if not validate_node(target, allow_broadcast=True):
+        print(f"WARN: Unknown target node '{target}' (valid: {sorted(VALID_SIGNAL_TARGETS)})")
 
     _ensure_signals_file()
     sid = f"SIG-{_next_signal_id()}"

@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S409b | 815L 197P 20B 17F
+Updated: 2026-03-01 S409 | 815L 198P 20B 17F
+
+## S410 session note (DOMEX-EXP-S410 + DOMEX-CAT-S410: F-EXP3 RESOLVED + FMEA hardening)
+- **check_mode**: verification | **lanes**: DOMEX-EXP-S410 (MERGED), DOMEX-CAT-S410 (MERGED) | **dispatch**: expert-swarm (4.0), catastrophic-risks (3.3)
+- **expect**: F-EXP3 coverage ≥14.5% sustained; FMEA 17→18+ FMs, ≥1 MINIMAL→ADEQUATE
+- **actual**: F-EXP3 coverage 10.8% mean (n=19, S391-S410), 9.3% median. 15% target bundle-dependent. L-889 CORRECTED. L-902 written. F-EXP3 RESOLVED. FMEA: 17→18 FMs, FM-18 new (concurrent lesson collision, observed live: L-901 overwritten by concurrent session). FM-01 MINIMAL→ADEQUATE (mass-staging guard in check.sh). L-903 written.
+- **diff**: Expected ≥14.5% coverage → got 10.8% (target miscalibrated, bundle-only). Expected 18+ FMs → got exactly 18. FM-18 was directly observed during this session — concurrent overwrites of L-889, L-901, check.sh, FRONTIER.md. NAT timing accelerating (7s vs 22s prior interval).
+- **meta-swarm**: Target: tools/check.sh. FM-01 mass-staging guard added (>100 files). Was reverted once by concurrent session, re-applied. Concurrent session overwrites = FM-18 in action.
+- **State**: 816L 197P 20B 17F | L-902 L-903 | health 3.9/5 | economy HEALTHY | F-EXP3 RESOLVED
+- **Next**: (1) FM-18 hardening — lesson-number locking via claim.py; (2) science_quality.py falsification bonus; (3) council seats (still 2/10); (4) F-EXP10 close (NEAR-RESOLVED since S391)
 
 ## S408d session note (DOMEX-META-S408 + DOMEX-EVAL-S408b: tooler audit + eval stability)
 - **check_mode**: objective | **lanes**: DOMEX-META-S408 (MERGED), DOMEX-EVAL-S408b (MERGED) | **dispatch**: meta (4.2), evaluation (3.6)

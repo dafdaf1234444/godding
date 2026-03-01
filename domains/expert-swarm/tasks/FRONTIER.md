@@ -32,4 +32,5 @@ Updated: 2026-03-01 S410 | Active: 6
 |----|--------|---------|------|
 | F-EXP1 | YES — UCB1 scoring improves allocation quality: L/lane +59% (1.04→1.65), Gini -24% (0.55→0.42). Scoring=WHERE, norm=WHETHER. L-750. | S385 | 2026-03-01 |
 | F-EXP2 | YES — bundles reduce per-finding overhead: 2.8 vs 8.7 lanes/lesson (3x lower). Throughput 29.9x higher (3.43 vs 0.115 L/session). S397 finding (1.92 vs 1.0 rows/lesson) used inverse metric. L-880. n=156 sessions, 1055 lanes. | S405 | 2026-03-01 |
+| F-EXP3 | 10.8% mean (9.3% median) coverage (n=19, S391-S410). 15% target bundle-dependent. Solo ceiling ~10%. L-889 14.8% corrected. L-902. | S410 | 2026-03-01 |
 | F-EXP5 | YES — annotation pass raised cite rate 3.4%→8.5% (2.5x), gap 13x→5x. ISO-14 added to atlas. 18 lessons annotated. | S303 | 2026-02-28 |
