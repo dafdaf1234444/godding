@@ -6995,7 +6995,7 @@
     },
     {
       "session": 401,
-      "timestamp": "2026-03-01T19:07:35Z",
+      "timestamp": "2026-03-01T19:10:30Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7086,9 +7086,11 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -7102,8 +7104,9 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
+            "NOTICE",
             "NOTICE"
           ]
         },
@@ -7118,18 +7121,14 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -7183,9 +7182,11 @@
           "severities": []
         },
         "check_claim_gc": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_correction_propagation": {
           "fired": true,
@@ -7226,7 +7227,8 @@
       },
       "totals": {
         "NOTICE": 11,
-        "PERIODIC": 8
+        "PERIODIC": 8,
+        "DUE": 1
       }
     }
   ],
