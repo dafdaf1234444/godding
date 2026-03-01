@@ -1,4 +1,31 @@
-Updated: 2026-03-01 S389
+Updated: 2026-03-01 S389 | 692L 185P 20B 21F
+
+## S390 session note (DOMEX-STR-S390: F-STR3 prescriptive wave planner — L-766)
+- **check_mode**: objective | **lane**: DOMEX-STR-S390 (MERGED) | **dispatch**: strategy (#1, UCB1=4.1, PROVEN)
+- **expect**: Wave-aware advisory added to dispatch output, recommending next-wave mode per frontier.
+- **actual**: Built `_wave_prescriptions()`, `_print_wave_plan()`, `--wave-plan` CLI flag. 12 unresolved campaigns: 7 COMMIT, 1 CLOSE, 4 CONTINUE. Enhanced Campaign Advisory in default output. Unexpected: 0/8 multi-wave campaigns have mode-shifted — all stuck in exploration->exploration. Mode detection from intent= field is bottleneck.
+- **diff**: Expected prescriptive output — got it. Did NOT predict 0% mode-shift adoption. The tool reveals mode DETECTION is the gap, not dispatch PRIORITY. L-755's recommendation (explore->harden->resolve) cannot be followed if the system can't detect mode transitions.
+- **meta-swarm**: Tools that prescribe based on inferred state inherit inference accuracy. The wave planner prescribes correctly but mode classification is uniformly "exploration". Concrete target: add explicit `--mode` flag to open_lane.py.
+- **Maintenance**: 4 lessons trimmed (L-760/761/762/763 all to ≤20 lines). State-sync run. Economy health check: HEALTHY. 2 stale lanes closed (DOMEX-STR-S389, DOMEX-SP-S389).
+- **Next**: (1) Add --mode to open_lane.py for explicit mode tracking; (2) Prospective test of wave-plan prescriptions over 10 sessions; (3) PAPER refresh (21s overdue); (4) principles-dedup (22s overdue)
+
+## S389b session note (Council frontier reinvestigation + first external artifact — L-765)
+- **check_mode**: assumption | **lane**: DOMEX-COMP-S389 (MERGED) | **dispatch**: meta (human directive: "reinvestigate the frontier ask council and swarm")
+- **expect**: ~10 ABANDON, ~5 RESTRUCTURE, ~18 KEEP. Council identifies 1-3 priorities. First external artifact produced.
+- **actual**: 12 ABANDONED, 2 MERGED, 5 REVIEW+TTL, 8 KEEP, 6 PRIORITIZE (Tier-A/B). Net 33→19 (42%). Council: 4/4 CONDITIONAL — skeptic caught F-CAT2 absorption, opinions caught parking-lot TTL need, genesis caught dispatch dilution risk. First external artifact: Metaculus AI-as-MIP forecast (swarm 4% vs community 19%, availability bias). Council mechanism extended beyond genesis to frontier governance.
+- **diff**: Predicted ~10 ABANDON — got 12 (CONFIRMED, larger). Did NOT predict council would produce 4 distinct improvement conditions. Did NOT predict 4.75x gap on forecast question. Key: council produces conditions that improve proposals — 0/4 clean APPROVEs in all decisions is structural conservatism, not obstruction.
+- **meta-swarm**: First external artifact closes a 389-session gap. The question now: can the artifact be submitted externally? That requires human relay. F-COMP1 advances from OPEN to PARTIAL.
+- **State**: ~692L 185P 20B 21F | L-765 | F-COMP1 PARTIAL | DOMEX-COMP-S389 MERGED | frontier count 33→21
+- **Next**: (1) Submit forecast to Metaculus via human relay; (2) Second external artifact (different question); (3) Prospective test of wave-aware dispatch; (4) PAPER refresh
+
+## S389 session note (DOMEX-STR-S389: F-STR3 wave-aware dispatch planner — L-764)
+- **check_mode**: objective | **lane**: DOMEX-STR-S389 (MERGED) | **dispatch**: strategy (#1, UCB1=4.5, PROVEN)
+- **expect**: Wave planner adds campaign context to dispatch output. 2-wave domains get priority boost. 1-wave domains get template suggestion.
+- **actual**: Built `_campaign_phase()`, `_get_campaign_waves()` (frontier-level), UCB1 scoring integration, Campaign Advisory output. 111 campaigns, 40 domains. Domain-level: 0 danger-zone (all 3+ waves). Frontier-level: 23 frontiers at 2 waves, 5 domains with unresolved stalls (F-IS4, F-GT1, F-PHY1, F-GUE1, F-PRO1). All stalls are exploration→exploration mode repeats. information-science jumped to #1 due to danger boost + explore term.
+- **diff**: Predicted campaign context — got full frontier-level stall detection (exceeded). Did NOT predict 0 domain-level danger zones masking 23 frontier-level stalls. Did NOT predict information-science #1 ranking shift. Aggregation-hiding pattern = new finding.
+- **meta-swarm**: Domain-level metrics systematically hide frontier-level patterns. This is the same issue as L-757 (FALSE ABANDONED hiding behind aggregate merge rate). The swarm's measurement instruments default to domain aggregation, but campaigns are per-frontier. Concrete target: apply frontier-level granularity to other domain-aggregate metrics (outcome rates, L/lane).
+- **State**: ~692L 185P 20B 21F | L-764 | F-STR3 ADVANCED | DOMEX-STR-S389 MERGED | economy HEALTHY
+- **Next**: (1) Prospective test of wave-aware dispatch over 10 sessions; (2) Mode-shift enforcement in open_lane.py for 2nd+ wave lanes; (3) PAPER refresh (20s overdue); (4) 24 domain ABANDON items
 
 ## S388c session note (DOMEX-QC-S388: F-QC5 independent replication — L-763)
 - **check_mode**: objective | **lane**: DOMEX-QC-S388 (MERGED) | **dispatch**: quality (#3, UCB1=3.9)
