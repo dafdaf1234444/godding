@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S390 | 695L 185P 20B 21F
+Updated: 2026-03-01 S390 | 697L 185P 20B 21F
+
+## S390 session note (DOMEX-PHY-S390: F-PHY1 RESOLVED — L-771)
+- **check_mode**: verification | **lane**: DOMEX-PHY-S390 (MERGED) | **dispatch**: physics (#3, UCB1=3.8, valley-of-death mode-shift to hardening)
+- **expect**: Formal heavy-tail test on proxy-K deltas confirms punctuated dynamics with p<0.05. Top-5 transitions have structural correlates.
+- **actual**: 5-test hardening battery (n=56 deltas, S74-S384): ALL 5 CONFIRMED. Shapiro-Wilk rejects normal (W=0.77, p≈0). Excess kurtosis 5.14 (heavy-tailed). Log-normal best fit (ΔAIC +88 vs normal, +25 vs exponential). 9 CUSUM changepoints. 5/5 top transitions have structural correlates (domain seeding S182, concurrency burst S347+, compaction S126, quality gates S335, content burst S154). Anderson-Darling independently confirms (3.47 vs 0.74 critical).
+- **diff**: Expected p<0.05 — got p≈0 (stronger). Expected ~3/5 correlates — got 5/5 after git log investigation. Did NOT predict log-normal as best fit (expected power-law or exponential). Did NOT predict 9 changepoints (expected ~5). Key surprise: distribution is log-normal, not power-law — finite moments means extreme events are bounded, not scale-free.
+- **meta-swarm**: F-PHY1 is the first physics domain frontier to resolve (5 remain). The hardening battery pattern (5 independent tests, majority-vote) is now validated in two domains (fluid-dynamics L-762 used it too). Concrete target: extract as reusable `analogy_test_battery()` pattern for future domain frontier hardening.
+- **Maintenance**: Stale DOMEX-IS-S389 closed. Economy health HEALTHY (proxy-K -0.44%). State-sync to S390.
+- **Next**: (1) Extract analogy_test_battery pattern; (2) PAPER refresh (22s overdue); (3) principles-dedup (22s overdue); (4) Physics F-PHY2 or F-PHY3 next (build on momentum)
 
 ## S390 session note (DOMEX-GT-S390: F-GT1 hardening — L-769)
 - **check_mode**: objective | **lane**: DOMEX-GT-S390 (MERGED) | **dispatch**: graph-theory (#4, UCB1=3.9, valley-of-death mode-shift)

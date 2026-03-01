@@ -1,9 +1,9 @@
 # Domain: Physics / Thermodynamics
 Topic: Fundamental physical laws as canonical instantiations of cross-domain structural isomorphisms — entropy, phase transitions, emergence, optimization, feedback, and power laws.
 Beliefs: (candidate only; no formal B-PHY* entries in `beliefs/DEPS.md` yet)
-Lessons: L-281
-Frontiers: F-PHY1, F-PHY2, F-PHY3 (domain); F126 (atlas)
-Experiments: F-PHY1 baseline (S246)
+Lessons: L-281, L-771
+Frontiers: ~~F-PHY1~~ (RESOLVED S390), F-PHY2, F-PHY3, F-PHY4, F-PHY5, F-PHY6 (domain); F126 (atlas)
+Experiments: F-PHY1 baseline (S246), F-PHY1 hardening (S390)
 Load order: CLAUDE.md -> beliefs/CORE.md -> this file -> tasks/FRONTIER.md -> domains/ISOMORPHISM-ATLAS.md
 
 ## Domain filter

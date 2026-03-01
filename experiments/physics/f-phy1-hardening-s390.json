@@ -1,0 +1,150 @@
+{
+  "experiment": "f-phy1-hardening-s390",
+  "session": "S390",
+  "date": "2026-03-01",
+  "frontier": "F-PHY1",
+  "cross_links": [
+    "F-PHY4",
+    "ISO-4",
+    "ISO-6",
+    "ISO-8",
+    "L-428",
+    "L-551"
+  ],
+  "question": "Do proxy-K totals show punctuated jumps/drops (phase-transition-like) rather than smooth drift?",
+  "method": "5-test hardening battery: Shapiro-Wilk, kurtosis, distribution fit comparison, CUSUM changepoints, structural correlates",
+  "mode": "hardening",
+  "n_sessions": 57,
+  "n_deltas": 56,
+  "descriptive_stats": {
+    "abs_delta_median": 986.5,
+    "abs_delta_mean": 1462.2,
+    "abs_delta_p90": 3431.0,
+    "abs_delta_max": 8436,
+    "raw_delta_mean": 684.5,
+    "raw_delta_std": 2109.3
+  },
+  "tests": {
+    "T1_normality": {
+      "test": "Shapiro-Wilk",
+      "statistic": 0.7721,
+      "p_value": 0.0,
+      "reject_normal_at_005": true,
+      "interpretation": "NOT normal"
+    },
+    "T2_kurtosis": {
+      "excess_kurtosis": 5.141,
+      "skewness": 2.115,
+      "heavy_tailed": true,
+      "interpretation": "heavy-tailed (kurtosis=5.14)"
+    },
+    "T3_distribution_fits": {
+      "normal": {
+        "mu": 1462.2,
+        "sigma": 1667.2,
+        "loglik": -494.92,
+        "AIC": 993.84
+      },
+      "exponential": {
+        "scale": 1462.2,
+        "loglik": -464.11,
+        "AIC": 930.22
+      },
+      "lognormal": {
+        "shape": 1.615,
+        "scale": 740.0,
+        "loglik": -450.75,
+        "AIC": 905.51,
+        "n": 53
+      },
+      "best_fit": "lognormal",
+      "delta_AIC": {
+        "normal": 88.33,
+        "exponential": 24.71,
+        "lognormal": 0.0
+      }
+    },
+    "T4_cusum_changepoints": {
+      "n_changepoints": 9,
+      "indices": [
+        5,
+        14,
+        24,
+        33,
+        36,
+        43,
+        47,
+        50,
+        51
+      ],
+      "threshold_sigma": 2.0,
+      "mean_delta": 684.5,
+      "std_delta": 2109.3
+    },
+    "T5_structural_correlates": [
+      {
+        "from_session": 182,
+        "to_session": 186,
+        "delta": 8436,
+        "pct_change": 19.65,
+        "correlate": "Post-domain-seeding consolidation / compaction"
+      },
+      {
+        "from_session": 339,
+        "to_session": 350,
+        "delta": 6766,
+        "pct_change": 12.1,
+        "correlate": "High-concurrency explosion (S347+ N\u22658 sessions, dispatch system, meta-DOMEX burst, F-ECO4 RESOLVED)"
+      },
+      {
+        "from_session": 126,
+        "to_session": 127,
+        "delta": -5072,
+        "pct_change": -18.76,
+        "correlate": "Major compaction event (early era)"
+      },
+      {
+        "from_session": 335,
+        "to_session": 339,
+        "delta": -4308,
+        "pct_change": -7.15,
+        "correlate": "near Quality gate enforcement + multi-concept dispatch (\u00b12 sessions)"
+      },
+      {
+        "from_session": 154,
+        "to_session": 157,
+        "delta": 3697,
+        "pct_change": 10.67,
+        "correlate": "Pre-domain-seeding content burst (early era, pre-modern tagging)"
+      }
+    ],
+    "supplementary": {
+      "ks_vs_exponential": {
+        "D": 0.0963,
+        "p": 0.6418
+      },
+      "anderson_darling": {
+        "statistic": 3.4747,
+        "critical_5pct": 0.74,
+        "reject_normal": true
+      }
+    }
+  },
+  "verdict": {
+    "tests_passed": 5,
+    "total_tests": 5,
+    "overall": "CONFIRMED",
+    "verdicts": [
+      "T1: NOT normal (p<0.05)",
+      "T2: heavy-tailed (kurtosis=5.141)",
+      "T3: best fit is lognormal, not normal",
+      "T4: 9 changepoints = regime shifts",
+      "T5: 5/5 top transitions have structural correlates (domain seeding, concurrency burst, compaction, quality gates, content burst)"
+    ]
+  },
+  "prior_work": {
+    "S246": "Baseline \u2014 qualitative punctuated (n=48, median |delta|=692)",
+    "S351": "Advanced \u2014 5 transition candidates (n=54), punctuated CONFIRMED qualitatively",
+    "S390": "Hardening \u2014 formal 5-test battery (n=56), CONFIRMED"
+  }
+}

@@ -2,7 +2,7 @@
 Seeded: S246 | 2026-02-28 | Updated: S340
 
 ## Status
-Active | 0 resolved frontiers | 6 open frontiers | 3 experiments
+Active | 1 resolved frontier (F-PHY1) | 5 open frontiers | 4 experiments
 
 ## Key artifacts
 - `DOMAIN.md` - domain scope and isomorphism anchors

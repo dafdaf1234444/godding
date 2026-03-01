@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-21 active | Last updated: 2026-03-01 S389 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
+21 active | Last updated: 2026-03-01 S390 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
 
 ## Critical
 

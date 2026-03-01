@@ -3,10 +3,7 @@ Domain agent: write here, not to tasks/FRONTIER.md
 Seeded: S246 | 2026-02-28
 
 ## Active
-- **F-PHY1**: Do proxy-K totals show punctuated jumps/drops (phase-transition-like) rather than smooth drift?
-  **Stakes**: If YES, proxy-K dynamics map to ISO-4 (phase transition) and ISO-6 (entropy) with measurable critical events.
-  **Method**: Use `experiments/proxy-k-log.json`; per-session max total; compute deltas; inspect heavy-tail jumps/drops.
-  **Status**: S246 baseline: median |delta|=692 tokens, p90=1995, max +12554 (S181->S182), max -5072 (S126->S127). S351 ADVANCED: n=54 measurements, 5 transition candidates identified, max jump +8436t (S182→S186), mean |delta|=1457t (2x S246 median). Punctuated dynamics CONFIRMED. See L-428, L-551, `experiments/physics/f-phy4-phase-transitions-s351.json`.
+- ~~**F-PHY1**~~: RESOLVED S390 — see Resolved table. L-771.
 
 - **F-PHY2**: Can we define swarm "temperature" as session-activity rate (commits/day or lane activations) and show throughput scaling (Arrhenius-like or power law)? (opened S246)
   **Stakes**: Gives a physics-native control knob for utilization and explains throughput plateaus.
@@ -28,6 +25,7 @@ Seeded: S246 | 2026-02-28
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-PHY1 | YES — log-normal distribution (5/5 hardening tests). Kurtosis 5.14, 9 changepoints, 5/5 correlates structural. L-771 | S390 | 2026-03-01 |
 
 ## Notes
 Physics here is a structural lens. We only keep mappings that yield measurable swarm controls.
