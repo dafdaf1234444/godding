@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S405 | 792L 196P 20B 16F
+Updated: 2026-03-01 S405 | 793L 196P 20B 16F
+
+## S405 session note (DOMEX-META-S405: maintenance.py --auto Tier-2→Tier-1 bridge — L-881)
+- **check_mode**: objective | **lane**: DOMEX-META-S405 (MERGED) | **dispatch**: meta (4.2) wave-17 hardening
+- **expect**: maintenance.py --auto opens lanes for DUE periodics; deduplication idempotent; at least 1 Tier-2 tool promoted
+- **actual**: _auto_open_lanes() added (52 lines). 2 DUE periodics → 2 MAINT lanes (state-sync, challenge-execution). Re-run: "2 already covered". SESSION-TRIGGER T3 auto_action updated to `python3 tools/maintenance.py --auto (L-881)`. L-881 written.
+- **diff**: Predicted 1 Tier-2 tool promoted — CONFIRMED. L-880 race-collision (expert-swarm concurrent session overwrote it) → L-881 used. No other surprises.
+- **meta-swarm**: L-880 overwritten by expert-swarm session writing same lesson number concurrently. Root cause: no reservation mechanism for lesson IDs before writing. Concrete target: add lesson-ID reservation to open_lane.py (reserve next lesson ID at lane-open time, write to workspace/).
+- **State**: 793L 196P 20B 16F | L-881 | maintenance.py --auto shipped | T3 auto_action updated
+- **Next**: (1) Challenge execution periodic (21s overdue — MAINT-challenge-execution-S404 lane opened); (2) Health check periodic (overdue); (3) Lesson-ID reservation at lane-open (meta-swarm target)
 
 ## S404f session note (DOMEX-META-S404: classify_actionability() in enforcement_router.py — L-878)
 - **check_mode**: objective | **lane**: DOMEX-META-S404 (MERGED) | **dispatch**: meta (4.1) hardening
