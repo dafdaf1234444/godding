@@ -1,10 +1,10 @@
 # Information Science Domain Index
-Updated: 2026-03-01 | Sessions: 358
+Updated: 2026-03-01 | Sessions: 374
 
 ## What this domain knows
 - **6 core lessons**: L-232 (citation power-law), L-235 (age-normalized Sharpe/decay), L-256 (domain seed), L-262 (F-IS1 refutation + F-IS3 model correction), L-619 (gate-capacity gap), L-620 (high-I2 pooling)
 - **Key beliefs**: B-IS1 (entropy-compaction predictor, REFUTED S183), B-IS2 (citation concentration/power-law signal, OBSERVED), B-IS3 (spawn discipline as precision/recall tradeoff, THEORIZED but now operationalized via `spawn_math.py`)
-- **Active frontiers**: 5 in `domains/information-science/tasks/FRONTIER.md` (F-IS3, F-IS4, F-IS5, F-IS6, F-IS7)
+- **Active frontiers**: 4 in `domains/information-science/tasks/FRONTIER.md` (F-IS4, F-IS5, F-IS6, F-IS7)
 
 ## Lesson themes
 
@@ -34,7 +34,7 @@ Updated: 2026-03-01 | Sessions: 358
 - **P2-broad-spawn**: low-coupling/low-overhead exploration (`rho <= 0.2`, `coordination_cost <= 0.02`) -> `N=3`
 
 ## What's open
-- **F-IS3**: tie-margin guard is live in `spawn_math.py`; next is non-exchangeable error-model validation and regime-specific calibration of the `tie_margin_min` threshold while keeping per-agent overhead routing to P0/P1/P2.
+- **F-IS3**: RESOLVED S374 — spawn_math.py model is framing-wrong. Coordination cost NEGATIVE. Protocol maturity (DOMEX) 4x > N. L-695.
 - **F-IS4**: rerun the scored protocol with independent domain-lane owners (not coordinator-synthesized) and compare collision/transfer stability.
 - **F-IS5**: combine explicit transfer tags with a controlled overlap slice (plus owner-isolated backlog pass) so acceptance can be measured under realistic merge pressure.
 - **F-IS6**: challenge long-standing unchallenged principles with explicit high-value lanes and track `unchallenged_ratio` reduction across reruns.

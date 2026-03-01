@@ -4,7 +4,7 @@ Updated: 2026-02-27 | Sessions: 96
 ## What this domain knows
 - **33 NK lessons** in `memory/lessons/` (L-025, L-029, L-033, L-035, L-037, L-039, L-041–L-066, L-077, L-172, L-174, L-178, L-179, L-183, L-184)
 - **Key beliefs**: B9 (K_avg×N+Cycles predicts maintenance, OBSERVED), B10 (cycles predict unresolvable bugs, OBSERVED)
-- **Active frontiers**: 0 — F9-NK RESOLVED S357 (K=2.0 smooth crossing N=554, chaos framing REJECTED, L-618); F75 RESOLVED S306 (K_avg IS decision variable). Open remaining: NK to human codebases (HQ-2), fix expert-swarm FRAGMENT.
+- **Active frontiers**: 1 — F-NK5 (session-type citation density, items #1-#2 open). F9-NK RESOLVED S357; F75 RESOLVED S306. Open remaining: NK to human codebases (HQ-2), fix expert-swarm FRAGMENT.
 
 ## Lesson themes
 
