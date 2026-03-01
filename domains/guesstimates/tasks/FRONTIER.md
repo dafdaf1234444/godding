@@ -6,6 +6,7 @@ Seeded: S302 | 2026-02-28 | Active: 3
 
 - **F-GUE1**: Can the swarm apply Fermi decomposition to estimate its own performance metrics (S302)
   (token efficiency, lesson half-life, duplication rate) with accuracy better than ±1 OOM?
+  **S391 HARDENING**: 2/2 valid comparisons within 1 OOM. Half-life: Fermi 8, actual 15 (log10=0.27). Commits/session: Fermi 5, actual 7.92 (log10=0.20). Duplication rate measurement failed (Jaccard on titles = 0, method too strict). Fermi viable as cheap substitute when structural priors exist. L-782.
   **Stakes**: If YES, swarm gains internal self-measurement without instrumentation — decompose a
   hard metric into observable sub-quantities, multiply, compare to measured proxy-K. If the
   guesstimate lands within an order of magnitude, this is a cheap substitute for formal measurement

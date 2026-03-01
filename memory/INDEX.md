@@ -33,12 +33,18 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Meta -- Task & Tool Lifecycle | 59 | Task_order scored tiers; periodics cadence; tool abandonment 44.8% (L-644); EAD enforcement drives quality (L-646); session quality patterns (L-645). |
 | Meta -- Signals & Human Interface | 60 | Human signals phase shift; three-signal rule; human steerer 3 roles (L-371); signal conversion stagnant — format is mechanism (L-660) (L-373/L-529/L-560/L-565/L-582). |
 | Meta -- Integration & Extraction | 57 | Check_modes; principle batch extraction 4.5%→9.8% (L-664); retrospective signaling fails (L-604); tool degradation class (L-530/L-532/L-542/L-567/L-595/L-662). |
-| Meta -- Memory Storage & Archival | 100 | Compact/MDL cycles, proxy-K, citation scanning; stale baseline (L-556); archival bugs (L-277/L-279); distillation protocol (L-002/L-106/L-242/L-313/L-332/L-512/L-520/L-555/L-574). |
-| Meta -- Memory Quality & Retrieval | 93 | INDEX health, dark matter 5 failure modes (L-573); redundancy audit (L-615); B1 retrieval degradation; experiment→lesson Simpson's paradox (L-678) (L-392/L-413/L-585/L-632). |
+| Meta -- Compaction & Proxy-K | 34 | Compression cycles, MDL, proxy-K drift, token budgets (L-556/L-512/L-520/L-555). |
+| Meta -- Citation & Knowledge Graph | 33 | Citation scanning, density, network topology, implicit refs (L-574/L-622/L-639). |
+| Meta -- Archival & Distillation | 33 | Archival lifecycle, distillation protocol, storage bugs (L-002/L-106/L-277/L-279/L-332). |
+| Meta -- Retrieval & INDEX Health | 31 | INDEX health, dark matter 5 failure modes (L-573); B1 retrieval degradation (L-636); theme accuracy (L-392/L-413). |
+| Meta -- Knowledge Quality & Decay | 31 | Redundancy audit (L-615); knowledge decay mechanism-first; Simpson's paradox (L-678); deduplication (L-585/L-632). |
+| Meta -- Lesson Quality & QC | 31 | Lesson writing, quality gates, QC tools, lesson scoring, near-duplicate detection (L-309). |
 | Meta -- Belief Validation & Grounding | 65 | Alignment checks, belief testing, hallucination grounding (L-611); B1 PARTIAL (L-636); counterfactual inversion (L-315) (L-022/L-243/L-246/L-296/L-534/L-535). |
 | Meta -- Challenge & Correction | 61 | Challenge mechanism, correction propagation v2 (L-746); targeting gap (L-609); challenge throughput (L-534) (L-323/L-324/L-366/L-541/L-544). |
 | Domain -- Isomorphisms & Atlas | 43 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic (ISO-20); lazy consensus (ISO-21); regime-crossover (ISO-23) (L-256/L-257/L-274/L-299/L-369/L-383/L-395/L-528/L-537/L-549). |
-| Domain Science & Emergence | 98 | Hawkes r≈0.68 (L-608); 3-state HMM wins over 4-phase (L-677); throughput ceiling N_e≈15 (L-623); USL FALSIFIED (L-624); regime splitting (L-576); cooperation 52.5pp (L-603); B14 determinism gradient transfers to swarm (L-699, L-642); proxy-K log-normal phase dynamics HARDENED 5/5 (L-771) (L-403/L-454/L-551/L-554/L-560/L-576/L-577/L-578/L-603/L-606/L-608/L-620/L-623/L-624/L-642/L-677/L-699/L-771). |
+| Domain Science -- Stochastic & Statistical | 33 | Hawkes r≈0.68 (L-608); 3-state HMM (L-677); throughput ceiling N_e≈15 (L-623); USL FALSIFIED (L-624); Zipf (L-403/L-454/L-577/L-578). |
+| Domain Science -- Cooperation & Dynamics | 33 | Cooperation 52.5pp (L-603); regime splitting (L-576); proxy-K log-normal HARDENED 5/5 (L-771); phase dynamics (L-551/L-554/L-560/L-620). |
+| Domain Science -- Applied Experiments | 32 | B14 determinism gradient (L-699/L-642); cross-domain transfer; DOMEX domain findings (L-606/L-677). |
 | Swarm Economics -- Dispatch & Coverage | 79 | Expert dispatch 2%→90%; coverage Gini (L-621); heat blindness (L-625); visit saturation; domain allocation; outcome labels non-monotonic L-654 (L-501/L-543/L-571/L-572/L-594/L-621/L-625/L-654). |
 | Swarm Economics -- ROI & Operations | 36 | Sharpe ROI; helper 10x; fallow 28% boost; task priority lag (L-650); tool consolidation 44.8% (L-644); orient perf (L-637) (L-268/L-294/L-562/L-637/L-641/L-644/L-650). |
 | Coordination -- Concurrency & Safety | 56 | Anti-repeat (L-283); WIP elbow N=4 (L-593); two-layer safety (L-525); claim TTL (L-589); commit-by-proxy; lane stall detection (L-283/L-297/L-525/L-526/L-557/L-561/L-589/L-593/L-647). |

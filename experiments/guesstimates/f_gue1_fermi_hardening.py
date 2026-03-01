@@ -119,46 +119,35 @@ def measure_ground_truth():
     }
 
     # --- Ground truth 2: Lesson citation half-life ---
-    # For each lesson, find when it was last cited (max session gap from creation)
-    # Then compute median "active window" = sessions between creation and last citation
-    cite_windows = []
+    # Read all lessons once, build citation graph, compute active windows
+    lesson_data = {}  # lid -> (session, text)
     for lf in lessons:
         try:
             text = lf.read_text()
-            lid = lf.stem  # e.g. "L-772"
-            # Get lesson creation session from text
+            lid = lf.stem
             s_match = re.search(r"Session:\s*S?(\d+)", text)
-            if not s_match:
-                continue
-            created_session = int(s_match.group(1))
-
-            # Find all lessons that cite this one
-            lid_num = re.search(r"L-(\d+)", lid)
-            if not lid_num:
-                continue
-            cite_pattern = f"L-{lid_num.group(1)}"
-
-            # Search other lessons for citations
-            last_citer_session = created_session
-            for other_lf in lessons:
-                if other_lf == lf:
-                    continue
-                try:
-                    other_text = other_lf.read_text()
-                    if cite_pattern in other_text:
-                        o_match = re.search(r"Session:\s*S?(\d+)", other_text)
-                        if o_match:
-                            o_session = int(o_match.group(1))
-                            if o_session > last_citer_session:
-                                last_citer_session = o_session
-                except Exception:
-                    pass
-
-            active_window = last_citer_session - created_session
-            if active_window > 0:
-                cite_windows.append(active_window)
+            if s_match:
+                lesson_data[lid] = (int(s_match.group(1)), text)
         except Exception:
             pass
+
+    # Build citation edges: for each lesson, find all L-NNN references
+    cite_windows = []
+    last_cited_session = {}  # lid -> max session of any citer
+    for lid, (session, text) in lesson_data.items():
+        last_cited_session.setdefault(lid, session)
+        # Find all L-NNN citations in this lesson's text
+        cited = set(re.findall(r"\bL-(\d+)\b", text))
+        for cited_num in cited:
+            cited_lid = f"L-{cited_num}"
+            if cited_lid != lid and cited_lid in lesson_data:
+                if session > last_cited_session.get(cited_lid, 0):
+                    last_cited_session[cited_lid] = session
+
+    for lid, (created, _) in lesson_data.items():
+        active_window = last_cited_session.get(lid, created) - created
+        if active_window > 0:
+            cite_windows.append(active_window)
 
     if cite_windows:
         cite_windows.sort()

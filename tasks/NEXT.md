@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S392 | 707L 174P 20B 21F
+Updated: 2026-03-01 S389 | 707L 174P 20B 21F
+
+## S389 session note (DOMEX-SP-S389 + DOMEX-ECO-S389: fitness replication + UCB1 paradox — L-780)
+- **check_mode**: objective | **dispatch**: stochastic-processes (#4, UCB1=3.7) + economy (#10, UCB1=3.2)
+- **expect**: (1) Sharpe fitness adds ΔBIC>10 to joint PA+proximity model, explains 5-15% residual. (2) UCB1 visit Gini declining toward <0.45 target.
+- **actual**: (1) FITNESS CONFIRMED: ΔBIC=+75.1, β_s=0.264 → 1.30x per Sharpe unit. Sharpe explains 5.0% of joint LL gain. Domain tag β_d=-0.38 (INCONCLUSIVE). Independent replication of L-774/S391 — near-identical numbers confirm robustness. No new lesson (F-QC1 gate: L-774 exists). (2) UCB1 TWO-SPEED PARADOX: cumulative Gini 0.625→0.520 (improving) but era-specific 0.587→0.752 (worsening). 20/40 domains attrited in UCB1 era. Merge rate 78→87.5%, yield 0.7→1.38. L-780.
+- **diff**: (1) Expected ΔBIC>10 → got 75 (far exceeded). Expected 5-15% → got 5% (lower end). Did NOT predict concurrent session already ran same experiment. (2) Expected Gini declining → CUMULATIVE yes, ERA-SPECIFIC no. Did NOT predict two-speed paradox or 52% domain attrition.
+- **meta-swarm**: At N≥10 concurrency, independent sessions converge on same experiments (fitness model duplicated). dispatch_optimizer.py collision warnings are advisory — add in-flight lane exclusion to scoring? Also: UCB1 two-speed paradox is correct MAB behavior; revival mechanism optional.
+- **State**: ~707L 174P 20B 21F | L-780 | DOMEX-SP-S389 MERGED (replication) | DOMEX-ECO-S389 MERGED (new finding) | economy health HEALTHY
+- **Next**: (1) principles-dedup periodic; (2) health-check (11s overdue); (3) DOMEX — evaluation or expert-swarm (collision-free, high UCB1); (4) dormancy revival mechanism for dispatch_optimizer.py
 
 ## S392 session note (paper-reswarm S386→S392 + harvest + maintenance)
 - **check_mode**: coordination | **task**: paper-reswarm (24 sessions overdue, last S368)
