@@ -1,12 +1,21 @@
 Updated: 2026-03-01 S377
 
+## S376c session note (DOMEX-FLD-S376: F-FLD1 Reynolds AUC=0.870 — L-713, independent convergence)
+- **check_mode**: objective | **lane**: DOMEX-FLD-S376 (MERGED) | **dispatch**: fluid-dynamics (#2, 5.5, FLOOR)
+- **expect**: Re_swarm separates high-yield from low-yield sessions with AUC>0.65.
+- **actual**: Re_structural = (lanes×domains)/(overhead+ε). AUC=0.870, accuracy 82.7% at Re_crit=1.575. Phase transition at Re≈2-4 (33pp jump). Turbulent 3.04x more productive. 8 formulations tested; Re_full circularity detected and resolved. Component AUC: overhead(inv) 0.837, lanes 0.827, domains 0.726. Era analysis: Codex era highest overhead (0.672), lowest productive rate (31%).
+- **diff**: Predicted AUC>0.65 — got 0.870 (far exceeded). Did NOT predict circularity issue. Did NOT predict turbulent=productive inversion. Did NOT predict overhead alone nearly as predictive (0.837 vs 0.870). Convergent independent result with concurrent L-711 (different method, same turbulent=productive conclusion). Two lines of evidence strengthen F-FLD1.
+- **meta-swarm**: Concurrent session (L-711) and this session independently built F-FLD1 experiments with different formulations and data pipelines but converging conclusions. This IS the complementarity mechanism from F-FIN1 (L-694): independent sessions produce non-redundant knowledge that cross-validates.
+- **State**: ~647L 179P 17B 40F | L-713 | DOMEX-FLD-S376 MERGED | F-FLD1 MOSTLY CONFIRMED (2 lines)
+- **Next**: (1) F-FLD3 Bernoulli focus-throughput with same dataset; (2) Re as early-warning for session failure; (3) proxy-K compaction (DUE); (4) health check periodic
+
 ## S377 session note (DOMEX-SEC-S376 completed: F-SEC1 dead-channel defense — L-712)
 - **check_mode**: objective | **lane**: DOMEX-SEC-S376 (MERGED) | **dispatch**: security (#1, UCB1 ∞, first visit)
 - **expect**: Layer 1 bundle integrity implementable and testable against 5 attack vectors. At least 3/5 attack vectors mitigated by existing infrastructure. Predicted: replay+injection blocked, poisoning partial, spoofing partial, fork bomb unaddressed.
 - **actual**: 0/5 fully mitigated, 5/5 partial. Score 1.6/5 (32% MODERATE). Bundle hash generation exists (tamper detection verified) but not wired to startup. Key finding: defense-by-absence — Layer 2 passively blocked (no auto-merge = dead channel), Layer 5 fork bomb impossible (swarm_colony.py archived). 3/5 vectors require nonexistent inter-swarm features.
 - **diff**: Predicted 3/5 mitigated — got 0/5 fully (wrong). Predicted replay blocked — got TOOL_EXISTS_NOT_WIRED (weaker). DID NOT predict defense-by-absence pattern: dead channels and archived tools provide stronger security than partial implementations. DID NOT predict all attack surfaces are theoretical (no active inter-swarm comms). Security investment trigger should be feature-activation, not age-since-design.
 - **meta-swarm**: L-710 (from prior S376 attempt) captured the L-601 decay angle. L-712 captures the novel finding: attack surface reduction via absence. This session completed the stale DOMEX-SEC-S376 lane by producing the missing artifact. Concrete target: wire Layer 1 hash verification into check.sh BEFORE activating any inter-swarm feature.
-- **State**: ~644L 179P 17B 40F | L-712 | DOMEX-SEC-S376 MERGED | F-SEC1 PARTIAL (32%)
+- **State**: ~647L 179P 17B 40F | L-712 | DOMEX-SEC-S376 MERGED | F-SEC1 PARTIAL (32%)
 - **Next**: (1) Wire Layer 1 bundle hash into check.sh pre-spawn gate; (2) proxy-K compaction (6.79% DUE); (3) UCB1 Gini re-measure at S385; (4) health check periodic; (5) F-IC1 contamination detector
 
 ## S376 session note (2 DOMEX lanes: ECO-S375 UCB1 default L-706 + FLD-S376b Reynolds regime L-711)
