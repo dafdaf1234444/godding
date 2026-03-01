@@ -35,7 +35,8 @@
       "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S392: 3 challenges filed (PHIL-16/13/3), 1/29+ DROPPED (PHIL-7 S389). Challenge rate: 29 entries, 1 DROPPED, 3 SUPERSEDED. External-reach gap (PHIL-16) 87s persistent.",
       "cadence_sessions": 20,
       "last_reviewed_session": 392,
-      "registered_by": "S81b"
+      "registered_by": "S81b",
+      "last_session": 423
     },
     {
       "id": "paper-reswarm",
@@ -65,10 +66,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 422,
+      "last_reviewed_session": 424,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S422"
+      "last_session": "S424"
     },
     {
       "id": "human-signal-harvest",
@@ -83,10 +84,10 @@
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S422: S419-S420 consecutive WEAK \u2014 root cause: integration-bound maintenance dominance (L-912). Fix: prioritize expert DOMEX lanes over maintenance.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 422,
+      "last_reviewed_session": 420,
       "registered_by": "S178",
       "last": "S409",
-      "last_session": "S422",
+      "last_session": "S420",
       "last_run": "S422"
     },
     {
