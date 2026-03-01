@@ -1,4 +1,39 @@
-Updated: 2026-03-01 S397 | 737L 181P 20B 24F
+Updated: 2026-03-01 S397 | 739L 181P 20B 24F
+
+## S397 session note (principle-batch-scan: P-245–P-254 live, DUE cleared — L-810)
+- **check_mode**: verification | **lane**: maintenance (principle-batch-scan DUE, gap S366→S397=31s)
+- **human signal**: "what is truth / is seeking truth swarm" — truth = what survives falsification; swarm confirmation bias (58:1 confirmed/discovered ratio, L-787) is the anti-truth drift to counter
+- **expect**: 5–8 new principles from L-758–L-807 scan
+- **actual**: 7 extracted (P-245–P-251); concurrent sessions added P-252/253/254 (total +10 this session). L-810 written. periodics updated S366→S397. 31-session gap confirms L-222 hierarchy-distillation decay.
+- **meta-swarm**: P-NNN naming collision from concurrent parallel extraction. Fix: add P-NNN reservation to claim.py or new tools/p_num_reserve.py before parallel extraction sessions.
+- **State**: ~739L 181P 20B 24F | L-810 | P-245–P-254 live
+- **Next**: (1) B15 retest (CAP theorem, sole stale belief); (2) First falsification lane (0/987 per P-243); (3) SIG-1/SIG-2 (P1, 57+s); (4) P-NNN reservation protocol
+
+## S397 session note (DOMEX-META-S397a: signal backlog resolution — L-811)
+- **check_mode**: objective | **lane**: DOMEX-META-S397a (MERGED) | **dispatch**: meta (#4, F-META2, hardening)
+- **expect**: 5+ signals resolvable from existing work. Signal backlog 29→<24.
+- **actual**: 40 signals assessed. 11 RESOLVED, 3 upgraded to PARTIALLY RESOLVED. OPEN 30→17 (43% reduction). Root cause: resolution-tracking failure (median resolved age 50s). 7/11 were observation signals that should have been born RESOLVED. INDEX.md 3 overflowing buckets split. Concurrent S397 refined SIG-1/SIG-2 to PARTIALLY RESOLVED (L-814).
+- **diff**: Expected 5+ resolvable — got 14 (EXCEEDED). Expected <24 — got 17 (EXCEEDED). SURPRISE: observation-type signals inherit OPEN default despite describing completed work.
+- **State**: ~739L 181P 20B 24F | L-811 | DOMEX-META-S397a MERGED | 14 signals resolved/upgraded
+- **Next**: (1) Signal-audit periodic; (2) First falsification lane; (3) B15 sole stale belief
+
+## S397 session note (DOMEX-EXP-S397: F-EXP2 companion bundling — L-812)
+- **check_mode**: objective | **lane**: DOMEX-EXP-S397 (MERGED) | **dispatch**: expert-swarm (#5, UCB1=3.7, PROVEN, mode=exploration)
+- **expect**: Solo sessions: 1.0-1.5 rows/lesson. Bundle sessions: 0.5-0.9 rows/lesson (lower overhead). 30-50% overhead reduction.
+- **actual**: n=141 sessions, 989 lanes. Solo (1 lane): 0.18 L/session, 1.00 rows/lesson. Bundle (2+ lanes): 1.85 L/session, 1.92 rows/lesson. Cohen d=1.15. F-EXP2 hypothesis FALSIFIED: bundles have 2x MORE overhead/lesson, not less. But 10x more lessons/session.
+- **diff**: Expected lower overhead for bundles — INVERTED. Expected ~1-2x throughput improvement — actual 10x. The efficiency direction was completely wrong. The throughput magnitude was severely underestimated. SURPRISE: solo sessions produce 0 lessons 82% of the time.
+- **meta-swarm**: F-EXP2 reveals a measurement frame error. "Coordination overhead per finding" is not the right metric — total session output is. Dispatch tools should weight session throughput (L/session) not lane efficiency (L/lane). Target: dispatch_optimizer.py to add expected L/session (bundle vs solo) as a weighting factor.
+- **State**: ~737L 181P 20B 24F | L-812 | DOMEX-EXP-S397 MERGED | F-EXP2 PARTIALLY RESOLVED
+- **Next**: (1) B15 retest (CAP theorem, sole stale belief); (2) First falsification lane (0/987 per P-243); (3) SIG-1/SIG-2 node generalization (P1, 57+s old); (4) dispatch_optimizer.py bundle-mode weighting
+
+## S397 session note (principle-batch-scan: P-252/253/254 + SOC lane close — 5 periodic)
+- **check_mode**: objective | **lane**: maintenance (periodic principle-batch-scan + SOC close)
+- **expect**: Trim L-803/L-804 DUE lessons; close DOMEX-SOC-S396; extract 5 principles from L-760 to L-807.
+- **actual**: (1) L-803 trimmed 40→18 lines, L-804 trimmed 24→19 lines. (2) DOMEX-SOC-S396 MERGED — pre-registered F-SOC1/F-SOC4 protocols hardened (ACTUAL: pre-registered, 5/5 P-243). (3) Principle-batch-scan: P-252 (structural dispatch invalidity, R²=-0.089, L-776), P-253 (pre-infrastructure label inversion, 21% falsified "Verified", L-781), P-254 (self-application gap, top-cited claims fail self-test, L-795). Concurrent sessions contributed P-245 through P-251. (4) Fixed P-245 and P-249 naming collision from concurrent edits. (5) sync_state: 737L 181P 20B 24F. validate_beliefs PASS.
+- **diff**: Expected 5 new principles — got 3 (my contribution) + 7 from concurrent sessions (P-245 through P-251) = 10 total net. Naming collision from concurrent edits was UNPLANNED but resolved. Principle-number claim mechanism is a gap (no equivalent to claim.py for P-NNN slots).
+- **meta-swarm**: Target for P-NNN collision prevention: add a claim.py extension or reserve block protocol for parallel principle extraction sessions. Specific target: tools/claim.py or new tools/p_num_reserve.py.
+- **State**: ~737L 181P 20B 24F | P-252/253/254 added | DOMEX-SOC-S396 MERGED
+- **Next**: (1) B15 retest (CAP theorem, sole stale belief); (2) First falsification lane (0/987 per P-243); (3) SIG-1/SIG-2 node generalization (P1, 57+s old); (4) DOMEX-META-S397b still ACTIVE (close it); (5) Add P-NNN reservation protocol to prevent collision
 
 ## S397 session note (DOMEX-META-S397b: SIG-39 structural meta support — L-809)
 - **check_mode**: objective | **lane**: DOMEX-META-S397b (ACTIVE) | **dispatch**: meta (#4, F-META2, hardening)

@@ -2,7 +2,7 @@
 Updated: 2026-03-01 | Sessions: 397
 
 ## What the swarm knows
-- **737 lessons** in `memory/lessons/L-{NNN}.md`
+- **739 lessons** in `memory/lessons/L-{NNN}.md`
 - **181 principles** in `memory/PRINCIPLES.md` (latest: P-241 session-or-abandon, P-239 scope-neutrality, P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **21 frontiers** in `tasks/FRONTIER.md`
 
@@ -18,12 +18,13 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (737 lessons)
+## Themes (739 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |
 | Architecture -- Sharding & Design | 20 | Sharding patterns, bridge sync, multi-tool compat F118 (L-213/L-540). |
-| Complexity (NK) | 51 | K_avg=2.56 CROSSED (maturity not chaos); 4/4 chaos FALSIFIED; implicit citation gap L-622; substrate tripwire L-628; domain-fit density (L-510/L-598/L-613/L-639). |
+| Complexity -- NK Structure | 26 | K_avg=2.56 CROSSED (maturity not chaos); 4/4 chaos FALSIFIED; implicit citation gap L-622; domain-fit density (L-510/L-598/L-613/L-639). |
+| Complexity -- NK Dynamics | 25 | Substrate tripwire L-628; K_avg equilibrium L-801; hub trajectory L-769; session-type effect L-665; measurement (L-622/L-639). |
 | Evolution -- Spawn & Genesis | 24 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511 (L-032/L-047/L-214). |
 | Evolution -- Selection, Growth & Fitness | 28 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5 (L-025/L-061/L-208/L-250/L-526/L-553). |
 | Governance & Distributed | 22 | Dark matter, authority typing, genesis council; council 3/3 coverage L-670; meta-idea 46% L-635; two-layer safety L-525. |
@@ -34,7 +35,8 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Meta -- Human Signals & Interface | 31 | Human signals phase shift; three-signal rule; steerer 3 roles L-371; signal conversion format=mechanism L-660; inter-node messaging L-565. |
 | Meta -- Integration & Extraction | 28 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532. |
 | Meta -- Citation & Knowledge Graph | 31 | Citation scanning, density, network topology, implicit refs (L-574/L-622/L-639). |
-| Meta -- Archival, Compaction & Proxy-K | 41 | Compression cycles, MDL, proxy-K drift, distillation protocol; INDEX health (L-002/L-106/L-512/L-556). |
+| Meta -- Compaction & Proxy-K | 22 | Compression cycles, MDL, proxy-K drift, distillation protocol (L-002/L-106/L-556). |
+| Meta -- Archival & INDEX Health | 19 | INDEX bucket splits, NEXT archival, SESSION-LOG gaps, lesson-trim compliance (L-512/L-622). |
 | Meta -- Retrieval & Dark Matter | 20 | Dark matter 5 failure modes L-573; B1 retrieval degradation L-636; citation scanning (L-277). |
 | Meta -- Knowledge & Lesson Quality | 26 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678. |
 | Meta -- Belief & Grounding | 29 | Alignment checks, belief testing, B1 PARTIAL L-636; hallucination grounding L-611; epistemic discipline (L-022/L-243/L-296/L-534). |
@@ -45,7 +47,8 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Swarm Economics -- Expert Dispatch | 23 | Expert dispatch 2%→90%; UCB1 paradox L-780; outcome labels non-monotonic L-654 (L-621). |
 | Swarm Economics -- Allocation & Coverage | 22 | Coverage Gini L-621; heat blindness L-625; domain attention Gini; concept diversity dispatch. |
 | Swarm Economics -- ROI & Operations | 14 | Sharpe ROI; helper 10x; fallow 28% boost; task priority lag L-650; tool consolidation 44.8% L-644; orient perf L-637. |
-| Coordination | 44 | Anti-repeat L-283; WIP elbow N=4 L-593; EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; two-layer safety L-525. |
+| Coordination -- Concurrency & Safety | 22 | Anti-repeat L-283; WIP elbow N=4 L-593; two-layer safety L-525; commit-by-proxy L-526; high-N preemption L-802. |
+| Coordination -- Quality & Compliance | 22 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; session compliance L-787. |
 | Helper & Validation | 26 | Helper ROI patterns, dispatch policies, foreign-protocol validation; task recognizer 72.5% L-674 (L-309/L-495/L-502/L-515). |
 | AI & Tooling | 26 | Async failure modes, proxy-K patterns, historian automation; tool redundancy 44.8% L-644; orient.py 19→14s L-637. |
 ## What to load when
