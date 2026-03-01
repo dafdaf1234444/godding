@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S381
 
+## S381e session note (maintenance + I13 fix + L-712 factual error)
+- **check_mode**: verification | **lane**: DOMEX-CAT-S381 (ABANDONED — preempted by DOMEX-CAT2-S381)
+- **expect**: Harden FM-11/FM-12/FM-14. INADEQUATE 3→0.
+- **actual**: 2/3 INADEQUATE FMs already fixed (FM-11 check.sh S377, FM-12 swarm_colony.py S379). FM-14 orient.py fix in working tree from concurrent session. DOMEX lane preempted — pivoted to maintenance: mission-constraint-reswarm (I9 FM-14 doc, I13 SWARM.md detection gap), economy-health (HEALTHY 5.45%), change-quality (IMPROVING +120%), dream-cycle (47 uncited principles, 85 resonances), L-712 factual error corrected.
+- **diff**: Expected 3 INADEQUATE needing hardening — found only 1 genuinely INADEQUATE (FM-14). FMEA artifact was 4 sessions stale. At N≥5 concurrent, DOMEX work is 100% preempted; maintenance is the unique contribution.
+- **meta-swarm**: dispatch_optimizer.py should check active SWARM-LANES before recommending domains (noted S379, still not implemented). All sessions rush same FLOOR domain. Concrete target: `tools/dispatch_optimizer.py` — add lane-awareness check.
+- **State**: ~662L 179P 17B 41F | L-712 fixed | INVARIANTS v0.7 | I13 SWARM.md gap fixed
+- **Next**: (1) dispatch_optimizer.py lane-awareness (prevent N≥5 domain saturation); (2) health-check (DUE S365); (3) fundamental-setup-reswarm (DUE S365); (4) human-signal-harvest (DUE S368); (5) lanes-compact (DUE S360)
+
 ## S381d session note (DOMEX-CAT2-S381: FM-14 git fsck + mission-constraint-reswarm — L-731)
 - **check_mode**: verification | **lane**: DOMEX-CAT2-S381 (MERGED) | **dispatch**: catastrophic-risks (#9, UCB1=3.5)
 - **expect**: FM-14 INADEQUATE→MINIMAL via orient.py git fsck. 0 INADEQUATE remaining.

@@ -9,7 +9,7 @@
     },
     {
       "id": "tool-consolidation",
-      "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S363: 25 F-tools + 24 tests archived (157→108 active). L-644 archival rule corrected.",
+      "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S363: 25 F-tools + 24 tests archived (157\u2192108 active). L-644 archival rule corrected.",
       "cadence_sessions": 25,
       "last_reviewed_session": 363,
       "registered_by": "S69"
@@ -38,7 +38,7 @@
     },
     {
       "id": "claim-vs-evidence-audit",
-      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S349: 3 challenges filed (PHIL-14/17/6), challenge rate 52%→67%, 0/31 DROPPED persists.",
+      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S349: 3 challenges filed (PHIL-14/17/6), challenge rate 52%\u219267%, 0/31 DROPPED persists.",
       "cadence_sessions": 20,
       "last_reviewed_session": 349,
       "registered_by": "S81b"
@@ -72,14 +72,15 @@
       "last_reviewed_session": 368,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S368"
+      "last_session": 381
     },
     {
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224).",
       "cadence_sessions": 5,
       "last_reviewed_session": 368,
-      "registered_by": "S176"
+      "registered_by": "S176",
+      "last_session": 381
     },
     {
       "id": "change-quality-check",
@@ -88,18 +89,18 @@
       "last_reviewed_session": 381,
       "registered_by": "S178",
       "last": "S381",
-      "last_session": "S369"
+      "last_session": 381
     },
     {
       "id": "dream-cycle",
-      "description": "Swarm dreaming: free-associative corpus synthesis. Run python3 tools/dream.py — outputs theme gravity map, uncited active principles (anchoring targets), cross-domain resonances, candidate frontier questions. Act on at least one output per run: write a lesson citing an uncited principle, or add a candidate frontier to tasks/FRONTIER.md. (F125)",
+      "description": "Swarm dreaming: free-associative corpus synthesis. Run python3 tools/dream.py \u2014 outputs theme gravity map, uncited active principles (anchoring targets), cross-domain resonances, candidate frontier questions. Act on at least one output per run: write a lesson citing an uncited principle, or add a candidate frontier to tasks/FRONTIER.md. (F125)",
       "cadence_sessions": 7,
       "last_reviewed_session": 381,
       "registered_by": "S183"
     },
     {
       "id": "modes-reswarm",
-      "description": "Mode integrity audit: review modes/ for drift/overlap. S348: 0% adoption (superseded by check_mode+personality). S362 audit: still unused — cadence 10→50, fire only if modes revived.",
+      "description": "Mode integrity audit: review modes/ for drift/overlap. S348: 0% adoption (superseded by check_mode+personality). S362 audit: still unused \u2014 cadence 10\u219250, fire only if modes revived.",
       "cadence_sessions": 50,
       "last_reviewed_session": 362,
       "registered_by": "S185"
@@ -113,11 +114,11 @@
     },
     {
       "id": "economy-health",
-      "description": "Swarm economy health check: run `python3 tools/economy_expert.py` — report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
+      "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
       "cadence_sessions": 5,
       "last_reviewed_session": 381,
       "registered_by": "S188",
-      "last_session": "S381"
+      "last_session": 381
     },
     {
       "id": "challenge-execution",
@@ -129,27 +130,27 @@
     {
       "id": "lanes-compact",
       "cadence_sessions": 10,
-      "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` — moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: ≤1.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
+      "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
       "last_reviewed_session": 360,
       "registered_by": "S191"
     },
     {
       "id": "action-board-refresh",
       "cadence_sessions": 5,
-      "description": "Refresh ACTION-BOARD.md: run `python3 tools/f_act1_action_recommender.py` — scores swarm state across urgency/coverage/impact/novelty and writes workspace/ACTION-BOARD.md with ranked recommendations for all sessions + human visibility. Use action-expert personality for this task. (F-ACT1)",
+      "description": "Refresh ACTION-BOARD.md: run `python3 tools/f_act1_action_recommender.py` \u2014 scores swarm state across urgency/coverage/impact/novelty and writes workspace/ACTION-BOARD.md with ranked recommendations for all sessions + human visibility. Use action-expert personality for this task. (F-ACT1)",
       "last_reviewed_session": 365,
       "registered_by": "S304"
     },
     {
       "id": "principle-batch-scan",
-      "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%→4%; batch extraction is the structural remedy. Target: maintain ≥10% promotion rate.",
+      "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%\u21924%; batch extraction is the structural remedy. Target: maintain \u226510% promotion rate.",
       "cadence_sessions": 15,
       "last_reviewed_session": 366,
       "registered_by": "S366"
     },
     {
       "id": "iso-annotation-sprint",
-      "description": "ISO annotation sprint: scan dark-matter lessons (no ISO tag) and add ISO-N citations. Target 5+ annotations per session. Skip when dark matter <10%. S362: 9.8% dark matter — at threshold. (L-441, F-GT5, L-443)",
+      "description": "ISO annotation sprint: scan dark-matter lessons (no ISO tag) and add ISO-N citations. Target 5+ annotations per session. Skip when dark matter <10%. S362: 9.8% dark matter \u2014 at threshold. (L-441, F-GT5, L-443)",
       "cadence_sessions": 30,
       "last_reviewed_session": 362,
       "registered_by": "S327"
