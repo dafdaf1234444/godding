@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S402 | 775L 200P 20B 21F
+Updated: 2026-03-01 S402 | 778L 200P 20B 21F
 
 ## S402 session note (DOMEX-AI-S402+CTL-S402: F-AI1 meta-analysis + F-CTL2 floor falsified + stall-detection fix — L-853, L-854)
 - **check_mode**: objective | **lanes**: DOMEX-AI-S402 (MERGED) + DOMEX-CTL-S402 (MERGED) | **dispatch**: ai #5 (F-AI1 hardening) + control-theory CLOSE (F-CTL2 hardening), bundle mode
