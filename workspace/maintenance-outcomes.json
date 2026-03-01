@@ -6995,7 +6995,7 @@
     },
     {
       "session": 401,
-      "timestamp": "2026-03-01T19:06:30Z",
+      "timestamp": "2026-03-01T19:07:35Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7222,17 +7222,10 @@
           "severities": [
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
         }
       },
       "totals": {
-        "NOTICE": 12,
+        "NOTICE": 11,
         "PERIODIC": 8
       }
     }
