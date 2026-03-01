@@ -135,6 +135,43 @@ def compute_drift(domain: str) -> dict:
     return result
 
 
+def check_bulletin_tiers(domain: str = None) -> list[dict]:
+    """Check Trust-Tier compliance for bulletins (F-SEC1 Layer 2).
+
+    T1: auto-trust (parent→child)
+    T2: verify drift before merge (child→parent)
+    T3: advisory only, never auto-merge (sibling→sibling)
+    """
+    bulletins_dir = ROOT / "experiments" / "inter-swarm" / "bulletins"
+    if not bulletins_dir.exists():
+        return [{"status": "NO_BULLETINS", "verdict": "N/A"}]
+
+    results = []
+    for f in sorted(bulletins_dir.glob("*.md")):
+        if domain and f.stem != domain:
+            continue
+        text = f.read_text(errors="ignore")
+        # Parse bulletin entries
+        entries = re.split(r"\n---\n", text)
+        for entry in entries:
+            tier_match = re.search(r"Trust-Tier:\s*(T[123])", entry)
+            type_match = re.search(r"Type:\s*(\S+)", entry)
+            if not type_match:
+                continue
+            btype = type_match.group(1)
+            tier = tier_match.group(1) if tier_match else "MISSING"
+            # Enforce: T3 bulletins must never trigger belief merges
+            results.append({
+                "source": f.stem,
+                "type": btype,
+                "trust_tier": tier,
+                "mergeable": tier == "T1",
+                "requires_review": tier == "T2",
+                "advisory_only": tier == "T3" or tier == "MISSING",
+            })
+    return results
+
+
 def check_all_colonies() -> list[dict]:
     """Check drift for all bootstrapped colonies."""
     results = []

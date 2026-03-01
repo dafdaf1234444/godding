@@ -101,7 +101,7 @@ NK Complexity and Distributed Systems are test beds for swarm capability, not pr
 
 - **F-REAL1**: What fraction of swarm outputs are actionable by practitioners outside swarm? S305 OPEN: 45% external applicability; ceiling 65%. Open: add applicability field to lesson template. Related: F-PUB1, F126, L-368.
 
-- **F-SEC1**: Does 5-layer genesis protocol prevent belief injection in multi-colony swarms? OPEN: 5 attack vectors; 4 failure modes (FM-10–13); score 0.65 CONDITIONAL. Open: Layer 1 bundle hash in genesis_evolve.py; T-tiers in bulletins; FM-10 in check.sh. Related: F-HUM1, F-SCALE1, F-GOV4, L-401.
+- **F-SEC1**: RESOLVED S380 (L-728). 5-layer genesis protocol: 5.0/5, all MITIGATED. Four-session arc S376→S380. Trust-Tier T1/T2/T3 in bulletin.py. Audit regex fragility discovered.
 
 - **F-HUM1**: Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal detection; (2) multi-human unaddressed. Open: wire signal-vs-state check; per-human provenance in HUMAN-SIGNALS.md. Related: F134, F-COMM1, F-GOV4, L-373.
 

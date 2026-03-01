@@ -46,6 +46,11 @@ VALID_TYPES = {
     "help-request",
     "help-response",
 }
+VALID_TIERS = {"T1", "T2", "T3"}
+# Trust-Tier semantics (F-SEC1 Layer 2, domains/security/PROTOCOL.md):
+#   T1: parent to child (trusted, no review needed)
+#   T2: child to parent (verify: check belief diff before accepting)
+#   T3: sibling to sibling (advisory only, logged not integrated)
 TYPE_PATTERN = re.compile(r"Type:\s*([a-zA-Z][a-zA-Z0-9-]*)")
 HELP_REQUEST_PATTERN = re.compile(
     r"# Bulletin from:\s*(.+?)\nDate:\s*(\S+)\nType:\s*help-request\n\n## Content\n"
@@ -102,7 +107,8 @@ def write_genesis_feedback(swarm_name: str, feedback: str):
         f"\n---\n"
         f"# Genesis Feedback from: {swarm_name}\n"
         f"Date: {date.today()}\n"
-        f"Type: genesis-feedback\n\n"
+        f"Type: genesis-feedback\n"
+        f"Trust-Tier: T2\n\n"
         f"## F107 Atom Usage\n"
         f"{feedback}\n"
     )
@@ -156,10 +162,16 @@ def genesis_report():
         print(f"{atom:<35} {u:>6} {i:>8}  {verdict}")
 
 
-def write_bulletin(swarm_name: str, bulletin_type: str, message: str):
-    """Append a bulletin to a swarm's bulletin file."""
+def write_bulletin(swarm_name: str, bulletin_type: str, message: str, tier: str = "T3"):
+    """Append a bulletin to a swarm's bulletin file.
+
+    tier: Trust-Tier (T1/T2/T3). Default T3 (advisory only, most restrictive).
+    """
     if bulletin_type not in VALID_TYPES:
         print(f"Invalid type: {bulletin_type}. Use: {sorted(VALID_TYPES)}")
+        sys.exit(1)
+    if tier not in VALID_TIERS:
+        print(f"Invalid tier: {tier}. Use: {sorted(VALID_TIERS)}")
         sys.exit(1)
 
     BULLETINS_DIR.mkdir(parents=True, exist_ok=True)
@@ -169,14 +181,15 @@ def write_bulletin(swarm_name: str, bulletin_type: str, message: str):
         f"\n---\n"
         f"# Bulletin from: {swarm_name}\n"
         f"Date: {date.today()}\n"
-        f"Type: {bulletin_type}\n\n"
+        f"Type: {bulletin_type}\n"
+        f"Trust-Tier: {tier}\n\n"
         f"## Content\n"
         f"{message}\n"
     )
 
     _append_with_lock(bulletin_file, entry)
 
-    print(f"Bulletin written to {bulletin_file}")
+    print(f"Bulletin written to {bulletin_file} (Trust-Tier: {tier})")
 
 
 def _new_request_id(swarm_name: str) -> str:
@@ -189,14 +202,14 @@ def write_help_request(swarm_name: str, need: str):
     """Write a structured help-request bulletin with a generated request id."""
     request_id = _new_request_id(swarm_name)
     message = f"Request-ID: {request_id}\nNeed: {need}"
-    write_bulletin(swarm_name, "help-request", message)
+    write_bulletin(swarm_name, "help-request", message, tier="T2")
     print(f"Help request id: {request_id}")
 
 
 def write_help_response(swarm_name: str, request_id: str, response: str):
     """Write a structured help-response bulletin linked to a request id."""
     message = f"Request-ID: {request_id}\nResponse: {response}"
-    write_bulletin(swarm_name, "help-response", message)
+    write_bulletin(swarm_name, "help-response", message, tier="T3")
     print(f"Linked response to request id: {request_id}")
 
 
@@ -330,9 +343,16 @@ def main():
 
     if cmd == "write":
         if len(sys.argv) < 5:
-            print("Usage: bulletin.py write <swarm-name> <type> <message>")
+            print("Usage: bulletin.py write <swarm-name> <type> <message> [--tier T1|T2|T3]")
             sys.exit(1)
-        write_bulletin(sys.argv[2], sys.argv[3], " ".join(sys.argv[4:]))
+        tier = "T3"
+        remaining = sys.argv[4:]
+        if "--tier" in remaining:
+            idx = remaining.index("--tier")
+            if idx + 1 < len(remaining):
+                tier = remaining[idx + 1]
+                remaining = remaining[:idx] + remaining[idx + 2:]
+        write_bulletin(sys.argv[2], sys.argv[3], " ".join(remaining), tier=tier)
 
     elif cmd == "request-help":
         if len(sys.argv) < 4:
