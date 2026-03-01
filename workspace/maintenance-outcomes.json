@@ -7232,7 +7232,7 @@
     },
     {
       "session": 412,
-      "timestamp": "2026-03-01T22:39:04Z",
+      "timestamp": "2026-03-01T22:40:01Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7330,9 +7330,11 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -7506,7 +7508,7 @@
       "totals": {
         "NOTICE": 10,
         "PERIODIC": 13,
-        "DUE": 3
+        "DUE": 4
       }
     }
   ],
