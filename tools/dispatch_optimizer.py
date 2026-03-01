@@ -64,6 +64,18 @@ COOLDOWN_MAX_PENALTY = 15.0   # strong enough to drop #1 below #2 (meta gap was 
 WAVE_DANGER_BOOST = 1.5     # 2-wave → attract 3rd wave (11% → 31% resolution)
 WAVE_COMMITTED_BOOST = 0.5  # 3-wave → approaching resolution (31% → 50%)
 
+# Mode transition matrix (L-755: mode transitions predict success, repeated modes don't)
+# exploration→hardening→resolution is the optimal 3-wave sequence.
+# exploration→exploration→exploration resolves at 12%.
+OPTIMAL_NEXT_MODE = {
+    "exploration": "hardening",
+    "hardening": "resolution",
+    "resolution": "resolution",
+}
+
+# Resolution probability by wave count (L-755, n=93 campaigns, 197 lanes)
+WAVE_RESOLUTION_PROB = {1: 0.28, 2: 0.11, 3: 0.31}  # 4+ = 0.50
+
 # Outcome feedback (F-EXP10, L-501 P1): reward consistently productive domains.
 # Closes PHIL-2 self-application gap — expert dispatch learns from its own outcomes.
 LANE_ABBREV_TO_DOMAIN = {
@@ -326,6 +338,79 @@ def _campaign_phase(waves: int) -> tuple[str, str]:
         return "committed", "continue — approaching resolution (31%)"
     else:
         return "veteran", f"sustained ({waves} waves, ~50% resolution)"
+
+
+def _wave_prescriptions(campaign_waves: dict[str, dict]) -> list[dict]:
+    """Generate per-frontier prescriptions for all unresolved campaigns (F-STR3, L-755).
+
+    Returns sorted list of {frontier, domain, waves, modes, last_mode, next_mode,
+    current_prob, next_prob, action, mode_shift_needed} dicts.
+
+    Action priority: COMMIT (escape 2-wave trap) > CLOSE (3-wave, near resolution) >
+    SUSTAIN (4+ veteran) > CONTINUE (1-wave, decide whether to invest) > NEW (0-wave).
+    """
+    ACTION_PRIORITY = {"COMMIT": 0, "CLOSE": 1, "SUSTAIN": 2, "CONTINUE": 3, "NEW": 4}
+    prescriptions = []
+    for dom, cw in campaign_waves.items():
+        for fid, fdata in cw.get("frontiers", {}).items():
+            if fdata["resolved"]:
+                continue
+            waves = fdata["waves"]
+            modes = fdata.get("all_modes", [])
+            last_mode = fdata["last_mode"]
+            mode_repeat = fdata.get("mode_repeat", False)
+
+            next_mode = OPTIMAL_NEXT_MODE.get(last_mode, "hardening")
+            current_prob = WAVE_RESOLUTION_PROB.get(waves, 0.50 if waves >= 4 else 0.28)
+            next_prob = WAVE_RESOLUTION_PROB.get(waves + 1, 0.50 if waves + 1 >= 4 else 0.28)
+
+            if waves == 0:
+                action = "NEW"
+            elif waves == 1:
+                action = "CONTINUE"
+            elif waves == 2:
+                action = "COMMIT"
+            elif waves == 3:
+                action = "CLOSE"
+            else:
+                action = "SUSTAIN"
+
+            prescriptions.append({
+                "frontier": fid, "domain": dom, "waves": waves,
+                "modes": modes, "last_mode": last_mode, "next_mode": next_mode,
+                "current_prob": current_prob, "next_prob": next_prob,
+                "action": action, "mode_shift_needed": mode_repeat,
+            })
+    prescriptions.sort(key=lambda p: (ACTION_PRIORITY.get(p["action"], 9), -p["waves"]))
+    return prescriptions
+
+
+def _print_wave_plan(prescriptions: list[dict]) -> None:
+    """Print the prescriptive wave plan table."""
+    if not prescriptions:
+        print("\n--- Wave Plan (F-STR3, L-755) ---")
+        print("  No unresolved campaigns found.")
+        return
+    print(f"\n--- Wave Plan (F-STR3, L-755) — {len(prescriptions)} unresolved campaigns ---")
+    print(f"  {'Action':<8} {'Domain':<22} {'Frontier':<10} {'W':>2} {'Modes':<30} {'Next':<12} {'P(now)':>6} {'P(+1)':>6}")
+    print(f"  " + "-" * 100)
+    for p in prescriptions:
+        mode_str = "->".join(p["modes"][:4])
+        if len(p["modes"]) > 4:
+            mode_str += f"..({len(p['modes'])})"
+        shift_mark = " !" if p["mode_shift_needed"] else ""
+        print(
+            f"  {p['action']:<8} {p['domain']:<22} {p['frontier']:<10} {p['waves']:>2} "
+            f"{mode_str:<30} -> {p['next_mode']:<9} "
+            f"{p['current_prob']:5.0%} {p['next_prob']:>5.0%}{shift_mark}"
+        )
+    commit_count = sum(1 for p in prescriptions if p["action"] == "COMMIT")
+    shift_count = sum(1 for p in prescriptions if p["mode_shift_needed"])
+    if commit_count:
+        print(f"\n  {commit_count} COMMIT (escape 2-wave valley of death: 11% -> 31%)")
+    if shift_count:
+        print(f"  {shift_count} mode stalls (! = same mode repeated, shift needed)")
+    print(f"  Rule: >=3 waves with mode shifts -> 50% resolution (L-755)")
 
 
 def _get_claimed_domains() -> set[str]:
@@ -1012,6 +1097,8 @@ def main() -> None:
                        help="Scoring mode: ucb1 (single parameter, default) or heuristic (12+ constants, legacy)")
     parser.add_argument("--compare", action="store_true",
                        help="Run both modes and show comparison")
+    parser.add_argument("--wave-plan", action="store_true",
+                       help="Show prescriptive per-frontier wave plan (F-STR3)")
     args = parser.parse_args()
     run(args)
 
