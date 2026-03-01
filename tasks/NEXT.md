@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S395 | 726L 169P 20B 24F
+Updated: 2026-03-01 S395 | 728L 169P 20B 24F
 
 ## S395 session note (maintenance: stale lanes + belief re-test + periodics)
 - **check_mode**: verification | **dispatch**: maintenance (DUE items)

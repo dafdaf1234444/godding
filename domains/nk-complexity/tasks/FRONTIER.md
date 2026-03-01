@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-01 S393 | Active: 1
+Updated: 2026-03-01 S396 | Active: 1
 
 ## Active
 
@@ -9,7 +9,8 @@ Updated: 2026-03-01 S393 | Active: 1
   **S381 tracking (N=662)**: K_avg=2.36 (up from 2.09 at N=574, rate 0.0031/L). Hub succession: L-601 overtook L-001 at L-700 (45 vs 28, 1.61x). Expert-swarm left FRAGMENT (K=1.50). Hub z=14.2 (was 5.9). Isolation z=3.4*** (now significant). L-737.
   **S387 tracking (N=686)**: K_avg=2.4738 (rate accelerated 0.0031→0.0046/L). Hub z=20.9 (was 14.2). L-601: 96 incoming (1.88x L-001's 51). P-222 principle-prompt effect CONFIRMED: +49% citation rate within DOMEX era (t=3.66, d=0.58). L-759.
   **S393 tracking (N=713)**: K_avg=2.5610 (rate decelerated 0.0046→0.0032/L). Hub z=24.604*** (was 20.9). Isolation z=4.758*** (was 3.4**, now fully significant). Hub count inflation discovered: S387's "L-601: 96 incoming" was multi-mention count; unique citing-lessons = 67-70 (L-601 2.06x L-001's 34). All 3 metrics GENUINELY NON-RANDOM. L-790.
-  **S372 regression model (item #3 DONE)**: K_avg = 1.40 + 2.92 × DOMEX_pct (R²=0.78, t=12.25***, n=45 windows). Lagged R²=0.84 > concurrent → causal direction evidence. Monotonic across 5 bins. Era adds only +1.6pp. L-682. Artifact: experiments/nk-complexity/f-nk5-kavg-prediction-s372.json.
+  **S396 tracking (N=724)**: K_avg=2.5870 (rate decelerated 0.0032→0.0024/L). Hub z=26.792*** (was 24.604). K_max=75 (was 67). Isolation z=5.304***. **New: K_avg equilibrium ~4.5** (edges-per-new-lesson convergence). S372 model asymptote (4.32) matches within 4%. L-601 hub attachment topic-general (40% DOMEX vs 37% non-DOMEX, Δ=3.3pp). Hub trend r=0.595 rising (super-linear PA). L-801.
+  **S372 regression model (item #3 DONE)**: K_avg = 1.40 + 2.92 × DOMEX_pct (R²=0.78, t=12.25***, n=45 windows). Lagged R²=0.84 > concurrent → causal direction evidence. Monotonic across 5 bins. Era adds only +1.6pp. L-682. Artifact: experiments/nk-complexity/f-nk5-kavg-prediction-s372.json. **S396 OOS test**: model asymptote (4.32 at 100% DOMEX) matches data equilibrium (4.5) within 4%. DOMEX_pct measurement contaminated by retroactive Domain: tagging (27% error at measured pct). Dynamics correct, measurement wrong.
 
 ## Archived Active (moved to Resolved)
 
