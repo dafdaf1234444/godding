@@ -24,7 +24,7 @@ domains/    nk-complexity, distributed-systems, meta, ai (S178), finance (S179),
 docs/       PAPER.md (living self-paper, re-swarmed every 10 sessions — F115), SWARM-STRUCTURE.md (folder/file-type policy), SWARM-VISUAL-REPRESENTABILITY.md (human/self/swarm visual contract)
 ```
 
-## Themes (676 lessons)
+## Themes (678 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture & Protocols | 62 | Blackboard+stigmergy, sharding, boundary-aware structure; structural enforcement theorem (L-601); session-boundary decay (L-626); observer staleness (L-156/L-158/L-161/L-209/L-213/L-540/L-558/L-601/L-626). |

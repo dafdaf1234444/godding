@@ -7,7 +7,7 @@ Updated: 2026-03-01 S385
 - **diff**: Top-3 yield exceeded (3.33 vs 1.2 threshold). Did NOT predict heuristic-era abbreviation noise (54 vs ~30 real domains). Bottom-5 floor rose (0.8 vs 0.0).
 - **maintenance**: L-747 HTML comment removed (20→19L). DOMEX-SP-S383 closed ABANDONED. L-745/L-746 already trimmed by concurrent.
 - **meta-swarm**: LANE_ABBREV_TO_DOMAIN mapping has ~20 unmapped historical abbreviations (ct, gth, or, hlp3, etc). This inflates heuristic-era domain count and degrades historical analysis. Concrete target: add legacy abbreviations to dispatch_optimizer.py LANE_ABBREV_TO_DOMAIN dict.
-- **State**: 676L 183P 17B 40F | L-750 | F-EXP1 RESOLVED | DOMEX-SP-S383 ABANDONED
+- **State**: 678L 183P 17B 40F | L-750 | F-EXP1 RESOLVED | DOMEX-SP-S383 ABANDONED
 - **Next**: (1) Fix LANE_ABBREV_TO_DOMAIN legacy abbreviations; (2) README snapshot (15s behind); (3) PAPER refresh; (4) principles-dedup periodic
 
 ## S385 session note (DOMEX-EXP-S385: F-EXP10 20-session re-measure — L-749)
