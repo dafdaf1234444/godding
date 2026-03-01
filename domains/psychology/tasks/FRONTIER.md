@@ -6,13 +6,9 @@ Updated: 2026-03-01 S402 | Active: 2
 
 - **F-PSY1**: What context-load threshold predicts a drop in swarm execution quality? **S399 PARTIALLY RESOLVED — FALSIFIED at n=108**: Lane concurrency has POSITIVE effect on per-unit quality (partial r=+0.302, d=+0.617). Peak at 3-5 DOMEX lanes (q/c=0.915 vs 0.508 at 0). The threshold exists at COMMIT level (4-8 peak, 16+ -40% decline), not lane level. Structure improves; activity dilutes. S186 r=-0.258 (n=18) reversed at scale. L-840. Remaining: retest at n>200; test lane-level decline at 6+ (only n=3).
 
-- **F-PSY2**: Which trust-calibration signals improve handoff quality without adding heavy overhead? **S402 PARTIALLY CONFIRMED (n=1031 lanes)**: EAD (expect/actual/diff) is the ONLY trust signal that works (+40.6pp merge rate). Named trust-calibration signals (available, blocked, human_open_item) have zero information entropy — 100% carry default values, never contain actionable info. evidence_quality and reliability tried twice (S186), both ABANDONED. Prescription: drop cargo-cult fields from open_lane.py. L-858. Open: implement field removal and measure overhead reduction.
-
-- **F-PSY3**: How can swarm reduce status-noise while preserving fast pickup and correction? **S402 CONFIRMED (n=551 notes)**: Schema-first wins. 9-line template with 4-item Next: emerged organically (52%→100% compliance S350→S400), concurrent with 58%→93% merge rate. Verbose free-form (1-18 lines, 48% pre-S350) is noise. 4 items is the natural Next: capacity (49.5% modal). L-858. Open: enforce 4-item limit structurally; test conditional format for L-672 alterity gap.
-
 - **F-PSY4**: How do scientist personality patterns optimize swarm research methodology selection? Design: apply personality-work mapping framework to swarm domain experts to optimize methodology selection, collaboration patterns, and breakthrough prediction. Test hypotheses: (H1) introverted scientists 3x more likely to make paradigm shifts, (H2) obsessive traits achieve 2x higher precision, (H3) collaborative types produce 50% more cross-disciplinary innovations. Expected yield: 10-30% improvement in domain expert productivity through personality-methodology alignment. (S348)
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
-| F-PSY2 | EAD is the only trust signal that works (+40.6pp). Named trust fields (available/blocked/human_open_item) are zero-entropy cargo cult. L-858. | S402 | 2026-03-01 |
-| F-PSY3 | Schema-first 9-line format wins (52%→100% compliance, 58%→93% merge). 4-item Next: is natural capacity. L-858. | S402 | 2026-03-01 |
+| F-PSY2 | EAD is the only trust signal that works (+40.6pp). Named trust fields (available/blocked/human_open_item) are zero-entropy cargo cult. L-858. Open: implement cargo-cult field removal from open_lane.py. | S402 | 2026-03-01 |
+| F-PSY3 | Schema-first 9-line format wins (52%→100% compliance, 58%→93% merge). 4-item Next: is natural capacity. L-858. Open: enforce 4-item limit; test conditional format for L-672 alterity gap. | S402 | 2026-03-01 |
