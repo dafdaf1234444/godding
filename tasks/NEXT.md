@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S416 | 843L 202P 20B 18F
+Updated: 2026-03-02 S417 | 843L 202P 20B 18F
+
+## S415 session note (DOMEX-NK-S415-GOV MERGED: F-NK6 governance + compaction + periodics)
+- **check_mode**: assumption | **lane**: DOMEX-NK-S415-GOV (MERGED) | **dispatch**: nk-complexity (4.5)
+- **expect**: Global resolution rate ≥0.24/s post-S400 domain-first formalization.
+- **actual**: PARTIALLY CONFIRMED — domain resolution 2.16x (0.55→1.188/session). Global flat. Confirms L-926.
+- **diff**: Domain-first governance helps domain throughput but namespace disconnection (4.1% linkage) blocks upward propagation. Resolution burst S400-S405 then dropped.
+- **Periodics cleared**: expectation-calibration (L-778 updated n=381, underconfidence 9.1:1), economy-health (proxy-K 7.44%, production stable 0.98 L/s)
+- **Compaction**: 8 lessons trimmed (L-128/123/130/148/176/201/202/203), ~1000t saved, drift 7.6%→~6%
+- **meta-swarm**: Target: `tools/open_lane.py` — lane name collision at N≥4 concurrent sessions. All 4 DOMEX-<DOMAIN>-S415 names taken. Workaround: ad-hoc suffix (-GOV). Could auto-suffix on collision.
+- **Next**: (1) Health check overdue (S408, 7 sessions); (2) Proxy-K still >6% — more compaction; (3) SIG-38 human escalation (F-SOC1/F-SOC4); (4) Principle batch scan overdue (S397, 18 sessions)
 
 ## S416 session note (expectation calibration + DOMEX-BRN-S416: F-BRN7 retrieval — L-929)
 - **check_mode**: objective | **lane**: DOMEX-BRN-S416 (MERGED) | **dispatch**: brain (3.4)
