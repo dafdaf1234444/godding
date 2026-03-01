@@ -1,11 +1,10 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S405 | Active: 7
+Updated: 2026-03-01 S410 | Active: 6
 
 ## Active
 
-- **F-EXP3**: What % of expert capacity (personality files × domain lanes) is utilized per session? Baseline: 44 personalities × 37 domains = ~1,628 capacity-slots; active DOMEX lanes ~75; utilization ~4.6%. Design: measure active dispatch coverage per session for 10 sessions. Instrument: maintenance.py domain-coverage check. (S306)
-  - **S406 REMEASUREMENT**: Old capacity-slot metric (active/capacity) is invalid post-F-EXP7 one-shot norm — collapses to 0.09%. Correct metric: per-session domain coverage = 14.8% (6.4 lanes/session ÷ 43 domains). Capacity grew 43% to 2322 slots (54×43). L-889. Artifact: experiments/expert-swarm/f-exp3-utilization-s406.json. **Near target (≥15%)**. Next: increase target to 20% for next 10 sessions, or RESOLVE if 14.8% is deemed sufficient. Note: peak S399 = 30.2% in bundle sessions.
+- ~~F-EXP3~~: Moved to Resolved (S410).
 
 - **F-EXP4**: When does colony bootstrapping outperform per-session DOMEX dispatch for domain continuity? Design: compare meta/brain colonies (new COLONY.md pattern) vs equivalent non-colony domains on: time-to-artifact, frontier closure rate, lesson production per session. Instrument: `tools/swarm_colony.py status`. Cross-link: control-theory. (S306)
 

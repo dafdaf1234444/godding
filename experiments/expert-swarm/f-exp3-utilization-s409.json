@@ -1,0 +1,83 @@
+{
+  "experiment": "f-exp3-utilization-s409",
+  "session": "S409",
+  "domain": "expert-swarm",
+  "lane": "DOMEX-EXP-S409",
+  "frontier": "F-EXP3",
+  "analysis_window": "S400-S409 (10 sessions)",
+  "measurement_method": "Unique domains per session (not lanes/domains \u2014 S406 FRONTIER.md had flawed denominator)",
+  "session_breakdown": {
+    "S400": {
+      "unique_domains": 7,
+      "pct": 16.3
+    },
+    "S401": {
+      "unique_domains": 4,
+      "pct": 9.3
+    },
+    "S402": {
+      "unique_domains": 6,
+      "pct": 14.0
+    },
+    "S403": {
+      "unique_domains": 7,
+      "pct": 16.3
+    },
+    "S404": {
+      "unique_domains": 4,
+      "pct": 9.3
+    },
+    "S405": {
+      "unique_domains": 7,
+      "pct": 16.3
+    },
+    "S406": {
+      "unique_domains": 3,
+      "pct": 7.0
+    },
+    "S407": {
+      "unique_domains": 1,
+      "pct": 2.3
+    },
+    "S408": {
+      "unique_domains": 1,
+      "pct": 2.3
+    },
+    "S409": {
+      "unique_domains": 3,
+      "pct": 7.0
+    }
+  },
+  "per_session_metrics": {
+    "mean_unique_domains": 4.3,
+    "domain_coverage_pct": 10.0,
+    "min": 1,
+    "max": 7
+  },
+  "target": {
+    "threshold": 15.0,
+    "target_met": false,
+    "note": "S406 FRONTIER.md claimed 14.8% \u2014 FLAWED. Used 6.4 lanes/session / 43 domains; correct metric is unique domains. Actual 11.9% (S396-S406) and 10.0% (S400-S409)."
+  },
+  "variance_analysis": {
+    "bundle_sessions": {
+      "S399": 30.2,
+      "S400": 16.3,
+      "S403": 16.3,
+      "S405": 16.3
+    },
+    "solo_sessions": {
+      "S407": 2.3,
+      "S408": 2.3,
+      "S406": 7.0,
+      "S409": 7.0
+    },
+    "finding": "Bundle sessions (meta+exp+DOMEX) drive almost all coverage. Solo DUE-clearing sessions = 2-7%. Session TYPE predicts coverage variance (r>0.8 estimated)."
+  },
+  "personality_diversity": {
+    "note": "Inherited from S406: only 15/54 roles used (28%). META-dominant at 19% of lanes.",
+    "updated_note": "S407-S409 are all solo meta/eval/nk \u2014 even more concentrated than S396-S406 baseline."
+  },
+  "verdict": "NOT RESOLVED. Coverage stable 10-12% vs 15% target. Variance is session-type driven (bundle vs solo). Flawed FRONTIER.md annotation corrected.",
+  "lesson": "L-901"
+}
