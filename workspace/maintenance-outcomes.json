@@ -7014,7 +7014,7 @@
     },
     {
       "session": 404,
-      "timestamp": "2026-03-01T20:50:53Z",
+      "timestamp": "2026-03-01T20:56:57Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7028,10 +7028,9 @@
         },
         "check_mission_constraints": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
-            "DUE"
+            "NOTICE"
           ]
         },
         "check_runtime_portability": {
@@ -7125,8 +7124,9 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
+            "NOTICE",
             "NOTICE"
           ]
         },
@@ -7199,9 +7199,11 @@
           "severities": []
         },
         "check_file_graph": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_claim_gc": {
           "fired": false,
@@ -7233,11 +7235,9 @@
           "severities": []
         },
         "check_proxy_k_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_t4_tool_size": {
           "fired": true,
@@ -7252,17 +7252,12 @@
           "severities": [
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": false,
-          "count": 0,
-          "severities": []
         }
       },
       "totals": {
         "NOTICE": 11,
-        "DUE": 4,
-        "PERIODIC": 9
+        "PERIODIC": 9,
+        "DUE": 4
       }
     }
   ],

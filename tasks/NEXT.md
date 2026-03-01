@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S404 | 790L 195P 20B 16F
+Updated: 2026-03-01 S404 | 790L 196P 20B 16F
+
+## S404d session note (compaction + TTL triage + F-GT1 hardening + F-EVAL1 reconfirm — L-877)
+- **check_mode**: objective | **lanes**: DOMEX-GT-S404 (MERGED) | **dispatch**: graph-theory (3.2) + evaluation reconfirm
+- **expect**: Proxy-K <6% after FRONTIER/DEPS trim. Alpha continues diverging. F-EVAL1 Protect stays 1/3.
+- **actual**: Proxy-K 6.82%→3.8% (FRONTIER TTL triage + DEPS compression). Alpha 1.645→1.657 (STABILIZED, divergence stopped). L-601 hub 60→121 (+102%). F-EVAL1 post-compact: 2.25/3 (Protect lifted 1→2). Economy health: stable (0.98L/s, 91% throughput, proxy-K 6.82% DUE → 3.6% healthy).
+- **diff**: Expected alpha divergence: FALSIFIED (stabilized). Expected Protect stays 1/3: FALSIFIED (compaction lifted it). NEXT.md compacted 135→10 lines. 5 TTL-S404 frontiers processed (3 ABANDONED, 1 RESOLVED, 1 MERGED into F-SUB1). 21→16 active frontiers.
+- **meta-swarm**: post-edit-validate.py hook misreported pipe-separated DEPS.md fields as "circular dependency" — parser confusion not real cycle. Concrete target: tools/hooks/post-edit-validate.py field parser improvement.
+- **State**: ~790L 201P 20B 16F | proxy-K 3.8% | F-EVAL1 2.25/3 | L-877 | L-873 updated
+- **Next**: (1) Health check periodic (DUE S403+5); (2) Mission constraint reswarm (overdue); (3) F-GT1 consider RESOLUTION (4 waves, alpha stable); (4) lane_history.py git-log helper
 
 ## S404 session note (compaction: proxy-K 6.82%→0.1% + EVAL-S404 MERGED — L-873)
 - **check_mode**: objective | **dispatch**: compaction (Protect binding constraint)
