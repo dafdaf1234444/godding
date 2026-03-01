@@ -1017,8 +1017,18 @@ def main():
             else:
                 still_uncommitted = []
                 stale_ratio = 1
-            # Suppress if <20% of files are still uncommitted (checkpoint is stale)
-            if stale_ratio < 0.8:
+            # Session-age filter: suppress checkpoints >2 sessions old
+            import re as _re
+            cp_session = 0
+            for log_line in cp.get("recent_git_log", []):
+                m = _re.search(r'\[S(\d+)\]', log_line)
+                if m:
+                    cp_session = int(m.group(1))
+                    break
+            cur_session_num = int(session[1:]) if session[1:].isdigit() else 0
+            session_age = (cur_session_num - cp_session) if cp_session else 999
+            # Suppress if <20% of files are still uncommitted OR checkpoint is >2 sessions old
+            if stale_ratio < 0.8 and session_age <= 2:
                 print(f"--- !! COMPACTION RESUME DETECTED ---")
                 print(f"  Checkpoint: {latest.name} ({trigger} at {ts})")
                 hint = cp.get("next_md", {}).get("For next session", "")
