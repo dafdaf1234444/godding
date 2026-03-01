@@ -6957,7 +6957,7 @@
     },
     {
       "session": 398,
-      "timestamp": "2026-03-01T18:06:38Z",
+      "timestamp": "2026-03-01T18:08:41Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7002,11 +7002,9 @@
           "severities": []
         },
         "check_lessons": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_child_bulletins": {
           "fired": true,
@@ -7096,12 +7094,9 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "NOTICE",
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -7128,13 +7123,9 @@
           "severities": []
         },
         "check_domain_frontier_consistency": {
-          "fired": true,
-          "count": 3,
-          "severities": [
-            "NOTICE",
-            "NOTICE",
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_readme_snapshot_drift": {
           "fired": true,
@@ -7171,11 +7162,9 @@
           ]
         },
         "check_paper_accuracy": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_utility": {
           "fired": false,
@@ -7202,19 +7191,12 @@
           "severities": [
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
         }
       },
       "totals": {
-        "NOTICE": 18,
-        "DUE": 6,
-        "PERIODIC": 8
+        "NOTICE": 12,
+        "PERIODIC": 8,
+        "DUE": 4
       }
     }
   ],
