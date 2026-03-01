@@ -1,12 +1,10 @@
 # Psychology Domain — Frontier Questions
 Domain agent: write here for psychology-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S348 | Active: 4
+Updated: 2026-03-01 S399 | Active: 4
 
 ## Active
 
-- **F-PSY1**: What context-load threshold predicts a drop in swarm execution quality? Design: compare sessions/lanes by coordination-signal density (updates per active lane, average status payload length, context size proxy) against change-quality outcomes and correction latency. (S186)
-- **S186 first baseline**: `tools/f_psy1_context_load_threshold.py` generated `experiments/psychology/f-psy1-context-load-threshold-s186.json` from joined lane + NEXT event load vs `change_quality` outcomes (sessions 169..186, n=18). Current signal is weak and mixed: load-quality correlation `-0.2581`, best split threshold `1.9883` yields `delta_low_minus_high=-0.4272` (no robust high-load quality drop). **Caveat**: lane-history is sparse pre-S186, so NEXT-event verbosity dominates the proxy and likely mixes reporting density with real execution intensity. Next: instrument explicit per-lane workload markers (`capabilities`, `available`, `blocked`, `next_step`) across multiple sessions, then rerun with lane-dominant features.
-- **S186 multiswarm rerun**: `tools/f_psy1_context_load_threshold.py` rerun artifact `experiments/psychology/f-psy1-context-load-threshold-s186-rerun.json` preserved the same direction (`corr=-0.2557`, threshold `1.9883`, `delta_low_minus_high=-0.4272`, sessions `18`). This confirms the weak/mixed signal is stable and still bottlenecked by sparse workload instrumentation.
+- **F-PSY1**: What context-load threshold predicts a drop in swarm execution quality? **S399 PARTIALLY RESOLVED — FALSIFIED at n=108**: Lane concurrency has POSITIVE effect on per-unit quality (partial r=+0.302, d=+0.617). Peak at 3-5 DOMEX lanes (q/c=0.915 vs 0.508 at 0). The threshold exists at COMMIT level (4-8 peak, 16+ -40% decline), not lane level. Structure improves; activity dilutes. S186 r=-0.258 (n=18) reversed at scale. L-840. Remaining: retest at n>200; test lane-level decline at 6+ (only n=3).
 
 - **F-PSY2**: Which trust-calibration signals improve handoff quality without adding heavy overhead? Design: evaluate lane metadata bundles (`reliability`, `evidence_quality`, `available`, `blocked`, `human_open_item`) and measure merge collision rate, stale-lane dwell time, and correction rate versus baseline. (S186)
 
