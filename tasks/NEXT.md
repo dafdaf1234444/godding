@@ -1,5 +1,23 @@
 Updated: 2026-03-01 S377
 
+## S378 session note (DOMEX-META3-S378: problem→expert routing — L-716)
+- **check_mode**: objective | **lane**: DOMEX-META3-S378 (MERGED) | **dispatch**: meta (problem-demand driven)
+- **expect**: 60% problems mappable to domain experts, >50% mismatch vs UCB1 top-3.
+- **actual**: 76% mappable (26/34), 100% mismatch (0/5 overlap). UCB1 top-5 (security, gaming, strategy, graph-theory, fluid-dynamics) have ZERO detected problems. Problem top-5 (meta 12.8, expert-swarm 8.8, evolution 4.8, nk-complexity 4.0, economy 3.5) are all operational domains. UCB1 is exploration-optimal but problem-blind.
+- **diff**: Predicted 60% mappable — got 76% (better). Predicted >50% mismatch — got 100% (worse). Did NOT predict meta dominance (12.8 = 11 problems). Abstract recursive signals (7/34) are unroutable — "swarm swarm swarm" directives lack concrete domain anchors.
+- **meta-swarm**: This session IS what the human asked: "if swarm sees problem how it schedules swarming swarm the domain experts" — built the mechanism that routes detected problems to expert domains. The 100% mismatch finding proves UCB1 alone is insufficient for problem-driven swarms. Combined dispatch (UCB1 exploration + problem demand) now wired into swarm_cycle.py.
+- **State**: ~649L 179P 17B 40F | L-716 | DOMEX-META3-S378 MERGED | problem_router.py | 3 stale lanes closed
+- **Next**: (1) improve signal routing (7 NO_ROUTE signals need keyword anchors); (2) test augmented dispatch over 10 sessions (problem-demand vs UCB1); (3) health-check periodic (DUE); (4) economy-health (DUE); (5) wire problem_router into autoswarm.sh prompt generation
+
+## S377b session note (DOMEX-GT-S377: F-GT2 dependency graph + chi — L-715)
+- **check_mode**: objective | **lane**: DOMEX-GT-S377 (MERGED) | **dispatch**: graph-theory (#5, 3.5, FLOOR)
+- **expect**: Unified dependency graph reveals hub-spoke tools, >80% implicit frontier deps, disconnected layers. Chromatic number computable.
+- **actual**: 862 nodes, 1839 edges across 6 layers. Active chi=2, historical mean chi=1.66 (max 13, n=454 lanes). 147 cross-layer edges (76 tool→frontier, 71 lesson→tool). Frontier implicit rate 72.6%. Hub-spoke confirmed: orient(25 deps), L-601(34 citations). Scope-Key pollution: 112/575 lanes have close_lane.py as false scope.
+- **diff**: Predicted hub-spoke — CONFIRMED. Predicted >80% implicit — got 72.6% (close). Predicted disconnected — CONFIRMED (68 isolated frontiers, 39 orphan tools). Did NOT predict Scope-Key pollution (112 false entries). Did NOT predict chi this low (1.66) — domain-scoping prevents conflicts naturally.
+- **meta-swarm**: Scope-Key pollution is a systematic data quality bug in close_lane.py — it overwrites the original Scope-Key with its own path during lane closure. Concrete target: close_lane.py should preserve the original Scope-Key field from the last ACTIVE row. Also: concurrent session overwrote L-714 (slot contention, L-602 pattern), writing as L-715 instead.
+- **State**: ~647L 179P 17B 40F | L-715 | DOMEX-GT-S377 MERGED | DOMEX-SEC-S376 + DOMEX-FLD-S376 ABANDONED (stale)
+- **Next**: (1) Fix close_lane.py Scope-Key preservation; (2) reduce frontier implicit rate (add prereq fields); (3) health-check periodic (DUE); (4) economy-health (DUE); (5) F-GT3 cut-vertex analysis
+
 ## S376c session note (DOMEX-FLD-S376: F-FLD1 Reynolds AUC=0.870 — L-713, independent convergence)
 - **check_mode**: objective | **lane**: DOMEX-FLD-S376 (MERGED) | **dispatch**: fluid-dynamics (#2, 5.5, FLOOR)
 - **expect**: Re_swarm separates high-yield from low-yield sessions with AUC>0.65.
