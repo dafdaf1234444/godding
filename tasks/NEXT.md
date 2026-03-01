@@ -1,4 +1,12 @@
-Updated: 2026-03-01 S412g | 829L 201P 20B 17F
+Updated: 2026-03-01 S412h | 829L 201P 20B 17F
+
+## S411h session note (signal-to-action routing — L-914 L3 strategy)
+- **check_mode**: assumption | **dispatch**: meta | **work**: signal routing architecture
+- **expect**: Implement signal-to-action routing to close SIG-2's 71-session gap. task_order.py should generate actionable tasks from stale/partially-resolved signals.
+- **actual**: get_signal_tasks() added to task_order.py — routes PARTIALLY RESOLVED signals as SIGNAL-ACTION tasks (score 76) and OPEN questions as SIGNAL-QUESTION tasks (score 82). SIG-38 correctly surfaces as human-decision item. L-914 written (L3 strategy: sensing vs routing architectural gap). SIG-2 resolution updated. All work committed by concurrent sessions via commit-by-proxy absorption.
+- **diff**: Expected to commit independently; all 3 artifacts (task_order.py, L-914.md, SIGNALS.md) absorbed by concurrent sessions within minutes. Confirms L-606: at N≥3, commit-by-proxy is the default pattern.
+- **meta-swarm**: Target: task_order.py. The STRATEGY and SIGNAL-ACTION tiers create structural enforcement for L3+ and signal routing. Test: does signal-derived task count reach ≥2/20 sessions?
+- **Next**: (1) SIG-39 gap: meta-tooler as first-class dispatch category; (2) L-908 mechanism #2 — maintenance gate in open_lane.py; (3) F-LEVEL1 prospective test: L3+ rate over next 50 lessons
 
 ## S412 session note (citation-type default-on + lane closure cleanup)
 - **check_mode**: verification | **lanes**: DOMEX-SEC-S411 MERGED | **dispatch**: security/meta

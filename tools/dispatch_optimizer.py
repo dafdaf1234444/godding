@@ -91,42 +91,48 @@ WAVE_RESOLUTION_PROB = {1: 0.28, 2: 0.11, 3: 0.31}  # 4+ = 0.50
 
 # Outcome feedback (F-EXP10, L-501 P1): reward consistently productive domains.
 # Closes PHIL-2 self-application gap — expert dispatch learns from its own outcomes.
-LANE_ABBREV_TO_DOMAIN = {
-    # Legacy abbreviations (S302-S340 era)
-    "NK": "nk-complexity", "LNG": "linguistics", "EXP": "expert-swarm",
-    "STAT": "statistics", "PHI": "philosophy", "CTX": "meta", "MECH": "meta",
-    "FLD": "fluid-dynamics", "BRN": "brain", "HLP": "helper-swarm",
-    "ECO": "economy", "PHY": "physics", "SCI": "evaluation", "EVO": "evolution",
-    "DNA": "meta", "IS": "information-science", "HS": "human-systems",
-    "COMP": "competitions", "INFO": "information-science",
-    # Full-name and common abbreviations (L-676: 33 were missing — 65% data loss)
-    "META": "meta", "SP": "stochastic-processes", "EMP": "empathy",
-    "AI": "ai", "CON": "conflict", "CONFLICT": "conflict",
-    "CAT": "catastrophic-risks", "DS": "distributed-systems",
-    "FIN": "finance", "GOV": "governance", "EVAL": "evaluation",
-    "FRA": "fractals", "FRACTALS": "fractals", "GT": "graph-theory",
-    "GTH": "graph-theory", "GAME": "gaming", "GAMING": "gaming",
-    "SEC": "security", "SECURITY": "security",
-    "GUE": "guesstimates", "GAM": "game-theory", "PSY": "psychology",
-    "SOC": "social-media", "STR": "strategy", "QC": "quality",
-    "QUALITY": "quality", "OR": "operations-research", "OPS": "operations-research",
-    "FARMING": "farming", "FAR": "farming", "COORD": "meta", "HUMAN": "human-systems",
-    "INFOFLOW": "information-science", "INFRA": "meta", "GEN": "meta",
-    "DREAM": "dream", "BRAIN": "brain", "ECON": "economy", "ECONOMY": "economy",
-    "EMPATHY": "empathy", "EVOLUTION": "evolution", "EXPERT": "expert-swarm",
-    "AGENT": "meta", "CT": "meta", "CTL": "control-theory",
-    "CC": "cryptocurrency", "CRY": "cryptography", "CRYPTO": "cryptocurrency",
-    "CRYPTOGRAPHY": "cryptography",
-    "PRO": "protocol-engineering", "README": "meta",
-    "SCHED": "meta", "PRIORITY": "meta", "UNIVERSALITY": "meta",
-    "PERSONALITY": "psychology",
-}
-# COUNCIL-TOPIC-SN: map council topic to domain (F-EXP10 L-506: COUNCIL lanes were
-# previously unattributed, causing ~30-40% outcome data loss for meta/expert-swarm)
-COUNCIL_TOPIC_TO_DOMAIN = {
-    "AGENT-AWARE": "meta", "SCIENCE": "evaluation", "DNA": "meta",
-    "EXPERT-SWARM": "expert-swarm", "USE-CASES": "meta",
-}
+# L-909: LANE_ABBREV_TO_DOMAIN now lives in tools/domain_map.py (importable module).
+# Imported above; fallback inline copy retained for environments where import fails.
+if _DOMAIN_MAP_IMPORTED:
+    LANE_ABBREV_TO_DOMAIN = _LANE_ABBREV_TO_DOMAIN
+    COUNCIL_TOPIC_TO_DOMAIN = _COUNCIL_TOPIC_TO_DOMAIN
+else:
+    LANE_ABBREV_TO_DOMAIN = {
+        # Legacy abbreviations (S302-S340 era)
+        "NK": "nk-complexity", "LNG": "linguistics", "EXP": "expert-swarm",
+        "STAT": "statistics", "PHI": "philosophy", "CTX": "meta", "MECH": "meta",
+        "FLD": "fluid-dynamics", "BRN": "brain", "HLP": "helper-swarm",
+        "ECO": "economy", "PHY": "physics", "SCI": "evaluation", "EVO": "evolution",
+        "DNA": "meta", "IS": "information-science", "HS": "human-systems",
+        "COMP": "competitions", "INFO": "information-science",
+        # Full-name and common abbreviations (L-676: 33 were missing — 65% data loss)
+        "META": "meta", "SP": "stochastic-processes", "EMP": "empathy",
+        "AI": "ai", "CON": "conflict", "CONFLICT": "conflict",
+        "CAT": "catastrophic-risks", "DS": "distributed-systems",
+        "FIN": "finance", "GOV": "governance", "EVAL": "evaluation",
+        "FRA": "fractals", "FRACTALS": "fractals", "GT": "graph-theory",
+        "GTH": "graph-theory", "GAME": "gaming", "GAMING": "gaming",
+        "SEC": "security", "SECURITY": "security",
+        "GUE": "guesstimates", "GAM": "game-theory", "PSY": "psychology",
+        "SOC": "social-media", "STR": "strategy", "QC": "quality",
+        "QUALITY": "quality", "OR": "operations-research", "OPS": "operations-research",
+        "FARMING": "farming", "FAR": "farming", "COORD": "meta", "HUMAN": "human-systems",
+        "INFOFLOW": "information-science", "INFRA": "meta", "GEN": "meta",
+        "DREAM": "dream", "BRAIN": "brain", "ECON": "economy", "ECONOMY": "economy",
+        "EMPATHY": "empathy", "EVOLUTION": "evolution", "EXPERT": "expert-swarm",
+        "AGENT": "meta", "CT": "meta", "CTL": "control-theory",
+        "CC": "cryptocurrency", "CRY": "cryptography", "CRYPTO": "cryptocurrency",
+        "CRYPTOGRAPHY": "cryptography",
+        "PRO": "protocol-engineering", "README": "meta",
+        "SCHED": "meta", "PRIORITY": "meta", "UNIVERSALITY": "meta",
+        "PERSONALITY": "psychology",
+    }
+    # COUNCIL-TOPIC-SN: map council topic to domain (F-EXP10 L-506: COUNCIL lanes were
+    # previously unattributed, causing ~30-40% outcome data loss for meta/expert-swarm)
+    COUNCIL_TOPIC_TO_DOMAIN = {
+        "AGENT-AWARE": "meta", "SCIENCE": "evaluation", "DNA": "meta",
+        "EXPERT-SWARM": "expert-swarm", "USE-CASES": "meta",
+    }
 OUTCOME_MIN_N = 3          # minimum completed lanes before feedback kicks in
 OUTCOME_SUCCESS_THRESHOLD = 0.75  # MERGED rate above which domain is PROVEN
 OUTCOME_FAILURE_THRESHOLD = 0.50  # MERGED rate below which domain is STRUGGLING
