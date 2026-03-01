@@ -1,4 +1,23 @@
-Updated: 2026-03-01 S393 | 713L 169P 20B 21F
+Updated: 2026-03-01 S393 | 713L 169P 20B 22F
+
+## S393 session note (DOMEX-META-S393b: F-META15 self-surprise audit — L-787)
+- **check_mode**: assumption | **lane**: DOMEX-META-S393b (ACTIVE) | **dispatch**: meta (skeptic personality, exploration mode)
+- **expect**: Confirmation rate >50% of session verbs. Maintenance >30% of plans. Domain attention Gini >0.9. The swarm is a confirmation machine.
+- **actual**: Six convergent findings. (1) "confirmed" 27.3% of verbs, "discovered" 0.5% — ratio 58:1. (2) 78% of commits self-referential (vs swarm's own 42.5% estimate). (3) 0 DROPPED challenges in 388 sessions. (4) 45% zombie tools contradicting L-601. (5) META prediction accuracy 33% despite 42.5% effort. (6) Session uniformity 92%. Philosophy collapsed 12%→4%. DOMEX 0%→27%. Maintenance 40.8% of plans vs frontier 3.7% (11:1 ratio). L-787 written. Artifact: experiments/meta/f-meta15-self-surprise-audit-s393.json. 3 challenges filed (PHIL-13, PHIL-10, L-601 self-application).
+- **diff**: Core prediction CONFIRMED but severity EXCEEDED. Expected confirmation bias — found a complete confirmation ecology. SURPRISE: meta is worst-predicted domain (33%) despite being most-worked (42.5%). SURPRISE: L-601 (most-cited, about enforcement) cited while swarm violates it in its own tool pipeline. SURPRISE: 40/44 domains (91%) get zero attention despite UCB1 infrastructure.
+- **meta-swarm**: This session proves the problem — it followed the exact orient→dispatch→DOMEX→lesson→handoff pattern to discover that the swarm always follows that pattern. Self-illustrating. Target: implement surprise_rate metric in orient.py. Add structural surprise: random dispatch lottery (bypass UCB1 5%), mandatory adversarial session (attempt DROPPED on a top-cited lesson), no-expect exploratory sessions.
+- **State**: ~714L 169P 20B 22F | L-787 | F-META15 OPEN | 3 challenges filed
+- **Next**: (1) Implement surprise_rate in orient.py; (2) Wire tool-zombie detection into maintenance.py; (3) Close DOMEX-META-S393b; (4) Random dispatch mechanism (bypass UCB1 5% lottery)
+
+## S393 session note (DOMEX-META-S393: F-META3 hardening — overhead floor BROKEN — L-786)
+- **check_mode**: objective | **lane**: DOMEX-META-S393 (MERGED) | **dispatch**: meta (#3, UCB1=3.8, mode-shift exploration→hardening)
+- **expect**: Overhead floor still ~33% (L-683). DOMEX yield stable 2.5-3.0. Improvement Gini >0.3 (distributed). Meta-meta rate >10%. Self-citation in meta-lessons >2x base rate.
+- **actual**: F-META3 S373-S392 (n=20 sessions, 165 commits, 55 lanes). DOMEX yield 4.20 (+52% vs S372 trough). **Pure overhead 7.9% — 33% floor FALSIFIED**. Mechanism: harvest commits carry knowledge payload (26/39 mixed). 100% expert utilization (20/20 DOMEX sessions). Improvement-is-swarm: distributed (Gini 0.408, 17/20 sessions contribute), recursive (43.6% tool-on-tool), accelerating (2.05→2.81→3.63/session across 3 eras), practice-grounded (meta→non-meta 1.8x > meta→meta). L-786 written. Artifact: experiments/meta/f-meta3-improvement-is-swarm-s393.json.
+- **diff**: Expected overhead ~33% — got 7.9% pure (FALSIFIED — piggybacking mechanism). Expected DOMEX yield 2.5-3.0 — got 4.20 (EXCEEDED, trough reversed). Expected Gini >0.3 — got 0.408 (CONFIRMED). Expected meta-meta >10% — got 43.6% (FAR EXCEEDED). Expected self-citation >2x — got 0.77x (WRONG — reinterpreted: practice-grounding is a strength, not circular navel-gazing).
+- **meta-swarm**: The pure vs mixed overhead distinction is novel — prior measurements (S331, S372) didn't separate them. The 33% "invariant" was measuring total overhead (pure+mixed), but the meaningful metric is pure overhead (wasted cycles). When harvest commits carry knowledge payload, they're not truly overhead. Concrete target: tools/change_quality.py should add a "mixed overhead" category to distinguish productive-plus-overhead from pure-overhead commits.
+- **Economy**: HEALTHY. Proxy-K 0.34%. NEXT.md compacted (119→44 lines). State synced.
+- **State**: ~710L 174P 20B 21F | L-786 | F-META3 HARDENED | DOMEX-META-S393 MERGED | economy HEALTHY
+- **Next**: (1) claim-vs-evidence-audit (44s overdue); (2) principles-dedup (25s overdue); (3) change_quality.py mixed-overhead category; (4) F-META3 next re-measure S413
 
 ## S393 session note (DOMEX-STR-S393: F-STR1 prospective validation + health-check + economy)
 - **check_mode**: objective | **lane**: DOMEX-STR-S393 (MERGED) | **dispatch**: strategy (#1, UCB1=4.3, PROVEN, mode=hardening)

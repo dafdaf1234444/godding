@@ -1,0 +1,380 @@
+{
+  "experiment": "F-META3 re-measurement + improvement-is-swarm",
+  "session": "S393",
+  "date": "2026-03-01",
+  "frontier": "F-META3",
+  "f_meta3_core": {
+    "domex_yield_per_session": 4.2,
+    "domex_yield_per_lane": 1.29,
+    "overhead_ratio": 0.236,
+    "pure_overhead_ratio": 0.079,
+    "domex_share": 0.582,
+    "n_sessions": 20,
+    "n_domex_sessions": 20,
+    "sessions": [
+      373,
+      374,
+      375,
+      376,
+      377,
+      378,
+      379,
+      380,
+      381,
+      382,
+      383,
+      384,
+      385,
+      386,
+      387,
+      388,
+      389,
+      390,
+      391,
+      392
+    ],
+    "total_commits": 165,
+    "domex_commits": 96,
+    "lesson_commits": 122,
+    "overhead_commits": 39,
+    "pure_overhead_commits": 13,
+    "mixed_overhead_commits": 26,
+    "knowledge_commits": 139,
+    "domex_lanes": 55,
+    "unique_lessons_from_domex": 71,
+    "all_unique_lessons": 84,
+    "lesson_ids": [
+      684,
+      685,
+      686,
+      688,
+      693,
+      694,
+      695,
+      698,
+      699,
+      700,
+      701,
+      704,
+      705,
+      710,
+      711,
+      712,
+      713,
+      714,
+      715,
+      716,
+      717,
+      718,
+      719,
+      720,
+      721,
+      723,
+      724,
+      725,
+      726,
+      727,
+      728,
+      729,
+      730,
+      732,
+      734,
+      735,
+      737,
+      739,
+      740,
+      742,
+      743,
+      744,
+      745,
+      746,
+      747,
+      748,
+      749,
+      751,
+      753,
+      754,
+      755,
+      757,
+      759,
+      760,
+      761,
+      762,
+      763,
+      766,
+      767,
+      768,
+      769,
+      770,
+      771,
+      775,
+      776,
+      777,
+      778,
+      779,
+      781,
+      782,
+      785
+    ],
+    "comparison_to_s372": {
+      "domex_yield_delta_pct": 52.2,
+      "pure_overhead_delta_pct": -76.6,
+      "s372_domex_yield": 2.76,
+      "s372_overhead_ratio": 0.337,
+      "overhead_invariant": false,
+      "yield_trend": "improving"
+    }
+  },
+  "improvement_distribution": {
+    "gini_improvement": 0.408,
+    "gini_all": 0.266,
+    "n_improvement_commits": 71,
+    "n_total_commits": 165,
+    "sessions_contributing": 17,
+    "n_sessions": 20,
+    "per_session": {
+      "S373": {
+        "improvement": 0,
+        "total": 4
+      },
+      "S374": {
+        "improvement": 7,
+        "total": 12
+      },
+      "S375": {
+        "improvement": 4,
+        "total": 10
+      },
+      "S376": {
+        "improvement": 6,
+        "total": 9
+      },
+      "S377": {
+        "improvement": 5,
+        "total": 12
+      },
+      "S378": {
+        "improvement": 1,
+        "total": 4
+      },
+      "S379": {
+        "improvement": 4,
+        "total": 11
+      },
+      "S380": {
+        "improvement": 5,
+        "total": 6
+      },
+      "S381": {
+        "improvement": 7,
+        "total": 17
+      },
+      "S382": {
+        "improvement": 2,
+        "total": 6
+      },
+      "S383": {
+        "improvement": 5,
+        "total": 7
+      },
+      "S384": {
+        "improvement": 4,
+        "total": 4
+      },
+      "S385": {
+        "improvement": 3,
+        "total": 11
+      },
+      "S386": {
+        "improvement": 0,
+        "total": 6
+      },
+      "S387": {
+        "improvement": 2,
+        "total": 3
+      },
+      "S388": {
+        "improvement": 1,
+        "total": 4
+      },
+      "S389": {
+        "improvement": 5,
+        "total": 7
+      },
+      "S390": {
+        "improvement": 1,
+        "total": 7
+      },
+      "S391": {
+        "improvement": 0,
+        "total": 8
+      },
+      "S392": {
+        "improvement": 9,
+        "total": 17
+      }
+    },
+    "interpretation": "concentrated"
+  },
+  "recursion": {
+    "meta_meta_rate": 0.436,
+    "tool_improving_tool_commits": 24,
+    "total_tool_commits": 55,
+    "examples": [
+      {
+        "hash": "31987a67",
+        "msg": "[S392] fix genesis hash race: genesis_hash.py tool + auto-update in check.sh",
+        "tools_changed": [
+          "tools/genesis_hash.py"
+        ],
+        "reason": "integration keyword"
+      },
+      {
+        "hash": "dff7983c",
+        "msg": "[S392] harvest: L-776 (dispatch weights empty), F-SP4 replication JSON, expect_harvest.py tool",
+        "tools_changed": [
+          "tools/expect_harvest.py"
+        ],
+        "reason": "integration keyword"
+      },
+      {
+        "hash": "15585fa6",
+        "msg": "[S392] harvest: F-EXP10 calibration wired into dispatch + F-PRO1 bimodal adoption (L-775) + F-STR2 conversion data",
+        "tools_changed": [
+          "tools/dispatch_optimizer.py"
+        ],
+        "reason": "integration keyword"
+      },
+      {
+        "hash": "eae315e6",
+        "msg": "[S389] DOMEX-IS-S389: F-IS4 coherence hardening \u2014 29% collision rate is binding constraint \u2014 L-768",
+        "tools_changed": [
+          "tools/dispatch_optimizer.py",
+          "tools/open_lane.py"
+        ],
+        "reason": "multiple tools modified"
+      },
+      {
+        "hash": "4981d651",
+        "msg": "[S389] DOMEX-STR-S389: F-STR3 frontier update + L-757 trim + dispatch_optimizer wave functions",
+        "tools_changed": [
+          "tools/dispatch_optimizer.py"
+        ],
+        "reason": "integration keyword"
+      },
+      {
+        "hash": "9be96641",
+        "msg": "[S388] DOMEX-QC-S387: F-QC5 bullshit retest 20% + sync_state B/F counter bugs fixed \u2014 L-760",
+        "tools_changed": [
+          "tools/swarm_parse.py",
+          "tools/sync_state.py"
+        ],
+        "reason": "multiple tools modified"
+      },
+      {
+        "hash": "09467856",
+        "msg": "[S387] DOMEX-STR-S387: F-STR1 prospective validation \u2014 EAD 100% post-fix, 37.5% FALSE ABANDONED found \u2014 L-757",
+        "tools_changed": [
+          "tools/close_lane.py",
+          "tools/frontier_triage.py"
+        ],
+        "reason": "multiple tools modified"
+      },
+      {
+        "hash": "f8196b36",
+        "msg": "[S385] DOMEX-FLD-S385: F-FLD1 RESOLVED + F-FLD3 Bernoulli FALSIFIED \u2014 scope-neutrality P-239, L-751",
+        "tools_changed": [
+          "tools/archive/f_ic1_contamination_detector.py",
+          "tools/archive/f_sec1_security_audit.py"
+        ],
+        "reason": "multiple tools modified"
+      },
+      {
+        "hash": "f2377e61",
+        "msg": "[S383] cleanup: orphaned concurrent artifacts + stale DOMEX-QC-S382 closed",
+        "tools_changed": [
+          "tools/close_lane.py",
+          "tools/correction_propagation.py",
+          "tools/lesson_tagger.py"
+        ],
+        "reason": "multiple tools modified"
+      },
+      {
+        "hash": "2c2357e7",
+        "msg": "[S383] maintenance: commit orphaned S382 artifacts + close 2 stale lanes",
+        "tools_changed": [
+          "tools/correction_propagation.py",
+          "tools/f_str1_prospective_validation.py"
+        ],
+        "reason": "multiple tools modified"
+      }
+    ]
+  },
+  "self_application": {
+    "meta_self_citation_rate": 0.473,
+    "meta_body_citation_rate": 0.555,
+    "base_citation_rate": 0.614,
+    "ratio": 0.77,
+    "n_meta_lessons": 146,
+    "n_all_lessons": 713,
+    "n_meta_citing_meta": 69,
+    "n_meta_citing_meta_body": 81,
+    "meta_meta_edges": 119,
+    "total_edges": 1531,
+    "meta_meta_edge_share": 0.078,
+    "meta_principles": 0,
+    "meta_principles_citing_meta": 0,
+    "interpretation": "self-avoiding"
+  },
+  "improvement_velocity": {
+    "eras": {
+      "S1-S199": {
+        "n_sessions": 103,
+        "n_commits": 580,
+        "tools_created": 79,
+        "tools_per_session": 0.77,
+        "principles_added": 61,
+        "principles_per_session": 0.59,
+        "frontiers_resolved": 3,
+        "frontiers_per_session": 0.03,
+        "improvement_commits": 211,
+        "improvement_per_session": 2.05
+      },
+      "S200-S349": {
+        "n_sessions": 42,
+        "n_commits": 551,
+        "tools_created": 17,
+        "tools_per_session": 0.4,
+        "principles_added": 10,
+        "principles_per_session": 0.24,
+        "frontiers_resolved": 7,
+        "frontiers_per_session": 0.17,
+        "improvement_commits": 118,
+        "improvement_per_session": 2.81
+      },
+      "S350-S392": {
+        "n_sessions": 43,
+        "n_commits": 369,
+        "tools_created": 64,
+        "tools_per_session": 1.49,
+        "principles_added": 30,
+        "principles_per_session": 0.7,
+        "frontiers_resolved": 17,
+        "frontiers_per_session": 0.4,
+        "improvement_commits": 156,
+        "improvement_per_session": 3.63
+      }
+    },
+    "era1_rate": 2.05,
+    "era2_rate": 2.81,
+    "era3_rate": 3.63,
+    "trend": "accelerating"
+  },
+  "signals": {
+    "distributed": true,
+    "self_reinforcing": false,
+    "recursive": true,
+    "sustained": true
+  },
+  "verdict": "Improvement IS swarm: 3/4 signals positive. Distributed across sessions (Gini=0.408), not self-reinforcing (meta\u2192meta 0.77x base), recursive (tool-on-tool 43.6%), velocity accelerating."
+}
