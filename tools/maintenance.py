@@ -2124,5 +2124,76 @@ def main():
 
     print()
 
+    # --auto: Tier 2→Tier 1 bridge (L-533) — open lanes for DUE periodics with no active lane
+    if "--auto" in sys.argv and session > 0:
+        _auto_open_lanes(items, session)
+
+
+def _auto_open_lanes(items: list[tuple[str, str]], session: int) -> None:
+    """Open maintenance lanes for DUE periodic items that have no active lane. (L-533)"""
+    due_periodics = [msg for sev, msg in items if sev == "DUE" and msg.startswith("[") and "]" in msg]
+    if not due_periodics:
+        print("  AUTO: no DUE periodic items to lane.")
+        return
+
+    # Collect active lane Etc content for deduplication
+    active_etc = ""
+    active_lane_ids: set[str] = set()
+    if parsed_lanes := _active_lane_rows():
+        _, active = parsed_lanes
+        active_etc = " ".join(row.get("etc", "") for row in active).lower()
+        active_lane_ids = {row.get("lane", "").strip() for row in active}
+
+    print("\n  AUTO: scanning DUE periodics for lanes to open...")
+    opened: list[str] = []
+    skipped: list[str] = []
+
+    for msg in due_periodics:
+        m = re.match(r"\[([^\]]+)\]", msg)
+        if not m:
+            continue
+        item_id = m.group(1)
+        lane_id = f"MAINT-{item_id}-S{session}"
+
+        # Skip if an active lane already covers this periodic
+        if item_id.lower() in active_etc or lane_id in active_lane_ids:
+            skipped.append(item_id)
+            continue
+
+        # Extract description from message (strip cadence/session suffix)
+        desc_part = msg.split("]", 1)[1].strip()
+        desc_clean = re.sub(r"\s*\(every.*?\)$", "", desc_part).strip()[:100]
+
+        r = subprocess.run(
+            [
+                PYTHON_EXE, str(REPO_ROOT / "tools" / "open_lane.py"),
+                "--lane", lane_id,
+                "--session", f"S{session}",
+                "--domain", "meta",
+                "--frontier", "F-META3",
+                "--intent", f"Periodic maintenance: {item_id} — {desc_clean}",
+                "--expect", f"Periodic {item_id} completed; last_reviewed_session updated in periodics.json",
+                "--artifact", f"experiments/meta/maint-{item_id}-s{session}.json",
+                "--mode", "hardening",
+                "--check-mode", "objective",
+            ],
+            capture_output=True, text=True, timeout=30,
+        )
+        if r.returncode == 0:
+            opened.append(lane_id)
+            print(f"  AUTO: opened → {lane_id}")
+        else:
+            err = (r.stderr or r.stdout or "").strip()[:120]
+            print(f"  AUTO: SKIP {lane_id} — {err}")
+
+    if skipped:
+        print(f"  AUTO: {len(skipped)} already covered: {', '.join(skipped)}")
+    if opened:
+        print(f"  AUTO: {len(opened)} lane(s) created: {', '.join(opened)}")
+    else:
+        print(f"  AUTO: no new lanes needed.")
+    print()
+
+
 if __name__ == "__main__":
     main()
