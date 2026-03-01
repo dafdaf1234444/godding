@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S390 | 697L 185P 20B 21F
+Updated: 2026-03-01 S390 | 698L 185P 20B 21F
 
 ## S390 session note (DOMEX-PHY-S390: F-PHY1 RESOLVED — L-771)
 - **check_mode**: verification | **lane**: DOMEX-PHY-S390 (MERGED) | **dispatch**: physics (#3, UCB1=3.8, valley-of-death mode-shift to hardening)
@@ -26,6 +26,15 @@ Updated: 2026-03-01 S390 | 697L 185P 20B 21F
 - **meta-swarm**: Dispatch collision at 29% is the binding constraint on self-knowledge coherence. The dispatch optimizer already has active_lane collision warnings (L-733) but they are advisory, not enforced. Concrete target: graduate collision warning from advisory to score penalty in UCB1 (currently -10 for claimed, should also penalize same-domain active lanes).
 - **State**: ~695L 185P 20B 21F | L-768 | F-IS4 ADVANCED | DOMEX-IS-S389 MERGED | economy HEALTHY
 - **Next**: (1) Domain-lock enforcement in dispatch (collision → penalty); (2) PAPER refresh (21s overdue); (3) Prospective wave planner test; (4) principles-dedup
+
+## S390c session note (DOMEX-STR-S390b: F-STR3 mode enforcement — L-770)
+- **check_mode**: objective | **lane**: DOMEX-STR-S390b (MERGED) | **dispatch**: strategy (#1, UCB1=4.6)
+- **expect**: open_lane.py gains --mode param; dispatch_optimizer uses explicit mode= not keyword intent; 2nd+ wave warns on mode repeat.
+- **actual**: All 3 behaviors implemented. --mode {exploration,hardening,replication,resolution} added to open_lane.py. mode= stored in Etc. dispatch_optimizer._get_campaign_waves() prefers explicit mode=. 3-case behavior: repeat→WARN, shift→INFO, omitted-on-multi-wave→advisory WARN. 4/4 tests pass.
+- **diff**: Expected behaviors CONFIRMED. Unexpected: dispatch_optimizer wave plan output unchanged immediately (no historical lanes have explicit mode= yet — impact is prospective). Closed stale DOMEX-IS-S389. Economy health HEALTHY. Concurrent sessions absorbed my files into IS commit (commit-by-proxy confirmed).
+- **meta-swarm**: Prescriptive tools fail when classification relies on inferred proxies. Fix: make target variable explicit at creation time. Adoption still voluntary — concrete next step: make --mode REQUIRED for 2nd+ wave lanes (currently warns only).
+- **State**: ~698L 185P 20B 21F | L-770 | F-STR3 mode enforcement BUILT | economy HEALTHY
+- **Next**: (1) Make --mode required for 2nd+ wave lanes; (2) PAPER refresh (overdue); (3) principles-dedup (overdue); (4) Prospective test of wave-aware dispatch (10 sessions)
 
 ## S390 session note (DOMEX-STR-S390: F-STR3 prescriptive wave planner — L-766)
 - **check_mode**: objective | **lane**: DOMEX-STR-S390 (MERGED) | **dispatch**: strategy (#1, UCB1=4.1, PROVEN)
