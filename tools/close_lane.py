@@ -146,19 +146,21 @@ def main():
                         help="Disable merge-on-close: keep all prior rows (append-only mode)")
     args = parser.parse_args()
 
-    # EAD enforcement: MERGED lanes must complete the expect-act-diff loop
+    # EAD enforcement: ALL MERGED lanes must provide actual/diff (L-741, L-601)
+    # Previous gate: only enforced if lane had expect= set. This allowed stub closures
+    # and manually-created lanes to bypass EAD entirely, causing -32.7pp compliance drop.
+    # Fix: require actual/diff for ALL MERGED closures regardless of expect presence.
     if args.status == "MERGED" and not args.skip_ead:
-        latest = find_latest_lane_row(args.lane)
-        has_expect = latest and "expect=" in (latest[10] if len(latest) > 10 else "")
-        if has_expect and not args.actual:
+        if not args.actual:
             print("ERROR: MERGED lanes require --actual (what happened) for EAD compliance.", file=sys.stderr)
-            print("  The lane has expect= set. Complete the loop: --actual '...' --diff '...'", file=sys.stderr)
-            print("  Use --skip-ead only if lane had no meaningful expect.", file=sys.stderr)
+            print("  Every MERGED lane must document its outcome. Use --skip-ead only for", file=sys.stderr)
+            print("  ABANDONED lanes or lanes with no meaningful work.", file=sys.stderr)
             sys.exit(1)
-        if has_expect and not args.diff:
+        if not args.diff:
             print("WARNING: --diff not provided. EAD loop incomplete (actual without diff).", file=sys.stderr)
 
         # Lesson-link check: warn if artifact JSON has no L- lesson reference (F-IS7, L-531)
+        latest = find_latest_lane_row(args.lane)
         if args.status == "MERGED":
             etc_field = latest[10] if latest and len(latest) > 10 else ""
             artifact_match = re.search(r"artifact=([^\s,;|]+)", etc_field)

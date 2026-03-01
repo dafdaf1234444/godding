@@ -5,13 +5,19 @@ correction_propagation.py — Detect and queue correction gaps in the lesson gra
 When a lesson is falsified or superseded, citers may still treat the original
 framing as valid. This tool walks the citation graph to find those gaps.
 
+v2 (S383): Direction-aware falsification detection. Prior version had 75% FP rate
+because corrector lessons (containing "FALSIFIED" while describing another lesson's
+falsification) were flagged as falsified themselves. Fix: scan bidirectionally —
+a lesson is falsified only when OTHER lessons point at it with falsification language.
+Citation-type classification: content-dependent vs structural vs citation-only (L-739).
+
 Usage:
   python3 tools/correction_propagation.py                  # report mode
   python3 tools/correction_propagation.py --json           # machine-readable
   python3 tools/correction_propagation.py --save           # save artifact
-  python3 tools/correction_propagation.py --fix-cites      # add Cites: back-refs
+  python3 tools/correction_propagation.py --classify       # show citation-type breakdown
 
-Related: F-IC1, L-734, L-025, L-613
+Related: F-IC1, L-734, L-739, L-025, L-613
 """
 
 import json
@@ -24,22 +30,19 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 LESSONS_DIR = ROOT / "memory" / "lessons"
 
-# Markers that indicate a lesson has been falsified or corrected
-FALSIFIED_MARKERS = re.compile(
-    r"\bFALSIFIED\b|\bfalsified\b|\bretracted\b|\bwrong\b.*?\bclaim\b"
-    r"|\bclaim\b.*?\bwrong\b|\bincorrect\b.*?\bfinding\b"
+# Falsification keywords (for detecting direction)
+_FALSIF_KW = (
+    r"(?:FALSIFIED|falsified|retracted|disproven|refuted|overturned|invalidated)"
 )
-CORRECTION_MARKERS = re.compile(
-    r"\bsupersed|\bcorrect(?:s|ed|ion)\b|\breplac(?:es|ed)\b"
-    r"|\bovertur|\brefut|\binvalid",
-    re.IGNORECASE,
-)
+# Supersession keywords
+_SUPERSEDE_KW = r"(?:supersed(?:es|ed)|replac(?:es|ed)\s+by|obsolet)"
+
+CITE_PAT = re.compile(r"\bL-(\d+)\b")
 
 
 def _parse_lessons() -> dict[str, dict]:
     """Parse all lessons: extract citations, title, and text."""
     lessons = {}
-    cite_pat = re.compile(r"\bL-(\d+)\b")
     for f in sorted(LESSONS_DIR.glob("L-*.md")):
         lid = f.stem
         text = f.read_text(encoding="utf-8")
@@ -51,11 +54,11 @@ def _parse_lessons() -> dict[str, dict]:
         for line in lines:
             m = re.match(r"^Cites:\s*(.*)", line)
             if m:
-                cites_header = [f"L-{x}" for x in cite_pat.findall(m.group(1))]
+                cites_header = [f"L-{x}" for x in CITE_PAT.findall(m.group(1))]
                 break
 
         # Extract all L-NNN references in body
-        all_refs = set(f"L-{x}" for x in cite_pat.findall(text))
+        all_refs = set(f"L-{x}" for x in CITE_PAT.findall(text))
         all_refs.discard(lid)  # don't count self-reference
 
         lessons[lid] = {
@@ -67,36 +70,6 @@ def _parse_lessons() -> dict[str, dict]:
     return lessons
 
 
-def _find_falsified(lessons: dict[str, dict]) -> list[dict]:
-    """Identify lessons with falsification markers and their correctors."""
-    falsified = []
-    for lid, data in lessons.items():
-        text = data["text"]
-        if not FALSIFIED_MARKERS.search(text):
-            continue
-
-        # Find which other lessons this one falsifies (or was falsified by)
-        # Look for patterns like "L-025 falsified" or "falsified by L-613"
-        targets = set()
-        correctors = set()
-        for ref in data["all_refs"]:
-            ref_text = lessons.get(ref, {}).get("text", "")
-            # If THIS lesson mentions falsifying another
-            if re.search(rf"\b{re.escape(ref)}\b.*?falsif", text, re.IGNORECASE):
-                targets.add(ref)
-            # If another lesson falsifies THIS one
-            if re.search(rf"\b{re.escape(lid)}\b.*?falsif", ref_text, re.IGNORECASE):
-                correctors.add(ref)
-
-        falsified.append({
-            "id": lid,
-            "title": data["title"][:80],
-            "targets_falsified": sorted(targets),
-            "corrected_by": sorted(correctors),
-        })
-    return falsified
-
-
 def _build_citation_graph(lessons: dict[str, dict]) -> dict[str, set[str]]:
     """Build reverse citation graph: for each lesson, who cites it."""
     cited_by: dict[str, set[str]] = defaultdict(set)
@@ -106,81 +79,158 @@ def _build_citation_graph(lessons: dict[str, dict]) -> dict[str, set[str]]:
     return dict(cited_by)
 
 
-def _find_correction_gaps(
+def _detect_falsified_lessons(
     lessons: dict[str, dict],
-    cited_by: dict[str, set[str]],
-) -> list[dict]:
-    """Find lessons that cite falsified content without acknowledging corrections."""
-    gaps = []
+) -> dict[str, set[str]]:
+    """Detect genuinely falsified lessons using bidirectional evidence.
 
-    # Build falsified→correctors map using directional patterns.
-    # Key insight: "X falsified by Y" means X is falsified, Y is corrector.
-    # "Y falsified X" also means X is falsified, Y is corrector.
-    # But "Y: X predictions FALSIFIED" means Y reports that X is wrong (Y is corrector).
-    # Ambiguity: "FALSIFIED...L-NNN" can match both directions.
-    # Fix: a lesson that CONTAINS FALSIFIED in its own title is a CORRECTOR, not falsified.
-    falsified_corrections: dict[str, set[str]] = {}
+    Returns: {falsified_lesson_id: {corrector_ids}}
+
+    Key insight (L-739 S383): A lesson is falsified when OTHER lessons say so,
+    not when it mentions 'FALSIFIED' (which usually means it's the corrector).
+    Two patterns:
+      1. Forward: lesson Y says "L-025 ... FALSIFIED" → L-025 is falsified, Y corrects
+      2. Reverse: lesson X says "falsified by L-613" → X is falsified, L-613 corrects
+    """
+    # Collect directed edges: (falsified_target, corrector)
+    edges: list[tuple[str, str]] = []
 
     for lid, data in lessons.items():
         text = data["text"]
-        if not FALSIFIED_MARKERS.search(text):
-            continue
 
-        title = data["title"]
-        # If FALSIFIED is in the title, this lesson is a corrector reporting falsification
-        lid_is_corrector = bool(re.search(
-            r"FALSIFIED|falsified|wrong|incorrect", title
-        ))
+        for ref_match in CITE_PAT.finditer(text):
+            ref = f"L-{ref_match.group(1)}"
+            if ref == lid:
+                continue
 
-        for ref in data["all_refs"]:
-            # Directional patterns: "ref ... falsified" = ref is falsified, lid corrects
-            fwd = re.search(
-                rf"{re.escape(ref)}.*?(?:FALSIFIED|falsified|wrong\b|incorrect\b)",
-                text,
-            )
-            # Reverse: "falsified by ref" = lid is falsified, ref corrects
-            rev = re.search(
-                rf"(?:falsified|corrected|superseded)\s+(?:by\s+)?{re.escape(ref)}",
-                text,
+            # Get surrounding context (100 chars around the reference)
+            start = max(0, ref_match.start() - 100)
+            end = min(len(text), ref_match.end() + 100)
+            context = text[start:end]
+
+            # Pattern 1: "L-NNN ... FALSIFIED/falsified" — ref is falsified, lid corrects
+            if re.search(
+                rf"{re.escape(ref)}\b.{{0,60}}{_FALSIF_KW}", context
+            ):
+                edges.append((ref, lid))
+
+            # Pattern 2: "FALSIFIED ... L-NNN" — ref is falsified, lid corrects
+            # (lid describes the falsification of ref)
+            if re.search(
+                rf"{_FALSIF_KW}.{{0,60}}\b{re.escape(ref)}\b", context
+            ):
+                edges.append((ref, lid))
+
+            # Pattern 3: "falsified by L-NNN" — lid is falsified, ref corrects
+            if re.search(
+                rf"(?:falsified|corrected|superseded|replaced)\s+by\s+{re.escape(ref)}",
+                context,
                 re.IGNORECASE,
-            )
+            ):
+                edges.append((lid, ref))
 
-            if rev and not lid_is_corrector:
-                # "falsified by ref" — lid is falsified, ref is corrector
-                falsified_corrections.setdefault(lid, set()).add(ref)
-            elif fwd and lid_is_corrector:
-                # This lesson (a corrector) mentions ref near FALSIFIED — ref is falsified
-                falsified_corrections.setdefault(ref, set()).add(lid)
-            elif fwd:
-                # Ambiguous but forward match: assume ref is the falsified target
-                falsified_corrections.setdefault(ref, set()).add(lid)
+            # Pattern 4: "L-NNN supersedes/replaces" — lid is superseded, ref corrects
+            # Actually: if lid says "ref supersedes this" → lid falsified, ref corrects
+            if re.search(
+                rf"{re.escape(ref)}\s+{_SUPERSEDE_KW}", context, re.IGNORECASE
+            ):
+                edges.append((lid, ref))
 
-    # Manually known cases as seed
-    falsified_corrections.setdefault("L-025", set()).update({"L-613", "L-618"})
+    # Aggregate: build falsified→correctors map
+    result: dict[str, set[str]] = {}
+    for target, corrector in edges:
+        if target in lessons:
+            result.setdefault(target, set()).add(corrector)
 
-    # Remove false positives: correctors should not appear as falsified
-    corrector_ids = set()
-    for correctors in falsified_corrections.values():
-        corrector_ids.update(correctors)
-    for cid in corrector_ids:
-        if cid in falsified_corrections:
-            # Only remove if every reference to this lesson's falsification
-            # comes from it being a corrector for something else
-            del falsified_corrections[cid]
+    # Remove self-falsification artifacts (lesson can't falsify itself)
+    for lid in list(result):
+        result[lid].discard(lid)
+        if not result[lid]:
+            del result[lid]
 
-    # For each falsified lesson, check its citers
-    for falsified_lid, correctors in sorted(falsified_corrections.items()):
+    # Remove correctors from the falsified list when they appear ONLY because
+    # they describe falsifying others (not because they ARE falsified).
+    # A corrector is genuinely falsified only if a THIRD lesson says so.
+    all_correctors = set()
+    for correctors in result.values():
+        all_correctors.update(correctors)
+
+    for cid in list(result.keys()):
+        if cid in all_correctors:
+            # Check: do any of cid's correctors NOT come from cid itself
+            # being a corrector of a parent? (i.e., a third-party says cid is wrong)
+            third_party_correctors = result[cid] - {
+                target for target, cs in result.items() if cid in cs
+            }
+            if not third_party_correctors:
+                del result[cid]
+
+    return result
+
+
+def _classify_citation_type(
+    citer_text: str,
+    citer_refs: set[str],
+    citer_cites_header: list[str],
+    falsified_lid: str,
+    falsified_title: str,
+) -> str:
+    """Classify how a citer uses a falsified lesson (L-739 taxonomy).
+
+    Returns: 'content_dependent' | 'structural' | 'citation_only'
+    """
+    # Citation-only: appears only in Cites: header or See also / Related
+    body_without_header = citer_text
+    for line in citer_text.splitlines():
+        if line.startswith("Cites:") or line.startswith("See also:") or line.startswith("Related:"):
+            body_without_header = body_without_header.replace(line, "")
+
+    ref_in_body = bool(re.search(rf"\b{re.escape(falsified_lid)}\b", body_without_header))
+
+    if not ref_in_body:
+        return "citation_only"
+
+    # Content-dependent: references specific falsified claims
+    # Extract key claim words from the falsified title
+    claim_keywords = set()
+    for word in re.findall(r"\b[a-z]{4,}\b", falsified_title.lower()):
+        if word not in {"lesson", "from", "that", "this", "with", "about", "into",
+                        "does", "what", "when", "where", "which", "more", "than",
+                        "also", "have", "been", "were", "they", "their", "there"}:
+            claim_keywords.add(word)
+
+    # Check if citer uses 2+ claim keywords from the falsified lesson's title
+    citer_lower = citer_text.lower()
+    keyword_hits = sum(1 for kw in claim_keywords if kw in citer_lower)
+
+    if keyword_hits >= 2:
+        return "content_dependent"
+
+    return "structural"
+
+
+def _find_correction_gaps(
+    lessons: dict[str, dict],
+    cited_by: dict[str, set[str]],
+    classify: bool = False,
+) -> list[dict]:
+    """Find lessons that cite falsified content without acknowledging corrections."""
+    falsified_map = _detect_falsified_lessons(lessons)
+    gaps = []
+
+    for falsified_lid, correctors in sorted(falsified_map.items()):
         if falsified_lid not in lessons:
             continue
 
         citers = cited_by.get(falsified_lid, set())
         uncorrected = []
+        classifications: dict[str, str] = {}
 
         for citer in sorted(citers):
             if citer == falsified_lid:
                 continue
             if citer in correctors:
-                continue  # the corrector itself
+                continue
 
             citer_data = lessons.get(citer, {})
             citer_refs = citer_data.get("all_refs", set())
@@ -198,48 +248,70 @@ def _find_correction_gaps(
                 re.IGNORECASE,
             ):
                 acknowledges = True
-            # 3. Does citer contain correction markers about the falsified lesson?
-            if CORRECTION_MARKERS.search(citer_text) and falsified_lid in str(citer_refs):
-                acknowledges = True
 
             if not acknowledges:
                 uncorrected.append(citer)
+                if classify:
+                    classifications[citer] = _classify_citation_type(
+                        citer_text,
+                        citer_refs,
+                        citer_data.get("cites_header", []),
+                        falsified_lid,
+                        lessons[falsified_lid]["title"],
+                    )
 
         if uncorrected:
-            gaps.append({
+            gap = {
                 "falsified": falsified_lid,
-                "falsified_title": lessons[falsified_lid]["title"][:60],
+                "falsified_title": lessons[falsified_lid]["title"][:80],
                 "correctors": sorted(correctors),
                 "total_citers": len(citers),
                 "uncorrected_citers": uncorrected,
                 "uncorrected_count": len(uncorrected),
                 "correction_rate": round(
-                    1 - len(uncorrected) / len(citers), 3
-                ) if citers else 1.0,
-            })
+                    1 - len(uncorrected) / max(len(citers), 1), 3
+                ),
+            }
+            if classify:
+                gap["citation_types"] = classifications
+                gap["content_dependent"] = [
+                    c for c, t in classifications.items() if t == "content_dependent"
+                ]
+                gap["structural"] = [
+                    c for c, t in classifications.items() if t == "structural"
+                ]
+                gap["citation_only"] = [
+                    c for c, t in classifications.items() if t == "citation_only"
+                ]
+            gaps.append(gap)
 
     return sorted(gaps, key=lambda g: -g["uncorrected_count"])
 
 
-def run_analysis() -> dict:
+def run_analysis(session: str = "S383", classify: bool = False) -> dict:
     """Run full correction propagation analysis."""
     lessons = _parse_lessons()
     cited_by = _build_citation_graph(lessons)
-    gaps = _find_correction_gaps(lessons, cited_by)
+    falsified_map = _detect_falsified_lessons(lessons)
+    gaps = _find_correction_gaps(lessons, cited_by, classify=classify)
 
     total_gaps = sum(g["uncorrected_count"] for g in gaps)
-    total_falsified = len(gaps)
+    total_falsified_detected = len(falsified_map)
+    total_with_gaps = len(gaps)
     avg_correction_rate = (
         sum(g["correction_rate"] for g in gaps) / len(gaps)
         if gaps else 1.0
     )
 
-    return {
-        "session": "S382",
+    result = {
+        "session": session,
         "computed_at": datetime.now(timezone.utc).isoformat(),
         "frontier": "F-IC1",
+        "version": "v2-directional",
         "total_lessons": len(lessons),
-        "total_falsified_with_gaps": total_falsified,
+        "total_falsified_detected": total_falsified_detected,
+        "falsified_ids": sorted(falsified_map.keys()),
+        "total_falsified_with_gaps": total_with_gaps,
         "total_uncorrected_citations": total_gaps,
         "avg_correction_rate": round(avg_correction_rate, 3),
         "gaps": gaps,
@@ -248,18 +320,27 @@ def run_analysis() -> dict:
                 "citer": citer,
                 "needs_correction_about": g["falsified"],
                 "correctors_to_cite": g["correctors"],
-                "priority": "HIGH" if g["uncorrected_count"] >= 5 else "MEDIUM",
+                "citation_type": g.get("citation_types", {}).get(citer, "unknown"),
+                "priority": (
+                    "HIGH" if g.get("citation_types", {}).get(citer) == "content_dependent"
+                    else "LOW" if g.get("citation_types", {}).get(citer) == "citation_only"
+                    else "MEDIUM"
+                ),
             }
             for g in gaps
             for citer in g["uncorrected_citers"]
-        ][:50],  # top 50
+        ][:50],
     }
+    return result
 
 
 def print_report(result: dict) -> None:
     """Human-readable correction propagation report."""
-    print(f"=== CORRECTION PROPAGATION ANALYSIS — {result['session']} ===\n")
+    print(f"=== CORRECTION PROPAGATION ANALYSIS — {result['session']} "
+          f"({result.get('version', 'v1')}) ===\n")
     print(f"Total lessons: {result['total_lessons']}")
+    print(f"Falsified lessons detected: {result['total_falsified_detected']} "
+          f"({', '.join(result.get('falsified_ids', []))})")
     print(f"Falsified with uncorrected citers: {result['total_falsified_with_gaps']}")
     print(f"Total uncorrected citations: {result['total_uncorrected_citations']}")
     print(f"Average correction rate: {result['avg_correction_rate']:.0%}\n")
@@ -269,22 +350,51 @@ def print_report(result: dict) -> None:
         print(f"    Correctors: {', '.join(g['correctors'])}")
         print(f"    Citers: {g['total_citers']} total, {g['uncorrected_count']} uncorrected")
         print(f"    Correction rate: {g['correction_rate']:.0%}")
-        print(f"    Uncorrected: {', '.join(g['uncorrected_citers'][:10])}")
-        if len(g["uncorrected_citers"]) > 10:
-            print(f"      ... and {len(g['uncorrected_citers']) - 10} more")
+        if "citation_types" in g:
+            ct = g["citation_types"]
+            content = [c for c, t in ct.items() if t == "content_dependent"]
+            structural = [c for c, t in ct.items() if t == "structural"]
+            citation_only = [c for c, t in ct.items() if t == "citation_only"]
+            print(f"    Types: {len(content)} content-dependent, "
+                  f"{len(structural)} structural, {len(citation_only)} citation-only")
+            if content:
+                print(f"    NEEDS FIX: {', '.join(content)}")
+        else:
+            print(f"    Uncorrected: {', '.join(g['uncorrected_citers'][:10])}")
+            if len(g["uncorrected_citers"]) > 10:
+                print(f"      ... and {len(g['uncorrected_citers']) - 10} more")
         print()
 
-    print(f"--- Correction queue (top {min(20, len(result['correction_queue']))}) ---")
-    for item in result["correction_queue"][:20]:
-        print(f"  {item['citer']} ← needs {item['needs_correction_about']} "
-              f"(cite {', '.join(item['correctors_to_cite'])})")
+    queue = result.get("correction_queue", [])
+    high_priority = [q for q in queue if q.get("priority") == "HIGH"]
+    print(f"--- Correction queue: {len(queue)} total, {len(high_priority)} HIGH priority ---")
+    for item in queue[:20]:
+        prio = item.get("priority", "?")
+        ctype = item.get("citation_type", "?")
+        print(f"  [{prio}] {item['citer']} ← {item['needs_correction_about']} "
+              f"({ctype})")
 
 
 if __name__ == "__main__":
-    result = run_analysis()
-
+    classify = "--classify" in sys.argv
     save = "--save" in sys.argv
     as_json = "--json" in sys.argv or save
+
+    # Auto-detect session from git log
+    session = "S383"
+    try:
+        import subprocess
+        log = subprocess.run(
+            ["git", "log", "--oneline", "-1"],
+            capture_output=True, text=True, cwd=str(ROOT),
+        )
+        m = re.search(r"\[S(\d+)\]", log.stdout)
+        if m:
+            session = f"S{int(m.group(1)) + 1}"
+    except Exception:
+        pass
+
+    result = run_analysis(session=session, classify=classify)
 
     if as_json:
         output = json.dumps(result, indent=2)
