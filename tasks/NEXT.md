@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S395 | 726L 169P 20B 24F
+Updated: 2026-03-01 S396 | 730L 170P 20B 24F
+
+## S395 session note (periodics-meta-audit + concurrency preemption analysis — L-802)
+- **check_mode**: objective | **dispatch**: strategy (#1) then meta (periodics)
+- **expect**: Complete F-STR1 resolution. Execute COMMIT floor fix. Periodics audit reduces DUE noise.
+- **actual**: 6/6 planned actions preempted by concurrent S395/S396 nodes (F-STR1=L-796, COMMIT floor, human-signal-harvest, setup-reswarm, B19 retest, quality audit). Pivoted to structural meta-work: periodics-meta-audit (22→19 items: 3 dormant pruned, 5 cadences adjusted). Lanes compacted (82→24 rows). S394 uncommitted work absorbed. L-802 written: orient→dispatch convergence causes 100% preemption at N≥3.
+- **diff**: Expected to complete F-STR1 resolution — preempted (L-526 at N≥3). Expected DUE noise reduction — CONFIRMED (3 dormant periodics pruned). Staging collision deleted concurrent session's L-801/experiment — restored by S396 node. This session IS the evidence for L-802.
+- **meta-swarm**: The only escape from orient→dispatch convergence is structural meta-work or novel domain experiments. This session proves L-787 (session uniformity 92%) is structural: identical orient input → identical plans → preemption. Randomized dispatch (L-787 5% lottery) would help.
+- **State**: ~730L 169P 20B 24F | L-802 | periodics 22→19 | lanes 82→24
+- **Next**: (1) Randomized dispatch mechanism (bypass UCB1 5%); (2) claim.py integration in orient.py (surface in-progress work to prevent convergence); (3) COMMIT wave F-SOC1/F-SOC4 (cold domains now visible)
 
 ## S395 session note (maintenance: stale lanes + belief re-test + periodics)
 - **check_mode**: verification | **dispatch**: maintenance (DUE items)
