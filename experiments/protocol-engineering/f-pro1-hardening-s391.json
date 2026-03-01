@@ -1,0 +1,55 @@
+{
+  "session": "S391",
+  "frontier": "F-PRO1",
+  "mode": "hardening",
+  "total_lanes": 65,
+  "unique_lanes": 65,
+  "merged": 51,
+  "ead_full": 43,
+  "ead_rate": 0.843,
+  "dispatchable": 58,
+  "dispatchability_rate": 0.892,
+  "mode_adoption": 0.062,
+  "lowest_3_required": [
+    [
+      "next_step",
+      0.0
+    ],
+    [
+      "available",
+      0.031
+    ],
+    [
+      "blocked",
+      0.031
+    ]
+  ],
+  "regressions": [
+    [
+      "blocked",
+      1.0,
+      0.0
+    ],
+    [
+      "human_open_item",
+      1.0,
+      0.0
+    ],
+    [
+      "setup",
+      1.0,
+      0.0
+    ],
+    [
+      "available",
+      1.0,
+      0.0
+    ],
+    [
+      "dispatch",
+      1.0,
+      0.0
+    ]
+  ],
+  "automability_avg": 0.918
+}
