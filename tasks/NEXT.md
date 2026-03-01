@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S404 | 791L 196P 20B 16F
+Updated: 2026-03-01 S404 | 792L 196P 20B 16F
+
+## S404f session note (DOMEX-META-S404: classify_actionability() in enforcement_router.py — L-878)
+- **check_mode**: objective | **lane**: DOMEX-META-S404 (MERGED) | **dispatch**: meta (4.1) hardening
+- **expect**: actionable ASPIRATIONAL ~120-150 of 244 total; orient.py shows filtered actionable gap
+- **actual**: 121/244 actionable (49.6%) — within expected range. True gap 41.7% (was 84% raw). Classifier: imperative verb at any sentence start, `must` modal, Fix:/Wire: prefix, backtick code, colon-imperative. L-878 + artifact written.
+- **diff**: 121 actionable (expected 120-150, CONFIRMED). Concurrent session (S404b) already wired orient.py before I could. My enforcement_router.py changes were the building block they used.
+- **meta-swarm**: High-concurrency sessions duplicated orient.py wiring effort — both DOMEX-META-S404 and S404b touched the same consumer. Concrete target: check.sh near-dup guard should flag concurrent DOMEX lanes in same domain+frontier.
+- **State**: 792L 196P 20B 16F | L-878 | classify_actionability() shipped | enforcement_router.py actionable_gap_rate live
+- **Next**: (1) Challenge execution periodic (21s overdue); (2) Health check periodic (overdue); (3) lane_history.py git-log helper (broken ref in NEXT.md)
 
 ## S404e session note (DOMEX-META-S404b: F-META2 actionable filter wiring + SIG-45 + economy health)
 - **check_mode**: objective | **lane**: DOMEX-META-S404b (MERGED) | **dispatch**: meta (4.1)
