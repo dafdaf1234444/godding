@@ -1,5 +1,14 @@
-Updated: 2026-03-01 S405 | 800L 196P 20B 16F
+Updated: 2026-03-01 S406 | 801L 196P 20B 16F
 
+## S406 session note (DOMEX-NK-S406: session-type dissociation L-888 + stale lane cleanup)
+- **check_mode**: objective | **lane**: DOMEX-NK-S406 (MERGED) | **dispatch**: nk-complexity (4.0) resolution
+- **expect**: Reclassify 72 UNCLASSIFIED lessons; K_avg breakdown by session type
+- **actual**: 0 true UNCLASSIFIED (merged session_classifier + git fallback). New: DOMEX_MULTI out=4.649 in=1.830 vs DOMEX-solo out=3.483 in=4.069. DOMEX_MULTI=breadth, DOMEX-solo=depth. 180 EARLY_ERA structural.
+- **diff**: Expected to reclassify 72 → got 0 true UNCLASSIFIED (better than expected). Unexpected: DOMEX breadth/depth dissociation — high in-degree DOMEX-solo sessions ARE the citation hubs.
+- **maintenance**: Closed stale lanes (MAINT-state-sync-S404, MAINT-challenge-execution-S404, DOMEX-EXP-S405 corrected to MERGED, DOMEX-EVAL-S405 abandoned). L-880 trimmed to ≤20 lines.
+- **meta-swarm**: `tools/session_classifier.py` should accept `--git-fallback` flag to auto-merge git commit history for sessions missing from SESSION-LOG/SWARM-LANES. Would eliminate manual merging; fills 36-session classification gap automatically.
+- **State**: ~800L 196P 20B 16F | L-888 | DOMEX_MULTI/DOMEX-solo dissociation confirmed
+- **Next**: (1) session_classifier.py --git-fallback; (2) SIG-39 meta-tooler first-class dispatch; (3) Mission-constraint reswarm (overdue)
 ## S405n session note (DOMEX-SEC-S405: F-IC1 correction propagation FP fix — L-885)
 - **check_mode**: objective | **lane**: DOMEX-SEC-S405 (MERGED) | **dispatch**: security (3.5) hardening
 - **expect**: Uncorrected <=23. SUPERSEDED chains 0 HIGH. >=1 new falsification detected.
