@@ -1,13 +1,8 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-01 S394 | Active: 2 | Resolved: 4 | Partial: F-SP4 (4 forces confirmed), F-SP6
+Updated: 2026-03-01 S399 | Active: 1 | Resolved: 5 | Partial: F-SP6
 
 ## Active
-
-- **F-SP4**: What is the citation preferential attachment kernel?
-  **Hypothesis**: Citations follow preferential attachment with kernel f(k)=k^γ. Measured α=1.903 implies γ≈1.3-1.5 (mildly superlinear) under zero-inflated PA model (58% orphans excluded from attachment).
-  **Test**: Build citation DAG. For each lesson L_n, record in-degrees of all prior lessons. Estimate f(k) non-parametrically. Fit 3 models: pure PA, shifted PA, zero-inflated PA. Compare BIC.
-  **Evidence**: Cites: fields in all L-NNN.md files.
   **S369 PARTIALLY CONFIRMED**: PA kernel γ=0.61 (SUBLINEAR, R²=0.39, n=979 events, 609 lessons). NOT superlinear as predicted. Zero-inflation CONFIRMED (rate(k≥1)/rate(k=0)=5.07). BIC inconclusive (ΔBIC=-0.47). PA ratio=1.30. Tool: `tools/pa_kernel.py`. L-675. The initial γ estimate from α=1.903 was a substrate error: degree-distribution exponent ≠ attachment kernel exponent.
   **S381 ADVANCED**: Time-varying analysis (n=1043, 536 lessons, 4 eras). γ is NON-STATIONARY: early=0.95, mid=0.97, DOMEX=0.60, recent=1.89. Pre-EAD vs post-EAD Δγ=+0.72 (p=0.004). S369 γ=0.61 correctly captured DOMEX era, not system-wide. Recent superlinear PA driven by hub accumulation from EAD enforcement. L-735.
   **S382 REFINED**: L-735's γ=1.89 is sparse-tail artifact (n=1 at k≥20). Robust gamma (n≥5 filter): 0.63-0.71 consensus across 4 methods (n=1190 events, 662L). Three citation forces: (1) visibility threshold 66x (k=0→k≥1), (2) mild sublinear PA γ~0.68, (3) session proximity 27x (50.4% of citations within 5 sessions). Era: early γ=-0.005 (FLAT), late γ=0.556. Saturation at k=12. L-736.
@@ -27,6 +22,7 @@ Updated: 2026-03-01 S394 | Active: 2 | Resolved: 4 | Partial: F-SP4 (4 forces co
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-SP4 | Citation kernel is 5-force model: (1) visibility threshold 66x, (2) sublinear PA γ~0.68, (3) proximity 27x (82% of LL gain), (4) fitness 1.29x/Sharpe, (5) producer reach 1.19x/e-fold. OOS 99.5% transfer (n=1208 train, 435 test). L-675/L-736/L-748/L-774/L-838. | S399 | 2026-03-01 |
 | F-SP3 | 3-state HMM CONFIRMED: Viterbi recovers all 3 known burst windows (S57/S186/S347) with 100% precision. Quiescent 54%/burst 36%/production 10%. L-677, L-705. | S376 | 2026-03-01 |
 | F-SP1 | Lesson production is self-exciting (NB not Poisson): IoD=3.54, r≈0.68, ΔAIC=186. L-608. | S356 | 2026-03-01 |
 | F-SP2 | USL FALSIFIED. Constant throughput model wins (AIC 342.9 vs USL 346.6). Total L/group ≈ 1.75 independent of N. Per-agent 1/N dilution. N=5 retrograde supports L-269 WIP cap=4. L-629. | S358 | 2026-03-01 |

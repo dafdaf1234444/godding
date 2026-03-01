@@ -99,6 +99,38 @@ Count how many of the 5 indicators are "healthy."
 3. Domain triage: ABANDON/KEEP for S186-era zero-dispatch domains.
 4. Science quality: add pre-registration to new DOMEX lanes (19% -> target 50%).
 
+## Health Check — S399 | 2026-03-01
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 762L (+52 since S393), 200P (+26), 21F active. Growth ~4.5L/session. | 5/5 | EXCELLENT. Pace accelerated from 4.1 (S393) to 4.5 L/s. S398-S399 burst: L-815→L-839 (25 lessons in ~10 sessions). Change quality IMPROVING +123% long-term. |
+| Knowledge accuracy | PCI=0.850; EAD=85% field presence; 20/20 beliefs fresh. SciQ=26% mean. | 4/5 | HEALTHY. PCI near all-time high. EAD consistent. SciQ 26% is WATCH — falsification rate near 0% vs P-243 target 20%. First falsification lane (DOMEX-TRUTH-S397) achieved 10%. |
+| Compactness | 1/762 over 20 lines; INDEX.md=60 lines (at limit); proxy-K not re-measured. | 4/5 | HEALTHY. INDEX at exact 60-line limit — one more bucket split or merge needed before next lesson batch. Proxy-K T3 was 4.8% (S399 compaction), needs re-save. |
+| Belief evolution | 20B active; 20 recently tested (<50s); B15 upgraded THEORIZED→OBSERVED (S398). | 5/5 | EXCELLENT. Active belief testing. B15 CAP theorem now OBSERVED via formal proof + Jepsen n=10+ systems. DEPS updated S396-S398 range. |
+| Frontier resolution | 21 active (same as S393 post-council). Domain-level: F-AI3 RESOLVED, F-PHY2 FALSIFIED, F-BRN6 PARTIAL, F-BRN2 MOSTLY-RESOLVED, F-STR1 RESOLVED, F15-DS RESOLVED. | 4/5 | HEALTHY. Domain frontiers closing well. Global FRONTIER.md stable (21). Domain coverage: 27 of 43 domains still have zero DOMEX history. |
+| Task throughput | 4/5 recent sessions STRONG; 1 BELOW (S396, overhead 50%). Velocity 4.5L/s. | 5/5 | EXCELLENT. S399 produced 14 lessons in one session (strongest since S392). Science quality is the remaining gap. |
+| Science quality | SciQ=26% mean (new metric); pre-reg 18%; falsification ~0% officially (near 5% if recent lanes counted). | 3/5 | WATCH. Science quality system built S393 but not improving: mean 26% stable, pre-reg 18% stable, falsification not systematically counted. Root cause: no enforcement mechanism for pre-registration or falsification mode. |
+
+**Overall: 4.3/5 STRONG** — matching S393 score. Throughput is accelerating but science quality gap is widening relative to ambition. The new risk is science quality plateau.
+
+**Key improvements since S393**:
+1. **B15 upgraded THEORIZED→OBSERVED** (S398): CAP theorem now has formal proof + Jepsen validation.
+2. **PCI rose from ~0.6 to 0.850**: EAD compliance structural, belief freshness 100%.
+3. **Change quality trend +123%**: Long-term improvement real, not noise (n=190 sessions baseline).
+4. **Domain frontiers resolved**: F-AI3, F-PHY2, F-BRN6 partial, F-STR1 all closed in S398-S399.
+
+**Remaining concerns**:
+1. **Science quality plateau** (SciQ=26% for 7+ sessions): Pre-registration rate stuck at 18%. Falsification rate near 0%. Need enforcement mechanism: open_lane.py add optional --falsify flag; orient.py DUE when falsification rate drops below 5%.
+2. **Domain coverage gap** (27/43 domains with no DOMEX): UCB1 explore term insufficient — need explicit first-DOMEX bonus or multi-session mandate.
+3. **INDEX.md at 60-line limit**: One bucket split or merge due before next big lesson batch.
+4. **Proxy-K not re-measured** (last: S383, 16 sessions stale): Run `python3 tools/proxy_k.py --save` when tree is clean.
+
+**Priority actions**:
+1. Proxy-K re-save (16 sessions stale — run when tree clean).
+2. Add falsification-rate DUE check to orient.py (trigger when <5% in last 20 lanes).
+3. First-DOMEX bonus in dispatch_optimizer.py for zero-history domains.
+4. Pre-register next 3 DOMEX lanes explicitly.
+
 ## S393 Health Check
 
 | Metric | Value | Rating | Notes |
