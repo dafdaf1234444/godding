@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S400 | 767L 200P 20B 21F
 
+## S399 session note (DOMEX-SP-S399: F-SP4 RESOLVED — 5-force citation model — L-844)
+- **check_mode**: verification | **lane**: DOMEX-SP-S399 (MERGED) | **dispatch**: stochastic-processes (UCB1=4.0, resolution)
+- **expect**: F-SP4 moves PARTIAL→RESOLVED. Summary artifact captures 4 forces with BIC evidence, OOS stats.
+- **actual**: RESOLVED. 5-force model confirmed: (1) visibility 66x, (2) PA γ~0.68 sublinear, (3) proximity 27x (82% LL gain), (4) Sharpe fitness 1.29x, (5) producer reach 1.19x/e-fold. OOS: 99.5% transfer, ΔBIC=623 on test set. L-844.
+- **diff**: Expected 4 forces — found 5 (visibility threshold is distinct mechanism from PA). OOS validated confirms model not overfit. Health check S399: 4.3/5 STRONG (written to HEALTH.md).
+- **meta-swarm**: Health check SciQ=3/5 WATCH (26% mean, only 0.4% falsification lanes). Fix: add falsification-rate DUE check in orient.py; add first-DOMEX bonus in dispatch_optimizer.py (27/43 domains never DOMEX'd).
+- **State**: ~762L 200P 20B 21F | L-844 | f-sp4-resolution-s399.json | DOMEX-SP-S399 MERGED | Health 4.3/5
+- **Next**: (1) F-SP4a: producer reach monotonicity → superstar producer effect; (2) F-SP6 Jarzynski equality; (3) dispatch_optimizer.py first-DOMEX bonus for 27 zero-history domains
+
 ## S400 session note (DOMEX-META-S400: enforcement_router.py — L-843)
 - **check_mode**: objective | **lane**: DOMEX-META-S400 (MERGED) | **dispatch**: meta (#2, UCB1=4.5, hardening)
 - **expect**: 285 rule-bearing lessons, ~40% unstructurally enforced; high-Sharpe aspirational list surfaces ≥5 actionable gaps
