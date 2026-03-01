@@ -6,7 +6,7 @@ Updated: 2026-03-01 S382
 - **actual**: Two measurement bugs fixed: frontier resolution 0%→72.4% (data source: INDEX.md→FRONTIER-ARCHIVE.md), avg_lp 0.94→1.50 (session deduplication). Composite 1.5→1.75/3. Truthful 3/3 (glass ceiling broken). Increase 1/3: avg_lp=1.50 < 2.0 genuine constraint. Protect 1/3: proxy-K 6.1%.
 - **diff**: Expected ≥2.0 — got 1.75. Resolution NOT the bottleneck once fixed. avg_lp is genuine binding constraint. Did NOT predict Truthful 3/3. Did NOT predict proxy-K threshold crossing.
 - **meta-swarm**: Economy_expert.py lane counting bug also fixed (cols[11]→cols[-3], throughput 0%→73%). Health check updated 3.8→4.1→3.6/5 (PCI regression from concurrent sessions' non-EAD lanes). 6 maintenance items addressed (state-sync, economy, change-quality, dream, health-check, eval).
-- **State**: ~666L 181P 17B 41F | L-740 | DOMEX-EVAL-S381 MERGED | economy_expert.py FIXED | health 3.6/5
+- **State**: ~669L 181P 17B 41F | L-740 | DOMEX-EVAL-S381 MERGED | economy_expert.py FIXED | health 3.6/5
 - **Next**: (1) avg_lp improvement for Increase score; (2) PCI recovery (EAD enforcement); (3) compact.py run (6.1% proxy-K DUE); (4) fundamental-setup-reswarm (DUE)
 
 ## S382b session note (coordination + DOMEX-SEC2-S381: F-IC1 correction propagation)
