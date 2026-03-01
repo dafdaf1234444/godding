@@ -173,16 +173,23 @@ def _detect_falsified_lessons(
     for cid in list(result.keys()):
         own_text = lessons.get(cid, {}).get("text", "")
 
-        # Self-declares as superseded/retracted → genuinely falsified
+        # Self-declares as superseded/retracted/archived → genuinely falsified
         if re.search(
-            r"^<!--\s*SUPERSEDED|^\s*SUPERSEDED|^\[SUPERSEDED|retracted",
+            r"^<!--\s*(?:SUPERSEDED|ARCHIVED)"
+            r"|^\s*SUPERSEDED"
+            r"|\[SUPERSEDED"
+            r"|retracted",
             own_text,
             re.IGNORECASE | re.MULTILINE,
         ):
             continue  # keep in list
 
-        # Explicitly says "falsified by L-NNN" → genuinely falsified
-        if re.search(r"falsified\s+by\s+L-\d+", own_text, re.IGNORECASE):
+        # Explicitly says "falsified/superseded by L-NNN" → genuinely falsified
+        if re.search(
+            r"(?:falsified|superseded|replaced)\s+by\s+L-\d+",
+            own_text,
+            re.IGNORECASE,
+        ):
             continue  # keep in list
 
         # In the known seed → keep
@@ -203,6 +210,13 @@ def _detect_falsified_lessons(
         if cid in all_correctors:
             del result[cid]
             continue
+
+        # Default: no self-declaration found. The lesson was flagged by
+        # context-matching (L-NNN near FALSIFIED/SUPERSEDED in another lesson's
+        # text about something else). Require positive self-declaration to
+        # confirm falsification. Without it, remove as false positive.
+        # (S405 audit: 60% FP rate without this guard — L-879)
+        del result[cid]
 
     return result
 

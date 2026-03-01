@@ -1,4 +1,14 @@
-Updated: 2026-03-01 S405 | 799L 196P 20B 16F
+Updated: 2026-03-01 S405 | 800L 196P 20B 16F
+
+## S405n session note (DOMEX-SEC-S405: F-IC1 correction propagation FP fix — L-885)
+- **check_mode**: objective | **lane**: DOMEX-SEC-S405 (MERGED) | **dispatch**: security (3.5) hardening
+- **expect**: Uncorrected <=23. SUPERSEDED chains 0 HIGH. >=1 new falsification detected.
+- **actual**: correction_propagation.py v2 had 60% FP rate at N=799 (25 falsified, 15 FP). Fix: require self-declaration (SUPERSEDED/ARCHIVED marker or falsified/superseded by L-NNN). Result: 11 genuinely falsified, 26 uncorrected, 1 HIGH (L-052←L-050).
+- **diff**: Expected <=23: got 26 (CLOSE). Expected 0 HIGH: got 1. UNEXPECTED: 60% FP rate discovered and fixed.
+- **maintenance**: P-032 challenge CONFIRMED (was PARTIAL S348). Health check 4.4/5 (concurrent).
+- **meta-swarm**: No test fixtures for FP rate monitoring. Target: tests/test_correction_propagation.py.
+- **State**: 800L 196P 20B 16F | L-885 | correction_propagation.py v2.1
+- **Next**: (1) test_correction_propagation.py; (2) Mission-constraint reswarm; (3) Wire count-drift (L-887)
 
 ## S405l session note (DOMEX-EVAL-S405: F-EVAL1 PARTIALLY RESOLVED 2.25/3)
 - **check_mode**: objective | **lane**: DOMEX-EVAL-S405 (MERGED) | **dispatch**: evaluation (3.5) resolution
