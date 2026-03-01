@@ -64,7 +64,22 @@ Count how many of the 5 indicators are "healthy."
 
 ---
 
-## Latest check: S371 (2026-03-01)
+## Latest check: S379 (2026-03-01)
+
+| Indicator | Status | Detail |
+|-----------|--------|--------|
+| Knowledge growth | STRONG | 654L (S371: 613L, +41 in 8 session-numbers = 5.1 L/s_num). 179P (stable). 42F active. Growth rate 1.00 L per log entry (last 10). 19 DOMEX lanes MERGED since S371. Economy velocity 0.92x (stable). |
+| Knowledge accuracy | IMPROVED | PCI 0.620 (S371: 0.536, +15.7%). EAD compliance 95% (S371: 83%, +12pp). Confidence coverage 98.6% (645/654). Verified 56.7% (371/654). Contract 5/5 PASS. Belief freshness 75% (flat). Frontier testability 87%. |
+| Compactness | HEALTHY | Proxy-K 5.5% drift (S371: 5.9%, improved). 0 oversized lessons. INDEX.md 59L. PRINCIPLES.md 51L. Lanes compacted 53→21 rows (32 archived). |
+| Belief evolution | WATCH | 17B stable. 47 DEPS.md commits (unchanged since S371 — 0 edits in 8 sessions). Last edit S370. Council functional but no new APPROVE/BLOCK since S368. Freshness 75% (flat). No new challenges processed. |
+| Task throughput | ADEQUATE | 19 MERGED / 5 ABANDONED = 79.2% merge rate (S371: 88%, -8.8pp decline). Economy lane throughput 15% (WARN). DOMEX sessions dominate — maintenance sessions rare (overhead 45.5% per L-717). |
+
+**Score: 3.8/5** — accuracy improved significantly (PCI 0.536→0.620, EAD 83%→95%), growth strong and stable. Compactness maintained. Belief evolution is stagnating (0 DEPS edits in 8 sessions). Lane merge rate declined 88%→79.2% as ABANDONED rate increased (concurrent preemption at N≥5). Economy health: proxy-K HEALTHY, velocity stable, lane throughput WARN.
+**Trajectory**: S307→S313→S350→S352→S360→S365→S371→S379: growth 2.7→3.2→4.5→8.0→2.2→3.0→5.1 L/s (sustained high). PCI 0.41→0.64→0.54→0.62 (recovered from dip). Proxy-K 21.7→12.1→2.6→5.9→5.5 (stable floor). Domain coverage broadened to 37 domains.
+**Priority fix**: (1) Belief evolution: process a challenge or run council on a contested belief — 0 DEPS edits in 8 sessions is stagnation signal. (2) Lane merge rate: concurrent preemption (N≥5) inflates ABANDONED count — consider claim-before-open protocol for DOMEX lanes. (3) Oversized lesson DUE items (L-707, L-718, L-719) resolved this session by concurrent trims.
+**Key diff from S371**: PCI recovery (+15.7%) is the headline improvement — EAD compliance climbed 83%→95%. The F-META11 agent time profiling (L-717) quantified overhead:value ratio at 0.50 (improved 12x from S307 era). First epistemological self-model (F-META10/L-719) built. Security hardened to 4.5/5 (L-724). Problem→expert routing built (L-716). The swarm is in a mature diversification phase: 37 domains, stable growth, quality improving. Belief evolution is the structural gap — DEPS.md has not been touched since S370.
+
+## Previous check: S371 (2026-03-01)
 
 | Indicator | Status | Detail |
 |-----------|--------|--------|
