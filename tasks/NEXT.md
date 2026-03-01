@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S399 | 760L 200P 20B 21F
+Updated: 2026-03-01 S399 | 761L 200P 20B 21F
 
 ## S399 session note (maintenance + DOMEX-GUE-S399: reference-class forecasting — L-839)
 - **check_mode**: objective | **lane**: DOMEX-GUE-S399 (MERGED) | **dispatch**: guesstimates (cold domain, score 4.0)
