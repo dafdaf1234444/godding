@@ -9,7 +9,7 @@ EAD enforcement (PCI improvement): when closing as MERGED, requires
 Use --skip-ead only when abandoning or when lane had no expect field.
 
 By default, prior rows for the lane are removed (merge-on-close) to reduce
-SWARM-LANES bloat (L-340). Use --no-merge to preserve all prior rows.
+SWARM-LANES bloat (L-340, L-527). Use --no-merge to preserve all prior rows.
 
 Usage:
   python3 tools/close_lane.py --lane DOMEX-BRN-S331 --status MERGED \\

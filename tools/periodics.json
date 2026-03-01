@@ -166,6 +166,13 @@
       "cadence_sessions": 10,
       "last_reviewed_session": 397,
       "registered_by": "S398"
+    },
+    {
+      "id": "enforcement-audit",
+      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` — check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400). See L-843, L-846, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601.",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 400,
+      "registered_by": "S401"
     }
   ]
 }

@@ -1575,7 +1575,7 @@ def check_proxy_k_drift() -> list[tuple[str, str]]:
 
     # If floor is very stale (>50 sessions), check dirty entries for more
     # recent post-compaction baselines (where total decreased from prior).
-    # Prevents false URGENT signals from legitimate tool growth. (L-550)
+    # Prevents false URGENT signals from legitimate tool growth. (L-550, L-555)
     _floor_s_post = int(floor_entry.get("session", 0) or 0)
     if _cur_s > 0 and _floor_s_post > 0 and (_cur_s - _floor_s_post) > 50:
         for i in range(len(schema_entries) - 1, 0, -1):

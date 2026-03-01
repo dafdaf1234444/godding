@@ -311,7 +311,7 @@ if "${PYTHON_CMD[@]}" tools/validate_beliefs.py "${ARGS[@]}" 2>/dev/null | grep 
 fi
 echo "  Beliefs: PASS"
 
-# 1b. Self-model contract (F-META8)
+# 1b. Self-model contract (F-META8, L-597)
 if "${PYTHON_CMD[@]}" tools/contract_check.py "${ARGS[@]}" 2>/dev/null | grep -q "FAIL"; then
     echo "FAIL: Self-model contract check failed. Fix before committing."
     "${PYTHON_CMD[@]}" tools/contract_check.py
