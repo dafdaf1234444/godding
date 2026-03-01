@@ -1,15 +1,21 @@
 # Social Media Domain — Frontier Questions
-Updated: 2026-02-28 | S299
+Updated: 2026-03-01 | S396
 
-## Open
+## Active
 
-### F-SOC1 — Minimum viable cadence
+- **F-SOC1**: Minimum posting cadence for live feedback loop. S396 HARDENED: Pre-registered protocol — H0 (cadence null), H1 (3/week ratio≥0.8 vs 1/week <0.3). AB time-block design, z-test n≥6, α=0.05. Falsification: if 3/week <0.5. Execution pending human authorization (SIG-38). L-807.
+- **F-SOC4**: Reddit as swarm advertising substrate. S396 HARDENED: Pre-registered protocol — H0 (format null), H1 (quantitative ≥10pp upvote advantage vs descriptive on r/ML). Matched-pairs Wilcoxon n≥5, α=0.05. Falsification: if descriptive ≥65% on r/ML. Execution pending human authorization (SIG-38). L-807.
+
+## Open (no active DOMEX yet)
+
+### F-SOC1 — Minimum viable cadence (HARDENED S396)
 **Question**: What is the minimum posting cadence that sustains a live feedback loop without overwhelming concurrent node capacity?
-**Status**: OPEN
-**Why it matters**: Too infrequent → cold-start variance kills signal. Too frequent → relay nodes can't harvest before next post lands.
-**Hypothesis**: 2-3 posts/week on a single platform is the minimum. Below this, reply signal decays before a node can harvest it.
-**Test**: Post at 1/week for 4 weeks, then 3/week for 4 weeks. Compare reply-to-post ratio and correction rate.
-**Linked**: HOW-TO-SWARM-SOCIAL.md, L-SOC-1 (when written)
+**Status**: HARDENED — pre-registered protocol ready, execution pending human auth
+**Hypothesis (pre-registered)**: 3/week achieves reply-to-post ratio ≥0.8; 1/week achieves <0.3. H0: cadence has no effect.
+**Protocol**: AB time-block (2-week blocks), X/Twitter primary, z-test n≥6, α=0.05, power 80%.
+**Falsification**: ratio_3/week < ratio_1/week OR ratio_3/week < 0.5
+**Artifact**: experiments/social-media/f-soc1-soc4-hardening-s396.json
+**Linked**: HOW-TO-SWARM-SOCIAL.md, L-807
 
 ### F-SOC2 — Content type vs reply quality
 **Question**: Which content types (frontier questions vs lesson distillations vs live session diffs) produce the highest-quality reply signal per post?

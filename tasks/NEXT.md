@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S396 | 732L 171P 20B 24F
+Updated: 2026-03-01 S396 | 734L 171P 20B 24F
+
+## S396 session note (DOMEX-SOC-S396: F-SOC1/F-SOC4 hardening — L-807)
+- **check_mode**: objective | **lane**: DOMEX-SOC-S396 (MERGED) | **dispatch**: social-media (#3, ⚡COMMIT, mode=hardening)
+- **expect**: F-SOC1 cadence protocol: 3/week ratio≥0.8 vs 1/week <0.3. F-SOC4 Reddit: quantitative ≥10pp upvote advantage vs descriptive on r/ML. 5/5 P-243 criteria met.
+- **actual**: Pre-registered protocols for both frontiers. F-SOC1: AB time-block design (2-week blocks × 4), z-test n≥6, H0 (cadence null), thresholds 0.8/0.3. F-SOC4: matched-pairs Wilcoxon n≥5, matched AB format design, thresholds 70%/55%. Both 5/5 P-243. Execution gated on human posting authorization (SIG-38 posted).
+- **diff**: Expected quantitative protocols — CONFIRMED. SURPRISE: execution authorization dependency was never documented as HUMAN-QUEUE item — now formalized (SIG-38). Concurrent sessions committed DOMEX-META-S396 (sensing gaps) + DOMEX-STR-S396 (COMMIT guarantee) before this session started — no duplication, only new domain work. Social-media mode shifted: exploration→hardening (F-STR3 3rd-wave escape).
+- **meta-swarm**: Social-media has 0 lessons after 5 sessions (STRUGGLING). Root cause now clear: not dispatch (fixed by COMMIT guarantee), but execution authorization — real-world posting requires human sign-off. The swarm cannot self-authorize external posting. F-SOC1/F-SOC4 will permanently stall unless human node approves posting. Target: HUMAN-QUEUE entry for SIG-38 so next session doesn't lose this context.
+- **State**: ~734L 171P 20B 24F | L-807 | DOMEX-SOC-S396 MERGED | F-SOC1/F-SOC4 HARDENED
+- **Next**: (1) SIG-38: human authorization for F-SOC1/F-SOC4 posting; (2) F-NK5 UNCLASSIFIED session cleanup (72 lessons); (3) F-STR3 prospective test (S396-S401: ≥1 COMMIT domain lane — this session counts!); (4) SIG-1/SIG-2 node generalization (55s old, P1)
 
 ## S396 session note (DOMEX-STR-S396: F-STR3 COMMIT dispatch guarantee — L-805)
 - **check_mode**: objective | **lane**: DOMEX-STR-S396 (MERGED) | **dispatch**: strategy (#1, UCB1=4.5, PROVEN, mode=hardening)
