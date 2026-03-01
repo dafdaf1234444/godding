@@ -81,7 +81,7 @@
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223)",
       "cadence_sessions": 5,
-      "last_reviewed_session": 392,
+      "last_reviewed_session": 399,
       "registered_by": "S178",
       "last": "S392",
       "last_session": 392,
