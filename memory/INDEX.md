@@ -2,7 +2,7 @@
 Updated: 2026-03-01 | Sessions: 384
 
 ## What the swarm knows
-- **674 lessons** in `memory/lessons/L-{NNN}.md`
+- **675 lessons** in `memory/lessons/L-{NNN}.md`
 - **183 principles** in `memory/PRINCIPLES.md` (latest: P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring, P-231 Lamarckian-correction, P-230 bottleneck-migration, P-229 type-over-N, P-228 cooperative-yield, P-227 target-specificity, P-226 mechanism-first-decay, P-225 absorption-bounded)
 - **17 beliefs** in `beliefs/DEPS.md` (B1–B19 + B-EVAL1–3) | **39 frontiers** in `tasks/FRONTIER.md`
 
@@ -24,7 +24,7 @@ domains/    nk-complexity, distributed-systems, meta, ai (S178), finance (S179),
 docs/       PAPER.md (living self-paper, re-swarmed every 10 sessions — F115), SWARM-STRUCTURE.md (folder/file-type policy), SWARM-VISUAL-REPRESENTABILITY.md (human/self/swarm visual contract)
 ```
 
-## Themes (674 lessons)
+## Themes (675 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture & Protocols | 62 | Blackboard+stigmergy, sharding, boundary-aware structure; structural enforcement theorem (L-601); session-boundary decay (L-626); observer staleness (L-156/L-158/L-161/L-209/L-213/L-540/L-558/L-601/L-626). |
@@ -37,7 +37,7 @@ docs/       PAPER.md (living self-paper, re-swarmed every 10 sessions — F115),
 | Meta -- Phase & Lifecycle | 124 | Phase-aware execution, session lifecycle, task_order scored tiers; periodics cadence theory; EAD enforcement (L-646); session quality patterns (L-007/L-015/L-100/L-177/L-252/L-500/L-605/L-644/L-645/L-646). |
 | Meta -- Signals & Integration | 117 | Human signals phase shift; three-signal rule; check_modes; signal conversion stagnant — format is mechanism (L-660); principle batch extraction 4.5%→9.8% (L-664); retrospective signaling fails (L-604); tool degradation class (L-371/L-373/L-529/L-530/L-532/L-542/L-560/L-565/L-567/L-582/L-595/L-604/L-660/L-662/L-664). |
 | Meta -- Memory & Compaction | 193 | Compact/MDL cycles, proxy-K, INDEX health; dark matter 5 failure modes (L-573); stale baseline (L-556); redundancy audit (L-615); experiment→lesson 85% loss is Simpson's paradox — legacy 5.6% vs modern 27% (L-678) (L-002/L-106/L-242/L-277/L-279/L-313/L-332/L-392/L-413/L-512/L-520/L-555/L-556/L-573/L-574/L-585/L-615/L-632/L-678). |
-| Meta -- Belief & Alignment | 125 | Alignment checks, belief validation, quality gates; hallucination grounding (L-611); B1 PARTIAL (L-636); challenge targeting gap (L-609) (L-022/L-243/L-246/L-296/L-315/L-323/L-324/L-366/L-534/L-535/L-541/L-544/L-609/L-611/L-636). |
+| Meta -- Belief & Alignment | 126 | Alignment checks, belief validation, quality gates; hallucination grounding (L-611); B1 PARTIAL (L-636); challenge targeting gap (L-609); correction propagation v2 (L-746) (L-022/L-243/L-246/L-296/L-315/L-323/L-324/L-366/L-534/L-535/L-541/L-544/L-609/L-611/L-636/L-746). |
 | Domain -- Isomorphisms & Atlas | 43 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic (ISO-20); lazy consensus (ISO-21); regime-crossover (ISO-23) (L-256/L-257/L-274/L-299/L-369/L-383/L-395/L-528/L-537/L-549). |
 | Domain Science & Emergence | 97 | Hawkes r≈0.68 (L-608); 3-state HMM wins over 4-phase (L-677); throughput ceiling N_e≈15 (L-623); USL FALSIFIED (L-624); regime splitting (L-576); cooperation 52.5pp (L-603); B14 determinism gradient transfers to swarm (L-699, L-642) — 100% in-model, fifth layer discovered (L-403/L-454/L-551/L-554/L-560/L-576/L-577/L-578/L-603/L-606/L-608/L-620/L-623/L-624/L-642/L-677/L-699). |
 | Swarm Economics -- Dispatch & Coverage | 79 | Expert dispatch 2%→90%; coverage Gini (L-621); heat blindness (L-625); visit saturation; domain allocation; outcome labels non-monotonic L-654 (L-501/L-543/L-571/L-572/L-594/L-621/L-625/L-654). |

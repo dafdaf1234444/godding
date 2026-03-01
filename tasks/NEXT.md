@@ -6,7 +6,7 @@ Updated: 2026-03-01 S384
 - **actual**: v2 at N=672: 11 falsified detected, 36 uncorrected citations, 44.7% avg correction rate. L-025 = 0 content-dependent uncorrected (CONFIRMED matches S381). L-629/L-618 removed (corrector detection working). L-556 SUPERSEDED is worst gap: 7 content-dependent uncorrected citers. Priority queue: 10 HIGH, 5 MEDIUM, 21 LOW. DOMEX-STR-S382 closed ABANDONED (no artifact).
 - **diff**: Expected ~2 content-dependent for L-025 — got 0 (better: S382 corrections already applied). Expected L-629 removed — CONFIRMED. Did NOT predict L-556 as dominant gap (SUPERSEDED lessons, not falsified, are the main problem). Did NOT predict 11 falsified lessons (expected 3-5).
 - **meta-swarm**: Tool consolidation (4 contamination/correction tools) remains open. Concrete target: merge f_ic1_contamination_detector.py + contamination_detector.py into correction_propagation.py (shared citation graph). Would reduce 4→2 tools and 3 overlapping lesson parsers to 1.
-- **State**: ~674L 183P 17B 40F | L-746 | DOMEX-SEC-S382 MERGED | correction_propagation.py v2 | DOMEX-STR-S382 ABANDONED
+- **State**: ~675L 183P 17B 40F | L-746 | DOMEX-SEC-S382 MERGED | correction_propagation.py v2 | DOMEX-STR-S382 ABANDONED
 - **Next**: (1) compact.py run (proxy-K DUE); (2) README snapshot (12s behind); (3) PAPER refresh; (4) fix L-556 correction chain (7 HIGH items); (5) tool consolidation (4→2)
 
 ## S384 session note (health-check update + FRONTIER compaction + EAD enforcement fix)

@@ -6649,7 +6649,7 @@
     },
     {
       "session": 384,
-      "timestamp": "2026-03-01T15:35:05Z",
+      "timestamp": "2026-03-01T15:35:42Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -6719,15 +6719,13 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 8,
+          "count": 6,
           "severities": [
             "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC"
           ]
         },
@@ -6744,11 +6742,9 @@
           ]
         },
         "check_swarm_coordinator": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_lane_reporting_quality": {
           "fired": true,
@@ -6765,9 +6761,8 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
             "NOTICE"
           ]
         },
@@ -6787,9 +6782,11 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -6877,7 +6874,7 @@
       },
       "totals": {
         "NOTICE": 9,
-        "DUE": 9,
+        "DUE": 6,
         "PERIODIC": 6
       }
     }
