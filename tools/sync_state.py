@@ -40,7 +40,7 @@ except ImportError:
         # Numeric: F110, F119, etc.
         numeric = {int(m.group(1)) for m in re.finditer(r"^- \*\*F(\d+)\*\*:", active_text, re.MULTILINE)}
         # Named: F-COMP1, F-ISG1, F-SEC1, F-PERS1, etc.
-        named = {m.group(1) for m in re.finditer(r"^- \*\*F(-[A-Z][A-Z0-9]*\d*)\*\*:", active_text, re.MULTILINE)}
+        named = {m.group(1) for m in re.finditer(r"^- \*\*F(-[A-Z][-A-Z0-9]*\d+)\*\*:", active_text, re.MULTILINE)}
         return numeric | named
 
 
@@ -74,8 +74,8 @@ def count_principles() -> int:
 
 def count_beliefs() -> int:
     text = (ROOT / "beliefs" / "DEPS.md").read_text(encoding="utf-8")
-    # Format: "### B1: ..." headings
-    ids = set(re.findall(r"^### B(\d+)\b", text, re.MULTILINE))
+    # Format: "### B1: ..." or "### B-EVAL1: ..." headings
+    ids = set(re.findall(r"^### B[-\w]+:", text, re.MULTILINE))
     return len(ids)
 
 

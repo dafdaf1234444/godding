@@ -21,8 +21,8 @@ def active_frontier_ids(text: str) -> set:
     active_text = re.split(r"^## Archive", text, flags=re.MULTILINE)[0]
     # Numeric: F110, F119, etc.
     numeric = {int(m.group(1)) for m in re.finditer(r"^- \*\*F(\d+)\*\*:", active_text, re.MULTILINE)}
-    # Named: F-COMP1, F-ISG1, F-SEC1, etc.
-    named = {m.group(1) for m in re.finditer(r"^- \*\*F(-[A-Z][A-Z0-9]*\d*)\*\*:", active_text, re.MULTILINE)}
+    # Named: F-COMP1, F-ISG1, F-SEC1, F-BRN-NK1, etc.
+    named = {m.group(1) for m in re.finditer(r"^- \*\*F(-[A-Z][-A-Z0-9]*\d+)\*\*:", active_text, re.MULTILINE)}
     return numeric | named
 
 

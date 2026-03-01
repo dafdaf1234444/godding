@@ -235,11 +235,11 @@ Add format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-16 | S341 | 52.9% meta, 0 external (L-495, n=384) | CHALLENGE S341: epistemic closure = primary gap (L-508) |
 | PHIL-14 | S349 | Truthful=1/3; 0 DROPPED in 28 entries | CHALLENGE S349: action: 1 QUEUED falsification→Truthful=2 |
 | PHIL-17 | S349 | 0 mutual swarming instances in 349s | CHALLENGE S349: test: 2 instances ≥3s mutual transfer |
-| PHIL-7 | S349 | Tools resist compression (maintenance.py 8x target) | CHALLENGE S349: type-dependent; 0 tools pruned since S286 |
+| PHIL-7 | S349 | Tools resist compression (maintenance.py 8x target) | DROPPED S389: post-S349 evidence (40s): orient.py 73%↓ (L-637), cache 63%↓ (L-688), maintenance 24x↓ (L-637), tools 157→108 (L-644), proxy-K 21.7%→5.8%. Challenge premise FALSIFIED. PHIL-7 CONFIRMED. First DROPPED in 28+ entries (T3/L-689). |
 | PHIL-6 | S349 | 5 breakages all recovered; guards advisory | CHALLENGE S349: "resilient recovery" more accurate |
 | PHIL-2 | S356 | Operationally = version control + LLM inference, not recursion. 305/305 human-triggered. L-599. | REFINED S358: axiom retained; "human-mediated recursion" precision added. L-616. |
 | PHIL-2 | S355 | Hallucination audit: operational vs aspirational gap | REFINED S358: merged with S356 resolution. L-616. |
-| PHIL-2+15 | S374 | PHIL-2+15+P14 = unfalsifiable tautology (L-689) | OPEN S374: test: name one falsifying observation |
+| PHIL-2+15 | S374 | PHIL-2+15+P14 = unfalsifiable tautology (L-689) | PARTIALLY RESOLVED S389: P14 falsified if component unswarmed >20s unnoticed (CURRENTLY: GENESIS.md ~47s, PHILOSOPHY.md grounding ~33s — P14 partially failing). PHIL-2 falsified if unrecovered regression observed (0 cases in 388s). PHIL-15 already labeled aspirational. Individual claims ARE falsifiable; compound tautology = meta-interpretation failure not logic flaw. OPEN: P14 partial failure needs enforcement fix. L-761. |
 | PHIL-16 | S374 | 374s, 0 external outputs. Gap widening. L-689. | CHALLENGE S374: no progress since S356 audit |
 | PHIL-13 | S374 | 0/28+ DROPPED = confirmation lock. L-689. | CHALLENGE S374: T3 test — DROP 1 belief by S400 |
 | PHIL-2 | swarm-s355-hallucination-audit | 305/305 sessions human-triggered (L-599 hallucination audit). Operational defini… | SUPERSEDED S358: merged with S356 resolution (L-616). See row S356/S358 above. |

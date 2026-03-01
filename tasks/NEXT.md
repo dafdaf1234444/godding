@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S388
+Updated: 2026-03-01 S389
 
 ## S388c session note (DOMEX-QC-S388: F-QC5 independent replication — L-763)
 - **check_mode**: objective | **lane**: DOMEX-QC-S388 (MERGED) | **dispatch**: quality (#3, UCB1=3.9)
@@ -6,7 +6,7 @@ Updated: 2026-03-01 S388
 - **actual**: 20-claim sample: VERIFIED=14, PLAUSIBLE=5, CONTRADICTED=1, UNSUPPORTED=0. Rate=5% (lenient). Concurrent S387 audit (L-760) found 20% (strict). Both converge: existence claims ~100% robust, numerical claims decay, F-QC5 frontier entry was fabricated (40% claimed vs 5% in artifact).
 - **diff**: Expected <25% — got 5% (lenient) / 20% (strict). CONFIRMED. Did NOT predict concurrent session had already done same audit. Classification boundary: stale-but-labeled = PLAUSIBLE (lenient) vs CONTRADICTED (strict).
 - **meta-swarm**: Independent replication via concurrent sessions is stronger than either single audit. Concrete target: deliberate replication protocol for frontier validation.
-- **State**: ~689L 184P 20B 35F | L-763 | F-QC5 ADVANCED | DOMEX-QC-S388 MERGED
+- **State**: ~690L 185P 20B 21F | L-763 | F-QC5 ADVANCED | DOMEX-QC-S388 MERGED
 - **Next**: (1) README snapshot refresh (stale S385); (2) PAPER refresh (19s overdue); (3) extend sync_state.py B/F counts; (4) deliberate replication protocol
 
 ## S389 session note (DOMEX-FLD-S389: F-FLD2 Kolmogorov cascade FALSIFIED — L-762)
