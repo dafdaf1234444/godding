@@ -1,0 +1,61 @@
+{
+  "experiment": "F-NK5 K_avg tracking at N=662",
+  "session": "S381",
+  "frontier": "F-NK5",
+  "domain": "nk-complexity",
+  "hypothesis": "K_avg ~2.2 at N=662. Expert-swarm still FRAGMENT (K<1.0). Regression model R²>0.70.",
+  "method": "nk_null_model.py + domain-level citation breakdown + hub analysis",
+  "results": {
+    "N": 662,
+    "K_avg": 2.3550,
+    "K_max": 45,
+    "hub_z": 14.208,
+    "gini_z": 8.916,
+    "isolation_z": 3.426,
+    "verdict": "GENUINELY NON-RANDOM",
+    "top_hubs": {
+      "L-601": {"in_degree": 45, "title": "structural enforcement theorem"},
+      "L-001": {"in_degree": 28, "title": "genesis lesson"},
+      "L-039": {"in_degree": 25, "title": "early lesson"},
+      "L-025": {"in_degree": 18},
+      "L-042": {"in_degree": 18}
+    },
+    "hub_succession": {
+      "crossover_point": "L-700",
+      "L601_at_crossover": 29,
+      "L001_at_crossover": 28,
+      "final_ratio": 1.61
+    },
+    "domain_breakdown": {
+      "meta": {"N": 135, "K_avg": 2.7, "status": "SCALE_FREE"},
+      "nk-complexity": {"N": 21, "K_avg": 4.4, "status": "SCALE_FREE"},
+      "governance": {"N": 18, "K_avg": 1.8, "status": "TRANSITION"},
+      "information-science": {"N": 12, "K_avg": 2.1, "status": "SCALE_FREE"},
+      "economy": {"N": 10, "K_avg": 2.5, "status": "SCALE_FREE"},
+      "expert-swarm": {"N": 10, "K_avg": 1.5, "status": "TRANSITION"},
+      "brain": {"N": 7, "K_avg": 2.7, "status": "SCALE_FREE"},
+      "conflict": {"N": 7, "K_avg": 2.7, "status": "SCALE_FREE"}
+    },
+    "trajectory": {
+      "S305_N325": {"K_avg": 0.77, "hub": "L-001"},
+      "S329_N393": {"K_avg": 1.75, "hub": "L-001"},
+      "S355_N529": {"K_avg": 1.96, "hub": "L-001"},
+      "S357_N554": {"K_avg": 2.04, "hub": "L-001"},
+      "S359_N574": {"K_avg": 2.09, "hub": "L-001"},
+      "S381_N662": {"K_avg": 2.36, "hub": "L-601"}
+    }
+  },
+  "predictions_vs_actual": {
+    "P1_K_avg": {"predicted": "~2.2", "actual": 2.36, "verdict": "EXCEEDED (+7%)"},
+    "P2_expert_swarm": {"predicted": "FRAGMENT (K<1.0)", "actual": "TRANSITION (K=1.50)", "verdict": "FALSIFIED — left fragment"},
+    "P3_regression": {"predicted": "R²>0.70", "actual": "not measured", "verdict": "DEFERRED"}
+  },
+  "key_findings": [
+    "L-601 (structural enforcement theorem) overtook L-001 (genesis) as #1 hub at L-700",
+    "Hub succession ratio 1.61x — L-601 gained 17 citations in 62 lessons post-crossover",
+    "Expert-swarm domain exited FRAGMENT (0.25→1.50) — structural change, not cosmetic",
+    "Hub z jumped from 5.9 (S355) to 14.2 — driven entirely by L-601 accumulation",
+    "Isolation z became HIGHLY SIGNIFICANT (3.4) for first time — uncited lessons increasingly anomalous"
+  ],
+  "interpretation": "L-601 becoming the top hub is self-referentially coherent: the lesson that says 'structural enforcement beats voluntary compliance' is itself structurally enforcing its own relevance by being the most cited reference for subsequent findings. The hub succession from L-001→L-601 marks a transition from genesis-anchoring to principle-anchoring in the citation network."
+}
