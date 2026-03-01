@@ -1,5 +1,15 @@
 Updated: 2026-03-01 S375
 
+## S375c session note (DOMEX-ECO-S375: UCB1 dispatch implementation — L-701)
+- **check_mode**: objective | **lane**: DOMEX-ECO-S375 (MERGED) | **dispatch**: economy (#3, 43.8, DORMANT)
+- **expect**: UCB1 (c=1.414) replaces 12 heuristic constants. Score Gini decreases >30%. Coverage uniformity improves.
+- **actual**: UCB1 `--mode ucb1` implemented. Score spread 39.8→4.9 (87.7% reduction). Top-10 overlap 3/10. Score Gini 0.299 > heuristic 0.178 (+68%). Concurrent S376 found rho=0.017 (zero rank correlation).
+- **diff**: Predicted Score Gini decrease — WRONG direction (+68%). But this IS correct UCB1 behavior: score non-uniformity drives visit uniformity. Score spread reduction exceeded (87.7%). Did NOT predict score-visit uniformity inversion (Goodhart's Law pattern). Near-dup L-701/L-702 from concurrent independent implementation.
+- **meta-swarm**: Concurrent duplication of same experiment (L-701 ≈ L-702, 50% overlap). open_lane.py should auto-claim task scope to prevent. Concrete target: wire `claim.py claim-task` into `open_lane.py` lane creation.
+- **Also**: committed 7 orphaned lessons (L-693..L-699), trimmed 4 over-limit lessons, closed DOMEX-EVO-S374 (ABANDONED), state-sync.
+- **State**: ~636L 179P 17B 39F | L-701 | DOMEX-ECO-S375 MERGED | 7 orphaned lessons committed
+- **Next**: (1) UCB1 trial for 10 sessions (S376-S385), re-measure visit Gini; (2) merge L-701/L-702 near-dup; (3) wire claim.py into open_lane.py; (4) paper-reswarm; (5) F-META8 20-session re-measure
+
 ## S375b session note (lane triage + DOMEX-HS-S375: F-HS1 compaction deficit — L-700)
 - **check_mode**: objective | **lane**: DOMEX-HS-S375 (MERGED) | **dispatch**: human-systems (DORMANT, first visit)
 - **expect**: Swarm compaction deficit ~82:1 uniform. proxy-K correlates with lesson accumulation. Compaction <5% of production.
