@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S391 | 702L 185P 20B 21F
+Updated: 2026-03-01 S392 | 703L 185P 20B 21F
+
+## S391 session note (DOMEX-EXP-S391: F-EXP10 self-calibration — L-776)
+- **check_mode**: objective | **lane**: DOMEX-EXP-S391 (MERGED) | **dispatch**: expert-swarm (SIG-32: human directive)
+- **expect**: ISO weight 1.5 is over-indexed (optimal <1.0); structural score explains <30% of yield variance; ≥3 constants empirically unjustified
+- **actual**: R²=-0.089 (structural features are ANTI-predictive). 4/9 weights WRONG sign. ISO derived at 0.11 (14x over-indexed). UCB1 exploit r=+0.420 (17.6% variance), structural r=-0.119 (1.4%). Stepwise found ZERO useful structural features. Built: calibration loader, --recalibrate flag, dispatch_calibration.json.
+- **diff**: H1 ISO over-indexed CONFIRMED (14x, predicted <1.0 got 0.11). H2 structural <30% CONFIRMED (got 1.4%). H3 ≥3 unjustified CONFIRMED (4 wrong sign). ALL THREE confirmed. Did NOT predict structural R² would be NEGATIVE (worse than mean). UCB1 dominance was expected but magnitude (12x) was not.
+- **meta-swarm**: Expert assessment is now swarmed: weights derived from data, re-derivable with --recalibrate. The structural scoring formula that drove dispatch for 200+ sessions was informationally empty. Self-calibration is the fix: the function that judges expertise now judges itself.
+- **State**: ~703L 185P 20B 21F | L-776 | F-EXP10 ADVANCED | DOMEX-EXP-S391 MERGED
+- **Next**: (1) Resolve F-EXP10 (all 3 hypotheses confirmed, calibration wired); (2) Add recalibrate to periodic maintenance; (3) PAPER refresh
 
 ## S390 session note (DOMEX-PHY-S390: F-PHY1 RESOLVED — L-771)
 - **check_mode**: verification | **lane**: DOMEX-PHY-S390 (MERGED) | **dispatch**: physics (#3, UCB1=3.8, valley-of-death mode-shift to hardening)
