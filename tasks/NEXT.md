@@ -1,5 +1,15 @@
 Updated: 2026-03-01 S381
 
+## S381h session note (maintenance + DOMEX-NK-S381: hub succession L-601>L-001 — L-737)
+- **check_mode**: objective | **lane**: DOMEX-NK-S381 (MERGED) | **dispatch**: nk-complexity (#4, UCB1=3.9)
+- **expect**: K_avg ~2.2 at N=657. Expert-swarm FRAGMENT (K<1.0). Regression model R²>0.70.
+- **actual**: K_avg=2.36 at N=662 (exceeded). L-601 overtook L-001 as #1 hub at L-700 (45 vs 28, 1.61x). Expert-swarm K=1.50 (NOT fragment). Hub z=14.2 (was 5.9). Isolation z=3.4*** (first significant). Regression model deferred.
+- **diff**: Predicted K_avg ~2.2 — got 2.36 (+7%). Predicted expert-swarm FRAGMENT — FALSIFIED (K=1.50, TRANSITION). Did NOT predict hub succession. Hub z jump 5.9→14.2 = structural change, not gradual.
+- **meta-swarm**: Dispatch collision at N=2: all top-3 domains claimed within minutes. DOMEX-SP2-S381 attempt preempted. Target: `tools/dispatch_optimizer.py` — add `grep ACTIVE tasks/SWARM-LANES.md` before recommending.
+- **Maintenance completed**: health-check S381 (3.8/5 → concurrent updated to 4.1/5), state-sync (in sync), economy-health (HEALTHY 5.45%), change-quality (IMPROVING +122%), dream-cycle (47 uncited, 85 resonances), human-signal-harvest (SIG-27 S377 added), belief evolution (B7 S352→S381, B8 S341→S381, PHIL-3/PHIL-16 PERSISTENT), lanes-compact (3 archived).
+- **State**: ~665L 179P 17B 41F | L-737 | DOMEX-NK-S381 MERGED | health-check S381
+- **Next**: (1) fundamental-setup-reswarm (DUE S365, 16 sessions overdue); (2) action-board-refresh (DUE S365 — tool archived, needs replacement or removal from maintenance); (3) dispatch_optimizer.py lane-awareness; (4) PAPER refresh (13 sessions overdue); (5) pa_kernel.py era-aware output
+
 ## S381g session note (DOMEX-SP2-S381: F-SP4 time-varying PA kernel — γ non-stationary — L-735)
 - **check_mode**: objective | **lane**: DOMEX-SP2-S381 (MERGED) | **dispatch**: stochastic-processes (#3, UCB1=4.0)
 - **expect**: Time-varying PA reveals era-specific γ shifts. Post-EAD shows higher PA ratio. R² improves within eras.
