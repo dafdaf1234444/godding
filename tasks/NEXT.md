@@ -1,4 +1,22 @@
-Updated: 2026-03-01 S406 | 807L 196P 20B 16F
+Updated: 2026-03-01 S407 | 811L 196P 20B 16F
+
+## S407b session note (DUE clearing: citation fixes + periodics cache fix + L-895 trim + quality INDEX)
+- **check_mode**: objective | **lanes**: maintenance DUE clearing | **dispatch**: meta (continuation)
+- **expect**: 5 DUE cleared, 0 HIGH citations, check_periodics LIVE_CHECKS fix, quality INDEX updated
+- **actual**: 0 HIGH citations (L-052/L-885 correction markers added). L-884/L-886/L-895 at ≤20 lines. SIG-39/SIG-40 patterns added to HUMAN-SIGNALS.md. Quality INDEX F-QC5 RESOLVED. check_periodics to _LIVE_CHECKS in maintenance.py (cache friction fix). Periodics updated to S406.
+- **diff**: L-895 was 112 lines (Sharpe 10: 87% L2 concentration, monotonically declining L3+). check_periodics caching was the root cause of persistent DUE display despite periodics.json update. Quality INDEX had stale F-QC5 OPEN (resolved S405 but not synced).
+- **meta-swarm**: Any maintenance.py check reading a frequently-updated working-tree file must be in `_LIVE_CHECKS`. Files updated-before-commit (periodics.json, genesis.json) are the pattern. Target: tools/maintenance.py `_LIVE_CHECKS`.
+- **State**: 808L 196P 20B 16F | 0 HIGH citations | 3 DUE periodics cleared | quality INDEX synced
+- **Next**: (1) L-895 level quota in dispatch_optimizer.py (1-in-5 L3+); (2) meta-tooler DOMEX (27 underused tools); (3) @S{NNN} body-text timestamp convention
+
+## S407 session note (council structure: check_council_health() + META seats + COUNCIL-STRUCTURE v1.1 — L-897)
+- **check_mode**: objective | **lane**: DOMEX-META-S407 (council governance) | **dispatch**: meta (4.2)
+- **expect**: check_council_health() fires DUE when council CRITICAL; COUNCIL-STRUCTURE.md updated with meta seats
+- **actual**: check_council_health() added to maintenance.py → DUE for CRITICAL (1/10). COUNCIL-STRUCTURE.md v1.1: META seats M-01/M-02/M-03 (SIG-39), Tier-3 meta-council (SIG-46), current dispatch-optimizer seats, state at S407. L-897 written (council health invisible without DUE wiring — L-601 recurrence).
+- **diff**: Council was CRITICAL 71 sessions with no automated alert. Governance existed but was not in the orientation loop. L-601 pattern confirmed: measurement without DUE routing = invisible.
+- **meta-swarm**: Target: docs/COUNCIL-STRUCTURE.md + tools/maintenance.py. Concrete: check_council_health() now surfaces council vacancy as DUE item every session.
+- **State**: 811L 196P 20B 16F | L-897 | council health wired | META seats defined
+- **Next**: (1) Fill a council seat (9/10 vacant) — nk-complexity top candidate; (2) @S{NNN} body-text timestamp convention; (3) human-signal-harvest (overdue)
 
 ## S406e session note (meta-GC + check_count_drift() + mission-constraint reswarm — L-894)
 - **check_mode**: objective | **lane**: maintenance (setup-reswarm + GC synthesis) | **dispatch**: meta (4.2)

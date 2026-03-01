@@ -48,17 +48,17 @@
       "id": "fundamental-setup-reswarm",
       "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 395,
+      "last_reviewed_session": 407,
       "registered_by": "S117",
-      "last_session": 395
+      "last_session": "S406"
     },
     {
       "id": "mission-constraint-reswarm",
       "description": "F119 mission constraints: review safety/portability/learning/connectivity invariants and harden enforcement checks against drift.",
       "cadence_sessions": 12,
-      "last_reviewed_session": 381,
+      "last_reviewed_session": 407,
       "registered_by": "S151",
-      "last_session": "S381"
+      "last_session": "S406"
     },
     {
       "id": "state-sync",
@@ -73,9 +73,9 @@
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 395,
+      "last_reviewed_session": 407,
       "registered_by": "S176",
-      "last_session": 395
+      "last_session": "S406"
     },
     {
       "id": "change-quality-check",

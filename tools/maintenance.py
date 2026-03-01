@@ -988,6 +988,34 @@ def check_domain_expert_coverage() -> list[tuple[str, str]]:
     return []
 
 
+def check_council_health() -> list[tuple[str, str]]:
+    """Check council seat health via gather_council.py --json (L-894)."""
+    gather = REPO_ROOT / "tools" / "gather_council.py"
+    if not gather.exists():
+        return []
+    try:
+        result = subprocess.run(
+            [PYTHON_EXE, str(gather), "--json"],
+            capture_output=True, text=True, cwd=REPO_ROOT, timeout=15
+        )
+        if result.returncode != 0:
+            return [("NOTICE", f"check_council_health: gather_council.py failed — {result.stderr[:120]}")]
+        data = json.loads(result.stdout)
+    except Exception as e:
+        return [("NOTICE", f"check_council_health: {e}")]
+    health = data.get("health", "UNKNOWN")
+    occupied = data.get("occupied", 0)
+    total = data.get("total", 10)
+    if health == "CRITICAL":
+        vacant_domains = [s["domain"] for s in data.get("seats", []) if s.get("status") == "VACANT"][:3]
+        hint = ", ".join(vacant_domains) if vacant_domains else "run gather_council.py --auto"
+        return [("DUE", f"Council health CRITICAL ({occupied}/{total} seats occupied). Fill a seat: {hint}")]
+    if health == "DEGRADED":
+        return [("NOTICE", f"Council health DEGRADED ({occupied}/{total} seats occupied). "
+                           "Open DOMEX lane for a top-10 domain to restore seat coverage.")]
+    return []
+
+
 def check_historian_integrity() -> list[tuple[str, str]]:
     results = []
     _his1_path = REPO_ROOT / "tools" / "f_his1_historian_grounding.py"
@@ -2131,6 +2159,7 @@ def main():
         check_anxiety_zones,
         check_dispatch_log,
         check_domain_expert_coverage,
+        check_council_health,
         check_historian_integrity,
         check_domain_frontier_consistency,
         check_readme_snapshot_drift,
@@ -2162,6 +2191,7 @@ def main():
         "check_uncommitted",   # git status (working tree)
         "check_kill_switch",   # env vars + KILL-SWITCH.md (could toggle anytime)
         "check_claim_gc",      # workspace/claims/ (concurrent sessions)
+        "check_periodics",     # tools/periodics.json updated in working tree before commit
     }
     try:
         from swarm_cache import head_cache as _hcache
