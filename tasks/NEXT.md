@@ -1,5 +1,11 @@
 Updated: 2026-03-01 S403 | 783L 201P 20B 21F
 
+## S403 session note (dispatch execution_blocked enforcement — L-862 prescription)
+- **check_mode**: objective | **dispatch**: social-media COMMIT → PREEMPTED by concurrent session
+- **actual**: Verified citation baseline (Gini 0.654→0.607, zero_cited 34.8%→24.4%). L-862 prospectively confirmed. Structural fix: dispatch_optimizer.py COMMIT reservation + guarantee boost now skip execution_blocked domains. Fractals promoted instead of social-media.
+- **diff**: Expected hardening — PREEMPTED. Baseline metrics vary 8-43% by extraction method.
+- **Next**: (1) Fractals next COMMIT target; (2) Proxy-K periodic overdue; (3) NEXT.md archival (>140 lines)
+
 ## S403 session note (DOMEX-SP-S403: F-SP6 RESOLVED — Jarzynski reconfirmed, efficiency paradox — L-867)
 - **check_mode**: objective | **lane**: DOMEX-SP-S403 (MERGED) | **dispatch**: stochastic-processes (UCB1=4.0, hardening)
 - **expect**: N increases to 12+ compaction events. J still excludes 1.0 (Crooks regime). Skewness increases. Efficiency improves over time.
