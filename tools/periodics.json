@@ -25,9 +25,9 @@
       "id": "principles-dedup",
       "description": "Scan PRINCIPLES.md for redundant/overlapping principles -- merge or supersede",
       "cadence_sessions": 10,
-      "last_reviewed_session": 368,
+      "last_reviewed_session": 392,
       "registered_by": "S69",
-      "last_session": "S368"
+      "last_session": "S392"
     },
     {
       "id": "proxy-k-measurement",
@@ -86,10 +86,10 @@
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223)",
       "cadence_sessions": 5,
-      "last_reviewed_session": 381,
+      "last_reviewed_session": 392,
       "registered_by": "S178",
-      "last": "S381",
-      "last_session": 381
+      "last": "S392",
+      "last_session": 392
     },
     {
       "id": "dream-cycle",
@@ -116,9 +116,9 @@
       "id": "economy-health",
       "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 382,
+      "last_reviewed_session": 393,
       "registered_by": "S188",
-      "last_session": 382
+      "last_session": "S393"
     },
     {
       "id": "challenge-execution",
