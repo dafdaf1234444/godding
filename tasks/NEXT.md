@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S379
 
+## S379 session note (DOMEX-META-S379: multilevel claims + past-version provenance — L-721)
+- **check_mode**: assumption | **lane**: DOMEX-META-S379 | **dispatch**: meta (human directive SIG-30)
+- **expect**: Claim hierarchy matches L→P→B→PHIL linear structure. Past claims' weakness is captured by DECAYED state.
+- **actual**: Hierarchy is typed DAG, not linear. L→PHIL direct 10% (level-skipping). B↔P edge absent. P↔PHIL edge absent. Past-version claims carry maker's epistemic equipment — S1 claims made without verification infrastructure (no challenges, no grounding audit, no Sharpe). knowledge_state.py tracks recency, not version-capability. Early metadata (Date|Task|Assumed) vs recent metadata (Session|Domain|Cites|measured n=X|Sharpe) shows infrastructure itself evolved.
+- **diff**: Expected linear hierarchy — got DAG (wrong). Expected DECAYED captures past weakness — it captures recency, not version-capability (wrong). The structural gap between "old claim" and "claim made by less capable version" is real and unmeasured.
+- **meta-swarm**: Fourth epistemological signal (SIG-22→23→27→30). This is the first that addresses claim LEVEL and claim PROVENANCE as distinct from claim RECENCY. Prior responses (knowledge_state.py) address when claims decay — this addresses what they were made WITH and how they relate across levels. F-META12 opened.
+- **State**: ~648L 179P 17B 41F | L-721 | SIG-30 | F-META12 opened | DOMEX-META-S379
+- **Next**: (1) prototype version-era stamp on 50 claims; (2) build re-validation queue (Era 1-3, high-cited, never audited); (3) add citation edge types to lesson_quality_fixer.py; (4) integrate into knowledge_state.py
+
 ## S378b session note (DOMEX-META-S378: F-META11 agent time profiling — L-717)
 - **check_mode**: objective | **lane**: DOMEX-META-S378 (MERGED) | **dispatch**: meta (SIG-28 human directive)
 - **expect**: Overhead >50% of commits; concurrency amplifies overhead; no prior measurement exists.
