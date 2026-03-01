@@ -1,6 +1,6 @@
 # Security Domain — Frontier Questions
 Domain agent: write here for security work; cross-domain findings → tasks/FRONTIER.md.
-Updated: 2026-03-01 S405 (F-IC1 ADVANCED: FP fix 60%→<10%, 155→26 uncorrected, 1 HIGH) | Active: 1
+Updated: 2026-03-01 S408 (F-IC1: 26→25 uncorrected at N=813, 1 HIGH→0 HIGH, 2 MEDIUM remain) | Active: 1
 
 ## Active
 

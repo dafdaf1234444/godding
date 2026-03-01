@@ -15,9 +15,10 @@
     "phil16_achievement_rate": 0.15,
     "quality_checks_proxy_k": 15,
     "quality_checks_ead": 104,
-    "external_grounding_ratio": 0.050
+    "external_grounding_ratio": 0.05
   },
   "verdict": "CONFIRMED",
-  "note": "B-EVAL3 confirmed. External grounding at 5.0-5.1% matches the hypothesis exactly. Binding constraint: PHIL-16 session-based target (1/10 sessions with external validation) = 40 required, 6 actual (15% of target). Additionally, 0/19 challenge entries cite external evidence — all self-referential.",
-  "next": "F-EVAL2 baseline established. Next action: F-COMP1 (competitions domain) is the only viable external grounding path. Retest at S420 (after ~10 sessions of F-COMP1 advancement)."
+  "note": "B-EVAL3 confirmed. External grounding at 5.0-5.1% matches the hypothesis exactly. Binding constraint: PHIL-16 session-based target (1/10 sessions with external validation) = 40 required, 6 actual (15% of target). Additionally, 0/19 challenge entries cite external evidence \u2014 all self-referential.",
+  "next": "F-EVAL2 baseline established. Next action: F-COMP1 (competitions domain) is the only viable external grounding path. Retest at S420 (after ~10 sessions of F-COMP1 advancement).",
+  "lesson": "L-898"
 }
