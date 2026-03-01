@@ -56,5 +56,30 @@
     "duplication_cost": "14.1% lesson duplication within colonies partially offsets the apparent L/lane advantage."
   },
   "conclusion": "PARTIALLY FALSIFIED — colony advantage is confounded by meta-domain dominance and session bundling. After excluding meta: merge rate nearly identical (93.8% vs 93.3%), L/lane advantage modest (+23%, from 1.07 to 1.32). Multi-frontier colonies outperform single-frontier, suggesting breadth not depth drives quality. Colony bootstrapping does not clearly outperform solo DOMEX for non-meta domains.",
-  "confidence": "MEASURED (n=130 lanes, 23 colony sessions, 16 solo lanes, meta-exclusion control)"
+  "confidence": "MEASURED (n=130 lanes, 23 colony sessions, 16 solo lanes, meta-exclusion control)",
+  "replication_s412b": {
+    "method": "Extended to full archive (SWARM-LANES + SWARM-LANES-ARCHIVE). Stricter colony definition: 3+ consecutive sessions (not 2+).",
+    "n": 549,
+    "closed": 543,
+    "colony_domains_with_pattern": 5,
+    "colony_md_files_total": 41,
+    "structural_only": 36,
+    "aggregate": {
+      "colony_merge_rate": 0.859,
+      "solo_merge_rate": 0.620,
+      "delta_pp": 23.9,
+      "colony_lessons_per_merged": 0.79,
+      "solo_lessons_per_merged": 0.73,
+      "colony_merges_per_session": 1.97,
+      "solo_merges_per_session": 3.52
+    },
+    "within_domain_controls": {
+      "meta": {"colony": 0.933, "scattered": 0.882, "delta_pp": 5.1},
+      "strategy": {"colony": 1.0, "scattered": 0.882, "delta_pp": 11.8},
+      "brain": {"colony": 1.0, "scattered": 0.538, "delta_pp": 46.2},
+      "physics": {"colony": 1.0, "scattered": 0.571, "delta_pp": 42.9},
+      "security": {"colony": 0.7, "scattered": 1.0, "delta_pp": -30.0, "note": "n=3 non-colony"}
+    },
+    "finding": "Full-archive replication agrees on meta-confound direction. Raw colony advantage larger (+23.9pp) because archive includes older low-merge-rate solo lanes. Within-domain controls show real but heterogeneous effect: brain/physics +40pp, meta/strategy +5-12pp, security inverted. Colony and bundling are complementary: colony for depth/quality, bundling for breadth/throughput."
+  }
 }
