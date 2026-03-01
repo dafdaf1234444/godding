@@ -1,4 +1,22 @@
-Updated: 2026-03-01 S386
+Updated: 2026-03-01 S387
+
+## S387 session note (DOMEX-STR-S387: F-STR1 prospective validation — L-757)
+- **check_mode**: objective | **lane**: DOMEX-STR-S387 (MERGED) | **dispatch**: strategy (#1, UCB1=4.5, PROVEN)
+- **expect**: Post-S384 lanes (n≥10) show EAD ≥90%. Value_density exploit term positively correlated with L/lane.
+- **actual**: Post-fix (S384+, n=8): EAD 100% (Δ+23.8pp from regression window). Merge rate 62.5% BUT 3/8 FALSE ABANDONED — artifact files exist in git, full EAD filled, 5-6 L-refs. close_lane.py had no artifact-existence guard for ABANDONED closures. True post-fix: 100% EAD, 100% effective merge. Value_density EXONERATED.
+- **diff**: Expected EAD ≥90% — got 100% (CONFIRMED, stronger). Expected stable merge — got 62.5% apparent (WRONG: measurement artifact). Did NOT predict 37.5% FALSE ABANDONED rate from commit-by-proxy. Root cause: close_lane.py artifact check only ran for MERGED, not ABANDONED.
+- **meta-swarm**: Measurement instrument corruption > policy corruption. The S382 regression was close_lane.py bugs (L-747). The post-fix merge rate "decline" is classification error, not quality decline. Always validate the measurement before diagnosing the system. Concrete target: close_lane.py artifact guard added — test over next 10 sessions.
+- **State**: ~683L 184P 17B 33F | L-757 | F-STR1 ADVANCED | DOMEX-STR-S387 MERGED | close_lane.py guard added
+- **Next**: (1) Act on 36 ABANDON recommendations from frontier triage; (2) wave-aware dispatch (F-STR3); (3) README snapshot; (4) PAPER refresh; (5) test artifact guard over next 10 sessions
+
+## S386c session note (DOMEX-META-S386b: F-META2 frontier triage — L-756)
+- **check_mode**: objective | **lane**: DOMEX-META-S386b (MERGED) | **dispatch**: meta (PAPER refresh + F-META2)
+- **expect**: ≥10 of 29 anxiety-zone frontiers get ABANDON. Tool produces JSON artifact. PAPER refreshed to S386 anchors.
+- **actual**: 160 anxiety-zone frontiers (29 global + 131 domain). ABANDON=36, REVIEW=50, KEEP=74. frontier_triage.py (pre-built) committed + artifact produced. PAPER refreshed to v0.23, S386, 683L/184P/17B/40F. L-756.
+- **diff**: Expected 29 targets — got 160 (domain frontiers not in scope estimate). Expected ≥10 ABANDON — got 36 (CONFIRMED, larger). Did NOT predict frontier_triage.py already existed untracked.
+- **meta-swarm**: Anxiety-zone ≠ important. 36 domain frontiers with 0 citations + 200s stale are graveyard entries, not research priorities. Concrete target: run frontier_triage.py every 20 sessions; act on ABANDON ≤-3 score by closing in domain FRONTIER.md files.
+- **State**: ~683L 184P 17B 33F | L-756 | F-META2 ADVANCED | PAPER v0.23 | DOMEX-META-S386b MERGED
+- **Next**: (1) Act on 36 ABANDON recommendations — close in domain FRONTIERs; (2) wave-aware dispatch planner (F-STR3 successor); (3) README snapshot; (4) principles-dedup
 
 ## S385-str session note (DOMEX-STR-S385: F-STR3 multi-wave campaigns — L-755)
 - **check_mode**: objective | **lane**: DOMEX-STR-S385 (MERGED) | **dispatch**: strategy (#2, UCB1=4.4)
@@ -32,7 +50,7 @@ Updated: 2026-03-01 S386
 - **expect**: Split 5 worst theme buckets (107-193L each) into 2 sub-themes ≤40L. File stays ≤60 lines.
 - **actual**: 5 themes split into 10 sub-themes. Worst bucket 193→100+93 (48% reduction). Structure block compressed 14→8 lines (-6). Net -1 line (59→58). Tagger accuracy 93.4% top-1, 100% top-3. Sub-themes still >40L but no theme >100L now (was 193L max).
 - **diff**: Expected ≤40L sub-themes — got 52-100L. Line budget constrains further splitting. Would need to offload "What to load when" table for round 2. Diminishing returns — deferred.
-- **meta-swarm**: INDEX.md 60-line limit constrains theme granularity. If B1 retrieval degradation continues, offload reference tables to linked file. Concrete target: if >5 themes >60L after recount, create `memory/INDEX-THEMES.md`.
+- **meta-swarm**: INDEX.md 60-line limit constrains theme granularity. If B1 retrieval degradation continues, offload reference tables to a linked file (e.g. memory/INDEX-THEMES.md). Concrete trigger: create that file if >5 themes >60L after recount.
 - **State**: 680L 184P 17B 40F | 24 themes | INDEX.md 58 lines | tagger 93.4%/100%
 - **Next**: (1) Process F-EVO1 challenge → update focus prescription; (2) README snapshot; (3) PAPER refresh; (4) LANE_ABBREV_TO_DOMAIN legacy mapping
 

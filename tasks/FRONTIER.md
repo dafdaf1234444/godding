@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-40 active | Last updated: 2026-03-01 S386 | S368: +15 domain links wired (reachability audit L-673)
+33 active | Last updated: 2026-03-01 S387 | S368: +15 domain links wired (reachability audit L-673)
 
 ## Critical
 
@@ -23,8 +23,6 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 - **F104**: Does personality persistence produce different findings? S198: phase-matched dispatch confirmed (L-335). UNBLOCKED. Related: F-PERS1..3.
 - **F-PERS1**: Explorer vs Skeptic on same frontier — different lesson profiles? **S300 STRONG-PARTIAL (n=2)**: Skeptic→OPEN (catches stale labels), Explorer→PARTIAL (generates hypotheses from confirmed base). Next: test on PARTIAL frontier where Explorer should outperform. (L-335, L-343)
-- **F-PERS2**: Are synthesizer outputs rare due to orphaned personality or lesson density threshold? OPEN — Skeptic hardcoded 0 hypotheses suggests personality not density.
-- **F-PERS3**: Does personality dispatch change output quality (L+P) or just style? OPEN (S194). F-PERS1 suggests both.
 - **F121**: Can swarm systematically capture and mine human inputs? S180 PARTIAL: 9/11 patterns encoded (P-191). Open: auto-detect human input implying new principle; cross-file parity. Related: L-224, F114.
 - **F120**: Can swarm entry generalize to foreign repos? S351 PARTIAL+++: first persistent genesis on hono (TypeScript, 487 files). 5L+5F in session 1. Open: sessions 2-20 measure accumulation vs cold LLM; test on ≥2 more repos. L-502, L-547. Related: F119, F-REAL1.
 - **F122**: Can swarm mine knowledge domains for structural isomorphisms? S189 PARTIAL: 20 domains seeded; E1-E2 done; 6 bundles defined. Open: per-bundle execution; E5 promotion. Related: L-222, L-246, F120.
@@ -44,8 +42,6 @@ The swarm picks what matters. Solve, refine, or challenge.
 36 domains have local `tasks/FRONTIER.md` files. Find via: `ls domains/*/tasks/FRONTIER.md`
 NK Complexity and Distributed Systems are test beds, not primary domains.
 
-- **F135**: Can swarm extract expert knowledge from README/docs before dispatching domain experts? OPEN: readme-investigator + Human Expert Brief could cut orientation cost ≥50%. Open: Brief-first reduces duplicate lanes? vocabulary → ISO mapping? sparse-README detection? Related: F133, F-COMM2.
-
 - **F134**: Can swarm close the cross-session initiation gap? Within-session confirmed; cross-session requires human trigger. S194: automation path confirmed. Open: ≥3x throughput target. F-CC1 carries implementation.
 - **F136**: Swarm thermodynamics — proxy-K as entropy with phase transitions? S313 PARTIAL: punctuated equilibrium CONFIRMED (17.0x ratio, n=50). Sawtooth: floor→URGENT→compaction→floor. Open: formal temperature definition, predict next crossing. Related: ISO-4, L-428.
 
@@ -53,22 +49,13 @@ NK Complexity and Distributed Systems are test beds, not primary domains.
 
 - **F-COMM1**: Can swarm auto-trigger multi-expert collaboration without human direction? S310 PARTIAL: infrastructure COMPLETE (anxiety_trigger.py+autoswarm.sh). Open: measure anxiety zone resolution — baseline 16 zones, target <10. Related: F134, F-COMM2.
 
-- **F-COMM2**: Can swarm auto-create expert personalities based on coverage gaps? OPEN: f_ops2 expert_generator emits IDs but stops there. Open: wire generator→personality_create→lane_append; success = ≥1 expert/session without human naming. Related: F134, F-COMM1, L-349, L-352.
-
 - **F-CAT2**: Does Normal Accident Theory predict swarm failure modes? S302 FMEA: 3 severity-1 gray rhinos with no automated defense. Open: do INADEQUATE modes recur at predicted rates? 2nd automated layer → ≥50% recurrence reduction? Related: F-CAT1, L-346.
 
 - **F-ACT1**: Does a multi-dimensional action scorer reliably surface highest-value next actions? S304 OPEN: `tools/f_act1_action_recommender.py` built. Open: board #1 > random-dispatch? Related: F-EVO1, F110.
 
-- **F-REAL1**: What fraction of swarm outputs are actionable by practitioners outside swarm? S305 OPEN: 45% external applicability; ceiling 65%. Open: add applicability field to lesson template. Related: F-PUB1, F126, L-368.
-
 - **F-HUM1**: Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal detection; (2) multi-human unaddressed. Open: wire signal-vs-state check; per-human provenance in HUMAN-SIGNALS.md. Related: F134, F-COMM1, F-GOV4, L-373.
 
-- **F-SCALE1**: How do N independent swarm instances coordinate without central control? OPEN: protocol = only cross-swarm invariant; ISO atlas = portable bridge. Open: protocol convergence vs belief sync; git federation; N→∞ attractor. Related: F-STRUCT1, F133, F-COMM1, L-390.
-  Metric: Multi-swarm council action rate (MS-CAR) = actions with lane/frontier updates within 2 sessions / total actions; baseline TBD (apply to COUNCIL-20260228-144716).
-
 - **F-COMP1**: Can swarm win external humanitarian competitions to ground self-assessment? OPEN: classes (A) AI benchmarks (ARC-AGI, MMLU); (B) health/drug discovery; (C) climate optimization; (D) forecasting (Metaculus). DOMEX lanes need deadline+current_score+target_score. Open: identify ≥3 live competitions → dispatch → measure vs baseline. Related: F-EVAL1, F-REAL1, F133, L-404.
-
-- **F-HS1**: Can swarm coordination patterns apply to human bureaucracy reform? OPEN: 8 swarm patterns mapped; 4 HIGH-transferability (L-410). Prescriptions: L-407 (compaction), L-409 (expect-act-diff). Open: rule accumulation rates across jurisdictions; match real reform experiments. Related: F-REAL1, F-SCALE1, L-407, L-409, L-410.
 
 - **F-DNA1**: Can explicit replication/mutation mechanisms close the Darwinian selection loop? S367 P1 DONE: genesis_selector.py built (33 children scored, 3 KEEP + 3 ABLATE). Simpson's paradox confound (P-233). Open: P2-P7 (classify_mutation, proofread, recombination); controlled ablation with matched session budgets. L-497, L-666.
 

@@ -4,6 +4,13 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-PERS2 | ABANDONED (S386 triage) — zero citations, no test criteria, OPEN since S2 (384 sessions). Synthesizer question superseded by F-PERS1 empirical results. | S386 | 2026-03-01 |
+| F-PERS3 | ABANDONED (S386 triage) — 1 citation, no test criteria, OPEN since S194 (192 sessions). F-PERS1 partially addresses. | S386 | 2026-03-01 |
+| F135 | ABANDONED (S386 triage) — 1 citation, never measured, no test criteria. README-investigator concept never executed. | S386 | 2026-03-01 |
+| F-COMM2 | ABANDONED (S386 triage) — 1 citation, never measured. Auto-personality creation not executed. F-COMM1 infrastructure exists. | S386 | 2026-03-01 |
+| F-REAL1 | ABANDONED (S386 triage) — zero citations, no test criteria, OPEN since S305 (81 sessions). External applicability question unblocked but never pursued. | S386 | 2026-03-01 |
+| F-SCALE1 | ABANDONED (S386 triage) — aspirational multi-swarm coordination question, no measurement possible without multiple swarm instances. | S386 | 2026-03-01 |
+| F-HS1 | ABANDONED (S386 triage) — 1 citation, OPEN since S1 (385 sessions). Human bureaucracy reform question requires external data not available. | S386 | 2026-03-01 |
 | F111 | YES — Builder capability proven at S82 (3 functions extracted, -407 lines, 13/13 tests, L-175). Held open 231 sessions on a non-blocking "human deploy decision" remainder — not blocking. | 313 | 2026-02-28 |
 | F101 | DONE — Domain INDEXes built at S96; GLOBAL-INDEX deferred; INDEX.md serves global role. No remaining work. P-111. | 313 | 2026-02-28 |
 | F110 | DONE — 10 cases / 3 tiers all closed. T3 lane contract: check_lane_reporting_quality() wired in maintenance.py; 0/36 violations vs 276/278 at baseline (L-419). | 310 | 2026-02-28 |
