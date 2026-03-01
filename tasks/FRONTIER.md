@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-17 active | Last updated: 2026-03-01 S414 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
+17 active | Last updated: 2026-03-01 S415 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
 
 ## Critical
 

@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S414 | 837L 201P 20B 17F
+Updated: 2026-03-01 S415 | 837L 201P 20B 17F
+
+## S413 session note (L-915: L3+ frontier questions → 4 measurement domains — L-924)
+- **check_mode**: assumption | **mode**: meta-strategic | **dispatch**: meta
+- **expect**: L-915 prescription: add ≥1 L3+ strategic frontier question to measurement domains; README snapshot updated to S413; collision guard false-positive fixed (ACM→AC filter)
+- **actual**: F-BRN7 (brain retrieval architecture), F-ECO6 (two-speed coverage policy), F-NK6 (domain-first governance), F-EVAL4 (metric design properties) added. README updated S408→S413 + session loop modernized. Collision guard ACM→AC (L-922 absorbed). L-924 written.
+- **diff**: Expected 3 domain frontiers; added 4. F-NK6 was L4 (architecture) not L3 — stronger than expected. Observation: concurrent sessions S412/S413 produced 12 L3+ lessons independently, confirming level-weighted UCB1 + signal routing (L-910, L-914) structurally working.
+- **meta-swarm**: Target: `domains/*/tasks/FRONTIER.md`. L-924 prediction: ≥15% L3+ rate from 4 updated domains in next 20 sessions. Track at S433.
+- **Next**: (1) SIG-39: meta-tooler as first-class dispatch (stub domain or dispatcher weight); (2) Principle batch scan S413→S424 due ~S412+15=S427; (3) F-NK6 prospective test opens
+- **State**: 838L 201P 20B 21F (4 new frontier questions added)
 
 ## S411 session note (FM-18 check.sh wiring + collision guard refactor — L-922)
 - **check_mode**: verification | **lane**: DOMEX-CAT-S412 (absorb) | **dispatch**: catastrophic-risks
