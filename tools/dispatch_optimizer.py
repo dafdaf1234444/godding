@@ -969,61 +969,15 @@ def run(args: argparse.Namespace) -> None:
             print(f"  Formula: avg_yield + {1.414:.3f} * sqrt(log(total_dispatches) / domain_dispatches)")
             print(f"  Unvisited domains ranked first (UCB1 = ∞), then by structural tiebreaker")
 
-            # Campaign advisory (F-STR3, L-755) — frontier-accurate wave data
-            danger_doms = [r for r in results if r.get("campaign_phase") == "danger"]
-            committed_doms = [r for r in results if r.get("campaign_phase") == "committed"]
-            veteran_doms = [r for r in results if r.get("campaign_phase") == "veteran"]
-            # Collect mode-stall frontiers across all domains
-            mode_stall_items = []
-            for r in results:
-                for fid in r.get("mode_repeats", []):
-                    cw = campaign_waves.get(r["domain"], {})
-                    fdata = cw.get("frontiers", {}).get(fid, {})
-                    modes = fdata.get("all_modes", [])
-                    mode_stall_items.append((r["domain"], fid, modes))
-
-            # Prescriptive wave plan summary (F-STR3, L-755)
-            prescriptions = _wave_prescriptions(campaign_waves)
-            commits = [p for p in prescriptions if p["action"] == "COMMIT"]
-            closes = [p for p in prescriptions if p["action"] == "CLOSE"]
-
-            if danger_doms or committed_doms or veteran_doms or mode_stall_items:
-                print(f"\n--- Campaign Advisory (F-STR3, L-755) ---")
-                print(f"  Resolution: 1w=28%, 2w=11% (valley), 3w=31%, 4w+=50%")
-                if commits:
-                    print(f"  COMMIT ({len(commits)} frontiers in valley of death — 11% -> 31%):")
-                    for p in commits:
-                        mode_str = " -> ".join(p["modes"])
-                        shift = " !" if p["mode_shift_needed"] else ""
-                        print(f"    ⚠ {p['domain']}: {p['frontier']} ({mode_str}) -> {p['next_mode']}{shift}")
-                elif danger_doms:
-                    print(f"  Valley of death (2 waves — 11% resolution):")
+            # Campaign advisory (F-STR3, L-755) — delegated to dispatch_campaigns.py
+            if _CAMPAIGNS_IMPORTED:
+                print_campaign_advisory(results, campaign_waves)
+            else:
+                danger_doms = [r for r in results if r.get("campaign_phase") == "danger"]
+                if danger_doms:
+                    print(f"\n--- Campaign Advisory (dispatch_campaigns.py unavailable) ---")
                     for r in danger_doms:
-                        print(f"    ⚠ {r['domain']} — {r['campaign_rx']}")
-                if closes:
-                    print(f"  CLOSE ({len(closes)} frontiers approaching resolution — 31% -> 50%):")
-                    for p in closes:
-                        mode_str = " -> ".join(p["modes"][:3])
-                        shift = " !" if p["mode_shift_needed"] else ""
-                        print(f"    -> {p['domain']}: {p['frontier']} ({mode_str}) -> {p['next_mode']}{shift}")
-                elif committed_doms:
-                    print(f"  Approaching resolution (3 waves — 31%):")
-                    for r in committed_doms:
-                        print(f"    -> {r['domain']} — {r['campaign_rx']}")
-                if veteran_doms:
-                    print(f"  Veteran campaigns (4+ waves — ~50%):")
-                    for r in veteran_doms[:5]:
-                        cw = campaign_waves.get(r["domain"], {})
-                        fids = [f for f, d in cw.get("frontiers", {}).items() if not d["resolved"]]
-                        fid_str = f" ({', '.join(fids[:2])})" if fids else ""
-                        print(f"    + {r['domain']}{fid_str}")
-                if mode_stall_items:
-                    print(f"  Mode stalls (same mode >=2 consecutive waves):")
-                    for dom, fid, modes in mode_stall_items[:5]:
-                        mode_str = " -> ".join(modes)
-                        next_mode = OPTIMAL_NEXT_MODE.get(modes[-1], "hardening")
-                        print(f"    ! {dom}: {fid} ({mode_str}) -> MODE SHIFT to {next_mode}")
-                print(f"  Full plan: python3 tools/dispatch_optimizer.py --wave-plan")
+                        print(f"  ⚠ {r['domain']} — {r.get('campaign_rx', '')}")
 
             # Bundle mode advisory (L-812, F-EXP2): bundles produce 10x more lessons/session.
             # Solo sessions (1 lane) produce 0.18 L/session vs 1.85 L/session for bundles.

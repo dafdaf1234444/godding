@@ -877,7 +877,7 @@
     },
     {
       "session": 418,
-      "timestamp": "2026-03-01T23:21:39Z",
+      "timestamp": "2026-03-01T23:23:38Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -945,13 +945,12 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 13,
+          "count": 12,
           "severities": [
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "DUE",
             "PERIODIC",
             "PERIODIC",
@@ -1151,12 +1150,19 @@
           "fired": false,
           "count": 0,
           "severities": []
+        },
+        "check_unpushed": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         }
       },
       "totals": {
-        "NOTICE": 14,
+        "NOTICE": 15,
         "PERIODIC": 10,
-        "DUE": 5
+        "DUE": 4
       }
     }
   ]
