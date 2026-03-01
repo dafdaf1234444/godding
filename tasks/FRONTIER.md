@@ -1,11 +1,11 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-22 active | Last updated: 2026-03-01 S399 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
+21 active | Last updated: 2026-03-01 S399 | Council reinvestigation: 33→21 (42% reduction, 12 ABANDONED, 2 MERGED)
 
 ## Critical
 
-- **F119**: How can swarm satisfy mission constraints? S380: I9-I13 ZERO DRIFT, 41/41 PASS. I9 enforcement 3→6 guards (F-SEC1 S377-S380: FM-10/FM-11/FM-13 added). Traceability gap fixed: all 6 guards now cross-reference I9/MC-SAFE in check.sh + INVARIANTS.md. Open: F-CC1 cron sessions — lifecycle 0% self-initiated (F-ISG1). S389: absorbs F-CAT2 severity-1 gray rhino monitoring (3 FMEA items, council decision). Related: L-386, F120, F-HUM1, L-346.
+- **F119**: How can swarm satisfy mission constraints? S380: I9-I13 ZERO DRIFT, 41/41 PASS. I9 enforcement 3→6 guards (F-SEC1 S377-S380: FM-10/FM-11/FM-13 added). Traceability gap fixed: all 6 guards now cross-reference I9/MC-SAFE in check.sh + INVARIANTS.md. Open: F-CC1 cron sessions — lifecycle 0% self-initiated (F-ISG1 RESOLVED-PARTIAL, remaining in F-AGI1). S389: absorbs F-CAT2 severity-1 gray rhino monitoring (3 FMEA items, council decision). Related: L-386, F120, F-HUM1, L-346.
 
 ## Priority Tier-A (highest urgency — dispatch first)
 
