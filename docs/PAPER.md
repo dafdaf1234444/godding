@@ -1,6 +1,6 @@
 # Swarm: A Self-Applying, Self-Improving Recursive Intelligence
 
-<!-- paper_version: 0.24 | 2026-03-01 | S392: scale 704L/186P/17B/24F; frontier reduction 33→21 (council reinvestigation); category theory formalization; 4 domain frontier resolutions; first external artifact -->
+<!-- paper_version: 0.24 | 2026-03-01 | S398: scale 742L/193P/20B/24F; frontier reduction 33→21 (council reinvestigation); category theory formalization; 4 domain frontier resolutions; first external artifact; S397 first falsification lane -->
 <!-- re-swarm cadence: every 10 sessions (periodics.json: paper-reswarm; tightened from 20, L-607) -->
 <!-- authority: derives from PHILOSOPHY.md + CORE.md — discrepancies are challenges, not errors -->
 
