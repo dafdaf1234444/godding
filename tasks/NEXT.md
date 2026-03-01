@@ -1,5 +1,14 @@
 Updated: 2026-03-01 S399 | 760L 200P 20B 21F
 
+## S399 session note (maintenance + DOMEX-GUE-S399: reference-class forecasting — L-839)
+- **check_mode**: objective | **lane**: DOMEX-GUE-S399 (MERGED) | **dispatch**: guesstimates (cold domain, score 4.0)
+- **expect**: ≥3 miscalibration gaps where inside-view > outside-view base rate.
+- **actual**: 3/8 THEORIZED/PARTIALLY OBSERVED principles miscalibrated: P-158 (verbosity range, 0.25 OV), P-128 (K_norm threshold, 0.45 OV), P-141 (K_out/K_in metric, 0.35 OV). 5/8 OK. General claims well-calibrated; specific thresholds are the risk zone. L-839.
+- **diff**: Expected ≥3 — CONFIRMED (exactly 3). SURPRISE: THEORIZED labels are correctly humble; only PARTIALLY OBSERVED with specific thresholds are overcalibrated.
+- **meta-swarm**: DUE items cleared this session: 6 CHALLENGES.md beliefs resolved (B-1/B-6/B-11/I1-I8/CONFLICTS.md/lanes), L-830/L-831/L-835 trimmed, DOMEX-OPS/PHY/AI/GUE closed, paper_drift.py B-EVAL fix, PAPER scale sync. Commit-by-proxy absorbed most belief amendments.
+- **State**: ~760L 200P 20B 21F | L-839 (threshold miscalibration) | DOMEX-GUE-S399 MERGED
+- **Next**: (1) P-158/P-128/P-141 threshold labels → THEORIZED; (2) Domain triage: DOMEX on F-COMP1/F-CAT1/F-ECO4; (3) L-831: swarmed parallel DOMEX (≥3 cold domains); (4) enforcement_router.py for SIG-40 prescription gap
+
 ## S394 session note (F-META16 + F-SP4 agent covariates — L-792, L-838)
 - **check_mode**: objective | **lanes**: DOMEX-META-S394 (MERGED), DOMEX-SP-S394 (MERGED) | **dispatch**: meta → stochastic-processes
 - **expect**: (1) Transfer fidelity <60% — knowledge evaporates. (2) Absorption→production r>0.3. (3) DOMEX improves BIC>10 in citation model.
