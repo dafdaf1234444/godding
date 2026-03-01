@@ -841,96 +841,18 @@ def check_version_drift() -> list[tuple[str, str]]:
     return results
 
 def check_runtime_portability() -> list[tuple[str, str]]:
-    results = []
-    has_git = _command_exists("git")
-    has_bash = _command_exists("bash")
-    has_pwsh = _command_exists("pwsh") or _command_exists("powershell")
-    has_python_alias = _python_command_runs("python3") or _python_command_runs("python") or _py_launcher_runs()
-    has_bash_wrapper_pair = _exists("tools/check.sh") and _exists("tools/maintenance.sh")
-    has_ps_wrapper_pair = _exists("tools/check.ps1") and _exists("tools/maintenance.ps1")
-    has_bash_wrappers = has_bash and has_bash_wrapper_pair
-    has_pwsh_wrappers = has_pwsh and has_ps_wrapper_pair
-
-    if not has_git:
-        results.append(("URGENT", "git not found in PATH — swarm memory/commit workflow cannot run"))
-    if not has_python_alias:
-        if has_bash_wrappers and has_pwsh_wrappers:
-            results.append(("NOTICE", "No python alias in active shell; use wrappers (`bash tools/check.sh --quick` or `pwsh -NoProfile -File tools/check.ps1 --quick`)"))
-        elif has_bash_wrappers:
-            results.append(("NOTICE", "No python alias in active shell; use bash wrappers (`bash tools/check.sh --quick`, `bash tools/maintenance.sh --inventory`)"))
-        else:
-            results.append(("DUE", f"No python alias in PATH — use explicit interpreter: {PYTHON_EXE}"))
-    if not has_bash and (_exists("workspace/genesis.sh") or _exists("tools/check.sh")):
-        if has_python_alias and has_pwsh_wrappers:
-            results.append(("NOTICE", "bash not found — use PowerShell wrappers (`pwsh -NoProfile -File tools/check.ps1 --quick`, `pwsh -NoProfile -File tools/maintenance.ps1 --inventory`)"))
-        elif has_python_alias:
-            results.append(("NOTICE", f"bash not found — use direct python entrypoints (`{PYTHON_CMD} tools/maintenance.py --quick`, `{PYTHON_CMD} tools/maintenance.py --inventory`)"))
-        else:
-            results.append(("DUE", "bash not found and no python alias — portable startup path is broken"))
-    if has_bash and not _exists("tools/maintenance.sh"):
-        results.append(("DUE", "tools/maintenance.sh missing — portable maintenance/inventory path is broken"))
-    if has_pwsh and not _exists("tools/maintenance.ps1"):
-        results.append(("DUE" if not has_bash else "NOTICE", "tools/maintenance.ps1 missing — PowerShell maintenance/inventory path is degraded"))
-
-    if _is_wsl_mnt_repo():
-        if not _git("status", "--porcelain"):
-            results.append(("NOTICE", "WSL on /mnt/* repo: status/proxy-K may diverge from Windows runtime"))
-        swarm_cmd = REPO_ROOT / ".claude" / "commands" / "swarm.md"
-        if not swarm_cmd.exists():
-            results.append(("DUE", ".claude/commands/swarm.md DELETED — WSL deletion bug (L-279). Fix: rm -f .claude/commands/swarm.md && git checkout HEAD -- .claude/commands/swarm.md"))
-        else:
-            try:
-                if "# /swarm" not in swarm_cmd.read_text(encoding="utf-8"):
-                    results.append(("DUE", ".claude/commands/swarm.md exists but has unexpected content — may be corrupted (WSL). Restore: python3 -c \"import os; os.remove('.claude/commands/swarm.md')\" then git show HEAD:.claude/commands/swarm.md > /tmp/s.md && python3 -c \"open('.claude/commands/swarm.md','w').write(open('/tmp/s.md').read())\""))
-            except (PermissionError, OSError):
-                results.append(("DUE", ".claude/commands/swarm.md inaccessible — WSL permission corruption. Fix: python3 -c \"import os; os.remove('.claude/commands/swarm.md')\" then restore from git show HEAD:.claude/commands/swarm.md"))
-
-    bridges = BRIDGE_FILES
-    missing_bridges = [p for p in bridges if not _exists(p)]
-    if missing_bridges:
-        level = "URGENT" if "SWARM.md" in missing_bridges else "DUE"
-        sample = ", ".join(missing_bridges[:3])
-        results.append((level, f"{len(missing_bridges)} missing bridge file(s): {sample}"))
-
-    swarm_ref_re = re.compile(r"\bswarm\.md\b", re.IGNORECASE)
-    swarm_signal_re = re.compile(r"\bswarm signaling\b", re.IGNORECASE)
-    min_swarmed_re = re.compile(r"Minimum Swarmed Cycle", re.IGNORECASE)
-    no_ref, no_signal, no_min_swarmed = [], [], []
-    for path in bridges:
-        if path == "SWARM.md" or path in missing_bridges: continue
-        content = _read(REPO_ROOT / path)
-        if not swarm_ref_re.search(content): no_ref.append(path)
-        if not swarm_signal_re.search(content): no_signal.append(path)
-        if not min_swarmed_re.search(content): no_min_swarmed.append(path)
-    if no_ref:
-        results.append(("DUE", f"{len(no_ref)} bridge file(s) missing SWARM.md protocol reference: {', '.join(no_ref[:3])}"))
-    if "SWARM.md" not in missing_bridges and not swarm_signal_re.search(_read(REPO_ROOT / "SWARM.md")):
-        results.append(("DUE", "SWARM.md missing explicit swarm signaling rule"))
-    if no_signal:
-        results.append(("DUE", f"{len(no_signal)} bridge file(s) missing swarm signaling guidance: {', '.join(no_signal[:3])}"))
-    if no_min_swarmed:
-        results.append(("DUE", f"{len(no_min_swarmed)} bridge file(s) missing 'Minimum Swarmed Cycle' section (F-GOV2, L-351): {', '.join(no_min_swarmed[:3])}"))
-
-    return results
+    # Extracted to maintenance_inventory.py (DOMEX-META-S420)
+    from maintenance_inventory import check_runtime_portability as _impl
+    return _impl(
+        REPO_ROOT, PYTHON_CMD, BRIDGE_FILES,
+        _exists, _read, _git, _command_exists,
+        _python_command_runs, _py_launcher_runs, _is_wsl_mnt_repo,
+    )
 
 def check_commit_hooks() -> list[tuple[str, str]]:
-    results = []
-    git_dir = REPO_ROOT / ".git"
-    if not git_dir.exists(): return results
-    hooks_dir = git_dir / "hooks"
-    if not hooks_dir.exists(): return [("NOTICE", ".git/hooks missing — commit quality hooks unavailable")]
-    expected = [("pre-commit", "tools/pre-commit.hook"), ("commit-msg", "tools/commit-msg.hook")]
-    missing_tpl = [tpl for _, tpl in expected if not _exists(tpl)]
-    if missing_tpl: return [("DUE", f"Hook template(s) missing: {', '.join(missing_tpl[:3])}")]
-    missing_inst, drifted = [], []
-    for hook_name, tpl_rel in expected:
-        tpl_text = _read(REPO_ROOT / tpl_rel).replace("\r\n", "\n").strip()
-        inst_path = hooks_dir / hook_name
-        if not inst_path.exists(): missing_inst.append(hook_name); continue
-        if tpl_text != _read(inst_path).replace("\r\n", "\n").strip(): drifted.append(hook_name)
-    if missing_inst: results.append(("DUE", f"Missing hook(s): {', '.join(missing_inst)} — run: bash tools/install-hooks.sh"))
-    if drifted: results.append(("NOTICE", f"Hook drift detected ({', '.join(drifted)}) — run: bash tools/install-hooks.sh"))
-    return results
+    # Extracted to maintenance_inventory.py (DOMEX-META-S420)
+    from maintenance_inventory import check_commit_hooks as _impl
+    return _impl(REPO_ROOT, _exists, _read)
 
 def check_cross_references() -> list[tuple[str, str]]:
     results = []
@@ -992,6 +914,21 @@ def check_domain_frontier_consistency() -> list[tuple[str, str]]:
         _parse_domain_index_active_count, _parse_domain_index_active_line_ids,
         _parse_domain_index_open_ids, _format_frontier_id_diff,
     )
+
+def check_frontier_namespace_linkage() -> list[tuple[str, str]]:
+    """P-274: flag low domain→global frontier linkage rate (L-938, F-NK6)."""
+    results = []
+    try:
+        from frontier_crosslink import load_global_frontiers, load_domain_frontiers, compute_stats
+        gf = load_global_frontiers()
+        df = load_domain_frontiers()
+        stats = compute_stats(df, gf)
+        pct = stats["domain_linkage_pct"]
+        if pct < 10:
+            results.append(("NOTICE", f"Domain→global frontier linkage {pct:.1f}% ({stats['domain_linked_to_global']}/{stats['total_domain']}): run `python3 tools/frontier_crosslink.py` to find cross-link opportunities (P-274, L-938)"))
+    except Exception:
+        pass
+    return results
 
 def check_readme_snapshot_drift() -> list[tuple[str, str]]:
     results = []
@@ -1382,125 +1319,9 @@ def check_level_quota() -> list[tuple[str, str]]:
 
 
 def check_proxy_k_drift() -> list[tuple[str, str]]:
-    results = []
-    log_path = REPO_ROOT / "experiments" / "proxy-k-log.json"
-    if not log_path.exists():
-        return results
-
-    try:
-        entries = json.loads(_read(log_path))
-    except Exception as e:
-        return [("NOTICE", f"proxy-k-log.json parse failed: {e}")]
-
-    if len(entries) < 2:
-        return results
-
-    tiers = {
-        "T0-mandatory": ["SWARM.md", "CLAUDE.md", "beliefs/CORE.md", "memory/INDEX.md"],
-        "T1-identity": ["beliefs/PHILOSOPHY.md", "beliefs/DEPS.md", "beliefs/INVARIANTS.md"],
-        "T2-protocols": ["memory/DISTILL.md", "memory/VERIFY.md", "memory/OPERATIONS.md", "beliefs/CONFLICTS.md"],
-        "T3-knowledge": ["memory/PRINCIPLES.md", "tasks/FRONTIER.md"],
-        "T4-tools": ["tools/validate_beliefs.py", "tools/maintenance.py", "tools/paper_drift.py", "tools/swarm_parse.py"],
-    }
-    schema_payload = json.dumps(tiers, sort_keys=True, separators=(",", ":")).encode("utf-8")
-    current_schema = hashlib.sha256(schema_payload).hexdigest()
-    schema_entries = [e for e in entries if e.get("tier_schema") == current_schema]
-    clean_schema_entries = [e for e in schema_entries if not e.get("dirty_tree")]
-    baseline = clean_schema_entries if len(clean_schema_entries) >= 2 else schema_entries
-    if len(baseline) < 2:
-        n = len(schema_entries)
-        results.append(("NOTICE",
-            f"Proxy K schema baseline unavailable ({n} matching snapshot{'s' if n != 1 else ''}); run clean snapshots: {PYTHON_CMD} tools/proxy_k.py --save"))
-        return results
-
-    floor_idx = 0
-    for i in range(1, len(baseline)):
-        if baseline[i]["total"] < baseline[i - 1]["total"]:
-            floor_idx = i
-
-    floor_entry = baseline[floor_idx]
-    floor = floor_entry["total"]
-    if floor <= 0:
-        return results
-
-    # If the historical-minimum floor is stale (>= 8 sessions ago) and a more
-    # recent clean baseline exists, use that as the floor to acknowledge
-    # intentional tool growth without triggering false URGENT compaction. (L-273)
-    _cur_s = _session_number()
-    _floor_s = int(floor_entry.get("session", 0) or 0)
-    if len(clean_schema_entries) >= 2 and _floor_s > 0 and _cur_s > 0 and (_cur_s - _floor_s) >= 8:
-        _newer = [e for e in clean_schema_entries if int(e.get("session", 0) or 0) > _floor_s]
-        if _newer:
-            _latest_clean = max(_newer, key=lambda e: int(e.get("session", 0) or 0))
-            if _latest_clean["total"] > floor:
-                floor_entry = _latest_clean
-                floor = _latest_clean["total"]
-
-    # If floor is very stale (>50 sessions), check dirty entries for more
-    # recent post-compaction baselines (where total decreased from prior).
-    # Prevents false URGENT signals from legitimate tool growth. (L-550, L-555)
-    _floor_s_post = int(floor_entry.get("session", 0) or 0)
-    if _cur_s > 0 and _floor_s_post > 0 and (_cur_s - _floor_s_post) > 50:
-        for i in range(len(schema_entries) - 1, 0, -1):
-            if schema_entries[i]["total"] < schema_entries[i - 1]["total"]:
-                _df = schema_entries[i]
-                _df_total = _df["total"]
-                _df_s = int(_df.get("session", 0) or 0)
-                if _df_total > floor and _df_s > _floor_s_post:
-                    floor_entry = _df
-                    floor = _df_total
-                break
-
-    live_tiers: dict[str, int] = {}
-    live_total = 0
-    for tier, files in tiers.items():
-        tier_total = sum(_token_count(REPO_ROOT / f) for f in files)
-        live_tiers[tier] = tier_total
-        live_total += tier_total
-
-    latest_entry = entries[-1]
-    latest_logged = latest_entry["total"]
-    latest_session = int(latest_entry.get("session", 0) or 0)
-    latest_marked_dirty = bool(latest_entry.get("dirty_tree", False))
-    floor_session = int(floor_entry.get("session", 0) or 0)
-    current_session = _session_number()
-    logged_drift = (latest_logged - floor) / floor
-    live_drift = (live_total - floor) / floor
-    dirty = bool(_git("status", "--porcelain"))
-    stale_clean_baseline = dirty and floor_session > 0 and current_session > 0 and (current_session - floor_session) >= 8
-
-    likely_dirty_logged = latest_marked_dirty
-    if not likely_dirty_logged and dirty and latest_session > 0 and current_session > 0:
-        if latest_session >= max(0, current_session - 2) and abs(latest_logged - live_total) / max(1, live_total) <= 0.02:
-            likely_dirty_logged = True
-    same_dirty_snapshot = (likely_dirty_logged and dirty and current_session > 0
-        and latest_session >= max(0, current_session - 2)
-        and abs(live_total - latest_logged) / max(1, latest_logged) <= 0.01)
-
-    def _tier_targets() -> str:
-        floor_tiers = floor_entry.get("tiers", {})
-        tier_deltas = [f"{tier}+{live_tiers.get(tier,0)-floor_tiers.get(tier,0)}" for tier in sorted(live_tiers) if live_tiers.get(tier,0) - floor_tiers.get(tier,0) > 0]
-        return f" [{', '.join(tier_deltas[:3])}]" if tier_deltas else ""
-
-    if logged_drift > 0.06:
-        if dirty and live_drift <= 0.06:
-            results.append(("NOTICE", f"Proxy K logged drift {logged_drift:.1%} ({latest_logged} vs {floor}) but live drift is {live_drift:.1%} on dirty tree; re-save clean snapshot: {PYTHON_CMD} tools/proxy_k.py --save"))
-        elif likely_dirty_logged:
-            if logged_drift > 0.10:
-                results.append(("URGENT" if logged_drift > 0.20 else "DUE", f"Proxy K drift {logged_drift:.1%} ({latest_logged} vs {floor}) on dirty tree — compaction overdue{_tier_targets()}; run: {PYTHON_CMD} tools/compact.py"))
-            elif not same_dirty_snapshot:
-                qualifier = "current dirty" if (current_session > 0 and latest_session >= current_session) else f"likely dirty S{latest_session}"
-                results.append(("NOTICE", f"Proxy K logged drift {logged_drift:.1%} ({latest_logged} vs {floor}) from {qualifier}; save clean snapshot when stable: {PYTHON_CMD} tools/proxy_k.py --save"))
-        elif stale_clean_baseline:
-            results.append(("NOTICE", f"Proxy K baseline S{floor_session} is stale on dirty tree (current S{current_session}); re-save clean snapshot: {PYTHON_CMD} tools/proxy_k.py --save"))
-        else:
-            results.append(("URGENT" if logged_drift > 0.10 else "DUE", f"Proxy K drift {logged_drift:.1%} ({latest_logged} vs {floor}); run: {PYTHON_CMD} tools/compact.py"))
-    elif live_drift > 0.06 and dirty:
-        results.append(("NOTICE", f"Proxy K live drift {live_drift:.1%} ({live_total} vs {floor}) on dirty tree{_tier_targets()}; save when stable: {PYTHON_CMD} tools/proxy_k.py --save"))
-    elif live_drift > 0.06:
-        results.append(("URGENT" if live_drift > 0.10 else "DUE", f"Proxy K drift {live_drift:.1%} ({live_total} vs {floor}){_tier_targets()}; run: {PYTHON_CMD} tools/compact.py"))
-
-    return results
+    # Extracted to maintenance_drift.py (DOMEX-META-S420)
+    from maintenance_drift import check_proxy_k_drift as _impl
+    return _impl(REPO_ROOT, PYTHON_CMD, _read, _git, _token_count, _session_number)
 
 def check_file_graph() -> list[tuple[str, str]]:
     structural = [REPO_ROOT / p for p in ("SWARM.md", "CLAUDE.md", "README.md", "beliefs/CORE.md", "memory/INDEX.md", "memory/OPERATIONS.md", "tasks/NEXT.md")]
@@ -1579,74 +1400,9 @@ def check_correction_propagation() -> list[tuple[str, str]]:
 
 
 def check_observer_staleness() -> list[tuple[str, str]]:
-    """L-820, L-556: detect measurement tools with stale baselines.
-
-    Observers that compare current state to a stored baseline drift silently
-    when the baseline ages. Mean staleness was 63 sessions (L-820). This check
-    flags any observer baseline older than 50 sessions.
-    """
-    results: list[tuple[str, str]] = []
-    # Extract current session number
-    sess = 0
-    try:
-        idx = (REPO_ROOT / "memory" / "INDEX.md").read_text(encoding="utf-8", errors="replace")
-        m = re.search(r"S(\d+)", idx)
-        if m:
-            sess = int(m.group(1))
-    except Exception:
-        return []
-    if sess < 50:
-        return []
-
-    stale: list[str] = []
-    threshold = 50  # sessions
-
-    # Check proxy-K baseline in proxy-k-log
-    try:
-        pk_path = REPO_ROOT / "experiments" / "proxy-k-log.json"
-        if pk_path.exists():
-            pk_data = json.loads(pk_path.read_text(encoding="utf-8", errors="replace"))
-            if isinstance(pk_data, list) and pk_data:
-                last_entry = pk_data[-1]
-                last_sess_m = re.search(r"S(\d+)", str(last_entry.get("session", "")))
-                if last_sess_m:
-                    age = sess - int(last_sess_m.group(1))
-                    if age > threshold:
-                        stale.append(f"proxy-K({age}s)")
-    except Exception:
-        pass
-
-    # Check dispatch calibration baseline
-    try:
-        dc_path = REPO_ROOT / "workspace" / "dispatch_calibration.json"
-        if dc_path.exists():
-            dc_data = json.loads(dc_path.read_text(encoding="utf-8", errors="replace"))
-            cal_sess_m = re.search(r"S(\d+)", str(dc_data.get("calibrated_session", "")))
-            if cal_sess_m:
-                age = sess - int(cal_sess_m.group(1))
-                if age > threshold:
-                    stale.append(f"dispatch-calibration({age}s)")
-    except Exception:
-        pass
-
-    # Check compact.py floor baseline
-    try:
-        for pk_entry in reversed(pk_data if 'pk_data' in dir() else []):
-            if isinstance(pk_entry, dict) and pk_entry.get("floor"):
-                floor_sess_m = re.search(r"S(\d+)", str(pk_entry.get("session", "")))
-                if floor_sess_m:
-                    age = sess - int(floor_sess_m.group(1))
-                    if age > threshold:
-                        stale.append(f"compaction-floor({age}s)")
-                break
-    except Exception:
-        pass
-
-    if stale:
-        severity = "DUE" if len(stale) >= 2 else "NOTICE"
-        return [(severity, f"{len(stale)} observer baseline(s) stale >{threshold}s: {', '.join(stale)}. "
-                 f"Refresh to prevent drift blindness (L-820, L-556)")]
-    return []
+    # Extracted to maintenance_drift.py (DOMEX-META-S420)
+    from maintenance_drift import check_observer_staleness as _impl
+    return _impl(REPO_ROOT)
 
 
 def _inter_swarm_connectivity(capabilities: dict, commands: dict[str, bool]) -> dict:
@@ -1743,6 +1499,7 @@ def main():
         check_signal_staleness,
         check_historian_integrity,
         check_domain_frontier_consistency,
+        check_frontier_namespace_linkage,
         check_readme_snapshot_drift,
         check_count_drift,
         check_structure_layout,

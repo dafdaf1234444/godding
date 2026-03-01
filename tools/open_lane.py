@@ -269,6 +269,21 @@ def main():
             file=sys.stderr,
         )
 
+    # P-274 creation-time enforcement: suggest matching global frontiers for domain lanes (L-938)
+    if args.domain and not args.frontier:
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            from frontier_crosslink import load_global_frontiers, load_domain_frontiers, compute_suggestions
+            gf = load_global_frontiers()
+            df = load_domain_frontiers()
+            domain_only = {k: v for k, v in df.items() if v.get("domain") == args.domain}
+            suggestions = compute_suggestions(domain_only, gf, min_overlap=8)[:3]
+            if suggestions:
+                top = [f"{s['domain_id']}→{s['global_id']}({s['overlap_count']}t)" for s in suggestions]
+                print(f"INFO: Domain '{args.domain}' has global frontier candidates: {', '.join(top)} — add --frontier to link (P-274, L-938).", file=sys.stderr)
+        except Exception:
+            pass
+
     if not args.intent:
         args.intent = f"advance-{args.frontier}" if args.frontier else "swarm-work"
     if not args.note:
