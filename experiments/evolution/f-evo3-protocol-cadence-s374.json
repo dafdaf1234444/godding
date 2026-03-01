@@ -1,0 +1,77 @@
+{
+  "frontier": "F-EVO3",
+  "session": "S374",
+  "method": "Protocol mutation cadence correlation, global + recent-20 window",
+  "n_sessions": 188,
+  "protocol_files": [
+    "SWARM.md",
+    "beliefs/CORE.md",
+    "tools/maintenance.py",
+    "tools/check.sh",
+    "tools/check.ps1",
+    "tools/orient.py",
+    "tools/orient.ps1"
+  ],
+  "protocol_file_touches": {
+    "SWARM.md": 188,
+    "beliefs/CORE.md": 188,
+    "tools/maintenance.py": 188,
+    "tools/check.sh": 188,
+    "tools/check.ps1": 188,
+    "tools/orient.py": 188,
+    "tools/orient.ps1": 188
+  },
+  "mutation_rate": 1.0,
+  "correlation_global": {
+    "mutation_vs_quality": 0.0,
+    "mutation_vs_overhead": 0.0,
+    "mutation_vs_frontier": 0.0
+  },
+  "correlation_stability_global": {
+    "mutation_vs_destabilization": 0.0,
+    "mutation_vs_due_urgent": 0.0
+  },
+  "correlation_recent_20": {
+    "mutation_vs_quality": 0.0,
+    "mutation_vs_destabilization": 0.0,
+    "mutation_vs_due_urgent": 0.0,
+    "mutation_vs_frontier": 0.0
+  },
+  "recent_20_range": "S344-S374",
+  "bin_comparison": {
+    "mutation": {
+      "n": 188,
+      "avg_lp": 1.59,
+      "avg_destab": 0.293
+    },
+    "no_mutation": {
+      "n": 0,
+      "avg_lp": 0,
+      "avg_destab": 0
+    }
+  },
+  "s352_comparison": {
+    "mutation_vs_quality": {
+      "s352": 0.3897,
+      "s374": 0.0
+    },
+    "mutation_vs_destab": {
+      "s352": 0.1446,
+      "s374": 0.0
+    },
+    "mutation_vs_overhead": {
+      "s352": 0.0961,
+      "s374": 0.0
+    },
+    "recent_destab": {
+      "s352": -0.2347,
+      "s374": 0.0
+    }
+  },
+  "stability_verdict": {
+    "quality_stable": false,
+    "destab_stable": true,
+    "recent_safe": true,
+    "resolved": false
+  }
+}
