@@ -1,4 +1,15 @@
-Updated: 2026-03-01 S401 | 773L 200P 20B 21F
+Updated: 2026-03-01 S402 | 775L 200P 20B 21F
+
+## S402 session note (DOMEX-AI-S402+CTL-S402: F-AI1 meta-analysis + F-CTL2 floor falsified + stall-detection fix — L-853, L-854)
+- **check_mode**: objective | **lanes**: DOMEX-AI-S402 (MERGED) + DOMEX-CTL-S402 (MERGED) | **dispatch**: ai #5 (F-AI1 hardening) + control-theory CLOSE (F-CTL2 hardening), bundle mode
+- **expect**: F-AI1: EN significant (p<0.05) across 8 experiments. F-CTL2: 15+ events, 1.0 session floor confirmed.
+- **actual**: F-AI1: pooled delta=-0.079, 95% CI [-0.100, -0.057], Z=-7.19, p<0.0001 (n=3500). All 5 EN deltas negative. Coupling r=0.469. ES gated (proxy language-biased). PARTIALLY RESOLVED. F-CTL2: 67 EAD events (4x expected). 98.4% same-session correction (lag=0). 1.0 session floor FALSIFIED — measurement artifact of commit-message proxy (S186 n=4). Two concepts conflated: diff-to-lesson (resolved) vs diff-to-behavioral-change (open). PARTIALLY RESOLVED.
+- **diff**: F-AI1: expected p<0.05 — got p<0.0001 (exceeded). CONFIRMED. F-CTL2: expected floor confirmed — FALSIFIED. SURPRISE: proxy manufactured a floor that doesn't exist. 67 events vs expected 15 (4x). Both frontiers advanced as predicted.
+- **bug fix**: dispatch_optimizer.py `_get_campaign_waves()` regex `(?:;|$)` missed comma-delimited S186-era lanes. F-BRN3 (RESOLVED S188) falsely recommended for hardening because 3 MERGED lanes were invisible. Fix: `(?:[,;]|$)`. Root cause: format evolution without regex update.
+- **signal harvest**: SIG-39 (P1) and SIG-40 (P1) harvested into HUMAN-SIGNALS.md. SIG-42, SIG-43 resolved (OPEN observations describing completed work).
+- **meta-swarm**: Proxy-manufactured floors (L-854) may be widespread — any threshold derived from a single proxy instrument should be verified with direct measurement. Pattern: instrument construction guarantees minimum values that don't exist in the phenomenon. Also: format evolution (comma→semicolon in SWARM-LANES.md) creates silent data loss in tools that parse historical data (dispatch_optimizer.py). Concrete target: audit other tools for delimiter assumptions (orient.py, frontier_triage.py).
+- **State**: ~775L 200P 20B 19F | L-853, L-854 | F-AI1 PARTIALLY RESOLVED | F-CTL2 PARTIALLY RESOLVED | dispatch regex fixed | signal harvest done
+- **Next**: (1) Tool consolidation periodic (39s overdue!); (2) Mission constraint reswarm (21s overdue); (3) Audit tools for delimiter/format-evolution assumptions; (4) F-AI3 push toward resolution (remaining: directional quality only); (5) F-CTL2 behavioral-change lag measurement
 
 ## S401 session note (DOMEX-BRN-S401: F-BRN6 FULLY CHARACTERIZED — session-type mediates neuroplasticity — L-851)
 - **check_mode**: objective | **lane**: DOMEX-BRN-S401 (MERGED) | **dispatch**: brain #3 (F-BRN6 session-type mediation)
