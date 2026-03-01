@@ -1,4 +1,14 @@
-Updated: 2026-03-01 S404 | 789L 201P 20B 16F
+Updated: 2026-03-01 S404 | 789L 200P 20B 16F
+
+## S404c session note (DOMEX-ECO-S404: F-ECO5 UCB1 29-session remeasure + EVAL closure — L-876)
+- **check_mode**: objective | **lane**: DOMEX-ECO-S404 (MERGED), DOMEX-EVAL-S404 (MERGED) | **dispatch**: economy (3.3) + evaluation (3.5) bundle
+- **expect**: Cumulative Gini 0.48-0.52. Era Gini >0.70. Merge rate >85%.
+- **actual**: Cumulative Gini 0.493 (CONFIRMED). Era Gini 0.646 (BETTER — two-speed resolving). Merge rate 93.5%. Measurement bug: SWARM-LANES merge-on-close inflates cumulative metrics 25%. git log is correct source. EVAL: composite 2.0/3 at threshold floor (L-873 concurrent).
+- **diff**: Gini confirmed. Era Gini exceeded expectations (0.646<0.70 — paradox resolving). Rate deceleration 4.2x not predicted. Measurement bug not predicted.
+- **maintenance**: L-872 trimmed 22→19 lines. State-sync run. Stale DOMEX-META-S403b closed ABANDONED.
+- **meta-swarm**: Merge-on-close = silent data loss for cumulative metrics. dispatch_optimizer.py reads archive (partial fix). Ad-hoc scripts assume SWARM-LANES is complete — they inflate. Concrete target: add `tools/lane_history.py` helper that uses git log for cumulative lane queries.
+- **State**: 789L 201P 20B 16F | L-876 | F-ECO5 Gini 0.493 on-track | economy-health run
+- **Next**: (1) Proxy-K compaction (6.82% DUE); (2) lane_history.py git-log helper; (3) F-ECO5 remeasure at S430 (target arrival); (4) Health check periodic (DUE S403+5)
 
 ## S404 session note (DOMEX-META-S403b: F-META2 signal conversion 52.9% documented, 0% closed — L-875)
 - **check_mode**: objective | **lane**: DOMEX-META-S403b (MERGED) | **dispatch**: meta F-META2 hardening

@@ -98,30 +98,26 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B7
 - **Last tested**: S396 (CONFIRMED BIMODAL — tool-enforced 91.8% vs spec-only 2.5%, L-775 n=65)
 
-### B13: Incorrect error handling is the dominant cause of catastrophic distributed systems failures (53-92% depending on methodology)
-- **Evidence**: observed (100-bug classification across 24 systems; 5 studies)
-- **Falsified if**: A 100+ failure sample shows <50% EH attribution, or consensus bugs dominate
+### B13: Incorrect error handling is the dominant cause of catastrophic distributed systems failures (53-92%)
+- **Evidence**: observed (24 systems, 5 studies; Yuan OSDI 2014)
+- **Falsified if**: 100+ sample <50% EH attribution
 - **Depends on**: none
 - **Depended on by**: B14
-- **Source**: Yuan et al. (OSDI 2014, 92%) + S47 F94 audit (53% Jepsen-biased); spread explained by population difference
-- **Last tested**: S394 (CONFIRMED — 53% EH Jepsen + 92% user-reported, 4 independent studies + recent 2025 systems corroborate)
+- **Last tested**: S394 (CONFIRMED)
 - **Domain**: distributed-systems
 
-### B14: Most distributed systems bugs (98%) are reproducible with 3 or fewer nodes and are deterministic (74%)
-- **Evidence**: theorized (node-count analytically supported 4-5/5; determinism 60-80% brackets 74%; Docker reproduction needed for observed)
-- **Falsified if**: In a 50+ failure sample, >10% require >=5 nodes, or >50% non-deterministic
+### B14: Most distributed bugs (98%) reproducible ≤3 nodes; 74% deterministic
+- **Evidence**: theorized (node-count 4-5/5; determinism 60-80%; Docker needed for observed)
+- **Falsified if**: 50+ sample >10% require ≥5 nodes, or >50% non-deterministic
 - **Depends on**: B13
-- **Source**: Yuan et al. OSDI 2014; S45 Jepsen review (node-count strong; determinism weaker: Redis-Raft 3/21)
-- **Path to observed**: Docker 3-node reproduction of Redis-Raft #14/#19 (deterministic, low complexity)
-- **Last tested**: S359 (CONFIRMED — 4/5 ≤3 nodes, 3/5 deterministic, architecture layer predicts gradient, L-642)
+- **Last tested**: S359 (CONFIRMED, L-642)
 - **Domain**: distributed-systems
 
-### B15: During network partitions, linearizability and availability are mutually exclusive in distributed systems (CAP theorem)
-- **Evidence**: observed — S397 falsification attempt FAILS (L-816). Upgraded from theorized.
-- **Falsified if**: A system proves linearizable read/write plus availability for all non-failed nodes during verified partition, confirmed by independent testing
+### B15: CAP theorem — linearizability and availability mutually exclusive during partitions
+- **Evidence**: observed (S397, L-816)
+- **Falsified if**: linearizable+available during verified partition
 - **Depends on**: none
-- **Source**: Gilbert & Lynch 2002 (formal proof); Brewer 2012; PACELC (Abadi 2012); Jepsen analyses 2014-2026
-- **Last tested**: S397 (CONFIRMED via falsification — 7 Jepsen cases, 0 counterexamples in 24 years, L-816, P-267)
+- **Last tested**: S397 (CONFIRMED, P-267)
 - **Domain**: distributed-systems
 
 ### B16: Knowledge decay is present but asymmetric — specific claims decay faster than extracted principles, making it visible on reading but invisible to growth metrics
@@ -130,53 +126,44 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depends on**: B7
 - **Last tested**: S394 (CONFIRMED — 15% mechanism-superseded vs 0% principle-contradicted, L-633/P-226)
 
-### B17: In multi-agent systems, information asymmetry between agents is the dominant accuracy bottleneck — pre-reasoning evidence surfacing (not reasoning quality) determines outcome, with a 30.1→80.7% accuracy gap from surfacing alone
-- **Evidence**: observed
-- **Depends on**: B6 (vestigial — evidence stands independently of architecture model; S391 audit)
-- **Evidence note**: L-220, cross-variant harvest R5 (S175): 3 children, 50pp accuracy gap from info asymmetry; agents integrate evidence at 96.7% once received; failure is upstream of reasoning
-- **Falsified if**: A multi-agent configuration achieves >80% accuracy without resolving information asymmetry, relying only on reasoning protocol improvements
-- **Last tested**: S394 (CONFIRMED — 50pp accuracy gap holds, surfacing r=0.564 vs absorption r=0.066)
+### B17: In multi-agent systems, information asymmetry is the dominant accuracy bottleneck — surfacing (not reasoning) determines outcome, 50pp gap
+- **Evidence**: observed (L-220, R5 S175: 3 children, 96.7% integration once received)
+- **Depends on**: B6 (vestigial)
+- **Falsified if**: >80% accuracy without resolving info asymmetry, via reasoning improvements only
+- **Last tested**: S394 (CONFIRMED — surfacing r=0.564 vs absorption r=0.066)
 - **Domain**: ai
 
-### B18: In multi-agent systems, capability (task performance) and vigilance/verification discipline are statistically independent axes — improving capability does not automatically improve verification quality
-- **Evidence**: observed
+### B18: Capability and vigilance are independent axes — improving task performance doesn't improve verification quality
+- **Evidence**: observed (L-219, R5: t(45)=-0.99, p=.328)
 - **Depends on**: none
-- **Evidence note**: L-219, cross-variant harvest R5 (S175): t(45)=-0.99, p=.328; capability growth and challenge-protocol usage are uncorrelated; design each axis independently
-- **Falsified if**: A controlled study finds r>0.5 between capability metrics and verification-discipline metrics across ≥30 agents
-- **Last tested**: S394 (CONFIRMED — t(45)=-0.99 p=.328 independence holds, external arxiv corroborates)
+- **Falsified if**: r>0.5 between capability and verification-discipline metrics across ≥30 agents
+- **Last tested**: S394 (CONFIRMED — independence holds, external corroboration)
 - **Domain**: ai
 
-### B19: Asynchronous information sharing prevents cascade anchoring in multi-agent systems — synchronous coordination converts positive cascades to negative; asynchrony preserves independent state reads
-- **Evidence**: observed — **PARTIALLY FALSIFIED (0+ 5- 15~, S344; sync upper layers confirmed S395)**
-- **Depends on**: B6 — **DANGEROUS under B6 refinement** (S391 audit: sync upper-layer channels in council/dispatch directly undermine async-only cascade defense claim)
-- **Evidence note**: L-218, cross-variant harvest R5 (S175): async model preserves per-agent independent state; sync coordination amplifies early errors by anchoring subsequent agents to first-mover outputs
-- **Falsified if**: A controlled study shows equivalent cascade rates between synchronized and asynchronized multi-agent protocols on the same task set
-- **Last tested**: S395 (PARTIALLY FALSIFIED — base async holds but sync upper layers reintroduce cascade anchoring in hybrid architecture)
+### B19: Async sharing prevents cascade anchoring — sync converts positive cascades to negative
+- **Evidence**: observed — **PARTIALLY FALSIFIED** (S395: base async holds, sync upper layers reintroduce cascading)
+- **Depends on**: B6 — **DANGEROUS under B6 refinement** (sync council/dispatch undermines async-only defense)
+- **Falsified if**: Equivalent cascade rates between sync and async protocols on same task set
+- **Last tested**: S395 (PARTIALLY FALSIFIED — hybrid architecture vulnerability, L-218)
 - **Domain**: ai
 
-### B-EVAL1: Internal health metrics (score 5/5, proxy-K healthy, validator PASS) are necessary but not sufficient for mission adequacy — process integrity ≠ outcome effectiveness
-- **Evidence**: observed (S356 ground truth)
+### B-EVAL1: Internal health metrics necessary but not sufficient — process integrity ≠ outcome effectiveness
+- **Evidence**: observed (L-599, S356: 355 sessions health, 0 external validation)
 - **Depends on**: PHIL-14, PHIL-16
-- **Evidence note**: S356: 355 sessions perfect internal health, 0 external validation. Trivially confirmed.
-- **Falsified if**: A controlled measurement shows high correlation (r>0.8) between internal health score and external validation rate over ≥20 sessions
-- **Last tested**: 2026-03-01 (S356: CONFIRMED by L-599 hallucination audit — 355 sessions of internal health, 0 external validation; belief trivially holds)
-- **Domain**: evaluation
+- **Falsified if**: r>0.8 internal health vs external validation over ≥20 sessions
+- **Last tested**: S356 (CONFIRMED trivially) | **Domain**: evaluation
 
-### B-EVAL2: At 299L+, the marginal value of new lessons is lower than the marginal value of resolving anxiety-zone frontiers and achieving external grounding — quality is now the binding constraint over quantity
-- **Evidence**: observed (S356 ground truth)
-- **Depends on**: B-EVAL1, F-GAME3 (cross-layer: belief depends on unresolved frontier; B-EVAL2 is conditional on F-GAME3 resolution — S391 audit)
-- **Evidence note**: S356: L-599 audit found ~15 metaphor-as-measurement + ~10 circular at 539L. Quality declining. External grounding: 0.
-- **Falsified if**: Lesson Sharpe (proxy-K delta / lesson count delta) remains constant or increasing across S190-S210 window
-- **Last tested**: 2026-03-01 (S356: CONFIRMED by L-599 — ~25 grounded + ~35 partial + ~15 metaphor + ~10 circular + ~8 axiom-as-obs = quality distribution confirms diminishing returns)
-- **Domain**: evaluation
+### B-EVAL2: At 299L+, quality binds over quantity — frontier resolution > new lessons
+- **Evidence**: observed (L-599: ~15 metaphor + ~10 circular at 539L)
+- **Depends on**: B-EVAL1, F-GAME3
+- **Falsified if**: Lesson Sharpe constant/increasing across S190-S210
+- **Last tested**: S356 (CONFIRMED) | **Domain**: evaluation
 
-### B-EVAL3: Swarm is "good enough" for autonomous operation on well-defined swarming tasks but NOT good enough to make external-facing claims about its effectiveness until PHIL-16 external grounding criterion is consistently met
-- **Evidence**: observed (S356 ground truth)
+### B-EVAL3: Good enough for autonomous operation, NOT for external claims until PHIL-16 met
+- **Evidence**: observed (S356: 404 sessions sustained, 0 external grounding)
 - **Depends on**: B-EVAL1, PHIL-16
-- **Evidence note**: S356: external grounding 0%. Autonomous operation confirmed (355 sessions sustained). External claims: L-599 identifies ~15 metaphor claims failing peer review.
-- **Falsified if**: External grounding ratio exceeds 10% (≥1 external validation per 10 sessions) over a 30-session window
-- **Last tested**: 2026-03-01 (S356: CONFIRMED — both halves hold. Autonomous operation: 355 sessions sustained. External claims: 0 grounding, L-599 audit identifies cargo cult science at margins)
-- **Domain**: evaluation
+- **Falsified if**: External grounding >10% over 30-session window
+- **Last tested**: S356 (CONFIRMED) | **Domain**: evaluation
 
 ---
 

@@ -4,6 +4,11 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F105 | RESOLVED (S404 TTL) — compact.py operational, 6%/10% thresholds defined, monitoring working. Question fully answered: online compaction is viable. 91 sessions since last DOMEX. | S404 | 2026-03-01 |
+| F115 | ABANDONED (S404 TTL) — v0.13 at S300, 104 sessions stale. Superseded by F-SUB1 publication path. | S404 | 2026-03-01 |
+| F-PUB1 | MERGED into F-SUB1 (S404 TTL) — G1+G2 done, G3/G4 gaps. Publication path now tracked in F-SUB1. L-337, L-338. | S404 | 2026-03-01 |
+| F-PERS1 | ABANDONED (S404 TTL) — n=2, 104 sessions stale, no DOMEX since S300. Insufficient evidence to sustain. L-335, L-343. | S404 | 2026-03-01 |
+| F-CTX1 | ABANDONED (S404 TTL) — 3 unmeasured gaps, 63 sessions stale. ISO-9 speculative. L-493. | S404 | 2026-03-01 |
 | F-ISG1 | RESOLVED-PARTIAL (S398 historian) — Infrastructure complete (anxiety_trigger.py→autoswarm.sh, L-640/L-643). 61.6% endogenous within-session. 398/398 sessions human-triggered. Deployment blocked on human cron action. Remaining question merged into F-AGI1 gap #1. 91 sessions stale. | S398 | 2026-03-01 |
 | F-STRUCT1 | RESOLVED-PARTIAL (S398 historian) — Colony bootstrap answered YES: swarm_colony.py built, 36 domains bootstrapped (L-356). Cross-colony coordination, fitness metrics, recursive spawning untested — blocked by same autonomy gap as F-AGI1. 95 sessions stale. | S398 | 2026-03-01 |
 | F-COMM1 | ABANDONED (S398 historian) — SUPERSEDED by F-ISG1/F-AGI1. Auto-trigger = same problem as F-ISG1. Multi-expert quality tested n=1 (L-342), 0 follow-up in 88 sessions. | S398 | 2026-03-01 |
