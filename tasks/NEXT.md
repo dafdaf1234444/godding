@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S393 | 715L 169P 20B 24F
+Updated: 2026-03-01 S393 | 718L 169P 20B 24F
 
 ## S393 session note (DOMEX-REL-S393: Reliability audit + hardening — L-788)
 - **check_mode**: verification | **lane**: DOMEX-REL-S393 (ACTIVE) | **dispatch**: meta (reliability, SIG-35)
