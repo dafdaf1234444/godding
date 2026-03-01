@@ -58,7 +58,8 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A coordination mechanism observed in ≥3 sessions cannot be classified as either blackboard or stigmergy, OR an alternative architecture model makes better predictions about observed coordination failures
 - **Depends on**: B1
 - **Depended on by**: B7, B8, B17, B19
-- **Last tested**: 2026-03-01 S344 (CHALLENGED — falsification condition MET. Council, dispatch, self-application are NEITHER blackboard NOR stigmergy (11 contradicting vs 4 supporting, L-379/L-465/L-507). Refined: BB+stigmergy = base layer; council/dispatch/self-application = emergent upper layers. Downstream B7/B8/B17/B19 unaffected.)
+- **Last tested**: 2026-03-01 S344 (CHALLENGED — falsification condition MET. Council, dispatch, self-application are NEITHER blackboard NOR stigmergy (11 contradicting vs 4 supporting, L-379/L-465/L-507). Refined: BB+stigmergy = base layer; council/dispatch/self-application = emergent upper layers.)
+- **Dependency audit (S391)**: B7/B8 safe under refinement (architecture-agnostic evidence). B17 safe (evidence stands independently; B6 dependency is vestigial cross-reference). **B19 DANGEROUS under refinement** — sync upper layer (council/dispatch) reintroduces cascade anchoring that B19 claims async prevents. See COUNCIL-DEPS-S391.md.
 
 ### B7: Regularly-invoked protocols compound system quality over time
 - **Evidence**: observed
@@ -135,7 +136,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 
 ### B17: In multi-agent systems, information asymmetry between agents is the dominant accuracy bottleneck — pre-reasoning evidence surfacing (not reasoning quality) determines outcome, with a 30.1→80.7% accuracy gap from surfacing alone
 - **Evidence**: observed
-- **Depends on**: B6
+- **Depends on**: B6 (vestigial — evidence stands independently of architecture model; S391 audit)
 - **Evidence note**: L-220, cross-variant harvest R5 (S175): 3 children, 50pp accuracy gap from info asymmetry; agents integrate evidence at 96.7% once received; failure is upstream of reasoning
 - **Falsified if**: A multi-agent configuration achieves >80% accuracy without resolving information asymmetry, relying only on reasoning protocol improvements
 - **Last tested**: 2026-03-01 S342 (re-test: CONFIRMED — L-220 50pp accuracy gap, 3 independent children converged on same bottleneck, agents integrate at 96.7% once evidence surfaced; falsification condition NOT met)
@@ -150,11 +151,12 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Domain**: ai
 
 ### B19: Asynchronous information sharing prevents cascade anchoring in multi-agent systems — synchronous coordination converts positive cascades to negative; asynchrony preserves independent state reads
-- **Evidence**: observed
-- **Depends on**: B6
+- **Evidence**: observed — **UNSUPPORTED (0+ 5- 15~, S344)**
+- **Depends on**: B6 — **DANGEROUS under B6 refinement** (S391 audit: sync upper-layer channels in council/dispatch directly undermine async-only cascade defense claim)
 - **Evidence note**: L-218, cross-variant harvest R5 (S175): async model preserves per-agent independent state; sync coordination amplifies early errors by anchoring subsequent agents to first-mover outputs
 - **Falsified if**: A controlled study shows equivalent cascade rates between synchronized and asynchronized multi-agent protocols on the same task set
 - **Last tested**: 2026-03-01 S344 (CHALLENGED — UNSUPPORTED (0+ 5- 15~). Async necessary but not sufficient; cascade defense requires async + tool-level absorption (L-469). L-228/L-402.)
+- **S391 finding**: B6 two-layer refinement introduces synchronous upper layers (council deliberation, dispatch assignment) that CAN reintroduce cascade anchoring. B19 was tested only against base-layer async; upper-layer sync channels untested.
 - **Domain**: ai
 
 ### B-EVAL1: Internal health metrics (score 5/5, proxy-K healthy, validator PASS) are necessary but not sufficient for mission adequacy — process integrity ≠ outcome effectiveness
@@ -167,7 +169,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 
 ### B-EVAL2: At 299L+, the marginal value of new lessons is lower than the marginal value of resolving anxiety-zone frontiers and achieving external grounding — quality is now the binding constraint over quantity
 - **Evidence**: observed (S356 ground truth)
-- **Depends on**: B-EVAL1, F-GAME3
+- **Depends on**: B-EVAL1, F-GAME3 (cross-layer: belief depends on unresolved frontier; B-EVAL2 is conditional on F-GAME3 resolution — S391 audit)
 - **Evidence note**: S356: L-599 audit found ~15 metaphor-as-measurement + ~10 circular at 539L. Quality declining. External grounding: 0.
 - **Falsified if**: Lesson Sharpe (proxy-K delta / lesson count delta) remains constant or increasing across S190-S210 window
 - **Last tested**: 2026-03-01 (S356: CONFIRMED by L-599 — ~25 grounded + ~35 partial + ~15 metaphor + ~10 circular + ~8 axiom-as-obs = quality distribution confirms diminishing returns)
