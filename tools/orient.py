@@ -314,111 +314,16 @@ def check_git_object_health():
     _impl(ROOT)
 
 
-def _scan_lesson_domains(lesson_dir: Path) -> dict:
-    """Scan all lesson files and count domain tags."""
-    lesson_domains: dict[str, int] = {}
-    for lesson_file in lesson_dir.glob("L-*.md"):
-        try:
-            text = lesson_file.read_text(encoding="utf-8", errors="ignore")
-            m = re.search(r"Domain:\s*([^|\n]+)", text)
-            if not m:
-                continue
-            for d in re.split(r"[,/]", m.group(1)):
-                d = re.sub(r"\s*\(.*?\)", "", d).strip().lower()
-                if d:
-                    lesson_domains[d] = lesson_domains.get(d, 0) + 1
-        except Exception:
-            continue
-    return lesson_domains
-
-
 def check_experiment_harvest_gap(threshold: int = 5) -> list:
-    """F-IS7: warn when a domain has ≥threshold experiments but 0 lessons.
-
-    Addresses the volume-conversion paradox (L-578): batch sweeps produce many
-    experiments without triggering lesson extraction. Early warning prevents
-    knowledge burial in zero-conversion domains.
-    """
-    exp_dir = ROOT / "experiments"
-    lesson_dir = ROOT / "memory" / "lessons"
-    if not exp_dir.exists() or not lesson_dir.exists():
-        return []
-
-    # Non-domain experiment subdirs to skip
-    _EXP_SKIP = {"merge-reports", "complexity-applied", "inter-swarm", "spawn-quality",
-                 "self-analysis", "children"}
-
-    # Count experiments per domain
-    exp_counts: dict[str, int] = {}
-    for domain_dir in sorted(exp_dir.iterdir()):
-        if not domain_dir.is_dir() or domain_dir.name in _EXP_SKIP:
-            continue
-        domain = domain_dir.name
-        count = sum(1 for f in domain_dir.iterdir()
-                    if f.is_file() and f.suffix in (".json", ".md", ".py"))
-        if count > 0:
-            exp_counts[domain] = count
-
-    # Count lesson domain tags per domain (HEAD-cached: lessons only change on commit)
-    if _hcache:
-        cached_ld = _hcache.get("lesson_domain_counts")
-        if cached_ld is not None:
-            lesson_domains = cached_ld
-        else:
-            lesson_domains = _scan_lesson_domains(lesson_dir)
-            _hcache.set("lesson_domain_counts", lesson_domains)
-    else:
-        lesson_domains = _scan_lesson_domains(lesson_dir)
-
-    # Only flag domains that have a real domain directory
-    known_domains = {d.name for d in (ROOT / "domains").iterdir() if d.is_dir()} if (ROOT / "domains").exists() else set()
-
-    gaps = []
-    for domain, exp_count in sorted(exp_counts.items(), key=lambda x: -x[1]):
-        if exp_count < threshold:
-            continue
-        if domain not in known_domains:
-            continue
-        lesson_count = lesson_domains.get(domain.lower(), 0)
-        if lesson_count == 0:
-            gaps.append((domain, exp_count))
-    return gaps
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_experiment_harvest_gap as _impl
+    return _impl(ROOT, _hcache, threshold)
 
 
 def check_active_claims():
-    """F-CON2: warn about active file claims from concurrent sessions.
-
-    claim.py uses workspace/claims/ for soft-claim collision prevention.
-    At orient time, show what's claimed so the current session avoids editing
-    those files. Claims older than 5 min are expired (claim.py TTL).
-    """
-    import json as _json
-    claims_dir = ROOT / "workspace" / "claims"
-    if not claims_dir.exists():
-        return
-    my_pid = str(os.getpid())
-    active = []
-    for claim_file in sorted(claims_dir.glob("*.claim.json")):
-        try:
-            data = _json.loads(claim_file.read_text())
-            # Skip expired claims (>5 min)
-            import time as _time
-            age = _time.time() - data.get("timestamp", 0)
-            if age > 300:
-                continue
-            owner = data.get("pid", "?")
-            if str(owner) == my_pid:
-                continue
-            filepath = data.get("file", claim_file.stem.replace("__", "/").replace(".claim", ""))
-            active.append(f"{filepath} (pid {owner}, {int(age)}s ago)")
-        except Exception:
-            continue
-    if active:
-        print(f"--- Active claims ({len(active)} files locked by concurrent sessions) ---")
-        for c in active[:8]:
-            print(f"  🔒 {c}")
-        print(f"  Use `python3 tools/claim.py claim <file>` before editing DUE files")
-        print()
+    # Extracted to orient_checks.py (DOMEX-META-S423)
+    from orient_checks import check_active_claims as _impl
+    _impl(ROOT)
 
 
 def _extract_open_signals(signals_text: str, current_session: int = 0) -> list:
@@ -1001,98 +906,9 @@ def main():
 
 def _write_trigger_manifest(current_session: int, maint_out: str, stale_lanes: list,
                             frontier_text: str = "") -> None:
-    """Update domains/meta/SESSION-TRIGGER.md with live trigger states (F-META6, F-META9).
-
-    Evaluates all 7 triggers (T1-T7) and writes state to SESSION-TRIGGER.md
-    so external executors (autoswarm.sh, cron) can determine if a session is needed.
-    """
-    trigger_path = ROOT / "domains" / "meta" / "SESSION-TRIGGER.md"
-    if not trigger_path.exists():
-        return
-    try:
-        content = trigger_path.read_text()
-        now_sess = f"S{current_session}"
-
-        def update_row(text: str, tid: str, state: str) -> str:
-            import re as _re
-            pattern = rf"(\| {_re.escape(tid)} \|[^|]+\|[^|]+\| ?)(FIRING|CLEAR|UNKNOWN)( ?\| S\d+)"
-            repl = rf"\g<1>{state}\g<3>"
-            new = _re.sub(pattern, repl, text)
-            pattern2 = rf"(\| {_re.escape(tid)} \|[^|]+\|[^|]+\| ?(?:FIRING|CLEAR|UNKNOWN) ?\| )S\d+( \|)"
-            return _re.sub(pattern2, rf"\g<1>{now_sess}\g<2>", new)
-
-        # T1: Stale lanes opened in prior session without update
-        t1 = "FIRING" if any(sl.get("opened", current_session) < current_session for sl in stale_lanes) else "CLEAR"
-        content = update_row(content, "T1-STALE-LANE", t1)
-
-        # T2: Active lane with artifact path but file missing on disk
-        t2 = "FIRING" if any(not sl.get("has_artifact") and sl.get("artifact") for sl in stale_lanes) else "CLEAR"
-        content = update_row(content, "T2-ARTIFACT-MISSING", t2)
-
-        # T3: Maintenance DUE items present
-        t3 = "FIRING" if "[DUE]" in maint_out and "!" in maint_out else "CLEAR"
-        content = update_row(content, "T3-MAINTENANCE-DUE", t3)
-
-        # T4: Anxiety-zone frontiers (open >15 sessions without update)
-        t4 = "CLEAR"
-        if frontier_text and current_session > 0:
-            # Parse frontier blocks: each starts with "- **F"
-            # Find max session reference per frontier, flag if >15 sessions stale
-            anxiety_count = 0
-            current_frontier_sessions = []
-            for line in frontier_text.splitlines():
-                if line.strip().startswith("- **F"):
-                    # New frontier — check previous
-                    if current_frontier_sessions:
-                        max_s = max(current_frontier_sessions)
-                        if current_session - max_s > 15:
-                            anxiety_count += 1
-                    current_frontier_sessions = []
-                # Collect all S### references in this block
-                for m in re.finditer(r'\bS(\d{2,4})\b', line):
-                    s_num = int(m.group(1))
-                    if 1 <= s_num <= current_session + 5:  # sanity bound
-                        current_frontier_sessions.append(s_num)
-            # Check last frontier
-            if current_frontier_sessions:
-                max_s = max(current_frontier_sessions)
-                if current_session - max_s > 15:
-                    anxiety_count += 1
-            if anxiety_count > 0:
-                t4 = "FIRING"
-        content = update_row(content, "T4-ANXIETY-ZONE", t4)
-
-        # T5: Top-3 dispatch domain has no active DOMEX lane
-        t5 = "CLEAR"
-        try:
-            lanes_path = ROOT / "tasks" / "SWARM-LANES.md"
-            if lanes_path.exists():
-                lanes_text = lanes_path.read_text(encoding="utf-8")
-                has_active_domex = bool(re.search(r'DOMEX-[^|]+\| ACTIVE', lanes_text))
-                if not has_active_domex:
-                    t5 = "FIRING"
-        except Exception:
-            pass
-        content = update_row(content, "T5-DISPATCH-GAP", t5)
-
-        # T6: Health-check periodic overdue by >2 intervals (interval=5, so >10 sessions)
-        t6 = "CLEAR"
-        hc_match = re.search(r'\[health-check\].*last: S(\d+)', maint_out)
-        if hc_match:
-            hc_last = int(hc_match.group(1))
-            if current_session - hc_last > 10:
-                t6 = "FIRING"
-        content = update_row(content, "T6-HEALTH-CHECK", t6)
-
-        # T7: Proxy-K drift > 10% (check maintenance output for drift signals)
-        t7 = "CLEAR"
-        if "proxy" in maint_out.lower() and "URGENT" in maint_out:
-            t7 = "FIRING"
-        content = update_row(content, "T7-PROXY-K-DRIFT", t7)
-
-        trigger_path.write_text(content)
-    except Exception:
-        pass  # trigger manifest is informational; never crash orient.py
+    # Extracted to orient_triggers.py (DOMEX-META-S423)
+    from orient_triggers import write_trigger_manifest as _impl
+    _impl(current_session, maint_out, stale_lanes, ROOT, frontier_text)
 
 
 if __name__ == "__main__":
