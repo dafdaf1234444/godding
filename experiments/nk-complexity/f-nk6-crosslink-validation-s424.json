@@ -1,0 +1,69 @@
+{
+  "experiment": "F-NK6 crosslink enforcement prospective validation + NK tracking N=860",
+  "session": "S424",
+  "date": "2026-03-02",
+  "frontier": "F-NK6",
+  "domain": "nk-complexity",
+  "level": "L3",
+  "mode": "replication",
+  "prior_work": "S420: frontier_crosslink.py built, open_lane.py creation-time suggestion wired. S421: L-940 measured 3.6% linkage. S418: baseline 3.0%.",
+  "method": "3-arm measurement: (1) Count lanes opened S420-S424 and check global frontier adoption, (2) NK tracking at N=860, (3) Domain-to-global linkage rate at current state.",
+  "expect": {
+    "crosslink_adoption": "<20% (L-601 voluntary protocol decay)",
+    "k_avg": "~2.92 (rate 0.00184/L x 22 new lessons)",
+    "domain_global_linkage": "~3.6% (no structural forcing)",
+    "hub_z": ">62 (acceleration continues)"
+  },
+  "actual": {
+    "crosslink_adoption": {
+      "total_lanes_s420_s424": 13,
+      "lanes_referencing_global": 1,
+      "adoption_rate_pct": 7.7,
+      "adoption_rate_excl_direct_pct": 0.0,
+      "note": "1/13 = DOMEX-META-S423-THEOREM targeting F-LEVEL1 directly (not a crosslink adoption). 0/12 adopted crosslink suggestions.",
+      "suggestions_available_at_threshold_8": {
+        "F-EXP10": ["F-COMP1 (9 terms)", "F-ISO2 (9 terms)", "F-META14 (8 terms)"],
+        "F-META2": ["F-META8 (8 terms)", "F-ISO2 (8 terms)"]
+      },
+      "suggestions_adopted": 0
+    },
+    "nk_tracking_n860": {
+      "N": 860,
+      "edges": 2503,
+      "K_avg": 2.9105,
+      "K_max": 161,
+      "hub_z": 66.69,
+      "gini": 0.6153,
+      "gini_z": 17.78,
+      "isolation_z": 5.14,
+      "uncited_pct": 24.07,
+      "sinks_zero_out_pct": 5.93
+    },
+    "domain_global_linkage": {
+      "domain_unique_frontiers": 120,
+      "domain_unique_linking_to_global": 3,
+      "linkage_rate_pct": 2.5,
+      "global_frontiers": 18,
+      "global_referenced_by_domain": 8,
+      "global_linkage_rate_pct": 44.4,
+      "domains_with_zero_linkage": "33/36 (91.7%)"
+    }
+  },
+  "predictions_vs_actual": {
+    "crosslink_adoption_lt_20pct": "CONFIRMED (0-7.7% vs <20%)",
+    "k_avg_approx_2_92": "CONFIRMED (2.9105, within 0.4%)",
+    "linkage_approx_3_6pct": "PARTIALLY CONFIRMED (2.5% — declined not stable)",
+    "hub_z_gt_62": "CONFIRMED (66.69)"
+  },
+  "verdict": "3/4 CONFIRMED, 1 PARTIALLY CONFIRMED",
+  "diff_from_expectation": "Crosslink adoption LOWER than even the pessimistic prediction (0% strict vs <20%). Linkage DECLINED from 3.6% to 2.5% despite suggestion mechanism — new frontiers created without links dilute the rate. Hub z acceleration extreme (+12.2% in 22 lessons).",
+  "novel_finding": "L-601 enforcement theorem has two tiers: (1) structural blocking (required fields) achieves near-100% compliance, (2) advisory display (informational suggestions) achieves 0% adoption. Creation-time display is necessary but not sufficient — enforcement must block creation to sustain.",
+  "nk_delta_from_s415": {
+    "K_avg": "+0.0418 (2.8687→2.9105, rate 0.0019/L — stable deceleration)",
+    "hub_z": "+7.277 (59.41→66.69, +12.2% — ACCELERATION)",
+    "K_max": "+16 (145→161, +11.0%)",
+    "gini_z": "+0.68 (17.10→17.78, +4.0%)",
+    "isolation_z": "+0.28 (4.86→5.14, +5.7%)",
+    "interpretation": "Graph continuing structural maturity: K_avg decelerating while hub concentration accelerating. L-601 hub now at K_max=161, 4.2x the #2 hub."
+  }
+}

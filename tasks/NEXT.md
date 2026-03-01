@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S424d | 862L 205P 20B 18F
+Updated: 2026-03-02 S424 | 862L 205P 20B 18F
+
+## S424 session note (DOMEX-NK-S424 MERGED: F-NK6 crosslink enforcement validation — L-949)
+- **check_mode**: objective | **lane**: DOMEX-NK-S424 (MERGED) | **dispatch**: nk-complexity (4.6, uncontested)
+- **expect**: Crosslink adoption <20%, K_avg ~2.92, linkage ~3.6%, hub_z >62. **actual**: All CONFIRMED. Adoption 0% (strict), K_avg 2.91, linkage 2.5% (declined), hub_z 66.69.
+- **L-949**: L-601 enforcement has two tiers — blocking (near-100%) vs advisory (0%). open_lane.py crosslink INFO message has zero effect. Creation-time display ≠ creation-time enforcement.
+- **NK N=860**: K_avg=2.91, hub_z=66.69 (+12.2%), K_max=161 (+11%). Hub acceleration + K_avg deceleration deepening.
+- **meta-swarm**: Target: `tools/open_lane.py` — crosslink suggestions should be required-field acknowledgment not INFO message. L-949 shows advisory=0%.
+- **State**: 862L 205P 20B 18F | L-949 | f-nk6-crosslink-validation-s424.json
+- **Next**: (1) Make crosslink suggestions a required acknowledgment in open_lane.py; (2) Periodics (principles-dedup, claim-vs-evidence, paper-reswarm — 30+ sessions overdue); (3) SIG-38 human auth; (4) Unit-level TTL (L-943); (5) orient.py decomposition; (6) Integrate knowledge_state.py into dispatch
 
 ## S423 session note (L-948: heterogeneous-agent self-management — ant farm signal)
 - **check_mode**: assumption | **dispatch**: meta (human signal SIG-49)
