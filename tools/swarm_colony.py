@@ -25,6 +25,10 @@ ROOT = Path(__file__).parent.parent
 DOMAINS = ROOT / "domains"
 MEMORY_LESSONS = ROOT / "memory" / "lessons"
 
+# F-SEC1 Layer 5: Colony depth limit — prevents fork bomb (FM-12).
+# Depth 0 = root swarm, depth 1 = direct colony, depth 2 = sub-colony, etc.
+MAX_COLONY_DEPTH = 3
+
 
 # ── helpers ──────────────────────────────────────────────────────────────────
 
@@ -72,6 +76,26 @@ def _count_open_frontiers(domain: str) -> int:
     return len(re.findall(r"^\s*-\s+\*\*F-", fp.read_text(errors="ignore"), re.MULTILINE))
 
 
+def _get_colony_depth(domain: str) -> int:
+    """Read colony depth from COLONY.md. Returns 0 if not set (root-level colony)."""
+    cp = DOMAINS / domain / "COLONY.md"
+    if not cp.exists():
+        return 0
+    m = re.search(r"Depth:\s*(\d+)", cp.read_text(errors="ignore"))
+    return int(m.group(1)) if m else 1  # default 1 for existing colonies without Depth field
+
+
+def _get_parent_domain(domain: str) -> str | None:
+    """Read parent domain from COLONY.md. Returns None if parent is root swarm."""
+    cp = DOMAINS / domain / "COLONY.md"
+    if not cp.exists():
+        return None
+    m = re.search(r"Parent:\s*(\S+)", cp.read_text(errors="ignore"))
+    if m and m.group(1) not in ("swarm", "swarm (global)"):
+        return m.group(1)
+    return None
+
+
 def _count_active_lanes(domain: str) -> int:
     lp = DOMAINS / domain / "tasks" / "LANES.md"
     if not lp.exists():
@@ -89,7 +113,7 @@ def _count_active_lanes(domain: str) -> int:
 COLONY_TEMPLATE = """\
 # Colony: {domain}
 <!-- colony_md_version: 0.1 | founded: {session} | {date} -->
-Status: ACTIVE | Founded: {session}
+Status: ACTIVE | Founded: {session} | Depth: {depth}
 
 ## Identity
 Mission: Explore {domain} domain — extract structural isomorphisms to swarm,
@@ -136,10 +160,21 @@ LANES_TEMPLATE = """\
 
 # ── commands ─────────────────────────────────────────────────────────────────
 
-def cmd_bootstrap(domain: str) -> None:
+def cmd_bootstrap(domain: str, parent: str = None) -> None:
     dp = DOMAINS / domain
     if not dp.exists():
         print(f"ERROR: domains/{domain}/ not found. Seed the domain first.")
+        sys.exit(1)
+
+    # F-SEC1 Layer 5: Depth limit enforcement (FM-12 fork bomb protection)
+    depth = 1  # default: direct colony under root swarm
+    if parent:
+        parent_depth = _get_colony_depth(parent)
+        depth = parent_depth + 1
+    if depth > MAX_COLONY_DEPTH:
+        print(f"FAIL: Colony depth {depth} exceeds MAX_COLONY_DEPTH={MAX_COLONY_DEPTH} (F-SEC1 Layer 5, FM-12).")
+        print(f"  Fork bomb protection: cannot spawn sub-colony beyond depth {MAX_COLONY_DEPTH}.")
+        print(f"  Parent '{parent or 'swarm'}' is at depth {depth - 1}.")
         sys.exit(1)
 
     session = _current_session()
@@ -153,7 +188,7 @@ def cmd_bootstrap(domain: str) -> None:
     else:
         cp.write_text(COLONY_TEMPLATE.format(
             domain=domain, session=session, date=date,
-            lessons=lessons, frontiers=frontiers,
+            lessons=lessons, frontiers=frontiers, depth=depth,
         ))
         print(f"  Created: {cp.relative_to(ROOT)}")
 
@@ -266,9 +301,14 @@ def main() -> None:
     cmd = sys.argv[1]
     if cmd == "bootstrap":
         if len(sys.argv) < 3:
-            print("Usage: swarm_colony.py bootstrap <domain>")
+            print("Usage: swarm_colony.py bootstrap <domain> [--parent <parent-domain>]")
             sys.exit(1)
-        cmd_bootstrap(sys.argv[2])
+        parent = None
+        if "--parent" in sys.argv:
+            idx = sys.argv.index("--parent")
+            if idx + 1 < len(sys.argv):
+                parent = sys.argv[idx + 1]
+        cmd_bootstrap(sys.argv[2], parent=parent)
     elif cmd == "status":
         cmd_status(sys.argv[2] if len(sys.argv) > 2 else None)
     elif cmd == "list":

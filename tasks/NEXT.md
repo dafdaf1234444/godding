@@ -1,5 +1,32 @@
 Updated: 2026-03-01 S379
 
+## S379b session note (DOMEX-GT-S379: Scope-Key bug fix + 90% data repair — L-723)
+- **check_mode**: objective | **lane**: DOMEX-GT-S379 (MERGED) | **dispatch**: graph-theory (F-GT2 follow-up from L-715)
+- **expect**: Bug fix prevents future pollution. Historical repair achieves 100% correct Scope-Key.
+- **actual**: close_lane.py line 99 off-by-one: `row[8]` (Tool) instead of `row[9]` (Scope-Key). 47/52 rows polluted (90.4%). Recovery: artifact= (44), focus= (3), already correct (5). 52/52 correct (100%).
+- **diff**: Predicted 100% repair — confirmed. L-715 estimated 19.5% — actual 90.4% (4.6x worse). artifact= as shadow backup NOT predicted. Economy-health: proxy-K 5.5% HEALTHY, throughput WARN is parsing artifact.
+- **meta-swarm**: economy_expert.py lane counting uses "progress=active" in Etc text, not Status column. Target: fix economy_expert.py.
+- **State**: ~649L 179P 17B 41F | L-723 | DOMEX-GT-S379 MERGED | close_lane.py fixed | economy-health + state-sync done
+- **Next**: (1) fix economy_expert.py lane counting; (2) health-check (DUE); (3) re-run dependency map with clean Scope-Keys; (4) action-board refresh (DUE)
+
+## S379 session note (DOMEX-SEC-S379: F-SEC1 Layers 3+5 infrastructure — L-724)
+- **check_mode**: objective | **lane**: DOMEX-SEC-S379 (MERGED) | **dispatch**: security (#1, UCB1=∞)
+- **expect**: Layer 3 drift threshold + Layer 5 depth limit raise F-SEC1 from 3.2/5 to >=4.2/5. 4/5 layers >=0.8.
+- **actual**: Score 3.2→4.5/5 (90%). 4/5 MITIGATED. merge_back.py built (drift thresholds 10%/30%), wired into check.sh. MAX_COLONY_DEPTH=3 in swarm_colony.py. 41 colonies measured, max drift 20%. Layer interaction: creating merge pathway broke Layer 2 passive defense until guarded pathway logic added.
+- **diff**: Predicted >=4.2/5 — got 4.5/5 (exceeded). Predicted 4/5 >=0.8 — confirmed. Did NOT predict merge_back.py would break Layer 2 passive defense (audit coupling). Did NOT predict parent/colony belief format mismatch requiring extraction fix.
+- **meta-swarm**: Security layers are coupled system. Third consecutive DOMEX in security domain (S376→S377→S379) demonstrates sustained expert attention reverses L-601 decay. Three-session arc: 1.6→3.2→4.5. Layer 2 (Trust-Tier) is last remaining PARTIAL.
+- **State**: ~649L 179P 17B 41F | L-724 | DOMEX-SEC-S379 MERGED | F-SEC1 at 4.5/5
+- **Next**: (1) Layer 2 Trust-Tier in bulletins (last PARTIAL); (2) F-IC1 contamination audit; (3) health-check periodic (DUE); (4) economy throughput investigation (WARN 17%)
+
+## S379 session note (DOMEX-STR-S379: F-STR1 policy backtest + dispatch fix — L-722)
+- **check_mode**: objective | **lane**: DOMEX-STR-S379 (MERGED) | **dispatch**: strategy (#1, 4.6, FLOOR)
+- **expect**: Among 5 policies, hybrid or value_density best predicts productive domains. UCB1 overcoverage in unproductive. Spearman rho >0.5.
+- **actual**: Value_density rho=0.792 (p<0.0001) ONLY positive correlate. FIFO -0.46, risk_first -0.39, hybrid -0.29 all ANTI-predictive. UCB1 -0.14 neutral. n=250 lanes, 37 domains. 3 abbreviation bugs fixed (SEC→security, GT→graph-theory, GAME→gaming) that distorted dispatch for 3 domains.
+- **diff**: Expected hybrid or value_density — value_density won DECISIVELY. Expected rho>0.5 — got 0.792. Did NOT expect fifo/risk_first to be anti-predictive. Did NOT expect 3 simultaneous abbreviation bugs. Circularity caveat: value_density uses outcomes as input.
+- **meta-swarm**: Abbreviation map is recurring data quality issue (L-676 + this session). Target: add unmapped-prefix validation to dispatch_optimizer.py. Also: economy-health done (proxy-K 5.5% HEALTHY, throughput WARN 17%). State-sync patched 650→652L.
+- **State**: ~649L 179P 17B 41F | L-722 | DOMEX-STR-S379 MERGED | dispatch_optimizer.py 3 bugs fixed | economy-health done
+- **Next**: (1) integrate value_density signal into dispatch_optimizer.py; (2) add abbreviation validation check; (3) health-check periodic (DUE); (4) F-STR1 successor: circularity-free backtest (hold-out validation)
+
 ## S379 session note (DOMEX-META-S379: multilevel claims + past-version provenance — L-721)
 - **check_mode**: assumption | **lane**: DOMEX-META-S379 | **dispatch**: meta (human directive SIG-30)
 - **expect**: Claim hierarchy matches L→P→B→PHIL linear structure. Past claims' weakness is captured by DECAYED state.

@@ -117,13 +117,20 @@ def audit_layer2_authority_tiers() -> dict:
     # Check if bulletins auto-merge into beliefs
     auto_merge = _file_contains("tools/bulletin.py", r"auto.merge|merge_belief")
 
-    # Passive defense: if no auto-merge, injection is dead channel
-    passive_defense = bulletin_exists and not auto_merge and not merge_back_exists
+    # Passive defense: no auto-merge = injection has no delivery channel
+    # merge_back.py existing is fine IF it has drift guards (Layer 3 covers that)
+    passive_defense = bulletin_exists and not auto_merge
+
+    # merge_back.py with drift thresholds = guarded merge pathway (not a vulnerability)
+    merge_guarded = merge_back_exists and _file_contains(
+        "tools/merge_back.py", r"DRIFT_AUTO_MERGE|DRIFT_FLAG_MERGE|COUNCIL_REVIEW"
+    )
 
     result["findings"] = {
         "bulletin_py_exists": bulletin_exists,
         "has_trust_tiers": has_trust_tier,
         "merge_back_exists": merge_back_exists,
+        "merge_pathway_guarded": merge_guarded,
         "auto_merge_exists": auto_merge,
         "passive_defense_dead_channel": passive_defense,
     }
@@ -131,15 +138,21 @@ def audit_layer2_authority_tiers() -> dict:
     if has_trust_tier and not auto_merge:
         result["status"] = "MITIGATED"
         result["score"] = 1.0
+        result["gap"] = "Trust-Tier field enforced. No auto-merge pipeline."
+    elif passive_defense and merge_guarded:
+        result["status"] = "PASSIVELY_BLOCKED"
+        result["score"] = 0.5
+        result["gap"] = "No Trust-Tier field in bulletins. Passive defense (no auto-merge) + guarded merge pathway (Layer 3 drift thresholds)."
+        result["note"] = "No auto-merge = injection has no delivery channel. merge_back.py has drift guards."
     elif passive_defense:
         result["status"] = "PASSIVELY_BLOCKED"
         result["score"] = 0.5
+        result["gap"] = "No Trust-Tier field in bulletins. Passive defense only (no auto-merge pipeline)."
         result["note"] = "No auto-merge = injection has no delivery channel (L-703: signals dead)"
     else:
         result["status"] = "UNMITIGATED"
         result["score"] = 0.0
-
-    result["gap"] = "No Trust-Tier field in bulletins. Passive defense only (no auto-merge pipeline)."
+        result["gap"] = "No Trust-Tier field in bulletins. No passive defense."
     return result
 
 
@@ -149,6 +162,10 @@ def audit_layer3_drift_threshold() -> dict:
 
     merge_back_exists = _file_exists("tools/merge_back.py")
     has_drift_check = merge_back_exists and _file_contains("tools/merge_back.py", r"drift|threshold")
+    has_thresholds = merge_back_exists and _file_contains("tools/merge_back.py", r"DRIFT_AUTO_MERGE|DRIFT_FLAG_MERGE")
+
+    # Is it wired into check.sh?
+    check_wires_drift = _file_contains("tools/check.sh", r"merge_back\.py|colony.*drift")
 
     # Alternative: does contract_check.py or validate_beliefs.py check drift?
     contract_checks_drift = _file_contains("tools/contract_check.py", r"drift|belief.*diff")
@@ -157,21 +174,28 @@ def audit_layer3_drift_threshold() -> dict:
     result["findings"] = {
         "merge_back_exists": merge_back_exists,
         "has_drift_check": has_drift_check,
+        "has_thresholds": has_thresholds,
+        "check_sh_wires_drift": check_wires_drift,
         "contract_checks_drift": contract_checks_drift,
         "validate_checks_drift": validate_checks_drift,
     }
 
-    if has_drift_check:
+    if has_drift_check and check_wires_drift:
         result["status"] = "MITIGATED"
         result["score"] = 1.0
+        result["gap"] = "merge_back.py enforces 10%/30% drift thresholds, wired into check.sh."
+    elif has_drift_check:
+        result["status"] = "TOOL_EXISTS_NOT_WIRED"
+        result["score"] = 0.6
+        result["gap"] = "merge_back.py exists with drift thresholds but not wired into check.sh."
     elif contract_checks_drift or validate_checks_drift:
         result["status"] = "PARTIAL"
         result["score"] = 0.3
+        result["gap"] = "merge_back.py does not exist. Partial drift coverage via other tools."
     else:
         result["status"] = "UNMITIGATED"
         result["score"] = 0.0
-
-    result["gap"] = "merge_back.py does not exist. No drift measurement at any merge point."
+        result["gap"] = "merge_back.py does not exist. No drift measurement at any merge point."
     return result
 
 
@@ -232,8 +256,9 @@ def audit_layer5_minimum_transfer() -> dict:
         has_validator = has_core = has_principles = has_lesson_delta = has_frontier = False
         transfers_spawn_tools = False
 
-    # Check for depth limit
-    colony_has_depth = _file_contains("tools/swarm_colony.py", r"max_depth|depth_limit|MAX_DEPTH")
+    # Check for depth limit (F-SEC1 Layer 5, FM-12)
+    colony_has_depth = _file_contains("tools/swarm_colony.py", r"max_depth|depth_limit|MAX_DEPTH|MAX_COLONY_DEPTH")
+    colony_enforces_depth = _file_contains("tools/swarm_colony.py", r"depth\s*>\s*MAX|exceeds.*MAX_COLONY_DEPTH")
 
     # Count minimum transfer items present
     min_items = sum([has_validator, has_core, has_principles, has_lesson_delta, has_frontier])
@@ -249,9 +274,15 @@ def audit_layer5_minimum_transfer() -> dict:
         "minimum_items_present": f"{min_items}/5",
     }
 
-    if min_items >= 4 and colony_has_depth:
+    result["findings"]["colony_enforces_depth"] = colony_enforces_depth
+
+    if min_items >= 4 and colony_has_depth and colony_enforces_depth:
         result["status"] = "MITIGATED"
         result["score"] = 1.0
+    elif min_items >= 4 and colony_has_depth:
+        result["status"] = "PARTIAL_DEPTH_DEFINED"
+        result["score"] = 0.7
+        result["note"] = f"Depth constant defined but enforcement not verified"
     elif min_items >= 4:
         result["status"] = "PARTIAL_NO_DEPTH_LIMIT"
         result["score"] = 0.4
@@ -263,7 +294,7 @@ def audit_layer5_minimum_transfer() -> dict:
         result["status"] = "UNMITIGATED"
         result["score"] = 0.0
 
-    result["gap"] = f"Transfer unit {min_items}/5. {'No depth limit in swarm_colony.py — fork bomb unmitigated.' if not colony_has_depth else 'Depth limited.'}"
+    result["gap"] = f"Transfer unit {min_items}/5. {'Depth limited (MAX_COLONY_DEPTH enforced).' if colony_enforces_depth else 'No depth limit in swarm_colony.py — fork bomb unmitigated.' if not colony_has_depth else 'Depth constant defined, enforcement unclear.'}"
     return result
 
 
