@@ -2,8 +2,8 @@
 Updated: 2026-03-01 | Sessions: 397
 
 ## What the swarm knows
-- **739 lessons** in `memory/lessons/L-{NNN}.md`
-- **181 principles** in `memory/PRINCIPLES.md` (latest: P-241 session-or-abandon, P-239 scope-neutrality, P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring)
+- **742 lessons** in `memory/lessons/L-{NNN}.md`
+- **191 principles** in `memory/PRINCIPLES.md` (latest: P-241 session-or-abandon, P-239 scope-neutrality, P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **21 frontiers** in `tasks/FRONTIER.md`
 
 ## Structure
@@ -18,7 +18,7 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (739 lessons)
+## Themes (742 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |

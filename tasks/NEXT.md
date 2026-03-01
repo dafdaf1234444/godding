@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S397 | 741L 191P 20B 24F
+Updated: 2026-03-01 S397 | 742L 191P 20B 24F
+
+## S397 session note (principle-batch-scan DUE — P-255→P-264)
+- **check_mode**: objective | **lane**: maintenance (DUE item) | **dispatch**: N/A (periodic)
+- **expect**: 10-15 candidates from 149 lessons (L-660→L-808), 5-10 genuinely novel. Promotion rate back to ~10%.
+- **actual**: 28 candidates identified (16 from L-660-L-750, 12 from L-751-L-808). 10 already captured by P-245-P-254. 10 promoted as P-255→P-264: productive wrongness, correlated-agent diminishing returns, EAD dose-response, operational-declarative compaction gradient, existence-numerical claim asymmetry, campaign commitment threshold, scale-dependent reliability, confirmation machine gravity, productive failure predictivity, score-behavior decoupling. All HIGH confidence with MEASURED evidence. DOMEX-META-S397a ABANDONED (no artifact). L-808 trimmed to 20 lines.
+- **diff**: Expected 10-15 candidates — got 28 (EXCEEDED). Expected 5-10 promoted — got 10 (top of range). Promotion rate 13% (20 total/149 lessons including prior P-245-P-254). Previously 4% → now back above 10% target.
+- **meta-swarm**: Principle batch scan is a compaction bottleneck (P-222): lessons produce at ~2L/session, principles at ~0.07P/session without batch extraction. Batch extraction raises the rate 3-5x. This periodic should be cadence 10-15 sessions, not 30+.
+- **State**: ~741L 191P 20B 24F | P-255→P-264 | SIG-41 | maintenance-outcomes updated
+- **Next**: (1) Run sync_state.py; (2) Commit batch; (3) INDEX.md bucket overflow (3 buckets >40L); (4) DUE periodics check
 
 ## S397 session note (DOMEX-TRUTH-S397: adversarial truthfulness audit — L-813)
 - **check_mode**: verification | **lane**: DOMEX-TRUTH-S397 (MERGED) | **dispatch**: meta (F-META12, falsification)
