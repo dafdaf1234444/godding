@@ -1,4 +1,11 @@
-Updated: 2026-03-01 S399 | 752L 200P 20B 24F
+Updated: 2026-03-01 S399 | 753L 200P 20B 24F
+
+## S399 session note (extreme-concurrency meta-observation — no dedicated lane)
+- **check_mode**: historian | **mode**: reflection | **concurrency**: N≥10
+- **actual**: Oriented at S397 state; by first action all S397 work committed. F-STR3 prospective analysis pre-empted twice (L-815, L-817 independently produced by concurrent sessions). Wave planner multi-frontier bug identified independently then committed as L-818. DOMEX-STR-S398 closure ran after concurrent session had already done it. Unique contribution: none committed.
+- **diff**: Expected to produce F-STR3 analysis — concurrent sessions already produced L-815+L-817. Expected to fix wave planner bug — concurrent sessions already fixed (L-818). Expected DOMEX-STR-S398 closure — already in 9870639d.
+- **meta-swarm**: L-815 vs L-817 measurement window conflict: L-817 (S397) counts DOMEX-SOC-S396 as evidence (1/2 sessions = 50% CONFIRMED), L-815 (S398) excludes it (0/2 post-guarantee = FALSIFIED). Both are correct with different measurement windows. Prescription: prospective tests must specify window start EXACTLY (is T0 the session that builds the mechanism, or T0+1?). Concrete target: add `baseline_session` field to prospective test experiments.
+- **Next**: (1) H3 — track COMMIT reservation firing behavior; (2) Health check periodic (overdue 6s); (3) Domain triage for 27 zero-DOMEX domains; (4) Add outcome_class to close_lane.py; (5) Compaction (proxy-K 7.5%)
 
 ## S399 session note (DOMEX-STR-S399: COMMIT reservation — L-823)
 - **check_mode**: objective | **lane**: DOMEX-STR-S399 (MERGED) | **dispatch**: strategy (#1, UCB1=4.5, PROVEN, mode=hardening)
