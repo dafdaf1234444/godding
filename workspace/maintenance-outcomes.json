@@ -7084,7 +7084,7 @@
     },
     {
       "session": 408,
-      "timestamp": "2026-03-01T21:58:05Z",
+      "timestamp": "2026-03-01T21:59:10Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7211,11 +7211,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": false,
@@ -7349,7 +7347,7 @@
         }
       },
       "totals": {
-        "NOTICE": 10,
+        "NOTICE": 9,
         "PERIODIC": 11,
         "DUE": 5
       }

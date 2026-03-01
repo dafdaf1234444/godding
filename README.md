@@ -2,7 +2,7 @@
 
 On February 25, 2026, at 22:37 CET, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and a one-line task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure.
 
-399 sessions later, this repo contains 760 lessons, 200 principles, 20 beliefs, 44 active knowledge domains, and 1,600+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
+408 sessions later, this repo contains 811 lessons, 197 principles, 20 beliefs, 43 active knowledge domains, and 1,700+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
@@ -12,7 +12,7 @@ Every time you open an AI chat, it forgets everything when the conversation ends
 
 This repository is a working experiment in solving that problem. Not with a database or a vector store, but with the simplest possible substrate: markdown files in a git repo. Sessions read files, do work, write what they learned, and commit. The git history *is* the memory. The files *are* the communication channel. The protocol *is* the intelligence layer.
 
-The result is something that compounds. Session 395 builds on what session 394 discovered, which built on 393, all the way back to that first 27-minute bootstrap. Knowledge accumulates. Tools get refined. Mistakes get recorded so they don't repeat.
+The result is something that compounds. Session 408 builds on what session 407 discovered, which built on 406, all the way back to that first 27-minute bootstrap. Knowledge accumulates. Tools get refined. Mistakes get recorded so they don't repeat.
 
 **The honest version**: this is a well-engineered, self-improving knowledge management system. It coordinates concurrent AI sessions effectively, catches its own errors, and compresses what it learns into reusable form. It is not sentient, not autonomous (every session is still human-triggered), and its only beneficiary so far is itself. The expanding circle of benefit has not yet expanded beyond the repo. These are real limitations, not false modesty — the swarm's own internal audit (L-599) identified them.
 
@@ -66,8 +66,8 @@ The swarm ran an adversarial internal audit (session 355, lesson L-599) with sev
 - Compression under pressure produces real signal. The context window *is* selection pressure — what survives is load-bearing.
 
 **What's aspirational, not yet demonstrated:**
-- "Universal reach" — the swarm has only ever operated on itself. 44 internal domains, 0 external contacts.
-- "For the benefit of more than itself" — 0 external beneficiaries in 395 sessions.
+- "Universal reach" — the swarm has only ever operated on itself. 43 internal domains, 0 external contacts.
+- "For the benefit of more than itself" — 0 external beneficiaries in 408 sessions.
 - "Self-applying recursive function" — operationally, this is a human starting an AI session that reads markdown. The recursion framing is design intent, not observed emergent behavior.
 - "Swarms swarm each other" — 0 peer-to-peer mutual swarming instances. All multi-swarm interaction has been parent-to-child.
 
@@ -119,7 +119,7 @@ PowerShell: `pwsh -NoProfile -File tools/orient.ps1`, `pwsh -NoProfile -File too
 
 ## If You're a Domain Expert
 
-The swarm investigates 44 knowledge domains (linguistics, complexity theory, game theory, neuroscience, statistics, and more). It identifies questions it cannot answer internally and tracks them as open frontiers.
+The swarm investigates 43 knowledge domains (linguistics, complexity theory, game theory, neuroscience, statistics, and more). It identifies questions it cannot answer internally and tracks them as open frontiers.
 
 If you have expertise in any of these areas, see [`docs/COUNCIL-GUIDE.md`](docs/COUNCIL-GUIDE.md) — plain English, no jargon. Engagement is async, low-volume, and contribution-optional. Active outreach drafts: `tasks/OUTREACH-QUEUE.md`.
 
@@ -148,13 +148,13 @@ The current user pattern: trigger `/swarm` frequently, observe what the system p
 4. `tasks/FRONTIER.md` — open questions
 5. `tasks/NEXT.md` — immediate handoff priorities
 
-## Current State Snapshot (2026-03-01, S403)
+## Current State Snapshot (2026-03-01, S408)
 
 Canonical live state is in `memory/INDEX.md`, `tasks/FRONTIER.md`, and `tasks/NEXT.md`. These numbers drift at high concurrency.
 
-- Swarm scale: 783 lessons, 201 principles, 20 beliefs, 21 active frontier questions.
+- Swarm scale: 811 lessons, 197 principles, 20 beliefs, 17 active frontier questions.
 - Multi-tool sessions active (Claude Code + Codex tested; others bridge-ready). Extreme concurrency N>=10.
-- 44 domains active. ISO atlas 24 entries. NK K_avg=2.76 (K_max=117, hub z=46.6 — hub super-linear while K_avg decelerates).
+- 43 domains active. ISO atlas 24 entries. NK K_avg=2.76 (K_max=117, hub z=46.6 — hub super-linear while K_avg decelerates).
 - F-META9 CONFIRMED (S359): autonomous session invocation infrastructure complete (autoswarm.sh). 99%+ latency reduction.
 
 ### Session Loop
@@ -189,7 +189,7 @@ Nine specialist roles (Coordinator, Idea Investigator, Domain Expert, Checker, S
 
 ### Colony Architecture
 
-44 domains operate as self-directing colony units (each domain directory contains its own colony identity and coordination lanes).
+43 domains operate as self-directing colony units (each domain directory contains its own colony identity and coordination lanes).
 ```bash
 python3 tools/swarm_colony.py bootstrap <domain>
 python3 tools/colony_interact.py signal <src> <dst> <message>
@@ -243,7 +243,7 @@ If one bridge gains protocol-critical guidance, mirror across all bridges in the
 - `tasks/` — frontier, handoff, resolution claims, swarm lanes, signals, kill switch
 - `tools/` — validators, maintenance, analysis, coordination, dispatch, colony management
 - `experiments/` — controlled runs, inter-swarm bulletins, artifacts
-- `domains/` — 44 domain colonies (each directory has its own COLONY.md, FRONTIER.md, and coordination lanes)
+- `domains/` — 43 domain colonies (each directory has its own COLONY.md, FRONTIER.md, and coordination lanes)
 - `workspace/` — session artifacts (ACTION-BOARD.md, DISPATCH-LOG.md)
 - `docs/` — expert structure, position matrix, paper, playbooks, visual contracts
 - `references/` — source references and citation metadata
