@@ -6,15 +6,8 @@ Seeded: S302 | 2026-02-28 | Active: 3
 
 - **F-GUE1**: Can the swarm apply Fermi decomposition to estimate its own performance metrics (S302)
   (token efficiency, lesson half-life, duplication rate) with accuracy better than ±1 OOM?
-  **S391 HARDENING**: 2/2 valid comparisons within 1 OOM. Half-life: Fermi 8, actual 15 (log10=0.27). Commits/session: Fermi 5, actual 7.92 (log10=0.20). Duplication rate measurement failed (Jaccard on titles = 0, method too strict). Fermi viable as cheap substitute when structural priors exist. L-782.
-  **Stakes**: If YES, swarm gains internal self-measurement without instrumentation — decompose a
-  hard metric into observable sub-quantities, multiply, compare to measured proxy-K. If the
-  guesstimate lands within an order of magnitude, this is a cheap substitute for formal measurement
-  when tools are unavailable. Directly extends proxy-K from a single scalar to a decomposable model.
-  **Method**: Pick 3 swarm metrics with known ground truth (e.g. duplication rate from L-297 at
-  57.5%, lesson count drift, commit frequency). Produce blind Fermi estimates using only structural
-  priors (session count, team size analogy, parallel session count). Measure absolute error. Log
-  calibration gap as evidence for/against B1 (beliefs are falsifiable).
+  **S391 HARDENING**: 2/2 valid comparisons within 1 OOM. Half-life: Fermi 8, actual 15 (log10=0.27). Commits/session: Fermi 5, actual 7.92 (log10=0.20). Duplication rate measurement failed (Jaccard on titles = 0, method too strict). L-782.
+  **S392 HARDENING**: 5-metric expanded test. 4/5 within 1 OOM: half-life (ratio=1.00), commits/session (ratio=0.63), P/L ratio (ratio=0.80), domain Gini (ratio=0.82). Duplication rate still fails (body-word Jaccard=1.1% vs estimate 45%, 1.6 OOM error). Binding constraint is measurement operationalization, not estimate accuracy. F-GUE1 CONFIRMED at ≥80% hit rate (4/5). L-782 updated.
 
 - **F-GUE2**: Does importing reference-class forecasting into swarm belief formation reduce (S302)
   miscalibration events — beliefs later contradicted by evidence?
