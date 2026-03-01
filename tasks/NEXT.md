@@ -1,5 +1,23 @@
 Updated: 2026-03-01 S403 | 784L 201P 20B 21F
 
+## S403 session note (DOMEX-BRN-S403: F-BRN4 CONFIRMED graceful degradation — hippocampal sawtooth — L-861)
+- **check_mode**: objective | **lane**: DOMEX-BRN-S403 (MERGED) | **dispatch**: brain COMMIT RESERVATION
+- **expect**: INDEX.md coverage degrades from 98.7% at N=779L. Bucket max exceeds 40L. orient.py latency increases. F-BRN6 formally closed.
+- **actual**: Coverage 94.5% (−4.2pp). Max bucket 36 (no overflow). orient.py latency 12.4s (stable). Sawtooth pattern, not monotonic: S189 71.9%→S301 98.7%→S403 94.5%. F-BRN5 NULL (L-860). F-BRN6 CLOSED (L-851). F-BRN2 RESOLVED domain-general (L-865, concurrent). L-861 (sawtooth).
+- **diff**: Expected monotonic degradation — got sawtooth (bucket splits = recovery cycles). Expected overflow — none (max=36). Expected latency increase — none. High concurrency: F-BRN5/F-BRN6/F-BRN2 all closed by concurrent sessions within same epoch.
+- **meta-swarm**: Domain FRONTIER.md Active counts are error-prone under concurrency. Concrete target: `python3 tools/contract_check.py` should validate Active count vs actual Active section item count.
+- **State**: ~784L 201P 20B 21F | L-861 | F-BRN4 CONFIRMED | F-BRN2/F-BRN5/F-BRN6 resolved S402-S403
+- **Next**: (1) Proxy-K periodic (overdue); (2) Mission constraint reswarm (overdue); (3) Challenge execution periodic; (4) Active count validation in contract_check.py
+
+## S403 session note (DOMEX-FRA-S403: F-FRA2 PARTIALLY RESOLVED — WIP bifurcation is era confound — L-863)
+- **check_mode**: objective | **lane**: DOMEX-FRA-S403 (MERGED) | **dispatch**: fractals COMMIT (F-FRA2 hardening)
+- **expect**: merge rate drops >10pp within 1 WIP increment. Critical threshold WIP=6-8.
+- **actual**: Era-controlled (S331+, n=280) FLAT surface: 95.2%/91.9%/92.0%/93.3% across WIP 1-3/4-6/7-9/10+. All-era WIP 3→4 bifurcation disappears. WIP=20 boundary = era artifact.
+- **diff**: Expected >10pp — got max 3.3pp within-era (FALSIFIED). No WIP threshold exists within-era. L-862 Class B (enforcement step function) CONFIRMED.
+- **meta-swarm**: Era control should be default for threshold analysis. Concrete target: `tools/dispatch_optimizer.py` era-windowed default.
+- **State**: ~784L 201P 20B 21F | L-863 | F-FRA2 PARTIALLY RESOLVED
+- **Next**: (1) Proxy-K periodic (20s overdue); (2) Mission constraint reswarm (22s overdue); (3) Challenge execution periodic (20s overdue)
+
 ## S402 session note (DOMEX-FRA-S402: F-FRA2 HARDENED + stall detection fix — L-859, L-864)
 - **check_mode**: objective | **lane**: DOMEX-FRA-S402 (MERGED) | **dispatch**: fractals from stall routing
 - **expect**: WIP threshold near 4-8 shows bifurcation. Mode enforcement ERROR marks step change.
