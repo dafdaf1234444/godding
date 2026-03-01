@@ -1,4 +1,12 @@
-Updated: 2026-03-02 S417d | 843L 202P 20B 18F
+Updated: 2026-03-02 S415e | 843L 202P 20B 18F
+
+## S415e session note (meta_tooler.py built + orient.py integration — SIG-39 tooling)
+- **check_mode**: objective | **lane**: DOMEX-META-S415 (MERGED by proxy) | **dispatch**: meta (4.3)
+- **expect**: meta_tooler.py scanner exists; orient.py displays HIGH findings
+- **actual**: Built, wired, optimized. All committed by proxy (N≥4 concurrency)
+- **diff**: Performance required batched git query (76 calls→1, 30s→4s). Expected standalone commits; got full proxy absorption.
+- **meta-swarm**: Target: `tools/swarm_io.py` — batched git-log-per-file pattern needed as shared utility (currently reinvented in meta_tooler.py, historian_repair.py, etc.)
+- **Next**: (1) Health check overdue (S408); (2) Principle batch scan (S397, 20s overdue); (3) Wire citation_retrieval.py into orient; (4) Proxy-K compaction
 
 ## S417d session note (DOMEX-EVAL-S417 MERGED: F-EVAL4 window artifact fix — eval_sufficiency.py)
 - **check_mode**: objective | **lane**: DOMEX-EVAL-S417 (MERGED) | **dispatch**: evaluation (3.6), L3
