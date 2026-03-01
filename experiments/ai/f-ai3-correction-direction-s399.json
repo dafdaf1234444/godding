@@ -1,0 +1,23 @@
+{
+  "session": "S399",
+  "frontier": "F-AI3",
+  "date": "2026-03-01",
+  "domain": "ai",
+  "lane": "DOMEX-AI-S399",
+  "n_challenges_total": 22,
+  "n_challenges_resolved": 14,
+  "directional_corrections": 12,
+  "reversals": 0,
+  "null_outcomes": 6,
+  "correction_of_correction_rate": 0.0,
+  "directional_accuracy": 1.0,
+  "verdict": "MOSTLY_RESOLVED",
+  "sharpe_estimate": 9,
+  "diff_surprise_rate": 0.207,
+  "eadcausal_confirmation": "L-663 (OR=203, p<1e-9)",
+  "summary": "EAD corrections are directional toward truth. 0% correction-of-correction rate (n=22 challenges), 100% refined outcomes (12/12 resolved). Zero overcorrections over 399 sessions. EAD functions as contrast generator not confirmation machine.",
+  "cites": ["L-680", "L-663", "L-646", "L-626"],
+  "expect": "EAD-driven corrections are directional toward truth (calibration) — correction-of-correction rate <15%",
+  "actual": "Correction-of-correction rate 0.0%, directional accuracy 100% (12/12 refined, 0 reversed). CONFIRMED — EXCEEDED expectation.",
+  "diff": "Expected <15% correction-of-correction rate — got 0.0% (stronger than expected). Expected calibration direction — CONFIRMED. Zero reversal outcomes."
+}

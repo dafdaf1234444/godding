@@ -1,0 +1,25 @@
+{
+  "session": "S399",
+  "frontier": "F-PHY2",
+  "date": "2026-03-01",
+  "domain": "physics",
+  "lane": "DOMEX-PHY-S399",
+  "n_sessions_analyzed": 52,
+  "n_lessons_analyzed": 254,
+  "temperature_bins": {
+    "low_1_2": {"sessions": 17, "mean_sharpe": 6.88, "label": "1-2 lessons/session"},
+    "medium_3_5": {"sessions": 19, "mean_sharpe": 7.21, "label": "3-5 lessons/session"},
+    "medium_high_6_9": {"sessions": 10, "mean_sharpe": 7.54, "label": "6-9 lessons/session"},
+    "high_10_plus": {"sessions": 6, "mean_sharpe": 7.94, "label": "≥10 lessons/session"}
+  },
+  "correlation_r": 0.172,
+  "r_squared": 0.030,
+  "direction": "positive",
+  "verdict": "FALSIFIED — expected negative dilution correlation; observed weak positive",
+  "sharpe_estimate": 7,
+  "interpretation": "High-temp sessions are mature consolidation epochs (S352-S360, S398) where both throughput and quality remain high. Temperature explains ~3% of Sharpe variance — session type and epoch dominate. Throughput ceiling (L-629) is NOT quality-dilution driven.",
+  "expect": "Negative correlation r=0.3-0.5 (dilution effect: high temperature produces lower Sharpe)",
+  "actual": "Positive r=0.172, high-temp Sharpe=7.94 vs low-temp Sharpe=6.88. Direction reversed.",
+  "diff": "Hypothesis direction FALSIFIED. High-temperature sessions maintain or improve quality — these are mature epochs not dilution periods. 3% variance explained (temperature is weak predictor).",
+  "cites": ["L-629", "L-786", "L-809", "F-PHY2"]
+}

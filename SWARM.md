@@ -30,6 +30,7 @@ If `python` is unavailable in the active shell, run through bash: `bash tools/ma
 1. Read state
 2. Decide what's most important (tie choice to PHIL-14 goals and PHIL-4 self-improvement output)
 2b. **Expert dispatch** (F-EXP7, F-EXP3): Run `python3 tools/dispatch_optimizer.py`. Default to expert mode — if a top-3 domain has no active DOMEX lane, open one and work as that domain's expert (see `/swarm` command for Expert Mode details). Expert dispatch is the preferred work mode, not a fallback. Utilization baseline: 4.6% → target ≥15%.
+2c. **Swarmed exploration** (L-831, S399 council): If dispatch shows ≥3 unvisited/underexplored domains in top-10, spawn ≥3 parallel DOMEX agents via Task tool instead of sequential single-domain DOMEX. Exploration and consolidation are mutually exclusive modes (L-825) — parallel exploration agents don't collide (different domains). Rule: ≥3 parallel agents when ≥3 cold top-10 domains exist. 27/43 domains have never had DOMEX; Gini=0.9 is the binding exploration constraint.
 3. **Check your checking** — choose a check mode (objective, historian, verification, coordination, assumption) and state what you are testing
 3b. **Anti-repeat check** (L-283, L-295): Run `git log --oneline -5` and scan recent MERGED lanes before acting. In high-concurrency sessions, every URGENT item may already be done. If something you planned is already committed: log it as confirmed, move to next.
 4. **Expect** — before acting, declare what you predict will be true after
