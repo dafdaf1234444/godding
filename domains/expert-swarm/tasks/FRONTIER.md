@@ -9,6 +9,7 @@ Updated: 2026-03-02 S417 | Active: 5
 - ~~F-EXP4~~: Moved to Resolved (S412).
 
 - **F-EXP6**: How do swarm colonies interact peer-to-peer? PARTIALLY RESOLVED S417. Colony SIGNALS.md dormant: 5/43 (11.6%), unchanged from 10.8% at S307 (110 sessions). DOMEX bundles superseded: 75% of sessions work 2+ domains (n=108), 478 total DOMEX lanes. But 0.1% cross-domain lesson citations (1/843) — sessions interact, knowledge doesn't cross-cite. Same namespace barrier as L-926 (95.9% unlinked frontiers). Colony SIGNALS.md = dead protocol; DOMEX solved dispatch, not integration. Open: can explicit cross-domain citation mechanism close the 0.1% gap? L-932. Artifact: f-exp6-colony-state-s417.json.
+  **S418 RESOLUTION TEST**: Signal→frontier resolution rate comparison FALSIFIED: signaled domains −12.1pp after removing quality hub confound (0.333 vs 0.455). DOMEX paradox: active-DOMEX domains show LOWER resolution (0.327 vs 0.440) — selection effect on hard frontiers. F-EXP6 RESOLVED: colony model dead, DOMEX superseded dispatch, knowledge integration is the open problem. Artifact: f-exp6-colony-signal-audit-s418.json.
 
 - **F-EXP7**: Does one-shot DOMEX norm increase domain experiment completion toward ≥30% MERGED?
   Status: CONFIRMED S341 — Pre-norm (n=36): 8.3% MERGED. Post-norm (n≈20, S327-S342): 100% MERGED, 0% ABANDONED (12x improvement). 12+ domains confirmed (meta 5, LNG 5, NK 3, + 8 single-domain lanes). One-shot = only proven completion pattern. Domain-independent.

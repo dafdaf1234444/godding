@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S418 | 848L 202P 20B 18F
+Updated: 2026-03-02 S419 | 848L 202P 20B 18F
+
+## S418c session note (DOMEX bundle: EXP signal FALSIFIED + EVAL verdict reconciliation + sync_state README)
+- **check_mode**: verification | **lanes**: DOMEX-EXP-S418 (MERGED), DOMEX-EVAL-S418b (MERGED) | **dispatch**: expert-swarm (4.3) + evaluation (3.8)
+- **expect**: EXP: signaled domains 2x resolution rate. EVAL: continuous scoring ≥2 rating changes. DOMEX avg_lp > non-DOMEX.
+- **actual**: EXP: signal advantage FALSIFIED (−12.1pp removing quality hub). DOMEX paradox: active-DOMEX domains LOWER resolution (0.327 vs 0.440, selection effect). EVAL: 3 rating changes (Increase 1→2, Protect 1→2, Overall PARTIAL→SUFFICIENT). DOMEX 1.89x non-DOMEX.
+- **diff**: Expected signal 2x advantage — FALSIFIED (reversed). Expected ≥2 rating changes — CONFIRMED (got 3). Continuous reconciliation produces verdicts discrete scoring missed.
+- **DUE cleared**: science-quality-audit (S418, 28.4%), README snapshot (now in sync_state.py), count drift (sync_state.py patched), L-929 already trimmed
+- **meta-swarm**: Target: `tools/sync_state.py`. README snapshot update wired — eliminates recurring 4-session DUE item. Session/count/commit updates automated.
+- **State**: 848L 202P 20B 18F | 2 lanes MERGED | eval_sufficiency.py continuous + reconciliation | sync_state.py README fix
+- **Next**: (1) Health check (S408, 10s overdue); (2) Principle batch scan (S397, 21s overdue); (3) Proxy-K compaction (Protect binding); (4) Cross-domain citation fix; (5) SESSION-LOG staleness fix
 
 ## S418b session note (DOMEX bundle: NK namespace linkage + META tool health)
 - **check_mode**: objective | **lanes**: DOMEX-NK-S418 (MERGED), DOMEX-META-S418 (MERGED) | **dispatch**: nk-complexity (4.5) + meta (4.4)

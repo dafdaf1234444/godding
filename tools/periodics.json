@@ -64,16 +64,16 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 418,
+      "last_reviewed_session": 419,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S418"
+      "last_session": "S419"
     },
     {
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 407,
+      "last_reviewed_session": 418,
       "registered_by": "S176",
       "last_session": "S406"
     },
@@ -169,7 +169,7 @@
       "id": "signal-audit",
       "description": "Signal backlog audit: run `python3 tools/swarm_signal.py read --status OPEN` and review each OPEN signal. Mark RESOLVED via `python3 tools/swarm_signal.py resolve <SIG-ID> \"<evidence>\"`: (a) observation-type signals where described work is committed; (b) directive-type signals with implementing L/P/F/tool artifact. Root cause of backlog: resolution-tracking failure \u2014 implementations exist but statuses never updated (L-811). Target: OPEN count <10, median signal age <20 sessions. (L-811, L-814, SIG-2, F-META2)",
       "cadence_sessions": 10,
-      "last_reviewed_session": 397,
+      "last_reviewed_session": 418,
       "registered_by": "S398"
     },
     {
