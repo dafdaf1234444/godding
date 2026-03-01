@@ -52,6 +52,6 @@
     "cross_domain_citation_mechanism": "When lesson_quality_fixer.py --fix adds Cites: headers, also suggest cross-domain citations from same-session lessons in different domains.",
     "frontier_resolution": "F-EXP6 can be PARTIALLY RESOLVED: colony interaction mode is dead, replaced by DOMEX bundling + implicit context sharing. Open question: can explicit cross-domain citation mechanism close the 0.1% gap?"
   },
-  "lesson": "L-929",
+  "lesson": "L-932",
   "cites": ["L-926", "L-917", "L-776", "L-654", "L-880"]
 }

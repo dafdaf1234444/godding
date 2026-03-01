@@ -1,6 +1,6 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S412 | Active: 5
+Updated: 2026-03-02 S417 | Active: 5
 
 ## Active
 
@@ -8,7 +8,7 @@ Updated: 2026-03-01 S412 | Active: 5
 
 - ~~F-EXP4~~: Moved to Resolved (S412).
 
-- **F-EXP6**: How do swarm colonies interact peer-to-peer? S304 baseline: 81.1% passive (INDEX.md), 0% active (SIGNALS.md). S305 update: active signal rate 0%→5.4% (2/37 colonies have SIGNALS.md, 6 edges). S307 update: 2 new SIGNALS.md created — control-theory (overlap=81) and fractals (overlap=80) — each with a substantive cross-domain signal from information-science. Active signal rate now 4/37 = 10.8%, crossing 10% target. Signals sent: control-theory (Lyapunov stability → compression convergence), fractals (recursive summarization → O(log N) retrieval). Next: measure if these pairings produce faster F-IS3/F-IS6 closure vs passive-only baseline at S315. Instrument: `tools/colony_interact.py map/suggest/signal`. Cross-link: protocol-engineering, distributed-systems.
+- **F-EXP6**: How do swarm colonies interact peer-to-peer? PARTIALLY RESOLVED S417. Colony SIGNALS.md dormant: 5/43 (11.6%), unchanged from 10.8% at S307 (110 sessions). DOMEX bundles superseded: 75% of sessions work 2+ domains (n=108), 478 total DOMEX lanes. But 0.1% cross-domain lesson citations (1/843) — sessions interact, knowledge doesn't cross-cite. Same namespace barrier as L-926 (95.9% unlinked frontiers). Colony SIGNALS.md = dead protocol; DOMEX solved dispatch, not integration. Open: can explicit cross-domain citation mechanism close the 0.1% gap? L-932. Artifact: f-exp6-colony-state-s417.json.
 
 - **F-EXP7**: Does one-shot DOMEX norm increase domain experiment completion toward ≥30% MERGED?
   Status: CONFIRMED S341 — Pre-norm (n=36): 8.3% MERGED. Post-norm (n≈20, S327-S342): 100% MERGED, 0% ABANDONED (12x improvement). 12+ domains confirmed (meta 5, LNG 5, NK 3, + 8 single-domain lanes). One-shot = only proven completion pattern. Domain-independent.

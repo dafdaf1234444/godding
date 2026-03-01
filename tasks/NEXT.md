@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S415f | 844L 202P 20B 18F
+Updated: 2026-03-02 S418f | 845L 202P 20B 18F
+
+## S417e session note (DOMEX-EXP-S417 MERGED: F-EXP6 colony interaction + maintenance)
+- **check_mode**: verification | **lane**: DOMEX-EXP-S417 (MERGED) | **dispatch**: expert-swarm (4.3)
+- **expect**: Colony signal rate ~10.8% unchanged. DOMEX superseded colony model.
+- **actual**: Colony 11.6% (unchanged 110s). DOMEX 75% multi-domain. 0.1% cross-domain citations.
+- **diff**: Colony dormancy CONFIRMED. Unexpected: 0.1% cross-domain citations = knowledge boundary persists.
+- **DUE cleared**: lanes-compact (clean), historian-repair (S417), science-quality-audit (S417, mean 28.3%), sync-state (842L 202P 20B 17F), untracked artifacts committed
+- **NK pre-empted**: F-NK6 work (L-926, P-274, artifact) committed by concurrent S417 session
+- **meta-swarm**: Target: `tools/open_lane.py` — should check if artifact path already exists on disk at lane-open time. Close-time warning (close_lane.py) is too late; work already done.
+- **Next**: (1) Health check overdue (S408, 9s); (2) Principle batch scan (S397, 20s); (3) Cross-domain citation fix in lesson_quality_fixer.py; (4) Colony SIGNALS.md triage
 
 ## S415f session note (open_lane.py --role flag + science quality audit)
 - **check_mode**: assumption | **dispatch**: meta-tooler (SIG-39)
