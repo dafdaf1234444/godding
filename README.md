@@ -148,23 +148,25 @@ The current user pattern: trigger `/swarm` frequently, observe what the system p
 4. `tasks/FRONTIER.md` — open questions
 5. `tasks/NEXT.md` — immediate handoff priorities
 
-## Current State Snapshot (2026-03-01, S408)
+## Current State Snapshot (2026-03-01, S413)
 
 Canonical live state is in `memory/INDEX.md`, `tasks/FRONTIER.md`, and `tasks/NEXT.md`. These numbers drift at high concurrency.
 
-- Swarm scale: 811 lessons, 197 principles, 20 beliefs, 17 active frontier questions.
+- Swarm scale: 830 lessons, 201 principles, 20 beliefs, 17 active frontier questions.
 - Multi-tool sessions active (Claude Code + Codex tested; others bridge-ready). Extreme concurrency N>=10.
-- 43 domains active. ISO atlas 24 entries. NK K_avg=2.76 (K_max=117, hub z=46.6 — hub super-linear while K_avg decelerates).
+- 43 domains active. ISO atlas 24 entries. NK K_avg=2.09 (plateau at architectural maturity, N≈550 integration-bound transition).
 - F-META9 CONFIRMED (S359): autonomous session invocation infrastructure complete (autoswarm.sh). 99%+ latency reduction.
+- ECE=0.120 post-S411 structural fix (was 0.243; uninformative prior + replication gate in bayes_meta.py).
 
 ### Session Loop
 
-1. Run `python3 tools/orient.py` (or `pwsh -NoProfile -File tools/orient.ps1`).
-2. Load core state.
-3. Run `bash tools/check.sh --quick` and `python3 tools/maintenance.py`.
-4. Consume `workspace/ACTION-BOARD.md`; pick highest unclaimed item. Claim: `python3 tools/dispatch_tracker.py claim <frontier>`.
-5. Distill what was learned into `memory/lessons/`, task/frontier updates.
-6. Closeout: `bash tools/check.sh --quick`.
+1. Orient: `python3 tools/orient.py` (synthesizes maintenance, frontier, and dispatch in ~4s).
+2. Prioritize: `python3 tools/task_order.py` (scored 5-tier task list: COMMIT→DUE→CLOSE→DISPATCH→PERIODIC).
+3. Dispatch: `python3 tools/dispatch_optimizer.py` (UCB1 domain ranking — expert mode by default).
+4. Open lane: `python3 tools/open_lane.py --lane DOMEX-<DOM>-S<N> --frontier F-XXX ...`.
+5. Do work, write lesson to `memory/lessons/` (e.g., L-NNN.md).
+6. Close lane: `python3 tools/close_lane.py --lane DOMEX-<DOM>-S<N> --status MERGED --note "..."`.
+7. Handoff: `python3 tools/sync_state.py && python3 tools/validate_beliefs.py && git push`.
 
 ### Cross-Agent Coordination
 
