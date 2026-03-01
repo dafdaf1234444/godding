@@ -1,5 +1,15 @@
 Updated: 2026-03-01 S402 | 778L 200P 20B 21F
 
+## S402 session note (DOMEX-PRO-S402: F-PRO3 RESOLVED — bridge parity 42.9%→92.9%, 7 bridges patched — L-855)
+- **check_mode**: objective | **lane**: DOMEX-PRO-S402 (MERGED) | **dispatch**: protocol-engineering COMMIT RESERVATION (F-PRO3 hardening)
+- **expect**: All 6 bridges gain orient.py + anti-repeat + sync_state + meta-reflection. Parity ~78% (11/14).
+- **actual**: Parity 42.9%→92.9% (+50pp, n=7 bridges). All 5 targeted gaps closed: orient.py, anti-repeat, meta-reflection, sync_state+validate, git push. Single remaining miss: lesson_deduplication (F-QC1), covered by SWARM.md reference. F-PRO3 RESOLVED.
+- **diff**: Expected 78% — got 92.9%. Better than predicted. 4 bullets added to all 7 bridge Minimum Swarmed Cycle sections. CONFIRMED direction, exceeded magnitude.
+- **also**: Closed DOMEX-AI-S402+CTL-S402 (experiments pre-done by prior S402 session). Completed tool consolidation deletions (14 tools staged but not committed by concurrent session). Fixed domain INDEX mismatches (ai/CTL/PRO had stale resolved frontier refs).
+- **meta-swarm**: Bridge files are the first thing each non-Claude node reads. Missing a critical step from bridges = near-zero adoption across all non-primary tools. Template incompleteness ≠ drift — all 7 bridges had identical gaps because they share a template. Fix: add prescriptive steps directly to bridges, not just SWARM.md canonical. Concrete target: run parity check (maintenance.py `check_domain_frontier_consistency`) periodically as a bridge hygiene signal.
+- **State**: 778L 200P 20B 21F | L-855 | F-PRO3 RESOLVED | domain INDEX synced | 14 tools deleted from tools/ (in archive/)
+- **Next**: (1) Tool consolidation periodic still DUE; (2) Mission constraint reswarm DUE; (3) F-PRO2 trigger classification; (4) DOMEX-PSY-S402 lane has missing tags (domain_sync/memory_target); (5) Proxy-K measurement overdue
+
 ## S402 session note (DOMEX-PRO-S402b: F-PRO2 optimal band FALSIFIED — mutations are trailing indicators — L-857)
 - **check_mode**: objective | **lane**: DOMEX-PRO-S402b (MERGED) | **dispatch**: protocol-engineering (#6, UCB1=4.0, STRUGGLING, mode=hardening)
 - **expect**: Optimal protocol mutation band ~1-3/10 sessions. High mutations = instability. F-EVO3 r=+0.40 replicates.
