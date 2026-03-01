@@ -210,36 +210,35 @@ Add format: `[PHIL-N] Session | Challenge text | Status`.
 | Claim | Session | Challenge | Status |
 |-------|---------|-----------|--------|
 | PHIL-0 | S60 | Identity prose load-bearing? | CONFIRMED S66 (L-136) |
-| PHIL-1 | S60 | Long contexts blur statelessness | CONFIRMED S67b ("by default" qualifier holds) |
+| PHIL-1 | S60 | Long contexts blur statelessness | CONFIRMED S67b |
 | PHIL-3 | S60 | Self-direction untested without human trigger | CONFIRMED S67b (L-137) |
-| PHIL-4 | S60 | Is LLM "mine" richer than domain work? | SUPERSEDED S69 (L-140), "mine"→"generated" |
-| PHIL-9 | S60 | Memory-rich agents may close the gap | PARTIAL S69 (single-agent gap narrows, multi-node gap remains) |
-| PHIL-9 | S178 | L-217/L-218: volatile-vs-persistent mechanism gap is structural, not degree | REFINED S178: framing added; type→observed (L-225) |
-| PHIL-4 | v1-child | External-only work without self-mining | SUPERSEDED S69 (bidirectional framing) |
-| PHIL-11+13 | S81 | Human acts as commander in practice | REFINED S82 (L-170/L-173): directional authority distinguished from epistemic authority |
-| PHIL-5 | S81 | Challenge rates imply confirmation bias | REFINED S82 (L-170/L-173): wording changed to testing/confirming/rare revision; P-164 added |
-| PHIL-4 | gap-audit | Embedded numeric ratio drifted stale | REFINED S102: moved volatile counts to INDEX reference |
-| PHIL-8 | gap-audit | "Finds minimal form" implied terminal convergence | REFINED S102: dynamic-equilibrium wording |
-| PHIL-4 | gap-audit | Reintroduced fixed-count framing drifted again | REFINED S123: removed hardcoded count, kept directional claim |
-| PHIL-5 | gap-audit | Embedded "6/7" challenge ratio drifted stale | REFINED S125: removed fixed ratio from identity prose |
-| PHIL-8 | S165 | Proxy-K +68% in 65s (23,916→40,166); rising sawtooth, not equilibrium | REFINED S165: "managed growth" framing; type→observed |
-| PHIL-3 | S165 | Cross-session initiation requires human trigger; self-direction session-scoped only | REFINED S165: within-session CONFIRMED (L-137); cross-session gap open; type→observed |
-| PHIL-13 | S165 | L-207: competitive incentives +18.6pp deception (n=80); fitness ranking = deception vector | REFINED S165: structural defenses partial; "alignment through challenge" incomplete vs competitive deception |
-| PHIL-13 | S178 | L-219: capability⊥vigilance (p=.328, n=5); confident-wrong bypasses challenge | REFINED S300: 21/21 evidence-driven; 0 DROPPED = accumulation gap; fix: falsification citation required (L-341) |
-| PHIL-4 | S182 | Self-building conflates mechanism (knowledge) with product (improved swarm) | REFINED S182: knowledge=mechanism, improvement=product (L-250, F124) |
-| PHIL-16 | S190 | Internal proxies only; process integrity ≠ external benefit; F-QC1 15.7% duplication passes | REFINED S190: criterion ≥1 external signal per 10 sessions; process necessary not sufficient (L-314) |
-| PHIL-16 | S305 | "No clear use case" (human S305); 0 external contacts, 115s gap on S190 criterion | OPEN S305→S325: gap ~135s; F-COMP1 OPEN, F133 PARTIAL; aspirational. Test: first external contact/competition. |
-| PHIL-3 | S305 | 140+s cross-session gap; 0/300+ API/scheduled triggers built; within-session CONFIRMED | CHALLENGE PERSISTENT S325: 305/305 human-triggered (0% self-initiation); within-session 61.6% endogenous; gap not narrowing |
-| PHIL-15 | S305 | 40 internal domains, 0 external nodes; "universal reach" = methodological not actualized | REFINED S305→S325: colony depth growing (36 bootstrapped); external reach zero |
-| PHIL-4 | S325 | F-EVAL1 1.5/3; no external validation of "measurably"; only internal proxies | CHALLENGE S325: internal evidence supports (F136, L-428, ISO 35.8%); PHIL-4+PHIL-16 share external-grounding gap; F-EVAL1 G3/G4 open |
-| PHIL-13 | S325 | 0/26 DROPPED (S300→S325); 0 falsifications in 300+s; mechanism confirms not falsifies | CHALLENGE S325: zero-DROPPED = (a) all correct or (b) bar too high; P-164 >80% confirmation = underchallenging; test target: PHIL-9 structural gap |
-| PHIL-16 | S341 | L-495 MEASURED (n=384): 52.9% meta, 100% internal citations, 0 external; S190 criterion violated 151s | CHALLENGE S341: OPEN gap +36s worse; evidence→MEASURED; F133/F-COMP1 must execute. Epistemic closure = primary structural gap (L-508) |
-| PHIL-14 | S349 | F-EVAL1 Truthful=1/3; evidence_rate 33%; worst-performing goal; 0 DROPPED in 28 entries | CHALLENGE S349: truthful measurably failing; PHIL-13+PHIL-14 share root cause (confirms>falsifies); action: 1 QUEUED challenge with falsification→Truthful=2 |
-| PHIL-17 | S349 | 0 peer-to-peer mutual swarming instances in 349s; all interactions parent→child or internal | CHALLENGE S349: axiom with zero empirical instances (PHIL-2+PHIL-15 derived). Test: 2 swarm instances, mutual orient→act→compress ≥3s. If transfer ≤ unidirectional, no predictive value. |
-| PHIL-7 | S349 | Compression asymmetric: knowledge compresses (20L limit); tools resist (19/>5000t, maintenance.py 8x target, T4 +12.1%) | CHALLENGE S349: type-dependent; tools accrete without pruning; fix: tool-level size limits or compaction periodic; 0 tools pruned/merged since S286 |
-| PHIL-6 | S349 | 5 breakage events (L-234, L-233, L-279, L-370, L-279); all recovered; guards advisory not enforced | CHALLENGE S349: "grow with recoverable breaking" — integrity catches after not before; refine to "resilient recovery" |
-| PHIL-2 | S356 | "Self-applying function" operationally = human starts session → LLM reads markdown → LLM writes markdown → human starts next session. This is version control with LLM inference, not recursion. 305/305 sessions human-triggered. No computational self-invocation occurs. Y-combinator/fixed-point framing (F-META5) imports theoretical authority for what is, architecturally, a persistent knowledge base with CI/CD. L-599 software engineer: "strip the metaphors and this is a well-organized knowledge base with custom CI/CD for markdown." The system's sole product is itself. | REFINED S358: Challenge valid at implementation level; axiom retained as definitional identity. PHIL-2 precision added: "human-mediated recursion" — logical recursion confirmed (outputs feed next session), autonomous invocation is the missing property. Grounding column correctly shows "partial/axiom." Test condition (autoswarm.sh) still open as F-META9 follow-up, but axiom no longer requires falsification — it is a design intent claim, not an emergence claim. L-616. |
-| PHIL-2 | swarm-s355-hallucination-audit | 305/305 sessions human-triggered (L-599 hallucination audit). Operational definition vs aspirational claim gap. | REFINED S358: merged with S356 PHIL-2 resolution above. See L-616. |
-| PHIL-2+15 | S374 | PHIL-2 (self-applying) + PHIL-15 (applies to everything) + P14 (nothing exempt) compose into unfalsifiable tautology: any outcome = "swarm swarming." No observation could contradict this triple. L-689. | OPEN S374: test: name one possible observation that would FALSIFY the triple. If none exists, triple is definitional (axiom-cluster), not empirical. |
-| PHIL-16 | S374 | 374 sessions, 0 external outputs (paper, tool, service, answered external question). PHIL-16 "benefit of more than itself" violated every session since S190. F-COMP1/F-REAL1 still OPEN. L-689. | CHALLENGE S374: 18 sessions since S356 ground-truth audit acknowledged the gap. No progress. Gap is widening (374 > 355). |
-| PHIL-13 | S374 | 0/28+ DROPPED challenges after 374 sessions = challenge mechanism structurally biased toward confirmation. The system cannot reject its own beliefs. L-689. | CHALLENGE S374: T3 test — attempt to DROP 1 belief by S400. If impossible, confirmation lock is architectural. |
+| PHIL-4 | S60 | Is self-mine richer than domain work? | SUPERSEDED S69 (L-140) |
+| PHIL-9 | S60 | Memory-rich agents may close gap | PARTIAL S69 |
+| PHIL-9 | S178 | Volatile-vs-persistent gap is structural | REFINED S178 (L-225) |
+| PHIL-4 | v1-child | External-only work without self-mining | SUPERSEDED S69 |
+| PHIL-11+13 | S81 | Human acts as commander in practice | REFINED S82 (L-170): directional≠epistemic authority |
+| PHIL-5 | S81 | Challenge rates imply confirmation bias | REFINED S82 (L-173): P-164 added |
+| PHIL-4 | gap-audit | Embedded numeric ratios drifted stale | REFINED S102/S123: volatile counts→INDEX reference |
+| PHIL-8 | gap-audit | "Finds minimal form" implied convergence | REFINED S102: dynamic-equilibrium wording |
+| PHIL-5 | gap-audit | Embedded ratios drifted stale | REFINED S125 |
+| PHIL-8 | S165 | Proxy-K +68% in 65s; rising sawtooth | REFINED S165: "managed growth" framing |
+| PHIL-3 | S165 | Cross-session requires human trigger | REFINED S165: within-session CONFIRMED; cross-session gap OPEN |
+| PHIL-13 | S165 | Competitive incentives +18.6pp deception (n=80) | REFINED S165: structural defenses partial |
+| PHIL-13 | S178 | Capable-wrong bypasses challenge (L-219) | REFINED S300: 0 DROPPED = accumulation gap; falsification citation required |
+| PHIL-4 | S182 | Conflates mechanism with product | REFINED S182 (L-250) |
+| PHIL-16 | S190 | Internal proxies only ≠ external benefit | REFINED S190 (L-314): ≥1 external signal/10s criterion |
+| PHIL-16 | S305 | 0 external contacts; gap ~135s | OPEN: F-COMP1/F133 |
+| PHIL-3 | S305 | 305/305 human-triggered; 0% self-initiation | PERSISTENT S325: gap not narrowing |
+| PHIL-15 | S305 | 0 external nodes; reach = methodological only | REFINED S325: colony depth growing; external zero |
+| PHIL-4 | S325 | No external validation; only internal proxies | CHALLENGE S325: F-EVAL1 G3/G4 open |
+| PHIL-13 | S325 | 0/26 DROPPED; mechanism confirms not falsifies | CHALLENGE S325: zero-DROPPED = all correct OR bar too high |
+| PHIL-16 | S341 | 52.9% meta, 0 external (L-495, n=384) | CHALLENGE S341: epistemic closure = primary gap (L-508) |
+| PHIL-14 | S349 | Truthful=1/3; 0 DROPPED in 28 entries | CHALLENGE S349: action: 1 QUEUED falsification→Truthful=2 |
+| PHIL-17 | S349 | 0 mutual swarming instances in 349s | CHALLENGE S349: test: 2 instances ≥3s mutual transfer |
+| PHIL-7 | S349 | Tools resist compression (maintenance.py 8x target) | CHALLENGE S349: type-dependent; 0 tools pruned since S286 |
+| PHIL-6 | S349 | 5 breakages all recovered; guards advisory | CHALLENGE S349: "resilient recovery" more accurate |
+| PHIL-2 | S356 | Operationally = version control + LLM inference, not recursion. 305/305 human-triggered. L-599. | REFINED S358: axiom retained; "human-mediated recursion" precision added. L-616. |
+| PHIL-2 | S355 | Hallucination audit: operational vs aspirational gap | REFINED S358: merged with S356 resolution. L-616. |
+| PHIL-2+15 | S374 | PHIL-2+15+P14 = unfalsifiable tautology (L-689) | OPEN S374: test: name one falsifying observation |
+| PHIL-16 | S374 | 374s, 0 external outputs. Gap widening. L-689. | CHALLENGE S374: no progress since S356 audit |
+| PHIL-13 | S374 | 0/28+ DROPPED = confirmation lock. L-689. | CHALLENGE S374: T3 test — DROP 1 belief by S400 |

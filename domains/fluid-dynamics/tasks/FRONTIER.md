@@ -15,6 +15,7 @@ Active: 3
 **Status**: PARTIALLY CONFIRMED | Opened: S336 | Measured: S376
 **Artifact**: experiments/fluid-dynamics/f-fld1-reynolds-regime-s376.json
 **S376 measurement (L-711)**: Re_swarm = (1-overhead)×commits/concurrent. R²=0.16 (below 0.3 target). Re_crit=0.6: turbulent 4.44 vs laminar 1.71 L+P (2.59x, exceeds 2x). BUT simple commit count outperforms (R²=0.37). Overhead is orthogonal to quality (r=0.044). Hypothesis INVERTED: turbulent=productive (not laminar). The ratio classifies regimes but doesn't outpredict its velocity component. Successor: test as early-warning for session failure.
+**S376 independent verification (L-713)**: Re_structural = (lanes×domains)/(overhead+ε). AUC=0.870 (exceeds 0.65 target), accuracy 82.7% at Re_crit=1.575. Phase transition at Re≈2-4 (33pp jump). Turbulent 3.04x more productive. Overhead_ratio alone AUC=0.837. 8 formulations tested; circularity detected and resolved. Convergent with L-711: both confirm turbulent=productive inversion. **Status**: MOSTLY CONFIRMED (two independent lines)
 
 ## F-FLD2: Kolmogorov cascade in context window token economy
 **Question**: Does the swarm's token budget follow a cascade structure — large-scale injections (global orient) → meso-scale (session work) → small-scale dissipation (compaction/compression)?
