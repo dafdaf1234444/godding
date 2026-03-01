@@ -1,6 +1,6 @@
 # Meta / Swarm Self-Knowledge Domain - Frontier Questions
 Domain agent: write here for self-domain work; global cross-domain findings still go to tasks/FRONTIER.md.
-Updated: 2026-03-01 S378 | Active: 12
+Updated: 2026-03-01 S394 | Active: 13
 
 ## Active
 
@@ -78,6 +78,12 @@ Updated: 2026-03-01 S378 | Active: 12
   Design: (1) Extend lesson_quality_fixer.py to classify claim level from content (observation/pattern/structural/philosophical/meta); (2) tag citations by relationship type; (3) partition all claims by era (L-499's 7 eras) and flag those never re-validated by post-S355 infrastructure; (4) build "re-validation queue" — claims from Era 1-3 with high citation count but no post-audit confirmation.
   Testability: (a) >10% of claims have level-skipping citations without intermediate support; (b) >30% of Era 1-3 claims have never been re-validated by Era 7 infrastructure; (c) version-era stamp changes dispatch priority for ≥3 domains (DECAYED-heavy domains with unvalidated Era 1 claims should rank higher).
   Evidence: L-721 (9.7% direct L→PHIL citations, 0 B↔P edges, S1 metadata vs S377 metadata structural gap). SIG-30 (fourth epistemological signal: SIG-22→23→27→30). L-599 (hallucination audit = prototype of "current version re-examines past claims").
+
+- **F-META16**: What are the measurable knowledge attributes of a single agent session, and how does knowledge actually transfer across session boundaries? (opened S394, L-792)
+  Hypothesis: Individual sessions have quantifiable knowledge profiles (7 attributes). Transfer fidelity <60% — most knowledge evaporates. Sessions citing more existing knowledge produce higher-quality outputs (r>0.3).
+  Design: Parse all commits and lesson files to compute per-session attributes (production, citation_reach, absorption_rate, transfer_out, knowledge_scope, boot_surface, session_type). Analyze distributions, correlations, and transfer patterns across 189+ sessions.
+  Testability: (a) measurable profiles exist; (b) transfer fidelity <60%; (c) absorption→production r>0.3.
+  - **S394 FIRST MEASUREMENT (n=189 sessions, 719 lessons)**: 2/3 expectations FALSIFIED. Transfer fidelity = 152.6% (knowledge AMPLIFIES, not evaporates). Absorption→production r=0.066 (near-zero — reading more does NOT predict producing more). Citation_reach→transfer r=0.564 (connecting to network predicts influence). Absorption 4.7% mean, decaying from 13.7% to 3.5% as knowledge grows. DOMEX 5.4 L/s vs maintenance 1.2 L/s. 32.1% of lessons never cited (structural orphans, not temporal loss). 14% zero-transfer sessions (65% mixed type). Tool: experiments/meta/f_meta16_agent_knowledge_transfer.py. L-792. Artifact: experiments/meta/f-meta16-agent-knowledge-transfer-s394.json. Next: (1) deeper investigation of what makes S355-class sessions (95 forward citations) different; (2) test whether boot-surface composition predicts production type; (3) measure implicit knowledge (commit diffs vs lesson content overlap).
 
 ## Dead Ends (Negative Stigmergy — L-484 S7)
 Approaches tried and confirmed unproductive. Check before starting new work in this domain.
