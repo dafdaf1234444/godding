@@ -857,6 +857,31 @@ def check_active_claims():
         print()
 
 
+def _extract_open_signals(signals_text: str, current_session: int = 0) -> list:
+    """Parse SIGNALS.md and return OPEN signals sorted by priority then recency."""
+    results = []
+    for line in signals_text.splitlines():
+        if not line.startswith("|") or line.startswith("| ---") or line.startswith("| ID"):
+            continue
+        cols = [c.strip() for c in line.split("|")]
+        if len(cols) < 11:
+            continue
+        sig_id, _date, sess, _src, _tgt, sig_type, priority, content, status = (
+            cols[1], cols[2], cols[3], cols[4], cols[5], cols[6], cols[7], cols[8], cols[9]
+        )
+        if status.upper() != "OPEN":
+            continue
+        age = 0
+        m = re.search(r"S(\d+)", sess)
+        if m and current_session > 0:
+            age = current_session - int(m.group(1))
+        results.append({"id": sig_id, "session": sess, "priority": priority,
+                         "content": content, "age": age, "type": sig_type})
+    # Sort: P1 first, then by age ascending (most recent first)
+    results.sort(key=lambda x: (0 if x["priority"] == "P1" else 1, x["age"]))
+    return results
+
+
 def main():
     brief = "--brief" in sys.argv
 
@@ -908,6 +933,21 @@ def main():
                 if len(active_triggers) > 1:
                     print(f"  📋 {len(active_triggers)-1} additional triggers active")
                 print()
+    except Exception:
+        pass
+
+    # Open signals — L-703: SIGNALS.md was write-only / dead. Wire into orient.
+    try:
+        signals_text = read_file("tasks/SIGNALS.md")
+        open_signals = _extract_open_signals(signals_text, current_session=int(re.search(r"S(\d+)", session).group(1)) if re.search(r"S(\d+)", session) else 0)
+        if open_signals:
+            print(f"--- Open signals ({len(open_signals)} unresolved) ---")
+            for sig in open_signals[:5]:
+                age_tag = f" ({sig['age']}s ago)" if sig['age'] else ""
+                print(f"  {'📢' if sig['priority'] == 'P1' else '📋'} {sig['id']}{age_tag}: {sig['content'][:90]}")
+            if len(open_signals) > 5:
+                print(f"  ... and {len(open_signals) - 5} more")
+            print()
     except Exception:
         pass
 

@@ -67,17 +67,16 @@ def append_open_row(
     else:
         domain_fields = ""
 
-    # Build Etc column
+    # Build Etc column — L-703: stripped zero-information constant fields
+    # (personality=domain-expert, available=yes, blocked=none, human_open_item=none
+    #  carried 0 bits across 35+ rows; only include when non-default)
     etc_parts = [
-        f"setup=claude-code+wsl",
         f"focus={focus}",
-    ]
-    if personality:
-        etc_parts.append(f"personality={personality}")
-    etc_parts += [
         f"intent={intent}",
         f"check_mode={check_mode}",
     ]
+    if personality and personality != "domain-expert":
+        etc_parts.append(f"personality={personality}")
     if frontier:
         etc_parts.append(f"frontier={frontier}")
     etc_parts += [
@@ -86,10 +85,6 @@ def append_open_row(
         f"diff=TBD",
         f"artifact={artifact}",
         f"progress=active",
-        f"available=yes",
-        f"blocked=none",
-        f"next_step=execute-and-produce-artifact",
-        f"human_open_item=none",
     ]
     if domain_fields:
         etc_parts.append(domain_fields.lstrip("; "))

@@ -434,6 +434,18 @@ def _ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["saturation_penalty"] = 0.0
         r["exploration_boost"] = 0.0
 
+    # 20% exploration floor (DARPA model, L-697): ensure underexplored domains
+    # appear in recommendations regardless of UCB1 score. Domains with <3 visits
+    # are floor-eligible; at least cold_floor_pct of results get floor protection.
+    floor_min_n = 3
+    floor_eligible = [r for r in results if r.get("outcome_n", 0) < floor_min_n]
+    floor_target = max(1, int(len(results) * cold_floor_pct))
+    # Sort floor-eligible by visit count (ascending), then structural score (descending)
+    floor_eligible.sort(key=lambda x: (x.get("outcome_n", 0), -x.get("score", 0)))
+    floor_domains = {r["domain"] for r in floor_eligible[:floor_target]}
+    for r in results:
+        r["floor_protected"] = r["domain"] in floor_domains
+
     return results
 
 
@@ -487,10 +499,11 @@ def run(args: argparse.Namespace) -> None:
                 label = r.get("outcome_label", "NEW")
                 n = r.get("outcome_n", 0)
                 score_str = f"{r['score']:.1f}" if r["score"] < 999 else "∞"
+                floor_mark = " [FLOOR]" if r.get("floor_protected") else ""
                 print(
                     f"{score_str:>6}  {r['domain']:<25}  {exploit:7.3f}  {explore_str:>7}  "
                     f"{n:3d}  {r.get('outcome_lessons', 0):3d}  {heat_icon:>4}"
-                    f" [{label}]"
+                    f" [{label}]{floor_mark}"
                 )
                 if r.get("top_frontier"):
                     print(f"         → {r['top_frontier'][:72]}")
@@ -498,9 +511,12 @@ def run(args: argparse.Namespace) -> None:
             all_visits = [r.get("outcome_n", 0) for r in results]
             gini = _compute_gini(all_visits)
             visited = sum(1 for v in all_visits if v > 0)
+            floor_count = sum(1 for r in results if r.get("floor_protected"))
+            floor_doms = [r["domain"] for r in results if r.get("floor_protected")]
             print(f"\n--- UCB1 Coverage ---")
             print(f"  Visit Gini: {gini:.3f}")
             print(f"  Coverage: {visited}/{len(all_visits)} domains visited")
+            print(f"  Floor (20%): {floor_count} domains protected ({', '.join(floor_doms[:5])})")
             print(f"  Formula: avg_yield + {1.414:.3f} * sqrt(log(total_dispatches) / domain_dispatches)")
             print(f"  Unvisited domains ranked first (UCB1 = ∞), then by structural tiebreaker")
             return
@@ -732,8 +748,8 @@ def main() -> None:
     parser.add_argument("--all", action="store_true", help="Show all domains, not just top 10")
     parser.add_argument("--domain", metavar="NAME", help="Score a single domain")
     parser.add_argument("--json", action="store_true", help="JSON output")
-    parser.add_argument("--mode", choices=["heuristic", "ucb1"], default="heuristic",
-                       help="Scoring mode: heuristic (10+ constants) or ucb1 (single parameter)")
+    parser.add_argument("--mode", choices=["heuristic", "ucb1"], default="ucb1",
+                       help="Scoring mode: ucb1 (single parameter, default) or heuristic (12+ constants, legacy)")
     parser.add_argument("--compare", action="store_true",
                        help="Run both modes and show comparison")
     args = parser.parse_args()

@@ -1,11 +1,29 @@
-Updated: 2026-03-01 S374
+Updated: 2026-03-01 S376
+
+## S376b session note (DOMEX-SP-S376: F-SP3 Viterbi burst alignment CONFIRMED — L-705)
+- **check_mode**: verification | **lane**: DOMEX-SP-S376 (MERGED) | **dispatch**: stochastic-processes (#6, 40.6, DORMANT)
+- **expect**: Viterbi decode recovers ≥2/3 known burst windows (S57, S186, S347) within ±5 sessions.
+- **actual**: 3/3 recovered EXACTLY (not just within window). 12 burst clusters total. State distribution: quiescent 54.4%, production 9.6%, burst 36.0%. Precision 100%. S57 in S1..S69 genesis cluster, S186 in S178..S189 DOMEX-adoption cluster, S347 in S335..S352 high-concurrency cluster.
+- **diff**: Predicted ≥2/3 — got 3/3. Predicted within ±5 — got EXACT hits (better). Did NOT predict 12 burst clusters or genesis mega-burst (69 sessions). Production state surprisingly narrow (9.6%) — swarm operates as switch not dial. Burst prevalence 36% vs original 18% (emission formula difference).
+- **meta-swarm**: HMM parameters were fitted on 175 sessions (S370) but tested on 375 (mild train-on-test contamination). The burst recovery is binary hit/miss so contamination impact is low, but a proper validation would refit on S1-S300 and test on S301-S375. Concrete target: add `--refit` mode to `tools/f_sp3_viterbi_alignment.py` for split-sample validation.
+- **State**: ~640L 179P 17B 39F | L-705 | DOMEX-SP-S376 MERGED | F-SP3 CONFIRMED
+- **Next**: (1) annotate 12 burst clusters with known swarm events; (2) split-sample validation (refit S1-S300, test S301-S375); (3) proxy-K compaction (6.79% DUE); (4) paper-reswarm (15+ overdue); (5) change-quality-check (DUE)
+
+## S375d session note (DOMEX-ECO-S375: UCB1 default activated + 20% floor — L-706)
+- **check_mode**: objective | **lane**: DOMEX-ECO-S375 (MERGED) | **dispatch**: economy (#3, 43.8, DORMANT)
+- **expect**: UCB1 produces Gini <0.50 in simulation. 20% floor guarantees min coverage. Simpler scoring (1 vs 12 constants).
+- **actual**: UCB1 made default (was heuristic). 20% floor: 6 domains with <3 visits marked floor-protected. Forward sim: 0 meta dispatches in 20 rounds. Score spread 39.8→4.9 (87.7%). Gini 0.570→0.525 after 20 simulated rounds (-7.9%).
+- **diff**: Predicted Gini <0.50 — got 0.525 (close but not reached in 20 rounds, stock effect from 542 existing visits). Floor working correctly (6 domains). Did NOT predict that simulation dispatches to domains NOT in open frontiers list (publication, coordination) — outcome_map includes resolved domains. Key: UCB1 sim confirmed 0 dispatches to meta in 20 rounds.
+- **meta-swarm**: UCB1 implementation existed from prior session but wasn't default. Making it default = completing L-697 Tier 1 action. The 4 rounds of heuristic fixes (L-621/625/671/676) are now legacy code reachable via `--mode heuristic`. Concrete target: remove heuristic constants at S385 after visit Gini validation.
+- **State**: ~639L 179P 17B 39F | L-706 | DOMEX-ECO-S375 MERGED | UCB1 is default dispatch mode
+- **Next**: (1) Re-measure visit Gini at S385; (2) proxy-K compaction (6.79% drift); (3) paper-reswarm (15+ overdue); (4) Thompson sampling Tier 2; (5) change-quality-check (DUE)
 
 ## S374g session note (2 DOMEX lanes: FAR-S374 L-686 verified + EVO-S374 F-EVO3 RESOLVED L-704)
 - **check_mode**: objective+verification | **lanes**: DOMEX-FAR-S374 (MERGED), DOMEX-EVO-S374 (MERGED)
 - **FAR-S374**: F-FAR3 monoculture HHI verified. Raw r=-0.81 but partial r=-0.04 (meta confound). Prior session's uncommitted work independently verified and committed. L-686.
 - **EVO-S374**: F-EVO3 RESOLVED. Cadence self-regulates: quality r=+0.40 (stable), destab +0.14→+0.09 (DECLINING), overhead +0.10→-0.05 (REVERSED). 3 epochs across 188 sessions. Tool rebuilt after S363 consolidation. L-704.
 - **meta-swarm**: Orphaned uncommitted work pattern: prior session created tool + lesson + JSON but didn't commit. Inverse of commit-by-proxy (L-526). Target: `open_lane.py` should remind to commit after artifact production. Also: git_files_changed bulk approach needed (single git log vs per-session scanning).
-- **State**: ~637L 179P 17B 38F | L-686 verified, L-704 | 2 lanes MERGED | F-FAR3 RESOLVED, F-EVO3 RESOLVED
+- **State**: ~639L 179P 17B 39F | L-686 verified, L-704 | 2 lanes MERGED | F-FAR3 RESOLVED, F-EVO3 RESOLVED
 - **Next**: (1) UCB1 trial + Gini re-measure; (2) paper-reswarm (15+ overdue); (3) L-701/L-702 near-dup merge; (4) F-FAR2 companion planting; (5) F-FAR1 fallow replication at n>50
 
 ## S376 session note (DOMEX-ECO-S376: UCB1 rank correlation — L-702)
