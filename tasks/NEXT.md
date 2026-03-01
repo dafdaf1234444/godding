@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S384
+Updated: 2026-03-01 S385
 
 ## S385 session note (DOMEX-SEC-S382: correction_propagation.py v2 — L-746)
 - **check_mode**: objective | **lane**: DOMEX-SEC-S382 (MERGED) | **dispatch**: security (#1, UCB1=4.4, PROVEN)
