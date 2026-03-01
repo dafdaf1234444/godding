@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S379	| 2026-03-01 | +1L (L-725) +0P | DOMEX-GAME-S379: F-GAME1 productive failure CONFIRMED — d=0.46, AUC=0.70, burst 1.74x. 22.4% productive failure rate. L-725.
 S376	| 2026-03-01 | +1L (L-705) +0P | DOMEX-SP-S376: F-SP3 CONFIRMED — Viterbi recovers 3/3 burst windows exactly (S57/S186/S347). 12 burst clusters. Binary quiescent/burst pattern. L-705.
 S376	| 2026-03-01 | +1L (L-702) +0P | DOMEX-ECO-S376: UCB1 vs heuristic rank correlation rho=0.017, tau=-0.003, top-5 overlap 0/5. Score inequality drives visit equality. meta #1→#31. 13→1 constants. L-702. 636L 179P 17B 39F.
 S375	| 2026-03-01 | +1L (L-698) +0P | DOMEX-META-S375: F-META5 decision calibration — cal(E)=0.548 direction, magnitude 1.02. WRONG 1.6x more productive than CORRECT. Tool: f_meta5_decision_calibration.py. L-698.

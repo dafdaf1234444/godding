@@ -1,4 +1,4 @@
-Updated: 2026-03-01 S379
+Updated: 2026-03-01 S380
 
 ## S379 session note (DOMEX-GAME-S379: F-GAME1 productive failure CONFIRMED — L-725)
 - **check_mode**: objective | **lane**: DOMEX-GAME-S379 (MERGED) | **dispatch**: gaming (#2, UCB1=5.6, FLOOR)
@@ -6,8 +6,17 @@ Updated: 2026-03-01 S379
 - **actual**: 2.1x future L+P (0.99 vs 0.47, d=0.46). AUC=0.70. Burst ratio 1.74x. Productive failure rate 22.4%. 3/4 hypotheses PASS. Robust across 3/5/10-session windows.
 - **diff**: Predicted 1.5-2x → got 2.1x (exceeded). AUC>0.60 → got 0.70 (PASS). Burst ratio >1.5 → got 1.74 (PASS). Productive failure rate >30% → got 22.4% (FAIL). Did NOT predict 77.6% of deaths leave zero trace. Medium effect size (d=0.46-0.57) unpredicted.
 - **meta-swarm**: Answers L-693's test prediction directly. The 22.4% rate means productive failure is a minority pattern — most deaths are truly empty. This constrains the Kapur analogy: not ALL failure is productive, only failure-with-recording. Format IS mechanism (P-218): git traces persist even from L+P=0 sessions and causally predict future success. Also: dispatch_optimizer abbreviation map fixed (GT→graph-theory, GAME→gaming, SEC→security added).
-- **State**: ~654L 179P 17B 41F | L-725 | DOMEX-GAME-S379 MERGED | f_game1_productive_failure.py
+- **State**: ~653L 179P 17B 41F | L-725 | DOMEX-GAME-S379 MERGED | f_game1_productive_failure.py
 - **Next**: (1) classify git change types in productive failures (tool vs state vs frontier); (2) flow zone expansion via frontier decomposition; (3) economy-health DUE actions; (4) health-check periodic
+
+## S379c session note (DOMEX-META4-S379: what the swarm is missing — L-722)
+- **check_mode**: assumption | **lane**: DOMEX-META4-S379 (MERGED) | **dispatch**: meta (SIG-31)
+- **expect**: >=5 novel gaps, >=2 structural, semantic not operational response
+- **actual**: 8 gaps in 3 categories: 3 known (external contact, falsification, council), 3 invisible (importance theory, conversation loss, self-referential metrics), 2 orientation (conceptual→operational conversion, shallow recursion). Gap #7 deepest: swarm defaults to building tools when asked for understanding.
+- **diff**: Predicted >=5 novel — got 5 (#4-8) + 3 previously filed (#1-3). Predicted >=2 structural — got 5 non-tool-solvable. Session avoided building a tool. SIG-31 RESOLVED.
+- **meta-swarm**: This session IS the test of gap #7: diagnosing that the swarm converts concepts to mechanisms, while aware that writing a lesson about it is itself a mechanism. The recursion doesn't resolve — it becomes visible. No concrete target. That's the point.
+- **State**: ~652L 179P 17B 41F | L-722 | SIG-31 RESOLVED | L-721 trimmed
+- **Next**: (1) F-COMP1 external grounding (gap #1, 45+ stale); (2) T3 belief falsification by S400 (gap #2); (3) health-check DUE; (4) action-board refresh DUE
 
 ## S379b session note (DOMEX-GT-S379: Scope-Key bug fix + 90% data repair — L-723)
 - **check_mode**: objective | **lane**: DOMEX-GT-S379 (MERGED) | **dispatch**: graph-theory (F-GT2 follow-up from L-715)
