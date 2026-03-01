@@ -1,5 +1,15 @@
 Updated: 2026-03-01 S403 | 785L 201P 20B 21F
 
+## S403 session note (DOMEX-CAT-S403: FMEA refresh 14→17 FMs, abstraction-stack migration — L-872)
+- **check_mode**: objective | **lane**: DOMEX-CAT-S403 (MERGED) | **dispatch**: catastrophic-risks (stale 22s, first DOMEX since S381)
+- **expect**: ≥1 new FM since S381 (NAT ~S427). ≥2 MINIMAL→ADEQUATE upgrades. FMEA artifact updated.
+- **actual**: 3 new system-design FMs (FM-15 cargo-cult masking, FM-16 silent proxy-K threshold, FM-17 dispatch-frontier gap). FM-14 MINIMAL→ADEQUATE (check.sh git fsck). FM-09 reclassified ADEQUATE (already at threshold). 0 INADEQUATE, 11 MINIMAL, 4 ADEQUATE. NAT 27s early.
+- **diff**: Expected ≥1 FM — got 3 (exceeded). Expected ~S427 — got S403 (24s early). Did NOT predict layer shift: new FMs are system-design (signals/dispatch/metadata) not infrastructure (git/WSL). NAT consistently overestimates by ~24s.
+- **also**: DOMEX-STR-S403 pre-empted by concurrent session (L-866 already written, H4 already measured). Confirmed anti-repeat check working. DOMEX-FRA-S403 collision resolved by pivoting.
+- **meta-swarm**: f_con3_constitution_monitor.py deleted S359 without defense-layer transfer — CLAUDE.md and PHILOSOPHY.md not hash-protected. Broader risk: tool deletion can silently remove defense layers. Concrete target: maintenance.py cross-reference tool deletions against FMEA registry.
+- **State**: 785L 201P 20B 21F | L-872 | F-CAT1 FMEA updated | FM-14 ADEQUATE | 17 total FMs
+- **Next**: (1) FM-16 fix: remove clean-tree gating on proxy-K URGENT (L-849); (2) FM-15 fix: remove cargo-cult fields from open_lane.py (L-858); (3) Proxy-K measurement periodic (20s overdue); (4) Mission constraint reswarm (22s overdue)
+
 ## S404 session note (DOMEX-STR-S404: F-STR3 H4 + escalation architecture — L-866 updated)
 - **check_mode**: verification | **lane**: DOMEX-STR-S404 (MERGED) | **dispatch**: strategy (#1, UCB1=4.6)
 - **actual**: Targeting 21.7% (5/23). Valley escapes 5. Escalation is 2-level (domain L1-L4 + frontier L5).
