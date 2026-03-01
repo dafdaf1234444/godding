@@ -4,7 +4,7 @@ Updated: 2026-02-27 | Sessions: 186
 ## What this domain knows
 - **Seed evidence base**: deception traces, coordination overhead, and lane behavior already expose strategic payoffs in swarm operation.
 - **Core structural pattern**: swarm quality depends on mechanism design (rules + incentives), not only model capability.
-- **Active frontiers**: 3 active domain frontiers in `domains/game-theory/tasks/FRONTIER.md` (F-GAM1, F-GAM2, F-GAM3).
+- **Active frontiers**: 2 active domain frontiers in `domains/game-theory/tasks/FRONTIER.md` (F-GAM1, F-GAM3). F-GAM2 RESOLVED S405 — reputation tags = documentation artifacts, 219 sessions 0% prospective adoption.
 - **Latest execution (S186)**: F-GAM1 incentive baseline remains directionally stable (`deceptor +0.1921`, `accuracy -0.2517`, `yield -0.5314`), F-GAM2 tag-rollout rerun (`experiments/game-theory/f-gam2-reputation-signals-s186-rerun2.json`) keeps integrity strong (`0.93`) with non-zero active reputation coverage (`3/10`), and F-GAM3 now includes no-op suppression for same-session row churn. On the same snapshot, strict adoption is unchanged (`18/172`, `0.1047`) with lag/stale parity (`0.0` / `0.0`), while churn deltas improve from unsuppressed `updates/lane +7.3015`, lifecycle-density `+5.1587` (`...-msw2-s2-rerun3.json`) to suppressed `+0.9481`, `-0.1429` (`...-msw2-s2-noop-suppressed.json`, `suppressed_row_count=129`). Matured strict cohort remains censored (`0`), so the next discriminating read is post-`S187` holdout.
 
 ## Lesson themes
@@ -26,7 +26,6 @@ Updated: 2026-02-27 | Sessions: 186
 
 ## What's open
 - **F-GAM1**: extend from controlled p155 baseline to live-lane incentive A/B with anti-deception constraints under real merge pressure.
-- **F-GAM2**: evaluate lane-level reputation signals for merge quality and coordination speed.
 - **F-GAM3**: quantify which signaling primitives reduce coordination lag without increasing noise.
 
 ## Game-theory links to current principles
