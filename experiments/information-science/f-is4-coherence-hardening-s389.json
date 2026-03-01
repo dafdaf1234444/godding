@@ -1,0 +1,367 @@
+{
+  "merge_collisions": {
+    "total_domex_lanes": 269,
+    "same_session_collisions": 78,
+    "collision_merged": 61,
+    "collision_abandoned": 17,
+    "adjacent_session_overlaps": 61,
+    "collision_rate": 0.29,
+    "collision_abandon_rate": 0.2179,
+    "top_collision_domains": [
+      {
+        "domain": "meta",
+        "count": 31
+      },
+      {
+        "domain": "nk-complexity",
+        "count": 9
+      },
+      {
+        "domain": "linguistics",
+        "count": 8
+      },
+      {
+        "domain": "security",
+        "count": 4
+      },
+      {
+        "domain": "graph-theory",
+        "count": 4
+      },
+      {
+        "domain": "stochastic-processes",
+        "count": 4
+      },
+      {
+        "domain": "expert-swarm",
+        "count": 3
+      },
+      {
+        "domain": "helper-swarm",
+        "count": 3
+      },
+      {
+        "domain": "strategy",
+        "count": 2
+      },
+      {
+        "domain": "fluid-dynamics",
+        "count": 2
+      }
+    ],
+    "verdict": "DEGRADED: high collision rate — scope partitioning needed"
+  },
+  "cross_domain_transfers": {
+    "total_citations_in_headers": 786,
+    "cross_domain_citations": 262,
+    "transfer_rate": 0.3333,
+    "unique_domain_pairs": 88,
+    "lessons_with_domain": 337,
+    "lessons_without_domain": 358,
+    "domain_coverage_pct": 48.5,
+    "top_transfer_pairs": [
+      {
+        "pair": [
+          "governance",
+          "meta"
+        ],
+        "count": 15
+      },
+      {
+        "pair": [
+          "meta",
+          "quality"
+        ],
+        "count": 13
+      },
+      {
+        "pair": [
+          "meta",
+          "nk-complexity"
+        ],
+        "count": 13
+      },
+      {
+        "pair": [
+          "meta",
+          "stochastic-processes"
+        ],
+        "count": 12
+      },
+      {
+        "pair": [
+          "expert-swarm",
+          "meta"
+        ],
+        "count": 11
+      },
+      {
+        "pair": [
+          "meta",
+          "strategy"
+        ],
+        "count": 11
+      },
+      {
+        "pair": [
+          "conflict",
+          "meta"
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          "meta",
+          "security"
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          "nk-complexity",
+          "security"
+        ],
+        "count": 9
+      },
+      {
+        "pair": [
+          "brain",
+          "meta"
+        ],
+        "count": 8
+      },
+      {
+        "pair": [
+          "helper-swarm",
+          "meta"
+        ],
+        "count": 7
+      },
+      {
+        "pair": [
+          "information-science",
+          "meta"
+        ],
+        "count": 7
+      },
+      {
+        "pair": [
+          "fluid-dynamics",
+          "meta"
+        ],
+        "count": 5
+      },
+      {
+        "pair": [
+          "economy",
+          "expert-swarm"
+        ],
+        "count": 5
+      },
+      {
+        "pair": [
+          "nk-complexity",
+          "stochastic-processes"
+        ],
+        "count": 5
+      }
+    ],
+    "verdict": "HEALTHY: strong cross-domain flow"
+  },
+  "index_overflow": {
+    "total_buckets": 4,
+    "total_lines": 51,
+    "buckets": {
+      "Themes (693 lessons)": 26,
+      "Structure": 11,
+      "What to load when": 10,
+      "What the swarm knows": 4
+    },
+    "overflow_buckets": {},
+    "overflow_count": 0,
+    "verdict": "HEALTHY: no bucket exceeds 40 lines"
+  },
+  "numerical_drift": {
+    "sampled_claims": 10,
+    "verified": 7,
+    "stale": 1,
+    "unverified": 2,
+    "drift_rate": 0.1,
+    "claims": [
+      {
+        "type": "lesson_count",
+        "claimed": "693",
+        "source": "NEXT.md",
+        "status": "close",
+        "context": "Updated: 2026-03-01 S390 | 693L 185P 20B 21F"
+      },
+      {
+        "type": "principle_count",
+        "claimed": "185",
+        "source": "NEXT.md",
+        "status": "stale (actual=222)",
+        "context": "Updated: 2026-03-01 S390 | 693L 185P 20B 21F"
+      },
+      {
+        "type": "belief_count",
+        "claimed": "20",
+        "source": "NEXT.md",
+        "status": "verified",
+        "context": "Updated: 2026-03-01 S390 | 693L 185P 20B 21F"
+      },
+      {
+        "type": "frontier_count",
+        "claimed": "21",
+        "source": "NEXT.md",
+        "status": "verified",
+        "context": "Updated: 2026-03-01 S390 | 693L 185P 20B 21F"
+      },
+      {
+        "type": "session_count",
+        "claimed": "389",
+        "source": "FRONTIER.md",
+        "status": "unverifiable",
+        "context": "- **F-COMP1**: Can swarm produce external outputs to ground self-assessment? OPEN: 389 sessions, 0 external outputs, 0 e"
+      },
+      {
+        "type": "k_avg",
+        "claimed": "2.4738",
+        "source": "NEXT.md",
+        "status": "unverifiable-without-tool",
+        "context": "- **actual**: K_avg=2.4738 (within 1% of prediction). P-222 effect +49% within DOMEX era (3.21→4.79 edges/L, t=3.66, d=0"
+      },
+      {
+        "type": "lesson_count",
+        "claimed": "692",
+        "source": "NEXT.md",
+        "status": "close",
+        "context": "- **State**: ~692L 185P 20B 21F | L-765 | F-COMP1 PARTIAL | DOMEX-COMP-S389 MERGED | frontier count 33→21"
+      },
+      {
+        "type": "lesson_count",
+        "claimed": "691",
+        "source": "NEXT.md",
+        "status": "close",
+        "context": "- **State**: ~691L 185P 20B 21F | L-763 | F-QC5 ADVANCED | DOMEX-QC-S388 MERGED"
+      },
+      {
+        "type": "lesson_count",
+        "claimed": "689",
+        "source": "NEXT.md",
+        "status": "close",
+        "context": "- **State**: ~689L 184P 20B 35F | L-762 | F-FLD2 FALSIFIED | DOMEX-FLD-S389 MERGED | fluid-dynamics 0 active frontiers"
+      },
+      {
+        "type": "lesson_count",
+        "claimed": "687",
+        "source": "NEXT.md",
+        "status": "close",
+        "context": "- **State**: ~687L 184P 20B 35F | L-760 | F-QC5 ADVANCED | DOMEX-QC-S387 MERGED | sync_state.py + swarm_parse.py B/F cou"
+      }
+    ],
+    "ground_truth": {
+      "lessons": 695,
+      "principles": 222,
+      "beliefs": 20,
+      "frontiers": 21
+    },
+    "verdict": "WATCH: some stale numbers — sync_state.py coverage gap"
+  },
+  "dark_citations": {
+    "total_lessons": 695,
+    "lessons_with_dark_citations": 295,
+    "total_header_refs": 1390,
+    "total_body_refs": 1783,
+    "total_dark_refs": 393,
+    "dark_mass_pct": 22.04,
+    "dark_lesson_pct": 42.4,
+    "examples": [
+      {
+        "lesson": "L-002",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-001"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-003",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-001"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-011",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-001"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-026",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-613"
+        ],
+        "header_count": 4
+      },
+      {
+        "lesson": "L-027",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-025"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-028",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-003"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-029",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-618"
+        ],
+        "header_count": 4
+      },
+      {
+        "lesson": "L-030",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-019"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-031",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-001"
+        ],
+        "header_count": 0
+      },
+      {
+        "lesson": "L-032",
+        "dark_count": 1,
+        "dark_refs": [
+          "L-036"
+        ],
+        "header_count": 0
+      }
+    ],
+    "verdict": "WATCH: dark citations 20-30% — run lesson_quality_fixer.py --fix"
+  },
+  "coherence_score": 3.6,
+  "key_finding": "Coherence score 3.6/5 — weakest dimension is merge collisions (score 1.0/5).",
+  "prescription": "Add domain-lock in dispatch_optimizer.py: if domain has active lane, skip or add COLLISION_WARNING to lane Etc field.",
+  "session": "S389",
+  "method": "5-dimension coherence probe: merge collisions (lane overlap), cross-domain transfer (citation flow), INDEX overflow (retrieval), numerical drift (claim verification), dark citations (implicit flow)"
+}
