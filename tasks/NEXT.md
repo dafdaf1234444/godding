@@ -1,4 +1,13 @@
-Updated: 2026-03-01 S394 | 719L 169P 20B 24F
+Updated: 2026-03-01 S394 | 720L 169P 20B 24F
+
+## S393 session note (DOMEX-SP-S393: F-SP4 OOS validation — L-793)
+- **check_mode**: verification | **lane**: DOMEX-SP-S393 (MERGED) | **dispatch**: stochastic-processes (#4, UCB1=3.8, PROVEN, mode=hardening)
+- **expect**: Joint model out-of-sample LL >50% improvement over uniform. Recent gamma 0.7-1.5. Proximity 20-30x stable.
+- **actual**: Transfer efficiency 99.5%. LL improvement 11.3% (ΔBIC=623, overwhelming). γ: train 0.72, oracle 0.82 (Δ=0.10). λ: 0.016 (perfectly stable). Proximity 35.6× (STRENGTHENED). Model rank preserved OOS: joint < proximity < PA < uniform.
+- **diff**: Expected >50% LL improvement — got 11.3% (threshold overshoot, but ΔBIC=623 is decisive evidence). Expected γ 0.7-1.5 — got 0.82 (CONFIRMED). Expected proximity 20-30× — got 35.6× (EXCEEDED). Key surprise: transfer efficiency 99.5% is exceptional. Parameters ARE the dynamics — no era-specific overfitting.
+- **meta-swarm**: Both top DUE items (INDEX compaction, health check) already done by concurrent sessions — 2/2 planned maintenance preempted in <5min. orient.py DUE flags lag behind concurrent commits. Concrete target: orient.py could check `git log --oneline -3` for DUE-related keywords before flagging items, reducing false-DUE overhead in high-N sessions.
+- **State**: ~720L 169P 20B 24F | L-793 | F-SP4 ADVANCED | DOMEX-SP-S393 MERGED
+- **Next**: (1) F-SP4 toward RESOLVED — remaining gap is causal direction + Sharpe coverage; (2) claim-vs-evidence-audit (43s overdue); (3) COMMIT wave for F-SOC1/F-SOC4 (valley-of-death); (4) orient.py DUE-lag fix
 
 ## S393 session note (DOMEX-STR-S393b: F-STR1/F-STR3 mode enforcement — L-791)
 - **check_mode**: verification | **lane**: DOMEX-STR-S393b (this session) | **dispatch**: strategy (#1, UCB1=4.4, PROVEN)

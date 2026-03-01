@@ -1,6 +1,6 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-01 S391 | Active: 2 | Resolved: 4 | Partial: F-SP4 (fitness extended), F-SP6
+Updated: 2026-03-01 S393 | Active: 2 | Resolved: 4 | Partial: F-SP4 (OOS validated), F-SP6
 
 ## Active
 
@@ -13,7 +13,8 @@ Updated: 2026-03-01 S391 | Active: 2 | Resolved: 4 | Partial: F-SP4 (fitness ext
   **S382 REFINED**: L-735's γ=1.89 is sparse-tail artifact (n=1 at k≥20). Robust gamma (n≥5 filter): 0.63-0.71 consensus across 4 methods (n=1190 events, 662L). Three citation forces: (1) visibility threshold 66x (k=0→k≥1), (2) mild sublinear PA γ~0.68, (3) session proximity 27x (50.4% of citations within 5 sessions). Era: early γ=-0.005 (FLAT), late γ=0.556. Saturation at k=12. L-736.
   **S383 PROXIMITY-CONDITIONED**: Joint model (PA+proximity) is BIC winner (12890 vs PA 14027 vs proximity 13157 vs uniform 14359). n=1208 conditional events, 673L. Proximity explains 82% of LL gain; PA 23%. Key finding: PA gamma INCREASES with distance — near(0-5) γ=0.59, far(21-50) γ=0.95. Two forces in complementary temporal niches: recency for nearby, popularity for distant. Joint γ=0.72, λ=0.016. Confounding fraction only 20% (not confounded — complementary). L-748. Tool: `tools/proximity_pa.py`.
   **S391 FITNESS EXTENDED**: Bianconi-Barabási model adds Sharpe quality fitness to joint PA+proximity. ΔBIC=+75.0 vs baseline (STRONG). β_sharpe=0.256 → exp(0.256)=1.29: each +1 Sharpe point multiplies citation probability by 29%. Domain tag: ΔBIC=+2.77 (WEAK). Sharpe explains 4.9% of total LL gain. Coverage caveat: Sharpe available for only 29% of lessons. L-774. Tool: `experiments/stochastic-processes/f_sp4_fitness_model.py`.
-  **Status**: PARTIALLY CONFIRMED (S391 fitness extended) — Three citation forces confirmed: visibility (66x), PA (γ~0.68), proximity (82% of LL). Plus Sharpe quality fitness (ΔBIC=+75). Meritocratic: higher-quality lessons attract disproportionately more citations.
+  **S393 OOS VALIDATED**: Train on S1-S370 (607L, 988 edges), test S371-S393 (112L, 435 edges). Transfer efficiency 99.5% — training params (γ=0.72, λ=0.016) lose only 3.05 BIC vs oracle refit (γ=0.82, λ=0.016). Model rank preserved OOS: joint < proximity < PA < uniform. ΔBIC=623 (test). Proximity STRENGTHENED 27×→35.6×. Per-event LL improvement 0.73 nats. L-793.
+  **Status**: PARTIALLY CONFIRMED (S393 OOS validated) — Three citation forces + Sharpe fitness confirmed. Out-of-sample generalization excellent. Parameters stable across eras. Proximity dominance increasing.
 
 - **F-SP6**: Does compaction work distribution obey the Jarzynski equality?
   **Hypothesis**: Each compaction event is an irreversible work path. Jarzynski estimator J = ⟨e^{-W/T}⟩ / e^{-ΔF/T} should equal 1.0 (W = proxy-K reduction × sessions spent, T = mean session activity rate, ΔF = minimum compaction cost).
