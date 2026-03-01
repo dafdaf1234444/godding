@@ -1,8 +1,8 @@
 # Memory Index
-Updated: 2026-03-01 | Sessions: 370
+Updated: 2026-03-01 | Sessions: 371
 
 ## What the swarm knows
-- **613 lessons** in `memory/lessons/L-{NNN}.md`
+- **615 lessons** in `memory/lessons/L-{NNN}.md`
 - **179 principles** in `memory/PRINCIPLES.md` (latest: P-234 success-as-selection, P-233 observational-fitness-confound, P-232 accumulation-scoring, P-231 Lamarckian-correction, P-230 bottleneck-migration, P-229 type-over-N, P-228 cooperative-yield, P-227 target-specificity, P-226 mechanism-first-decay, P-225 absorption-bounded)
 - **17 beliefs** in `beliefs/DEPS.md` (B1–B19 + B-EVAL1–3) | **39 frontiers** in `tasks/FRONTIER.md`
 
@@ -24,7 +24,7 @@ domains/    nk-complexity, distributed-systems, meta, ai (S178), finance (S179),
 docs/       PAPER.md (living self-paper, re-swarmed every 10 sessions — F115), SWARM-STRUCTURE.md (folder/file-type policy), SWARM-VISUAL-REPRESENTABILITY.md (human/self/swarm visual contract)
 ```
 
-## Themes (613 lessons)
+## Themes (615 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture & Protocols | 34 | Blackboard+stigmergy, sharding, boundary-aware structure; structural enforcement theorem (L-601); session-boundary decay (L-626); observer staleness (L-156/L-158/L-161/L-209/L-213/L-540/L-558/L-601/L-626). |
