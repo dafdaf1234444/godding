@@ -1,0 +1,99 @@
+{
+  "experiment": "F-SP4 extension: Agent-level covariates in citation attachment",
+  "session": "S394",
+  "lane": "DOMEX-SP-S394",
+  "date": "2026-03-01",
+  "method": "Extend F-SP4 joint PA+proximity model with per-session attributes (is_domex, citation_reach). Grid search over \u03b3, \u03bb, \u03b2_domex, \u03b2_reach. Compare 4 models via BIC.",
+  "data": {
+    "n_lessons": 724,
+    "n_sessions_profiled": 159,
+    "n_sessions_typed": 191,
+    "n_domex_sessions": 70,
+    "n_events": 1414
+  },
+  "models": {
+    "baseline": {
+      "params": {
+        "gamma": 0.76,
+        "lambda": 0.016
+      },
+      "ll": -7590.23,
+      "bic": 15194.96,
+      "k": 2
+    },
+    "domex": {
+      "params": {
+        "gamma": 0.76,
+        "lambda": 0.016,
+        "beta_domex": 0.3
+      },
+      "ll": -7583.87,
+      "bic": 15189.49,
+      "k": 3
+    },
+    "reach": {
+      "params": {
+        "gamma": 0.72,
+        "lambda": 0.014,
+        "beta_reach": 0.2
+      },
+      "ll": -7571.96,
+      "bic": 15165.68,
+      "k": 3
+    },
+    "full": {
+      "params": {
+        "gamma": 0.72,
+        "lambda": 0.014,
+        "beta_domex": 0.0,
+        "beta_reach": 0.2
+      },
+      "ll": -7571.96,
+      "bic": 15172.93,
+      "k": 4
+    }
+  },
+  "bic_deltas": {
+    "domex_vs_baseline": 5.47,
+    "reach_vs_baseline": 29.29,
+    "full_vs_baseline": 22.03
+  },
+  "effect_sizes": {
+    "beta_domex": 0.3,
+    "domex_multiplier": 1.35,
+    "beta_reach": 0.2,
+    "reach_multiplier": 1.221
+  },
+  "interpretation": {
+    "domex": "+domex: MODERATE improvement (\u0394BIC=+5.5)",
+    "reach": "+reach: STRONG improvement (\u0394BIC=+29.3)",
+    "full": "full: STRONG improvement (\u0394BIC=+22.0)"
+  },
+  "expectations": {
+    "domex_improves_bic_gt10": false,
+    "reach_positive_beta": true,
+    "full_model_best": false
+  },
+  "descriptive": {
+    "maintenance": {
+      "n": 177,
+      "avg_citations": 1.65,
+      "cited_pct": 0.65
+    },
+    "mixed": {
+      "n": 34,
+      "avg_citations": 0.53,
+      "cited_pct": 0.294
+    },
+    "unknown": {
+      "n": 15,
+      "avg_citations": 0.53,
+      "cited_pct": 0.267
+    },
+    "domex": {
+      "n": 372,
+      "avg_citations": 2.35,
+      "cited_pct": 0.691
+    }
+  }
+}

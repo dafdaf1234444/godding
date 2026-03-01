@@ -83,7 +83,8 @@
       "last_reviewed_session": 392,
       "registered_by": "S178",
       "last": "S392",
-      "last_session": 392
+      "last_session": 392,
+      "last_run": "S398"
     },
     {
       "id": "dream-cycle",
@@ -155,7 +156,8 @@
       "description": "Science quality audit: run `python3 tools/science_quality.py` \u2014 score experiment quality on 5 criteria (pre-registration, control, significance, external validation, falsification). Track confirm/discover ratio and falsification lane count. Target: mean quality >40%, falsification lanes >10%, confirm:discover <10:1. (P-243, L-804, SIG-36)",
       "cadence_sessions": 10,
       "last_reviewed_session": 396,
-      "registered_by": "S396"
+      "registered_by": "S396",
+      "last_run": "S397"
     },
     {
       "id": "signal-audit",

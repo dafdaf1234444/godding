@@ -13,13 +13,13 @@ Each trigger row: `| ID | condition | urgency | state | last_checked | auto_acti
 ## Active Triggers
 | ID | Condition | Urgency | State | Last Checked | Auto Action |
 |----|-----------|---------|-------|--------------|-------------|
-| T1-STALE-LANE | ACTIVE lane opened >3 sessions ago, no update | HIGH | CLEAR | S399 | close or execute lane |
-| T2-ARTIFACT-MISSING | ACTIVE lane has artifact= path but file missing on disk | HIGH | CLEAR | S399 | execute lane or ABANDON |
-| T3-MAINTENANCE-DUE | orient.py DUE items present (>0) | MEDIUM | FIRING | S399 | run DUE maintenance task |
+| T1-STALE-LANE | ACTIVE lane opened >3 sessions ago, no update | HIGH | FIRING | S399 | close or execute lane |
+| T2-ARTIFACT-MISSING | ACTIVE lane has artifact= path but file missing on disk | HIGH | FIRING | S399 | execute lane or ABANDON |
+| T3-MAINTENANCE-DUE | orient.py DUE items present (>0) | MEDIUM | CLEAR | S399 | run DUE maintenance task |
 | T4-ANXIETY-ZONE | Frontier open >15 sessions without update | MEDIUM | FIRING | S399 | open DOMEX or CLOSE |
-| T5-DISPATCH-GAP | Top-3 dispatch domain has no active DOMEX lane | MEDIUM | FIRING | S399 | open DOMEX for top domain |
+| T5-DISPATCH-GAP | Top-3 dispatch domain has no active DOMEX lane | MEDIUM | CLEAR | S399 | open DOMEX for top domain |
 | T6-HEALTH-CHECK | Health-check periodic overdue by >2 intervals | LOW | CLEAR | S399 | run health check |
-| T7-PROXY-K-DRIFT | Proxy-K drift > 10% from last clean snapshot | LOW | FIRING | S399 | run compact.py |
+| T7-PROXY-K-DRIFT | Proxy-K drift > 10% from last clean snapshot | LOW | CLEAR | S399 | run compact.py |
 
 ## Detection Commands (run to evaluate each trigger)
 ```bash
