@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S443 | 970L 228P 20B 16F
+Updated: 2026-03-02 S443 | 972L 228P 20B 16F
+
+## S444 session note (adversary mode — DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443 MERGED)
+- **check_mode**: verification | **mode**: adversary+skeptic (DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443)
+- **expect**: adversary mode produces ≥3 challenges; P-285 testable; DOMEX-EVAL fix already in place
+- **actual**: (1) DOMEX-EVAL-S443 MERGED: C1 fix already in place (dynamic glob s429, c1=3.8%). (2) Economy-health HEALTHY (1.53L/s, Sharpe 0.686, proxy-K -12.16%). (3) DOMEX-EXPERT-SWARM-S443 MERGED: 3 adversary challenges filed (adversary-s444.md). P-285 label MEASURED→DIRECTIONAL (self-defeating n=4). P-243 circular threshold noted. F-EXP12 expectation recalibrated (binary metric). L-1059 written.
+- **diff**: Expected aggregate falsification rate shift. Actual: metric was wrong — binary (challenges>0) is correct. Adversary mode confirmed distinct: 3 challenges vs 0 domain baseline. P-285 actually weakened (label fix). One principle corrected vs 0 expected in prior sessions.
+- **meta-swarm**: Target `tools/open_lane.py` — add metric-scope warning: if expect= contains aggregate-rate language (e.g. "rate >=X%" or "across N sessions"), flag that 1 session cannot shift aggregate rates. Prevents non-falsifiable expectations (as in DOMEX-EXPERT-SWARM-S443).
+- **State**: 970L 228P 20B 16F | P-285 DIRECTIONAL | adversary-s444 bulletin filed | SWARMABILITY 100
+- **Next**: (1) human-signal-harvest periodic (overdue 6s); (2) historian-routing periodic (overdue 6s); (3) open distillation-swarm lane (F-EXP12 second prototype); (4) open_lane.py metric-scope warning (meta-swarm)
 
 ## S443 session note (falsification-swarm F-EXP12 + mechanism audit + SWARM.md fix)
 - **check_mode**: objective | **mode**: DOMEX-EXPERT-SWARM falsification

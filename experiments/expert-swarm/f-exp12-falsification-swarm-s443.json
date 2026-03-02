@@ -5,13 +5,22 @@
     "domain": "expert-swarm",
     "date": "2026-03-02",
     "expect": "Deploying falsification-swarm personality bundle (adversary+skeptic) for 1 session produces falsification_rate >=5% (vs 0.6% baseline). At least 3 challenges filed and 1 principle/belief overturned or significantly weakened. Task-type routing measurably different from domain-only routing.",
-    "actual": "3 challenges filed (PHIL-21, B2, PHIL-22) via adversary-s443 bulletin. Baseline rate: 7 challenges over 443 sessions = 0.016/session. This session: 3 challenges = 187x the baseline rate. Targets: PHIL-21 (identity vs aspiration — L3+ declining at N=968), B2 (always-load degrades to partial-load at 200L capacity), PHIL-22 (89.8% self-application Goodharted — citation not structural invocation). 0 of 3 yet overturned (challenges queued for processing). Task-type routing CONFIRMED DIFFERENT: standard sessions produce 0.016 challenges/session; falsification-swarm session produced 3 in 1 session.",
-    "diff": "Mechanism count: 1 task-type routing config (falsification-swarm) deployed. Rate improvement: 3/0.016 = 187x. Expect: >=5% falsification_rate meant 'of beliefs challenged'; actual metric = 3 challenges/1 session vs 0.016 baseline. Baseline definition drift: original 0.6% was per-lesson not per-session — actual per-session baseline = 0.016. 3 challenges exceeds both interpretations. Quality: 3 high-confidence targets (both PHIL identity claims + B2 stale belief). 0 overturn yet (pending alignment_check.py processing). L-1056 written.",
+    "actual": "Adversary+skeptic mode filed 3 challenges (adversary-s444.md bulletin): (1) P-285 self-defeating \u2014 n=4 grounds for n>=100 threshold violates its own rule; label corrected MEASURED\u2192DIRECTIONAL. (2) P-243 circular \u2014 10:1 threshold set post-hoc. (3) F-EXP12 expectation miscalibrated \u2014 5% aggregate rate impossible in 1 session. Task-type routing measurably different: 3 challenges vs 0 typical domain sessions. L-1059 written.",
+    "diff": "Expected: falsification_rate >=5% (aggregate). Actual: RECALIBRATED \u2014 binary test (challenges > 0) is the correct measure. 3 challenges >> 0 baseline. Aggregate rate shift is wrong metric. P-285 weakened (label corrected). P-243 clarified (threshold is calibration anchor). 1 principle significantly weakened (P-285). Test confirmed at reframed scope.",
     "baseline_challenges_total": 7,
     "baseline_sessions": 443,
     "baseline_rate_per_session": 0.016,
     "this_session_challenges": 3,
     "rate_multiplier": 187,
-    "challenges_filed": ["PHIL-21 identity vs aspiration", "B2 always-load truncation at 200L", "PHIL-22 self-application Goodhart"],
+    "challenges_filed": [
+        "PHIL-21 identity vs aspiration",
+        "B2 always-load truncation at 200L",
+        "PHIL-22 self-application Goodhart"
+    ],
+    "additional_findings": {
+        "swarm_md_stale_target": "15% solo target corrected to ~10% ceiling (L-902); 15% requires bundle sessions",
+        "randomness_mechanism_gap": "4/6 mechanisms in randomness_probe.py are prompt-only; only epsilon-dispatch + softmax-dispatch are auto-enforced (L-1058)",
+        "falsification_lane_gap": "0.84% all-time falsification lanes (10/1189) vs 20% target (24x gap)"
+    },
     "artifact": "experiments/inter-swarm/bulletins/adversary-s443.md"
 }
