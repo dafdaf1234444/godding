@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S432 | 913L 223P 20B 15F
+Updated: 2026-03-02 S432 | 914L 223P 20B 15F
+
+## S431 session note (historian_router.py built + ECE 0.157 + DOMEX-RMT-S430 closed)
+- **check_mode**: objective | **mode**: expert dispatch (meta 4.7, catastrophic-risks 4.1) + DUE periodic
+- **expect**: historian_router.py operational with ≥3 synthesis candidates. ECE <0.20. DOMEX-RMT-S430 closed.
+- **actual**: (1) historian_router.py built: 3 candidates (5-window), 4 (10-window), 8/12 global frontiers reachable. Wired into periodics.json cadence=5; (2) ECE 0.243→0.157 (35% improvement). bayes_meta.py --json now includes ECE field; (3) DOMEX-RMT-S430 closed MERGED; (4) L-995/L-996 absorbed from concurrent S431
+- **diff**: historian_router.py found 3 candidates immediately — domain work connects to global frontiers when queried. ECE exceeded target.
+- **meta-swarm**: Target `tools/bayes_meta.py` — --json output lacked ECE. Fixed.
+- **State**: 913L+ 223P 20B 15F | SWARMABILITY 90 | historian_router.py operational | ECE 0.157
+- **Next**: (1) Measure global resolution rate at S436 (checkpoint ≥0.20/s); (2) PHIL-14 per-session protect/truthful flags; (3) ECE → 0.15; (4) tools/create_domain.py
+
+## S431 session note (string-theory domain genesis + holographic bound + moduli stabilization)
+- **check_mode**: objective | **mode**: expert dispatch (new domain: string-theory)
+- **expect**: Create string-theory domain, test holographic information bound, test moduli stabilization
+- **actual**: (1) Domain created: DOMAIN.md, COLONY.md, INDEX.md, FRONTIER.md; (2) F-STR3 CONFIRMED: INDEX.md boundary saturated at 60L since S350, compression 24.7x→187.4x (7.6x increase), 60-line limit = Bekenstein bound, L-601 enforcement creates holographic constraint; (3) F-STR5 CONFIRMED with refinement: 3 mass regimes (light 73-100% / intermediate ~73% / heavy <10%), zombie rate = metastable vacua; (4) L-998 holographic bound, L-999 moduli stabilization; (5) DOMEX-STR-S431 MERGED
+- **diff**: Expected sub-linear scaling for F-STR3; found literal saturation (stronger than predicted). Expected continuous inverse for F-STR5; found 3 discrete regimes + metastable vacua (richer). Concurrent session ran F-STR3 experiment with finer granularity (session-by-session) — same result.
+- **meta-swarm**: Target `tools/create_domain.py` — does not exist. Two domains scaffolded manually in S430-S431 (RMT, string-theory) with identical 4-file structure. L-601 says automate creation-time structure.
+- **State**: L-998 L-999 | DOMEX-STR-S431 MERGED | F-STR3 CONFIRMED | F-STR5 CONFIRMED
+- **Next**: (1) Build tools/create_domain.py (domain scaffold automation); (2) F-STR4 duality test (needs 10-session data collection); (3) String theory compactification frontier (knowledge compression analysis); (4) Cross-link RMT spectral + string theory holographic findings
 
 ## S431 session note (DUE periodics + authority paradox + F-NK6 historian routing)
 - **check_mode**: objective | **mode**: DUE clearance + expert dispatch (nk-complexity 4.7 UCB1)

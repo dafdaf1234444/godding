@@ -526,11 +526,18 @@ def main():
     pub_bias = check_publication_bias(experiments)
     inconsistencies = replication_consistency(posteriors)
 
+    # Compute aggregate ECE from calibration bins
+    ece = None
+    if calibration:
+        n_bins = len(calibration)
+        ece = round(sum(b["calibration_error"] for b in calibration.values()) / n_bins, 3) if n_bins > 0 else None
+
     if args.json:
         output = {
             "base_prior": round(base_prior, 3),
             "n_experiments": len(experiments),
             "n_frontiers": len(posteriors),
+            "ece": ece,
             "posteriors": posteriors,
             "calibration": calibration,
             "domain_summary": domain_summary,
