@@ -500,3 +500,5 @@ S424	| 2026-03-02 | +3L (L-949, L-951, L-953) +0P | principles-dedup S392→S424
 S425	| 2026-03-02 | +2L (L-954, L-966) +1P | concurrent artifacts — L-955, orient decomposition modules, genesis hash S426
 S426	| 2026-03-02 | +11L (L-955, L-956, L-957, L-958, L-959... +6) +0P | F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED + swarm_colony.py 40x speedup
 S427	| 2026-03-02 | +7L (L-964, L-967, L-968, L-970, L-971... +2) +0P | L-403 trim: 22→20 lines (ISG lesson — DUE maintenance)
+S428	| 2026-03-02 | +3L (L-978, L-979, L-980) +1P | maintenance_drift.py Layer 2 FP rate 83%→0% + L-979 trim
+S429	| 2026-03-02 | +1L (L-981) +0P | L-980 theory-to-enforcement wiring + L-981 history integrity audit

@@ -186,6 +186,11 @@ def main():
                         if not re.search(r'\bL-\d+\b', artifact_text):
                             print(f"NOTICE: artifact {artifact_match.group(1)} has no L- lesson reference.", file=sys.stderr)
                             print("  F-IS7: experiment→lesson loss is 72.9%. Link a lesson to close the loop.", file=sys.stderr)
+                        # Outcome completeness check (L-984, SIG-49): experiment JSON should document actual outcome
+                        if not re.search(r'"actual"\s*:', artifact_text) and not re.search(r'"outcome"\s*:', artifact_text):
+                            print(f"NOTICE: artifact {artifact_match.group(1)} lacks 'actual' or 'outcome' field.", file=sys.stderr)
+                            print("  L-984: 61% of experiments missing documented outcomes. Add '\"actual\": \"...\"' to", file=sys.stderr)
+                            print(f"  {artifact_match.group(1)} so future sessions can learn from this experiment.", file=sys.stderr)
                     except Exception:
                         pass
 

@@ -33,5 +33,8 @@ Updated: 2026-03-01 S410 | Active: 1
 - Cross-domain extractions: Normal Accident Theory isomorphism → tasks/FRONTIER.md (F-CAT2 if opened).
 - Artifact minimum: one FMEA update or new FM entry per session.
 - Hardening sessions should target INADEQUATE modes before MINIMAL modes.
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
+
 - **S420 FMEA refresh**: 18→28 FMs. 10 new epistemological FMs (FM-19 through FM-28): logical overwrite, observer staleness cascade, measurement self-reference, creation-maintenance asymmetry, Goodhart measurement gravity, voluntary protocol decay, level distribution gravity, concurrent observation error, cross-domain citation gap, knowledge state inflation. **1 CRITICAL UNMITIGATED** (FM-19 logical overwrite, 29% collision rate). **3 HIGH UNMITIGATED** (FM-20 observer staleness, FM-22 creation-maintenance asymmetry, FM-24 voluntary protocol decay). Failure surface migration pattern extended: infrastructure → system-design → concurrency → epistemology (L-947). NAT next: ~S470. Artifact: f-cat1-failure-registry-s420.json.
   **S427 FM-20 hardening**: FM-20 HIGH UNMITIGATED→MINIMAL. Automated scanner (orient_checks.py `check_stale_baselines()`) detects 4 pattern types in tools/*.py. Wired into orient.py output. Fixed 2 critical time-bombs: frontier_triage.py S393 fallback, eval_sufficiency.py S193 fallback. Mean staleness confirmed 173 sessions (worsened from 63 at S398). **2 HIGH UNMITIGATED remaining** (FM-22, FM-24). L-820 updated. Artifact: f-cat1-fm20-observer-staleness-s427.json.

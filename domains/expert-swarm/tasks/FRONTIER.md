@@ -40,3 +40,7 @@ Updated: 2026-03-02 S426 | Active: 4
 | F-EXP4 | PARTIALLY FALSIFIED — colony +23.9pp merge rate (n=549) confounded by meta-domain dominance (excl. meta: +0.5pp). Within-domain controls: brain +46pp, physics +43pp (small N). Colony improves quality not throughput (-44% merges/session vs bundling). 36/41 COLONY.md structural artifacts. Colony for depth (<75% merge baseline), bundling for breadth (>85%). L-917. | S412 | 2026-03-01 |
 | F-EXP5 | YES — annotation pass raised cite rate 3.4%→8.5% (2.5x), gap 13x→5x. ISO-14 added to atlas. 18 lessons annotated. | S303 | 2026-02-28 |
 | F-EXP10 | Outcome feedback improves dispatch: UCB1 R²=17.6% (12x better than structural). Non-monotonic: MIXED 1.42 > PROVEN 1.21 > STRUGGLING 0.88 L/lane. Label drift fixed: OUTCOME_MIN_N 3→5, --label-at-session N for trajectories. L-776, L-948, L-963. | S426 | 2026-03-02 |
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)

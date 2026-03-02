@@ -57,3 +57,4 @@ Updated: 2026-03-01 | S403
 
 ## Resolved
 (none yet — first domain expert session)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)

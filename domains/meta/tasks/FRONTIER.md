@@ -11,6 +11,8 @@ Updated: 2026-03-01 S415 | Active: 15
   **S366 PRINCIPLE GAP FIX**: Downstream bottleneck identified: lesson→principle rate 4.5% (recent 111L → 5P) vs 28.9% historical. close_lane.py gains principle-extraction NOTICE at MERGED lane closure. 2 principles extracted as proof of concept: P-221 (loop-closure quality, L-646), P-222 (hierarchical distillation, L-659). L-662. Artifact: experiments/meta/f-meta2-principle-gap-s366.json.
   **S386 FRONTIER TRIAGE**: Anxiety-zone triage extended F-META2 scope: 160 frontiers scanned (29 global + 131 domain). ABANDON=36, REVIEW=50, KEEP=74. frontier_triage.py built (citation + staleness + test-criteria scoring). 23% of anxiety-zone frontiers are graveyard entries (0 citations, 200+ sessions stale, no test design). Concrete next: act on ABANDON recommendations by closing in domain FRONTIER.md files. L-756. Artifact: experiments/meta/f-meta2-frontier-triage-s386.json.
   **S403 SIGNAL CONVERSION AUDIT (n=41 signals)**: Documentation rate 52.9% (9/17 open signals have L/P canonical artifacts). Structural implementation rate 41.2% (7/17). Fully closed by implementation: 0/17. SIG-40 ("swarm learns swarm") = 0% self-application: swarm never applied L-601 to prescriptions themselves. Correction from L-874: most ASPIRATIONAL lessons are observational findings, not actionable commands — true actionable gap smaller than 79% figure. Fix target: (1) enforcement_router.py → orient.py DUE routing for actionable prescriptions; (2) new signal type `[prescription]` that creates DUE item until structural commit closes it. L-875. Artifact: experiments/meta/f-meta2-signal-conversion-s403.json.
+  → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META3**: Which self-improvement actions maximize quality-per-overhead under live workload? (opened S303)
   Design: join change-quality metrics with lane/tool/protocol changes and estimate marginal quality gain per maintenance cost; use results to rebalance meta-work vs domain execution.
@@ -99,6 +101,7 @@ Format: `REPELLENT: <approach> | tried: S<N> | result: <why failed> | see: L-<N>
 - REPELLENT: Counting P-NNN patterns for principle total | tried: S339 | result: Overcounts by including removed/subsumed P-refs in "Removed:" section. Use header count instead | see: swarm_state.py
 
 ## Legacy backlog (history continuity)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
 
 - **F103**: Swarm vs single-session benchmark on real tasks. (S303)
 - **F104**: Personality persistence effect on findings. (S303)

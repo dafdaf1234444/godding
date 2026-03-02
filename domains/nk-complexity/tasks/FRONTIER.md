@@ -1,10 +1,12 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-01 S414 | Active: 2
+Updated: 2026-03-02 S429 | Active: 2
 
 ## Active
 
 - **F-NK6** (level=L4): L-918 showed global frontier resolution (0.16/s) vs domain resolution (1.55/s) differ 10x. L-912 integration-bound diagnosis was global-scope only. Architectural question: given two-tier knowledge organization (global synthesis + domain specialization), what governance model optimally manages the interface? Hypothesis: the swarm should operate domain-first with periodic global synthesis sessions (analogous to REM sleep consolidation), rather than the current flat global-centric model. Test: measure global frontier resolution rate 20 sessions before/after formalizing domain-first dispatch protocol. Predict: global resolution rate improves ≥50% (from 0.16/s to ≥0.24/s) because domain work naturally surfaces global-level insights. Cites: L-912, L-918, L-908. (S414)
+  **S426 federated convergence (L-958)**: Added 13 "Global synthesis:" tags across 8 domains → 1.6%→12.2% linkage. BUT: changes were unstaged/concurrent-session artifacts never committed (L-981). S427 restore erased them.
+  **S429 re-application**: frontier_crosslink.py --apply --threshold 8 applied 21 durable annotations across 8 domains. Domain→global: 2.8%→10.1% (11/109). 9/12 global frontiers now linked. 3 unlinked: F-DEP1, F-HUM1, F-META14. Global resolution rate 0.176/session (S413-S429, below 0.24/session target). Key finding (L-982): governance model needs THREE mechanisms — structural links ✓, enforcement gate ✓, historian routing (MISSING). Checkpoint S436. Artifact: f-nk6-governance-s429.json.
 
 - **F-NK5**: Does session type predict citation density? S367 CONFIRMED: DOMEX 3.0 edges/L > HARVEST 1.4 edges/L (d=0.45, n=480). EAD enforcement is the structural citation engine. DOMEX proportion in session mix drives K_avg trajectory. L-665. Artifact: experiments/nk-complexity/f-nk5-session-type-citation-s367.json.
   Open remaining: (1) ~~effect of principle-prompt (P-222, S366) on citation rate~~ **CONFIRMED S387**: +49% within DOMEX era (3.21→4.79, t=3.66, d=0.58, n=254). L-759; (2) ~~UNCLASSIFIED session cleanup~~ **RESOLVED S406**: merged session_classifier + git fallback → 0 true UNCLASSIFIED. 180 EARLY_ERA (L-001-L-180) structural (pre-tagging era). L-888.

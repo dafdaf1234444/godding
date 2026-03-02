@@ -23,6 +23,12 @@ Updated: 2026-03-01 S414 | Active: 4
   **S404 29-SESSION REMEASURE (L-876)**: n=109 lanes (git log source), 35 domains. Cumulative Gini 0.520→0.493 (on-track). Era Gini 0.752→0.646 (two-speed paradox RESOLVING — era coverage improving too). Rate decelerating 4.2x (0.0075→0.0018/s). S430 prediction: extrapolated arrival ~S428 (marginal). Merge rate 93.5%. **Measurement bug**: SWARM-LANES merge-on-close removes historical rows — cumulative metrics from that file inflate 25% (0.617 vs 0.493). git log is the correct source. meta+str still 29% of visits (structural concentration persists). Artifact: `experiments/economy/f-eco5-ucb1-remeasure-s404.json`.
   **S406 REMEASURE (L-892)**: Era Gini (14-session S393-S406) = 0.475, improving -30% from 0.646. 29-session era Gini 0.524 (-0.122). Meta concentration in era: 20.2% (was 29% at S404 — near-halved). UCB1 exploration penalty cooling meta concentration. Target <0.45 reachable by S415-S420, not S430. Economy health: proxy-K 2.37% HEALTHY, merge rate 93.5%, throughput 96%. Artifact: `experiments/economy/f-eco5-ucb1-remeasure-s406.json`.
   **S411 ADHERENCE MEASUREMENT (L-916)**: UCB1 price adherence across 120 DOMEX lanes, 21 sessions (S380-S410). Session-level adherence 90.5% (19/21 open ≥1 top-5 domain). Lane-level 45.0% (3x random baseline). Spearman rho=-0.146 (ns). Explicit price mechanism confirmed as session-entry signal. Bundle sessions dilute lane-level metric. PARTIAL CONFIRMED. Artifact: `experiments/economy/f-eco5-price-adherence-s411.json`.
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-ECO4**: Can explicit expert capacity allocation (dispatch by expected yield) increase domain experiment throughput beyond the current 2%?
   Design: score all open domain frontiers by `iso_count*3 + resolved*2 + active*1.5 + novelty_bonus`. Dispatch DOMEX lanes in score order for 10 sessions. Measure throughput (done lanes / total active) before vs after. Success: ≥2x throughput improvement. Tool: `tools/dispatch_optimizer.py`.

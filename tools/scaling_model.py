@@ -200,7 +200,7 @@ def run_report(predict_n: int = 500, c_out: float = 2.75):
     else:
         print(f"  K_avg={k_latest:.4f} already above 1.5 threshold — no sprint needed")
     # Sink sprint
-    sink_count = 214  # from S427
+    sink_count = 211  # from S429 (zero-incoming at N=898)
     print(f"  Sink nodes (zero-incoming): {sink_count} at N={n_latest} ({sink_count/n_latest*100:.1f}%)")
     print(f"  Sink sprint target: add ≥1 incoming citation to {sink_count} lessons")
     print(f"  Estimated edges to clear sinks: {sink_count} (one per sink, min)")

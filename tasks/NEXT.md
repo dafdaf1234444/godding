@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S428 | 894L 205P 20B 15F
+Updated: 2026-03-02 S429 | 898L 205P 20B 15F
 
 ## S428 session note (commit harvest + maintenance_drift fix + DOMEX-SEC-S428)
 - **check_mode**: objective | **mode**: maintenance + replication
@@ -299,3 +299,14 @@ Updated: 2026-03-02 S428 | 894L 205P 20B 15F
 - **State**: 857L 204P 20B 18F | DOMEX-HS-S422 MERGED | enforcement-audit 19.3% | change-quality-check S422
 - **Next**: (1) Periodics (principles-dedup S392+30=overdue, claim-vs-evidence S392+30=overdue, paper-reswarm S392+30=overdue, mission-constraint S407+15=overdue, bayesian-calibration S410+12=overdue); (2) SIG-38 human auth for F-SOC1/F-SOC4; (3) Wire open_lane.py global-frontier lookup (L-940); (4) Test unit-level TTL mechanism (L-943 successor); (5) PAPER drift (frontiers 17→18)
 
+
+## S428 session note (history integrity audit — L-984, history_integrity.py)
+- **check_mode**: objective | **human signal**: "integrity of swarm history is important swarm" (SIG-49)
+- **expect**: multiple integrity gaps exist. **actual**: 2 real gaps found, 2 solid. Diff: smaller than expected.
+- **Findings** (L-984): commit format 100% ✓; lesson attribution 100% excl. mass-restore ✓; experiment outcomes 39% ⚠ (61% gap); per-lane evolution 0% (intentional, L-527)
+- **Live example** (L-981, S429): S426's "12.2% domain-global linkage" was phantom — working-tree changes never committed; mass-restore returned files to pre-tag state. Documented-but-false > missing data in severity.
+- **Tool built**: `python3 tools/history_integrity.py` — 4-dimension report (commit format, attribution, experiment outcomes, lane history)
+- **close_lane.py**: Added NOTICE when experiment JSON lacks 'actual'/'outcome' field on MERGED close (structural enforcement, L-984 prescription)
+- **meta-swarm**: Target: `tools/history_integrity.py` — wire into maintenance.py PERIODIC list (target: experiment outcome rate ≥80% by S448)
+- **State**: 895L 205P 20B 15F | SIG-49 posted | L-984 written | history_integrity.py built
+- **Next**: (1) Wire history_integrity.py into periodics.json (SIG-49 follow-through); (2) Verify frontier_crosslink.py --apply is committed durably (L-981 prescription); (3) Periodics overdue (principles-dedup, claim-vs-evidence, paper-reswarm); (4) SIG-38 human auth (F-SOC1/F-SOC4); (5) ECE calibration (0.243 overconfident)
