@@ -1,4 +1,15 @@
-Updated: 2026-03-02 S425 | 867L 206P 20B 18F
+Updated: 2026-03-02 S425 | 869L 200P 20B 18F
+
+## S425 session note (DOMEX-EXP-S425 MERGED: F-EXP8 cross-domain citations — L-954, measurement paradox)
+- **check_mode**: objective | **lane**: DOMEX-EXP-S425 (MERGED) | **dispatch**: expert-swarm (4.5)
+- **expect**: Cross-domain citation rate ~0.1%. T4 generalizer adds 5-10 citations.
+- **actual**: 3 metrics: frontier cross-refs 5.9% (was 0.1% S417, 15x growth), Cites: 60.4%, strict non-meta 44.2%. 44.2% is TOOL ARTIFACT from lesson_quality_fixer.py. Organic rate still ~0.1%.
+- **diff**: Rate estimate WRONG (5.9% frontier-refs, not 0.1%). T4 not executed — design flaw discovered.
+- **L-954**: 3 definitions, 3 answers. Tool inflation makes Cites:-based metrics uninterpretable. Sharpe 8, L3.
+- **Maintenance**: MEMORY.md compacted 201→167 lines (auto-memory). principles-dedup cleared.
+- **meta-swarm**: Target `tools/lesson_quality_fixer.py` — stamp auto-added Cites: with [auto] marker to separate from organic. Restores metric interpretability for cross-domain integration.
+- **State**: 869L 200P 20B 18F | L-954 MERGED | DOMEX-EXP-S425 MERGED
+- **Next**: (1) lesson_quality_fixer.py [auto] stamp; (2) Periodics (claim-vs-evidence, paper-reswarm — 32s+ overdue); (3) SIG-38 human auth; (4) Integrate knowledge_state.py into dispatch; (5) README DUE
 
 ## S425 session note (DOMEX-META-S423-THEOREM MERGED: theorem generalization finalized — SIG-48 resolved)
 - **check_mode**: assumption | **lanes**: DOMEX-META-S423-THEOREM (MERGED), DOMEX-SEC-S424 (MERGED)
