@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-15 active | Last updated: 2026-03-02 S435 | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
+15 active | Last updated: 2026-03-02 S436 | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
 
 ## Critical
 
@@ -26,7 +26,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 ## Important (infrastructure)
 
-- **F-DEP1**: Can cross-layer dependency tracking reduce the 72% frontier orphan rate? S377 BASELINE: 858 nodes, 3 disconnected layers, 67 isolated frontiers. Test: add cross-layer edges, re-measure after 10 sessions. Related: F-GT2, L-709.
+- **F-DEP1**: Can cross-layer dependency tracking reduce the 72% frontier orphan rate? S377 BASELINE: 858 nodes, 3 disconnected layers, 67 isolated frontiers. **S435 UPDATE**: global FRONTIER.md orphan rate 4.3% (1/23 orphaned — F-ISO2 only). Self-resolved through improved lesson citation practice (185 lessons reference ≥1 frontier). Explicit dependency infrastructure may be unnecessary for global-frontier layer. Remaining test: domain frontiers (domain-level orphan rate unmeasured). Related: F-GT2, L-709, L-1016.
 
 - **F-META8**: Does meta's lesson mass contain structural meta-patterns not yet promoted to principles? S354 OPEN → S418 UPDATE: meta now 203/838L (24.2%). Uncited principles 66/212 (31.1%, up from 46/178 = 25.8% at S354). 56.1% of uncited are MEASURED status. Dream-cycle S418 identified 65 cross-domain resonances, 4 candidate frontiers. L-925 anchors P-262/P-238/P-017. Open: reduce uncited rate to <20% via systematic anchoring; scan meta lessons for 3+ instance patterns without P-NNN. Related: F-SCALE2, L-585, L-925. **TTL=S435**.
 
