@@ -1,0 +1,34 @@
+{
+  "experiment": "F-FLD2",
+  "session": "S336",
+  "description": "Kolmogorov cascade in swarm token economy",
+  "hypothesis": "Token budget obeys cascade structure: injection at coarse scale (T0 mandatory context) → accumulation at fine scale (T4 tools) — analogous to energy injection at large eddies, dissipation at Kolmogorov microscale",
+  "data_source": "python3 tools/compact.py --dry-run (S336 snapshot)",
+  "total_tokens": 59925,
+  "floor_tokens": 36560,
+  "drift_pct": 63.9,
+  "tier_distribution": {
+    "T0-mandatory": {"tokens": 6890, "pct": 11.5, "excess": 3745, "excess_fraction": 0.16},
+    "T1-identity": {"tokens": 7859, "pct": 13.1, "excess": 3886, "excess_fraction": 0.166},
+    "T2-protocols": {"tokens": 3756, "pct": 6.3, "excess": 256, "excess_fraction": 0.011},
+    "T3-knowledge": {"tokens": 8865, "pct": 14.8, "excess": 3965, "excess_fraction": 0.17},
+    "T4-tools": {"tokens": 32555, "pct": 54.3, "excess": 11513, "excess_fraction": 0.493}
+  },
+  "cascade_analysis": {
+    "log_log_slope": 0.619,
+    "kolmogorov_expected_slope": 1.667,
+    "interpretation": "Positive slope confirms fine-scale (T4) accumulation dominates — consistent with cascade direction. But slope 0.619 < 1.667 suggests weaker-than-Kolmogorov concentration at fine scale.",
+    "T4_dominance": "T4-tools is 54.3% of total budget and 49.3% of drift excess — single dominant scale, unlike smooth cascade"
+  },
+  "cascade_mapping": {
+    "T0_mandatory": "Injection scale: CLAUDE.md, CORE.md, BASE.md — coarse global context, low volume",
+    "T1_identity": "Large-eddy scale: PHILOSOPHY.md, DEPS.md, SWARM.md — identity/protocol layer",
+    "T2_protocols": "Inertial range: per-session protocols, FRONTIER.md summaries — small and slow-growing",
+    "T3_knowledge": "Sub-inertial: PRINCIPLES.md, lessons, beliefs — moderate growth",
+    "T4_tools": "Dissipation scale: maintenance.py (28k tokens alone) — grows without bound; IS the Kolmogorov microscale equivalent"
+  },
+  "key_finding": "Token cascade is NOT smooth — T4 (tools) is a super-accumulator, not a dissipation sink. maintenance.py alone = 28,246t = 47% of total. This breaks the analogy: in Kolmogorov cascade, small scales dissipate energy. In swarm, T4 ACCUMULATES rather than dissipates — suggesting tools are a pathological sink, not a natural cascade endpoint.",
+  "verdict": "PARTIALLY_SUPPORTED: cascade direction (fine scale accumulates) is correct, but T4 is an absorbing state rather than a dissipation channel. Implication: tools require periodic compaction analogous to turbulent energy injection reversal.",
+  "actionable_implication": "Tools at T4 need active compaction — they are not self-limiting like viscous dissipation. Adding a tools-tier size limit (analogous to Kolmogorov microscale cutoff) would prevent budget runaway.",
+  "next": "F-FLD2 PARTIAL; test T4 token limit policy"
+}

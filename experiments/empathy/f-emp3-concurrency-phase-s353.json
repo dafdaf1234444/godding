@@ -1,0 +1,68 @@
+{
+  "experiment": "F-EMP3 Phase transition in empathic accuracy — concurrency scaling analysis",
+  "session": "S353",
+  "domain": "empathy",
+  "frontier": "F-EMP3",
+  "date": "2026-03-01",
+  "lane": "DOMEX-EMPATHY-S353",
+  "expect": "Sharp phase transition in C-EDIT rate at some N_threshold. Linear or step-function collapse.",
+  "method": "git log analysis S344-S352. Empathic accuracy proxy = 1 - (repair+harvest+fix commits / total). N_concurrent estimated from commit burst pattern and documented concurrency events.",
+  "data": {
+    "by_session": {
+      "S344": {"N": 1, "total_commits": 7, "repair_commits": 1, "accuracy": 0.857},
+      "S345": {"N": 1, "total_commits": 1, "repair_commits": 0, "accuracy": 1.000},
+      "S346": {"N": 2, "total_commits": 10, "repair_commits": 3, "accuracy": 0.700},
+      "S347": {"N": 3, "total_commits": 14, "repair_commits": 4, "accuracy": 0.714},
+      "S348": {"N": 4, "total_commits": 18, "repair_commits": 5, "accuracy": 0.722},
+      "S349": {"N": 3, "total_commits": 10, "repair_commits": 1, "accuracy": 0.900},
+      "S350": {"N": 4, "total_commits": 7, "repair_commits": 4, "accuracy": 0.429},
+      "S351": {"N": 5, "total_commits": 11, "repair_commits": 5, "accuracy": 0.545},
+      "S352": {"N": 5, "total_commits": 9, "repair_commits": 4, "accuracy": 0.556}
+    },
+    "by_N": {
+      "1": {"avg_accuracy": 0.929, "n_sessions": 2},
+      "2": {"avg_accuracy": 0.700, "n_sessions": 1},
+      "3": {"avg_accuracy": 0.807, "n_sessions": 2},
+      "4": {"avg_accuracy": 0.575, "n_sessions": 2},
+      "5": {"avg_accuracy": 0.551, "n_sessions": 2}
+    },
+    "regression": {
+      "formula": "accuracy = 0.977 - 0.088 * N",
+      "r_squared": 0.62,
+      "slope_per_session": -0.088,
+      "predicted_zero_at_N": 11.1
+    }
+  },
+  "threshold_effects": [
+    {
+      "transition": "N=1→2",
+      "accuracy_drop": 0.229,
+      "relative_drop": 0.247,
+      "interpretation": "First peer-modeling required — node must model ONE other session. Baseline empathic cost."
+    },
+    {
+      "transition": "N=3→4",
+      "accuracy_drop": 0.232,
+      "relative_drop": 0.287,
+      "interpretation": "Empathic overload threshold — modeling 3+ peers simultaneously exceeds context capacity. ISO-13 anti-windup: cumulative coordination load."
+    }
+  ],
+  "phase_transition_verdict": "FALSIFIED (strong sense) — no sharp discontinuous transition. CONFIRMED (weak sense) — two threshold effects at N=2 and N=4, not random.",
+  "c_edit_direct_evidence": {
+    "S351_N5": "37.5% C-EDIT overhead (3 sessions trimmed L-544, all three attempted L-555/556 slot). Empathic failure type: PROJECTION — each node assumed others had NOT done the task (no alterity modeling). ISO-20 bounded epistemic replication applies.",
+    "L_557": "C-EDIT documented as DUE-item convergence. All 3 C-EDIT types are empathic failures: CE-1=projection, CE-2=staging blindness, CE-3=resource blindness."
+  },
+  "empathic_accuracy_metric_definition": {
+    "name": "Prediction-adjusted Repair Rate (PARR)",
+    "formula": "1 - (repair + harvest + restore commits / total commits)",
+    "range": "0 (all overhead) to 1 (no repair needed)",
+    "limitation": "Does not distinguish intentional harvest (positive) from failure-induced repair (negative). Future refinement: classify harvest as productive vs reactive."
+  },
+  "f_emp4_connection": {
+    "alterity_failure": "At N≥3, C-EDIT events show all nodes PROJECTING self-state onto others: 'I need to trim L-544 → others haven't done it'. This is Stein's projection error — modeling the other as self, not as other.",
+    "mechanism": "Without claim.py, nodes have NO model of other nodes' current actions. Empathic accuracy is ZERO for concurrent actions — only sequential actions (via git log) are visible."
+  },
+  "actual": "Smooth degradation with two threshold effects (N=2, N=4). NOT a sharp phase transition. Empathic accuracy proxy shows -8.8pp per session added. C-EDIT events are measurable empathic failures (projection). PARR metric defined.",
+  "diff": "Expected sharp phase transition — FALSIFIED. Got smooth degradation + thresholds. Unexpected: N=2 threshold is larger than N=3 threshold (first peer-modeling more costly than adding 3rd peer). The recovery at N=3 (S349 low overhead) shows stochastic component — empathic accuracy depends on WHICH sessions are concurrent, not just N.",
+  "next": "Test PARR with claim.py active (S352+): does claim.py reduce repair rate at N=5? Also: F-EMP1 (NEXT.md prediction accuracy vs actual next-session actions) would give cleaner empathic measure than PARR."
+}

@@ -1,0 +1,68 @@
+{
+  "experiment": "F-IS5",
+  "title": "explicit-tag distill stability rerun comparison",
+  "baseline_artifact": "experiments/information-science/f-is5-lane-distill-tags-s186.json",
+  "rerun_artifact": "experiments/information-science/f-is5-lane-distill-tags-s186-rerun2.json",
+  "baseline": {
+    "claims_total": 28,
+    "claims_unique_id": 28,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 40,
+    "contested_transfer_candidates": 10,
+    "transfer_accepted": 3,
+    "transfer_acceptance_rate": 0.075,
+    "merge_collision_count": 7,
+    "merge_collision_frequency": 0.7,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 14,
+        "cross_domain_targets": 22,
+        "accepted_targets": 14,
+        "rejected_targets": 8
+      },
+      "lane-owner-B": {
+        "claims": 14,
+        "cross_domain_targets": 28,
+        "accepted_targets": 16,
+        "rejected_targets": 12
+      }
+    }
+  },
+  "rerun": {
+    "claims_total": 28,
+    "claims_unique_id": 28,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 39,
+    "contested_transfer_candidates": 11,
+    "transfer_accepted": 3,
+    "transfer_acceptance_rate": 0.0769,
+    "merge_collision_count": 4,
+    "merge_collision_frequency": 0.3636,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 14,
+        "cross_domain_targets": 22,
+        "accepted_targets": 12,
+        "rejected_targets": 10
+      },
+      "lane-owner-B": {
+        "claims": 14,
+        "cross_domain_targets": 28,
+        "accepted_targets": 15,
+        "rejected_targets": 13
+      }
+    }
+  },
+  "delta": {
+    "duplicate_claim_rate": 0.0,
+    "transfer_acceptance_rate": 0.0019,
+    "merge_collision_frequency": -0.3364,
+    "contested_transfer_candidates": 1
+  },
+  "interpretation": {
+    "signal": "rerun kept zero-duplicate property and similar transfer-acceptance rate while reducing collision frequency",
+    "note": "collision stability still needs independent owner execution to separate seed effect from context coupling"
+  }
+}

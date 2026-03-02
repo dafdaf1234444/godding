@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "tool": "proximity_pa.py",
+    "frontier": "F-SP4",
+    "session": "S383",
+    "total_lessons": 676,
+    "lessons_with_sessions": 606,
+    "session_coverage": 0.8964,
+    "total_edges": 1250,
+    "n_events": 1222
+  },
+  "models": {
+    "uniform": {
+      "params": {},
+      "ll": -7270.89,
+      "bic": 14541.78,
+      "n_params": 0
+    },
+    "pa_only": {
+      "params": {
+        "gamma": 0.74
+      },
+      "ll": -7093.83,
+      "bic": 14194.77,
+      "n_params": 1
+    },
+    "proximity_only": {
+      "params": {
+        "lambda": 0.015
+      },
+      "ll": -6659.31,
+      "bic": 13325.73,
+      "n_params": 1
+    },
+    "joint": {
+      "params": {
+        "gamma": 0.72,
+        "lambda": 0.016
+      },
+      "ll": -6516.14,
+      "bic": 13046.49,
+      "n_params": 2
+    }
+  },
+  "model_comparison": {
+    "delta_bic_pa_vs_uniform": 347.01,
+    "delta_bic_prox_vs_uniform": 1216.05,
+    "delta_bic_joint_vs_uniform": 1495.29,
+    "delta_bic_joint_vs_pa": 1148.28,
+    "delta_bic_joint_vs_prox": 279.24,
+    "delta_bic_prox_vs_pa": 869.04,
+    "best_model": "joint"
+  },
+  "conditional_gamma": {
+    "near (0-5)": {
+      "gamma": 0.5855,
+      "r_squared": 0.604,
+      "n_events": 567,
+      "n_regression_points": 8,
+      "gap_range": [
+        0,
+        6
+      ]
+    },
+    "mid (6-20)": {
+      "gamma": 0.5903,
+      "r_squared": 0.8647,
+      "n_events": 282,
+      "n_regression_points": 7,
+      "gap_range": [
+        6,
+        21
+      ]
+    },
+    "far (21-50)": {
+      "gamma": 0.9362,
+      "r_squared": 0.4335,
+      "n_events": 137,
+      "n_regression_points": 7,
+      "gap_range": [
+        21,
+        51
+      ]
+    },
+    "distant (51+)": {
+      "gamma": 0.9395,
+      "r_squared": 0.7858,
+      "n_events": 236,
+      "n_regression_points": 7,
+      "gap_range": [
+        51,
+        9999
+      ]
+    }
+  },
+  "proximity_profile": {
+    "0": {
+      "rate": 0.028949,
+      "citations": 116,
+      "exposure": 4007
+    },
+    "1": {
+      "rate": 0.022431,
+      "citations": 160,
+      "exposure": 7133
+    },
+    "2": {
+      "rate": 0.01758,
+      "citations": 112,
+      "exposure": 6371
+    },
+    "3": {
+      "rate": 0.012872,
+      "citations": 83,
+      "exposure": 6448
+    },
+    "4": {
+      "rate": 0.009237,
+      "citations": 57,
+      "exposure": 6171
+    },
+    "5": {
+      "rate": 0.006563,
+      "citations": 39,
+      "exposure": 5942
+    },
+    "6": {
+      "rate": 0.007949,
+      "citations": 46,
+      "exposure": 5787
+    },
+    "7": {
+      "rate": 0.0065,
+      "citations": 38,
+      "exposure": 5846
+    },
+    "8": {
+      "rate": 0.004959,
+      "citations": 26,
+      "exposure": 5243
+    },
+    "9": {
+      "rate": 0.00341,
+      "citations": 16,
+      "exposure": 4692
+    },
+    "10": {
+      "rate": 0.003147,
+      "citations": 14,
+      "exposure": 4449
+    },
+    "11": {
+      "rate": 0.005521,
+      "citations": 24,
+      "exposure": 4347
+    },
+    "12": {
+      "rate": 0.004231,
+      "citations": 17,
+      "exposure": 4018
+    },
+    "13": {
+      "rate": 0.002913,
+      "citations": 12,
+      "exposure": 4120
+    },
+    "14": {
+      "rate": 0.002658,
+      "citations": 11,
+      "exposure": 4139
+    },
+    "15": {
+      "rate": 0.003473,
+      "citations": 16,
+      "exposure": 4607
+    },
+    "16": {
+      "rate": 0.003769,
+      "citations": 17,
+      "exposure": 4511
+    },
+    "17": {
+      "rate": 0.003394,
+      "citations": 14,
+      "exposure": 4125
+    },
+    "18": {
+      "rate": 0.003928,
+      "citations": 17,
+      "exposure": 4328
+    },
+    "19": {
+      "rate": 0.002044,
+      "citations": 9,
+      "exposure": 4404
+    },
+    "20": {
+      "rate": 0.001245,
+      "citations": 5,
+      "exposure": 4017
+    },
+    "21": {
+      "rate": 0.001191,
+      "citations": 5,
+      "exposure": 4198
+    },
+    "22": {
+      "rate": 0.002783,
+      "citations": 14,
+      "exposure": 5031
+    },
+    "23": {
+      "rate": 0.001834,
+      "citations": 9,
+      "exposure": 4908
+    },
+    "24": {
+      "rate": 0.002333,
+      "citations": 11,
+      "exposure": 4715
+    },
+    "25": {
+      "rate": 0.002839,
+      "citations": 13,
+      "exposure": 4579
+    },
+    "26": {
+      "rate": 0.002479,
+      "citations": 11,
+      "exposure": 4438
+    },
+    "27": {
+      "rate": 0.001671,
+      "citations": 7,
+      "exposure": 4188
+    },
+    "28": {
+      "rate": 0.00046,
+      "citations": 2,
+      "exposure": 4348
+    },
+    "29": {
+      "rate": 0.001673,
+      "citations": 7,
+      "exposure": 4184
+    }
+  },
+  "confounding_analysis": {
+    "marginal_gamma": 0.74,
+    "near_gamma": 0.5855,
+    "mid_gamma": 0.5903,
+    "far_gamma": 0.9362,
+    "gamma_reduction_near": 0.1545,
+    "confounding_fraction": 0.2088,
+    "ll_gain_pa": 177.06,
+    "ll_gain_prox": 611.58,
+    "ll_gain_joint": 754.75,
+    "proximity_share_of_joint": 0.8103,
+    "pa_share_of_joint": 0.2346
+  },
+  "verdict": "Best model: joint; PA gamma: marginal=0.74, joint=0.72; Near-conditional gamma=0.5855; Proximity explains 81% of joint LL gain; Joint STRONGLY better than PA-only",
+  "lesson": "L-748"
+}

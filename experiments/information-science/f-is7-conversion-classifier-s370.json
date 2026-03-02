@@ -1,0 +1,218 @@
+{
+  "frontier_id": "F-IS7",
+  "session": 370,
+  "created_on": "2026-03-01",
+  "experiment": "Experiment-to-lesson conversion classifier",
+  "hypothesis": "Structural features (EAD completeness, backward lesson refs, domain, DOMEX provenance) predict whether an experiment gets cited by a lesson. Target: >70% classification accuracy.",
+  "method": "Scanned 561 experiment JSONs across all domains. Extracted 11 boolean features + 4 continuous features. Computed conversion rates per feature, domain, session era, file size. Built rule-based classifier.",
+  "results": {
+    "n_total": 561,
+    "n_cited": 80,
+    "base_rate": 0.1426,
+    "feature_lifts": {
+      "has_expect": 1.888,
+      "has_actual": 1.855,
+      "has_diff": 1.503,
+      "has_verdict": 1.48,
+      "has_measurements": 2.671,
+      "has_next_steps": 1.925,
+      "cites_lessons": 1.57,
+      "has_frontier": 1.019,
+      "outcome_clear": 2.249,
+      "has_candidate_lesson": 5.259,
+      "is_domex": 1.489
+    },
+    "top_features": [
+      [
+        "has_candidate_lesson",
+        5.259
+      ],
+      [
+        "has_measurements",
+        2.671
+      ],
+      [
+        "outcome_clear",
+        2.249
+      ],
+      [
+        "has_next_steps",
+        1.925
+      ],
+      [
+        "has_expect",
+        1.888
+      ]
+    ],
+    "classifier": {
+      "rule": "candidate_lesson_id OR (EAD>=2 AND cites_lessons) OR (DOMEX AND verdict)",
+      "accuracy": 0.7807,
+      "precision": 0.2688,
+      "recall": 0.3125,
+      "f1": 0.289,
+      "confusion": {
+        "tp": 25,
+        "fp": 68,
+        "fn": 55,
+        "tn": 413
+      }
+    },
+    "alt_classifier": {
+      "rule": "EAD>=2 AND n_lesson_refs>=1",
+      "accuracy": 0.7843,
+      "precision": 0.2405,
+      "recall": 0.2375,
+      "f1": 0.239
+    },
+    "domain_rates": {
+      "distributed-systems": {
+        "total": 1,
+        "cited": 1,
+        "rate": 1.0
+      },
+      "knowledge-lifecycle": {
+        "total": 1,
+        "cited": 1,
+        "rate": 1.0
+      },
+      "social-media": {
+        "total": 1,
+        "cited": 1,
+        "rate": 1.0
+      },
+      "empathy": {
+        "total": 3,
+        "cited": 2,
+        "rate": 0.667
+      },
+      "physics": {
+        "total": 3,
+        "cited": 2,
+        "rate": 0.667
+      },
+      "helper-swarm": {
+        "total": 8,
+        "cited": 5,
+        "rate": 0.625
+      },
+      "graph-theory": {
+        "total": 5,
+        "cited": 3,
+        "rate": 0.6
+      },
+      "governance": {
+        "total": 9,
+        "cited": 5,
+        "rate": 0.556
+      },
+      "evaluation": {
+        "total": 6,
+        "cited": 3,
+        "rate": 0.5
+      },
+      "philosophy": {
+        "total": 2,
+        "cited": 1,
+        "rate": 0.5
+      },
+      "gaming": {
+        "total": 5,
+        "cited": 2,
+        "rate": 0.4
+      },
+      "catastrophic-risks": {
+        "total": 3,
+        "cited": 1,
+        "rate": 0.333
+      },
+      "psychology": {
+        "total": 3,
+        "cited": 1,
+        "rate": 0.333
+      },
+      "stochastic-processes": {
+        "total": 7,
+        "cited": 2,
+        "rate": 0.286
+      },
+      "economy": {
+        "total": 11,
+        "cited": 3,
+        "rate": 0.273
+      },
+      "conflict": {
+        "total": 15,
+        "cited": 4,
+        "rate": 0.267
+      },
+      "brain": {
+        "total": 12,
+        "cited": 3,
+        "rate": 0.25
+      },
+      "quality": {
+        "total": 4,
+        "cited": 1,
+        "rate": 0.25
+      },
+      "meta": {
+        "total": 50,
+        "cited": 11,
+        "rate": 0.22
+      },
+      "dream": {
+        "total": 5,
+        "cited": 1,
+        "rate": 0.2
+      }
+    },
+    "ead_rates": {
+      "0": {
+        "n": 343,
+        "rate": 0.096
+      },
+      "1": {
+        "n": 119,
+        "rate": 0.16
+      },
+      "2": {
+        "n": 27,
+        "rate": 0.185
+      },
+      "3": {
+        "n": 72,
+        "rate": 0.319
+      }
+    },
+    "era_rates": {
+      "S0-S186": {
+        "n": 287,
+        "rate": 0.056
+      },
+      "S187-S300": {
+        "n": 41,
+        "rate": 0.293
+      },
+      "S301-S350": {
+        "n": 118,
+        "rate": 0.271
+      },
+      "S351-S999": {
+        "n": 73,
+        "rate": 0.26
+      }
+    }
+  },
+  "expect": "Experiment features predict conversion with >70% accuracy. Top predictor identified.",
+  "actual": "Accuracy 78.1% (below 85.7% naive baseline), F1=0.289. Top predictor by lift: has_candidate_lesson (5.26x, n=4 only). Top by sample: has_measurements (2.67x, n=21), outcome_clear (2.25x, n=53). Session era dominates all features: S0-S186=5.6% vs S187+=27.0% (4.8x gap). EAD=3 converts at 31.9% (2.24x). File size non-monotonic: Q2 (1.7-3K) best at 22%, Q4 (>8K) drops to 10%.",
+  "diff": "Predicted >70% accuracy — got 78.1% but BELOW naive baseline (class imbalance makes accuracy misleading). Predicted features discriminate — CONFIRMED (lifts 1.5-5.3x) but insufficient for prediction. Did NOT predict era dominance: the S0-S186 / S187+ split explains more variance than any structural feature. The '85% loss rate' is a Simpson's paradox from mixed populations.",
+  "verdict": "PARTIALLY CONFIRMED. Features discriminate (lifts 1.5-5.3x) but don't classify (F1=0.29). The real finding is Simpson's paradox: legacy tail (51% of experiments, 5.6% conversion) dominates the measured rate. Modern pipeline converts at 27%. L-678.",
+  "candidate_lesson_id": "L-678",
+  "key_finding": "Session era is the primary predictor of experiment-to-lesson conversion. EAD enforcement (S331) created a structural regime change. The '85% loss' metric conflates two populations with 4.8x different base rates.",
+  "next_steps": [
+    "Selective harvest of S0-S186 experiments with measurements or clear outcomes (est. 40-50 candidates)",
+    "Backward edge patching: update old experiment JSONs to cite lessons that reference them",
+    "Track modern-pipeline conversion rate (27%) as separate KPI from system-wide rate",
+    "Test whether 27% is near-ceiling by comparing DOMEX vs non-DOMEX within S187+"
+  ]
+}

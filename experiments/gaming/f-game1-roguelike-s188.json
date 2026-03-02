@@ -1,0 +1,146 @@
+{
+  "experiment": "F-GAME1",
+  "title": "Roguelike meta-progression model for swarm sessions",
+  "session": "S188",
+  "date": "2026-02-28",
+  "total_sessions": 125,
+  "productive_sessions": 63,
+  "early_death_sessions": 62,
+  "early_death_rate": 0.496,
+  "deep_run_sessions": 4,
+  "deep_run_rate": 0.032,
+  "run_type_distribution": {
+    "deep_run": 4,
+    "short_run": 44,
+    "medium_run": 15,
+    "early_death": 62
+  },
+  "lp_stats": {
+    "mean": 1.264,
+    "max": 13,
+    "total": 158,
+    "sharpe_proxy": 1.129
+  },
+  "meta_progression": {
+    "final_cumulative_lp": 158,
+    "cumulative_by_session_10": 38,
+    "cumulative_by_session_50": 101,
+    "acceleration_factor": 2.017
+  },
+  "streak_analysis": {
+    "max_productive_streak": 12,
+    "max_death_streak": 20
+  },
+  "learning_curve": [
+    {
+      "start_session": 68,
+      "past_death_rate": 0.0,
+      "future_avg_lp": 2.1
+    },
+    {
+      "start_session": 73,
+      "past_death_rate": 0.1,
+      "future_avg_lp": 2.7
+    },
+    {
+      "start_session": 78,
+      "past_death_rate": 0.1,
+      "future_avg_lp": 2.1
+    },
+    {
+      "start_session": 83,
+      "past_death_rate": 0.0,
+      "future_avg_lp": 0.9
+    },
+    {
+      "start_session": 89,
+      "past_death_rate": 0.2,
+      "future_avg_lp": 1.5
+    },
+    {
+      "start_session": 95,
+      "past_death_rate": 0.3,
+      "future_avg_lp": 1.3
+    },
+    {
+      "start_session": 100,
+      "past_death_rate": 0.1,
+      "future_avg_lp": 0.6
+    },
+    {
+      "start_session": 105,
+      "past_death_rate": 0.3,
+      "future_avg_lp": 0.6
+    },
+    {
+      "start_session": 110,
+      "past_death_rate": 0.5,
+      "future_avg_lp": 0.3
+    },
+    {
+      "start_session": 115,
+      "past_death_rate": 0.4,
+      "future_avg_lp": 0.1
+    },
+    {
+      "start_session": 120,
+      "past_death_rate": 0.7,
+      "future_avg_lp": 0.2
+    },
+    {
+      "start_session": 125,
+      "past_death_rate": 0.9,
+      "future_avg_lp": 0.1
+    },
+    {
+      "start_session": 130,
+      "past_death_rate": 0.8,
+      "future_avg_lp": 0
+    },
+    {
+      "start_session": 135,
+      "past_death_rate": 0.9,
+      "future_avg_lp": 0.1
+    },
+    {
+      "start_session": 140,
+      "past_death_rate": 1.0,
+      "future_avg_lp": 0.1
+    },
+    {
+      "start_session": 145,
+      "past_death_rate": 0.9,
+      "future_avg_lp": 0
+    },
+    {
+      "start_session": 150,
+      "past_death_rate": 0.9,
+      "future_avg_lp": 0
+    },
+    {
+      "start_session": 155,
+      "past_death_rate": 1.0,
+      "future_avg_lp": 0
+    },
+    {
+      "start_session": 160,
+      "past_death_rate": 1.0,
+      "future_avg_lp": 0.3
+    },
+    {
+      "start_session": 166,
+      "past_death_rate": 1.0,
+      "future_avg_lp": 0.9
+    },
+    {
+      "start_session": 173,
+      "past_death_rate": 0.7,
+      "future_avg_lp": 2.4
+    }
+  ],
+  "recent_20_sessions": {
+    "death_rate": 0.2,
+    "avg_lp": 2.55
+  },
+  "interpretation": "Swarm session architecture shows roguelike structure: 49% early deaths (62/125), 3% deep runs (4/125). Meta-progression carry-over total: 158 L+P across 125 sessions. Recent 20-session acceleration: 2.02x above historical average."
+}

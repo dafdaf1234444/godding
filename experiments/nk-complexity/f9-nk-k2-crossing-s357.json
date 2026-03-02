@@ -1,0 +1,42 @@
+{
+  "experiment": "f9-nk-k2-crossing-s357",
+  "frontier": "F9-NK",
+  "domain": "nk-complexity",
+  "session": "S357",
+  "date": "2026-03-01",
+  "question": "Does K_avg=2.0 crossing produce observable structural discontinuity (phase transition)?",
+  "method": "Run nk_null_model.py at K=2.0 crossing; measure hub z, Gini z, isolation z against null; check 4 falsification predictions from DOMEX-NK-S356 design.",
+  "expect": "K_avg crosses 2.0 at N\u2248555; null predictions all confirmed (no discontinuity)",
+  "actual": {
+    "N": 554,
+    "K_avg": 2.0397,
+    "K_max": 28,
+    "hub_z": 6.503,
+    "hub_sig": "***",
+    "gini": 0.5998,
+    "gini_z": 5.294,
+    "gini_sig": "***",
+    "isolation_frac": 0.3105,
+    "isolation_z": 2.81,
+    "isolation_sig": "**",
+    "verdict": "GENUINELY_NON_RANDOM",
+    "falsification_predictions": {
+      "P1_cycle_emergence": "FALSIFIED (33 cycles since K=0.77, not new at K=2.0)",
+      "P2_isolation_significant": "PARTIALLY (z=2.810 now sig, but gradual trend, not discontinuity)",
+      "P3_sink_decline_acceleration": "FALSIFIED (gradual decline 31.0%, no acceleration)",
+      "P4_hub_redistribution": "FALSIFIED (same top hubs stable 50+ sessions)"
+    },
+    "null_hypothesis": "K=2.0 is arithmetic milestone (mean 2 citations/lesson), not phase transition",
+    "null_verdict": "CONFIRMED \u2014 crossing is smooth, no structural discontinuity"
+  },
+  "diff": "Expected discontinuity at K=2.0 if NK chaos theory applied. Actual: smooth crossing, all structural metrics change continuously. Isolation z crossed significance (was marginal at N=545), but this is a continuous trend not a threshold jump. F9-NK chaos framing REJECTED.",
+  "result": "CONFIRMED (null hypothesis)",
+  "lesson": "L-618",
+  "conclusions": [
+    "K=2.0 crossing is smooth and continuous \u2014 no phase transition signature",
+    "NK Boolean network chaos theory does not apply to text citation graphs",
+    "K_avg=2.0 marks structural maturity (scale-free citation regime), not chaos onset",
+    "F9-NK chaos boundary question RESOLVED: abandon chaos framing, retain structural metrics",
+    "Isolation z gradual increase (1.79\u21922.81 over N=529\u2192554) is session-type driven, not crossing-driven"
+  ]
+}

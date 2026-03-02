@@ -1,0 +1,747 @@
+{
+  "frontier_id": "F-OPS3",
+  "title": "Queue-aging policy sweep over aging_weight \u00d7 stale_threshold",
+  "inputs": {
+    "lanes": "experiments/operations-research/f-ops3-queue-aging-s186-synthetic-lanes.md",
+    "session_min": 150,
+    "aging_weights": [
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "stale_thresholds": [
+      1,
+      2,
+      3
+    ]
+  },
+  "job_count": 26,
+  "sweep": [
+    {
+      "aging_weight": 0.1,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.1,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.1,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.25,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.25,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.25,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.5,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.5,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.5,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.75,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.75,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 0.75,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.0,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.0,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.0,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.5,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.5,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 1.5,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 2.0,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 2.0,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 2.0,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 3.0,
+      "stale_threshold": 1,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 3.0,
+      "stale_threshold": 2,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    },
+    {
+      "aging_weight": 3.0,
+      "stale_threshold": 3,
+      "recency_score": 0.4038,
+      "aging_score": -0.5077,
+      "winner": "recency_bias",
+      "margin": 0.9115,
+      "recency_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 0.0,
+        "p90_ready_to_progress_lag": 0,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.2308,
+        "mean_dispatch_shift_vs_observed": 0.0,
+        "mean_positive_shift": 0.0,
+        "global_delay_rate": 0.0
+      },
+      "aging_metrics": {
+        "dispatched_count": 18,
+        "dispatched_rate": 0.6923,
+        "mean_ready_to_progress_lag": 2.0,
+        "p90_ready_to_progress_lag": 6,
+        "unresolved_count": 8,
+        "stale_unresolved_rate": 0.0,
+        "mean_dispatch_shift_vs_observed": 0.4,
+        "mean_positive_shift": 2.0,
+        "global_delay_rate": 1.0
+      }
+    }
+  ],
+  "generated_at_utc": "2026-02-27T23:04:41Z"
+}

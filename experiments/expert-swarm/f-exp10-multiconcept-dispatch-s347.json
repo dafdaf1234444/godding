@@ -1,0 +1,198 @@
+{
+  "experiment": "F-EXP10 multi-concept dispatch rebalancing",
+  "session": "S347",
+  "domain": "expert-swarm",
+  "frontier": "F-EXP10",
+  "date": "2026-03-01",
+  "method": "Rebalance dispatch_optimizer.py scoring weights to reduce ISO hegemony and reward multi-concept expertise. Fix principle_count unweighted bug.",
+  "human_directive": "S346: being expert on more concepts than isomorphisms might fundamentally swarm the swarm",
+  "changes": {
+    "iso_weight": {
+      "before": 2.0,
+      "after": 1.5,
+      "rationale": "Still highest per-item but less hegemonic"
+    },
+    "lesson_weight": {
+      "before": 0.5,
+      "after": 0.8,
+      "rationale": "Lessons are 32% of concept signal, were undervalued"
+    },
+    "belief_weight": {
+      "before": 2.0,
+      "after": 1.5,
+      "rationale": "Only 35 total across 40 domains, was over-rewarding sparse signal"
+    },
+    "principle_weight": {
+      "before": 0.0,
+      "after": 1.5,
+      "rationale": "BUG FIX: was counted (line 200) and displayed but never scored"
+    },
+    "concept_types_weight": {
+      "before": 2.0,
+      "after": 2.5,
+      "rationale": "Breadth bonus increased to reward mastering multiple concept types"
+    }
+  },
+  "concept_survey": {
+    "total_domains_surveyed": 40,
+    "concept_distribution": {
+      "iso": {
+        "total": 230,
+        "pct": 55.1,
+        "avg_per_domain": 5.75
+      },
+      "lessons": {
+        "total": 133,
+        "pct": 31.8,
+        "avg_per_domain": 3.32
+      },
+      "beliefs": {
+        "total": 35,
+        "pct": 8.4,
+        "avg_per_domain": 0.87
+      },
+      "principles": {
+        "total": 21,
+        "pct": 5.0,
+        "avg_per_domain": 0.52
+      }
+    }
+  },
+  "ranking_changes": {
+    "information_science": {
+      "before_rank": 4,
+      "after_rank": 2,
+      "before_score": 42.5,
+      "after_score": 49.3,
+      "delta": 6.8,
+      "driver": "4 principles newly weighted + 5 concept types"
+    },
+    "governance": {
+      "before_rank": 2,
+      "after_rank": 4,
+      "before_score": 47.0,
+      "after_score": 44.3,
+      "delta": -2.7,
+      "driver": "7 beliefs lost weight (2.0\u21921.5)"
+    },
+    "economy": {
+      "before_rank": 8,
+      "after_rank": 6,
+      "before_score": 34.0,
+      "after_score": 37.6,
+      "delta": 3.6,
+      "driver": "3 principles newly weighted"
+    },
+    "brain": {
+      "before_rank": null,
+      "after_rank": 7,
+      "after_score": 36.6,
+      "driver": "9 lessons + 2 principles"
+    },
+    "finance": {
+      "before_rank": null,
+      "after_rank": 8,
+      "after_score": 36.2,
+      "driver": "3 principles"
+    },
+    "meta": {
+      "before_rank": 1,
+      "after_rank": 1,
+      "before_score": 54.0,
+      "after_score": 53.3,
+      "delta": -0.7,
+      "driver": "Stable \u2014 high across all concept types"
+    }
+  },
+  "top_10_before": [
+    {
+      "domain": "meta",
+      "score": 54.0
+    },
+    {
+      "domain": "governance",
+      "score": 47.0
+    },
+    {
+      "domain": "nk-complexity",
+      "score": 43.0
+    },
+    {
+      "domain": "information-science",
+      "score": 42.5
+    },
+    {
+      "domain": "conflict",
+      "score": 41.5
+    },
+    {
+      "domain": "distributed-systems",
+      "score": 37.5
+    },
+    {
+      "domain": "ai",
+      "score": 37.0
+    },
+    {
+      "domain": "economy",
+      "score": 34.0
+    },
+    {
+      "domain": "cryptocurrency",
+      "score": 32.5
+    },
+    {
+      "domain": "guesstimates",
+      "score": 32.5
+    }
+  ],
+  "top_10_after": [
+    {
+      "domain": "meta",
+      "score": 53.3
+    },
+    {
+      "domain": "information-science",
+      "score": 49.3
+    },
+    {
+      "domain": "nk-complexity",
+      "score": 44.7
+    },
+    {
+      "domain": "governance",
+      "score": 44.3
+    },
+    {
+      "domain": "conflict",
+      "score": 39.8
+    },
+    {
+      "domain": "economy",
+      "score": 37.6
+    },
+    {
+      "domain": "brain",
+      "score": 36.6
+    },
+    {
+      "domain": "finance",
+      "score": 36.2
+    },
+    {
+      "domain": "distributed-systems",
+      "score": 36.1
+    },
+    {
+      "domain": "ai",
+      "score": 36.0
+    }
+  ],
+  "verdict": "CONFIRMED: principle weighting and ISO reduction shift rankings toward multi-concept expertise. Information-science jumps #4\u2192#2. Brain and finance enter top 10. ISO-only domains (cryptocurrency, guesstimates) exit. Addresses human directive.",
+  "lessons": [
+    "L-517"
+  ],
+  "iso_annotations": [
+    "ISO-14: concept diversity = universal completion gate for domain maturity"
+  ]
+}

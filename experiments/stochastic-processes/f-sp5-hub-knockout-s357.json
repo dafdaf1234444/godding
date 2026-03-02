@@ -1,0 +1,47 @@
+{
+  "experiment_id": "f-sp5-hub-knockout-s357",
+  "session": "S357",
+  "frontier": "F-SP5",
+  "domain": "stochastic-processes",
+  "hypothesis": "Hub knockout causes >=2x more giant component damage than random knockout",
+  "method": "Parsed citation graph from 585 lessons (Cites:/Links: fields). Hub knockout: remove top 5 by in-degree. Random control: 10 trials of 5 random removals, averaged.",
+  "graph_stats": {
+    "nodes": 585,
+    "edges": 926,
+    "mean_degree": 1.58,
+    "components_baseline": 151,
+    "giant_component_nodes": 428,
+    "giant_component_fraction": 0.732,
+    "zero_indegree_nodes": 240,
+    "zero_outdegree_nodes": 293
+  },
+  "top_10_hubs": [
+    {"lesson": "L-039", "in_degree": 21, "title": "NK analysis at scale"},
+    {"lesson": "L-001", "in_degree": 18, "title": "Genesis validation"},
+    {"lesson": "L-042", "in_degree": 16, "title": "Automated NK analysis"},
+    {"lesson": "L-495", "in_degree": 14, "title": "Closed epistemic loop"},
+    {"lesson": "L-044", "in_degree": 12, "title": "Cycle count predicts bugs"},
+    {"lesson": "L-025", "in_degree": 11, "title": "Tune K toward edge of chaos"},
+    {"lesson": "L-577", "in_degree": 11, "title": "Session yield highly skewed"},
+    {"lesson": "L-457", "in_degree": 10, "title": "K_avg=1.5 threshold crossed"},
+    {"lesson": "L-526", "in_degree": 10, "title": "Planning obsolescence window"},
+    {"lesson": "L-599", "in_degree": 10, "title": "Hallucination audit"}
+  ],
+  "hub_knockout": {
+    "removed": ["L-039", "L-001", "L-042", "L-495", "L-044"],
+    "giant_component_fraction": 0.724,
+    "components": 153,
+    "fraction_drop": 0.0075
+  },
+  "random_knockout": {
+    "trials": 10,
+    "giant_fraction_mean": 0.7298,
+    "giant_fraction_std": 0.0033,
+    "components_mean": 150.6,
+    "components_std": 1.8,
+    "fraction_drop_mean": 0.0018
+  },
+  "ratio_hub_vs_random": 4.17,
+  "verdict": "CONFIRMED — 4.2x ratio exceeds 2x criterion. But absolute impact is modest (0.75pp drop). Graph is sparse archipelago (151 components baseline, 41% never cited). Hub concentration is real but graph does not shatter. NK methodology cluster (L-039/L-042/L-044/L-025) is the backbone.",
+  "lesson": "L-628 (pending)"
+}

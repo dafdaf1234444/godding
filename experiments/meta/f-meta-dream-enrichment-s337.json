@@ -1,0 +1,32 @@
+{
+  "session": "S337",
+  "experiment": "f-meta-dream-enrichment",
+  "date": "2026-03-01",
+  "frontier": ["F-META1", "F-DRM4"],
+  "hypothesis": "Adding P-101+P-163 vocabulary to domain DOMAIN.md files + increasing isos[:8]->[:25] in dream.py will expand resonances from 15 to 40 domains",
+  "baseline": {
+    "resonances": 64,
+    "domains_contributing": 15,
+    "coverage_pct": 37.5
+  },
+  "result": {
+    "resonances": 161,
+    "domains_contributing": 40,
+    "coverage_pct": 100.0,
+    "delta_resonances": 97,
+    "delta_domains": 25
+  },
+  "diff": "EXCEEDS_EXPECT — 100% domain coverage achieved (expected 30-35 domains)",
+  "mechanism": {
+    "P-101_hub": "knowledge+coordination+stigmergy — 3 words generate 3+ overlap resonances",
+    "P-163_hub": "session+cycles+pattern — 3 words from proxy-K/growth principle",
+    "isos_limit": "8->25 needed for domains with >8 existing arrow lines"
+  },
+  "files_changed": {
+    "dream_py": "isos[:8] -> isos[:25]",
+    "domain_mds_enriched": 25,
+    "domains_zero_remaining": 0
+  },
+  "lesson": "L-474",
+  "confidence": "MEASURED (n=40 domains, direct count)"
+}

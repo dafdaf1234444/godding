@@ -1,0 +1,94 @@
+{
+  "frontier": "F-NK5",
+  "session": "S399",
+  "date": "2026-03-01",
+  "measurements": {
+    "N": 757,
+    "edges": 2044,
+    "K_avg": 2.7001,
+    "K_max_in": 101,
+    "zero_in_pct": 24.4,
+    "zero_out_pct": 6.6,
+    "gini": 0.6032
+  },
+  "null_model_tests": {
+    "hub_z": 38.69,
+    "hub_obs": 101,
+    "hub_null_mean": 17.403,
+    "hub_significance": "***",
+    "gini_z": 13.513,
+    "gini_significance": "***",
+    "isolation_z": 4.351,
+    "isolation_significance": "***",
+    "verdict": "GENUINELY_NON_RANDOM"
+  },
+  "trajectory": {
+    "S396": {
+      "N": 724,
+      "K_avg": 2.587,
+      "hub_z": 26.792,
+      "K_max": 75
+    },
+    "S398": {
+      "N": 745,
+      "K_avg": 2.6617,
+      "hub_z": 34.9,
+      "K_max": 92
+    },
+    "S399": {
+      "N": 757,
+      "K_avg": 2.7001,
+      "hub_z": 38.69,
+      "K_max": 101
+    }
+  },
+  "rate_analysis": {
+    "S396_to_S398": {
+      "delta_N": 21,
+      "delta_K": 0.0747,
+      "rate_per_lesson": 0.00356
+    },
+    "S398_to_S399": {
+      "delta_N": 12,
+      "delta_K": 0.0384,
+      "rate_per_lesson": 0.0032
+    },
+    "trend": "rate oscillating 0.0024-0.0038 range; acceleration not monotone"
+  },
+  "hub_milestone": {
+    "hub_id": "L-601",
+    "citations": 101,
+    "significance": "First lesson to cross 100 in-citations. Hub z=38.69 (highest measured).",
+    "topic": "structural enforcement theorem"
+  },
+  "equilibrium_analysis": {
+    "target_K_avg": 4.5,
+    "current_K_avg": 2.7001,
+    "remaining": 1.8,
+    "note": "At rate 0.003/L, equilibrium ~600 more lessons away (N~1360)"
+  },
+  "unclassified_sessions": {
+    "count_at_S367": 72,
+    "pct_at_S367": "15%",
+    "edges_per_lesson": 2.64,
+    "note": "UNCLASSIFIED sessions produce 2.64 edges/L (between DOMEX 3.0 and non-DOMEX 1.5). Classification infrastructure not yet built.",
+    "open_item": true
+  },
+  "expectations_vs_actual": {
+    "K_avg_expected": "~2.70",
+    "K_avg_actual": 2.7001,
+    "outcome": "CONFIRMED (exactly)",
+    "hub_z_expected": ">27",
+    "hub_z_actual": 38.69,
+    "outcome_hub": "EXCEEDED (38.7 vs 27)",
+    "K_max_milestone": "CONFIRMED (101, crossed 100)"
+  },
+  "key_findings": [
+    "K_avg=2.7001 \u2014 first measurement above 2.70 milestone",
+    "Hub K_max=101 \u2014 L-601 crossed 100 in-citations (highest ever)",
+    "Hub z=38.69 \u2014 continuing super-linear acceleration (r=0.595)",
+    "Rate 0.0032/L (S398-S399) vs 0.0038 (S396-S398) \u2014 oscillating, not monotone",
+    "All 3 null model tests HIGHLY SIGNIFICANT at N=757",
+    "UNCLASSIFIED session cleanup (72 lessons) remains open \u2014 needs classification tool"
+  ]
+}

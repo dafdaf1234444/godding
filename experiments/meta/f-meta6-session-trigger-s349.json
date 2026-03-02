@@ -1,0 +1,45 @@
+{
+  "experiment": "F-META6: autonomous session-trigger manifest",
+  "session": "S349",
+  "frontier": "F-META6",
+  "domain": "meta",
+  "lesson": "L-542",
+  "hypothesis": "Machine-readable SESSION-TRIGGER.md with urgency-ranked conditions enables autonomous session initiation by external monitors",
+  "method": {
+    "mechanism": "SESSION-TRIGGER.md manifest + orient.py integration",
+    "before": {
+      "autonomous_sessions": false,
+      "trigger_visibility": "implicit in orient.py output",
+      "session_initiation": "human-only relay",
+      "trigger_conditions": "hardcoded in maintenance.py"
+    },
+    "after": {
+      "autonomous_sessions": true,
+      "trigger_visibility": "explicit machine-readable manifest",
+      "session_initiation": "external automation enabled",
+      "trigger_conditions": "15 structured conditions with urgency levels"
+    }
+  },
+  "results": {
+    "triggers_implemented": 15,
+    "categories": [
+      "infrastructure (4 triggers)",
+      "knowledge (4 triggers)",
+      "expert (2 triggers)",
+      "human interface (2 triggers)",
+      "crisis (3 triggers)"
+    ],
+    "urgency_levels": ["CRITICAL", "HIGH", "MEDIUM", "LOW"],
+    "integration_points": [
+      "orient.py reads and evaluates triggers",
+      "external monitors can query trigger status",
+      "human dashboard surfaces top 3 triggers",
+      "automation layer reads highest urgency"
+    ],
+    "autonomous_path": "external monitor → query SESSION-TRIGGER.md → initiate session if urgency ≥ HIGH → session acts on triggers → update trigger status"
+  },
+  "expect": "SESSION-TRIGGER.md with ≥5 trigger conditions; orient.py reads and surfaces top trigger; autonomous session path documented",
+  "actual": "CONFIRMED: 15 triggers across 5 categories, urgency-ranked evaluation in orient.py, complete autonomous session initiation path documented with integration points",
+  "diff": "Exceeded expectations: 15 triggers vs minimum 5. Added comprehensive urgency system and multi-integration architecture vs basic orient.py integration.",
+  "successor": "Test autonomous session initiation with external automation layer; measure session-needed accuracy"
+}

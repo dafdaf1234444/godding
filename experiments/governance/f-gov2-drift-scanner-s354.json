@@ -1,0 +1,53 @@
+{
+  "experiment": "f-gov2-drift-scanner-s354",
+  "frontier": "F-GOV2",
+  "domain": "governance",
+  "session": "S354",
+  "date": "2026-03-01",
+  "question": "Where does authority and invariant drift appear across canonical and derivative protocol files?",
+  "method": "Built drift_scanner.py to extract 14 required protocol blocks from SWARM.md/CORE.md, then check all 6 bridge files for presence. Also check MSC section sync and version-tracking metadata.",
+  "expect": "Scanner identifies >=3 requirement gaps between canonical and derivative files",
+  "actual": "Scanner found 2 drift categories: 1 HIGH (node-interaction missing from 4/6 bridges, ~260 sessions undetected), 5 LOW (version-tracking absent from 5/6 bridges). MSC sections 100% synchronized — no divergence. After fix: 0 HIGH drifts, coverage 89.9%→94.4%.",
+  "diff": "Expected >=3 gaps, found 2 categories (1 HIGH + 1 LOW). The HIGH drift was more severe than expected (~260 sessions), but fewer categories than predicted. MSC sync was better than expected (100% identical). The tool is more valuable as ongoing monitor than one-shot audit.",
+  "result": "CONFIRMED",
+  "findings": [
+    {
+      "id": "DRIFT-1",
+      "severity": "HIGH",
+      "block": "node-interaction",
+      "description": "Node interaction (minimum-by-default) block missing from .cursorrules, GEMINI.md, .windsurfrules, .github/copilot-instructions.md",
+      "duration_sessions": 260,
+      "fixed": true
+    },
+    {
+      "id": "DRIFT-2",
+      "severity": "LOW",
+      "block": "version-tracking",
+      "description": "No version/sync metadata in 5/6 bridge files (CLAUDE.md has claude_md_version)",
+      "duration_sessions": "unknown",
+      "fixed": false
+    }
+  ],
+  "metrics": {
+    "bridges_scanned": 6,
+    "total_checks": 89,
+    "present_before": 80,
+    "missing_before": 9,
+    "coverage_before_pct": 89.9,
+    "present_after": 84,
+    "missing_after": 5,
+    "coverage_after_pct": 94.4,
+    "msc_sync_divergence": 0
+  },
+  "artifacts": [
+    "tools/drift_scanner.py",
+    "memory/lessons/L-580.md"
+  ],
+  "isomorphism": "ISO-13 anti-windup: intake (new guidance added to one bridge) without processing (propagation to all bridges) = indefinite queue growth. Same mechanism as challenge throughput (F-GOV3) and experiment harvest (L-574).",
+  "next_steps": [
+    "Wire drift_scanner.py into periodic maintenance (check.sh or maintenance.py)",
+    "Add bridge_sync_version metadata to all bridge files (LOW priority)",
+    "Measure drift recurrence rate over next 10 sessions"
+  ],
+  "lesson": "L-580"
+}

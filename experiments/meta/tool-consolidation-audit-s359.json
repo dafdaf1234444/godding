@@ -1,0 +1,77 @@
+{
+  "experiment": "tool-consolidation-audit-s359",
+  "session": "S359",
+  "timestamp": "2026-03-01T05:30:00Z",
+  "researcher": "claude-code",
+  "objective": "Audit tools/ for duplicates, dead code, lost-embedding (P-134) - 28 sessions overdue",
+
+  "baseline": {
+    "total_python_files": 152,
+    "cli_tools": 64,
+    "main_functions": 90,
+    "test_files": 52,
+    "f_frontier_tools": 40
+  },
+
+  "consolidation_candidates": {
+    "validate_beliefs_family": {
+      "files": ["validate_beliefs.py", "validate_beliefs_extras.py"],
+      "functions": [16, 7],
+      "total_functions": 23,
+      "recommendation": "MERGE - extras.py appears to be extension of main validator",
+      "risk": "LOW - both validation focused, similar purpose"
+    },
+    "sync_family": {
+      "files": ["sync_bridges.py", "sync_state.py"],
+      "functions": [6, 10],
+      "recent_usage": 19,
+      "recommendation": "KEEP SEPARATE - different purposes, actively used",
+      "risk": "HIGH - both actively used in recent commits"
+    }
+  },
+
+  "tool_families": {
+    "f_frontier": 40,
+    "test_files": 52,
+    "core_functionality": ["maintenance.py", "orient.py", "dispatch_optimizer.py"],
+    "specialized": ["dream.py", "compact.py", "nk_analyze.py"]
+  },
+
+  "dead_code_scan": {
+    "deprecated_markers": 0,
+    "explicit_deprecation": "none found with grep pattern",
+    "note": "no tools explicitly marked deprecated"
+  },
+
+  "embedding_tracking": {
+    "note": "P-134 lost-embedding issue not directly measurable without embed-time tool registry",
+    "recommendation": "maintain active tool list in maintenance.py or similar"
+  },
+
+  "recommendations": {
+    "immediate": [
+      "Merge validate_beliefs_extras.py into validate_beliefs.py",
+      "Document tool families to prevent future duplication"
+    ],
+    "monitor": [
+      "Track F-frontier tool count growth (40 is high)",
+      "Consider F-frontier tool template/generator to reduce duplication"
+    ],
+    "low_priority": [
+      "Review test file coverage (52 test files for 152 tools = 34% coverage)",
+      "Consider CLI tool standardization (64 CLI tools with potential interface duplication)"
+    ]
+  },
+
+  "outcome": {
+    "consolidation_opportunities": "MINIMAL - most tools serve distinct purposes",
+    "immediate_actions": 1,
+    "monitoring_actions": 2,
+    "maintenance_burden": "manageable with current structure"
+  },
+
+  "lessons": [
+    "L-648: Tool proliferation natural in active swarm - consolidation ROI is low until duplicate functionality emerges",
+    "validate_beliefs split appears historical, not functional - merge candidate"
+  ]
+}

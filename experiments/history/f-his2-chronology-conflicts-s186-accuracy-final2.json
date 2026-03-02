@@ -1,0 +1,96 @@
+{
+  "frontier_id": "F-HIS2",
+  "title": "Chronology conflict detection across NEXT, SWARM-LANES, and artifacts",
+  "inputs": {
+    "next": "tasks/NEXT.md",
+    "lanes": "tasks/SWARM-LANES.md"
+  },
+  "analysis": {
+    "next_events_total": 214,
+    "next_events_with_refs": 151,
+    "matched_next_events": 151,
+    "missing_link_events": [],
+    "missing_link_rate": 0.0,
+    "inversion_events": [],
+    "inversion_rate": 0.0,
+    "missing_artifacts": [],
+    "lane_only_artifacts_not_in_next": [
+      {
+        "ref": "experiments/ai/f-ai2-live-partial-sync-*-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/children/architecture-test-minimal/memory/INDEX.md",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/control-theory/f-ctl1-threshold-sensitivity-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo1-lane-diversity-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo2-lane-retention-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo2-vsr-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo3-protocol-cadence-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/game-theory/f-gam2-reputation-signals-s186-rerun2.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s1.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/history/f-his1-historian-grounding-s186-rerun2.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/history/f-his1-historian-grounding-s186-slot4-rerun.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/ai/f-ai2-hlt2-live-perturb-s186-es.json",
+        "first_lane_session": 185,
+        "last_lane_session": 185
+      },
+      {
+        "ref": "experiments/colony-analysis/harvest-r6.md",
+        "first_lane_session": 185,
+        "last_lane_session": 185
+      },
+      {
+        "ref": "experiments/colonies/p155-*.json",
+        "first_lane_session": 184,
+        "last_lane_session": 184
+      }
+    ]
+  },
+  "generated_at_utc": "2026-02-27T22:14:32Z"
+}

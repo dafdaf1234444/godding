@@ -1,0 +1,54 @@
+{
+  "experiment": "f-meta8-step2-integration-s355",
+  "session": "S355",
+  "timestamp": "2026-03-01T04:30:00Z",
+  "frontier": "F-META8",
+  "objective": "Complete F-META8 step 2: wire contract_check.py into check.sh for pre-commit validation",
+  "domain": "meta",
+  "researcher": "claude-code",
+
+  "design": {
+    "integration_point": "check.sh lines 231-237",
+    "trigger_condition": "pre-commit hook execution",
+    "failure_behavior": "block commit if any component fails",
+    "validation_components": 5
+  },
+
+  "results": {
+    "integration_status": "COMPLETE",
+    "check_sh_integration": {
+      "lines": "231-237",
+      "logic": "FAIL check with tool output on failure",
+      "exit_behavior": "exit 1 on contract violation"
+    },
+    "validation_test": {
+      "identity_invariant": "PASS - all 4 invariants present",
+      "monotonic_state_vector": "PASS - state vector {L: 529, P: 169, B: 17, F: 39}",
+      "active_work_pointer": "PASS - active work pointer found",
+      "write_obligation": "PASS - 5 commits for S354",
+      "protocol_handshake": "PASS - CORE.md hash verified"
+    },
+    "overall_status": "CONTRACT SATISFIED (5/5 components)"
+  },
+
+  "evidence": {
+    "lesson_created": "L-597",
+    "frontier_updated": "domains/meta/tasks/FRONTIER.md",
+    "validation_command": "python3 tools/contract_check.py",
+    "hook_integration": "tools/check.sh:231-237"
+  },
+
+  "next_steps": {
+    "step_3": "Measure false-positive rate over 20 sessions",
+    "false_positive_definition": "contract satisfied but coherence actually broke",
+    "measurement_period": "20 sessions minimum",
+    "completion_criteria": "statistical confidence in false-positive rate"
+  },
+
+  "iso_annotations": [
+    "ISO-14: self-similarity - contract checks itself",
+    "CORE P14: self-application at handoff validation level"
+  ],
+
+  "confidence": "VERIFIED - tested and working in live environment"
+}

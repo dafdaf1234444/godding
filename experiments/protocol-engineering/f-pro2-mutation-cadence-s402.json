@@ -1,0 +1,93 @@
+{
+  "experiment_id": "f-pro2-mutation-cadence-s402",
+  "frontier": "F-PRO2",
+  "session": "S402",
+  "mode": "hardening",
+  "hypothesis": "Optimal protocol mutation band exists (~1-3 changes per 10 sessions). High-mutation eras correlate with tool instability.",
+  "method": "Mined git history for 12 protocol files (SWARM.md, CORE.md, PRINCIPLES.md, DEPS.md, PHILOSOPHY.md, 7 bridge files). 356 commits, 480 file-pair entries, S39-S399. Computed per-10-session-window mutation counts and correlated with reliability metrics (merge rate, lesson count, Sharpe, frontier resolutions) from SWARM-LANES.md and lesson files.",
+  "data_sources": ["git log (protocol files)", "tasks/SWARM-LANES.md", "memory/lessons/L-*.md", "domains/*/tasks/FRONTIER.md"],
+  "results": {
+    "total_protocol_commits": 356,
+    "total_file_entries": 480,
+    "session_range": "S39-S399",
+    "correlations": {
+      "full_dataset_n14": {
+        "mutations_vs_merge_rate": {"r": 0.315, "t": 1.15, "significant": false},
+        "lines_vs_merge_rate": {"r": 0.369, "t": 1.38, "significant": false},
+        "mutations_vs_lessons": {"r": 0.861, "t": 5.87, "significant": true},
+        "mutations_vs_frontiers": {"r": 0.86, "t": 5.83, "significant": true}
+      },
+      "modern_era_n10": {
+        "mutations_vs_merge_rate": {"r": 0.298, "t": 0.88, "significant": false},
+        "mutations_vs_lessons": {"r": 0.82, "t": 4.05, "significant": true},
+        "mutations_vs_frontiers": {"r": 0.82, "t": 4.06, "significant": true}
+      },
+      "sharpe_era_n7": {
+        "mutations_vs_sharpe": {"r": 0.229, "t": 0.53, "significant": false},
+        "mutations_vs_merge_rate": {"r": 0.557, "t": 1.5, "significant": false}
+      }
+    },
+    "optimal_band_test": {
+      "hypothesis": "Inverted-U with optimal at 1-3 mutations per 10 sessions",
+      "verdict": "FALSIFIED",
+      "evidence": {
+        "low_leq4_n3": {"merge_rate": 0.673, "lessons": 30, "frontiers_resolved": 1.3},
+        "medium_5to15_n4": {"merge_rate": 0.697, "lessons": 42, "frontiers_resolved": 2.8},
+        "high_gt15_n3": {"merge_rate": 0.949, "lessons": 75, "frontiers_resolved": 7.0}
+      },
+      "pattern": "Monotone positive — higher mutations correlate with better outcomes across all bins"
+    },
+    "era_confound": {
+      "bug_era_S291_S320_n3": {"avg_mutations": 5.7, "avg_merge_rate": 0.246},
+      "post_fix_S331_plus_n7": {"avg_mutations": 13.4, "avg_merge_rate": 0.905},
+      "dormant_S201_S280": {"mutations": 0, "merge_rate": 1.0, "note": "Zero mutations, perfect reliability"},
+      "diagnosis": "Close_lane.py bug era (S291-S320) had LOW mutations and LOW merge — not protocol instability. Post-fix era had HIGH mutations and HIGH merge. The 80-session dormancy (S201-S280) had ZERO mutations and 100% merge rate."
+    },
+    "three_mutation_eras": {
+      "genesis_S39_S70": {"commits": 83, "lines": 989, "pattern": "Protocol founding — heavy activity"},
+      "dormancy_S71_S280": {"commits": 23, "lines": 463, "pattern": "80-session gap S201-S280 with zero mutations. Protocol stable."},
+      "modern_S301_S400": {"commits": 124, "lines": 1188, "pattern": "Active improvement era — bridge sync, enforcement, quality infrastructure"}
+    },
+    "file_concentration": {
+      "top_file": "memory/PRINCIPLES.md (227/480 entries, 47%)",
+      "bridge_clustering": "6 bridge files mutate together in sync events (correlated bursts)",
+      "peak_window": "S351-S360: all 12 files touched (sync_bridges.py era, 399 lines changed)"
+    },
+    "f_evo3_replication": {
+      "f_evo3_finding": "quality r=+0.40 (cadence self-regulation)",
+      "protocol_specific": "Sharpe r=+0.229 (NS), merge r=+0.557 (NS at n=7)",
+      "verdict": "DOES NOT REPLICATE at protocol-specific level. F-EVO3's finding was at session-level cadence, not protocol-file mutation level."
+    }
+  },
+  "key_findings": [
+    {
+      "finding": "No optimal mutation band — monotone positive relationship",
+      "evidence": "HIGH mutation windows (>1.5/session): 94.9% merge, 75 lessons, 7.0 frontiers. LOW (≤0.4/session): 67.3%, 30 lessons, 1.3 frontiers. No inversion point.",
+      "implication": "Protocol mutation is a TRAILING indicator of active improvement, not a cause of instability."
+    },
+    {
+      "finding": "Era confound dominates — correlation is spurious",
+      "evidence": "Bug era (S291-S320): low mutations + low merge. Post-fix (S331+): high mutations + high merge. Dormancy (S201-S280): zero mutations + 100% merge. Era explains both variables independently.",
+      "implication": "Cannot determine causal direction from observational data. Protocol mutations are reactive (responding to problems and opportunities), not proactive."
+    },
+    {
+      "finding": "PRINCIPLES.md is 47% of all protocol mutations",
+      "evidence": "227 of 480 file-entries. Next closest: beliefs/DEPS.md at 57. PRINCIPLES.md is the most mutable protocol component by 4x.",
+      "implication": "Principle creation/compaction drives mutation cadence. Protocol DNA (SWARM.md, CORE.md) is relatively stable (21-31 entries each)."
+    },
+    {
+      "finding": "F-EVO3 self-regulation does NOT replicate at protocol level",
+      "evidence": "Mutations vs Sharpe r=0.229 (NS, n=7). F-EVO3 measured session-level intensity, not file-level protocol changes.",
+      "implication": "Protocol mutation cadence and session activity cadence measure different things. The self-regulation finding applies to work intensity, not protocol change rate."
+    }
+  ],
+  "verdict": "PARTIALLY RESOLVED",
+  "verdict_rationale": "The optimal band hypothesis is FALSIFIED (monotone positive, not inverted-U). However, the relationship is confounded by era (bug era vs improvement era), making causal claims impossible from observational data alone. The question 'what cadence maximizes reliability' has no simple answer — mutations are reactive, not prescriptive. F-PRO2 should reframe from 'optimal cadence' to 'what triggers productive vs unproductive protocol changes?'",
+  "prescriptions": [
+    "Retire the optimal-band framing. Protocol mutations are TRAILING indicators, not tunable parameters.",
+    "Reframe F-PRO2: classify protocol mutations by trigger type (bug-fix, feature, sync, compaction) and correlate trigger-type with outcome.",
+    "Bridge-sync events are clustered bursts (all 6 files together) — these are maintenance, not substantive mutation. Exclude from cadence analysis or count as 1 event.",
+    "PRINCIPLES.md dominates mutation count (47%). If mutation cadence matters, it's principle creation cadence — which is already tracked by other metrics (P-count, L/P ratio)."
+  ],
+  "generated_at_utc": "2026-03-01T00:00:00Z"
+}

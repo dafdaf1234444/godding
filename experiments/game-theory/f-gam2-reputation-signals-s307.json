@@ -1,0 +1,9 @@
+{
+  "frontier_id": "F-GAM2",
+  "session": 307,
+  "created_on": "2026-02-28",
+  "hypothesis": "After a one-session holdout window from S186 tag rollout (3 tagged lanes: L-S186-DOMEX-AI/BRN/EVO), the tagged-vs-untagged cohort should show measurable differences in update lag, conflict rate, or handoff latency — providing the first causal signal on whether lane-level reputation tags improve merge outcomes.",
+  "finding": "Post-holdout audit of SWARM-LANES (current state, S307) reveals the three originally-tagged lanes from S186 (DOMEX-AI, DOMEX-BRN, DOMEX-EVO) have progressed to MERGED or ABANDONED status. Key metrics: (1) mean lag to closure for tagged lanes ≈ 0 sessions (all closed within the same session as tagging), (2) untagged active lanes show no measurable closure-lag delta in the absence of a stable comparison cohort, (3) reputation_signal_rate_active remains below 0.5 for the current S307 snapshot — new active lanes (DOMEX-IS-S307, DOMEX-GT-S307, etc.) were opened without reputation tags. Structural finding: reputation tags are applied retroactively at closure, not at opening. This means the tags carry no predictive or coordination value — they are documentation artifacts, not signaling mechanisms. The F-GAM2 design assumption (that tags influence behavior) is not yet testable because tags are written after outcomes are already determined.",
+  "verdict": "OPEN",
+  "next_steps": "1) Change tagging discipline: require reliability+evidence_quality tags at lane OPEN time, not at close time. 2) Add a pre-commit check.sh guard that warns when a new lane lacks reputation tags. 3) Rerun f_gam2_reputation_integrity.py after two consecutive sessions of open-time tagging to get a true prospective cohort. 4) Track whether open-time-tagged lanes show lower conflict rates or faster handoffs vs untagged controls — this is the falsifiable test F-GAM2 was designed for."
+}

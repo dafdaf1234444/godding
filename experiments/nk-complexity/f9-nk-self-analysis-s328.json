@@ -1,0 +1,87 @@
+{
+  "experiment": "F9-NK self-analysis S328",
+  "title": "NK Lesson Citation Graph — K_avg Temporal Tracking at N=383",
+  "session": "S328",
+  "date": "2026-02-28",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "expect": "K_avg ~1.15-1.25 due to ISO sprint adding 71 cross-references; uncited_pct to drop from 55.7% toward 50%; architecture remains TRANSITION_ZONE.",
+  "method": "Scan all memory/lessons/L-*.md for L-NNN citations via regex; build directed graph; compute NK metrics with multi-edge and unique-pair counts; DFS cycle detection.",
+  "metrics": {
+    "N_lessons": 383,
+    "K_total_citations_multi": 388,
+    "K_avg_multi": 1.0131,
+    "K_total_unique": 322,
+    "K_avg_unique": 0.8407,
+    "K_max_in_degree": 14,
+    "K_max_lesson": "L-001",
+    "cycles": 0,
+    "uncited_lessons": 212,
+    "uncited_pct": 55.4,
+    "zero_outgoing_lessons": 216,
+    "zero_outgoing_pct": 56.4,
+    "top_10_cited": [
+      ["L-001", 14],
+      ["L-304", 11],
+      ["L-219", 6],
+      ["L-218", 6],
+      ["L-251", 6],
+      ["L-275", 5],
+      ["L-276", 5],
+      ["L-015", 4],
+      ["L-216", 4],
+      ["L-220", 4]
+    ]
+  },
+  "temporal_comparison": {
+    "S305": {
+      "N": 325,
+      "K_avg": 0.766,
+      "uncited_pct": 61.5,
+      "cycles": 0,
+      "architecture": "FRAGMENTED_ISLAND"
+    },
+    "S312": {
+      "N": 357,
+      "K_avg": 1.028,
+      "uncited_pct": 54.3,
+      "cycles": 0,
+      "architecture": "TRANSITION_ZONE"
+    },
+    "S318": {
+      "N": 359,
+      "K_avg": 1.003,
+      "uncited_pct": 55.7,
+      "cycles": 0,
+      "architecture": "TRANSITION_ZONE"
+    },
+    "S328": {
+      "N": 383,
+      "K_avg": 1.013,
+      "uncited_pct": 55.4,
+      "cycles": 0,
+      "architecture": "TRANSITION_ZONE"
+    }
+  },
+  "actual": "K_avg=1.013 (multi-edge), K_avg_unique=0.841. 212/383 uncited (55.4%). 0 cycles. Total citations: 388.",
+  "diff": "Expectation was K_avg ~1.15-1.25 from ISO sprint; actual K_avg barely moved (+0.010 from S318). ISO sprint annotated ISO-N tags, not L-NNN cross-references — the wrong citation type for K_avg. Uncited pct dropped only 0.3pp despite 71-lesson annotation effort.",
+  "delta_from_s318": {
+    "N_delta": "+24",
+    "K_avg_delta": "+0.010",
+    "uncited_pct_delta": "-0.3pp"
+  },
+  "interpretation": {
+    "NK_diagnosis": "TRANSITION_ZONE",
+    "architecture": "persistent_hub_and_spoke_plateau",
+    "K_avg_trajectory": "PLATEAU — three consecutive readings near 1.0 (S312: 1.028, S318: 1.003, S328: 1.013)",
+    "hub_concentration": "L-001 remains top hub (14 in-degree); top-10 hubs absorb 62/388 citations (16%)",
+    "iso_sprint_finding": "ISO annotations add ISO-N topic tags, not L-NNN lesson links — negligible K_avg impact",
+    "structural_barrier": "New lessons arrive without backward links; each new orphan dilutes K_avg",
+    "swarm_implication": "Data-parallel architecture wins; method-sequential not favored until K_avg >= 1.5"
+  },
+  "threshold_status": "below",
+  "threshold_value": 1.5,
+  "threshold_gap": 0.487,
+  "f75_connection": "K_avg=1.013 < 1.5 threshold — data-parallel still wins; method decomposition not yet favored.",
+  "next": "K_avg plateau near 1.0 is structural: ISO-tag sprints do not raise K_avg. Only explicit L-NNN cross-reference additions can move the metric. To cross 1.5 from 1.013 with N~400 requires ~196 new unique citation edges (from 322 to 518). Recommend: targeted citation-linking sprint (not ISO-tag sprint) or accept plateau as stable attractor."
+}

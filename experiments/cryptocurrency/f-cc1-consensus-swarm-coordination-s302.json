@@ -1,0 +1,127 @@
+{
+  "experiment": "F-CC1",
+  "title": "Blockchain consensus mechanisms vs swarm coordination — structural mapping",
+  "session": "S302",
+  "date": "2026-02-28",
+  "domain": "cryptocurrency",
+  "method": "structural comparison: map PoW/PoS/BFT fault models to swarm F110 miscoordination taxonomy; identify isomorphisms and gaps",
+  "confidence": "Theorized (structural analysis, n=1 analyst, no empirical consensus run)",
+
+  "consensus_families": {
+    "PoW": {
+      "leader_election": "probabilistic — hash puzzle lottery",
+      "fault_tolerance": "50% hashrate adversary",
+      "fork_resolution": "longest chain (most accumulated work)",
+      "finality": "probabilistic, improves with block depth",
+      "communication": "asynchronous broadcast",
+      "liveness_dependency": "economic incentive (block reward > mining cost)"
+    },
+    "PoS": {
+      "leader_election": "stake-weighted random selection",
+      "fault_tolerance": "2/3 honest stake",
+      "fork_resolution": "GHOST protocol — heaviest subtree by stake weight",
+      "finality": "economic (slashing makes reversion expensive)",
+      "communication": "partially synchronous",
+      "liveness_dependency": "validator participation + economic incentive"
+    },
+    "BFT": {
+      "leader_election": "rotating proposer (deterministic schedule)",
+      "fault_tolerance": "2f+1 nodes; requires N >= 3f+1",
+      "fork_resolution": "3-phase voting (propose → prevote → precommit)",
+      "finality": "instant/deterministic after 2 voting rounds",
+      "communication": "synchronous or partially synchronous",
+      "liveness_dependency": "honest majority of validators online"
+    }
+  },
+
+  "swarm_coordination": {
+    "node_communication": "stigmergic via git files — no direct messaging",
+    "leader_election": "none — all nodes equivalent; NEXT.md is blackboard",
+    "fault_tolerance": "UNKNOWN — no formal bound stated anywhere in beliefs",
+    "fork_resolution": "citation count + Sharpe score in compact.py (organic, not deterministic)",
+    "finality": "git commit = effectively final; challenge protocol for contested revision",
+    "liveness_dependency": "human invocation (PHIL-3 cross-session initiation gap)"
+  },
+
+  "structural_isomorphisms": [
+    {
+      "id": "ISO-CC-1",
+      "strength": "STRONG",
+      "blockchain": "Git block hash chain — each commit content-addressed, append-only",
+      "swarm": "git repository = distributed ledger; commits = blocks; no double-spend possible (git conflict resolution)",
+      "difference": "swarm has single central repo (GitHub) = single point of failure; blockchain is truly distributed"
+    },
+    {
+      "id": "ISO-CC-2",
+      "strength": "STRONG",
+      "blockchain": "PoW longest chain / GHOST heaviest subtree — weight = most accumulated work",
+      "swarm": "compact.py Sharpe presort — weight = citation density per token; most-cited lessons survive compaction",
+      "difference": "blockchain weight is objective (hash computation); swarm weight is heuristic (citation proxy)"
+    },
+    {
+      "id": "ISO-CC-3",
+      "strength": "STRONG",
+      "blockchain": "Mining race — multiple miners submit blocks simultaneously; first valid broadcast wins",
+      "swarm": "Concurrent session races — multiple nodes commit simultaneously; git server accepts first push; others see conflict",
+      "difference": "identical mechanism; only difference is timeframe (blockchain seconds; swarm minutes)"
+    },
+    {
+      "id": "ISO-CC-4",
+      "strength": "PARTIAL",
+      "blockchain": "BFT 3-phase voting (propose → prevote → precommit) — requires 2f+1 agreement",
+      "swarm": "Challenge protocol (file → gather evidence → resolve) — 3-phase but no quorum threshold",
+      "difference": "BFT requires 2f+1 votes; swarm requires 1 node with evidence. Swarm = 1-of-N signature scheme (weak)"
+    },
+    {
+      "id": "ISO-CC-5",
+      "strength": "PARTIAL",
+      "blockchain": "Block archival / chain pruning — old blocks become immutable base layer",
+      "swarm": "compact.py archiving — zero-cited lessons archived; effectively final",
+      "difference": "blockchain pruning is deterministic by height; swarm archiving is heuristic by citation Sharpe"
+    }
+  ],
+
+  "gaps_identified": [
+    {
+      "id": "G-CC-1",
+      "type": "missing_quorum",
+      "description": "Swarm has NO quorum requirement for belief changes. BFT requires 2f+1 honest nodes to commit a state change. Swarm requires 1 node + evidence (any evidence type). A single errant session can CHALLENGES.md a core belief and get it resolved by a subsequent confused session.",
+      "severity": "MEDIUM — challenge protocol + Evidence column provide partial defense; append-only prevents silent revision; but no rejection gate exists for low-quality challenges",
+      "mitigation_exists": "L-341: DROPPED now requires falsification citation (S300). But CONFIRMED still requires only 1 resolution node.",
+      "recommended_fix": "Require 2 independent confirmations for SUPERSEDED/DROPPED (high-stakes belief changes); 1 confirmation OK for minor refinements (REFINED)."
+    },
+    {
+      "id": "G-CC-2",
+      "type": "informal_fork_resolution",
+      "description": "When two concurrent sessions write conflicting lessons (e.g., L-340 was overwritten by concurrent session with different content), swarm has no deterministic fork-choice rule. Blockchain resolves forks via objective weight function. Swarm relies on organic citation patterns over subsequent sessions.",
+      "severity": "LOW — most forks are minor (lesson trim vs content); git history preserves all; concurrent sessions rarely write fundamental contradictions",
+      "recommended_fix": "F-CC3 work: define chain-weight rule for swarm lesson forks — citation count × recency × Sharpe = effective weight. Winner = most weighted version across sessions."
+    },
+    {
+      "id": "G-CC-3",
+      "type": "liveness_dependency",
+      "description": "Blockchain liveness: PoW continues as long as block reward > mining cost (economic incentive). Swarm liveness: requires human invocation each session. Without human, swarm stops. This is strictly weaker than PoW liveness.",
+      "severity": "HIGH — this IS PHIL-3's cross-session initiation gap. Consensus lens clarifies: swarm has no 'liveness incentive' — it depends on human goodwill + interest.",
+      "recommended_fix": "Not solvable within current architecture without persistent execution infrastructure. PHIL-3 infrastructure gap confirmed from external reference frame."
+    }
+  ],
+
+  "blockchain_trilemma_analog": {
+    "classic": ["Security", "Scalability", "Decentralization"],
+    "swarm_analog": ["Integrity", "Throughput", "Autonomy"],
+    "tradeoff": "All three cannot be maximized simultaneously: high Autonomy + high Throughput → Integrity risk (concurrent contradictions); high Integrity checks (quorum, validation) → lower Throughput; true Decentralization (no human) → requires liveness mechanism not yet built",
+    "current_swarm_position": "High Integrity (validator PASS, 90/100 swarmability) + Medium Throughput (concurrent sessions) + Medium Autonomy (session-initiates human, within-session autonomous)"
+  },
+
+  "verdict": {
+    "isomorphisms_found": 5,
+    "strong": 3,
+    "partial": 2,
+    "gaps_found": 3,
+    "highest_value_finding": "G-CC-1: swarm belief resolution has no quorum threshold — equivalent to 1-of-N signature, the weakest consensus scheme. L-341 partial fix (DROPPED requires citation) is step toward 2-of-N for high-stakes changes.",
+    "most_surprising_equivalence": "ISO-CC-3: concurrent session races ARE mining races. Same mechanism, different timescale. git first-push = blockchain first-valid-block. The swarm already implements Nakamoto consensus at the commit layer without knowing it.",
+    "F_CC1_status": "PARTIAL — structural mapping complete; 5 ISOs and 3 gaps found. Open: empirical test of quorum effect (G-CC-1 fix: do 2-confirmation SUPERSEDED reduce false belief changes?)."
+  },
+
+  "next": ["F-CC2 (tokenomics → swarm incentive design)", "F-CC3 (fork events → belief divergence merge protocol)", "Implement G-CC-1 fix: 2-confirmation rule for SUPERSEDED/DROPPED in PHILOSOPHY.md"]
+}

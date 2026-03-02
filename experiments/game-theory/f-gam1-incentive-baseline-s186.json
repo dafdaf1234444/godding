@@ -1,0 +1,179 @@
+{
+  "frontier_id": "F-GAM1",
+  "title": "Incentive design baseline (cooperative vs competitive)",
+  "study_count": 5,
+  "studies": [
+    {
+      "artifact": "experiments/colonies/p155-live-trace-s147.json",
+      "cooperative": {
+        "group_accuracy_mean": 0.90775,
+        "deceptor_share_mean": 0.010646,
+        "collaborator_share_mean": 0.932958,
+        "neutral_share_mean": 0.056396,
+        "role_entropy": 0.397117,
+        "productive_yield_proxy": 0.846893
+      },
+      "competitive": {
+        "group_accuracy_mean": 0.6635,
+        "deceptor_share_mean": 0.196479,
+        "collaborator_share_mean": 0.484563,
+        "neutral_share_mean": 0.318958,
+        "role_entropy": 1.493554,
+        "productive_yield_proxy": 0.321507
+      },
+      "delta_comp_minus_coop": {
+        "group_accuracy_mean": -0.24425,
+        "deceptor_share_mean": 0.185833,
+        "collaborator_share_mean": -0.448396,
+        "neutral_share_mean": 0.262563,
+        "role_entropy": 1.096437,
+        "productive_yield_proxy": -0.525386
+      }
+    },
+    {
+      "artifact": "experiments/colonies/p155-live-trace-s184-rerun-2.json",
+      "cooperative": {
+        "group_accuracy_mean": 0.90775,
+        "deceptor_share_mean": 0.010646,
+        "collaborator_share_mean": 0.932958,
+        "neutral_share_mean": 0.056396,
+        "role_entropy": 0.397117,
+        "productive_yield_proxy": 0.846893
+      },
+      "competitive": {
+        "group_accuracy_mean": 0.6635,
+        "deceptor_share_mean": 0.196479,
+        "collaborator_share_mean": 0.484563,
+        "neutral_share_mean": 0.318958,
+        "role_entropy": 1.493554,
+        "productive_yield_proxy": 0.321507
+      },
+      "delta_comp_minus_coop": {
+        "group_accuracy_mean": -0.24425,
+        "deceptor_share_mean": 0.185833,
+        "collaborator_share_mean": -0.448396,
+        "neutral_share_mean": 0.262563,
+        "role_entropy": 1.096437,
+        "productive_yield_proxy": -0.525386
+      }
+    },
+    {
+      "artifact": "experiments/colonies/p155-live-trace-s184-rerun-3.json",
+      "cooperative": {
+        "group_accuracy_mean": 0.90775,
+        "deceptor_share_mean": 0.010646,
+        "collaborator_share_mean": 0.932958,
+        "neutral_share_mean": 0.056396,
+        "role_entropy": 0.397117,
+        "productive_yield_proxy": 0.846893
+      },
+      "competitive": {
+        "group_accuracy_mean": 0.6635,
+        "deceptor_share_mean": 0.196479,
+        "collaborator_share_mean": 0.484563,
+        "neutral_share_mean": 0.318958,
+        "role_entropy": 1.493554,
+        "productive_yield_proxy": 0.321507
+      },
+      "delta_comp_minus_coop": {
+        "group_accuracy_mean": -0.24425,
+        "deceptor_share_mean": 0.185833,
+        "collaborator_share_mean": -0.448396,
+        "neutral_share_mean": 0.262563,
+        "role_entropy": 1.096437,
+        "productive_yield_proxy": -0.525386
+      }
+    },
+    {
+      "artifact": "experiments/colonies/p155-live-trace-s184-rerun.json",
+      "cooperative": {
+        "group_accuracy_mean": 0.90775,
+        "deceptor_share_mean": 0.010646,
+        "collaborator_share_mean": 0.932958,
+        "neutral_share_mean": 0.056396,
+        "role_entropy": 0.397117,
+        "productive_yield_proxy": 0.846893
+      },
+      "competitive": {
+        "group_accuracy_mean": 0.6635,
+        "deceptor_share_mean": 0.196479,
+        "collaborator_share_mean": 0.484563,
+        "neutral_share_mean": 0.318958,
+        "role_entropy": 1.493554,
+        "productive_yield_proxy": 0.321507
+      },
+      "delta_comp_minus_coop": {
+        "group_accuracy_mean": -0.24425,
+        "deceptor_share_mean": 0.185833,
+        "collaborator_share_mean": -0.448396,
+        "neutral_share_mean": 0.262563,
+        "role_entropy": 1.096437,
+        "productive_yield_proxy": -0.525386
+      }
+    },
+    {
+      "artifact": "experiments/colonies/p155-live-trace-verify-s184.json",
+      "cooperative": {
+        "group_accuracy_mean": 0.9065,
+        "deceptor_share_mean": 0.012542,
+        "collaborator_share_mean": 0.925479,
+        "neutral_share_mean": 0.061979,
+        "role_entropy": 0.431294,
+        "productive_yield_proxy": 0.838947
+      },
+      "competitive": {
+        "group_accuracy_mean": 0.625,
+        "deceptor_share_mean": 0.229583,
+        "collaborator_share_mean": 0.453708,
+        "neutral_share_mean": 0.316708,
+        "role_entropy": 1.530034,
+        "productive_yield_proxy": 0.283568
+      },
+      "delta_comp_minus_coop": {
+        "group_accuracy_mean": -0.2815,
+        "deceptor_share_mean": 0.217042,
+        "collaborator_share_mean": -0.471771,
+        "neutral_share_mean": 0.254729,
+        "role_entropy": 1.09874,
+        "productive_yield_proxy": -0.555379
+      }
+    }
+  ],
+  "delta_summary_comp_minus_coop": {
+    "deceptor_share_mean": {
+      "mean": 0.192075,
+      "median": 0.185833,
+      "std": 0.012484,
+      "sign_stability": 1.0
+    },
+    "group_accuracy_mean": {
+      "mean": -0.2517,
+      "median": -0.24425,
+      "std": 0.0149,
+      "sign_stability": 1.0
+    },
+    "productive_yield_proxy": {
+      "mean": -0.531385,
+      "median": -0.525386,
+      "std": 0.011997,
+      "sign_stability": 1.0
+    },
+    "role_entropy": {
+      "mean": 1.096898,
+      "median": 1.096437,
+      "std": 0.000921,
+      "sign_stability": 1.0
+    }
+  },
+  "verdict": "cooperative_dominates",
+  "interpretation": {
+    "deception_proxy": "deceptor_share_mean (higher is worse)",
+    "merge_quality_proxy": "group_accuracy_mean (higher is better)",
+    "net_knowledge_yield_proxy": "collaborator_share_mean * group_accuracy_mean",
+    "exploration_proxy": "role_entropy (higher can mean broader exploration mix)",
+    "notes": "This baseline uses p155 controlled traces as an isomorphic proxy, not live lane interventions.",
+    "headline": "competitive incentives increase deception pressure and reduce quality/yield",
+    "mean_entropy_delta_comp_minus_coop": 1.096898
+  },
+  "generated_at_utc": "2026-02-27T21:15:39Z"
+}

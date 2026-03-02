@@ -1,0 +1,34 @@
+{
+  "active_missing_flow_tags": [
+    {
+      "lane": "L-S222-BS-DETECTOR",
+      "scope_key": "domains/quality/tasks/FRONTIER.md",
+      "session": "S226",
+      "status": "READY"
+    }
+  ],
+  "flow_in_counts": {
+    "experiment": 3,
+    "maintenance": 2
+  },
+  "flow_out_counts": {
+    "doc": 1,
+    "frontier-update": 3,
+    "tool-change": 1
+  },
+  "lanes_path": "/mnt/c/Users/canac/REPOSITORIES/swarm/tasks/SWARM-LANES.md",
+  "lanes_total": 15,
+  "lanes_with_flow_in": 5,
+  "lanes_with_flow_out": 5,
+  "session_window": {
+    "max_session": 226,
+    "min_session": 217,
+    "requested": 10
+  },
+  "transition_counts": {
+    "experiment->frontier-update": 2,
+    "experiment->tool-change": 1,
+    "maintenance->doc": 1,
+    "maintenance->frontier-update": 1
+  }
+}

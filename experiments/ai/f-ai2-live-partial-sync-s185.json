@@ -1,0 +1,97 @@
+{
+  "experiment": "F-AI2/F-HLT2",
+  "title": "Live fetch perturbation: forced sync vs async independence",
+  "mode": "live-perturbation",
+  "seed": 188,
+  "trials": 300,
+  "lang": "en",
+  "perturb_rate": 0.35,
+  "sync_inherit_prob": 0.5,
+  "leader_error_rate": 0.3233,
+  "async": {
+    "follower_error_rate": 0.3433,
+    "joint_error_rate": 0.1,
+    "leader_follower_error_correlation": -0.0496
+  },
+  "sync": {
+    "follower_error_rate": 0.32,
+    "joint_error_rate": 0.2067,
+    "leader_follower_error_correlation": 0.473
+  },
+  "mismatch_samples": [
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "rTansactive memory",
+      "leader_resolved": "rTansactive memory"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swarm intleligence",
+      "leader_resolved": "Swarm intleligence"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Distribuetd systems",
+      "leader_resolved": "Distribuetd systems"
+    },
+    {
+      "base_topic": "Stigmergy",
+      "canonical": "Stigmergy",
+      "leader_query": "Stigmegy",
+      "leader_resolved": "Stigmegy"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swarmintelligence",
+      "leader_resolved": "Swarmintelligence"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swarm itelligence",
+      "leader_resolved": "Swarm itelligence"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-freereplicated data type",
+      "leader_resolved": "Conflict-freereplicated data type"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swam intelligence",
+      "leader_resolved": "Swam intelligence"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swarm intleligence",
+      "leader_resolved": "Swarm intleligence"
+    },
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "Trasactive memory",
+      "leader_resolved": "Trasactive memory"
+    },
+    {
+      "base_topic": "Stigmergy",
+      "canonical": "Stigmergy",
+      "leader_query": "Stigmegy",
+      "leader_resolved": "Stigmegy"
+    },
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "Trasactive memory",
+      "leader_resolved": "Trasactive memory"
+    }
+  ],
+  "verdict": "Live topic perturbations preserve the same directional result: forced synchronization propagates leader mistakes, while asynchronous followers remain less correlated.",
+  "generated_at_utc": "2026-02-27T20:20:29Z"
+}

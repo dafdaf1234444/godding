@@ -1,0 +1,25 @@
+{
+  "experiment_id": "f-meta-self-diff-audit-s338",
+  "frontier": "F-META1",
+  "domain": "meta",
+  "session": "S338",
+  "date": "2026-03-01",
+  "question": "Can the swarm diff itself properly?",
+  "method": "Council Mode A deliberation (5 domains: meta, evaluation, information-science, nk-complexity, governance) + comprehensive tool audit + gap analysis",
+  "expect": "Swarm has partial self-diff via expect-act-diff (P-182) and proxy-K; expect no unified tool",
+  "actual": "14 quantitative measurement tools found; 0 unified self-diff tools; 0 qualitative content-diff tools; 22% EAD compliance in lanes",
+  "diff": "As expected — quantitative coverage strong, qualitative coverage absent, no unified snapshot-and-compare",
+  "result": {
+    "working_tools": 14,
+    "unified_self_diff_tools_before": 0,
+    "unified_self_diff_tools_after": 1,
+    "quantitative_dimensions_covered": ["token_counts", "lesson_counts", "growth_rates", "proxy_k_drift", "reach_scores", "lane_health", "scaling_projections", "version_drift"],
+    "qualitative_dimensions_missing": ["belief_content_evolution", "principle_status_trajectories", "cross_domain_flows", "self_model_fidelity", "frontier_refinement_tracking", "lesson_content_versioning"],
+    "ead_compliance": 0.222,
+    "council_domains_consulted": ["meta", "evaluation", "information-science", "nk-complexity", "governance"],
+    "shared_iso_patterns": ["ISO-10", "ISO-15", "ISO-16", "ISO-2", "ISO-3", "ISO-4", "ISO-8", "ISO-9"]
+  },
+  "artifact": "tools/self_diff.py",
+  "lesson": "L-479",
+  "verdict": "PARTIAL — swarm can diff quantities but not qualities. self_diff.py closes unified-snapshot gap; qualitative diffing remains open."
+}

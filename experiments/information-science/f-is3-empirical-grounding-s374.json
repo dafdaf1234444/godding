@@ -1,0 +1,137 @@
+{
+  "session": "S374",
+  "date": "2026-03-01",
+  "frontier": "F-IS3",
+  "experiment": "empirical_grounding",
+  "method": "git-log timestamp overlap for concurrency detection",
+  "expect": "spawn_math.py N* predictions diverge from observed. Coordination cost floor (0.01) understates reality by 10-50x. Effective rho > 0.2. L-629 ceiling constrains N* to 1-2.",
+  "n_sessions_parsed": 172,
+  "n_sessions_merged": 103,
+  "concurrent_n_distribution": {
+    "1": 10,
+    "2": 7,
+    "3": 23,
+    "4": 27,
+    "5": 21,
+    "6": 9,
+    "7": 6
+  },
+  "n_bins": [
+    {
+      "bin": "N=1",
+      "n_sessions": 10,
+      "mean_lp": 0.3,
+      "mean_l": 0.3,
+      "std_lp": 0.483,
+      "total_lp": 3,
+      "median_lp": 0
+    },
+    {
+      "bin": "N=2",
+      "n_sessions": 7,
+      "mean_lp": 1.286,
+      "mean_l": 1.286,
+      "std_lp": 1.254,
+      "total_lp": 9,
+      "median_lp": 1
+    },
+    {
+      "bin": "N=3-4",
+      "n_sessions": 50,
+      "mean_lp": 3.12,
+      "mean_l": 3.08,
+      "std_lp": 3.262,
+      "total_lp": 156,
+      "median_lp": 2
+    },
+    {
+      "bin": "N=5-8",
+      "n_sessions": 36,
+      "mean_lp": 1.806,
+      "mean_l": 1.75,
+      "std_lp": 1.997,
+      "total_lp": 65,
+      "median_lp": 1
+    },
+    {
+      "bin": "N=9-15",
+      "n_sessions": 0,
+      "mean_lp": 0,
+      "mean_l": 0,
+      "std_lp": 0,
+      "total_lp": 0
+    },
+    {
+      "bin": "N=16-50",
+      "n_sessions": 0,
+      "mean_lp": 0,
+      "mean_l": 0,
+      "std_lp": 0,
+      "total_lp": 0
+    }
+  ],
+  "coordination_cost": {
+    "alpha": 2.0037,
+    "beta": 0.0662,
+    "baseline_at_n1": 2.07,
+    "coordination_cost_per_agent": -0.0662,
+    "r_squared": 0.0014,
+    "n_points": 103,
+    "n_range": [
+      1,
+      7
+    ]
+  },
+  "rho_estimate": {
+    "rho_estimate": 0.0079,
+    "overall_var": 7.4698,
+    "avg_within_var": 6.7358,
+    "n_groups": 7,
+    "method": "ICC"
+  },
+  "s186_model": {
+    "params": {
+      "baseline": 0.65,
+      "std": 0.2,
+      "rho": 0.032,
+      "coord_cost": 0.01
+    },
+    "best_n": 4
+  },
+  "empirical_model": {
+    "params": {
+      "baseline": 2.07,
+      "std": 2.7331,
+      "rho": 0.0079,
+      "coord_cost": -0.0662
+    },
+    "best_n": 15
+  },
+  "era_comparison": {
+    "pre_S186": {
+      "n_sessions": 52,
+      "mean_lp": 0.923,
+      "mean_concurrent_n": 4.06,
+      "max_concurrent_n": 7
+    },
+    "S186_S306": {
+      "n_sessions": 8,
+      "mean_lp": 3.5,
+      "mean_concurrent_n": 4.25,
+      "max_concurrent_n": 6
+    },
+    "S306_plus": {
+      "n_sessions": 43,
+      "mean_lp": 3.651,
+      "mean_concurrent_n": 3.65,
+      "max_concurrent_n": 7
+    }
+  },
+  "verdicts": [
+    "coordination_cost=-0.0662 (NEGATIVE \u2014 more agents help)",
+    "rho=0.0079 vs S186=0.032",
+    "empirical_N*=15 vs S186_N*=4"
+  ],
+  "actual": "coordination_cost=-0.0662 (NEGATIVE \u2014 more agents help); rho=0.0079 vs S186=0.032; empirical_N*=15 vs S186_N*=4",
+  "diff": "Cost NEGATIVE or zero \u2014 adding agents increases per-session output (unexpected); rho < 0.2 \u2014 predicted rho > 0.2 was WRONG"
+}

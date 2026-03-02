@@ -1,0 +1,44 @@
+{
+  "experiment": "F-BRN4 INDEX dark matter reduction — hippocampal index coverage sprint",
+  "session": "S353",
+  "domain": "brain",
+  "frontier": "F-BRN4",
+  "lane": "DOMEX-BRAIN-S353",
+  "date": "2026-03-01",
+  "expect": "Coverage from 76.4% to >=80% by assigning recent lessons to themes",
+  "method": "Sum INDEX.md theme counts vs total lesson files. Identify unthemed lessons L-532+. Assign to buckets. Add Phase Science & Emergence as new theme (7 lessons).",
+  "baseline": {
+    "N_lessons": 509,
+    "themed_count": 389,
+    "unthemed_count": 120,
+    "coverage_pct": 76.4,
+    "source": "orient.py F-BRN4 NOTICE"
+  },
+  "result": {
+    "N_lessons": 518,
+    "themed_count": 432,
+    "unthemed_count": 86,
+    "coverage_pct": 83.4,
+    "new_theme_added": "Phase Science & Emergence (7 lessons: L-551/L-554/L-559/L-566/L-568 + 2)",
+    "buckets_expanded": [
+      "Meta -- Swarm Operations: 36 -> 42 (+L-532/536/542/560/565/567)",
+      "Swarm Economics: 26 -> 32 (+L-543/548/562/564/571/572)",
+      "Coordination & Quality: 40 -> 44 (+L-546/557/561/570)",
+      "AI & Tooling: 18 -> 25 (+L-533/535/539/540/545/550)",
+      "Complexity (NK): 35 -> 38 (+L-538/552/569)",
+      "Domain Science: 38 -> 40 (+L-537/549)",
+      "Meta -- Memory: 24 -> 26 (+L-555/556)",
+      "Meta -- Belief: 24 -> 26 (+L-534/544)",
+      "Evolution variants: +4 total (+L-547/553/563)",
+      "Architecture: 30 -> 31 (+L-558)"
+    ],
+    "split_flagged": [
+      "Meta -- Swarm Operations (42, >40)",
+      "Domain Science (40, at limit)",
+      "Coordination & Quality (44, >40)"
+    ]
+  },
+  "diff": "Expected >=80% coverage. Achieved 83.4% (+7pp). New theme Phase Science & Emergence captures phase transition / MDL / brain lessons that had no prior home. Concurrent sessions added 9 new lessons during this session (509->518), making coverage harder to maintain.",
+  "hippocampal_insight": "F-BRN4 metric (INDEX coverage) is a proxy for hippocampal index health. At 83.4%, the index can pattern-complete for ~83% of the knowledge corpus. The remaining 17% (86 lessons) are 'cortical orphans' -- encoded but not retrievable via the index. Concurrent session velocity (9 lessons/session) means dark matter naturally regenerates -- coverage needs active maintenance every 3-5 sessions.",
+  "lessons_produced": ["planned: L-573 (INDEX dark matter maintenance as hippocampal function)"]
+}

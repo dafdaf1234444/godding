@@ -1,0 +1,60 @@
+{
+  "session": "S393",
+  "timestamp": "2026-03-01T17:05:00Z",
+  "frontier": "SIG-35",
+  "type": "reliability-audit",
+  "tool_audit": {
+    "total": 10,
+    "pass": 7,
+    "warn": 2,
+    "fail": 1,
+    "details": {
+      "contract_check.py": "PASS — 5/5 components",
+      "dispatch_optimizer.py": "PASS — valid UCB1 output",
+      "sync_state.py": "WARN — no --dry-run flag, always writes",
+      "compact.py": "PASS — +0.5% drift",
+      "check.sh": "PASS — all guards pass",
+      "lesson_quality_fixer.py": "WARN — --dry-run not recognized",
+      "knowledge_state.py": "PASS — 1039 items classified",
+      "frontier_triage.py": "FAIL → FIXED — O(N*M) timeout, now O(N) <5s",
+      "claim.py": "PASS — list works correctly",
+      "expect_harvest.py": "PASS — 317 records valid"
+    }
+  },
+  "maintenance_audit": {
+    "due_items": 12,
+    "periodic_items": 7,
+    "notice_items": 13,
+    "overdue_periodics": 14,
+    "critical_overdue": [
+      {"id": "claim-vs-evidence-audit", "cadence": 20, "overdue_by": 24},
+      {"id": "state-sync", "cadence": 1, "overdue_by": 10},
+      {"id": "session-log-gap", "sessions_missing": 18}
+    ],
+    "signal_inflation": {
+      "s387": 21,
+      "s392": 33,
+      "trend": "rising",
+      "persistent_notices": 10
+    }
+  },
+  "root_causes": [
+    "hardcoded_values",
+    "quadratic_algorithms",
+    "unbounded_state_growth",
+    "missing_dry_run",
+    "due_item_accumulation",
+    "signal_noise_degradation"
+  ],
+  "fixes_applied": [
+    "frontier_triage.py: O(N*M) -> O(N)",
+    "frontier_triage.py: CURRENT_SESSION auto-detect",
+    "frontier_triage.py: artifact path dynamic",
+    "correction_propagation.py: S383 -> S393",
+    "genesis hash updated",
+    "domain INDEX expert-swarm 9->8",
+    "domain INDEX quality 2->1, F-QC4 removed",
+    "state sync run"
+  ],
+  "lesson": "L-788"
+}

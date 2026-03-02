@@ -1,0 +1,81 @@
+{
+  "frontier": "F-SP3",
+  "session": "S370",
+  "date": "2026-03-01",
+  "hypothesis": "4-state HMM with burst entropy 3-5x convergence entropy",
+  "n_sessions": 175,
+  "emission": "lessons + 0.5*principles + 0.3*frontiers_resolved",
+  "emission_stats": {
+    "mean": 1.322857142857143,
+    "std": 2.3746862306160685
+  },
+  "hmm_states": {
+    "convergence": {
+      "mean": 0.02903537544350561,
+      "std": 0.3,
+      "entropy_rate": -1.0025853265937048,
+      "n_sessions": 93,
+      "self_transition": 0.74289874752287
+    },
+    "accumulation": {
+      "mean": 0.02903537544350561,
+      "std": 0.3,
+      "entropy_rate": null,
+      "n_sessions": 0,
+      "self_transition": 0.74289874752287
+    },
+    "integration": {
+      "mean": 1.1424443897806809,
+      "std": 0.3,
+      "entropy_rate": 0.22093195606271684,
+      "n_sessions": 51,
+      "self_transition": 0.5791196270160008
+    },
+    "burst": {
+      "mean": 5.297143976608378,
+      "std": 3.0972003130691457,
+      "entropy_rate": 2.5280966998043124,
+      "n_sessions": 31,
+      "self_transition": 0.7865492610639788
+    }
+  },
+  "transition_matrix": [
+    [
+      0.74289874752287,
+      0.027514768426772498,
+      0.19144499828789127,
+      0.038141485762466246
+    ],
+    [
+      0.027514768426772498,
+      0.74289874752287,
+      0.19144499828789127,
+      0.038141485762466246
+    ],
+    [
+      0.17561339582241556,
+      0.17561339582241556,
+      0.5791196270160008,
+      0.06965358133916807
+    ],
+    [
+      0.06450665603361624,
+      0.06450665603361624,
+      0.08443742686878868,
+      0.7865492610639788
+    ]
+  ],
+  "model_comparison_bic": {
+    "2": 517.130319404416,
+    "3": 443.4787120100964,
+    "4": 489.9618427221776,
+    "5": 537.4736642944483
+  },
+  "best_n_states": 3,
+  "entropy_ratio_burst_convergence": null,
+  "entropy_ratio_burst_integration": 11.44,
+  "effective_states": 3,
+  "interpretation": "4-state hypothesis overfits (BIC 490 vs 443 for 3-state). Three effective phases: quiescent (53%), production (29%), burst (18%). Burst entropy 11.4x production entropy (exceeds 3-5x prediction). Burst persistence P(stay)=0.79 consistent with F-SP1 Hawkes self-excitation.",
+  "verdict": "PARTIALLY CONFIRMED — 3 phases not 4; entropy differential stronger than predicted",
+  "log_likelihood": -185.5858826609684
+}

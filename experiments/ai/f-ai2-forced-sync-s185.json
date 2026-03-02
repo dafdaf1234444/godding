@@ -1,0 +1,21 @@
+{
+  "experiment": "F-AI2/F-HLT2",
+  "title": "Forced synchronization vs asynchronous independence",
+  "mode": "controlled-simulation",
+  "seed": 155,
+  "trials": 1000,
+  "injected_error_rate": 0.2,
+  "leader_error_rate": 0.2,
+  "async": {
+    "follower_error_rate": 0.174,
+    "joint_error_rate": 0.03,
+    "leader_follower_error_correlation": -0.0317
+  },
+  "sync": {
+    "follower_error_rate": 0.2,
+    "joint_error_rate": 0.2,
+    "leader_follower_error_correlation": 1.0
+  },
+  "verdict": "Forced synchronization creates perfectly correlated error propagation; asynchronous followers keep errors mostly uncorrelated.",
+  "generated_at_utc": "2026-02-27T20:13:06Z"
+}

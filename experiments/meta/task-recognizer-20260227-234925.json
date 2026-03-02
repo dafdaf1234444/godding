@@ -1,0 +1,66 @@
+{
+  "task": "recognize and route all swarm tasks using full domain knowledge",
+  "recognized": true,
+  "confidence": 1.0,
+  "personality": "domain-expert",
+  "routes": [
+    {
+      "domain": "ai",
+      "score": 1.0,
+      "open_frontiers": [
+        "F-AI1",
+        "F-AI2",
+        "F-AI3"
+      ],
+      "evidence": [
+        "domain",
+        "full",
+        "knowledge",
+        "swarm",
+        "swarm tasks",
+        "tasks"
+      ]
+    },
+    {
+      "domain": "brain",
+      "score": 1.0,
+      "open_frontiers": [
+        "F-BRN2",
+        "F-BRN3",
+        "F-BRN4"
+      ],
+      "evidence": [
+        "domain",
+        "knowledge",
+        "swarm",
+        "tasks"
+      ]
+    },
+    {
+      "domain": "control-theory",
+      "score": 1.0,
+      "open_frontiers": [
+        "F-CTL1",
+        "F-CTL2",
+        "F-CTL3"
+      ],
+      "evidence": [
+        "domain",
+        "swarm",
+        "tasks",
+        "using"
+      ]
+    }
+  ],
+  "new_domain_suggestion": null,
+  "tokens_used": [
+    "recognize",
+    "route",
+    "swarm",
+    "tasks",
+    "using",
+    "full",
+    "domain",
+    "knowledge"
+  ]
+}

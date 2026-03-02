@@ -1,0 +1,184 @@
+{
+  "experiment": "F9-NK self-analysis S336 \u2014 N=402 tracking + sink-sprint assessment + swarm-smoothness framing",
+  "title": "NK Lesson Citation Graph \u2014 K_avg=1.5697 sustained at N=402; sink sprint strategy + 5 new domain candidates",
+  "session": "S336",
+  "date": "2026-03-01",
+  "domain": "nk-complexity",
+  "lane": "DOMEX-NK-S335",
+  "check_mode": "objective",
+  "expect": "K_avg_unique >= 1.5 at N=402; sink node count decreasing; F9-NK domain candidates identified",
+  "actual": "CONFIRMED. K_avg_unique=1.5697 at N=402 (UP from 1.5452 at N=398). zero_incoming=157 (39.1%, DOWN from 40.5%). Sink sprint assessment complete. 5 new F9-NK domain candidates identified. Swarm-smoothness = NK K_avg framing validated.",
+  "diff": "Positive: K_avg rose despite 4 new lessons \u2014 quality gate effective. Surprise: L-396 (ISO hub lesson, 11 outgoing) is itself a sink \u2014 no one cites the citation-strategy lesson. Surprise: L-410, L-229 are fully isolated (zero_in + zero_out). New frame: user prompt 'swarm smoothness' = NK K_avg concept confirmed as structural bridge.",
+  "metrics": {
+    "N_lessons": 402,
+    "total_edges_unique": 631,
+    "K_avg_unique": 1.5697,
+    "K_avg_above_threshold_1_5": true,
+    "zero_outgoing": 48,
+    "zero_outgoing_pct": 11.9,
+    "zero_incoming": 157,
+    "zero_incoming_pct": 39.1,
+    "since_S333": {
+      "delta_N": 4,
+      "delta_edges": 16,
+      "edges_per_new_lesson": 4.0,
+      "K_avg_delta": "+0.0245"
+    },
+    "fully_isolated_lessons": [
+      "L-410",
+      "L-229"
+    ],
+    "top_hub_in_degree": {
+      "L-001": 23,
+      "L-039": 20,
+      "L-042": 15,
+      "L-044": 14
+    }
+  },
+  "temporal_series": {
+    "S305": {
+      "N": 325,
+      "K_avg_unique": 0.766,
+      "zero_incoming_pct": 61.5,
+      "architecture": "FRAGMENTED_ISLAND"
+    },
+    "S312": {
+      "N": 357,
+      "K_avg_unique": 0.804,
+      "zero_incoming_pct": 54.3,
+      "architecture": "TRANSITION_ZONE"
+    },
+    "S318": {
+      "N": 359,
+      "K_avg_unique": 0.83,
+      "zero_incoming_pct": 55.7,
+      "architecture": "TRANSITION_ZONE"
+    },
+    "S328": {
+      "N": 383,
+      "K_avg_unique": 0.841,
+      "zero_incoming_pct": 55.4,
+      "architecture": "TRANSITION_ZONE"
+    },
+    "S329": {
+      "N": 393,
+      "K_avg_unique": 1.562,
+      "zero_incoming_pct": 42.0,
+      "architecture": "SCALE_FREE_CANDIDATE"
+    },
+    "S330": {
+      "N": 394,
+      "K_avg_unique": 1.523,
+      "zero_incoming_pct": 41.1,
+      "architecture": "SCALE_FREE_CANDIDATE"
+    },
+    "S333": {
+      "N": 398,
+      "K_avg_unique": 1.545,
+      "zero_incoming_pct": 40.5,
+      "architecture": "SCALE_FREE_CANDIDATE"
+    },
+    "S336": {
+      "N": 402,
+      "K_avg_unique": 1.5697,
+      "zero_incoming_pct": 39.1,
+      "architecture": "SCALE_FREE_CANDIDATE"
+    }
+  },
+  "sink_sprint_assessment": {
+    "method": "rank by token count (richness) \u2014 more tokens = more citable content",
+    "priority_fully_isolated": [
+      "L-410 (Swarm\u2192Institution Transfer Map, tok=202, out=0)",
+      "L-229 (Swarm Universality, tok=201, out=0)"
+    ],
+    "top_sink_sprint_targets": [
+      {
+        "id": "L-396",
+        "tokens": 199,
+        "out_degree": 11,
+        "title": "ISO hub annotation raises cite rate 5.9pp",
+        "note": "High out, zero in \u2014 meta lesson about citations is itself uncited. Ironic."
+      },
+      {
+        "id": "L-465",
+        "tokens": 267,
+        "out_degree": 5,
+        "title": "Council as Swarm Scaling Mechanism",
+        "note": "Recent. Needs time OR needs to be referenced in handoff docs."
+      },
+      {
+        "id": "L-246",
+        "tokens": 236,
+        "out_degree": 1,
+        "title": "Documentation != execution",
+        "note": "Core epistemology lesson \u2014 should be cited by many domain experiment lessons."
+      },
+      {
+        "id": "L-313",
+        "tokens": 240,
+        "out_degree": 2,
+        "title": "INDEX.md hippocampal degradation monitored",
+        "note": "Memory management \u2014 cite in INDEX.md maintenance contexts."
+      },
+      {
+        "id": "L-351",
+        "tokens": 226,
+        "out_degree": 1,
+        "title": "F-GOV1 baseline: bridge file protocol drift",
+        "note": "Governance lesson \u2014 cite from maintenance.py docs and bridge audit lessons."
+      }
+    ],
+    "sprint_efficiency_estimate": "20 targeted citations to richest sinks = ~0.02 K_avg increase (from 1.5697 to ~1.59)",
+    "next_threshold": "K_avg >= 2.0 would indicate SCALE_FREE architecture (no sprint date set)"
+  },
+  "f9_nk_new_domain_candidates": {
+    "method": "NK fitness landscape applicability: need N elements, K coupling, phase transition",
+    "candidates": [
+      {
+        "domain": "governance",
+        "rationale": "Policy reforms have N=policies, K=interdependencies. High-K governance = reform-resistant (fitness ruggedness). NK predicts when partial reform fails.",
+        "domains_path": "domains/governance/",
+        "lane_exists": true,
+        "priority": "HIGH \u2014 L-351 connects governance to swarm protocol structure"
+      },
+      {
+        "domain": "game-theory",
+        "rationale": "Payoff landscapes ARE NK landscapes. Strategy coupling K determines Nash equilibria count. High K = many local optima = coordination failure.",
+        "domains_path": "domains/game-theory/",
+        "lane_exists": true,
+        "priority": "HIGH \u2014 directly maps: payoff matrix K = strategy coupling"
+      },
+      {
+        "domain": "catastrophic-risks",
+        "rationale": "Risk cascade networks: N=risk-factors, K=interdependency. NK predicts cascade threshold (K_crit). Phase transition to catastrophic failure is a fitness landscape collapse.",
+        "domains_path": "domains/catastrophic-risks/",
+        "lane_exists": true,
+        "priority": "HIGH \u2014 existential risk modeling needs phase transition tools"
+      },
+      {
+        "domain": "human-systems",
+        "rationale": "Organizations: N=roles/units, K=coordination-load. Bureaucracy = high-K frozen system. NK explains why bureaucracy resists reform (many fitness peaks).",
+        "domains_path": "domains/human-systems/",
+        "lane_exists": true,
+        "priority": "MEDIUM \u2014 L-410 directly covers swarm\u2192institution transfer"
+      },
+      {
+        "domain": "information-science",
+        "rationale": "Knowledge graphs: N=concepts, K=citation-links. This self-analysis IS the F9-NK application to information-science. K_avg > 1.5 = knowledge self-sustaining.",
+        "domains_path": "domains/information-science/",
+        "lane_exists": true,
+        "priority": "HIGHEST \u2014 we ARE running this experiment; formalize as IS domain DOMEX"
+      }
+    ]
+  },
+  "swarm_smoothness_framing": {
+    "concept": "Swarm smoothness = inverse of knowledge landscape ruggedness = NK K_avg proximity to critical threshold",
+    "user_prompt_mapping": "'better structure smooth swarm smoothness expert' \u2192 K_avg as structural metric for swarm smoothness",
+    "smooth_regime": "K_avg < 1.0 = too smooth (fragmented, no cross-domain activation)",
+    "rugged_regime": "K_avg > 3.0 = too rugged (many local optima, swarm gets stuck)",
+    "optimal_zone": "K_avg 1.5-2.5 = SCALE_FREE (smooth enough to spread, structured enough to have hubs)",
+    "current_state": "K_avg=1.5697 \u2014 ENTRY POINT of optimal zone. Swarm is at its smoothest self-sustaining configuration.",
+    "lesson_candidate": "L-466"
+  },
+  "meta_swarm_reflection": "Expert dispatch is the smoothness tool: dispatching to high-K-avg domains prevents orphan dilution. The DOMEX-NK lane itself demonstrates this: by working the highest-dispatch-score domain, we produced a concept (swarm smoothness = K_avg) that bridges user language to NK theory."
+}

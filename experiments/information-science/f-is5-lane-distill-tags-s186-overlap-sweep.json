@@ -1,0 +1,49 @@
+{
+  "experiment": "F-IS5",
+  "title": "controlled-overlap intensity sweep",
+  "source_intake_artifact": "experiments/information-science/f-is5-arxiv-swarmable-s186-rerun.json",
+  "sweep_dimension": "shared_per_lane",
+  "per_lane": 3,
+  "source_a": "selected",
+  "source_b": "backlog",
+  "seed_a": 3001,
+  "seed_b": 3002,
+  "shared_source": "selected",
+  "shared_seed": 3003,
+  "results": [
+    {
+      "shared_per_lane": 0,
+      "claims_total": 17,
+      "contested_transfer_candidates": 0,
+      "transfer_acceptance_rate": 0.0,
+      "merge_collision_frequency": 0.0,
+      "eligible": false
+    },
+    {
+      "shared_per_lane": 1,
+      "claims_total": 21,
+      "contested_transfer_candidates": 5,
+      "transfer_acceptance_rate": 0.0323,
+      "merge_collision_frequency": 0.6,
+      "eligible": true
+    },
+    {
+      "shared_per_lane": 2,
+      "claims_total": 25,
+      "contested_transfer_candidates": 10,
+      "transfer_acceptance_rate": 0.0882,
+      "merge_collision_frequency": 0.6,
+      "eligible": true
+    }
+  ],
+  "selection_rule": "min collision among eligible configs (contested_transfer_candidates>0 and transfer_acceptance_rate>0)",
+  "recommended": {
+    "shared_per_lane": 2,
+    "claims_total": 25,
+    "contested_transfer_candidates": 10,
+    "transfer_acceptance_rate": 0.0882,
+    "merge_collision_frequency": 0.6,
+    "eligible": true
+  },
+  "recommendation_note": "use shared_per_lane=2 for lowest collision with non-zero transfer"
+}

@@ -1,0 +1,31 @@
+{
+  "experiment": "F-PHI1: Instability of nothing across substrates",
+  "session": "S341",
+  "domain": "philosophy",
+  "question": "How can there be something from nothing?",
+  "method": "Cross-substrate structural analysis: test 'nothing' in 6 substrates (physics, mathematics, biology, computation, information theory, philosophy) for whether true nothing exists or is merely minimal structure",
+  "results": {
+    "substrates_tested": 6,
+    "substrates_where_nothing_is_truly_nothing": 0,
+    "substrates_where_nothing_contains_structure": 6,
+    "conclusion": "FALSE_PREMISE",
+    "real_question": "Why does minimal structure amplify into complex structure?",
+    "iso_connections": {
+      "ISO-4": "CANONICAL — minimal states at critical thresholds, perturbation cascades",
+      "ISO-5": "CANONICAL — positive feedback amplifies first structure",
+      "ISO-6": "STRUCTURAL — low-entropy initial states are unstable (inverted application)",
+      "ISO-7": "CANONICAL — complex macro from simple micro, irreducible",
+      "ISO-14": "CANONICAL — amplification repeats at every scale",
+      "ISO-18_candidate": "STRENGTHENED — symmetry (nothing-like) is unstable, asymmetry (something-like) is attractor"
+    },
+    "three_arguments_for_instability": [
+      "No constraints = maximum permission (logical)",
+      "Defining nothing requires something (self-referential paradox)",
+      "Nothing violates uncertainty principle (physical)"
+    ]
+  },
+  "swarm_parallel": "CORE v0.1 was never nothing — it was minimum viable seed (protocol + substrate + energy) containing rules for own expansion",
+  "rule": "Nothing is the name for the minimum that already contains the rules for its own expansion",
+  "lesson": "L-491",
+  "related": ["L-486", "L-274", "ISO-4", "ISO-7", "ISO-14"]
+}

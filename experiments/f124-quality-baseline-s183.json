@@ -1,0 +1,103 @@
+{
+  "experiment": "F124",
+  "session": "S183",
+  "date": "2026-02-27",
+  "title": "Swarm self-improvement quality dimensions — baseline",
+  "purpose": "Define 5 measurable dimensions of swarm quality and establish S183 baseline for F124 (self-improvement as primary mission)",
+  "dimensions": {
+    "1_belief_quality": {
+      "metric": "observed_rate: (OBSERVED + CONFIRMED) / total_beliefs",
+      "baseline_s183": {
+        "total_beliefs": 17,
+        "observed": 15,
+        "theorized": 2,
+        "refuted_or_error": 0,
+        "observed_rate": 0.882,
+        "entropy_items": 0,
+        "validator_pass": true,
+        "swarmability_score": "100/100"
+      },
+      "target": "observed_rate >= 85%; theorized < 15%; 0 entropy items",
+      "current_status": "MET (88.2% observed, 11.8% theorized)"
+    },
+    "2_overhead_rate": {
+      "metric": "fraction of commits that are pure state-sync (no new lessons/principles)",
+      "baseline_s183": {
+        "baseline_avg_82_sessions": 0.12,
+        "recent_5_sessions_range": "22%-54%",
+        "recent_5_sessions_avg": 0.34,
+        "long_term_trend": "DECLINING -37%",
+        "early_avg_score": 2.70,
+        "recent_avg_score": 1.70
+      },
+      "target": "overhead < 20%; long-term trend STABLE or IMPROVING",
+      "current_status": "NEEDS IMPROVEMENT (recent avg 34%, declining trend)"
+    },
+    "3_orientation_speed": {
+      "metric": "commands needed to orient a new session to actionable state",
+      "baseline_s183": {
+        "pre_s173_commands": 6,
+        "pre_s173_description": "5 file reads (INDEX, FRONTIER, NEXT, PRINCIPLES, CORE) + maintenance.py",
+        "post_s173_commands": 1,
+        "post_s173_description": "python3 tools/orient.py --brief",
+        "improvement_factor": 6.0,
+        "orient_output_lines": 35
+      },
+      "target": "1 command to actionable state; orient output < 40 lines; < 30s runtime",
+      "current_status": "MET (1 command, ~30s)"
+    },
+    "4_tool_coverage": {
+      "metric": "fraction of known swarm friction points with an automation tool",
+      "baseline_s183": {
+        "total_python_tools": 48,
+        "core_automation_tools": [
+          "orient.py (session orientation)",
+          "maintenance.py (health check)",
+          "sync_state.py (count drift)",
+          "validate_beliefs.py (belief quality)",
+          "change_quality.py (session quality)",
+          "compact.py (compaction)",
+          "proxy_k.py (token measurement)",
+          "substrate_detect.py (repo detection)",
+          "context_router.py (context selection)",
+          "frontier_decay.py (frontier staleness)"
+        ],
+        "known_unautomated_friction": [
+          "F124 quality tracking (this experiment — first run)",
+          "Lesson Sharpe auto-compaction trigger (P-188 — manual process)",
+          "F-BRN3: quality-weighted compaction not yet implemented"
+        ]
+      },
+      "target": "every recurring friction point has an automation tool; 0 manual-only recurring tasks",
+      "current_status": "MOSTLY MET (48 tools, 3 known gaps)"
+    },
+    "5_coordination_accuracy": {
+      "metric": "concurrent session error rate (Mode A async overhead + Mode B cascade errors per session)",
+      "baseline_s183": {
+        "data_source": "F-AI2 observational study (pending L-257/results)",
+        "known_friction_points": [
+          "git index.lock contention (multiple per session observed)",
+          "lesson number collisions (CRDT resolved via L-241/L-242/L-243 self-assignment pattern)",
+          "PAPER count drift (recurring, mitigated by sync_state.py)"
+        ],
+        "coordination_failure_rate_estimate": "pending F-AI2 result",
+        "current_defenses": ["async-by-default sessions", "sync_state.py auto-fix", "named-file git adds (L-234)", "claim protocol (frontier_claim.py)"]
+      },
+      "target": "Mode B cascade errors: 0 per 10 sessions; Mode A overhead: < 1 per session",
+      "current_status": "PARTIAL (0 cascade errors observed, async overhead rate pending F-AI2)"
+    }
+  },
+  "overall_assessment": {
+    "dimensions_met": ["belief_quality", "orientation_speed"],
+    "dimensions_needs_improvement": ["overhead_rate"],
+    "dimensions_mostly_met": ["tool_coverage"],
+    "dimensions_pending_data": ["coordination_accuracy"],
+    "highest_roi_improvement": "overhead_rate — declining quality score trend (-37%) needs investigation; L-250 implies test each session: 'is swarm better now?'"
+  },
+  "next_steps": [
+    "Complete F-AI2 to fill coordination_accuracy baseline",
+    "Investigate change_quality declining trend: is it structural maturity (P-163) or actionable regression?",
+    "Implement F-BRN3: quality-weighted compaction (high-Sharpe lessons survive compaction preferentially)",
+    "Set up periodic F124 measurement (every 10 sessions) to track all 5 dimensions"
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "frontier_id": "F-STAT1",
+  "title": "Agent reporting quality baseline for active lanes",
+  "inputs": {
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "active_statuses": [
+      "ACTIVE",
+      "BLOCKED",
+      "CLAIMED",
+      "READY"
+    ],
+    "report_keys": [
+      "capabilities",
+      "intent",
+      "progress",
+      "available",
+      "blocked",
+      "next_step",
+      "human_open_item"
+    ],
+    "weights": {
+      "capabilities": 0.2,
+      "intent": 0.2,
+      "progress": 0.15,
+      "available": 0.15,
+      "blocked": 0.1,
+      "next_step": 0.1,
+      "human_open_item": 0.1
+    }
+  },
+  "summary": {
+    "active_lanes": 5,
+    "mean_score": 1.0,
+    "median_score": 1.0,
+    "contract_ready_rate": 1.0,
+    "explicit_mean_score": 1.0,
+    "explicit_median_score": 1.0,
+    "explicit_contract_ready_rate": 1.0,
+    "key_coverage": {
+      "capabilities": 1.0,
+      "intent": 1.0,
+      "progress": 1.0,
+      "available": 1.0,
+      "blocked": 1.0,
+      "next_step": 1.0,
+      "human_open_item": 1.0
+    },
+    "explicit_key_coverage": {
+      "capabilities": 1.0,
+      "intent": 1.0,
+      "progress": 1.0,
+      "available": 1.0,
+      "blocked": 1.0,
+      "next_step": 1.0,
+      "human_open_item": 1.0
+    },
+    "lowest_coverage_keys": [
+      "available",
+      "blocked",
+      "capabilities"
+    ],
+    "explicit_lowest_coverage_keys": [
+      "available",
+      "blocked",
+      "capabilities"
+    ],
+    "recommended_contract": "intent=... progress=... available=... blocked=none|... next_step=... human_open_item=none|HQ-N setup=... (plus model/platform columns)",
+    "programmatic_swarmable_lanes": 5,
+    "programmatic_swarmable_rate": 1.0,
+    "top_non_dispatchable_reasons": [],
+    "pickup_latency_ab": {
+      "cohort_definition": {
+        "schema_contract": "capabilities(model+platform)+available+blocked+next_step+human_open_item in tags",
+        "free_form": "lane row without full schema contract tags",
+        "latency_metric": "session delta to the next same-lane update (smaller is better)",
+        "excluded_statuses": [
+          "ABANDONED",
+          "ARCHIVED",
+          "CANCELLED",
+          "CLOSED",
+          "DONE",
+          "DROPPED",
+          "MERGED",
+          "SUPERSEDED"
+        ]
+      },
+      "schema_contract": {
+        "count": 11,
+        "mean_latency_sessions": 0.0,
+        "median_latency_sessions": 0,
+        "p90_latency_sessions": 0.0,
+        "same_session_rate": 1.0,
+        "within_one_session_rate": 1.0
+      },
+      "free_form": {
+        "count": 18,
+        "mean_latency_sessions": 0.0,
+        "median_latency_sessions": 0.0,
+        "p90_latency_sessions": 0.0,
+        "same_session_rate": 1.0,
+        "within_one_session_rate": 1.0
+      },
+      "comparison": {
+        "mean_delta_sessions_free_minus_schema": 0.0,
+        "median_delta_sessions_free_minus_schema": 0.0,
+        "schema_faster": false
+      }
+    }
+  },
+  "session_range": {
+    "start": 186,
+    "end": 186
+  },
+  "lanes": [
+    {
+      "lane": "L-S186-DOMEX-AI",
+      "status": "READY",
+      "session": "S186",
+      "scope_key": "domains/ai/tasks/FRONTIER.md",
+      "score": 1.0,
+      "explicit_score": 1.0,
+      "present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "missing_keys": [],
+      "explicit_present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "explicit_missing_keys": []
+    },
+    {
+      "lane": "L-S186-DOMEX-BRN",
+      "status": "READY",
+      "session": "S186",
+      "scope_key": "domains/brain/tasks/FRONTIER.md",
+      "score": 1.0,
+      "explicit_score": 1.0,
+      "present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "missing_keys": [],
+      "explicit_present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "explicit_missing_keys": []
+    },
+    {
+      "lane": "L-S186-DOMEX-EVO",
+      "status": "READY",
+      "session": "S186",
+      "scope_key": "domains/evolution/tasks/FRONTIER.md",
+      "score": 1.0,
+      "explicit_score": 1.0,
+      "present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "missing_keys": [],
+      "explicit_present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "explicit_missing_keys": []
+    },
+    {
+      "lane": "L-S186-DOMEX-GAM",
+      "status": "READY",
+      "session": "S186",
+      "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+      "score": 1.0,
+      "explicit_score": 1.0,
+      "present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "missing_keys": [],
+      "explicit_present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "explicit_missing_keys": []
+    },
+    {
+      "lane": "L-S186-DOMEX-OPS",
+      "status": "READY",
+      "session": "S186",
+      "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+      "score": 1.0,
+      "explicit_score": 1.0,
+      "present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "missing_keys": [],
+      "explicit_present_keys": [
+        "capabilities",
+        "intent",
+        "progress",
+        "available",
+        "blocked",
+        "next_step",
+        "human_open_item"
+      ],
+      "explicit_missing_keys": []
+    }
+  ],
+  "programmatic_swarm_plan": {
+    "dispatch_contract": "capability/intent/availability signals present + blocked=none + human_open_item=none + next_step signal",
+    "dispatchable_count": 5,
+    "dispatchable_rate": 1.0,
+    "dispatchable_lanes": [
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "domain": "ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 1.0,
+        "explicit_score": 1.0,
+        "next_step": "execute-ai-domain-lane",
+        "explicit_missing_keys": []
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "domain": "brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 1.0,
+        "explicit_score": 1.0,
+        "next_step": "execute-brain-domain-lane",
+        "explicit_missing_keys": []
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "domain": "evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 1.0,
+        "explicit_score": 1.0,
+        "next_step": "execute-evolution-domain-lane",
+        "explicit_missing_keys": []
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "domain": "game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 1.0,
+        "explicit_score": 1.0,
+        "next_step": "execute-game-theory-domain-lane",
+        "explicit_missing_keys": []
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "domain": "operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 1.0,
+        "explicit_score": 1.0,
+        "next_step": "execute-ops-domain-lane",
+        "explicit_missing_keys": []
+      }
+    ],
+    "non_dispatchable_count": 0,
+    "non_dispatchable_lanes": [],
+    "top_non_dispatchable_reasons": []
+  },
+  "pickup_latency_ab": {
+    "cohort_definition": {
+      "schema_contract": "capabilities(model+platform)+available+blocked+next_step+human_open_item in tags",
+      "free_form": "lane row without full schema contract tags",
+      "latency_metric": "session delta to the next same-lane update (smaller is better)",
+      "excluded_statuses": [
+        "ABANDONED",
+        "ARCHIVED",
+        "CANCELLED",
+        "CLOSED",
+        "DONE",
+        "DROPPED",
+        "MERGED",
+        "SUPERSEDED"
+      ]
+    },
+    "schema_contract": {
+      "count": 11,
+      "mean_latency_sessions": 0.0,
+      "median_latency_sessions": 0,
+      "p90_latency_sessions": 0.0,
+      "same_session_rate": 1.0,
+      "within_one_session_rate": 1.0
+    },
+    "free_form": {
+      "count": 18,
+      "mean_latency_sessions": 0.0,
+      "median_latency_sessions": 0.0,
+      "p90_latency_sessions": 0.0,
+      "same_session_rate": 1.0,
+      "within_one_session_rate": 1.0
+    },
+    "comparison": {
+      "mean_delta_sessions_free_minus_schema": 0.0,
+      "median_delta_sessions_free_minus_schema": 0.0,
+      "schema_faster": false
+    }
+  },
+  "interpretation": {
+    "score_band": "strong",
+    "explicit_score_band": "strong",
+    "note": "Inferred score can be optimistic from notes/status alone; use explicit score as the promotion gate and auto-dispatch only lanes with blocked=none, human_open_item=none, and a next_step signal.",
+    "pickup_latency_note": "Schema-contract and free-form rows have identical mean pickup latency in this snapshot."
+  },
+  "generated_at_utc": "2026-02-27T21:18:59Z"
+}

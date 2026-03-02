@@ -1,0 +1,681 @@
+{
+  "session": "S385",
+  "computed_at": "2026-03-01T15:32:17.352323+00:00",
+  "frontier": "F-IC1",
+  "version": "v2-directional",
+  "total_lessons": 673,
+  "total_falsified_detected": 11,
+  "falsified_ids": [
+    "L-025",
+    "L-029",
+    "L-374",
+    "L-375",
+    "L-402",
+    "L-426",
+    "L-457",
+    "L-556",
+    "L-567",
+    "L-624",
+    "L-734"
+  ],
+  "total_falsified_with_gaps": 8,
+  "total_uncorrected_citations": 36,
+  "avg_correction_rate": 0.447,
+  "gaps": [
+    {
+      "falsified": "L-025",
+      "falsified_title": "L-025: Tune belief interconnection K toward edge of chaos (Kauffman NK model)",
+      "correctors": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "total_citers": 21,
+      "uncorrected_citers": [
+        "L-010",
+        "L-024",
+        "L-026",
+        "L-027",
+        "L-035",
+        "L-039",
+        "L-057",
+        "L-096",
+        "L-164",
+        "L-168",
+        "L-403",
+        "L-511",
+        "L-631"
+      ],
+      "uncorrected_count": 13,
+      "correction_rate": 0.381,
+      "citation_types": {
+        "L-010": "citation_only",
+        "L-024": "citation_only",
+        "L-026": "citation_only",
+        "L-027": "citation_only",
+        "L-035": "citation_only",
+        "L-039": "citation_only",
+        "L-057": "citation_only",
+        "L-096": "structural",
+        "L-164": "citation_only",
+        "L-168": "citation_only",
+        "L-403": "citation_only",
+        "L-511": "structural",
+        "L-631": "structural"
+      },
+      "content_dependent": [],
+      "structural": [
+        "L-096",
+        "L-511",
+        "L-631"
+      ],
+      "citation_only": [
+        "L-010",
+        "L-024",
+        "L-026",
+        "L-027",
+        "L-035",
+        "L-039",
+        "L-057",
+        "L-164",
+        "L-168",
+        "L-403"
+      ]
+    },
+    {
+      "falsified": "L-457",
+      "falsified_title": "L-457: K_avg=1.5 threshold crossed \u2014 targeted L-NNN sprint shifts architecture t",
+      "correctors": [
+        "L-613"
+      ],
+      "total_citers": 12,
+      "uncorrected_citers": [
+        "L-461",
+        "L-462",
+        "L-466",
+        "L-468",
+        "L-471",
+        "L-477",
+        "L-510",
+        "L-537",
+        "L-622"
+      ],
+      "uncorrected_count": 9,
+      "correction_rate": 0.25,
+      "citation_types": {
+        "L-461": "citation_only",
+        "L-462": "content_dependent",
+        "L-466": "citation_only",
+        "L-468": "structural",
+        "L-471": "content_dependent",
+        "L-477": "citation_only",
+        "L-510": "citation_only",
+        "L-537": "citation_only",
+        "L-622": "citation_only"
+      },
+      "content_dependent": [
+        "L-462",
+        "L-471"
+      ],
+      "structural": [
+        "L-468"
+      ],
+      "citation_only": [
+        "L-461",
+        "L-466",
+        "L-477",
+        "L-510",
+        "L-537",
+        "L-622"
+      ]
+    },
+    {
+      "falsified": "L-556",
+      "falsified_title": "<!-- SUPERSEDED BY L-555: near-duplicate (sim=0.92), same finding, same session ",
+      "correctors": [
+        "L-555"
+      ],
+      "total_citers": 11,
+      "uncorrected_citers": [
+        "L-558",
+        "L-572",
+        "L-574",
+        "L-578",
+        "L-587",
+        "L-596",
+        "L-613",
+        "L-625"
+      ],
+      "uncorrected_count": 8,
+      "correction_rate": 0.273,
+      "citation_types": {
+        "L-558": "content_dependent",
+        "L-572": "content_dependent",
+        "L-574": "content_dependent",
+        "L-578": "content_dependent",
+        "L-587": "citation_only",
+        "L-596": "content_dependent",
+        "L-613": "content_dependent",
+        "L-625": "content_dependent"
+      },
+      "content_dependent": [
+        "L-558",
+        "L-572",
+        "L-574",
+        "L-578",
+        "L-596",
+        "L-613",
+        "L-625"
+      ],
+      "structural": [],
+      "citation_only": [
+        "L-587"
+      ]
+    },
+    {
+      "falsified": "L-624",
+      "falsified_title": "L-624: USL concurrency model fails \u2014 session TYPE dominates concurrency level N",
+      "correctors": [
+        "L-647",
+        "L-695"
+      ],
+      "total_citers": 6,
+      "uncorrected_citers": [
+        "L-623",
+        "L-662"
+      ],
+      "uncorrected_count": 2,
+      "correction_rate": 0.667,
+      "citation_types": {
+        "L-623": "citation_only",
+        "L-662": "citation_only"
+      },
+      "content_dependent": [],
+      "structural": [],
+      "citation_only": [
+        "L-623",
+        "L-662"
+      ]
+    },
+    {
+      "falsified": "L-029",
+      "falsified_title": "L-029: Wolfram classes + Langton's \u03bb quantify edge of chaos (Shock 3)",
+      "correctors": [
+        "L-613"
+      ],
+      "total_citers": 3,
+      "uncorrected_citers": [
+        "L-025"
+      ],
+      "uncorrected_count": 1,
+      "correction_rate": 0.667,
+      "citation_types": {
+        "L-025": "citation_only"
+      },
+      "content_dependent": [],
+      "structural": [],
+      "citation_only": [
+        "L-025"
+      ]
+    },
+    {
+      "falsified": "L-375",
+      "falsified_title": "<!-- SUPERSEDED BY L-372 (sim=0.90, S357 L-615 audit) -->",
+      "correctors": [
+        "L-372"
+      ],
+      "total_citers": 3,
+      "uncorrected_citers": [
+        "L-490"
+      ],
+      "uncorrected_count": 1,
+      "correction_rate": 0.667,
+      "citation_types": {
+        "L-490": "structural"
+      },
+      "content_dependent": [],
+      "structural": [
+        "L-490"
+      ],
+      "citation_only": []
+    },
+    {
+      "falsified": "L-402",
+      "falsified_title": "L-402: Information contamination in swarm knowledge \u2014 5 patterns + council defen",
+      "correctors": [
+        "L-734"
+      ],
+      "total_citers": 3,
+      "uncorrected_citers": [
+        "L-732"
+      ],
+      "uncorrected_count": 1,
+      "correction_rate": 0.667,
+      "citation_types": {
+        "L-732": "content_dependent"
+      },
+      "content_dependent": [
+        "L-732"
+      ],
+      "structural": [],
+      "citation_only": []
+    },
+    {
+      "falsified": "L-426",
+      "falsified_title": "L-426 \u2014 [SUPERSEDED by L-423]",
+      "correctors": [
+        "L-423"
+      ],
+      "total_citers": 1,
+      "uncorrected_citers": [
+        "L-660"
+      ],
+      "uncorrected_count": 1,
+      "correction_rate": 0.0,
+      "citation_types": {
+        "L-660": "citation_only"
+      },
+      "content_dependent": [],
+      "structural": [],
+      "citation_only": [
+        "L-660"
+      ]
+    }
+  ],
+  "correction_queue": [
+    {
+      "citer": "L-010",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-024",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-026",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-027",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-035",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-039",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-057",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-096",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "structural",
+      "priority": "MEDIUM"
+    },
+    {
+      "citer": "L-164",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-168",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-403",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-511",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "structural",
+      "priority": "MEDIUM"
+    },
+    {
+      "citer": "L-631",
+      "needs_correction_about": "L-025",
+      "correctors_to_cite": [
+        "L-029",
+        "L-457",
+        "L-613",
+        "L-618",
+        "L-633",
+        "L-734"
+      ],
+      "citation_type": "structural",
+      "priority": "MEDIUM"
+    },
+    {
+      "citer": "L-461",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-462",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-466",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-468",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "structural",
+      "priority": "MEDIUM"
+    },
+    {
+      "citer": "L-471",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-477",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-510",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-537",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-622",
+      "needs_correction_about": "L-457",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-558",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-572",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-574",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-578",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-587",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-596",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-613",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-625",
+      "needs_correction_about": "L-556",
+      "correctors_to_cite": [
+        "L-555"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-623",
+      "needs_correction_about": "L-624",
+      "correctors_to_cite": [
+        "L-647",
+        "L-695"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-662",
+      "needs_correction_about": "L-624",
+      "correctors_to_cite": [
+        "L-647",
+        "L-695"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-025",
+      "needs_correction_about": "L-029",
+      "correctors_to_cite": [
+        "L-613"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    },
+    {
+      "citer": "L-490",
+      "needs_correction_about": "L-375",
+      "correctors_to_cite": [
+        "L-372"
+      ],
+      "citation_type": "structural",
+      "priority": "MEDIUM"
+    },
+    {
+      "citer": "L-732",
+      "needs_correction_about": "L-402",
+      "correctors_to_cite": [
+        "L-734"
+      ],
+      "citation_type": "content_dependent",
+      "priority": "HIGH"
+    },
+    {
+      "citer": "L-660",
+      "needs_correction_about": "L-426",
+      "correctors_to_cite": [
+        "L-423"
+      ],
+      "citation_type": "citation_only",
+      "priority": "LOW"
+    }
+  ]
+}

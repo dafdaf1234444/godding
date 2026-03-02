@@ -1,0 +1,74 @@
+{
+  "experiment": "F-LNG1",
+  "session": "S307",
+  "description": "Zipf re-measurement at n=339 (S190=288, S301=311)",
+  "baseline_session": "S190",
+  "baseline_alpha": 0.9005,
+  "baseline_r2": 0.8448,
+  "baseline_n": 288,
+  "s301_alpha": 0.8468,
+  "s301_n": 311,
+  "total_lessons": 339,
+  "cited_lessons": 337,
+  "zero_cited_lessons": 2,
+  "citation_coverage_pct": 99.41002949852508,
+  "power_law_alpha": 0.8205,
+  "alpha_delta_from_baseline": -0.08,
+  "alpha_delta_from_s301": -0.0263,
+  "power_law_r_squared": 0.8485,
+  "zipf_holds": true,
+  "zipf_strong": true,
+  "head_heavy": false,
+  "tail_flat": false,
+  "median_citations_nonzero": 4,
+  "p90_citations": 14,
+  "top_10": [
+    [
+      "L-336",
+      63
+    ],
+    [
+      "L-001",
+      43
+    ],
+    [
+      "L-257",
+      27
+    ],
+    [
+      "L-005",
+      26
+    ],
+    [
+      "L-012",
+      26
+    ],
+    [
+      "L-011",
+      23
+    ],
+    [
+      "L-007",
+      22
+    ],
+    [
+      "L-214",
+      22
+    ],
+    [
+      "L-006",
+      21
+    ],
+    [
+      "L-008",
+      21
+    ]
+  ],
+  "zero_cited_sample": [
+    "L-369",
+    "L-394"
+  ],
+  "verdict": "ZIPF_STRONG",
+  "alpha_trend": "DECLINING",
+  "interpretation": "n=339 (+28 from S301). alpha=0.8205 (delta=-0.0263 from S301 0.8468). R\u00b2=0.8485. ZIPF_STRONG. Alpha trend: DECLINING. Zero-cited: 2/339."
+}

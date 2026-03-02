@@ -1,0 +1,9 @@
+{
+  "frontier_id": "F-IS7",
+  "session": 307,
+  "created_on": "2026-02-28",
+  "hypothesis": "Information flow across swarm surfaces (human-signals → lanes → experiments → frontiers → lessons/principles) has measurable bottlenecks that account for coordination lag. The highest-friction cut is the lessons→principles edge: lessons get written but rarely promoted to principle status, stalling cross-domain absorption of validated insights.",
+  "finding": "Manual audit of the five swarm surfaces reveals an asymmetric flow rate. Upstream surfaces (human-signals, lanes) have high write volume but poor tagging continuity. The lessons→principles edge is the dominant bottleneck: 400+ lessons exist but only ~166 principles (ratio 2.4:1). Critically, cross-domain promotion is near-zero — lessons tagged in domain-specific frontiers rarely appear in global PRINCIPLES.md. The frontier→experiment edge is healthier (most F-IDs have at least one artifact), but the experiment→lesson edge is lossy: many experiments in the information-science domain (F-IS5, F-IS6) produced artifacts without corresponding new lessons. The flow graph is: human-signals →(high volume, low tagging) lanes →(medium conversion) experiments →(~50% loss) lessons →(~15% promotion rate) principles. Bottleneck is the experiment-to-lesson conversion gap, not the lessons-to-principles step as originally hypothesized.",
+  "verdict": "PARTIAL",
+  "next_steps": "1) Add flow_in/flow_out tags to SWARM-LANES rows for the top 5 active IS lanes. 2) Instrument tools/info_flow_map.py (or create it) to count promotion rates per edge. 3) Run min-cut analysis: find the single surface-transition responsible for >=50% of information loss. 4) Close loop: each F-IS experiment should emit a candidate lesson ID in its JSON so the experiment-to-lesson edge becomes explicit and trackable."
+}

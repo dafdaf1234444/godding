@@ -1,0 +1,198 @@
+{
+  "items": [
+    {
+      "id": "health-check",
+      "description": "System health check (memory/HEALTH.md): knowledge growth, accuracy, compactness, belief evolution, task throughput",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 426,
+      "registered_by": "S69",
+      "last_session": "S426"
+    },
+    {
+      "id": "tool-consolidation",
+      "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S402: 14 F-tools archived (109\u219295 active, 95\u2192109 archive). L-644 archival rule: archive after DOMEX lane merges.",
+      "cadence_sessions": 25,
+      "last_reviewed_session": 402,
+      "registered_by": "S69"
+    },
+    {
+      "id": "principles-dedup",
+      "description": "Scan PRINCIPLES.md for redundant/overlapping principles -- merge or supersede. S395 audit: diminishing returns; cadence 10\u219215. S426: 4 merged (P-029\u2192P-043, P-077\u2192P-240, P-100\u2192P-188, P-222\u2192P-246; 203\u2192199).",
+      "cadence_sessions": 15,
+      "last_reviewed_session": 426,
+      "registered_by": "S69",
+      "last_session": "S426"
+    },
+    {
+      "id": "proxy-k-measurement",
+      "description": "Measure proxy K (python tools/proxy_k.py --save): track bootstrap description length across sessions (F116, PHIL-8). S395 audit: stable <1%, cadence 10\u219215.",
+      "cadence_sessions": 15,
+      "last_reviewed_session": 426,
+      "registered_by": "S75",
+      "last_session": "S426"
+    },
+    {
+      "id": "claim-vs-evidence-audit",
+      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S392: 3 challenges filed (PHIL-16/13/3), 1/29+ DROPPED (PHIL-7 S389). Challenge rate: 29 entries, 1 DROPPED, 3 SUPERSEDED. External-reach gap (PHIL-16) 87s persistent.",
+      "cadence_sessions": 20,
+      "last_reviewed_session": 392,
+      "registered_by": "S81b",
+      "last_session": 423
+    },
+    {
+      "id": "paper-reswarm",
+      "description": "Re-swarm docs/PAPER.md: read current beliefs/PHILOSOPHY.md + beliefs/CORE.md + memory/INDEX.md, check paper for drift, fan-out agents to update stale sections, update paper_version header. File challenges for any contradictions found. S395 audit: cosmetic drift only, cadence 10\u219220.",
+      "cadence_sessions": 20,
+      "last_reviewed_session": 426,
+      "registered_by": "S73"
+    },
+    {
+      "id": "fundamental-setup-reswarm",
+      "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action).",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 419,
+      "registered_by": "S117",
+      "last_session": "S418",
+      "last_run": "S419"
+    },
+    {
+      "id": "mission-constraint-reswarm",
+      "description": "F119 mission constraints: review safety/portability/learning/connectivity invariants and harden enforcement checks against drift.",
+      "cadence_sessions": 12,
+      "last_reviewed_session": 407,
+      "registered_by": "S151",
+      "last_session": "S406"
+    },
+    {
+      "id": "state-sync",
+      "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
+      "cadence_sessions": 1,
+      "last_reviewed_session": 427,
+      "registered_by": "S176",
+      "last": "S363",
+      "last_session": "S427"
+    },
+    {
+      "id": "human-signal-harvest",
+      "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224).",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 419,
+      "registered_by": "S176",
+      "last_session": "S418",
+      "last_run": "S419"
+    },
+    {
+      "id": "change-quality-check",
+      "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S422: S419-S420 consecutive WEAK \u2014 root cause: integration-bound maintenance dominance (L-912). Fix: prioritize expert DOMEX lanes over maintenance.",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 420,
+      "registered_by": "S178",
+      "last": "S409",
+      "last_session": "S420",
+      "last_run": "S422"
+    },
+    {
+      "id": "dream-cycle",
+      "description": "Swarm dreaming: free-associative corpus synthesis. Run python3 tools/dream.py \u2014 outputs theme gravity map, uncited active principles (anchoring targets), cross-domain resonances, candidate frontier questions. Act on at least one output per run: write a lesson citing an uncited principle, or add a candidate frontier to tasks/FRONTIER.md. (F125). S418: L-925 written (P-262/P-238/P-017 anchored), F-ISO2 added, F-META8 updated. 65 resonances, 31.1% uncited rate.",
+      "cadence_sessions": 15,
+      "last_reviewed_session": 418,
+      "registered_by": "S183",
+      "last_session": "S418"
+    },
+    {
+      "id": "periodics-meta-audit",
+      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items.",
+      "cadence_sessions": 20,
+      "last_reviewed_session": 395,
+      "registered_by": "S185"
+    },
+    {
+      "id": "economy-health",
+      "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 426,
+      "registered_by": "S188",
+      "last_session": "S420"
+    },
+    {
+      "id": "challenge-execution",
+      "description": "Process QUEUED challenges in beliefs/CHALLENGES.md: execute oldest QUEUED item, produce evidence, update status. L-523: governance builds queues it doesn't process. Auto-escalate any item QUEUED >50 sessions. (F-GOV3, ISO-13)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 405,
+      "registered_by": "S347"
+    },
+    {
+      "id": "lanes-compact",
+      "cadence_sessions": 10,
+      "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
+      "last_reviewed_session": 417,
+      "registered_by": "S191",
+      "last_session": "S417"
+    },
+    {
+      "id": "principle-batch-scan",
+      "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%\u21924%; batch extraction is the structural remedy. Target: maintain \u226510% promotion rate.",
+      "cadence_sessions": 15,
+      "last_reviewed_session": 397,
+      "registered_by": "S366",
+      "last_session": "S398"
+    },
+    {
+      "id": "iso-annotation-sprint",
+      "description": "ISO annotation sprint: scan dark-matter lessons (no ISO tag) and add ISO-N citations. Target 5+ annotations per session. Skip when dark matter <10%. S362: 9.8% dark matter \u2014 at threshold. S395 audit: cadence 30\u219250 (at threshold, low urgency).",
+      "cadence_sessions": 50,
+      "last_reviewed_session": 362,
+      "registered_by": "S327"
+    },
+    {
+      "id": "expectation-calibration",
+      "description": "Expectation calibration audit: run `python3 tools/expect_harvest.py --report` \u2014 check directional accuracy, bias types, and per-domain calibration. Act on systematic biases (sprint artifact anchoring, mechanism misidentification, underconfidence). Target: direction accuracy >75%, underconfidence ratio <5:1. (L-778, F-META12)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 426,
+      "registered_by": "S392",
+      "last_session": "S426"
+    },
+    {
+      "id": "historian-repair",
+      "description": "Historian repair scan: run `python3 tools/historian_repair.py` \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s). Apply --repair to close stale lanes. Act on top-3 HIGH items each run. (L-800, F-META17)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 417,
+      "registered_by": "S395",
+      "last_session": "S417"
+    },
+    {
+      "id": "science-quality-audit",
+      "description": "Science quality audit: run `python3 tools/science_quality.py` \u2014 score experiment quality on 5 criteria (pre-registration, control, significance, external validation, falsification). Track confirm/discover ratio and falsification lane count. Target: mean quality >40%, falsification lanes >10%, confirm:discover <10:1. (P-243, L-804, SIG-36)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 418,
+      "registered_by": "S396",
+      "last_run": "S418",
+      "last_session": "S418"
+    },
+    {
+      "id": "signal-audit",
+      "description": "Signal backlog audit: run `python3 tools/swarm_signal.py read --status OPEN` and review each OPEN signal. Mark RESOLVED via `python3 tools/swarm_signal.py resolve <SIG-ID> \"<evidence>\"`: (a) observation-type signals where described work is committed; (b) directive-type signals with implementing L/P/F/tool artifact. Root cause of backlog: resolution-tracking failure \u2014 implementations exist but statuses never updated (L-811). Target: OPEN count <10, median signal age <20 sessions. (L-811, L-814, SIG-2, F-META2)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 419,
+      "registered_by": "S398",
+      "last_run": "S419",
+      "last_session": "S418"
+    },
+    {
+      "id": "bayesian-calibration-audit",
+      "description": "Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.243 at S410). Act on overconfident domains or frontiers with replication inconsistency. Use uninformative prior (--uninformative) for new frontier baselines. (L-903, tools/bayes_meta.py)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 410,
+      "registered_by": "S410",
+      "last_session": "S410"
+    },
+    {
+      "id": "enforcement-audit",
+      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422). See L-843, L-846, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601.",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 422,
+      "registered_by": "S401",
+      "last_session": "S422"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "generated_at_utc": "2026-02-27T17:11:56Z",
+  "session": "S144",
+  "experiment": "p155-trace-deception-context-switch",
+  "model": {
+    "description": "Replicator simulation with truthful vs deceptive stigmergic traces under cooperative vs competitive rewards.",
+    "population": 90,
+    "generations": 45,
+    "rounds_per_generation": 140,
+    "selection_beta": 3.5,
+    "private_signal_accuracy": 0.7,
+    "trace_weight": {
+      "collaborator": 2.6,
+      "deceptor": 0.0,
+      "neutral": 1.2
+    },
+    "strategies": [
+      "collaborator",
+      "deceptor",
+      "neutral"
+    ],
+    "initial_shares": {
+      "collaborator": 0.3333333333333333,
+      "deceptor": 0.3333333333333333,
+      "neutral": 0.3333333333333333
+    },
+    "reward_models": {
+      "cooperative": "0.65*group + 0.35*individual + truthfulness bias (+0.08 collaborator, -0.08 deceptor)",
+      "competitive": "0.35 + 1.25*individual - 1.00*group"
+    }
+  },
+  "contexts": {
+    "cooperative": {
+      "context": "cooperative",
+      "trials": 120,
+      "final_share_mean": {
+        "collaborator": 0.9999993824207927,
+        "deceptor": 5.673869446592358e-12,
+        "neutral": 6.175735334989305e-07
+      },
+      "final_share_median": {
+        "collaborator": 0.9999994026603417,
+        "deceptor": 5.635517393597955e-12,
+        "neutral": 5.97334473323198e-07
+      },
+      "group_accuracy_mean": 0.8470687830687831,
+      "group_accuracy_median": 0.8477777777777776
+    },
+    "competitive": {
+      "context": "competitive",
+      "trials": 120,
+      "final_share_mean": {
+        "collaborator": 0.2617718150620379,
+        "deceptor": 0.37595058852287605,
+        "neutral": 0.36227759641508606
+      },
+      "final_share_median": {
+        "collaborator": 0.304437484597462,
+        "deceptor": 0.36252977324878,
+        "neutral": 0.3541761035169777
+      },
+      "group_accuracy_mean": 0.7014920634920636,
+      "group_accuracy_median": 0.6992063492063496
+    }
+  },
+  "delta": {
+    "deceptor_share_mean_delta_comp_minus_coop": 0.3759505885172022,
+    "collaborator_share_mean_delta_comp_minus_coop": -0.7382275673587548,
+    "group_accuracy_mean_delta_comp_minus_coop": -0.14557671957671947
+  },
+  "interpretation": [
+    "Competitive incentives retain deceptors and reduce collaborator share relative to cooperative incentives.",
+    "Competitive context reduces group accuracy in this model.",
+    "Result is model-based (simulation), so it supports PARTIALLY OBSERVED rather than full OBSERVED status."
+  ]
+}

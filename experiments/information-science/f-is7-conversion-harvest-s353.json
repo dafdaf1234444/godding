@@ -1,0 +1,48 @@
+{
+  "session": "S353",
+  "frontier_id": "F-IS7",
+  "hypothesis": "Zero-conversion domains (89% experiment\u2192lesson loss) contain harvestable insights in batch experiment sequences. Targeted extraction should reduce loss.",
+  "method": "Fan-out 3 agents to explore experiments in history (46), game-theory (22), statistics (21). Each scanned 8-12 experiment JSONs for verdict/finding/diff fields. Extracted transferable rules and cross-domain isomorphisms.",
+  "zero_conversion_domains_scanned": {
+    "history": 46,
+    "information-science": 43,
+    "game-theory": 22,
+    "statistics": 21,
+    "control-theory": 12,
+    "belief-variants": 11
+  },
+  "results": {
+    "experiments_scanned": "~30 across 3 domains",
+    "harvestable_insights_found": 13,
+    "lessons_written": 3,
+    "lesson_ids": [
+      "L-575",
+      "L-576",
+      "L-578"
+    ],
+    "themes": {
+      "L-578": "Volume-conversion paradox: batch sequences hide accumulated patterns, need harvest checkpoints",
+      "L-575": "Simpsons Paradox in protocol adoption: contracts attract harder work, stratify before comparing",
+      "L-576": "Regime splitting prerequisite: I2>50% heterogeneity means split before null declaration"
+    },
+    "conversion_rate_before": 0.112,
+    "new_lessons_from_zero_conv": 3,
+    "conversion_improvement": "3 lessons from 89 experiments in 3 zero-conv domains = 3.4% partial recovery"
+  },
+  "cross_domain_isomorphisms": [
+    "ISO-13 anti-windup: L-556 (stale baseline), L-572 (archive blindness), L-574 (batch extraction failure) \u2014 same class: working mechanism + broken feedback channel",
+    "ISO-23 regime-crossover: L-576 (canceling subgroups average to null) connects to L-573 (strategy regimes) and regime-dependent dispatch",
+    "ISO-4 causality recognition: L-575 (selection confound in voluntary protocol adoption) \u2014 protocols adopted for hard tasks look worse in aggregate"
+  ],
+  "verdict": "CONFIRMED: zero-conversion domains contain rich harvestable insights. Volume-conversion paradox explained: batch sweeps produce incremental individual experiments that dont trigger lesson extraction. Fix: explicit harvest checkpoints every 5th domain experiment.",
+  "diff": "Expected >=3 lessons, got exactly 3. Cross-domain ISO connections (3 found) were richer than expected. Still ~85% of zero-conv experiments unprocessed \u2014 partial harvest only.",
+  "next_steps": [
+    "Require candidate_lesson_id field in experiment JSON template",
+    "Add harvest checkpoint to orient.py: warn when domain has 5+ experiments and 0 lessons",
+    "Rerun F-IS7 edge measurement at S360 to measure conversion rate change",
+    "Deeper harvest of history (46 exp) and remaining game-theory experiments"
+  ],
+  "candidate_lesson_id": "L-578",
+  "c_edit_note": "L-574 overwritten by concurrent session (dark matter dream.py fix). Volume-conversion paradox re-filed as L-578.",
+  "created_on": "2026-03-01"
+}

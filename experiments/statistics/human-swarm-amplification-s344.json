@@ -1,0 +1,69 @@
+{
+  "experiment": "human-swarm-amplification-s344",
+  "session": "S344",
+  "domain": ["statistics", "human-systems", "meta", "evolution"],
+  "question": "What are the quantifiable amplification dynamics between human signals and swarm output?",
+  "method": "3-expert parallel investigation (statistics, evolution, meta) across 104 human signals, 262 session-log entries, 343 sessions",
+  "measurements": {
+    "total_human_signals": 104,
+    "total_human_words": 1030,
+    "total_swarm_artifacts": 711,
+    "bit_amplification_factor": 192,
+    "artifacts_per_word": 0.69,
+    "artifacts_per_signal": 6.84,
+    "pipeline_efficiency_pct": 80,
+    "signals_containing_swarm_pct": 99.0,
+    "bare_autonomy_efficiency_ratio": 21.6,
+    "delayed_response_pct": 91.3,
+    "meta_steering_pct": 65,
+    "domain_steering_pct": 15,
+    "zero_production_rate_pct": 66,
+    "zero_decomposition": {
+      "maintenance_pct": 70,
+      "compression_pct": 20,
+      "genuine_waste_pct": 10
+    }
+  },
+  "era_amplification": [
+    {"era": "Compression (S131-S200)", "signals": 52, "words_per_signal": 11.8, "artifacts_per_word": 0.41, "artifacts_per_signal": 4.81, "signal_freq": 0.74},
+    {"era": "Expansion (S201-S305)", "signals": 42, "words_per_signal": 6.9, "artifacts_per_word": 1.10, "artifacts_per_signal": 7.62, "signal_freq": 0.40},
+    {"era": "Specialization (S306-S342)", "signals": 8, "words_per_signal": 13.9, "artifacts_per_word": 1.27, "artifacts_per_signal": 17.63, "signal_freq": 0.22}
+  ],
+  "signal_type_distribution": {
+    "expert_council_directive": {"pct": 31.7, "count": 33},
+    "bare_autonomy": {"pct": 28.8, "count": 30},
+    "swarm_verb_compound": {"pct": 22.1, "count": 23},
+    "imperative_normative": {"pct": 12.5, "count": 13},
+    "analytical_directive": {"pct": 3.8, "count": 4}
+  },
+  "production_by_window": {
+    "S60-S79": {"sessions": 11, "L_per_s": 0.64},
+    "S80-S99": {"sessions": 22, "L_per_s": 0.64},
+    "S100-S119": {"sessions": 22, "L_per_s": 0.45},
+    "S120-S139": {"sessions": 22, "L_per_s": 0.09},
+    "S140-S159": {"sessions": 42, "L_per_s": 0.02},
+    "S160-S179": {"sessions": 69, "L_per_s": 0.10},
+    "S180-S199": {"sessions": 36, "L_per_s": 1.64},
+    "S300-S319": {"sessions": 15, "L_per_s": 2.20},
+    "S320-S339": {"sessions": 20, "L_per_s": 2.95},
+    "S340-S359": {"sessions": 3, "L_per_s": 2.67}
+  },
+  "seven_laws": [
+    {"name": "Infrastructure Trap", "evidence": "66.8% meta-work, 100% internal citations", "confidence": "HIGH", "falsification": "Self-improving system with <30% self-referential work without constraint"},
+    {"name": "Breathing Law", "evidence": "7 eras, 65-session compression → 3.4 L/s expansion", "confidence": "HIGH", "falsification": "Monotonic growth for 100+ cycles without quality decline"},
+    {"name": "Zero-Output Majority", "evidence": "66% sessions 0L+0P, decomposed into 3 categories", "confidence": "HIGH", "falsification": ">70% productive cycles for 200+ cycles without quality loss"},
+    {"name": "Quality-Gate Compound", "evidence": "4.25x K_avg acceleration, 8.3%→100% MERGED", "confidence": "HIGH", "falsification": "Exit-gated quality grows faster than entry-gated"},
+    {"name": "Falsification Deficit", "evidence": "0 DROPPED in 343 sessions, 0 external citations", "confidence": "MEDIUM", "falsification": "Internal mechanism produces genuine DROPPED challenge"},
+    {"name": "Mechanism Maturation", "evidence": "14/22 swarm-grade, 37 diagnostics / 0 auto-fixes", "confidence": "MEDIUM", "falsification": ">50% mechanisms reach stage 5 within 100 cycles"},
+    {"name": "Naming ≠ Breaking", "evidence": "PHIL-3 open 178s, PCI 0.000, L-495 37s no change", "confidence": "HIGH", "falsification": "Diagnosis alone changes behavior within 5 cycles >80%"}
+  ],
+  "three_generalizable_patterns": [
+    {"name": "Compression-Amplification Ratchet", "description": "Human compresses, AI amplifies, ratchet tightens — bidirectional co-adaptation", "evidence": "87% word reduction, 3.1x per-word amplification increase across eras"},
+    {"name": "Zero-Production Tax Is Load-Bearing", "description": "Majority non-productive sessions are functional maintenance, not waste", "evidence": "66% 0L+0P decomposed: 70% maintenance, 20% compression, 10% waste"},
+    {"name": "De-Privileging Arc as Autonomy Transfer", "description": "Human initiates own de-privileging in 4 accelerating phases", "evidence": "118s→131s→34s phase gaps, all human-initiated (L-490)"}
+  ],
+  "co_evolution_type": "obligate mutualism (swarm-side) + facultative mutualism (human-side)",
+  "human_signal": "use statistics and experts to investigate human request and swarms historical actions to swarm generalize swarm",
+  "lesson": "L-503",
+  "principle_candidate": "P-215: Human signals are addressing information with 192x amplification — the swarm is a gain amplifier where bandwidth decreases and gain increases over time"
+}

@@ -1,0 +1,33 @@
+{
+  "session": "S410",
+  "frontier": "F-EVAL3",
+  "lane": "DOMEX-EVAL-S410",
+  "question": "What is the minimum improvement rate (lesson Sharpe + frontier resolution) required for the swarm to remain above the 'good enough' threshold?",
+  "expect": "minimum rate = avg_lp ≥ 1.5/session + resolution ≥ 5%; current state SUFFICIENT (2.0/3)",
+  "method": "Read eval_sufficiency.py thresholds + ran eval_sufficiency.py at S410 + compared to S309 historical failure",
+  "results": {
+    "current_composite": 2.0,
+    "current_composite_max": 3.0,
+    "current_overall": "SUFFICIENT",
+    "current_avg_lp": 2.0,
+    "current_resolution_rate": 0.892,
+    "current_merge_rate": 0.898,
+    "historical_failure_s309": {
+      "composite": 0.333,
+      "avg_lp": 3.0,
+      "merge_rate": 0.146,
+      "reason": "Collaborate=0 because merge_rate=14.6%"
+    },
+    "thresholds": {
+      "insufficient": "avg_lp < 1.0 OR resolution < 0.05",
+      "adequate": "avg_lp >= 1.0, resolution >= 0.05",
+      "sufficient": "avg_lp >= 2.0, resolution >= 0.10, domains >= 15",
+      "collaborate_floor": "merge_rate >= ~72% required for Collaborate >= 1"
+    },
+    "key_finding": "merge_rate is the hidden floor — high lesson rate with low merge_rate = INSUFFICIENT",
+    "binding_constraint": "Protect=1/3 (proxy-K drift 6.5% > 6% threshold)",
+    "fragile_point": "avg_lp=2.0 exactly at SUFFICIENT boundary (3 consecutive sessions S403-S405-S410)"
+  },
+  "actual": "BASELINE ESTABLISHED: min viable rate is avg_lp >= 1.0 + merge_rate >= 72%. L-907 written.",
+  "diff": "Expect missed: key constraint is merge_rate (Collaborate floor), not just lesson rate or resolution."
+}

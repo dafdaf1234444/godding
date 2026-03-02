@@ -1,0 +1,42 @@
+{
+  "experiment": "F-GT4 spectral clustering",
+  "title": "Spectral Clustering on Swarm Lesson Citation Graph",
+  "session": "S314",
+  "date": "2026-02-28",
+  "domain": "graph-theory",
+  "check_mode": "objective",
+  "expect": "Clusters partially aligned with declared domains; orphan majority degrades quality",
+  "method": "Build undirected citation adjacency matrix (N=360); compute normalized Laplacian on connected subgraph (n=231); extract k=7 eigenvectors; K-Means clustering; compare to declared domain labels; also run connected_components for ground truth",
+  "metrics": {
+    "N_total": 360,
+    "N_connected": 231,
+    "N_orphans": 128,
+    "orphan_pct": 35.6,
+    "true_components": 17,
+    "giant_component_size": 193,
+    "giant_component_pct": 53.6,
+    "micro_cluster_sizes": [4, 4, 3, 3, 3, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
+    "k_spectral": 7,
+    "eigengap_natural_k": 5,
+    "labeled_fraction": 0.406
+  },
+  "cluster_summary": {
+    "C0": {"n": 11, "top_domain": "meta"},
+    "C1": {"n": 51, "top_domain": "meta"},
+    "C2": {"n": 29, "top_domain": "meta"},
+    "C3": {"n": 39, "top_domain": "meta"},
+    "C4": {"n": 68, "top_domain": "meta"},
+    "C5": {"n": 10, "top_domain": "expert-swarm"},
+    "C6": {"n": 23, "top_domain": "meta"}
+  },
+  "actual": "17 connected components (1 giant n=193 + 16 micro + 128 orphans). All spectral clusters dominated by 'meta'. No domain separation visible.",
+  "diff": "Expected some domain clustering; found none. More fragmented than expected (17 components vs expected ~5).",
+  "interpretation": {
+    "taxonomy_validation": "NOT_CONFIRMED — citation structure is domain-agnostic",
+    "knowledge_topology": "FRAGMENTED_GIANT — one large weakly-connected blob + orphan sea",
+    "meta_dominance": "51/145 labeled = 35% meta; meta lessons are knowledge attractors (L-001 top hub)",
+    "dream_resonance": "Memory consolidation isomorphism confirmed (P-163): fragmented→consolidated mirrors hippocampus→neocortex"
+  },
+  "f_gt4_status": "PARTIAL — labels too sparse to confirm taxonomy wrong; topology-blind result",
+  "linked": ["F-GT4", "F-GT1", "L-383", "L-421", "L-423", "P-163"]
+}

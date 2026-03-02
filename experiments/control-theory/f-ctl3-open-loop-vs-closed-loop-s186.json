@@ -1,0 +1,216 @@
+{
+  "frontier_id": "F-CTL3",
+  "title": "Open-loop vs closed-loop quality comparison",
+  "session_filter_min": 150,
+  "classification_rule": {
+    "closed_loop_if": "session has explicit check/validation signal in commit messages",
+    "signals": [
+      "orient(.py/.ps1)",
+      "check.sh/check.ps1",
+      "validate_beliefs",
+      "Beliefs: PASS",
+      "maintenance"
+    ]
+  },
+  "open_loop": {
+    "n_sessions": 17,
+    "sessions": [
+      150,
+      159,
+      163,
+      165,
+      167,
+      168,
+      171,
+      172,
+      173,
+      174,
+      175,
+      176,
+      177,
+      178,
+      183,
+      185,
+      186
+    ],
+    "mean_score": 1.2155,
+    "median_score": 0.9,
+    "std_score": 1.5793,
+    "mean_overhead_ratio": 0.155,
+    "mean_lessons": 1.0588,
+    "mean_principles": 0.4118
+  },
+  "closed_loop": {
+    "n_sessions": 8,
+    "sessions": [
+      166,
+      169,
+      170,
+      179,
+      180,
+      181,
+      182,
+      184
+    ],
+    "mean_score": 2.9943,
+    "median_score": 1.92,
+    "std_score": 2.4811,
+    "mean_overhead_ratio": 0.3579,
+    "mean_lessons": 3.625,
+    "mean_principles": 3.5
+  },
+  "delta": {
+    "mean_score_closed_minus_open": 1.7788,
+    "mean_overhead_open_minus_closed": -0.2029,
+    "matched_pair_mean_closed_minus_open": 0.5026,
+    "matched_pair_median_closed_minus_open": 0.7371
+  },
+  "matched_pairs": {
+    "n_pairs": 17,
+    "mean_closed_minus_open": 0.5026,
+    "median_closed_minus_open": 0.7371,
+    "pairs": [
+      {
+        "open_session": 150,
+        "closed_session": 166,
+        "session_gap": 16,
+        "open_score": 0.42,
+        "closed_score": 1.2206,
+        "closed_minus_open": 0.8006
+      },
+      {
+        "open_session": 159,
+        "closed_session": 166,
+        "session_gap": 7,
+        "open_score": 0.0,
+        "closed_score": 1.2206,
+        "closed_minus_open": 1.2206
+      },
+      {
+        "open_session": 163,
+        "closed_session": 166,
+        "session_gap": 3,
+        "open_score": 0.0,
+        "closed_score": 1.2206,
+        "closed_minus_open": 1.2206
+      },
+      {
+        "open_session": 165,
+        "closed_session": 166,
+        "session_gap": 1,
+        "open_score": 1.2,
+        "closed_score": 1.2206,
+        "closed_minus_open": 0.0206
+      },
+      {
+        "open_session": 167,
+        "closed_session": 166,
+        "session_gap": 1,
+        "open_score": 2.4,
+        "closed_score": 1.2206,
+        "closed_minus_open": -1.1794
+      },
+      {
+        "open_session": 168,
+        "closed_session": 169,
+        "session_gap": 1,
+        "open_score": 1.2,
+        "closed_score": 1.8,
+        "closed_minus_open": 0.6
+      },
+      {
+        "open_session": 171,
+        "closed_session": 170,
+        "session_gap": 1,
+        "open_score": 0.0,
+        "closed_score": 1.5,
+        "closed_minus_open": 1.5
+      },
+      {
+        "open_session": 172,
+        "closed_session": 170,
+        "session_gap": 2,
+        "open_score": 0.0,
+        "closed_score": 1.5,
+        "closed_minus_open": 1.5
+      },
+      {
+        "open_session": 173,
+        "closed_session": 170,
+        "session_gap": 3,
+        "open_score": 1.2,
+        "closed_score": 1.5,
+        "closed_minus_open": 0.3
+      },
+      {
+        "open_session": 174,
+        "closed_session": 170,
+        "session_gap": 4,
+        "open_score": 0.7629,
+        "closed_score": 1.5,
+        "closed_minus_open": 0.7371
+      },
+      {
+        "open_session": 175,
+        "closed_session": 179,
+        "session_gap": 4,
+        "open_score": 3.3,
+        "closed_score": 2.04,
+        "closed_minus_open": -1.26
+      },
+      {
+        "open_session": 176,
+        "closed_session": 179,
+        "session_gap": 3,
+        "open_score": 1.2,
+        "closed_score": 2.04,
+        "closed_minus_open": 0.84
+      },
+      {
+        "open_session": 177,
+        "closed_session": 179,
+        "session_gap": 2,
+        "open_score": 0.9,
+        "closed_score": 2.04,
+        "closed_minus_open": 1.14
+      },
+      {
+        "open_session": 178,
+        "closed_session": 179,
+        "session_gap": 1,
+        "open_score": 6.0893,
+        "closed_score": 2.04,
+        "closed_minus_open": -4.0493
+      },
+      {
+        "open_session": 183,
+        "closed_session": 182,
+        "session_gap": 1,
+        "open_score": 1.992,
+        "closed_score": 7.1455,
+        "closed_minus_open": 5.1535
+      },
+      {
+        "open_session": 185,
+        "closed_session": 184,
+        "session_gap": 1,
+        "open_score": 0.0,
+        "closed_score": 0.0,
+        "closed_minus_open": 0.0
+      },
+      {
+        "open_session": 186,
+        "closed_session": 184,
+        "session_gap": 2,
+        "open_score": 0.0,
+        "closed_score": 0.0,
+        "closed_minus_open": 0.0
+      }
+    ]
+  },
+  "interpretation": {
+    "direction": "closed_loop_better",
+    "caveat": "Proxy classification from commit-message evidence; some sessions may have orient/check activity without explicit log mentions."
+  },
+  "generated_at_utc": "2026-02-27T20:55:31Z"
+}

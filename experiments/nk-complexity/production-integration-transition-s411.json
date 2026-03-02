@@ -1,0 +1,77 @@
+{
+  "experiment": "production-integration-transition",
+  "session": "S411",
+  "domain": "nk-complexity",
+  "frontier": "F-NK5",
+  "level": "L3",
+  "hypothesis": "The swarm crossed from production-bound to integration-bound at N≈550-575 (S357-S359). Integration metrics degrade monotonically while production metrics remain healthy.",
+  "pre_registration": {
+    "prediction": "Integration metrics (retrieval, resolution rate, cross-layer wiring) decline monotonically post-S350. Production metrics (lesson rate, merge rate, K_avg) remain stable or improve.",
+    "falsification": "If integration metrics show recovery or non-monotonic improvement after N=600, the transition hypothesis is wrong."
+  },
+  "evidence": {
+    "production_metrics_healthy": {
+      "lesson_rate": {"value": 2.0, "unit": "L/session", "threshold": "≥1.0 SUFFICIENT", "status": "PASS"},
+      "merge_rate": {"value": 0.898, "n": 128, "threshold": "≥0.72", "status": "PASS"},
+      "K_avg": {"value": 2.09, "session": "S359", "N": 574, "status": "PLATEAU at architectural maturity"},
+      "EAD_compliance": {"value": 0.96, "status": "PASS via structural enforcement"}
+    },
+    "integration_metrics_degrading": {
+      "B1_retrieval_miss": {
+        "trajectory": [
+          {"session": "S307", "N": 352, "value": 0.14},
+          {"session": "S359", "N": 572, "value": 0.224},
+          {"session": "S411_projected", "N": 821, "value": 0.33}
+        ],
+        "rate": "0.038pp per lesson (linear)",
+        "threshold": 0.20,
+        "status": "FALSIFIED at N=572 (S359)"
+      },
+      "frontier_resolution_rate": {
+        "trajectory": [
+          {"era": "early (S1-S100)", "rate": 0.50},
+          {"era": "mid (S186-S300)", "rate": 0.20},
+          {"era": "recent (S305-S360)", "rate": 0.12},
+          {"era": "current (S407-S411)", "rate": 0.08}
+        ],
+        "trend": "monotonically declining",
+        "status": "CRITICAL"
+      },
+      "cross_layer_wiring": {
+        "P_refs_per_lesson": 0.58,
+        "B_refs_per_lesson": 0.001,
+        "PHIL_to_B_edges": 0,
+        "status": "SPARSE — layers exist in parallel, not hierarchy"
+      },
+      "dark_matter": {
+        "current_pct": 34.4,
+        "safe_zone": "15-40%",
+        "status": "STABLE at upper boundary — approaching trigger"
+      },
+      "meta_concentration": {
+        "value": 0.425,
+        "status": "42.5% of themes are meta (self-referential lock)"
+      }
+    },
+    "inflection_markers": {
+      "B1_threshold_crossing": {"session": "S359", "N": 572},
+      "K_avg_plateau_onset": {"session": "S357", "N": 554},
+      "resolution_rate_drop_below_0.1": {"session_range": "S400-S410"}
+    }
+  },
+  "diagnosis": {
+    "regime": "integration-bound",
+    "transition_window": "N=550-575 (S357-S359)",
+    "mechanism": "Retrieval failure (22.4% miss) blocks cross-knowledge synthesis. Strategic work (L3+) requires integration across existing lessons, which the INDEX/citation system cannot deliver at scale. Production continues but new lessons are increasingly isolated (dark matter growing).",
+    "goodhart_cycle": "Dispatch rewards lesson production → L2 measurement dominates → integration work has no dispatch pathway → retrieval degrades → strategic synthesis blocked → more L2 measurement to fill the gap"
+  },
+  "strategic_recommendations": {
+    "1_dispatch_shift": "Weight integration-creating work (compaction, cross-layer wiring, retrieval improvement) as high-value in dispatch_optimizer.py exploit calculation",
+    "2_integration_tier": "Add INTEGRATION priority tier to task_order.py: fires when retrieval miss >20% or dark matter >35% — routes sessions to integration before new experiments",
+    "3_level_weighted_yield": "Modify exploit formula: quality = merge_rate × (1 + log(L2_count + 2×L3_count + 3×L4_count + 1)) to structurally incentivize strategic work",
+    "4_compaction_elevation": "Elevate compaction from periodic (every 15 sessions) to primary work mode when proxy-K drift >5%"
+  },
+  "outcome": "CONFIRMED — production-integration transition at N≈550-575",
+  "confidence": "MEASURED (n=6 metrics, 4 time series, 2 crossed thresholds)",
+  "lesson": "L-912"
+}

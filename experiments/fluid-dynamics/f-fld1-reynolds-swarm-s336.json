@@ -1,0 +1,28 @@
+{
+  "experiment": "F-FLD1",
+  "session": "S336",
+  "description": "Reynolds analogue for swarm session stability",
+  "formula": "Re_swarm = (output_velocity * lanes_touched) / correction_overhead",
+  "hypothesis": "Re_swarm < Re_crit → laminar (focused, high L+P/lane); Re_swarm > Re_crit → turbulent (chaotic, scattered L+P)",
+  "data_source": "tasks/SWARM-LANES.md + memory/SESSION-LOG.md",
+  "n_sessions_parsed": 11,
+  "session_range": "S186-S336",
+  "regimes": {
+    "laminar": {"n": 10, "mean_lp": 0.0, "re_range": "<0.5"},
+    "transitional": {"n": 0, "mean_lp": 0, "re_range": "0.5-2.0"},
+    "turbulent": {"n": 1, "mean_lp": 13.0, "re_range": ">2.0"}
+  },
+  "notable": {
+    "S186_turbulent": "Re_swarm=13.0 (69 lanes, 13 L+P) — but this was domain-seeding frenzy, not organic turbulence; turbulent session produced HIGHEST absolute L+P in dataset",
+    "S323_to_S336_laminar": "All recent sessions Re=0 due to thin SWARM-LANES session mapping; SESSION-LOG gap S307-S333 means most sessions have no L+P data"
+  },
+  "data_quality_issues": [
+    "SWARM-LANES session parsing only captures 11 unique sessions — many sessions absent",
+    "SESSION-LOG.md gap S307-S333 means no L+P for most recent sessions",
+    "Turbulent S186 is a bootstrapping outlier, not typical high-Re behavior"
+  ],
+  "verdict": "INSUFFICIENT_DATA: proxy metrics too sparse for regime classification; need session-level lane telemetry beyond SWARM-LANES rows",
+  "Re_critical_estimate": "Not determinable from n=11",
+  "implication": "Reynolds analogy is structurally valid but requires better instrumentation — track lanes_opened+closed per session natively",
+  "next": "F-FLD1 remains OPEN; re-run when SESSION-LOG gap S307-S335 is filled (see MEMORY.md)"
+}

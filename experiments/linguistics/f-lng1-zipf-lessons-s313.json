@@ -1,0 +1,103 @@
+{
+  "experiment": "F-LNG1",
+  "session": "S313",
+  "description": "Zipf power law test on swarm lesson citation distribution",
+  "hypothesis": "Lesson citations follow power law with \u03b1 \u2248 1.0 (Zipf), confirming ISO-8 isomorphism",
+  "data_source": "cache",
+  "total_lessons": 360,
+  "cited_lessons": 358,
+  "zero_cited_lessons": 2,
+  "citation_coverage_pct": 99.4,
+  "top_10": [
+    [
+      "L-336",
+      62
+    ],
+    [
+      "L-001",
+      42
+    ],
+    [
+      "L-005",
+      26
+    ],
+    [
+      "L-012",
+      26
+    ],
+    [
+      "L-257",
+      26
+    ],
+    [
+      "L-011",
+      23
+    ],
+    [
+      "L-007",
+      22
+    ],
+    [
+      "L-214",
+      22
+    ],
+    [
+      "L-216",
+      22
+    ],
+    [
+      "L-006",
+      21
+    ]
+  ],
+  "zero_cited_sample": [
+    "L-394",
+    "L-423"
+  ],
+  "power_law_alpha": 0.7867,
+  "power_law_r_squared": 0.8381,
+  "zipf_holds": true,
+  "zipf_strong": false,
+  "head_heavy": false,
+  "tail_flat": false,
+  "median_citations_nonzero": 4,
+  "p90_citations": 14,
+  "verdict": "ZIPF_WEAK",
+  "interpretation": "Lesson citation distribution is approximately Zipfian (\u03b1=0.787, R\u00b2=0.838). ISO-8 isomorphism PARTIALLY confirmed. \u03b1 deviates from 1.0 \u2014 flatter (more even distribution) than canonical Zipf.",
+  "series": [
+    {
+      "session": "S190",
+      "n": 288,
+      "alpha": 0.9,
+      "r2": 0.845
+    },
+    {
+      "session": "S301",
+      "n": 311,
+      "alpha": 0.847,
+      "r2": 0.84
+    },
+    {
+      "session": "S307",
+      "n": 339,
+      "alpha": 0.821,
+      "r2": 0.84
+    },
+    {
+      "session": "S311",
+      "n": 356,
+      "alpha": 0.79,
+      "r2": 0.84
+    },
+    {
+      "session": "S313",
+      "n": 360,
+      "alpha": 0.7867,
+      "r2": 0.8381
+    }
+  ],
+  "rate_per_lesson": -0.001583,
+  "tail_flat_threshold_alpha": 0.7,
+  "projected_tail_flat_n": 414,
+  "projected_tail_flat_session_estimate": "S370-S390 (assuming ~3 lessons/session)"
+}

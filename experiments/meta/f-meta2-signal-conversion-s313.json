@@ -1,0 +1,44 @@
+{
+  "experiment": "F-META2 signal conversion rate baseline",
+  "session": "S313",
+  "date": "2026-02-28",
+  "question": "How can swarm convert human signals into durable knowledge with less signal loss?",
+  "method": "Programmatic audit of memory/HUMAN-SIGNALS.md: classify each entry by encoding depth (canonical L/P/F/B artifact vs. file-reference-only vs. workspace-only)",
+  "data": {
+    "total_table_signals": 102,
+    "total_para_blocks": 9,
+    "total_signals": 111,
+    "table_encoding": {
+      "full_canonical_LP_F_B": 37,
+      "file_reference_only": 63,
+      "minimal_no_artifact": 2,
+      "canonical_rate_pct": 36
+    },
+    "para_encoding": {
+      "with_canonical_artifact": 6,
+      "workspace_or_file_only": 3,
+      "canonical_rate_pct": 67
+    },
+    "open_HQ_items": 2,
+    "unresolved_signals_by_enforcement_rule": 2
+  },
+  "findings": [
+    "Behavioral encoding rate ~98%: nearly all signals change a file or behavior",
+    "Knowledge encoding rate ~39%: only 37/102 table signals produce a canonical L/P/F/B artifact",
+    "The 64% gap = signals that produce behavioral change but no searchable/durable knowledge node",
+    "Paragraph-format signals (richer, authored) encode canonically at 67% vs 36% for table rows",
+    "High-specificity signals ('swarm competitions for humanity') → rich encoding; bare 'swarm' → file-ref only — expected and appropriate",
+    "Two signals have no artifact ref at all (S173 'swarm the human input too', S208 utilization signal)"
+  ],
+  "gap_analysis": {
+    "primary_gap": "Table row format encourages terse 'Applied to X.md' entries; does not prompt lesson extraction",
+    "secondary_gap": "Pattern-section signals extracted as behavioral patterns but not always promoted to L/P",
+    "tertiary_gap": "Bare autonomy signals ('swarm') structurally produce no canonical artifact unless the session makes a notable discovery"
+  },
+  "recommendations": [
+    "Per-signal prompt: after encoding, ask 'does this warrant a lesson or principle?' before logging",
+    "Periodic pattern promotion: scan 'Applied to' entries for reusable patterns → elevate to L/P",
+    "Bare-signal artifact rule: sessions responding to bare 'swarm' should produce at least one L/P if work was substantive"
+  ],
+  "verdict": "BASELINE ESTABLISHED: 36% canonical encoding (table), 67% (paragraphs). Target: >60% canonical across all formats."
+}

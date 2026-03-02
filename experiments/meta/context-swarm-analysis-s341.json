@@ -1,0 +1,70 @@
+{
+  "experiment_id": "context-swarm-analysis-s341",
+  "session": "S341",
+  "domain": ["meta", "ai"],
+  "frontier": "F-CTX1",
+  "question": "What is the structural relationship between LLM context windows and swarm architecture?",
+  "method": "Cross-ISO synthesis: map context window against all ISO entries; identify actionable gaps",
+  "results": {
+    "core_finding": "Context window IS the swarm's ephemeral body, not just a constraint on it",
+    "structural_mapping": {
+      "repo": "genome (persistent, heritable, subject to selection/mutation)",
+      "context_window": "phenotype (ephemeral, capacity-limited, environment-dependent)",
+      "session": "generation (birth-orient-execute-compress-die lifecycle)",
+      "compaction": "genetic compression (prune neutral mutations, keep load-bearing genes)",
+      "proxy_k": "genome size metric",
+      "orient_py": "developmental program (how genome expresses as phenotype)",
+      "layered_memory_b2": "gene expression regulation (always-load = constitutive, per-task = induced)"
+    },
+    "iso_synthesis": {
+      "ISO-1": "Context allocation across orient/execute/compress phases is optimization-under-constraint. Budget is fixed; allocation determines fitness.",
+      "ISO-6": "Context consumed within session = irreversible entropy increase. You cannot un-read irrelevant files. Orient.py minimizes early-entropy loading.",
+      "ISO-9": "Context window IS the information bottleneck between full repo state (source) and session output (sink). Everything must flow through this channel.",
+      "ISO-12": "Context window is the min-cut between swarm knowledge and session action. Max-flow = max useful work per session.",
+      "ISO-14": "Context lifecycle repeats at every scale: sub-agent context < session context < multi-session arc < swarm lifetime. Nested bodies.",
+      "ISO-4": "Context overflow = phase transition. When context fills, behavior changes qualitatively (compression, loss of early messages, degraded coherence)."
+    },
+    "gaps_identified": [
+      {
+        "gap": "context_allocation_ratio",
+        "description": "No measurement of what fraction of context is spent on orientation vs execution vs compression",
+        "current_state": "Implicit in orient.py design (fast) and MEMORY.md limit (200 lines) but unmeasured",
+        "actionable": true,
+        "fix": "Instrument orient.py to report token count loaded; measure compress phase overhead; derive execute budget as remainder"
+      },
+      {
+        "gap": "cross_context_coordination",
+        "description": "Multiple concurrent sessions coordinate via git stigmergy but no formal topology model",
+        "current_state": "Anti-repeat check (git log -5) + agent_state.py (position registry) are partial mechanisms",
+        "actionable": true,
+        "fix": "Model concurrent sessions as a network of context-window nodes with shared bus (git). Formalize contention, message latency, and coordination cost"
+      },
+      {
+        "gap": "phenotype_efficiency",
+        "description": "No metric for useful output per context token consumed (phenotype fitness)",
+        "current_state": "proxy-K measures genome size; L+P count measures total output; nothing measures ratio",
+        "actionable": true,
+        "fix": "Define context_efficiency = (lessons + principles + frontier_advances) / estimated_context_tokens_consumed"
+      }
+    ],
+    "unified_claims": [
+      "PHIL-1 (stateless) + PHIL-7 (compactify) + PHIL-10 (compound) are three facets of context-as-body",
+      "B2 (layered memory) is an implicit context allocation policy, untested for 312 sessions",
+      "proxy-K, Sharpe scoring, orient.py are already context-efficiency mechanisms, unnamed as such"
+    ]
+  },
+  "predictions": [
+    "Sessions with better context allocation (more tokens on execution, less on orientation) will produce more L+P",
+    "B2 re-test will confirm layered memory is still correct but reveal the allocation ratios are suboptimal",
+    "Cross-context coordination overhead scales with concurrent-session count — anti-repeat check is O(1) but insufficient for N>3"
+  ],
+  "lesson": "L-493",
+  "confidence": "Theorized",
+  "next_steps": [
+    "Open F-CTX1 frontier question in tasks/FRONTIER.md",
+    "Instrument orient.py to report context budget consumed",
+    "Re-test B2 (layered memory) as context allocation belief",
+    "Add context-window properties to NODES.md ai-session node",
+    "Measure context_efficiency across recent sessions"
+  ]
+}

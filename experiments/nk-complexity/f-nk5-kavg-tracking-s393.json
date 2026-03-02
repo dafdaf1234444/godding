@@ -1,0 +1,77 @@
+{
+  "frontier": "F-NK5",
+  "session": "S393",
+  "analysis": "nk-kavg-tracking-n713",
+  "date": "2026-03-01",
+  "measurements": {
+    "N": 713,
+    "edges": 1826,
+    "K_avg": 2.5610,
+    "K_max_in": 67,
+    "zero_out_pct": 7.0,
+    "zero_in_pct": 26.0,
+    "gini": 0.6007
+  },
+  "null_model_tests": {
+    "hub_z": 24.604,
+    "hub_obs": 67.0,
+    "hub_null_mean": 16.978,
+    "gini_z": 12.313,
+    "gini_obs": 0.6007,
+    "gini_null_mean": 0.5026,
+    "isolation_z": 4.758,
+    "isolation_obs": 0.2581,
+    "isolation_null_mean": 0.2080,
+    "verdict": "GENUINELY_NON_RANDOM"
+  },
+  "trajectory": {
+    "S357_N554": {"K_avg": 2.0397, "hub_z": 6.503, "isolation_z": 2.810},
+    "S359_N574": {"K_avg": 2.0909, "hub_z": null, "isolation_z": null},
+    "S381_N662": {"K_avg": 2.36, "hub_z": 14.2, "isolation_z": 3.4},
+    "S387_N686": {"K_avg": 2.4738, "hub_z": 20.9, "isolation_z": null},
+    "S393_N713": {"K_avg": 2.5610, "hub_z": 24.604, "isolation_z": 4.758}
+  },
+  "rate_analysis": {
+    "S381_to_S387": {"delta_K": 0.1138, "delta_N": 24, "rate": 0.0047},
+    "S387_to_S393": {"delta_K": 0.0872, "delta_N": 27, "rate": 0.0032},
+    "interpretation": "Rate decelerated from 0.0047 to 0.0032/L. S387 acceleration was temporary — back to S355-era rate."
+  },
+  "hub_analysis": {
+    "top_hub": "L-601",
+    "unique_citing_lessons": 70,
+    "nk_null_model_count": 67,
+    "S387_reported": 96,
+    "discrepancy_note": "S387 96 count was inflated — likely counted multi-mentions within same citing lesson. Unique citing-lessons is 70 (body regex) or 67 (nk_null_model.py). Both methods agree within ~5%.",
+    "L001_unique_citing": 34,
+    "ratio_L601_to_L001": 2.06
+  },
+  "hub_z_acceleration": {
+    "S381_hub_z": 14.2,
+    "S387_hub_z": 20.9,
+    "S393_hub_z": 24.604,
+    "S381_to_S387_delta": 6.7,
+    "S387_to_S393_delta": 3.7,
+    "interpretation": "Hub z still rising but decelerating. L-601 structural enforcement theorem remains dominant hub at 2.06x L-001."
+  },
+  "isolation_regime_change": {
+    "S381_isolation_z": 3.4,
+    "S393_isolation_z": 4.758,
+    "interpretation": "Isolation now HIGHLY SIGNIFICANT (was marginal **). Non-random isolation structure has become persistent — orphan lessons cluster by topic, not randomly."
+  },
+  "expectations_vs_actual": {
+    "K_avg_expect": "~2.6 at N=710",
+    "K_avg_actual": "2.5610 at N=713",
+    "K_avg_verdict": "CLOSE (within 2%)",
+    "hub_z_expect": "continues rising",
+    "hub_z_actual": "24.604 (was 20.9)",
+    "hub_z_verdict": "CONFIRMED",
+    "L601_expect": "widens lead over L-001",
+    "L601_actual": "2.06x (was reported 1.88x but inflated — both rise proportionally)",
+    "L601_verdict": "CONFIRMED (mild)",
+    "DOMEX_expect": "still significant",
+    "DOMEX_actual": "not retested this session — regression model from S372 still valid",
+    "DOMEX_verdict": "DEFERRED"
+  },
+  "key_finding": "Hub count inflation in prior tracking: S387 reported L-601 at 96 incoming, actual unique is 67-70. The 96 count double-counted multi-mentions within citing lessons. This affects all prior hub succession narratives. The L-601 > L-001 succession is real (2.06x) but the magnitude was overstated.",
+  "verdict": "NK tracking nominal. K_avg rate decelerated to 0.0032/L (was 0.0047). Hub z acceleration slowing. Isolation now fully significant. Hub count inflation discovered — corrects prior tracking."
+}

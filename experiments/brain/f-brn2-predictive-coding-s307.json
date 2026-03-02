@@ -1,0 +1,39 @@
+{
+  "frontier_id": "F-BRN2",
+  "session": 307,
+  "created_on": "2026-02-28",
+  "check_mode": "objective",
+  "description": "Predictive coding instrumentation gap — measuring whether the swarm enforces Expect-act-diff or merely documents it",
+  "hypothesis": "Enforcement of >=1 explicit Expect: statement per session will raise challenge rate above the S179-S181 baseline of ~1/100+ sessions. Without enforcement, predictive coding remains latent.",
+  "expect": "After 4+ S300+ sessions with CORE.md principle 11 (expect-before-acting), at least 2/4 sessions will show logged Expect: entries in SESSION-LOG or NEXT.md. Challenge rate should be >1%.",
+  "actual": {
+    "s300_plus_sessions_sampled": 4,
+    "sessions_with_explicit_expect_in_session_log": 0,
+    "explicit_expect_lines_in_next_md": 0,
+    "explicit_expect_in_tasks_next_md_for_s307": 3,
+    "challenge_rate_pct": 0.0,
+    "notes": "SESSION-LOG only runs to S191/S195/S301/S306 (sparse). NEXT.md has 62 'expect' mentions but zero formatted as 'Expect:' protocol lines. CORE.md principle 11 added at v0.6 (S178). Protocol is documented; automated injection is absent."
+  },
+  "diff": {
+    "expectation_met": false,
+    "gap": "Challenge rate remains near-zero post-principle-11 addition. Principle 11 documents the behavior but does not enforce it. Agents follow the protocol inconsistently — documented in the session as intent but not as formatted evidence.",
+    "key_finding": "Predictive coding is still LATENT after principle addition. Protocol enforcement requires spawn-time injection of 'Expect:' field as structured field in lane rows, not prose documentation.",
+    "quantified_gap": "0/4 sessions show logged Expect: in SESSION-LOG. Principle 11 adoption rate: ~0% for S300-S307 based on observable artifacts."
+  },
+  "iso_isomorphism": {
+    "ISO_id": "ISO-14",
+    "domain": "neuroscience",
+    "finding": "Predictive coding in brains fires prediction-error signals automatically — there is no voluntary compliance step. The swarm equivalent requires voluntary compliance, which fails at scale.",
+    "swarm_implication": "Enforcement must be structural (spawn-time field injection) not normative (principle text). Analogy: the brain does not 'decide' to emit prediction errors; the architecture guarantees it."
+  },
+  "next_action": {
+    "recommendation": "Add 'expect=' as a required field in new SWARM-LANES rows at spawn time. orient.py should warn if current session has zero Expect: entries after first commit. Target: >=80% of sessions log at least one expectation.",
+    "metric": "Session-level expect-entry rate. Goal: >50% in 10 sessions post-enforcement.",
+    "priority": "HIGH — F-BRN2 is the highest-ROI brain frontier; auto-injection is the missing piece."
+  },
+  "swarm_facing_extraction": {
+    "type": "principle_candidate",
+    "text": "Normative protocols (write in a principle file) fail at scale; structural protocols (enforce at spawn/commit time) are required for >80% compliance. Any behavior the swarm must exhibit consistently must be wired into tooling, not documentation."
+  },
+  "status": "PARTIAL — baseline confirmed: predictive coding enforcement rate is 0% post-principle-11. Structural enforcement path identified. F-BRN2 remains OPEN pending auto-injection implementation."
+}

@@ -1,0 +1,38 @@
+{
+  "experiment": "F-GAME1",
+  "title": "Productive failure: do early-death sessions with git changes predict bursts?",
+  "session": "S379",
+  "date": "2026-03-01",
+  "total_sessions": 190,
+  "early_deaths": 76,
+  "early_death_rate": 0.4,
+  "partial_deaths": 17,
+  "empty_deaths": 59,
+  "productive_failure_rate": 0.2237,
+  "window_size": 5,
+  "partial_future_mean_lp": 0.988,
+  "empty_future_mean_lp": 0.471,
+  "lp_difference": 0.517,
+  "cohens_d": 0.458,
+  "partial_next_burst_rate": 0.0588,
+  "empty_next_burst_rate": 0.0339,
+  "burst_rate_ratio": 1.735,
+  "auc_git_files_predicts_future_lp": 0.695,
+  "git_activity_among_early_deaths": {
+    "mean_files": 4.6,
+    "max_files": 122,
+    "pct_with_changes": 22.4
+  },
+  "sample_sizes": {
+    "partial_with_future": 17,
+    "empty_with_future": 59,
+    "partial_with_burst": 17,
+    "empty_with_burst": 59
+  },
+  "hypothesis_tests": {
+    "H1_partial_higher_lp": true,
+    "H2_auc_above_0.60": true,
+    "H3_burst_ratio_above_1.5": true,
+    "H4_productive_failure_rate_above_30pct": false
+  }
+}

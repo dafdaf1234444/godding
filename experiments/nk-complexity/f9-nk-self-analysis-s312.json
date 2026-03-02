@@ -1,0 +1,52 @@
+{
+  "experiment": "F9-NK self-analysis S312",
+  "title": "NK Lesson Citation Graph — K_avg Temporal Tracking",
+  "session": "S312",
+  "date": "2026-02-28",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "expect": "K_avg slightly different from S305 baseline (0.77); orphan rate may have changed",
+  "method": "Scan all L-NNN.md for cross-citation regex L-(\\d+); build directed graph; compute NK metrics",
+  "metrics": {
+    "N_lessons": 357,
+    "K_total_citations": 367,
+    "K_avg": 1.028,
+    "K_max": 13,
+    "K_max_lesson": "L-001",
+    "cycles": 0,
+    "uncited_lessons": 194,
+    "uncited_pct": 54.3,
+    "zero_outgoing_lessons": 186,
+    "zero_outgoing_pct": 52.1,
+    "top_10_cited": [
+      ["L-001", 13],
+      ["L-013", 10],
+      ["L-304", 10],
+      ["L-004", 8],
+      ["L-005", 6],
+      ["L-014", 6],
+      ["L-015", 6],
+      ["L-016", 6],
+      ["L-218", 6],
+      ["L-219", 6]
+    ]
+  },
+  "temporal_comparison": {
+    "S305": {"N": 325, "K_avg": 0.766, "uncited_pct": 61.5, "cycles": 0},
+    "S312": {"N": 357, "K_avg": 1.028, "uncited_pct": 54.3, "cycles": 0}
+  },
+  "actual": "K_avg=1.028 (crossed 1.0 threshold). 194/357 uncited (54.3%). 0 cycles. Total citations: 367.",
+  "diff": "Expectation was slight change; actual K_avg crossed 1.0 — significant. Orphan rate dropped 7.2pp. F75 implication: K_avg>=1.5 favors method decomposition (sequential/refactoring); 1.028 is in transition zone.",
+  "interpretation": {
+    "NK_diagnosis": "TRANSITION_ZONE",
+    "architecture": "emerging_hub_and_spoke",
+    "K_avg_delta": "+0.262 in ~32 lessons",
+    "per_lesson_delta": "+0.0082 K_avg per new lesson",
+    "phase_transition": "K_avg crossed 1.0 between S305 and S312; in NK theory this marks onset of structured coupling",
+    "orphan_reduction": "7.2pp drop (61.5% → 54.3%) — newer lessons are better cross-cited",
+    "hub_emergence": "L-001 still top hub (13 in-degree); L-013 and L-304 risen to 10 each",
+    "swarm_implication": "Knowledge base entering moderate-coupling zone — compaction yield should improve as citations act as connective tissue"
+  },
+  "f75_connection": "K_avg=1.028 is still below 1.5 threshold for method-decomposition advantage. Data-parallel still wins, but the margin is narrowing.",
+  "next": "Track K_avg at N=400; watch for 1.5 threshold crossing. Check if hub lesson citations are growing proportionally or if periphery is catching up."
+}

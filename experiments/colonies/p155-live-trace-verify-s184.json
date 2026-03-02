@@ -1,0 +1,6936 @@
+{
+  "generated_at_utc": "2026-02-27T20:10:36Z",
+  "experiment": "p155-live-trace-incentive-replication",
+  "model": {
+    "description": "Trace-level multi-agent tournament with adaptive role selection under incentive contexts.",
+    "agents": 12,
+    "rounds_per_trial": 80,
+    "trials_per_context": 80,
+    "seed": 147,
+    "private_signal_accuracy": 0.7,
+    "learning_rate": 0.12,
+    "selection_beta": 2.8,
+    "tail_window": 50,
+    "roles": [
+      "collaborator",
+      "deceptor",
+      "neutral"
+    ],
+    "reward_models": {
+      "cooperative": "group correctness + truthful trace + individual correctness",
+      "competitive": "individual correctness + influence - group correctness + deceptive bonus when group wrong"
+    }
+  },
+  "contexts": {
+    "cooperative": {
+      "context": "cooperative",
+      "trials": 80,
+      "final_share_mean": {
+        "collaborator": 0.9254791666666666,
+        "deceptor": 0.012541666666666665,
+        "neutral": 0.06197916666666666
+      },
+      "final_share_median": {
+        "collaborator": 0.9283333333333332,
+        "deceptor": 0.011666666666666665,
+        "neutral": 0.057499999999999996
+      },
+      "group_accuracy_mean": 0.9065,
+      "group_accuracy_median": 0.91,
+      "round_series": [
+        {
+          "round": 0,
+          "mean_role_share": {
+            "collaborator": 0.32916666666666683,
+            "deceptor": 0.3208333333333332,
+            "neutral": 0.35
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 1,
+          "mean_role_share": {
+            "collaborator": 0.3770833333333333,
+            "deceptor": 0.2947916666666667,
+            "neutral": 0.32812499999999994
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 2,
+          "mean_role_share": {
+            "collaborator": 0.38645833333333324,
+            "deceptor": 0.2635416666666667,
+            "neutral": 0.35000000000000014
+          },
+          "mean_group_accuracy": 0.4875
+        },
+        {
+          "round": 3,
+          "mean_role_share": {
+            "collaborator": 0.4385416666666667,
+            "deceptor": 0.2375,
+            "neutral": 0.3239583333333334
+          },
+          "mean_group_accuracy": 0.575
+        },
+        {
+          "round": 4,
+          "mean_role_share": {
+            "collaborator": 0.4458333333333332,
+            "deceptor": 0.2229166666666667,
+            "neutral": 0.33124999999999993
+          },
+          "mean_group_accuracy": 0.6875
+        },
+        {
+          "round": 5,
+          "mean_role_share": {
+            "collaborator": 0.49479166666666685,
+            "deceptor": 0.20104166666666665,
+            "neutral": 0.3041666666666667
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 6,
+          "mean_role_share": {
+            "collaborator": 0.5020833333333333,
+            "deceptor": 0.17812499999999995,
+            "neutral": 0.31979166666666664
+          },
+          "mean_group_accuracy": 0.6625
+        },
+        {
+          "round": 7,
+          "mean_role_share": {
+            "collaborator": 0.5385416666666667,
+            "deceptor": 0.16145833333333334,
+            "neutral": 0.3000000000000001
+          },
+          "mean_group_accuracy": 0.7125
+        },
+        {
+          "round": 8,
+          "mean_role_share": {
+            "collaborator": 0.5416666666666667,
+            "deceptor": 0.1520833333333333,
+            "neutral": 0.30625
+          },
+          "mean_group_accuracy": 0.725
+        },
+        {
+          "round": 9,
+          "mean_role_share": {
+            "collaborator": 0.6041666666666666,
+            "deceptor": 0.12187500000000007,
+            "neutral": 0.27395833333333325
+          },
+          "mean_group_accuracy": 0.8
+        },
+        {
+          "round": 10,
+          "mean_role_share": {
+            "collaborator": 0.5958333333333335,
+            "deceptor": 0.13125000000000003,
+            "neutral": 0.2729166666666667
+          },
+          "mean_group_accuracy": 0.775
+        },
+        {
+          "round": 11,
+          "mean_role_share": {
+            "collaborator": 0.6624999999999999,
+            "deceptor": 0.08645833333333332,
+            "neutral": 0.2510416666666666
+          },
+          "mean_group_accuracy": 0.85
+        },
+        {
+          "round": 12,
+          "mean_role_share": {
+            "collaborator": 0.6520833333333333,
+            "deceptor": 0.09999999999999994,
+            "neutral": 0.2479166666666667
+          },
+          "mean_group_accuracy": 0.825
+        },
+        {
+          "round": 13,
+          "mean_role_share": {
+            "collaborator": 0.6958333333333332,
+            "deceptor": 0.08958333333333335,
+            "neutral": 0.2145833333333333
+          },
+          "mean_group_accuracy": 0.8125
+        },
+        {
+          "round": 14,
+          "mean_role_share": {
+            "collaborator": 0.7000000000000004,
+            "deceptor": 0.07916666666666664,
+            "neutral": 0.2208333333333333
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 15,
+          "mean_role_share": {
+            "collaborator": 0.7302083333333335,
+            "deceptor": 0.06979166666666665,
+            "neutral": 0.20000000000000004
+          },
+          "mean_group_accuracy": 0.825
+        },
+        {
+          "round": 16,
+          "mean_role_share": {
+            "collaborator": 0.7437499999999998,
+            "deceptor": 0.050000000000000024,
+            "neutral": 0.20625000000000004
+          },
+          "mean_group_accuracy": 0.7625
+        },
+        {
+          "round": 17,
+          "mean_role_share": {
+            "collaborator": 0.7614583333333333,
+            "deceptor": 0.051041666666666666,
+            "neutral": 0.1875
+          },
+          "mean_group_accuracy": 0.8125
+        },
+        {
+          "round": 18,
+          "mean_role_share": {
+            "collaborator": 0.765625,
+            "deceptor": 0.05937499999999999,
+            "neutral": 0.17500000000000004
+          },
+          "mean_group_accuracy": 0.8375
+        },
+        {
+          "round": 19,
+          "mean_role_share": {
+            "collaborator": 0.802083333333333,
+            "deceptor": 0.047916666666666684,
+            "neutral": 0.15000000000000002
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 20,
+          "mean_role_share": {
+            "collaborator": 0.8135416666666668,
+            "deceptor": 0.03750000000000001,
+            "neutral": 0.14895833333333336
+          },
+          "mean_group_accuracy": 0.85
+        },
+        {
+          "round": 21,
+          "mean_role_share": {
+            "collaborator": 0.7947916666666666,
+            "deceptor": 0.039583333333333345,
+            "neutral": 0.165625
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 22,
+          "mean_role_share": {
+            "collaborator": 0.8364583333333334,
+            "deceptor": 0.03020833333333333,
+            "neutral": 0.13333333333333336
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 23,
+          "mean_role_share": {
+            "collaborator": 0.8322916666666664,
+            "deceptor": 0.019791666666666666,
+            "neutral": 0.1479166666666666
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 24,
+          "mean_role_share": {
+            "collaborator": 0.8447916666666666,
+            "deceptor": 0.03125000000000001,
+            "neutral": 0.12395833333333335
+          },
+          "mean_group_accuracy": 0.8375
+        },
+        {
+          "round": 25,
+          "mean_role_share": {
+            "collaborator": 0.8375,
+            "deceptor": 0.026041666666666664,
+            "neutral": 0.13645833333333338
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 26,
+          "mean_role_share": {
+            "collaborator": 0.8531250000000004,
+            "deceptor": 0.023958333333333325,
+            "neutral": 0.12291666666666672
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 27,
+          "mean_role_share": {
+            "collaborator": 0.85625,
+            "deceptor": 0.01979166666666666,
+            "neutral": 0.12395833333333335
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 28,
+          "mean_role_share": {
+            "collaborator": 0.8447916666666668,
+            "deceptor": 0.03645833333333333,
+            "neutral": 0.11875
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 29,
+          "mean_role_share": {
+            "collaborator": 0.8718750000000002,
+            "deceptor": 0.027083333333333327,
+            "neutral": 0.10104166666666663
+          },
+          "mean_group_accuracy": 0.825
+        },
+        {
+          "round": 30,
+          "mean_role_share": {
+            "collaborator": 0.8583333333333332,
+            "deceptor": 0.022916666666666658,
+            "neutral": 0.11875000000000002
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 31,
+          "mean_role_share": {
+            "collaborator": 0.8916666666666668,
+            "deceptor": 0.020833333333333332,
+            "neutral": 0.08749999999999998
+          },
+          "mean_group_accuracy": 0.9375
+        },
+        {
+          "round": 32,
+          "mean_role_share": {
+            "collaborator": 0.8906249999999998,
+            "deceptor": 0.01770833333333333,
+            "neutral": 0.09166666666666663
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 33,
+          "mean_role_share": {
+            "collaborator": 0.8781249999999996,
+            "deceptor": 0.019791666666666662,
+            "neutral": 0.1020833333333333
+          },
+          "mean_group_accuracy": 0.95
+        },
+        {
+          "round": 34,
+          "mean_role_share": {
+            "collaborator": 0.9083333333333335,
+            "deceptor": 0.016666666666666666,
+            "neutral": 0.075
+          },
+          "mean_group_accuracy": 0.95
+        },
+        {
+          "round": 35,
+          "mean_role_share": {
+            "collaborator": 0.9083333333333332,
+            "deceptor": 0.015624999999999997,
+            "neutral": 0.07604166666666666
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 36,
+          "mean_role_share": {
+            "collaborator": 0.9156249999999998,
+            "deceptor": 0.016666666666666663,
+            "neutral": 0.06770833333333334
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 37,
+          "mean_role_share": {
+            "collaborator": 0.9197916666666666,
+            "deceptor": 0.015624999999999997,
+            "neutral": 0.06458333333333333
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 38,
+          "mean_role_share": {
+            "collaborator": 0.9135416666666666,
+            "deceptor": 0.011458333333333334,
+            "neutral": 0.07499999999999998
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 39,
+          "mean_role_share": {
+            "collaborator": 0.9197916666666666,
+            "deceptor": 0.013541666666666665,
+            "neutral": 0.06666666666666665
+          },
+          "mean_group_accuracy": 0.95
+        },
+        {
+          "round": 40,
+          "mean_role_share": {
+            "collaborator": 0.9302083333333331,
+            "deceptor": 0.015625,
+            "neutral": 0.054166666666666696
+          },
+          "mean_group_accuracy": 0.95
+        },
+        {
+          "round": 41,
+          "mean_role_share": {
+            "collaborator": 0.9145833333333334,
+            "deceptor": 0.0125,
+            "neutral": 0.07291666666666666
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 42,
+          "mean_role_share": {
+            "collaborator": 0.9135416666666665,
+            "deceptor": 0.019791666666666662,
+            "neutral": 0.06666666666666665
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 43,
+          "mean_role_share": {
+            "collaborator": 0.9177083333333333,
+            "deceptor": 0.013541666666666665,
+            "neutral": 0.06874999999999999
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 44,
+          "mean_role_share": {
+            "collaborator": 0.9291666666666666,
+            "deceptor": 0.014583333333333332,
+            "neutral": 0.05624999999999999
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 45,
+          "mean_role_share": {
+            "collaborator": 0.934375,
+            "deceptor": 0.009375,
+            "neutral": 0.05625
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 46,
+          "mean_role_share": {
+            "collaborator": 0.9270833333333333,
+            "deceptor": 0.0125,
+            "neutral": 0.060416666666666674
+          },
+          "mean_group_accuracy": 0.9375
+        },
+        {
+          "round": 47,
+          "mean_role_share": {
+            "collaborator": 0.9218749999999998,
+            "deceptor": 0.015624999999999997,
+            "neutral": 0.0625
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 48,
+          "mean_role_share": {
+            "collaborator": 0.9229166666666669,
+            "deceptor": 0.010416666666666668,
+            "neutral": 0.06666666666666664
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 49,
+          "mean_role_share": {
+            "collaborator": 0.9260416666666668,
+            "deceptor": 0.0125,
+            "neutral": 0.06145833333333335
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 50,
+          "mean_role_share": {
+            "collaborator": 0.9270833333333334,
+            "deceptor": 0.013541666666666669,
+            "neutral": 0.05937499999999999
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 51,
+          "mean_role_share": {
+            "collaborator": 0.9416666666666668,
+            "deceptor": 0.0020833333333333333,
+            "neutral": 0.05624999999999999
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 52,
+          "mean_role_share": {
+            "collaborator": 0.9208333333333332,
+            "deceptor": 0.009375,
+            "neutral": 0.06979166666666665
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 53,
+          "mean_role_share": {
+            "collaborator": 0.9427083333333334,
+            "deceptor": 0.008333333333333333,
+            "neutral": 0.04895833333333334
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 54,
+          "mean_role_share": {
+            "collaborator": 0.9270833333333336,
+            "deceptor": 0.0125,
+            "neutral": 0.06041666666666665
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 55,
+          "mean_role_share": {
+            "collaborator": 0.9260416666666667,
+            "deceptor": 0.013541666666666665,
+            "neutral": 0.06041666666666665
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 56,
+          "mean_role_share": {
+            "collaborator": 0.9302083333333334,
+            "deceptor": 0.014583333333333332,
+            "neutral": 0.05520833333333334
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 57,
+          "mean_role_share": {
+            "collaborator": 0.9312500000000001,
+            "deceptor": 0.008333333333333333,
+            "neutral": 0.06041666666666666
+          },
+          "mean_group_accuracy": 0.8625
+        },
+        {
+          "round": 58,
+          "mean_role_share": {
+            "collaborator": 0.9197916666666665,
+            "deceptor": 0.0125,
+            "neutral": 0.06770833333333331
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 59,
+          "mean_role_share": {
+            "collaborator": 0.9364583333333332,
+            "deceptor": 0.0062499999999999995,
+            "neutral": 0.05729166666666665
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 60,
+          "mean_role_share": {
+            "collaborator": 0.9291666666666665,
+            "deceptor": 0.0125,
+            "neutral": 0.05833333333333333
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 61,
+          "mean_role_share": {
+            "collaborator": 0.9364583333333336,
+            "deceptor": 0.011458333333333334,
+            "neutral": 0.052083333333333336
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 62,
+          "mean_role_share": {
+            "collaborator": 0.9302083333333335,
+            "deceptor": 0.009375,
+            "neutral": 0.06041666666666666
+          },
+          "mean_group_accuracy": 0.9375
+        },
+        {
+          "round": 63,
+          "mean_role_share": {
+            "collaborator": 0.9385416666666668,
+            "deceptor": 0.009375,
+            "neutral": 0.052083333333333336
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 64,
+          "mean_role_share": {
+            "collaborator": 0.9239583333333334,
+            "deceptor": 0.015625,
+            "neutral": 0.060416666666666674
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 65,
+          "mean_role_share": {
+            "collaborator": 0.9489583333333336,
+            "deceptor": 0.0062499999999999995,
+            "neutral": 0.044791666666666674
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 66,
+          "mean_role_share": {
+            "collaborator": 0.9458333333333337,
+            "deceptor": 0.008333333333333333,
+            "neutral": 0.045833333333333344
+          },
+          "mean_group_accuracy": 0.85
+        },
+        {
+          "round": 67,
+          "mean_role_share": {
+            "collaborator": 0.928125,
+            "deceptor": 0.0125,
+            "neutral": 0.059375
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 68,
+          "mean_role_share": {
+            "collaborator": 0.9312499999999998,
+            "deceptor": 0.011458333333333334,
+            "neutral": 0.057291666666666685
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 69,
+          "mean_role_share": {
+            "collaborator": 0.9333333333333332,
+            "deceptor": 0.007291666666666666,
+            "neutral": 0.059375
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 70,
+          "mean_role_share": {
+            "collaborator": 0.947916666666667,
+            "deceptor": 0.008333333333333333,
+            "neutral": 0.043750000000000025
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 71,
+          "mean_role_share": {
+            "collaborator": 0.9427083333333333,
+            "deceptor": 0.010416666666666668,
+            "neutral": 0.046875000000000014
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 72,
+          "mean_role_share": {
+            "collaborator": 0.9437499999999996,
+            "deceptor": 0.013541666666666665,
+            "neutral": 0.042708333333333334
+          },
+          "mean_group_accuracy": 0.95
+        },
+        {
+          "round": 73,
+          "mean_role_share": {
+            "collaborator": 0.9364583333333331,
+            "deceptor": 0.0125,
+            "neutral": 0.05104166666666669
+          },
+          "mean_group_accuracy": 0.925
+        },
+        {
+          "round": 74,
+          "mean_role_share": {
+            "collaborator": 0.929166666666666,
+            "deceptor": 0.011458333333333334,
+            "neutral": 0.059375000000000025
+          },
+          "mean_group_accuracy": 0.9
+        },
+        {
+          "round": 75,
+          "mean_role_share": {
+            "collaborator": 0.9343750000000002,
+            "deceptor": 0.010416666666666668,
+            "neutral": 0.055208333333333325
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 76,
+          "mean_role_share": {
+            "collaborator": 0.94375,
+            "deceptor": 0.007291666666666666,
+            "neutral": 0.048958333333333354
+          },
+          "mean_group_accuracy": 0.9125
+        },
+        {
+          "round": 77,
+          "mean_role_share": {
+            "collaborator": 0.9260416666666667,
+            "deceptor": 0.014583333333333332,
+            "neutral": 0.05937499999999999
+          },
+          "mean_group_accuracy": 0.875
+        },
+        {
+          "round": 78,
+          "mean_role_share": {
+            "collaborator": 0.9375,
+            "deceptor": 0.018749999999999996,
+            "neutral": 0.04375000000000001
+          },
+          "mean_group_accuracy": 0.8875
+        },
+        {
+          "round": 79,
+          "mean_role_share": {
+            "collaborator": 0.9416666666666667,
+            "deceptor": 0.007291666666666666,
+            "neutral": 0.051041666666666693
+          },
+          "mean_group_accuracy": 0.925
+        }
+      ],
+      "trace_samples": [
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 8,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 2,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 4,
+          "position": 2,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 7,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 0,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 11,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 1,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 3,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 9,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 10,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 5,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 6,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 10,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 1,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 4,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 11,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 0,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 7,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 3,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 6,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -1.4
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 9,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 8,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 2,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 5,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 2,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 0,
+          "position": 1,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 10,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 7,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 6,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 5,
+          "position": 5,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 3,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 11,
+          "position": 7,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 8,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 9,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 1,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 4,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 6,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 3,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 10,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 11,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 2,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 1,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 4,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 8,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 7,
+          "position": 8,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 5,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 9,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 0,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 2,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 5,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 1,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 6,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 3,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 10,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 4,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 8,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 7,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 11,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 9,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 0,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 8,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 9,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 1,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 4,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 0,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 3,
+          "position": 5,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 2,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 7,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 11,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 5,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 10,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 6,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 10,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 7,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 6,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 4,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 11,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 9,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 0,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 5,
+          "position": 7,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 8,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 3,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 2,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 1,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 6,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 9,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 1,
+          "position": 2,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 3,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 7,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 8,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -1.4
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 11,
+          "position": 6,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 5,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 2,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 4,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 10,
+          "position": 10,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 0,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 5,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 8,
+          "position": 1,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 10,
+          "position": 2,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 6,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 0,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 4,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 2,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 3,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 1,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 11,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 9,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 7,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 3,
+          "position": 0,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 4,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 6,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 1,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 8,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 2,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 11,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 10,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 5,
+          "position": 8,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 9,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 0,
+          "position": 10,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 7,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 9,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 1,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 5,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 8,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 7,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 11,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 4,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 10,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 0,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 3,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 2,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 6,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 9,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 5,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 1,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 3,
+          "position": 3,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -1.4
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 4,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 11,
+          "position": 5,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 10,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 8,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 7,
+          "position": 8,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -1.4
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 0,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 2,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 6,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 8,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 10,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 1,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 3,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 4,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 5,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 7,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 6,
+          "position": 7,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -1.8
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 9,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 0,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 11,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": -0.05
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 2,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.45
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 0,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 2,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 8,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 3,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 0.1
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 1,
+          "position": 4,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 5,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 11,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 9,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 10,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 6,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 7,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 4,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 9,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 5,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.5
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 8,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 6,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 4,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 2,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 10,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 7,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 0,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 11,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": 1.45
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 1,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 3,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 1.85
+        }
+      ]
+    },
+    "competitive": {
+      "context": "competitive",
+      "trials": 80,
+      "final_share_mean": {
+        "collaborator": 0.4537083333333333,
+        "deceptor": 0.22958333333333333,
+        "neutral": 0.3167083333333333
+      },
+      "final_share_median": {
+        "collaborator": 0.455,
+        "deceptor": 0.22416666666666668,
+        "neutral": 0.31333333333333335
+      },
+      "group_accuracy_mean": 0.625,
+      "group_accuracy_median": 0.62,
+      "round_series": [
+        {
+          "round": 0,
+          "mean_role_share": {
+            "collaborator": 0.3583333333333333,
+            "deceptor": 0.30416666666666664,
+            "neutral": 0.33749999999999997
+          },
+          "mean_group_accuracy": 0.5125
+        },
+        {
+          "round": 1,
+          "mean_role_share": {
+            "collaborator": 0.3385416666666667,
+            "deceptor": 0.31979166666666653,
+            "neutral": 0.3416666666666667
+          },
+          "mean_group_accuracy": 0.575
+        },
+        {
+          "round": 2,
+          "mean_role_share": {
+            "collaborator": 0.33124999999999993,
+            "deceptor": 0.3260416666666667,
+            "neutral": 0.34270833333333334
+          },
+          "mean_group_accuracy": 0.525
+        },
+        {
+          "round": 3,
+          "mean_role_share": {
+            "collaborator": 0.36250000000000004,
+            "deceptor": 0.3104166666666668,
+            "neutral": 0.3270833333333333
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 4,
+          "mean_role_share": {
+            "collaborator": 0.3635416666666667,
+            "deceptor": 0.3010416666666667,
+            "neutral": 0.3354166666666667
+          },
+          "mean_group_accuracy": 0.4875
+        },
+        {
+          "round": 5,
+          "mean_role_share": {
+            "collaborator": 0.3666666666666668,
+            "deceptor": 0.32499999999999996,
+            "neutral": 0.3083333333333333
+          },
+          "mean_group_accuracy": 0.45
+        },
+        {
+          "round": 6,
+          "mean_role_share": {
+            "collaborator": 0.3729166666666665,
+            "deceptor": 0.3052083333333332,
+            "neutral": 0.32187500000000013
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 7,
+          "mean_role_share": {
+            "collaborator": 0.34374999999999994,
+            "deceptor": 0.2906249999999999,
+            "neutral": 0.3656250000000002
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 8,
+          "mean_role_share": {
+            "collaborator": 0.36041666666666683,
+            "deceptor": 0.303125,
+            "neutral": 0.33645833333333336
+          },
+          "mean_group_accuracy": 0.5375
+        },
+        {
+          "round": 9,
+          "mean_role_share": {
+            "collaborator": 0.37708333333333327,
+            "deceptor": 0.30208333333333337,
+            "neutral": 0.3208333333333333
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 10,
+          "mean_role_share": {
+            "collaborator": 0.37083333333333335,
+            "deceptor": 0.27708333333333324,
+            "neutral": 0.35208333333333336
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 11,
+          "mean_role_share": {
+            "collaborator": 0.3635416666666668,
+            "deceptor": 0.29479166666666673,
+            "neutral": 0.34166666666666656
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 12,
+          "mean_role_share": {
+            "collaborator": 0.3614583333333333,
+            "deceptor": 0.28541666666666654,
+            "neutral": 0.3531250000000001
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 13,
+          "mean_role_share": {
+            "collaborator": 0.37499999999999983,
+            "deceptor": 0.30208333333333337,
+            "neutral": 0.3229166666666668
+          },
+          "mean_group_accuracy": 0.45
+        },
+        {
+          "round": 14,
+          "mean_role_share": {
+            "collaborator": 0.38541666666666674,
+            "deceptor": 0.271875,
+            "neutral": 0.3427083333333335
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 15,
+          "mean_role_share": {
+            "collaborator": 0.38333333333333336,
+            "deceptor": 0.2802083333333333,
+            "neutral": 0.3364583333333333
+          },
+          "mean_group_accuracy": 0.525
+        },
+        {
+          "round": 16,
+          "mean_role_share": {
+            "collaborator": 0.3802083333333335,
+            "deceptor": 0.29375,
+            "neutral": 0.3260416666666667
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 17,
+          "mean_role_share": {
+            "collaborator": 0.37812500000000004,
+            "deceptor": 0.28437500000000004,
+            "neutral": 0.3375
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 18,
+          "mean_role_share": {
+            "collaborator": 0.4020833333333334,
+            "deceptor": 0.2749999999999999,
+            "neutral": 0.32291666666666663
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 19,
+          "mean_role_share": {
+            "collaborator": 0.415625,
+            "deceptor": 0.2635416666666667,
+            "neutral": 0.32083333333333336
+          },
+          "mean_group_accuracy": 0.6125
+        },
+        {
+          "round": 20,
+          "mean_role_share": {
+            "collaborator": 0.4041666666666667,
+            "deceptor": 0.2895833333333333,
+            "neutral": 0.30624999999999997
+          },
+          "mean_group_accuracy": 0.5125
+        },
+        {
+          "round": 21,
+          "mean_role_share": {
+            "collaborator": 0.4114583333333333,
+            "deceptor": 0.275,
+            "neutral": 0.31354166666666655
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 22,
+          "mean_role_share": {
+            "collaborator": 0.41875,
+            "deceptor": 0.2822916666666665,
+            "neutral": 0.29895833333333327
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 23,
+          "mean_role_share": {
+            "collaborator": 0.4052083333333333,
+            "deceptor": 0.2843749999999999,
+            "neutral": 0.3104166666666666
+          },
+          "mean_group_accuracy": 0.5125
+        },
+        {
+          "round": 24,
+          "mean_role_share": {
+            "collaborator": 0.4291666666666667,
+            "deceptor": 0.2604166666666668,
+            "neutral": 0.31041666666666673
+          },
+          "mean_group_accuracy": 0.7625
+        },
+        {
+          "round": 25,
+          "mean_role_share": {
+            "collaborator": 0.4052083333333334,
+            "deceptor": 0.28645833333333337,
+            "neutral": 0.3083333333333333
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 26,
+          "mean_role_share": {
+            "collaborator": 0.4364583333333334,
+            "deceptor": 0.2572916666666667,
+            "neutral": 0.3062499999999999
+          },
+          "mean_group_accuracy": 0.5125
+        },
+        {
+          "round": 27,
+          "mean_role_share": {
+            "collaborator": 0.40937499999999993,
+            "deceptor": 0.2729166666666666,
+            "neutral": 0.3177083333333334
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 28,
+          "mean_role_share": {
+            "collaborator": 0.40104166666666663,
+            "deceptor": 0.25416666666666665,
+            "neutral": 0.3447916666666666
+          },
+          "mean_group_accuracy": 0.6
+        },
+        {
+          "round": 29,
+          "mean_role_share": {
+            "collaborator": 0.4218749999999999,
+            "deceptor": 0.26666666666666666,
+            "neutral": 0.3114583333333334
+          },
+          "mean_group_accuracy": 0.675
+        },
+        {
+          "round": 30,
+          "mean_role_share": {
+            "collaborator": 0.41875000000000007,
+            "deceptor": 0.24374999999999997,
+            "neutral": 0.33749999999999997
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 31,
+          "mean_role_share": {
+            "collaborator": 0.434375,
+            "deceptor": 0.2635416666666667,
+            "neutral": 0.30208333333333337
+          },
+          "mean_group_accuracy": 0.575
+        },
+        {
+          "round": 32,
+          "mean_role_share": {
+            "collaborator": 0.4322916666666667,
+            "deceptor": 0.2520833333333332,
+            "neutral": 0.31562500000000004
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 33,
+          "mean_role_share": {
+            "collaborator": 0.4604166666666668,
+            "deceptor": 0.23229166666666662,
+            "neutral": 0.3072916666666668
+          },
+          "mean_group_accuracy": 0.575
+        },
+        {
+          "round": 34,
+          "mean_role_share": {
+            "collaborator": 0.4395833333333334,
+            "deceptor": 0.2520833333333333,
+            "neutral": 0.30833333333333335
+          },
+          "mean_group_accuracy": 0.6125
+        },
+        {
+          "round": 35,
+          "mean_role_share": {
+            "collaborator": 0.45,
+            "deceptor": 0.240625,
+            "neutral": 0.30937499999999996
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 36,
+          "mean_role_share": {
+            "collaborator": 0.4447916666666667,
+            "deceptor": 0.22916666666666666,
+            "neutral": 0.3260416666666667
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 37,
+          "mean_role_share": {
+            "collaborator": 0.4583333333333333,
+            "deceptor": 0.2520833333333333,
+            "neutral": 0.28958333333333325
+          },
+          "mean_group_accuracy": 0.65
+        },
+        {
+          "round": 38,
+          "mean_role_share": {
+            "collaborator": 0.4447916666666666,
+            "deceptor": 0.22291666666666665,
+            "neutral": 0.33229166666666676
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 39,
+          "mean_role_share": {
+            "collaborator": 0.4302083333333334,
+            "deceptor": 0.23437499999999994,
+            "neutral": 0.3354166666666668
+          },
+          "mean_group_accuracy": 0.6125
+        },
+        {
+          "round": 40,
+          "mean_role_share": {
+            "collaborator": 0.4322916666666668,
+            "deceptor": 0.23541666666666666,
+            "neutral": 0.3322916666666667
+          },
+          "mean_group_accuracy": 0.575
+        },
+        {
+          "round": 41,
+          "mean_role_share": {
+            "collaborator": 0.4218750000000001,
+            "deceptor": 0.26250000000000007,
+            "neutral": 0.31562499999999993
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 42,
+          "mean_role_share": {
+            "collaborator": 0.4302083333333333,
+            "deceptor": 0.25520833333333337,
+            "neutral": 0.31458333333333327
+          },
+          "mean_group_accuracy": 0.7125
+        },
+        {
+          "round": 43,
+          "mean_role_share": {
+            "collaborator": 0.4458333333333334,
+            "deceptor": 0.22395833333333343,
+            "neutral": 0.33020833333333327
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 44,
+          "mean_role_share": {
+            "collaborator": 0.4468750000000001,
+            "deceptor": 0.2260416666666667,
+            "neutral": 0.3270833333333333
+          },
+          "mean_group_accuracy": 0.725
+        },
+        {
+          "round": 45,
+          "mean_role_share": {
+            "collaborator": 0.4437500000000001,
+            "deceptor": 0.25,
+            "neutral": 0.30625
+          },
+          "mean_group_accuracy": 0.6
+        },
+        {
+          "round": 46,
+          "mean_role_share": {
+            "collaborator": 0.4270833333333332,
+            "deceptor": 0.25000000000000006,
+            "neutral": 0.3229166666666667
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 47,
+          "mean_role_share": {
+            "collaborator": 0.4177083333333333,
+            "deceptor": 0.24895833333333334,
+            "neutral": 0.33333333333333326
+          },
+          "mean_group_accuracy": 0.4875
+        },
+        {
+          "round": 48,
+          "mean_role_share": {
+            "collaborator": 0.46875000000000017,
+            "deceptor": 0.20312500000000008,
+            "neutral": 0.328125
+          },
+          "mean_group_accuracy": 0.725
+        },
+        {
+          "round": 49,
+          "mean_role_share": {
+            "collaborator": 0.44166666666666654,
+            "deceptor": 0.23125000000000004,
+            "neutral": 0.3270833333333333
+          },
+          "mean_group_accuracy": 0.6125
+        },
+        {
+          "round": 50,
+          "mean_role_share": {
+            "collaborator": 0.4333333333333333,
+            "deceptor": 0.21874999999999994,
+            "neutral": 0.3479166666666666
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 51,
+          "mean_role_share": {
+            "collaborator": 0.4291666666666667,
+            "deceptor": 0.24687500000000012,
+            "neutral": 0.32395833333333335
+          },
+          "mean_group_accuracy": 0.55
+        },
+        {
+          "round": 52,
+          "mean_role_share": {
+            "collaborator": 0.4687499999999999,
+            "deceptor": 0.22708333333333336,
+            "neutral": 0.3041666666666667
+          },
+          "mean_group_accuracy": 0.65
+        },
+        {
+          "round": 53,
+          "mean_role_share": {
+            "collaborator": 0.4614583333333334,
+            "deceptor": 0.20000000000000004,
+            "neutral": 0.33854166666666663
+          },
+          "mean_group_accuracy": 0.65
+        },
+        {
+          "round": 54,
+          "mean_role_share": {
+            "collaborator": 0.43437499999999984,
+            "deceptor": 0.2312500000000001,
+            "neutral": 0.3343750000000002
+          },
+          "mean_group_accuracy": 0.5375
+        },
+        {
+          "round": 55,
+          "mean_role_share": {
+            "collaborator": 0.4645833333333334,
+            "deceptor": 0.2208333333333333,
+            "neutral": 0.3145833333333332
+          },
+          "mean_group_accuracy": 0.65
+        },
+        {
+          "round": 56,
+          "mean_role_share": {
+            "collaborator": 0.4531250000000001,
+            "deceptor": 0.25416666666666654,
+            "neutral": 0.29270833333333335
+          },
+          "mean_group_accuracy": 0.6
+        },
+        {
+          "round": 57,
+          "mean_role_share": {
+            "collaborator": 0.4458333333333332,
+            "deceptor": 0.2395833333333334,
+            "neutral": 0.31458333333333344
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 58,
+          "mean_role_share": {
+            "collaborator": 0.45729166666666676,
+            "deceptor": 0.23750000000000004,
+            "neutral": 0.3052083333333334
+          },
+          "mean_group_accuracy": 0.675
+        },
+        {
+          "round": 59,
+          "mean_role_share": {
+            "collaborator": 0.4635416666666667,
+            "deceptor": 0.24062499999999995,
+            "neutral": 0.2958333333333333
+          },
+          "mean_group_accuracy": 0.675
+        },
+        {
+          "round": 60,
+          "mean_role_share": {
+            "collaborator": 0.4770833333333334,
+            "deceptor": 0.22499999999999995,
+            "neutral": 0.2979166666666667
+          },
+          "mean_group_accuracy": 0.7125
+        },
+        {
+          "round": 61,
+          "mean_role_share": {
+            "collaborator": 0.4583333333333335,
+            "deceptor": 0.23020833333333335,
+            "neutral": 0.31145833333333334
+          },
+          "mean_group_accuracy": 0.5625
+        },
+        {
+          "round": 62,
+          "mean_role_share": {
+            "collaborator": 0.4750000000000001,
+            "deceptor": 0.22291666666666665,
+            "neutral": 0.3020833333333332
+          },
+          "mean_group_accuracy": 0.7
+        },
+        {
+          "round": 63,
+          "mean_role_share": {
+            "collaborator": 0.4854166666666667,
+            "deceptor": 0.2239583333333332,
+            "neutral": 0.29062499999999997
+          },
+          "mean_group_accuracy": 0.7125
+        },
+        {
+          "round": 64,
+          "mean_role_share": {
+            "collaborator": 0.4677083333333333,
+            "deceptor": 0.2114583333333334,
+            "neutral": 0.3208333333333333
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 65,
+          "mean_role_share": {
+            "collaborator": 0.4822916666666667,
+            "deceptor": 0.2166666666666667,
+            "neutral": 0.3010416666666666
+          },
+          "mean_group_accuracy": 0.625
+        },
+        {
+          "round": 66,
+          "mean_role_share": {
+            "collaborator": 0.4750000000000001,
+            "deceptor": 0.20312500000000006,
+            "neutral": 0.3218750000000001
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 67,
+          "mean_role_share": {
+            "collaborator": 0.49583333333333346,
+            "deceptor": 0.20312499999999994,
+            "neutral": 0.3010416666666666
+          },
+          "mean_group_accuracy": 0.65
+        },
+        {
+          "round": 68,
+          "mean_role_share": {
+            "collaborator": 0.4770833333333332,
+            "deceptor": 0.2302083333333334,
+            "neutral": 0.29270833333333335
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 69,
+          "mean_role_share": {
+            "collaborator": 0.46354166666666663,
+            "deceptor": 0.22395833333333334,
+            "neutral": 0.3124999999999999
+          },
+          "mean_group_accuracy": 0.6875
+        },
+        {
+          "round": 70,
+          "mean_role_share": {
+            "collaborator": 0.4385416666666667,
+            "deceptor": 0.225,
+            "neutral": 0.33645833333333336
+          },
+          "mean_group_accuracy": 0.6625
+        },
+        {
+          "round": 71,
+          "mean_role_share": {
+            "collaborator": 0.4395833333333335,
+            "deceptor": 0.2312499999999999,
+            "neutral": 0.3291666666666666
+          },
+          "mean_group_accuracy": 0.6125
+        },
+        {
+          "round": 72,
+          "mean_role_share": {
+            "collaborator": 0.4458333333333336,
+            "deceptor": 0.2270833333333334,
+            "neutral": 0.32708333333333334
+          },
+          "mean_group_accuracy": 0.5875
+        },
+        {
+          "round": 73,
+          "mean_role_share": {
+            "collaborator": 0.4760416666666668,
+            "deceptor": 0.20937500000000003,
+            "neutral": 0.3145833333333333
+          },
+          "mean_group_accuracy": 0.675
+        },
+        {
+          "round": 74,
+          "mean_role_share": {
+            "collaborator": 0.4593750000000002,
+            "deceptor": 0.21666666666666662,
+            "neutral": 0.32395833333333335
+          },
+          "mean_group_accuracy": 0.675
+        },
+        {
+          "round": 75,
+          "mean_role_share": {
+            "collaborator": 0.48333333333333306,
+            "deceptor": 0.20208333333333334,
+            "neutral": 0.3145833333333335
+          },
+          "mean_group_accuracy": 0.6625
+        },
+        {
+          "round": 76,
+          "mean_role_share": {
+            "collaborator": 0.4739583333333332,
+            "deceptor": 0.20729166666666665,
+            "neutral": 0.31875
+          },
+          "mean_group_accuracy": 0.6625
+        },
+        {
+          "round": 77,
+          "mean_role_share": {
+            "collaborator": 0.4750000000000001,
+            "deceptor": 0.21875,
+            "neutral": 0.30624999999999997
+          },
+          "mean_group_accuracy": 0.6
+        },
+        {
+          "round": 78,
+          "mean_role_share": {
+            "collaborator": 0.4770833333333333,
+            "deceptor": 0.2124999999999999,
+            "neutral": 0.3104166666666666
+          },
+          "mean_group_accuracy": 0.6375
+        },
+        {
+          "round": 79,
+          "mean_role_share": {
+            "collaborator": 0.4583333333333332,
+            "deceptor": 0.2125,
+            "neutral": 0.3291666666666665
+          },
+          "mean_group_accuracy": 0.65
+        }
+      ],
+      "trace_samples": [
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 5,
+          "position": 0,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 6,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 7,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 3,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 10,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 4,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 8,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 2,
+          "position": 7,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 11,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 1,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 0,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 0,
+          "agent_id": 9,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 10,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 1,
+          "position": 1,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 2,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 11,
+          "position": 3,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 3,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 7,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 4,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 5,
+          "position": 7,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 9,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 8,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 6,
+          "position": 10,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 1,
+          "agent_id": 0,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 4,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 7,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 11,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 1,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 9,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 3,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 2,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 5,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 8,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 0,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 6,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 2,
+          "agent_id": 10,
+          "position": 11,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 4,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 9,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 8,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 2,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 10,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 7,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 5,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 3,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 6,
+          "position": 8,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 11,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 0,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": -0.0409
+        },
+        {
+          "trial": 0,
+          "round": 3,
+          "agent_id": 1,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.2091
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 11,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 4,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 1,
+          "position": 2,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 5,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 9,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 10,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 3,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 2,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 8,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 7,
+          "position": 9,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 6,
+          "position": 10,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 4,
+          "agent_id": 0,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 1,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 4,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 0,
+          "position": 2,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 3,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 6,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.0409
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 5,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 11,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.5773
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 10,
+          "position": 7,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.5773
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 9,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 8,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 7,
+          "position": 10,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 5,
+          "agent_id": 2,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 0,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.0409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 8,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 5,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 3,
+          "position": 2,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 10,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 0,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 11,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 7,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 6,
+          "position": 7,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 2,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 1,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 9,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 6,
+          "agent_id": 4,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 10,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 9,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 1,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 11,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 6,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 2,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 0,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 4,
+          "position": 7,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 5,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 7,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 8,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 7,
+          "agent_id": 3,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 1,
+          "position": 0,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 3,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 9,
+          "position": 2,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 0,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 6,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 10,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 8,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 5,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 4,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 11,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 7,
+          "position": 10,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 8,
+          "agent_id": 2,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 11,
+          "position": 0,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 1,
+          "position": 1,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 6,
+          "position": 2,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 8,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 3,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 0,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 9,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 2,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 4,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 5,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 7,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 9,
+          "agent_id": 10,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 0,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 6,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 11,
+          "position": 1,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 3,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 1,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.9364
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 4,
+          "position": 4,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.9364
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 7,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 0,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 5,
+          "position": 7,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 9,
+          "position": 8,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 8,
+          "position": 9,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 10,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.9364
+        },
+        {
+          "trial": 0,
+          "round": 10,
+          "agent_id": 2,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.8045
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 0,
+          "position": 0,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 3,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 5,
+          "position": 2,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 11,
+          "position": 3,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.0409
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 2,
+          "position": 4,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 9,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 8,
+          "position": 6,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 1,
+          "position": 7,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 6,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.0409
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 4,
+          "position": 9,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 1.1273
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 10,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.0409
+        },
+        {
+          "trial": 0,
+          "round": 11,
+          "agent_id": 7,
+          "position": 11,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.4909
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 6,
+          "position": 0,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 7,
+          "position": 1,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 11,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 10,
+          "position": 3,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 0,
+          "position": 4,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 4,
+          "position": 5,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 1,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 9,
+          "position": 7,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 2,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 8,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 3,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.7227
+        },
+        {
+          "trial": 0,
+          "round": 12,
+          "agent_id": 5,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.8545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 8,
+          "position": 0,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 11,
+          "position": 1,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 1,
+          "position": 2,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 9,
+          "position": 3,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 5,
+          "position": 4,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 0.9636
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 10,
+          "position": 5,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 2,
+          "position": 6,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 3,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 0.9636
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 7,
+          "position": 8,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 0,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.6545
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 6,
+          "position": 10,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": true,
+          "reward": 0.9636
+        },
+        {
+          "trial": 0,
+          "round": 13,
+          "agent_id": 4,
+          "position": 11,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 0,
+          "group_prediction": 1,
+          "group_correct": false,
+          "individual_correct": false,
+          "reward": 0.2045
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 8,
+          "position": 0,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 11,
+          "position": 1,
+          "role": "deceptor",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 0,
+          "position": 2,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 10,
+          "position": 3,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 3,
+          "position": 4,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 0,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 7,
+          "position": 5,
+          "role": "neutral",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 4,
+          "position": 6,
+          "role": "collaborator",
+          "signal": 0,
+          "trace": 0,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": false,
+          "reward": -0.7727
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 5,
+          "position": 7,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 2,
+          "position": 8,
+          "role": "collaborator",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 9,
+          "position": 9,
+          "role": "deceptor",
+          "signal": 0,
+          "trace": 1,
+          "truthful": false,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 6,
+          "position": 10,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        },
+        {
+          "trial": 0,
+          "round": 14,
+          "agent_id": 1,
+          "position": 11,
+          "role": "neutral",
+          "signal": 1,
+          "trace": 1,
+          "truthful": true,
+          "hidden_state": 1,
+          "group_prediction": 1,
+          "group_correct": true,
+          "individual_correct": true,
+          "reward": 0.6409
+        }
+      ]
+    }
+  },
+  "delta": {
+    "deceptor_share_mean_delta_comp_minus_coop": 0.21704166666666666,
+    "collaborator_share_mean_delta_comp_minus_coop": -0.4717708333333333,
+    "group_accuracy_mean_delta_comp_minus_coop": -0.2815
+  },
+  "interpretation": [
+    "Competitive incentives increased deceptor share in explicit per-trace multi-agent runs.",
+    "Competitive incentives reduced group accuracy relative to cooperative incentives.",
+    "This is software-agent live trace evidence; external/LLM human-task replication is still future work."
+  ],
+  "baseline_comparison": {
+    "baseline_path": "experiments/colonies/p155-live-trace-s147.json",
+    "delta_comparison": {
+      "deceptor_share_mean_delta_comp_minus_coop": {
+        "current": 0.21704166666666666,
+        "baseline": 0.18583333333333335,
+        "abs_diff": 0.03120833333333331
+      },
+      "collaborator_share_mean_delta_comp_minus_coop": {
+        "current": -0.4717708333333333,
+        "baseline": -0.4483958333333333,
+        "abs_diff": 0.02337499999999998
+      },
+      "group_accuracy_mean_delta_comp_minus_coop": {
+        "current": -0.2815,
+        "baseline": -0.24425000000000008,
+        "abs_diff": 0.037249999999999894
+      }
+    }
+  }
+}

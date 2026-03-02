@@ -1,0 +1,722 @@
+{
+  "frontier_id": "F-HIS1",
+  "title": "Historian-grounding coverage in active lane rows",
+  "input": "tasks/SWARM-LANES.md",
+  "analysis": {
+    "row_mode": "latest_per_lane",
+    "rows_considered": 109,
+    "active_row_count": 57,
+    "active_lane_count": 57,
+    "historian_check_coverage": 0.0877,
+    "artifact_ref_coverage": 0.4737,
+    "session_anchor_coverage": 0.2281,
+    "mean_grounding_score": 0.2631,
+    "high_grounding_rate": 0.0877,
+    "low_grounding_threshold": 0.67,
+    "low_grounding_rows": [
+      {
+        "lane": "L-S186-DOMEX-GEN-HISTORY-1",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/history",
+        "scope_key": "domains/history/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-MSW2-S3-OPS",
+        "session": "S186",
+        "status": "ACTIVE",
+        "focus": "domains/operations-research",
+        "scope_key": "tools/f_ops1_wip_limit.py",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-MSW2-S5-STAT",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/statistics",
+        "scope_key": "experiments/statistics/f-stat2-meta-analysis-s186.json",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S231-DANGER-EXPERT",
+        "session": "S299",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "tools/personalities/danger-expert.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S238-GENESIS-EXPERT",
+        "session": "S299",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "workspace/genesis.sh",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S245-COMPUTE-UTIL-EXPERT",
+        "session": "S299",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/economy/computational-utilization-expert-s245.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S248-EXPERT-COLONY",
+        "session": "S299",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "tools/colony.py",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-CAT-S302",
+        "session": "S302",
+        "status": "ACTIVE",
+        "focus": "domains/catastrophic-risks",
+        "scope_key": "domains/catastrophic-risks/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-CC-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/cryptocurrency",
+        "scope_key": "domains/cryptocurrency/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-CRY-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/cryptography",
+        "scope_key": "domains/cryptography/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-DS-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/distributed-systems",
+        "scope_key": "domains/distributed-systems/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-FRA-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/fractals",
+        "scope_key": "domains/fractals/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-GOV-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/governance",
+        "scope_key": "domains/governance/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-GT-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/graph-theory",
+        "scope_key": "domains/graph-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-GUE-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/guesstimates",
+        "scope_key": "domains/guesstimates/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-META-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/meta",
+        "scope_key": "domains/meta/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-NK-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/nk-complexity",
+        "scope_key": "domains/nk-complexity/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-PHY-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/physics",
+        "scope_key": "domains/physics/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-PRO-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/protocol-engineering",
+        "scope_key": "domains/protocol-engineering/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-PSY-S302",
+        "session": "S302",
+        "status": "READY",
+        "focus": "domains/psychology",
+        "scope_key": "domains/psychology/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-UNIVERSALITY-LNG",
+        "session": "S302",
+        "status": "ACTIVE",
+        "focus": "domains/linguistics",
+        "scope_key": "domains/linguistics/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S302-CHECK-GUARD-VERIFY",
+        "session": "S302",
+        "status": "ACTIVE",
+        "focus": "global",
+        "scope_key": "tools/check.sh",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "DOMEX-CONFLICT-1",
+        "session": "S189",
+        "status": "ACTIVE",
+        "focus": "domains/conflict",
+        "scope_key": "domains/conflict/tasks/FRONTIER.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "artifact_ref"
+        ]
+      },
+      {
+        "lane": "DOMEX-COORD-S189C",
+        "session": "S189",
+        "status": "ACTIVE",
+        "focus": "global",
+        "scope_key": "-",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "artifact_ref"
+        ]
+      },
+      {
+        "lane": "DOMEX-FARMING-1",
+        "session": "S189",
+        "status": "ACTIVE",
+        "focus": "domains/farming",
+        "scope_key": "domains/farming/tasks/FRONTIER.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "artifact_ref"
+        ]
+      },
+      {
+        "lane": "L-S222-BS-DETECTOR",
+        "session": "S226",
+        "status": "READY",
+        "focus": "domains/quality",
+        "scope_key": "domains/quality/tasks/FRONTIER.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S230-GARBAGE-EXPERT",
+        "session": "S230",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "coordination/garbage-expert",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S235-INFO-COLLECTOR",
+        "session": "S235",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/self-analysis/info-collector-expert-s235.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S237-IDEA-INVEST",
+        "session": "S242",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/self-analysis/idea-investigator-expert-s237.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S241-EXPERT-CHECKER",
+        "session": "S242",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/quality/expert-checker-s241.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S260-COMMAND-CLASSIFICATION-EXPERT",
+        "session": "S260",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/context-coordination/command-classification-expert-s260.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S260-GENERALIZER-EXPERT",
+        "session": "S260",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/self-analysis/generalizer-expert-s260.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S243-REALITY-CHECK-EXPERT",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/quality/reality-check-expert-s243.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S255-NUMERICAL-VERIFY-EXPERT",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/quality/numerical-verification-expert-s255.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S261-SWARM-HEALTH-EXPERT",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/self-analysis/swarm-health-expert-s261.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S264-GIT-EXPERT",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/self-analysis/git-expert-s264.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S264-YSERA-DREAM-ATLAS",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/fun/ysera-dream-atlas-s264.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S264-ZERGS-SWARM-INVEST",
+        "session": "S264",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/fun/zergs-swarm-rush-vs-tech-s264.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S263-COUPLING-EXPERT",
+        "session": "S273",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/architecture/coupling-expert-s263.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S275-EXPERT-CLASSIFIER-EXPERT",
+        "session": "S273",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "experiments/context-coordination/expert-classifier-expert-s275.md",
+        "score": 0.3333,
+        "missing": [
+          "historian_check",
+          "session_anchor"
+        ]
+      }
+    ],
+    "focus_breakdown": {
+      "domains/catastrophic-risks": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/conflict": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/cryptocurrency": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/cryptography": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/distributed-systems": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/economy": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/evaluation": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/evolution": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/farming": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/finance": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/fractals": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/game-theory": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/gaming": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/governance": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/graph-theory": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/guesstimates": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/helper-swarm": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/history": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/linguistics": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/meta": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/nk-complexity": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/operations-research": {
+        "row_count": 4,
+        "mean_score": 0.75
+      },
+      "domains/physics": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/protocol-engineering": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/psychology": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "domains/quality": {
+        "row_count": 1,
+        "mean_score": 0.3333
+      },
+      "domains/social-media": {
+        "row_count": 2,
+        "mean_score": 0.3333
+      },
+      "domains/statistics": {
+        "row_count": 1,
+        "mean_score": 0.0
+      },
+      "global": {
+        "row_count": 25,
+        "mean_score": 0.2666
+      }
+    },
+    "scope_hotspots": [
+      {
+        "scope_key": "-",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "coordination/garbage-expert",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/catastrophic-risks/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/conflict/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/cryptocurrency/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/cryptography/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/distributed-systems/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/economy/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/evaluation/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/farming/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/finance/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/fractals/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/gaming/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/governance/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/graph-theory/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/guesstimates/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/helper-swarm/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/history/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/linguistics/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "domains/meta/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      }
+    ]
+  },
+  "generated_at_utc": "2026-02-28T11:03:52Z"
+}

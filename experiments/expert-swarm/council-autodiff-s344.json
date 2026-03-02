@@ -1,0 +1,117 @@
+{
+  "id": "council-autodiff-s344",
+  "session": "S344",
+  "date": "2026-03-01",
+  "domain": "expert-swarm",
+  "frontier": "F-EXP10",
+  "method": "auto-diff: extract expect+actual from NEXT.md session notes, compute calibration metrics",
+  "councils": [
+    {
+      "id": "COUNCIL-EXPERT-SWARM-S343",
+      "quantity_expect": "3+ convergent findings",
+      "quantity_actual": 5,
+      "quantity_expect_n": 3,
+      "quantity_diff_pct": 66.7,
+      "quality_metric": "PHIL-2 gap diagnosed + colony revived",
+      "quality_expected": "gap diagnosed",
+      "quality_actual": "CONFIRMED + P6 implemented same session",
+      "quality_verdict": "EXCEEDED"
+    },
+    {
+      "id": "COUNCIL-USE-CASES-S343",
+      "quantity_expect": "convergence on external validation (no count target)",
+      "quantity_actual": "3 convergent findings, 4 ranked use cases",
+      "quantity_expect_n": null,
+      "quantity_diff_pct": null,
+      "quality_metric": "differentiator framing sharpness",
+      "quality_expected": "5-10 concrete use cases",
+      "quality_actual": "3 convergent findings + self-maintaining knowledge framing sharper than expected",
+      "quality_verdict": "EXCEEDED"
+    },
+    {
+      "id": "COUNCIL-DNA-S342",
+      "quantity_expect": "3+ convergent proposals, 1+ novel mechanism",
+      "quantity_actual": "5 convergent findings, 7 ranked proposals",
+      "quantity_expect_n": 3,
+      "quantity_diff_pct": 66.7,
+      "quality_metric": "novelty: mechanism not in GENESIS-DNA.md",
+      "quality_expected": "1+ novel",
+      "quality_actual": "session=replication-fork, commit=ligase (2 novel)",
+      "quality_verdict": "EXCEEDED"
+    },
+    {
+      "id": "COUNCIL-SCIENCE-S341",
+      "quantity_expect": "PCI>0.05 initially",
+      "quantity_actual": "PCI=0.000",
+      "quantity_expect_n": 0.05,
+      "quantity_diff_pct": -100.0,
+      "quality_metric_1": "PCI score",
+      "quality_expected_1": ">0.05 initially",
+      "quality_actual_1": "0.000 (ALL lanes had actual=TBD \u2014 EAD zeros product)",
+      "quality_verdict_1": "CATASTROPHIC_MISS",
+      "quality_metric_2": "NK hub z-score",
+      "quality_expected_2": "z>2",
+      "quality_actual_2": "z=4.91 (GENUINELY_NON_RANDOM confirmed)",
+      "quality_verdict_2": "EXCEEDED (+145%)"
+    },
+    {
+      "id": "DOMEX-STAT-S344",
+      "quantity_expect": "5 quantified laws",
+      "quantity_actual": 7,
+      "quantity_expect_n": 5,
+      "quantity_diff_pct": 40.0,
+      "quality_metric": "3-expert convergence + falsification criteria",
+      "quality_expected": "convergent laws",
+      "quality_actual": "Infrastructure Trap + Falsification Deficit as novel findings",
+      "quality_verdict": "EXCEEDED"
+    }
+  ],
+  "calibration_analysis": {
+    "quantity_bias": {
+      "n_measurable": 4,
+      "mean_underestimate_pct": 52.5,
+      "range": "40%-67%",
+      "direction": "systematic underestimation (councils always produce more than expected)",
+      "cause": "default expect template is fixed (3+) \u2014 never updated from prior empirical base rate",
+      "note": "PCI council is anomaly: expected metric was structural (0.05), actual was behavioral (compliance=0)"
+    },
+    "quality_split": {
+      "exceeded": 4,
+      "missed": 1,
+      "pattern": "behavioral/structural metrics most unpredictable (PCI miss); observable/graph metrics easier to hit (NK)",
+      "cause": "behavioral metrics depend on session habits outside expert prediction scope"
+    }
+  },
+  "findings": [
+    {
+      "id": "CF-1",
+      "claim": "Council quantity expectations are biased low by ~50% (systematic underestimation)",
+      "evidence": "4/5 councils exceeded quantity by 40-67%. n=4. Consistent direction.",
+      "confidence": "HIGH",
+      "action": "Update council expect template default from 3+ to 5-7 findings"
+    },
+    {
+      "id": "CF-2",
+      "claim": "Quality expectations split unpredictably \u2014 no systematic bias",
+      "evidence": "4 exceeded, 1 catastrophic miss. Split is domain-specific, not council-structural.",
+      "confidence": "MEDIUM (n=5)",
+      "action": "Anchor quality expects to prior session baseline, not abstract target"
+    },
+    {
+      "id": "CF-3",
+      "claim": "The EAD data exists in NEXT.md but is never auto-parsed to update calibration",
+      "evidence": "5 sessions of council EAD data \u2014 0 instances of this data being used to recalibrate expects",
+      "confidence": "HIGH (observation)",
+      "action": "Wire think.py --test into post-council synthesis to auto-extract calibration deltas"
+    },
+    {
+      "id": "CF-4",
+      "claim": "Council auto-diff is meta-swarm self-application of L-479 (quantities vs qualities)",
+      "evidence": "L-479 identified the gap; this session applies it to the council mechanism specifically",
+      "confidence": "HIGH",
+      "action": "This session IS the execution of L-479's fix prescription \u2014 proof that diagnose\u2192execute gap closes"
+    }
+  ],
+  "lesson_produced": "L-507",
+  "verdict": "CONFIRMED: Calibration bias is real and actionable. CF-3 is the most novel: the fix data already exists but isnt being used."
+}

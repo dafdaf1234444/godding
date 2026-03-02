@@ -1,0 +1,70 @@
+{
+  "experiment": "F-EVO2",
+  "title": "Variation-selection-retention extraction from SWARM-LANES",
+  "rows_analyzed": 328,
+  "status_counts": {
+    "ACTIVE": 29,
+    "MERGED": 188,
+    "READY": 107,
+    "ABANDONED": 4
+  },
+  "retention_threshold_sessions": 2,
+  "retained_mutations": [
+    {
+      "base_lane": "L-UNDERSTAND-SWARM",
+      "events": 4,
+      "sessions": [
+        184,
+        185
+      ],
+      "status_counts": {
+        "ACTIVE": 1,
+        "MERGED": 3
+      },
+      "dominant_scope": "tasks/NEXT.md"
+    }
+  ],
+  "top_scopes": [
+    {
+      "scope_key": "tasks/NEXT.md",
+      "events": 30
+    },
+    {
+      "scope_key": "tools/f_is5_lane_distill.py",
+      "events": 15
+    },
+    {
+      "scope_key": "tools/f_ops2_domain_priority.py",
+      "events": 14
+    },
+    {
+      "scope_key": "domains/brain/tasks/FRONTIER.md",
+      "events": 14
+    },
+    {
+      "scope_key": "domains/ai/tasks/FRONTIER.md",
+      "events": 14
+    },
+    {
+      "scope_key": "domains/evolution/tasks/FRONTIER.md",
+      "events": 14
+    },
+    {
+      "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+      "events": 13
+    },
+    {
+      "scope_key": "tools/f_stat3_multiplicity.py",
+      "events": 12
+    },
+    {
+      "scope_key": "tools/f_gam3_signal_contract.py",
+      "events": 11
+    },
+    {
+      "scope_key": "tools/f_his1_historian_grounding.py",
+      "events": 11
+    }
+  ],
+  "generated_at_utc": "2026-02-27T22:01:26Z"
+}

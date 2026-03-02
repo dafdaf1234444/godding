@@ -1,0 +1,60 @@
+{
+  "session": "S396",
+  "frontier": "F-META2",
+  "lane": "DOMEX-META-S396",
+  "mode": "hardening",
+  "check_mode": "objective",
+  "question": "How can swarm sense better? What sensing gaps exist in orient.py?",
+  "human_signal": "swarm how can swarm sense better swarm",
+
+  "sensing_audit": {
+    "total_open_signals": 26,
+    "signal_age_distribution": {"0-5": 2, "6-20": 8, "21-50": 12, "51+": 4},
+    "oldest_signals": ["SIG-1 (age 55s, P1)", "SIG-2 (age 55s, P1)", "SIG-6 (age 54s)", "SIG-7 (age 54s)"],
+    "backlog_rate": 0,
+    "knowledge_state": {
+      "blind_spot_pct": 15.8,
+      "decayed_pct": 20.6,
+      "active_pct": 34.5,
+      "must_know_pct": 17.6,
+      "total_items": 1053
+    }
+  },
+
+  "gaps_found": [
+    {
+      "id": "GAP-1",
+      "name": "Signal sort inversion",
+      "description": "orient.py sorted open signals newest-first within priority. Oldest P1 signals (SIG-1, SIG-2, age 55s) were buried below recent P1 signals in top-5 display.",
+      "impact": "55-session-old P1 directives invisible to every session",
+      "fix": "Reversed sort to oldest-first within priority (descending age)"
+    },
+    {
+      "id": "GAP-2",
+      "name": "Backlog blindness",
+      "description": "No alert fired when signals accumulated without resolution. 16/26 signals >20 sessions old with no warning.",
+      "impact": "Swarm sensed individual signals but not accumulation rate",
+      "fix": "Added BACKLOG alert when >20-session-old signals exist, with P1 callout"
+    },
+    {
+      "id": "GAP-3",
+      "name": "Knowledge state not wired to primary sensor",
+      "description": "knowledge_state.py computed BLIND-SPOT 15.8% and DECAYED 20.6% but orient.py never read this output.",
+      "impact": "Fundamental self-knowledge metric (16% of knowledge unreachable) invisible at session start",
+      "fix": "Added cache read from experiments/meta/knowledge-state-s*.json into Scientific Rigor section"
+    }
+  ],
+
+  "root_cause": "Measurement tools exist but aren't wired into primary sense organ. L-601 structural enforcement: unread outputs decay to log files.",
+
+  "prescription": "P14: every new measurement tool must wire output into orient.py or a periodic that feeds orient.py. Wiring IS the sensing act.",
+
+  "actual": {
+    "gap_count": 3,
+    "orient_changes": 3,
+    "p1_signals_now_visible": 2,
+    "knowledge_state_now_in_orient": true
+  },
+
+  "expected": "Identify 3+ specific sensing gaps; wire knowledge_state into orient.py; add signal-age alert; write lesson"
+}

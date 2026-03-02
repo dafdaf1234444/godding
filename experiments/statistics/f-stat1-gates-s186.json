@@ -1,0 +1,334 @@
+{
+  "frontier_id": "F-STAT1",
+  "title": "Sample-size and effect-size promotion gates by experiment class",
+  "classes": {
+    "live_query": {
+      "recommended_min_n": 300,
+      "recommended_min_abs_effect": 0.1733,
+      "confidence": "HIGH",
+      "evidence_rows": 18,
+      "passing_rows": 5,
+      "median_observed_n": 10.0,
+      "median_observed_abs_effect": 0.09
+    },
+    "simulation_replay": {
+      "recommended_min_n": 43,
+      "recommended_min_abs_effect": 0.1242,
+      "confidence": "LOW",
+      "evidence_rows": 4,
+      "passing_rows": 0,
+      "median_observed_n": 43.0,
+      "median_observed_abs_effect": 0.0814
+    },
+    "lane_log_extraction": {
+      "recommended_min_n": 34,
+      "recommended_min_abs_effect": 0.4583,
+      "confidence": "MEDIUM",
+      "evidence_rows": 5,
+      "passing_rows": 2,
+      "median_observed_n": 10.0,
+      "median_observed_abs_effect": 0.5
+    }
+  },
+  "measurements": [
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-rerun-s186.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 8,
+      "effect": -0.010413,
+      "ci_low": -0.031238,
+      "ci_high": 0.0,
+      "power": 0.186486,
+      "notes": "mode=live-wikipedia-capital-qa-direct-answer"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-s186.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 1,
+      "effect": 0.1666,
+      "ci_low": 0.1666,
+      "ci_high": 0.1666,
+      "power": 0.0,
+      "notes": "mode=live-wikipedia-capital-qa-direct-answer"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p005.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 10,
+      "effect": -0.05834,
+      "ci_low": -0.19168,
+      "ci_high": 0.06666,
+      "power": 0.141306,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p015.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 5,
+      "effect": -0.13336,
+      "ci_low": -0.30004,
+      "ci_high": 0.06664,
+      "power": 0.292717,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p025.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 5,
+      "effect": -0.01668,
+      "ci_low": -0.15002,
+      "ci_high": 0.1,
+      "power": 0.045274,
+      "notes": "mode=live-wikipedia-capital-qa-direct-answer"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p035.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 10,
+      "effect": 0.02501,
+      "ci_low": -0.08332,
+      "ci_high": 0.12502,
+      "power": 0.068329,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 5,
+      "effect": 0.09998,
+      "ci_low": -0.03338,
+      "ci_high": 0.23332,
+      "power": 0.292515,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun20-p0.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 20,
+      "effect": -0.016655,
+      "ci_low": -0.087475,
+      "ci_high": 0.05416,
+      "power": 0.067138,
+      "notes": "mode=live-wikipedia-capital-qa-direct-answer"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun20.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 20,
+      "effect": 0.02084,
+      "ci_low": -0.058325,
+      "ci_high": 0.100005,
+      "power": 0.076752,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun8.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 8,
+      "effect": 0.02085,
+      "ci_low": -0.072912,
+      "ci_high": 0.125013,
+      "power": 0.060925,
+      "notes": "mode=live-wikipedia-capital-qa-direct-answer"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 2,
+      "effect": -0.20835,
+      "ci_low": -0.3334,
+      "ci_high": -0.0833,
+      "power": 0.885232,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186.json",
+      "exp_class": "live_query",
+      "metric": "accuracy_delta_n3_minus_n1",
+      "n": 5,
+      "effect": 0.08334,
+      "ci_low": -0.05002,
+      "ci_high": 0.2167,
+      "power": 0.199932,
+      "notes": "mode=live-wikipedia-capital-qa"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-live-evidence-surfacing-s186.json",
+      "exp_class": "live_query",
+      "metric": "error_reduction_async_minus_surfacing",
+      "n": 200,
+      "effect": 0.1,
+      "ci_low": -0.185943,
+      "ci_high": -0.014057,
+      "power": 0.625736,
+      "notes": "binomial-approx"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-threshold-s186.json#run0",
+      "exp_class": "live_query",
+      "metric": "joint_error_sync_minus_async",
+      "n": 300,
+      "effect": 0.0967,
+      "ci_low": 0.038793,
+      "ci_high": 0.154607,
+      "power": 0.905407,
+      "notes": "sync_inherit_prob=0.25"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-threshold-s186.json#run1",
+      "exp_class": "live_query",
+      "metric": "joint_error_sync_minus_async",
+      "n": 300,
+      "effect": 0.07,
+      "ci_low": 0.013402,
+      "ci_high": 0.126598,
+      "power": 0.678716,
+      "notes": "sync_inherit_prob=0.5"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-threshold-s186.json#run2",
+      "exp_class": "live_query",
+      "metric": "joint_error_sync_minus_async",
+      "n": 300,
+      "effect": 0.1067,
+      "ci_low": 0.049673,
+      "ci_high": 0.163727,
+      "power": 0.956107,
+      "notes": "sync_inherit_prob=0.5"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-threshold-s186.json#run3",
+      "exp_class": "live_query",
+      "metric": "joint_error_sync_minus_async",
+      "n": 300,
+      "effect": 0.1733,
+      "ci_low": 0.1104,
+      "ci_high": 0.2362,
+      "power": 0.999709,
+      "notes": "sync_inherit_prob=0.75"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-threshold-s186.json#run4",
+      "exp_class": "live_query",
+      "metric": "joint_error_sync_minus_async",
+      "n": 200,
+      "effect": 0.235,
+      "ci_low": 0.155473,
+      "ci_high": 0.314527,
+      "power": 0.999936,
+      "notes": "sync_inherit_prob=1.0"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d03.json",
+      "exp_class": "simulation_replay",
+      "metric": "alert_burden_reduction_current_minus_best",
+      "n": 43,
+      "effect": 0.0,
+      "ci_low": -0.208529,
+      "ci_high": 0.208529,
+      "power": 0.025,
+      "notes": "confidence=HIGH"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d05.json",
+      "exp_class": "simulation_replay",
+      "metric": "alert_burden_reduction_current_minus_best",
+      "n": 43,
+      "effect": 0.0465,
+      "ci_low": -0.137656,
+      "ci_high": 0.23068,
+      "power": 0.071464,
+      "notes": "confidence=MEDIUM"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl1-threshold-sweep-s186-all.json",
+      "exp_class": "simulation_replay",
+      "metric": "alert_burden_reduction_current_minus_best",
+      "n": 43,
+      "effect": 0.1163,
+      "ci_low": -0.091554,
+      "ci_high": 0.324112,
+      "power": 0.19396,
+      "notes": "confidence=MEDIUM"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl1-threshold-sweep-s186.json",
+      "exp_class": "simulation_replay",
+      "metric": "alert_burden_reduction_current_minus_best",
+      "n": 27,
+      "effect": 0.1481,
+      "ci_low": -0.113956,
+      "ci_high": 0.410252,
+      "power": 0.197068,
+      "notes": "confidence=LOW"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl2-diff-latency-s186.json",
+      "exp_class": "lane_log_extraction",
+      "metric": "within_1_session_rate_minus_0.5",
+      "n": 4,
+      "effect": 0.5,
+      "ci_low": 0.499998,
+      "ci_high": 0.500002,
+      "power": 0.515968,
+      "notes": "structured latency summary"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl3-open-loop-vs-closed-loop-s186.json",
+      "exp_class": "lane_log_extraction",
+      "metric": "quality_closed_minus_open",
+      "n": 8,
+      "effect": 1.7788,
+      "ci_low": -0.097244,
+      "ci_high": 3.654844,
+      "power": 0.401562,
+      "notes": "commit-log-proxy"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186.json",
+      "exp_class": "lane_log_extraction",
+      "metric": "non_collision_rate_minus_0.5",
+      "n": 10,
+      "effect": -0.2,
+      "ci_low": -0.484026,
+      "ci_high": 0.084026,
+      "power": 0.243511,
+      "notes": "target=contested transfers"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/evolution/f-evo2-retention-s186.json",
+      "exp_class": "lane_log_extraction",
+      "metric": "selection_rate_minus_0.5",
+      "n": 48,
+      "effect": 0.416667,
+      "ci_low": 0.338478,
+      "ci_high": 0.494855,
+      "power": 0.999932,
+      "notes": "lane-log extraction"
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/evolution/f-evo2-vsr-s186.json",
+      "exp_class": "lane_log_extraction",
+      "metric": "selection_rate_minus_0.5",
+      "n": 21,
+      "effect": 0.5,
+      "ci_low": 0.499998,
+      "ci_high": 0.500002,
+      "power": 0.995637,
+      "notes": "lane-log extraction"
+    }
+  ],
+  "notes": "Gate pass criterion for evidence rows: power>=0.8 and CI excludes 0. When no rows pass, fallback uses 75th-percentile n/effect for conservative provisional gates.",
+  "generated_at_utc": "2026-02-27T21:03:51Z"
+}

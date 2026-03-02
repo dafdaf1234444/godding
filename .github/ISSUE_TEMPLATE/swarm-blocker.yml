@@ -1,0 +1,69 @@
+name: Swarm Blocker
+description: Report a concrete blocker with the exact ask needed to unblock.
+title: "[Swarm Blocker] "
+labels:
+  - swarm
+  - blocker
+body:
+  - type: textarea
+    id: blocker
+    attributes:
+      label: Blocker
+      description: What is blocked and why?
+      placeholder: CI cannot run X because Y authority/data/runtime is missing.
+    validations:
+      required: true
+
+  - type: textarea
+    id: unblocking_ask
+    attributes:
+      label: Unblocking ask
+      description: Exact action needed from a human or external system.
+      placeholder: Grant repo secret Z, decide A vs B, or provide dataset path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: fallback
+    attributes:
+      label: Reversible fallback
+      description: What safe fallback can continue now while blocked?
+      placeholder: Continue docs/tests lane only; skip deploy lane until decision arrives.
+    validations:
+      required: false
+
+  - type: textarea
+    id: state_sync
+    attributes:
+      label: State sync path
+      description: Where did you log this blocker for swarm continuity?
+      placeholder: Added blocker + exact ask to tasks/NEXT.md and/or tasks/SWARM-LANES.md.
+    validations:
+      required: true
+
+  - type: textarea
+    id: available
+    attributes:
+      label: Available now
+      description: What work can safely continue while this blocker is active?
+      placeholder: Continue docs/tests lane, run local validation, prep reversible changes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: blocked
+    attributes:
+      label: Blocked by
+      description: Contract field for current blocking constraint. Mirror core blocker in compact form.
+      placeholder: Missing authority/data/runtime dependency.
+    validations:
+      required: true
+
+  - type: textarea
+    id: human_open_item
+    attributes:
+      label: Human open item
+      description: Exact human action needed to unblock. Use `none` if no human action is required.
+      placeholder: Approve secret X, choose A/B, or none.
+    validations:
+      required: true

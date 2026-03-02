@@ -1,0 +1,50 @@
+{
+  "frontier_id": "F-BRN6",
+  "session": "S326",
+  "date": "2026-02-28",
+  "hypothesis": "neuroplasticity (domain-seeding) co-occurs with principle-extraction (P-modifications)",
+  "p26_test": "git co-occurrence of domain-seeding commits with P-related commits",
+  "p_sessions_count": 45,
+  "d_sessions_count": 10,
+  "window_analysis": {
+    "0": {
+      "d_near_p": 5,
+      "d_total": 10,
+      "d_rate": 0.5,
+      "b_near_p": 45,
+      "b_total": 329,
+      "b_rate": 0.13677811550151975,
+      "lift": 3.655555555555556
+    },
+    "1": {
+      "d_near_p": 8,
+      "d_total": 10,
+      "d_rate": 0.8,
+      "b_near_p": 91,
+      "b_total": 329,
+      "b_rate": 0.2765957446808511,
+      "lift": 2.8923076923076922
+    },
+    "2": {
+      "d_near_p": 9,
+      "d_total": 10,
+      "d_rate": 0.9,
+      "b_near_p": 116,
+      "b_total": 329,
+      "b_rate": 0.3525835866261398,
+      "lift": 2.5525862068965517
+    },
+    "3": {
+      "d_near_p": 10,
+      "d_total": 10,
+      "d_rate": 1.0,
+      "b_near_p": 133,
+      "b_total": 329,
+      "b_rate": 0.40425531914893614,
+      "lift": 2.473684210526316
+    }
+  },
+  "verdict": "CONFIRMED (2.27x lift at window=2, 87.5% vs 38.6%)",
+  "caveat": "P-related sessions defined broadly (any P-NNN mention or +NP); false positives possible",
+  "n": 10
+}

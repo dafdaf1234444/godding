@@ -1,0 +1,47 @@
+{
+  "frontier": "F-EXP9",
+  "question": "Does maxing swarm spread maximize expert council ability?",
+  "session": "S306",
+  "date": "2026-02-28",
+  "check_mode": "objective",
+  "expect": "Spread hypothesis is false as stated; nuance exists at WIP vs synthesis dimensions",
+  "actual": {
+    "finding": "Two distinct spread dimensions with opposite effects on ability",
+    "dimension_1_wip_spread": {
+      "description": "Active parallel lanes / tasks in flight per session",
+      "correlation_with_ability": "r=-0.835 (STRONG NEGATIVE, F-EVO1, n=6)",
+      "mechanism": "Attention fragmentation + ISO-13 windup (156 READY lanes, 2% throughput)",
+      "prescription": "MINIMIZE — keep WIP tight (1-3 active lanes)"
+    },
+    "dimension_2_synthesis_spread": {
+      "description": "Distinct domains touched in produced lessons / outputs",
+      "correlation_with_ability": "+4.5x L yield (multi-domain sessions 5.32L vs single-domain 1.18L, n=36)",
+      "mechanism": "ISO-15 — T4 generalizer sessions synthesize across domains producing high output-breadth",
+      "top_sessions": ["S189 (13L/13 domains)", "S306 (12L/10 domains)"],
+      "prescription": "MAXIMIZE in T4 sessions — requires specialists as inputs"
+    },
+    "current_swarm_state": {
+      "domains": 38,
+      "active_frontiers": 36,
+      "wip_spread": "156 READY lanes (too high — ISO-13 windup)",
+      "synthesis_spread": "3% cross-domain citation rate (too low — T4 underutilized)",
+      "proxy_k_drift": "14.36% URGENT (entropy from WIP accumulation)",
+      "expert_utilization": "4.6% (capacity unused)"
+    },
+    "verdict": "FALSE as stated. True version: max SYNTHESIS SPREAD via T4 maxes ability. Max WIP SPREAD destroys ability. Expert council must separate these roles."
+  },
+  "diff": "Finding is more nuanced than expected. WIP spread and synthesis spread are not just different degrees — they have opposite signs on ability. The expert council design implication is structural: T4 generalizer sessions need dedicated scheduling with low-WIP / high-synthesis mandate.",
+  "implications": [
+    "Expert council schedule: T4 generalizer fires every K specialist sessions (compression cycle, ISO-5 feedback)",
+    "WIP limit: enforce MAX_WIP=3 per session node (ISO-13 anti-windup)",
+    "Minimum viable specialist spread: K>=3 domains before T4 fires (ISO-15 minimum)",
+    "T4 sessions should be measured by SYNTHESIS SPREAD (domain count in outputs), not L count alone",
+    "Current state: WIP spread too high, synthesis spread too low — inverse of optimal"
+  ],
+  "open_questions": [
+    "What is the optimal T4 firing cadence? (every 3? 5? specialist sessions)",
+    "Does synthesis spread plateau after K domains covered?",
+    "Can one session node do both T2 (specialist) and T4 (generalizer) efficiently?"
+  ],
+  "related": ["F-EXP1", "F-EXP7", "F-EXP8", "F-EVO1", "ISO-12", "ISO-13", "ISO-15", "L-300"]
+}

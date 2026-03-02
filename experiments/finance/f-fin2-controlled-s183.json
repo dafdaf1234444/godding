@@ -1,0 +1,24 @@
+{
+  "experiment": "F-FIN2-controlled",
+  "session": "S183",
+  "date": "2026-02-27",
+  "method": "Direct text contamination: modified DEPS.md text passed to N=3 parallel agents",
+  "part_a_systematic": {
+    "contamination": "Changed 'N=17 beliefs (15 observed, 2 theorized)' to 'N=47 beliefs (41 observed, 6 theorized)' in context",
+    "question": "Based ONLY on provided text, what is the total number of beliefs?",
+    "results": {"A1": 47, "A2": 47, "A3": 47},
+    "propagation_rate": "3/3 = 100%",
+    "verdict": "CONFIRMED: systematic propagation via text content injection"
+  },
+  "part_b_idiosyncratic": {
+    "context": "Real DEPS.md (unmodified)",
+    "question": "Maximum dependency hops in longest chain",
+    "correct_answer": 3,
+    "results": {"B1": 3, "B2": 3, "B3": 3},
+    "shared_error": "All 3 agents misread B8 as a dependent of B7 (it is actually a dependent of B6 via B6→B8 in tree). This misread did NOT affect the final answer (still 3 hops).",
+    "verdict": "UNEXPECTED: format ambiguity in ASCII tree created a SYSTEMATIC shared misread (all 3 agents), not idiosyncratic. Confirms systematic risk = any shared-context interpretation error.",
+    "majority_vote": "3/3 correct answer despite shared structural misread (errors didn't affect outcome)"
+  },
+  "new_finding": "Representation ambiguity in shared context (ambiguous ASCII notation) creates systematic shared errors, not idiosyncratic ones. Both wrong facts AND ambiguous formats propagate with ~100% fidelity.",
+  "complements": ["L-259 (proxy method)", "L-260 (direct agent test with file planting)", "L-262 (lesson)"]
+}

@@ -1,0 +1,67 @@
+{
+  "experiment": "falsification attractor effect on NK citation graph",
+  "session": "S409",
+  "domain": "nk-complexity",
+  "lane": "DOMEX-NK-S409",
+  "frontier": "F-NK5",
+  "hypothesis": "Falsification lessons attract disproportionate citations vs age-matched controls",
+  "expect": "Falsification lessons have 2x+ in-degree vs age-matched controls",
+  "method": {
+    "description": "Classified 627 lessons into falsification (n=17), confirmation (n=42), neutral (n=568) by title/header keywords. Computed in-degree, age-normalized citation rate, and ran OLS regression controlling for age.",
+    "controls": "Age-matched within ±5 sessions; OLS age control; outlier exclusion (L-613, top-3); permutation test (10000 iterations); rank-based comparison"
+  },
+  "results": {
+    "falsification": {
+      "n": 17,
+      "mean_in_degree": 5.24,
+      "median_in_degree": 3.0,
+      "mean_citation_rate_per_session": 0.1869,
+      "mean_age_sessions": 38.0
+    },
+    "confirmation": {
+      "n": 42,
+      "mean_in_degree": 2.26,
+      "median_in_degree": 2.0,
+      "mean_citation_rate_per_session": 0.0576,
+      "mean_age_sessions": 130.9
+    },
+    "neutral": {
+      "n": 568,
+      "mean_in_degree": 2.76,
+      "median_in_degree": 1.0,
+      "mean_citation_rate_per_session": 0.0786,
+      "mean_age_sessions": 110.6
+    },
+    "ols_regression": {
+      "model": "in_degree = b0 + b1*age + b2*is_fals + b3*is_conf",
+      "intercept": 3.3465,
+      "age_coeff": -0.0053,
+      "falsification_premium": 2.0920,
+      "confirmation_premium": -0.3848,
+      "r_squared": 0.013,
+      "n": 627
+    },
+    "permutation_test": {
+      "observed_diff": 2.51,
+      "p_value": 0.0288,
+      "iterations": 10000
+    },
+    "robustness": {
+      "excl_L613_rate_ratio": 2.11,
+      "excl_top3_rate_ratio": 2.02,
+      "falsification_rank_percentile": 60.3,
+      "broadened_search_n": 73,
+      "broadened_mean_in_degree": 5.79
+    }
+  },
+  "actual": "Falsification premium +2.09 citations (age-controlled, p=0.029). Citation rate 2.4x neutral, 3.2x confirmation. Robust to top-3 outlier exclusion (rate 2.0x). Confirmation DISCOUNT -0.38 citations. R²=1.3% (type explains small but significant fraction).",
+  "diff": "Expected 2x in-degree → got 1.67x raw but 2.4x rate (age-normalized). Expected confirmation neutral → got confirmation DISCOUNT (-0.38). R² much lower than expected — most citation variance is content/hub driven, not type-driven.",
+  "verdict": "PARTIALLY CONFIRMED. Falsification attractor exists (p=0.029) but smaller than predicted in raw counts. Rate-based measure (2x) more robust than count-based (1.67x). Key insight: confirmation is ANTI-attractor. L3 finding: epistemological surprise creates structural connectivity.",
+  "level": "L3 (architecture — connects graph structure to epistemological process)",
+  "implications": [
+    "Falsification is structurally advantageous: produces more-connected knowledge nodes",
+    "Confirmation is structurally disadvantageous: less connected than even neutral lessons",
+    "Science quality metrics (P-243) should weight falsification lanes higher",
+    "Dispatch optimizer could use falsification history as citation-rate predictor"
+  ]
+}

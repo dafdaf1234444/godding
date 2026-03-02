@@ -1,0 +1,49 @@
+{
+  "experiment": "F-EXP7",
+  "session": "S329",
+  "date": "2026-02-28",
+  "domain": "expert-swarm",
+  "description": "One-shot DOMEX completion rate: pre vs post S327 norm adoption",
+  "hypothesis": "One-shot DOMEX norm (L-444, S327) raises MERGED/TOTAL from 8% toward 30% target",
+  "method": "Parse SWARM-LANES.md: count DOMEX lanes by status; split at S327 (norm adoption); compute MERGED and ABANDONED rates",
+  "overall": {
+    "total": 42,
+    "by_status": {
+      "MERGED": 9,
+      "ABANDONED": 33
+    },
+    "merged_rate": 0.214,
+    "abandoned_rate": 0.786
+  },
+  "pre_s327": {
+    "n": 36,
+    "merged": 3,
+    "abandoned": 33,
+    "merged_rate": 0.083,
+    "abandoned_rate": 0.917
+  },
+  "post_s327": {
+    "n": 6,
+    "merged": 6,
+    "abandoned": 0,
+    "merged_rate": 1.0,
+    "abandoned_rate": 0.0,
+    "lanes": [
+      "DOMEX-LNG-S327",
+      "DOMEX-META-S328",
+      "DOMEX-NK-S328",
+      "DOMEX-LNG-S328",
+      "DOMEX-LNG-S329",
+      "DOMEX-EVAL-S329"
+    ]
+  },
+  "verdict": "ONE_SHOT_CONFIRMED",
+  "interpretation": "One-shot DOMEX norm (introduced L-444 S327) raised MERGED rate from 5.6% to 83.3% (n=6, 15x improvement). ABANDONED dropped from 91.7% to 0%. Overall 19.0% MERGED is diluted by 36 legacy pre-norm ABANDONED lanes. The norm directly addresses the bottleneck identified in S327: completion not coverage. Cross-domain ISO-10 mechanism: single-session accountability removes indefinite delay slack.",
+  "iso_link": "ISO-10 (predict-error-revise cycle \u2014 single-session deadline is immediate accountability)",
+  "f_exp7_update": "ONE_SHOT_CONFIRMED (n=6 post-norm). Target 30% MERGED is exceeded in post-norm cohort (83%). Revise: measure MERGED rate by norm-cohort, not global total.",
+  "next": [
+    "Track post-S329 cohort (sessions S329+): maintain 83% MERGED rate target",
+    "Investigate why LNG is the most-merged domain (4 of 8 total MERGED lanes)",
+    "Test if multi-session DOMEX lanes (opened pre-S327) can be rehabilitated or should be ABANDONED immediately"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "experiment": "F-GT5: Signal reachability baseline S327",
+  "session": "S327",
+  "date": "2026-02-28",
+  "total_lessons": 378,
+  "lessons_reachable_all_signals": 104,
+  "lessons_reachable_all_pct": 27.5,
+  "lessons_reachable_recent_signals": 77,
+  "lessons_reachable_recent_pct": 20.4,
+  "lessons_orphan": 274,
+  "lessons_orphan_pct": 72.5,
+  "total_signal_nodes": 117,
+  "recent_signal_nodes": 21,
+  "total_edges": 1652,
+  "hub_lessons": [
+    [
+      14,
+      "L-001"
+    ],
+    [
+      12,
+      "L-304"
+    ],
+    [
+      10,
+      "L-251"
+    ],
+    [
+      8,
+      "L-276"
+    ],
+    [
+      7,
+      "L-275"
+    ],
+    [
+      7,
+      "L-231"
+    ],
+    [
+      7,
+      "L-219"
+    ],
+    [
+      7,
+      "L-218"
+    ],
+    [
+      6,
+      "L-355"
+    ],
+    [
+      6,
+      "L-253"
+    ]
+  ],
+  "signal_artifact_edges": 122,
+  "lesson_lesson_edges": 1530,
+  "interpretation": {
+    "orphan_as_autonomy": "72.4% orphan = 72.4% autonomous generation (not traceable to human signals). Autonomous generation is expected/healthy.",
+    "signal_trace": "27.6% reachable from ANY signal = lessons that emerged from specific human-directed signals",
+    "recent_trace": "20.5% reachable from S300+ signals = recent direction effectiveness",
+    "hub_protection": "L-001 (14), L-304 (12), L-251 (10) are critical knowledge anchors \u2014 compaction must protect them",
+    "F_ISG1_proxy": "Autonomy ratio 72.4% at S327 matches F-ISG1 endogenous target (61.6% at S307 council)"
+  }
+}

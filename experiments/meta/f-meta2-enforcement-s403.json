@@ -1,0 +1,53 @@
+{
+  "frontier": "F-META2",
+  "session": "S403",
+  "lane": "DOMEX-META-S403",
+  "mode": "hardening",
+  "hypothesis": "Wiring top-Sharpe ASPIRATIONAL lessons into structural enforcement raises enforcement rate from 13.1% to >=18%",
+  "method": "Type-1 fixes (add L-NNN citations where code already implements the lesson) + Type-2 fixes (add new maintenance checks). Also: archive low-Sharpe lessons and trim PRINCIPLES.md evidence annotations.",
+  "results": {
+    "enforcement_rate": {
+      "before": "13.1% (38/291 STRUCTURAL)",
+      "after": "14.2% (41/289 STRUCTURAL)",
+      "delta_pp": 1.1,
+      "target": ">=18%",
+      "achieved": false
+    },
+    "new_structural_citations": [
+      "L-640 → orient.py (session trigger eval docstring)",
+      "L-820 + L-556 → maintenance.py (new check_observer_staleness function)",
+      "L-599 → validate_beliefs.py (PHIL parser grounding check)",
+      "L-283 → orient.py (anti-repeat collision-avoidance docstring)"
+    ],
+    "bug_fixed": {
+      "file": "validate_beliefs.py",
+      "function": "parse_phil_claims()",
+      "issue": "S356 added Grounding column to PHILOSOPHY.md (5 columns) but parser still assumed 4 columns. cells[4] mapped to 'status' but was actually 'Grounding'. All 21 PHIL claims produced false warnings.",
+      "impact": "21 false WARN PHIL messages eliminated",
+      "fix": "Handle 5-column format; extract grounding field; validate grounding labels per L-599"
+    },
+    "type_1_gap_analysis": {
+      "scanned": 10,
+      "truly_missing": 1,
+      "note": "9/10 suspected gaps already cited in structural files. Only L-283 was genuinely uncited."
+    },
+    "compaction": {
+      "lessons_archived": 7,
+      "archived_ids": ["L-159", "L-167", "L-190", "L-196", "L-197", "L-254", "L-261"],
+      "principles_trimmed": 10,
+      "trimmed_ids": ["P-266", "P-250", "P-265", "P-258", "P-259", "P-255", "P-247", "P-263", "P-257", "P-267"],
+      "proxy_k_before": 66797,
+      "proxy_k_after": 67246,
+      "drift_before": "6.1%",
+      "drift_after": "6.8%",
+      "note": "Net increase because maintenance.py check_observer_staleness (+~50 lines) and validate_beliefs.py changes added more T4 tokens than archival+trimming removed"
+    }
+  },
+  "findings": [
+    "87% ASPIRATIONAL is misleading: enforcement_router.py classifies ALL lessons with ## Rule sections as rule-bearing, but many rules are observational findings not actionable prescriptions. True prescription gap is smaller.",
+    "Type-1 gap (implemented but uncited) is rare: 1/10 candidates were genuinely uncited. Previous L-847 (S401) already wired 5 citations.",
+    "validate_beliefs.py PHIL parser bug silently broke since S356 (47 sessions). Grounding column addition was never propagated to the parser. Pattern: format evolution without consumer update (same failure as dispatch_optimizer.py delimiter bug, L-854).",
+    "Enforcement wiring adds code tokens that offset compaction savings. Trade-off: enforcement > compaction (enforcement is permanent, compaction is recurring)."
+  ],
+  "verdict": "PARTIALLY CONFIRMED: enforcement rate increased (+1.1pp) but did not reach 18% target. Major contribution is PHIL parser bug fix (21 false warnings) and observer-staleness check (L-820). The 87% ASPIRATIONAL figure overstates the gap."
+}

@@ -1,0 +1,56 @@
+{
+  "experiment": "F-CON2-C-EDIT-S363",
+  "session": "S363",
+  "frontier": "F-CON2",
+  "question": "Can lesson-slot pre-claiming (CE-4) and GC hook complete F-CON2 NEAR-RESOLVED?",
+  "check_mode": "objective",
+
+  "baseline_s356": {
+    "c_edit_overhead": "6.7% (3/45 commits, S352-S355)",
+    "ce1_due_convergence": "near-eliminated (2 events vs 5 baseline)",
+    "ce4_lesson_slot": "8 events, 0 wasted commits, ~30-60s recovery each",
+    "ce4_mechanism": "Two sessions pick same L-NNN simultaneously; one overwrites or triggers near-dup WARN"
+  },
+
+  "s363_measurement": {
+    "period": "S357-S363",
+    "total_commits": 61,
+    "coordination_overhead_commits": 18,
+    "gross_overhead_pct": "29.5% (includes normal handoff/sync/trim — not all collision-related)",
+    "c_edit_specific": {
+      "index_lock_events": 3,
+      "near_dup_overwrites": "1 confirmed (L-645 corruption from concurrent append)",
+      "lesson_slot_collision": "0 measured (pre-claim not yet deployed until S363)",
+      "estimated_c_edit_overhead": "5-8% (similar to S356 baseline of 6.7%)"
+    }
+  },
+
+  "changes_this_session": {
+    "next_lesson_command": {
+      "what": "claim.py gains 'next-lesson' subcommand (CE-4 fix)",
+      "how": "Scans existing L-NNN files + active claims → claims max+1 atomically",
+      "test": "Two concurrent calls with different sessions return L-656 and L-657 (sequential, no collision)",
+      "usage": "SLOT=$(python3 tools/claim.py next-lesson --session $S); write to $SLOT"
+    },
+    "gc_hook": {
+      "status": "ALREADY_PRESENT in maintenance.py (check_claim_gc, line 1620)",
+      "discovery": "GC hook existed since claim.py deployment; F-CON2 tracker was stale"
+    }
+  },
+
+  "f_con2_resolution": {
+    "tool_built": true,
+    "orient_integrated": true,
+    "c_edit_reduction": "82% (37.5% → 6.7% at S356)",
+    "ce4_prevention": true,
+    "gc_hook": true,
+    "re_measure_target": "S380 (17 sessions from S363)",
+    "verdict": "RESOLVED — all F-CON2 remaining items complete"
+  },
+
+  "meta_reflection": {
+    "finding": "GC hook was already in maintenance.py — F-CON2 tracker had stale 'remaining' list",
+    "root_cause": "NEAR-RESOLVED status persisted without checking if items were done by concurrent sessions",
+    "fix": "Before opening a DOMEX lane for NEAR-RESOLVED work, grep the codebase for the specific missing features"
+  }
+}

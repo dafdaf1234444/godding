@@ -1,0 +1,117 @@
+{
+  "frontier_id": "F-IS7",
+  "session": 365,
+  "created_on": "2026-03-01",
+  "hypothesis": "S353-S358 targeted harvests (history, game-theory, statistics) plus DOMEX lane production reduced experiment-to-lesson edge loss from 89% (S347 forward) / 73% (S348 backward) to ~80-85% / ~65-70% system-wide.",
+  "method": "Replicated S347/S348 methodology. Scanned experiments/ directory (540 JSON files across 45 domains), memory/lessons/ (596 files), memory/PRINCIPLES.md (95 unique lessons cited). Forward linkage: unique experiment paths cited in lesson files. Backward linkage: experiments containing L-NNN references. Per-domain breakdown with S348 comparison.",
+  "flow_graph": {
+    "edges": [
+      {
+        "from": "lanes",
+        "to": "experiments",
+        "measured": {
+          "total_merged_lanes": 28,
+          "lanes_with_experiment_artifact": 26,
+          "conversion_rate": 0.929,
+          "loss_rate": 0.071,
+          "s348_rate": 0.969,
+          "note": "Healthy. Stable at >90%."
+        }
+      },
+      {
+        "from": "experiments",
+        "to": "lessons",
+        "backward_linkage": {
+          "total_experiments": 540,
+          "experiments_citing_lessons": 189,
+          "conversion_rate": 0.350,
+          "loss_rate": 0.650,
+          "s348_rate": 0.271,
+          "delta_pp": 7.9,
+          "note": "+7.9pp improvement. Almost entirely from old domains getting better (35.0% vs 27.1%), not new domains."
+        },
+        "forward_linkage": {
+          "total_experiments": 540,
+          "unique_experiment_files_cited_by_lessons": 77,
+          "conversion_rate": 0.143,
+          "loss_rate": 0.857,
+          "s347_rate": 0.112,
+          "delta_pp": 3.1,
+          "note": "+3.1pp improvement. Smaller gain because harvests create forward links but don't back-patch old experiments."
+        }
+      },
+      {
+        "from": "lessons",
+        "to": "principles",
+        "measured": {
+          "total_lessons": 596,
+          "unique_lessons_cited_by_principles": 95,
+          "promotion_rate": 0.159,
+          "loss_rate": 0.841,
+          "s347_rate": 0.204,
+          "delta_pp": -4.5,
+          "note": "-4.5pp decline. Lesson growth outpaces principle creation."
+        }
+      }
+    ],
+    "pipeline_completion": {
+      "backward": 0.056,
+      "forward": 0.023,
+      "s348_backward": 0.055,
+      "note": "Pipeline completion stable at ~5.6% despite both edges improving. Lesson-to-principle decline offsets experiment-to-lesson gain."
+    }
+  },
+  "information_sinks": {
+    "zero_conversion_domains": [
+      {"domain": "game-theory", "experiments": 22, "note": "PERSISTENT despite S355 harvest (L-603/604/605 forward links only)"},
+      {"domain": "integration-log", "experiments": 13},
+      {"domain": "belief-variants", "experiments": 11},
+      {"domain": "colonies", "experiments": 8},
+      {"domain": "gaming", "experiments": 5}
+    ],
+    "total_sink_experiments": 59,
+    "pct_of_all_experiments": 0.109,
+    "s348_pct": 0.259,
+    "delta_pp": -15.0,
+    "note": "Sink share halved. Game-theory (22 exps) is now the sole large sink."
+  },
+  "harvest_domain_tracking": {
+    "history": {"s347": 0.0, "s348": 0.239, "s365": 0.229, "trend": "STABLE post-harvest"},
+    "game-theory": {"s347": 0.0, "s348": 0.0, "s365": 0.0, "trend": "ZERO: harvest created forward links only"},
+    "statistics": {"s347": 0.0, "s348": 0.048, "s365": 0.048, "trend": "STABLE post-harvest"},
+    "information-science": {"s347": 0.0, "s348": 0.146, "s365": 0.250, "trend": "IMPROVING +10.4pp"}
+  },
+  "structural_finding": {
+    "title": "DOMEX lanes improve backward linkage by construction; harvests create forward links only",
+    "evidence": "New DOMEX experiments in existing domains (governance 0% to 71.4%, economy 0% to 22.2%, conflict 50% to 66.7%) drive +7.9pp. EAD enforcement includes artifact+lesson fields. Harvests (game-theory) create lessons citing experiments but don't update experiment JSONs. Game-theory: 0% backward despite 3 extracted lessons.",
+    "implication": "Edge-loss reduction is a DOMEX by-product. Harvests need a back-patching step."
+  },
+  "improvement_decomposition": {
+    "old_domains": {"s348_rate": 0.271, "s365_rate": 0.350, "delta_pp": 7.9, "n": 520},
+    "new_domains": {"rate": 0.381, "n": 21, "contribution_pp": 0.0},
+    "note": "100% of improvement from old domains via new DOMEX experiments."
+  },
+  "per_domain_conversion": {
+    "meta": {"n": 46, "citing": 34, "rate": 0.739, "s348": 0.625, "delta": "+11.4pp"},
+    "nk-complexity": {"n": 22, "citing": 19, "rate": 0.864, "s348": 0.800, "delta": "+6.4pp"},
+    "information-science": {"n": 48, "citing": 12, "rate": 0.250, "s348": 0.146, "delta": "+10.4pp"},
+    "conflict": {"n": 15, "citing": 10, "rate": 0.667, "s348": 0.500, "delta": "+16.7pp"},
+    "governance": {"n": 7, "citing": 5, "rate": 0.714, "s348": 0.000, "delta": "+71.4pp"},
+    "economy": {"n": 9, "citing": 2, "rate": 0.222, "s348": 0.000, "delta": "+22.2pp"},
+    "operations-research": {"n": 54, "citing": 1, "rate": 0.019, "s348": 0.000, "delta": "+1.9pp"},
+    "game-theory": {"n": 22, "citing": 0, "rate": 0.000, "s348": 0.000, "delta": "+0.0pp"},
+    "linguistics": {"n": 20, "citing": 20, "rate": 1.000, "s348": 1.000, "delta": "+0.0pp"},
+    "evaluation": {"n": 6, "citing": 6, "rate": 1.000, "s348": 1.000, "delta": "+0.0pp"}
+  },
+  "expect": "Edge-loss drops from 89% (S347) to ~80-85% system-wide. Harvested domains show stable conversion above 0%.",
+  "actual": "Backward loss 72.9% to 65.0%. Forward loss 88.8% to 85.7%. Harvested domains mixed: 3/4 above 0%, game-theory still 0%. Sinks halved 25.9% to 10.9%. DOMEX lanes = primary improvement mechanism.",
+  "diff": "Forward loss 85.7% matches prediction. Game-theory 0% was unexpected — harvest creates asymmetric links. Lesson-to-principle decline -4.5pp not predicted. Pipeline stable at 5.6% despite component changes (compensation effect).",
+  "verdict": "CONFIRMED: edge-loss reducing. DOMEX lanes are primary mechanism. Harvests create asymmetric (forward-only) links.",
+  "candidate_lesson_id": "L-661",
+  "next_steps": [
+    "Back-patch game-theory experiment JSONs with L-603/604/605 references",
+    "Add backward link verification to harvest/close_lane workflow",
+    "Re-measure at S385 (20 sessions)",
+    "Address lesson-to-principle promotion decline"
+  ]
+}

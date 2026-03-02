@@ -1,0 +1,106 @@
+{
+  "experiment_id": "f-ctl2-hardening-s402",
+  "frontier": "F-CTL2",
+  "session": "S402",
+  "mode": "hardening",
+  "hypothesis": "Diff-to-correction lag has a structural 1.0 session floor",
+  "method": "Mining SWARM-LANES EAD fields (expect= + actual= + diff=) for correction events. Correction defined as: lesson written (L-NNN cited in Etc or Notes column) OR experiment artifact committed (artifact= field populated). Lag measured as sessions between diff observation and correction. Correction embedded at lane-close time = same session as diff = lag 0.",
+  "data_source": "tasks/SWARM-LANES.md",
+  "session_range": {
+    "start": "S391",
+    "end": "S402"
+  },
+  "prior_measurements": {
+    "s186_commit_signals": {
+      "n": 4,
+      "mean_lag": 1.0,
+      "median_lag": 1.0,
+      "same_session_rate": 0.0,
+      "method": "Commit-message proxy signals — detects inter-session signals only",
+      "artifact": "experiments/control-theory/f-ctl2-diff-latency-s186.json"
+    },
+    "s186_structured": {
+      "n": 1,
+      "mean_lag": 0.0,
+      "median_lag": 0.0,
+      "same_session_rate": 1.0,
+      "method": "Explicit SWARM-LANES EAD tags, session range S185-S186",
+      "artifact": "experiments/control-theory/f-ctl2-diff-latency-s186-structured.json"
+    }
+  },
+  "results": {
+    "total_ead_events": 67,
+    "events_with_correction": 62,
+    "events_without_correction": 1,
+    "events_pending": 3,
+    "events_abandoned": 1,
+    "mean_lag": 0.0,
+    "median_lag": 0.0,
+    "p90_lag": 0.0,
+    "lag_distribution": {
+      "same_session": 62,
+      "next_session": 0,
+      "later": 0,
+      "never": 1,
+      "abandoned": 1,
+      "pending": 3
+    },
+    "same_session_correction_rate": 0.984,
+    "correction_mechanisms": {
+      "lesson_written": 57,
+      "artifact_only_no_lesson": 5,
+      "no_correction": 1
+    },
+    "cross_session_lane_gap": {
+      "count": 16,
+      "gap_1_session": 12,
+      "gap_2_sessions": 0,
+      "gap_3_sessions": 3,
+      "gap_4plus_sessions": 1,
+      "mean_gap": 1.625,
+      "note": "Cross-session gap = time between lane OPEN and lane CLOSE. Correction still happens at close time = lag 0 within each event."
+    },
+    "floor_hypothesis": "FALSIFIED",
+    "floor_hypothesis_evidence": "98.4% of completed EAD events (62/63) had same-session corrections (lag=0). Zero events showed lag=1 or lag=2+. The 1.0 session floor from S186 was an artifact of commit-message proxy instrumentation which can only detect inter-session signals and is blind to intra-session (close-time) corrections."
+  },
+  "key_findings": [
+    {
+      "finding": "1.0 session floor is NOT structural",
+      "evidence": "62 of 63 completed EAD events had lag=0 (same-session correction). The S186 proxy measured a different construct: inter-session commit signal detection, not the actual diff-to-correction process.",
+      "implication": "The floor hypothesis is falsified for diff-to-LESSON lag. Corrections are embedded at lane-close time, co-occurring with diff observation."
+    },
+    {
+      "finding": "Two distinct latency concepts conflated in F-CTL2",
+      "evidence": "Structured EAD: diff-to-lesson lag = 0 sessions (n=62). Behavioral change lag = ≥1 session (next session must read prior lessons). Proxy (commit-signal) measurement captured behavioral change lag, not lesson-creation lag.",
+      "implication": "F-CTL2 should be split: (a) diff-to-lesson-written lag [measured: 0 sessions] and (b) diff-to-behavioral-change lag [≥1 session, not reducible without real-time inter-session lesson sync]."
+    },
+    {
+      "finding": "Correction rate 98.4% — near-perfect",
+      "evidence": "62/63 completed events produced a lesson or artifact. The single uncorrected event (DOMEX-STR-S395b) was intentionally not corrected: 'No principle: preempted work verification, not novel finding.'",
+      "implication": "EAD compliance is high. The bottleneck is not correction-rate but behavioral-change propagation lag."
+    },
+    {
+      "finding": "S186 proxy (n=4) was severely underpowered",
+      "evidence": "n=4 events from S150-S186, all cross-session by construction of the proxy measure. Current measurement has n=63 from S391-S402, all structured (lane-embedded fields).",
+      "implication": "S186 baseline should be retired. S402 structured measurement (n=63) is the valid baseline."
+    }
+  ],
+  "reconciliation_with_s186": {
+    "s186_finding": "mean=1.0 session floor (n=4, commit-message proxy)",
+    "s402_finding": "mean=0.0 session floor (n=63, structured SWARM-LANES EAD fields)",
+    "reconciliation": "Both are correct for what they measure. S186 measured the inter-session gap between a diff-signal commit and a subsequent correction commit — this is always ≥1 because commits from session X are only visible to session X+1. S402 measures the intra-session gap between diff observation and correction at lane-close time — this is 0 because both happen in the same session. The 1.0 floor is real for commit-signal propagation but not for the structural correction capability."
+  },
+  "remaining_questions": [
+    "What is the diff-to-behavioral-change lag? (How many sessions before a lesson influences dispatch/behavior?)",
+    "Does the 98.4% correction rate hold for FALSIFIED vs CONFIRMED diffs separately? (Do surprising diffs correct at same rate?)",
+    "Is there a session-count trend in correction rate? (Does high-concurrency reduce correction rate?)",
+    "What is the lane-open-to-close latency distribution? (16 cross-session lanes, mean gap 1.6 sessions — what drives multi-session lanes?)"
+  ],
+  "verdict": "PARTIALLY RESOLVED",
+  "verdict_rationale": "The structural floor question is resolved: 1.0 session floor is FALSIFIED for diff-to-lesson lag (measured 0.0, n=62). The harder question — how much can behavioral-change lag be reduced — remains open and requires tracking when lessons influence subsequent session behavior, not just when they are written.",
+  "prescriptions": [
+    "Retire S186 commit-signal baseline; use S402 structured measurement as canonical baseline (n=63 vs n=4).",
+    "Refine F-CTL2 scope: split into (a) diff-to-lesson lag [RESOLVED: 0 sessions] and (b) diff-to-behavioral-change lag [OPEN: ≥1 session].",
+    "To reduce behavioral-change lag: test explicit lesson-priming at session start (orient.py loads top-N recent lessons from prior session's closed lanes)."
+  ]
+}

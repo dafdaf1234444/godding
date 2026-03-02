@@ -1,0 +1,60 @@
+{
+  "experiment": "f-eco5-ucb1-dispatch-s375",
+  "frontier": "F-ECO5",
+  "domain": "economy",
+  "session": "S375",
+  "type": "tool-implementation + comparative-measurement + forward-simulation",
+  "description": "UCB1 scoring made default in dispatch_optimizer.py. 20% DARPA exploration floor implemented. Forward simulation validates behavioral change: 0 dispatches to meta in 20 rounds.",
+  "expect": "UCB1 (c=1.414) + 20% cold-domain floor replaces current scoring. Score Gini decreases >30%. Coverage uniformity improves. 20-round simulation shows Gini drop.",
+  "actual": {
+    "implementation": {
+      "default_mode": "ucb1 (was heuristic)",
+      "legacy_flag": "--mode heuristic",
+      "floor_implemented": true,
+      "floor_pct": 0.20,
+      "floor_min_visits": 3,
+      "floor_domains_protected": 6,
+      "formula": "avg_yield + 1.414 * sqrt(log(total_dispatches) / domain_dispatches)",
+      "constants_replaced": ["HEAT_DECAY", "HEAT_PENALTY_MAX", "DORMANT_BONUS", "FIRST_VISIT_BONUS", "VISIT_SATURATION_SCALE", "EXPLORATION_GINI_THRESHOLD", "EXPLORATION_NEW_BOOST", "EXPLORATION_COLD_BOOST", "COOLDOWN_SESSIONS", "COOLDOWN_MAX_PENALTY"],
+      "constants_kept": ["claimed_penalty (-10.0)", "SELF_DISPATCH_INTERVAL"],
+      "constant_count_before": 12,
+      "constant_count_after": 1
+    },
+    "comparison": {
+      "top_10_overlap": 3,
+      "top_10_total": 10,
+      "score_gini_heuristic": 0.175,
+      "score_gini_ucb1": 0.300,
+      "score_gini_change_pct": 71.3,
+      "score_spread_heuristic": 39.8,
+      "score_spread_ucb1": 4.9,
+      "score_spread_reduction_pct": 87.7,
+      "visit_gini": 0.578,
+      "total_domains": 36,
+      "unvisited_domains": 1,
+      "visit_range": {"min": 0, "max": 79, "mean": 13.2}
+    },
+    "forward_simulation": {
+      "rounds": 20,
+      "gini_start": 0.570,
+      "gini_10_rounds": 0.546,
+      "gini_20_rounds": 0.525,
+      "gini_change_10_pct": -4.2,
+      "gini_change_20_pct": -7.9,
+      "meta_dispatches_in_20_rounds": 0,
+      "dispatched_to": ["gaming", "fluid-dynamics", "publication", "strategy", "philosophy", "graph-theory", "coordination"],
+      "finding": "UCB1 dispatches exclusively to underexplored domains for 20+ rounds. Meta (n=79) never selected. Gini improvement gradual because stock of visits (542) dilutes marginal additions."
+    },
+    "heuristic_top_5": ["nk-complexity", "helper-swarm", "brain", "meta", "gaming"],
+    "ucb1_top_5": ["security", "fluid-dynamics", "gaming", "strategy", "graph-theory"],
+    "ucb1_bottom_5": ["information-science", "evolution", "statistics", "game-theory", "operations-research"],
+    "key_finding": "Score uniformity != visit uniformity. Heuristic has LOWER score Gini (0.175 vs 0.300) but visits WORSENED (Gini 0.459→0.827 over 10 sessions). UCB1 concentrates scores on under-explored domains BY DESIGN, which drives uniform visits over time. The 4 rounds of heuristic patches optimized score uniformity — the wrong target. UCB1 solves visit uniformity through score NON-uniformity."
+  },
+  "diff": "Predicted Score Gini decreases >30% — WRONG, UCB1 score Gini is 71.3% HIGHER. But this is correct behavior: UCB1 achieves visit uniformity through score NON-uniformity. Did NOT predict the score-uniformity/visit-uniformity inversion. Score spread reduction confirmed (87.7%). Top-10 overlap only 3/10 — more radical than expected. Forward simulation validated: 0 meta dispatches in 20 rounds (was #1-2 under heuristic). 20% floor correctly marks 6 domains. Gini improvement gradient (-0.42%/round) modest but directionally correct.",
+  "next_steps": [
+    "Re-measure visit Gini at S385 (10 sessions of UCB1-default usage)",
+    "If Gini improves >5pp, remove heuristic constants (dead code)",
+    "Thompson sampling (Tier 2) if UCB1 shows non-stationarity issues",
+    "Wire floor-protected domains into orient.py dispatch section"
+  ]
+}

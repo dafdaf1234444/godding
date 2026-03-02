@@ -1,0 +1,5584 @@
+{
+  "frontier_id": "F-IS3",
+  "title": "Spawn math analytic-vs-simulation validation",
+  "generated_at": "2026-02-27T21:50:10.529707+00:00",
+  "inputs": {
+    "grid_error_rates": [
+      0.15,
+      0.25,
+      0.35
+    ],
+    "grid_rhos": [
+      0.0,
+      0.1,
+      0.2,
+      0.35,
+      0.5
+    ],
+    "grid_coordination_costs": [
+      0.01,
+      0.03,
+      0.05,
+      0.08,
+      0.12
+    ],
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "trials": 12000,
+    "seed": 186,
+    "calibrated_model": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is3-spawn-math-s186-cost-calibrated.json"
+  },
+  "summary": {
+    "grid": {
+      "scenario_count": 75,
+      "recommendation_match_rate": 0.773333,
+      "recommendation_within_one_n_rate": 0.973333,
+      "mismatch_low_margin_rate": 1.0,
+      "mean_abs_utility_error": 0.003657,
+      "max_abs_utility_error": 0.017958
+    },
+    "calibrated_model_check": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.304078,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    }
+  },
+  "grid": {
+    "scenario_count": 75,
+    "recommendation_match_count": 58,
+    "recommendation_match_rate": 0.773333,
+    "recommendation_within_one_n_rate": 0.973333,
+    "mismatch_low_margin_rate": 1.0,
+    "mean_abs_utility_error": 0.003657,
+    "max_abs_utility_error": 0.017958,
+    "mismatch_examples": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 187
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.583845,
+          "simulated_best_utility": 0.585059,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00238
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 191
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.621464,
+          "simulated_best_utility": 0.622783,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000409
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 197
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.546074,
+          "simulated_best_utility": 0.548326,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.00266
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 199
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.492764,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 201
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.564376,
+          "simulated_best_utility": 0.565739,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.001762
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 206
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.538452,
+          "simulated_best_utility": 0.539828,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.000742
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 213
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.4,
+          "simulated_best_utility": 0.401615,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006186
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 217
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.416139,
+          "simulated_best_utility": 0.417866,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.002994
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 221
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 6,
+          "match": false,
+          "analytic_best_utility": 0.450192,
+          "simulated_best_utility": 0.452428,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000192
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 226
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.41001,
+          "simulated_best_utility": 0.413733,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 1e-05
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 186
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.654226,
+          "simulated_best_utility": 0.655246,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003913
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.487831,
+            "abs_utility_error": 0.005098,
+            "simulated_mean_quality": 0.847417,
+            "simulated_std_quality": 0.359585
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.587512,
+            "simulated_utility": 0.585388,
+            "abs_utility_error": 0.002124,
+            "simulated_mean_quality": 0.849125,
+            "simulated_std_quality": 0.253737
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.623845,
+            "simulated_utility": 0.627142,
+            "abs_utility_error": 0.003297,
+            "simulated_mean_quality": 0.851833,
+            "simulated_std_quality": 0.204691
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.641464,
+            "simulated_utility": 0.640116,
+            "abs_utility_error": 0.001348,
+            "simulated_mean_quality": 0.848938,
+            "simulated_std_quality": 0.178821
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.650313,
+            "simulated_utility": 0.650805,
+            "abs_utility_error": 0.000492,
+            "simulated_mean_quality": 0.8502,
+            "simulated_std_quality": 0.159395
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.654226,
+            "simulated_utility": 0.655246,
+            "abs_utility_error": 0.00102,
+            "simulated_mean_quality": 0.849583,
+            "simulated_std_quality": 0.144337
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 187
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.583845,
+          "simulated_best_utility": 0.585059,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00238
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.505414,
+            "abs_utility_error": 0.012485,
+            "simulated_mean_quality": 0.85625,
+            "simulated_std_quality": 0.350836
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.567512,
+            "simulated_utility": 0.568357,
+            "abs_utility_error": 0.000845,
+            "simulated_mean_quality": 0.850958,
+            "simulated_std_quality": 0.252601
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.583845,
+            "simulated_utility": 0.582275,
+            "abs_utility_error": 0.00157,
+            "simulated_mean_quality": 0.8495,
+            "simulated_std_quality": 0.207225
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.581464,
+            "simulated_utility": 0.585059,
+            "abs_utility_error": 0.003595,
+            "simulated_mean_quality": 0.85175,
+            "simulated_std_quality": 0.176691
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.570313,
+            "simulated_utility": 0.570417,
+            "abs_utility_error": 0.000104,
+            "simulated_mean_quality": 0.85,
+            "simulated_std_quality": 0.159583
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.554226,
+            "simulated_utility": 0.554585,
+            "abs_utility_error": 0.000359,
+            "simulated_mean_quality": 0.849125,
+            "simulated_std_quality": 0.14454
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 188
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.547512,
+          "simulated_best_utility": 0.549719,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003668
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.483095,
+            "abs_utility_error": 0.009834,
+            "simulated_mean_quality": 0.845,
+            "simulated_std_quality": 0.361905
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.547512,
+            "simulated_utility": 0.549719,
+            "abs_utility_error": 0.002207,
+            "simulated_mean_quality": 0.852458,
+            "simulated_std_quality": 0.25274
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.543845,
+            "simulated_utility": 0.541795,
+            "abs_utility_error": 0.00205,
+            "simulated_mean_quality": 0.848722,
+            "simulated_std_quality": 0.206927
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.520431,
+            "abs_utility_error": 0.001033,
+            "simulated_mean_quality": 0.849271,
+            "simulated_std_quality": 0.17884
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.490313,
+            "simulated_utility": 0.496206,
+            "abs_utility_error": 0.005893,
+            "simulated_mean_quality": 0.85245,
+            "simulated_std_quality": 0.156244
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.454226,
+            "simulated_utility": 0.452544,
+            "abs_utility_error": 0.001682,
+            "simulated_mean_quality": 0.848792,
+            "simulated_std_quality": 0.146248
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 189
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.517512,
+          "simulated_best_utility": 0.521783,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.024584
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.489472,
+            "abs_utility_error": 0.003457,
+            "simulated_mean_quality": 0.84825,
+            "simulated_std_quality": 0.358778
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.517512,
+            "simulated_utility": 0.521783,
+            "abs_utility_error": 0.004271,
+            "simulated_mean_quality": 0.852042,
+            "simulated_std_quality": 0.250258
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.483845,
+            "simulated_utility": 0.485785,
+            "abs_utility_error": 0.00194,
+            "simulated_mean_quality": 0.851333,
+            "simulated_std_quality": 0.205548
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.431464,
+            "simulated_utility": 0.436386,
+            "abs_utility_error": 0.004922,
+            "simulated_mean_quality": 0.852563,
+            "simulated_std_quality": 0.176177
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370313,
+            "simulated_utility": 0.370627,
+            "abs_utility_error": 0.000314,
+            "simulated_mean_quality": 0.84945,
+            "simulated_std_quality": 0.158823
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.304226,
+            "simulated_utility": 0.307037,
+            "abs_utility_error": 0.002811,
+            "simulated_mean_quality": 0.851292,
+            "simulated_std_quality": 0.144255
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 190
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.489636,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.015416
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.489636,
+            "abs_utility_error": 0.003293,
+            "simulated_mean_quality": 0.848333,
+            "simulated_std_quality": 0.358697
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.477512,
+            "simulated_utility": 0.480382,
+            "abs_utility_error": 0.00287,
+            "simulated_mean_quality": 0.851458,
+            "simulated_std_quality": 0.251077
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.403845,
+            "simulated_utility": 0.400267,
+            "abs_utility_error": 0.003578,
+            "simulated_mean_quality": 0.849,
+            "simulated_std_quality": 0.208733
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.311464,
+            "simulated_utility": 0.313443,
+            "abs_utility_error": 0.001979,
+            "simulated_mean_quality": 0.850938,
+            "simulated_std_quality": 0.177495
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.210313,
+            "simulated_utility": 0.210613,
+            "abs_utility_error": 0.0003,
+            "simulated_mean_quality": 0.849767,
+            "simulated_std_quality": 0.159154
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.104226,
+            "simulated_utility": 0.104908,
+            "abs_utility_error": 0.000682,
+            "simulated_mean_quality": 0.850639,
+            "simulated_std_quality": 0.145731
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 191
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.621464,
+          "simulated_best_utility": 0.622783,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000409
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.49128,
+            "abs_utility_error": 0.001649,
+            "simulated_mean_quality": 0.849167,
+            "simulated_std_quality": 0.357886
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.575189,
+            "simulated_utility": 0.578363,
+            "abs_utility_error": 0.003174,
+            "simulated_mean_quality": 0.852125,
+            "simulated_std_quality": 0.263762
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.604168,
+            "simulated_utility": 0.598963,
+            "abs_utility_error": 0.005205,
+            "simulated_mean_quality": 0.848139,
+            "simulated_std_quality": 0.229176
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.616438,
+            "simulated_utility": 0.619321,
+            "abs_utility_error": 0.002883,
+            "simulated_mean_quality": 0.851583,
+            "simulated_std_quality": 0.202262
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.621056,
+            "simulated_utility": 0.622783,
+            "abs_utility_error": 0.001727,
+            "simulated_mean_quality": 0.85035,
+            "simulated_std_quality": 0.187567
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.621464,
+            "simulated_utility": 0.621197,
+            "abs_utility_error": 0.000267,
+            "simulated_mean_quality": 0.848944,
+            "simulated_std_quality": 0.177748
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 192
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.564168,
+          "simulated_best_utility": 0.564769,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00773
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.488979,
+            "abs_utility_error": 0.00395,
+            "simulated_mean_quality": 0.848,
+            "simulated_std_quality": 0.359021
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.555189,
+            "simulated_utility": 0.549016,
+            "abs_utility_error": 0.006173,
+            "simulated_mean_quality": 0.846292,
+            "simulated_std_quality": 0.267276
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.564168,
+            "simulated_utility": 0.564769,
+            "abs_utility_error": 0.000601,
+            "simulated_mean_quality": 0.850139,
+            "simulated_std_quality": 0.22537
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.556438,
+            "simulated_utility": 0.558227,
+            "abs_utility_error": 0.001789,
+            "simulated_mean_quality": 0.851479,
+            "simulated_std_quality": 0.203252
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.541056,
+            "simulated_utility": 0.540358,
+            "abs_utility_error": 0.000698,
+            "simulated_mean_quality": 0.849,
+            "simulated_std_quality": 0.188642
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.524434,
+            "abs_utility_error": 0.00297,
+            "simulated_mean_quality": 0.852028,
+            "simulated_std_quality": 0.177593
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 193
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.535189,
+          "simulated_best_utility": 0.538022,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.011021
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.508781,
+            "abs_utility_error": 0.015852,
+            "simulated_mean_quality": 0.857917,
+            "simulated_std_quality": 0.349136
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.535189,
+            "simulated_utility": 0.538022,
+            "abs_utility_error": 0.002833,
+            "simulated_mean_quality": 0.851708,
+            "simulated_std_quality": 0.263686
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.524168,
+            "simulated_utility": 0.521688,
+            "abs_utility_error": 0.00248,
+            "simulated_mean_quality": 0.847833,
+            "simulated_std_quality": 0.226145
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.496438,
+            "simulated_utility": 0.494903,
+            "abs_utility_error": 0.001535,
+            "simulated_mean_quality": 0.848771,
+            "simulated_std_quality": 0.203868
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.461056,
+            "simulated_utility": 0.459119,
+            "abs_utility_error": 0.001937,
+            "simulated_mean_quality": 0.84875,
+            "simulated_std_quality": 0.189631
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.421464,
+            "simulated_utility": 0.422424,
+            "abs_utility_error": 0.00096,
+            "simulated_mean_quality": 0.849472,
+            "simulated_std_quality": 0.177048
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 194
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.505189,
+          "simulated_best_utility": 0.51671,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01226
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.4969,
+            "abs_utility_error": 0.003971,
+            "simulated_mean_quality": 0.852,
+            "simulated_std_quality": 0.3551
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.505189,
+            "simulated_utility": 0.51671,
+            "abs_utility_error": 0.011521,
+            "simulated_mean_quality": 0.8565,
+            "simulated_std_quality": 0.25979
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.464168,
+            "simulated_utility": 0.461827,
+            "abs_utility_error": 0.002341,
+            "simulated_mean_quality": 0.849417,
+            "simulated_std_quality": 0.227589
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.406438,
+            "simulated_utility": 0.406466,
+            "abs_utility_error": 2.8e-05,
+            "simulated_mean_quality": 0.849271,
+            "simulated_std_quality": 0.202805
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.341056,
+            "simulated_utility": 0.34472,
+            "abs_utility_error": 0.003664,
+            "simulated_mean_quality": 0.8516,
+            "simulated_std_quality": 0.18688
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.271464,
+            "simulated_utility": 0.27598,
+            "abs_utility_error": 0.004516,
+            "simulated_mean_quality": 0.852194,
+            "simulated_std_quality": 0.176215
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 195
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.500727,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.02774
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.500727,
+            "abs_utility_error": 0.007798,
+            "simulated_mean_quality": 0.853917,
+            "simulated_std_quality": 0.35319
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.465189,
+            "simulated_utility": 0.463591,
+            "abs_utility_error": 0.001598,
+            "simulated_mean_quality": 0.848667,
+            "simulated_std_quality": 0.265075
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.387048,
+            "abs_utility_error": 0.00288,
+            "simulated_mean_quality": 0.851222,
+            "simulated_std_quality": 0.224174
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.286438,
+            "simulated_utility": 0.284999,
+            "abs_utility_error": 0.001439,
+            "simulated_mean_quality": 0.849958,
+            "simulated_std_quality": 0.204959
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.181056,
+            "simulated_utility": 0.176715,
+            "abs_utility_error": 0.004341,
+            "simulated_mean_quality": 0.847033,
+            "simulated_std_quality": 0.190319
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.071464,
+            "simulated_utility": 0.071993,
+            "abs_utility_error": 0.000529,
+            "simulated_mean_quality": 0.850347,
+            "simulated_std_quality": 0.178354
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 196
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 5,
+          "match": true,
+          "analytic_best_utility": 0.595757,
+          "simulated_best_utility": 0.590985,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001589
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.484073,
+            "abs_utility_error": 0.008856,
+            "simulated_mean_quality": 0.8455,
+            "simulated_std_quality": 0.361427
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.563414,
+            "simulated_utility": 0.558993,
+            "abs_utility_error": 0.004421,
+            "simulated_mean_quality": 0.847792,
+            "simulated_std_quality": 0.278798
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.586074,
+            "simulated_utility": 0.587901,
+            "abs_utility_error": 0.001827,
+            "simulated_mean_quality": 0.851139,
+            "simulated_std_quality": 0.243237
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.594168,
+            "simulated_utility": 0.589955,
+            "abs_utility_error": 0.004213,
+            "simulated_mean_quality": 0.847833,
+            "simulated_std_quality": 0.227879
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.595757,
+            "simulated_utility": 0.590985,
+            "abs_utility_error": 0.004772,
+            "simulated_mean_quality": 0.846617,
+            "simulated_std_quality": 0.215631
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.593845,
+            "simulated_utility": 0.58517,
+            "abs_utility_error": 0.008675,
+            "simulated_mean_quality": 0.847653,
+            "simulated_std_quality": 0.212483
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 197
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.546074,
+          "simulated_best_utility": 0.548326,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.00266
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.493589,
+            "abs_utility_error": 0.00066,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.356744
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.543414,
+            "simulated_utility": 0.548326,
+            "abs_utility_error": 0.004912,
+            "simulated_mean_quality": 0.852208,
+            "simulated_std_quality": 0.273883
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.546074,
+            "simulated_utility": 0.54489,
+            "abs_utility_error": 0.001184,
+            "simulated_mean_quality": 0.849139,
+            "simulated_std_quality": 0.244249
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.534168,
+            "simulated_utility": 0.529336,
+            "abs_utility_error": 0.004832,
+            "simulated_mean_quality": 0.849167,
+            "simulated_std_quality": 0.229831
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.515757,
+            "simulated_utility": 0.507231,
+            "abs_utility_error": 0.008526,
+            "simulated_mean_quality": 0.84585,
+            "simulated_std_quality": 0.218619
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.493845,
+            "simulated_utility": 0.500919,
+            "abs_utility_error": 0.007074,
+            "simulated_mean_quality": 0.852306,
+            "simulated_std_quality": 0.201387
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 198
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.523414,
+          "simulated_best_utility": 0.518997,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01734
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.488323,
+            "abs_utility_error": 0.004606,
+            "simulated_mean_quality": 0.847667,
+            "simulated_std_quality": 0.359344
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.523414,
+            "simulated_utility": 0.518997,
+            "abs_utility_error": 0.004417,
+            "simulated_mean_quality": 0.848292,
+            "simulated_std_quality": 0.279294
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.506074,
+            "simulated_utility": 0.499063,
+            "abs_utility_error": 0.007011,
+            "simulated_mean_quality": 0.846694,
+            "simulated_std_quality": 0.247632
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.474168,
+            "simulated_utility": 0.470444,
+            "abs_utility_error": 0.003724,
+            "simulated_mean_quality": 0.847896,
+            "simulated_std_quality": 0.227451
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.435757,
+            "simulated_utility": 0.434664,
+            "abs_utility_error": 0.001093,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.215669
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.393845,
+            "simulated_utility": 0.390036,
+            "abs_utility_error": 0.003809,
+            "simulated_mean_quality": 0.848806,
+            "simulated_std_quality": 0.208769
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 199
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.492764,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.492764,
+            "abs_utility_error": 0.000165,
+            "simulated_mean_quality": 0.849917,
+            "simulated_std_quality": 0.357153
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.493414,
+            "simulated_utility": 0.490776,
+            "abs_utility_error": 0.002638,
+            "simulated_mean_quality": 0.848667,
+            "simulated_std_quality": 0.277891
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.446074,
+            "simulated_utility": 0.452666,
+            "abs_utility_error": 0.006592,
+            "simulated_mean_quality": 0.851389,
+            "simulated_std_quality": 0.238723
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.38971,
+            "abs_utility_error": 0.005542,
+            "simulated_mean_quality": 0.852042,
+            "simulated_std_quality": 0.222331
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.315757,
+            "simulated_utility": 0.314705,
+            "abs_utility_error": 0.001052,
+            "simulated_mean_quality": 0.8496,
+            "simulated_std_quality": 0.214895
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.243845,
+            "simulated_utility": 0.247032,
+            "abs_utility_error": 0.003187,
+            "simulated_mean_quality": 0.850889,
+            "simulated_std_quality": 0.203857
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 200
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.491116,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.039515
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.491116,
+            "abs_utility_error": 0.001813,
+            "simulated_mean_quality": 0.849083,
+            "simulated_std_quality": 0.357968
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.460946,
+            "abs_utility_error": 0.007532,
+            "simulated_mean_quality": 0.854167,
+            "simulated_std_quality": 0.27322
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.366074,
+            "simulated_utility": 0.374162,
+            "abs_utility_error": 0.008088,
+            "simulated_mean_quality": 0.853528,
+            "simulated_std_quality": 0.239366
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.258873,
+            "abs_utility_error": 0.005295,
+            "simulated_mean_quality": 0.848542,
+            "simulated_std_quality": 0.229669
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.155757,
+            "simulated_utility": 0.162139,
+            "abs_utility_error": 0.006382,
+            "simulated_mean_quality": 0.850717,
+            "simulated_std_quality": 0.208577
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.043845,
+            "simulated_utility": 0.046843,
+            "abs_utility_error": 0.002998,
+            "simulated_mean_quality": 0.851278,
+            "simulated_std_quality": 0.204435
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 201
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.564376,
+          "simulated_best_utility": 0.565739,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.001762
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.483095,
+            "abs_utility_error": 0.009834,
+            "simulated_mean_quality": 0.845,
+            "simulated_std_quality": 0.361905
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.546636,
+            "simulated_utility": 0.541169,
+            "abs_utility_error": 0.005467,
+            "simulated_mean_quality": 0.847625,
+            "simulated_std_quality": 0.296456
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.561206,
+            "simulated_utility": 0.565739,
+            "abs_utility_error": 0.004533,
+            "simulated_mean_quality": 0.852806,
+            "simulated_std_quality": 0.267067
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.564376,
+            "simulated_utility": 0.561456,
+            "abs_utility_error": 0.00292,
+            "simulated_mean_quality": 0.848854,
+            "simulated_std_quality": 0.257398
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.562614,
+            "simulated_utility": 0.562526,
+            "abs_utility_error": 8.8e-05,
+            "simulated_mean_quality": 0.8512,
+            "simulated_std_quality": 0.248674
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.558262,
+            "simulated_utility": 0.551688,
+            "abs_utility_error": 0.006574,
+            "simulated_mean_quality": 0.847042,
+            "simulated_std_quality": 0.245354
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 202
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.526636,
+          "simulated_best_utility": 0.521838,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005429
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.500393,
+            "abs_utility_error": 0.007464,
+            "simulated_mean_quality": 0.85375,
+            "simulated_std_quality": 0.353357
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.526636,
+            "simulated_utility": 0.521838,
+            "abs_utility_error": 0.004798,
+            "simulated_mean_quality": 0.847917,
+            "simulated_std_quality": 0.296078
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.521206,
+            "simulated_utility": 0.517842,
+            "abs_utility_error": 0.003364,
+            "simulated_mean_quality": 0.847778,
+            "simulated_std_quality": 0.269936
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.504376,
+            "simulated_utility": 0.504684,
+            "abs_utility_error": 0.000308,
+            "simulated_mean_quality": 0.849708,
+            "simulated_std_quality": 0.255024
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.482614,
+            "simulated_utility": 0.480005,
+            "abs_utility_error": 0.002609,
+            "simulated_mean_quality": 0.848883,
+            "simulated_std_quality": 0.248878
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.458262,
+            "simulated_utility": 0.458157,
+            "abs_utility_error": 0.000105,
+            "simulated_mean_quality": 0.849583,
+            "simulated_std_quality": 0.241427
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 203
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.506636,
+          "simulated_best_utility": 0.502564,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.013707
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.49956,
+            "abs_utility_error": 0.006631,
+            "simulated_mean_quality": 0.853333,
+            "simulated_std_quality": 0.353773
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.506636,
+            "simulated_utility": 0.502564,
+            "abs_utility_error": 0.004072,
+            "simulated_mean_quality": 0.84825,
+            "simulated_std_quality": 0.295686
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.481206,
+            "simulated_utility": 0.480439,
+            "abs_utility_error": 0.000767,
+            "simulated_mean_quality": 0.849,
+            "simulated_std_quality": 0.268561
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.444376,
+            "simulated_utility": 0.446825,
+            "abs_utility_error": 0.002449,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.253508
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.402614,
+            "simulated_utility": 0.397832,
+            "abs_utility_error": 0.004782,
+            "simulated_mean_quality": 0.849317,
+            "simulated_std_quality": 0.251485
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.358262,
+            "simulated_utility": 0.361896,
+            "abs_utility_error": 0.003634,
+            "simulated_mean_quality": 0.850903,
+            "simulated_std_quality": 0.239007
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 204
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.502397,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.016293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.502397,
+            "abs_utility_error": 0.009468,
+            "simulated_mean_quality": 0.85475,
+            "simulated_std_quality": 0.352353
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.476636,
+            "simulated_utility": 0.475348,
+            "abs_utility_error": 0.001288,
+            "simulated_mean_quality": 0.848958,
+            "simulated_std_quality": 0.293611
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.421206,
+            "simulated_utility": 0.43234,
+            "abs_utility_error": 0.011134,
+            "simulated_mean_quality": 0.856528,
+            "simulated_std_quality": 0.264188
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.354376,
+            "simulated_utility": 0.35934,
+            "abs_utility_error": 0.004964,
+            "simulated_mean_quality": 0.852042,
+            "simulated_std_quality": 0.252702
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.282614,
+            "simulated_utility": 0.278495,
+            "abs_utility_error": 0.004119,
+            "simulated_mean_quality": 0.84745,
+            "simulated_std_quality": 0.248955
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.208262,
+            "simulated_utility": 0.209311,
+            "abs_utility_error": 0.001049,
+            "simulated_mean_quality": 0.851069,
+            "simulated_std_quality": 0.241758
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 205
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.486522,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.486522,
+            "abs_utility_error": 0.006407,
+            "simulated_mean_quality": 0.84675,
+            "simulated_std_quality": 0.360228
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.436636,
+            "simulated_utility": 0.43617,
+            "abs_utility_error": 0.000466,
+            "simulated_mean_quality": 0.850208,
+            "simulated_std_quality": 0.294038
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.341206,
+            "simulated_utility": 0.330052,
+            "abs_utility_error": 0.011154,
+            "simulated_mean_quality": 0.845111,
+            "simulated_std_quality": 0.275059
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.234376,
+            "simulated_utility": 0.231474,
+            "abs_utility_error": 0.002902,
+            "simulated_mean_quality": 0.847833,
+            "simulated_std_quality": 0.25636
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.122614,
+            "simulated_utility": 0.129495,
+            "abs_utility_error": 0.006881,
+            "simulated_mean_quality": 0.852617,
+            "simulated_std_quality": 0.243122
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.008262,
+            "simulated_utility": 0.004689,
+            "abs_utility_error": 0.003573,
+            "simulated_mean_quality": 0.848069,
+            "simulated_std_quality": 0.243381
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 206
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.538452,
+          "simulated_best_utility": 0.539828,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.000742
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.497066,
+            "abs_utility_error": 0.004137,
+            "simulated_mean_quality": 0.852083,
+            "simulated_std_quality": 0.355017
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.530767,
+            "simulated_utility": 0.535898,
+            "abs_utility_error": 0.005131,
+            "simulated_mean_quality": 0.852333,
+            "simulated_std_quality": 0.306436
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.538452,
+            "simulated_utility": 0.539604,
+            "abs_utility_error": 0.001152,
+            "simulated_mean_quality": 0.851028,
+            "simulated_std_quality": 0.291423
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.53771,
+            "simulated_utility": 0.535796,
+            "abs_utility_error": 0.001914,
+            "simulated_mean_quality": 0.848583,
+            "simulated_std_quality": 0.282788
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.533414,
+            "simulated_utility": 0.539828,
+            "abs_utility_error": 0.006414,
+            "simulated_mean_quality": 0.8521,
+            "simulated_std_quality": 0.272272
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.527282,
+            "simulated_utility": 0.529967,
+            "abs_utility_error": 0.002685,
+            "simulated_mean_quality": 0.851792,
+            "simulated_std_quality": 0.271824
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 207
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.510767,
+          "simulated_best_utility": 0.505103,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.012315
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.482933,
+            "abs_utility_error": 0.009996,
+            "simulated_mean_quality": 0.844917,
+            "simulated_std_quality": 0.361984
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.510767,
+            "simulated_utility": 0.505103,
+            "abs_utility_error": 0.005664,
+            "simulated_mean_quality": 0.846667,
+            "simulated_std_quality": 0.311564
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.498452,
+            "simulated_utility": 0.496544,
+            "abs_utility_error": 0.001908,
+            "simulated_mean_quality": 0.850111,
+            "simulated_std_quality": 0.293567
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.47771,
+            "simulated_utility": 0.474626,
+            "abs_utility_error": 0.003084,
+            "simulated_mean_quality": 0.848833,
+            "simulated_std_quality": 0.284207
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.45058,
+            "abs_utility_error": 0.002834,
+            "simulated_mean_quality": 0.848533,
+            "simulated_std_quality": 0.277953
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.427282,
+            "simulated_utility": 0.430533,
+            "abs_utility_error": 0.003251,
+            "simulated_mean_quality": 0.851458,
+            "simulated_std_quality": 0.270926
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 208
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.496734,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.496734,
+            "abs_utility_error": 0.003805,
+            "simulated_mean_quality": 0.851917,
+            "simulated_std_quality": 0.355183
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.490767,
+            "simulated_utility": 0.483848,
+            "abs_utility_error": 0.006919,
+            "simulated_mean_quality": 0.847083,
+            "simulated_std_quality": 0.313236
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.458452,
+            "simulated_utility": 0.459226,
+            "abs_utility_error": 0.000774,
+            "simulated_mean_quality": 0.851,
+            "simulated_std_quality": 0.291774
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41771,
+            "simulated_utility": 0.41728,
+            "abs_utility_error": 0.00043,
+            "simulated_mean_quality": 0.850437,
+            "simulated_std_quality": 0.283157
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.373414,
+            "simulated_utility": 0.376987,
+            "abs_utility_error": 0.003573,
+            "simulated_mean_quality": 0.852067,
+            "simulated_std_quality": 0.27508
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.327282,
+            "simulated_utility": 0.321365,
+            "abs_utility_error": 0.005917,
+            "simulated_mean_quality": 0.847069,
+            "simulated_std_quality": 0.275704
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 209
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.490293,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.032162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.490293,
+            "abs_utility_error": 0.002636,
+            "simulated_mean_quality": 0.848667,
+            "simulated_std_quality": 0.358373
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.460767,
+            "simulated_utility": 0.466331,
+            "abs_utility_error": 0.005564,
+            "simulated_mean_quality": 0.85225,
+            "simulated_std_quality": 0.305919
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.398452,
+            "simulated_utility": 0.400286,
+            "abs_utility_error": 0.001834,
+            "simulated_mean_quality": 0.849472,
+            "simulated_std_quality": 0.289186
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.32771,
+            "simulated_utility": 0.332059,
+            "abs_utility_error": 0.004349,
+            "simulated_mean_quality": 0.851979,
+            "simulated_std_quality": 0.27992
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.253414,
+            "simulated_utility": 0.252472,
+            "abs_utility_error": 0.000942,
+            "simulated_mean_quality": 0.84935,
+            "simulated_std_quality": 0.276878
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.177282,
+            "simulated_utility": 0.170205,
+            "abs_utility_error": 0.007077,
+            "simulated_mean_quality": 0.846694,
+            "simulated_std_quality": 0.27649
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 210
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.485378,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.072162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.485378,
+            "abs_utility_error": 0.007551,
+            "simulated_mean_quality": 0.846167,
+            "simulated_std_quality": 0.360789
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.420767,
+            "simulated_utility": 0.422185,
+            "abs_utility_error": 0.001418,
+            "simulated_mean_quality": 0.85,
+            "simulated_std_quality": 0.307815
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.318452,
+            "simulated_utility": 0.316154,
+            "abs_utility_error": 0.002298,
+            "simulated_mean_quality": 0.848361,
+            "simulated_std_quality": 0.292208
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20771,
+            "simulated_utility": 0.220928,
+            "abs_utility_error": 0.013218,
+            "simulated_mean_quality": 0.855583,
+            "simulated_std_quality": 0.274655
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.093414,
+            "simulated_utility": 0.102988,
+            "abs_utility_error": 0.009574,
+            "simulated_mean_quality": 0.85445,
+            "simulated_std_quality": 0.271462
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.022718,
+            "simulated_utility": -0.0248,
+            "abs_utility_error": 0.002082,
+            "simulated_mean_quality": 0.849306,
+            "simulated_std_quality": 0.274105
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 211
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.523223,
+          "simulated_best_utility": 0.524706,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006872
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.317908,
+            "abs_utility_error": 0.000921,
+            "simulated_mean_quality": 0.750583,
+            "simulated_std_quality": 0.432675
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.433814,
+            "simulated_utility": 0.437031,
+            "abs_utility_error": 0.003217,
+            "simulated_mean_quality": 0.752458,
+            "simulated_std_quality": 0.305427
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.48,
+            "simulated_utility": 0.480477,
+            "abs_utility_error": 0.000477,
+            "simulated_mean_quality": 0.747389,
+            "simulated_std_quality": 0.246912
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.503494,
+            "simulated_utility": 0.506472,
+            "abs_utility_error": 0.002978,
+            "simulated_mean_quality": 0.751729,
+            "simulated_std_quality": 0.215257
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.516351,
+            "simulated_utility": 0.518964,
+            "abs_utility_error": 0.002613,
+            "simulated_mean_quality": 0.751167,
+            "simulated_std_quality": 0.192203
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.523223,
+            "simulated_utility": 0.524706,
+            "abs_utility_error": 0.001483,
+            "simulated_mean_quality": 0.751542,
+            "simulated_std_quality": 0.176835
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 212
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.443494,
+          "simulated_best_utility": 0.445698,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003494
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.31397,
+            "abs_utility_error": 0.003017,
+            "simulated_mean_quality": 0.748083,
+            "simulated_std_quality": 0.434114
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.413814,
+            "simulated_utility": 0.412521,
+            "abs_utility_error": 0.001293,
+            "simulated_mean_quality": 0.74925,
+            "simulated_std_quality": 0.306729
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.44,
+            "simulated_utility": 0.442879,
+            "abs_utility_error": 0.002879,
+            "simulated_mean_quality": 0.751583,
+            "simulated_std_quality": 0.248705
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.443494,
+            "simulated_utility": 0.445698,
+            "abs_utility_error": 0.002204,
+            "simulated_mean_quality": 0.7515,
+            "simulated_std_quality": 0.215802
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.436351,
+            "simulated_utility": 0.437696,
+            "abs_utility_error": 0.001345,
+            "simulated_mean_quality": 0.7528,
+            "simulated_std_quality": 0.195104
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.423223,
+            "simulated_utility": 0.420299,
+            "abs_utility_error": 0.002924,
+            "simulated_mean_quality": 0.748097,
+            "simulated_std_quality": 0.177798
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 213
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.4,
+          "simulated_best_utility": 0.401615,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006186
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.314101,
+            "abs_utility_error": 0.002886,
+            "simulated_mean_quality": 0.748167,
+            "simulated_std_quality": 0.434066
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.393814,
+            "simulated_utility": 0.401615,
+            "abs_utility_error": 0.007801,
+            "simulated_mean_quality": 0.754958,
+            "simulated_std_quality": 0.303343
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.4,
+            "simulated_utility": 0.399371,
+            "abs_utility_error": 0.000629,
+            "simulated_mean_quality": 0.749778,
+            "simulated_std_quality": 0.250407
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.382892,
+            "abs_utility_error": 0.000602,
+            "simulated_mean_quality": 0.749083,
+            "simulated_std_quality": 0.216191
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.356351,
+            "simulated_utility": 0.359969,
+            "abs_utility_error": 0.003618,
+            "simulated_mean_quality": 0.7526,
+            "simulated_std_quality": 0.192631
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.323223,
+            "simulated_utility": 0.32095,
+            "abs_utility_error": 0.002273,
+            "simulated_mean_quality": 0.749472,
+            "simulated_std_quality": 0.178522
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 214
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.363814,
+          "simulated_best_utility": 0.362143,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.023814
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.308878,
+            "abs_utility_error": 0.008109,
+            "simulated_mean_quality": 0.744833,
+            "simulated_std_quality": 0.435955
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.363814,
+            "simulated_utility": 0.362143,
+            "abs_utility_error": 0.001671,
+            "simulated_mean_quality": 0.748667,
+            "simulated_std_quality": 0.306523
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.34,
+            "simulated_utility": 0.340649,
+            "abs_utility_error": 0.000649,
+            "simulated_mean_quality": 0.750194,
+            "simulated_std_quality": 0.249546
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.293494,
+            "simulated_utility": 0.294696,
+            "abs_utility_error": 0.001202,
+            "simulated_mean_quality": 0.751354,
+            "simulated_std_quality": 0.216658
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236351,
+            "simulated_utility": 0.238831,
+            "abs_utility_error": 0.00248,
+            "simulated_mean_quality": 0.752383,
+            "simulated_std_quality": 0.193553
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.173223,
+            "simulated_utility": 0.171351,
+            "abs_utility_error": 0.001872,
+            "simulated_mean_quality": 0.749,
+            "simulated_std_quality": 0.177649
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 215
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.323814,
+          "simulated_best_utility": 0.327559,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006826
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.311877,
+            "abs_utility_error": 0.00511,
+            "simulated_mean_quality": 0.74675,
+            "simulated_std_quality": 0.434873
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.323814,
+            "simulated_utility": 0.327559,
+            "abs_utility_error": 0.003745,
+            "simulated_mean_quality": 0.750667,
+            "simulated_std_quality": 0.303108
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26,
+            "simulated_utility": 0.258264,
+            "abs_utility_error": 0.001736,
+            "simulated_mean_quality": 0.7485,
+            "simulated_std_quality": 0.250236
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.173494,
+            "simulated_utility": 0.17213,
+            "abs_utility_error": 0.001364,
+            "simulated_mean_quality": 0.750062,
+            "simulated_std_quality": 0.217933
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.076351,
+            "simulated_utility": 0.076917,
+            "abs_utility_error": 0.000566,
+            "simulated_mean_quality": 0.751483,
+            "simulated_std_quality": 0.194567
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.026777,
+            "simulated_utility": -0.024864,
+            "abs_utility_error": 0.001913,
+            "simulated_mean_quality": 0.750833,
+            "simulated_std_quality": 0.175698
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 216
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.483494,
+          "simulated_best_utility": 0.485387,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002622
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.311616,
+            "abs_utility_error": 0.005371,
+            "simulated_mean_quality": 0.746583,
+            "simulated_std_quality": 0.434967
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.418869,
+            "simulated_utility": 0.416698,
+            "abs_utility_error": 0.002171,
+            "simulated_mean_quality": 0.747625,
+            "simulated_std_quality": 0.320927
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.456139,
+            "simulated_utility": 0.458612,
+            "abs_utility_error": 0.002473,
+            "simulated_mean_quality": 0.753139,
+            "simulated_std_quality": 0.274527
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.473145,
+            "simulated_utility": 0.475522,
+            "abs_utility_error": 0.002377,
+            "simulated_mean_quality": 0.750396,
+            "simulated_std_quality": 0.244874
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.480871,
+            "simulated_utility": 0.477953,
+            "abs_utility_error": 0.002918,
+            "simulated_mean_quality": 0.749183,
+            "simulated_std_quality": 0.231231
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.483494,
+            "simulated_utility": 0.485387,
+            "abs_utility_error": 0.001893,
+            "simulated_mean_quality": 0.751056,
+            "simulated_std_quality": 0.215668
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 217
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.416139,
+          "simulated_best_utility": 0.417866,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.002994
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.315018,
+            "abs_utility_error": 0.001969,
+            "simulated_mean_quality": 0.74875,
+            "simulated_std_quality": 0.433732
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.398869,
+            "simulated_utility": 0.400216,
+            "abs_utility_error": 0.001347,
+            "simulated_mean_quality": 0.751667,
+            "simulated_std_quality": 0.321451
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.416139,
+            "simulated_utility": 0.411028,
+            "abs_utility_error": 0.005111,
+            "simulated_mean_quality": 0.747528,
+            "simulated_std_quality": 0.2765
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.413145,
+            "simulated_utility": 0.417866,
+            "abs_utility_error": 0.004721,
+            "simulated_mean_quality": 0.751521,
+            "simulated_std_quality": 0.243654
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.400871,
+            "simulated_utility": 0.400656,
+            "abs_utility_error": 0.000215,
+            "simulated_mean_quality": 0.750217,
+            "simulated_std_quality": 0.229561
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.387169,
+            "abs_utility_error": 0.003675,
+            "simulated_mean_quality": 0.751639,
+            "simulated_std_quality": 0.21447
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 218
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.378869,
+          "simulated_best_utility": 0.383701,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00273
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.310181,
+            "abs_utility_error": 0.006806,
+            "simulated_mean_quality": 0.745667,
+            "simulated_std_quality": 0.435486
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.378869,
+            "simulated_utility": 0.383701,
+            "abs_utility_error": 0.004832,
+            "simulated_mean_quality": 0.753125,
+            "simulated_std_quality": 0.319424
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376139,
+            "simulated_utility": 0.37714,
+            "abs_utility_error": 0.001001,
+            "simulated_mean_quality": 0.750417,
+            "simulated_std_quality": 0.273277
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.353145,
+            "simulated_utility": 0.354031,
+            "abs_utility_error": 0.000886,
+            "simulated_mean_quality": 0.750938,
+            "simulated_std_quality": 0.246906
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.320871,
+            "simulated_utility": 0.322701,
+            "abs_utility_error": 0.00183,
+            "simulated_mean_quality": 0.751283,
+            "simulated_std_quality": 0.228583
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.283494,
+            "simulated_utility": 0.28374,
+            "abs_utility_error": 0.000246,
+            "simulated_mean_quality": 0.750736,
+            "simulated_std_quality": 0.216996
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 219
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.348869,
+          "simulated_best_utility": 0.352823,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.031882
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.31633,
+            "abs_utility_error": 0.000657,
+            "simulated_mean_quality": 0.749583,
+            "simulated_std_quality": 0.433253
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.348869,
+            "simulated_utility": 0.352823,
+            "abs_utility_error": 0.003954,
+            "simulated_mean_quality": 0.753417,
+            "simulated_std_quality": 0.320593
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.316139,
+            "simulated_utility": 0.317995,
+            "abs_utility_error": 0.001856,
+            "simulated_mean_quality": 0.751833,
+            "simulated_std_quality": 0.273838
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.263145,
+            "simulated_utility": 0.261983,
+            "abs_utility_error": 0.001162,
+            "simulated_mean_quality": 0.749354,
+            "simulated_std_quality": 0.247371
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.200871,
+            "simulated_utility": 0.205641,
+            "abs_utility_error": 0.00477,
+            "simulated_mean_quality": 0.752533,
+            "simulated_std_quality": 0.226893
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.133494,
+            "simulated_utility": 0.13271,
+            "abs_utility_error": 0.000784,
+            "simulated_mean_quality": 0.748569,
+            "simulated_std_quality": 0.215859
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 220
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.312923,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008118
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.312923,
+            "abs_utility_error": 0.004064,
+            "simulated_mean_quality": 0.747417,
+            "simulated_std_quality": 0.434494
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.308869,
+            "simulated_utility": 0.311071,
+            "abs_utility_error": 0.002202,
+            "simulated_mean_quality": 0.75025,
+            "simulated_std_quality": 0.319179
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.233864,
+            "abs_utility_error": 0.002275,
+            "simulated_mean_quality": 0.747639,
+            "simulated_std_quality": 0.273775
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.143145,
+            "simulated_utility": 0.144775,
+            "abs_utility_error": 0.00163,
+            "simulated_mean_quality": 0.750646,
+            "simulated_std_quality": 0.245871
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.040871,
+            "simulated_utility": 0.045838,
+            "abs_utility_error": 0.004967,
+            "simulated_mean_quality": 0.753383,
+            "simulated_std_quality": 0.227545
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.066506,
+            "simulated_utility": -0.060829,
+            "abs_utility_error": 0.005677,
+            "simulated_mean_quality": 0.752153,
+            "simulated_std_quality": 0.212981
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 221
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 6,
+          "match": false,
+          "analytic_best_utility": 0.450192,
+          "simulated_best_utility": 0.452428,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000192
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.321205,
+            "abs_utility_error": 0.004218,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.431462
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.40459,
+            "simulated_utility": 0.408052,
+            "abs_utility_error": 0.003462,
+            "simulated_mean_quality": 0.752458,
+            "simulated_std_quality": 0.334406
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.434196,
+            "simulated_utility": 0.430523,
+            "abs_utility_error": 0.003673,
+            "simulated_mean_quality": 0.750083,
+            "simulated_std_quality": 0.29956
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.446139,
+            "simulated_utility": 0.445943,
+            "abs_utility_error": 0.000196,
+            "simulated_mean_quality": 0.749604,
+            "simulated_std_quality": 0.273661
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.450192,
+            "simulated_utility": 0.450792,
+            "abs_utility_error": 0.0006,
+            "simulated_mean_quality": 0.750417,
+            "simulated_std_quality": 0.259624
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.45,
+            "simulated_utility": 0.452428,
+            "abs_utility_error": 0.002428,
+            "simulated_mean_quality": 0.751681,
+            "simulated_std_quality": 0.249252
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 222
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.394196,
+          "simulated_best_utility": 0.396664,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008057
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.311485,
+            "abs_utility_error": 0.005502,
+            "simulated_mean_quality": 0.7465,
+            "simulated_std_quality": 0.435015
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.38459,
+            "simulated_utility": 0.385421,
+            "abs_utility_error": 0.000831,
+            "simulated_mean_quality": 0.750333,
+            "simulated_std_quality": 0.334913
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.394196,
+            "simulated_utility": 0.396664,
+            "abs_utility_error": 0.002468,
+            "simulated_mean_quality": 0.751944,
+            "simulated_std_quality": 0.295281
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.386139,
+            "simulated_utility": 0.384012,
+            "abs_utility_error": 0.002127,
+            "simulated_mean_quality": 0.748458,
+            "simulated_std_quality": 0.274446
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370192,
+            "simulated_utility": 0.364678,
+            "abs_utility_error": 0.005514,
+            "simulated_mean_quality": 0.745883,
+            "simulated_std_quality": 0.261205
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.35,
+            "simulated_utility": 0.335975,
+            "abs_utility_error": 0.014025,
+            "simulated_mean_quality": 0.742528,
+            "simulated_std_quality": 0.256552
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 223
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.36459,
+          "simulated_best_utility": 0.364608,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.010394
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.315149,
+            "abs_utility_error": 0.001838,
+            "simulated_mean_quality": 0.748833,
+            "simulated_std_quality": 0.433684
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.36459,
+            "simulated_utility": 0.364608,
+            "abs_utility_error": 1.8e-05,
+            "simulated_mean_quality": 0.749208,
+            "simulated_std_quality": 0.334601
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354196,
+            "simulated_utility": 0.345783,
+            "abs_utility_error": 0.008413,
+            "simulated_mean_quality": 0.74425,
+            "simulated_std_quality": 0.298467
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.326139,
+            "simulated_utility": 0.328906,
+            "abs_utility_error": 0.002767,
+            "simulated_mean_quality": 0.753167,
+            "simulated_std_quality": 0.274261
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.290192,
+            "simulated_utility": 0.282194,
+            "abs_utility_error": 0.007998,
+            "simulated_mean_quality": 0.745283,
+            "simulated_std_quality": 0.26309
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.259904,
+            "abs_utility_error": 0.009904,
+            "simulated_mean_quality": 0.75525,
+            "simulated_std_quality": 0.245346
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 224
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.33459,
+          "simulated_best_utility": 0.338406,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.017603
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.314363,
+            "abs_utility_error": 0.002624,
+            "simulated_mean_quality": 0.748333,
+            "simulated_std_quality": 0.433971
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.33459,
+            "simulated_utility": 0.338406,
+            "abs_utility_error": 0.003816,
+            "simulated_mean_quality": 0.7525,
+            "simulated_std_quality": 0.334094
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.294196,
+            "simulated_utility": 0.293659,
+            "abs_utility_error": 0.000537,
+            "simulated_mean_quality": 0.750167,
+            "simulated_std_quality": 0.296507
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.239279,
+            "abs_utility_error": 0.00314,
+            "simulated_mean_quality": 0.751667,
+            "simulated_std_quality": 0.272388
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.170192,
+            "simulated_utility": 0.168524,
+            "abs_utility_error": 0.001668,
+            "simulated_mean_quality": 0.747883,
+            "simulated_std_quality": 0.259359
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.1,
+            "simulated_utility": 0.09708,
+            "abs_utility_error": 0.00292,
+            "simulated_mean_quality": 0.749208,
+            "simulated_std_quality": 0.252129
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 225
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.32094,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.022397
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.32094,
+            "abs_utility_error": 0.003953,
+            "simulated_mean_quality": 0.7525,
+            "simulated_std_quality": 0.43156
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.301988,
+            "abs_utility_error": 0.007398,
+            "simulated_mean_quality": 0.754375,
+            "simulated_std_quality": 0.332387
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214196,
+            "simulated_utility": 0.223617,
+            "abs_utility_error": 0.009421,
+            "simulated_mean_quality": 0.755556,
+            "simulated_std_quality": 0.291939
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.116139,
+            "simulated_utility": 0.118746,
+            "abs_utility_error": 0.002607,
+            "simulated_mean_quality": 0.750583,
+            "simulated_std_quality": 0.271837
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.010192,
+            "simulated_utility": 0.011397,
+            "abs_utility_error": 0.001205,
+            "simulated_mean_quality": 0.751083,
+            "simulated_std_quality": 0.259687
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.1,
+            "simulated_utility": -0.092855,
+            "abs_utility_error": 0.007145,
+            "simulated_mean_quality": 0.754111,
+            "simulated_std_quality": 0.246966
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 226
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.41001,
+          "simulated_best_utility": 0.413733,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 1e-05
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.316199,
+            "abs_utility_error": 0.000788,
+            "simulated_mean_quality": 0.7495,
+            "simulated_std_quality": 0.433301
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.384244,
+            "simulated_utility": 0.390264,
+            "abs_utility_error": 0.00602,
+            "simulated_mean_quality": 0.752333,
+            "simulated_std_quality": 0.352069
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.40404,
+            "simulated_utility": 0.406658,
+            "abs_utility_error": 0.002618,
+            "simulated_mean_quality": 0.750972,
+            "simulated_std_quality": 0.324314
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41001,
+            "simulated_utility": 0.403677,
+            "abs_utility_error": 0.006333,
+            "simulated_mean_quality": 0.746625,
+            "simulated_std_quality": 0.312948
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.41,
+            "simulated_utility": 0.413733,
+            "abs_utility_error": 0.003733,
+            "simulated_mean_quality": 0.7536,
+            "simulated_std_quality": 0.299867
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.406849,
+            "simulated_utility": 0.400487,
+            "abs_utility_error": 0.006362,
+            "simulated_mean_quality": 0.747333,
+            "simulated_std_quality": 0.296847
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 227
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.364244,
+          "simulated_best_utility": 0.373542,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.327972,
+            "abs_utility_error": 0.010985,
+            "simulated_mean_quality": 0.756917,
+            "simulated_std_quality": 0.428945
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.364244,
+            "simulated_utility": 0.360037,
+            "abs_utility_error": 0.004207,
+            "simulated_mean_quality": 0.747625,
+            "simulated_std_quality": 0.357588
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.36404,
+            "simulated_utility": 0.373542,
+            "abs_utility_error": 0.009502,
+            "simulated_mean_quality": 0.756722,
+            "simulated_std_quality": 0.32318
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.35001,
+            "simulated_utility": 0.350351,
+            "abs_utility_error": 0.000341,
+            "simulated_mean_quality": 0.750458,
+            "simulated_std_quality": 0.310107
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.33,
+            "simulated_utility": 0.327658,
+            "abs_utility_error": 0.002342,
+            "simulated_mean_quality": 0.74935,
+            "simulated_std_quality": 0.301692
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.306849,
+            "simulated_utility": 0.315562,
+            "abs_utility_error": 0.008713,
+            "simulated_mean_quality": 0.755403,
+            "simulated_std_quality": 0.289841
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 228
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.344244,
+          "simulated_best_utility": 0.341964,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.020204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.323852,
+            "abs_utility_error": 0.006865,
+            "simulated_mean_quality": 0.754333,
+            "simulated_std_quality": 0.430482
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.344244,
+            "simulated_utility": 0.341964,
+            "abs_utility_error": 0.00228,
+            "simulated_mean_quality": 0.748917,
+            "simulated_std_quality": 0.356953
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.32404,
+            "simulated_utility": 0.325062,
+            "abs_utility_error": 0.001022,
+            "simulated_mean_quality": 0.750667,
+            "simulated_std_quality": 0.325604
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.29001,
+            "simulated_utility": 0.294246,
+            "abs_utility_error": 0.004236,
+            "simulated_mean_quality": 0.752875,
+            "simulated_std_quality": 0.308629
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.254803,
+            "abs_utility_error": 0.004803,
+            "simulated_mean_quality": 0.752433,
+            "simulated_std_quality": 0.297631
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.206849,
+            "simulated_utility": 0.212732,
+            "abs_utility_error": 0.005883,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.289935
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 229
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.310833,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.310833,
+            "abs_utility_error": 0.006154,
+            "simulated_mean_quality": 0.746083,
+            "simulated_std_quality": 0.43525
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.314244,
+            "simulated_utility": 0.310353,
+            "abs_utility_error": 0.003891,
+            "simulated_mean_quality": 0.747708,
+            "simulated_std_quality": 0.357356
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26404,
+            "simulated_utility": 0.261955,
+            "abs_utility_error": 0.002085,
+            "simulated_mean_quality": 0.749083,
+            "simulated_std_quality": 0.327128
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20001,
+            "simulated_utility": 0.20442,
+            "abs_utility_error": 0.00441,
+            "simulated_mean_quality": 0.752604,
+            "simulated_std_quality": 0.308184
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.13,
+            "simulated_utility": 0.13293,
+            "abs_utility_error": 0.00293,
+            "simulated_mean_quality": 0.751067,
+            "simulated_std_quality": 0.298137
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.056849,
+            "simulated_utility": 0.058206,
+            "abs_utility_error": 0.001357,
+            "simulated_mean_quality": 0.75,
+            "simulated_std_quality": 0.291794
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 230
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.30979,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.042744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.30979,
+            "abs_utility_error": 0.007197,
+            "simulated_mean_quality": 0.745417,
+            "simulated_std_quality": 0.435627
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.274244,
+            "simulated_utility": 0.276966,
+            "abs_utility_error": 0.002722,
+            "simulated_mean_quality": 0.752333,
+            "simulated_std_quality": 0.355368
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.18404,
+            "simulated_utility": 0.183564,
+            "abs_utility_error": 0.000476,
+            "simulated_mean_quality": 0.750028,
+            "simulated_std_quality": 0.326464
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.08001,
+            "simulated_utility": 0.08353,
+            "abs_utility_error": 0.00352,
+            "simulated_mean_quality": 0.751292,
+            "simulated_std_quality": 0.307761
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.03,
+            "simulated_utility": -0.037614,
+            "abs_utility_error": 0.007614,
+            "simulated_mean_quality": 0.745583,
+            "simulated_std_quality": 0.303198
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.143151,
+            "simulated_utility": -0.135428,
+            "abs_utility_error": 0.007723,
+            "simulated_mean_quality": 0.753569,
+            "simulated_std_quality": 0.288998
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 231
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.377673,
+          "simulated_best_utility": 0.379816,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001227
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.30369,
+            "abs_utility_error": 0.013297,
+            "simulated_mean_quality": 0.7415,
+            "simulated_std_quality": 0.43781
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.365,
+            "simulated_utility": 0.369989,
+            "abs_utility_error": 0.004989,
+            "simulated_mean_quality": 0.752583,
+            "simulated_std_quality": 0.372594
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376447,
+            "simulated_utility": 0.371337,
+            "abs_utility_error": 0.00511,
+            "simulated_mean_quality": 0.746611,
+            "simulated_std_quality": 0.355275
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.377673,
+            "simulated_utility": 0.379816,
+            "abs_utility_error": 0.002143,
+            "simulated_mean_quality": 0.752167,
+            "simulated_std_quality": 0.34235
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.37459,
+            "simulated_utility": 0.372582,
+            "abs_utility_error": 0.002008,
+            "simulated_mean_quality": 0.749167,
+            "simulated_std_quality": 0.336585
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.369281,
+            "simulated_utility": 0.373089,
+            "abs_utility_error": 0.003808,
+            "simulated_mean_quality": 0.754083,
+            "simulated_std_quality": 0.330995
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 232
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.345,
+          "simulated_best_utility": 0.339951,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008553
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.321205,
+            "abs_utility_error": 0.004218,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.431462
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.345,
+            "simulated_utility": 0.339951,
+            "abs_utility_error": 0.005049,
+            "simulated_mean_quality": 0.746375,
+            "simulated_std_quality": 0.376424
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.336447,
+            "simulated_utility": 0.338022,
+            "abs_utility_error": 0.001575,
+            "simulated_mean_quality": 0.751917,
+            "simulated_std_quality": 0.353895
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.317673,
+            "simulated_utility": 0.314521,
+            "abs_utility_error": 0.003152,
+            "simulated_mean_quality": 0.749,
+            "simulated_std_quality": 0.344479
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.294362,
+            "abs_utility_error": 0.000228,
+            "simulated_mean_quality": 0.74975,
+            "simulated_std_quality": 0.335388
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.269281,
+            "simulated_utility": 0.275794,
+            "abs_utility_error": 0.006513,
+            "simulated_mean_quality": 0.752764,
+            "simulated_std_quality": 0.326969
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 233
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.325,
+          "simulated_best_utility": 0.329584,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008013
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.316724,
+            "abs_utility_error": 0.000263,
+            "simulated_mean_quality": 0.749833,
+            "simulated_std_quality": 0.433109
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.325,
+            "simulated_utility": 0.329584,
+            "abs_utility_error": 0.004584,
+            "simulated_mean_quality": 0.752625,
+            "simulated_std_quality": 0.373041
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.296447,
+            "simulated_utility": 0.295172,
+            "abs_utility_error": 0.001275,
+            "simulated_mean_quality": 0.749222,
+            "simulated_std_quality": 0.35405
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.257673,
+            "simulated_utility": 0.251751,
+            "abs_utility_error": 0.005922,
+            "simulated_mean_quality": 0.746646,
+            "simulated_std_quality": 0.344895
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.21459,
+            "simulated_utility": 0.218975,
+            "abs_utility_error": 0.004385,
+            "simulated_mean_quality": 0.751883,
+            "simulated_std_quality": 0.332909
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.169281,
+            "simulated_utility": 0.170791,
+            "abs_utility_error": 0.00151,
+            "simulated_mean_quality": 0.751625,
+            "simulated_std_quality": 0.330834
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 234
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.316199,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.021987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.316199,
+            "abs_utility_error": 0.000788,
+            "simulated_mean_quality": 0.7495,
+            "simulated_std_quality": 0.433301
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.295,
+            "simulated_utility": 0.296613,
+            "abs_utility_error": 0.001613,
+            "simulated_mean_quality": 0.7505,
+            "simulated_std_quality": 0.373887
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236447,
+            "simulated_utility": 0.234311,
+            "abs_utility_error": 0.002136,
+            "simulated_mean_quality": 0.749667,
+            "simulated_std_quality": 0.355356
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.167673,
+            "simulated_utility": 0.163317,
+            "abs_utility_error": 0.004356,
+            "simulated_mean_quality": 0.747333,
+            "simulated_std_quality": 0.344016
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.09459,
+            "simulated_utility": 0.09944,
+            "abs_utility_error": 0.00485,
+            "simulated_mean_quality": 0.752233,
+            "simulated_std_quality": 0.332794
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.019281,
+            "simulated_utility": 0.015072,
+            "abs_utility_error": 0.004209,
+            "simulated_mean_quality": 0.747611,
+            "simulated_std_quality": 0.332539
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 235
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.316068,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.061987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.316068,
+            "abs_utility_error": 0.000919,
+            "simulated_mean_quality": 0.749417,
+            "simulated_std_quality": 0.433349
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.255,
+            "simulated_utility": 0.253377,
+            "abs_utility_error": 0.001623,
+            "simulated_mean_quality": 0.749042,
+            "simulated_std_quality": 0.375665
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.156447,
+            "simulated_utility": 0.152135,
+            "abs_utility_error": 0.004312,
+            "simulated_mean_quality": 0.746667,
+            "simulated_std_quality": 0.354532
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.047673,
+            "simulated_utility": 0.046854,
+            "abs_utility_error": 0.000819,
+            "simulated_mean_quality": 0.750313,
+            "simulated_std_quality": 0.343458
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.06541,
+            "simulated_utility": -0.073618,
+            "abs_utility_error": 0.008208,
+            "simulated_mean_quality": 0.745433,
+            "simulated_std_quality": 0.339051
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.180719,
+            "simulated_utility": -0.180744,
+            "abs_utility_error": 2.5e-05,
+            "simulated_mean_quality": 0.749694,
+            "simulated_std_quality": 0.330439
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 236
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.405278,
+          "simulated_best_utility": 0.401559,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008585
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.190988,
+            "abs_utility_error": 0.017958,
+            "simulated_mean_quality": 0.6635,
+            "simulated_std_quality": 0.472512
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.302732,
+            "simulated_utility": 0.305758,
+            "abs_utility_error": 0.003026,
+            "simulated_mean_quality": 0.653917,
+            "simulated_std_quality": 0.338159
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354621,
+            "simulated_utility": 0.353793,
+            "abs_utility_error": 0.000828,
+            "simulated_mean_quality": 0.649833,
+            "simulated_std_quality": 0.27604
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.381515,
+            "simulated_utility": 0.38237,
+            "abs_utility_error": 0.000855,
+            "simulated_mean_quality": 0.649146,
+            "simulated_std_quality": 0.236776
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.396693,
+            "simulated_utility": 0.394477,
+            "abs_utility_error": 0.002216,
+            "simulated_mean_quality": 0.648833,
+            "simulated_std_quality": 0.214356
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.405278,
+            "simulated_utility": 0.401559,
+            "abs_utility_error": 0.003719,
+            "simulated_mean_quality": 0.646694,
+            "simulated_std_quality": 0.195136
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 237
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.321515,
+          "simulated_best_utility": 0.321528,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.004822
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.160431,
+            "abs_utility_error": 0.012599,
+            "simulated_mean_quality": 0.640333,
+            "simulated_std_quality": 0.479903
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.282732,
+            "simulated_utility": 0.280005,
+            "abs_utility_error": 0.002727,
+            "simulated_mean_quality": 0.64725,
+            "simulated_std_quality": 0.337245
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.314621,
+            "simulated_utility": 0.316616,
+            "abs_utility_error": 0.001995,
+            "simulated_mean_quality": 0.651028,
+            "simulated_std_quality": 0.274412
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.321515,
+            "simulated_utility": 0.321528,
+            "abs_utility_error": 1.3e-05,
+            "simulated_mean_quality": 0.649438,
+            "simulated_std_quality": 0.237909
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.316693,
+            "simulated_utility": 0.31776,
+            "abs_utility_error": 0.001067,
+            "simulated_mean_quality": 0.6508,
+            "simulated_std_quality": 0.21304
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.305278,
+            "simulated_utility": 0.30333,
+            "abs_utility_error": 0.001948,
+            "simulated_mean_quality": 0.648819,
+            "simulated_std_quality": 0.19549
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 238
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.274621,
+          "simulated_best_utility": 0.274721,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01189
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.171389,
+            "abs_utility_error": 0.001641,
+            "simulated_mean_quality": 0.64875,
+            "simulated_std_quality": 0.477361
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.262732,
+            "simulated_utility": 0.268545,
+            "abs_utility_error": 0.005813,
+            "simulated_mean_quality": 0.654875,
+            "simulated_std_quality": 0.33633
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.274621,
+            "simulated_utility": 0.274721,
+            "abs_utility_error": 0.0001,
+            "simulated_mean_quality": 0.649389,
+            "simulated_std_quality": 0.274667
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.265643,
+            "abs_utility_error": 0.004128,
+            "simulated_mean_quality": 0.652375,
+            "simulated_std_quality": 0.236732
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236693,
+            "simulated_utility": 0.23265,
+            "abs_utility_error": 0.004043,
+            "simulated_mean_quality": 0.647367,
+            "simulated_std_quality": 0.214716
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.205278,
+            "simulated_utility": 0.206508,
+            "abs_utility_error": 0.00123,
+            "simulated_mean_quality": 0.650028,
+            "simulated_std_quality": 0.19352
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 239
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.232732,
+          "simulated_best_utility": 0.235451,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01811
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.168553,
+            "abs_utility_error": 0.004477,
+            "simulated_mean_quality": 0.646583,
+            "simulated_std_quality": 0.478031
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.232732,
+            "simulated_utility": 0.235451,
+            "abs_utility_error": 0.002719,
+            "simulated_mean_quality": 0.652708,
+            "simulated_std_quality": 0.337258
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214621,
+            "simulated_utility": 0.215243,
+            "abs_utility_error": 0.000622,
+            "simulated_mean_quality": 0.65025,
+            "simulated_std_quality": 0.275007
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.171515,
+            "simulated_utility": 0.170113,
+            "abs_utility_error": 0.001402,
+            "simulated_mean_quality": 0.64825,
+            "simulated_std_quality": 0.238137
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.116693,
+            "simulated_utility": 0.117638,
+            "abs_utility_error": 0.000945,
+            "simulated_mean_quality": 0.650417,
+            "simulated_std_quality": 0.212779
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.055278,
+            "simulated_utility": 0.053619,
+            "abs_utility_error": 0.001659,
+            "simulated_mean_quality": 0.649611,
+            "simulated_std_quality": 0.195992
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 240
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.192732,
+          "simulated_best_utility": 0.193985,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.019701
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.170952,
+            "abs_utility_error": 0.002078,
+            "simulated_mean_quality": 0.648417,
+            "simulated_std_quality": 0.477465
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.192732,
+            "simulated_utility": 0.193985,
+            "abs_utility_error": 0.001253,
+            "simulated_mean_quality": 0.652208,
+            "simulated_std_quality": 0.338223
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.134621,
+            "simulated_utility": 0.140964,
+            "abs_utility_error": 0.006343,
+            "simulated_mean_quality": 0.655528,
+            "simulated_std_quality": 0.274564
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.051515,
+            "simulated_utility": 0.05326,
+            "abs_utility_error": 0.001745,
+            "simulated_mean_quality": 0.651771,
+            "simulated_std_quality": 0.238511
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.043307,
+            "simulated_utility": -0.044955,
+            "abs_utility_error": 0.001648,
+            "simulated_mean_quality": 0.64835,
+            "simulated_std_quality": 0.213305
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.144722,
+            "simulated_utility": -0.141497,
+            "abs_utility_error": 0.003225,
+            "simulated_mean_quality": 0.652681,
+            "simulated_std_quality": 0.194177
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 241
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.361515,
+          "simulated_best_utility": 0.362376,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003904
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.17128,
+            "abs_utility_error": 0.00175,
+            "simulated_mean_quality": 0.648667,
+            "simulated_std_quality": 0.477387
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.28627,
+            "simulated_utility": 0.278781,
+            "abs_utility_error": 0.007489,
+            "simulated_mean_quality": 0.644917,
+            "simulated_std_quality": 0.356135
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.328338,
+            "simulated_utility": 0.319267,
+            "abs_utility_error": 0.009071,
+            "simulated_mean_quality": 0.644056,
+            "simulated_std_quality": 0.304789
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.348085,
+            "simulated_utility": 0.348062,
+            "abs_utility_error": 2.3e-05,
+            "simulated_mean_quality": 0.650417,
+            "simulated_std_quality": 0.272354
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.357611,
+            "simulated_utility": 0.361486,
+            "abs_utility_error": 0.003875,
+            "simulated_mean_quality": 0.6528,
+            "simulated_std_quality": 0.251314
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.361515,
+            "simulated_utility": 0.362376,
+            "abs_utility_error": 0.000861,
+            "simulated_mean_quality": 0.652389,
+            "simulated_std_quality": 0.240013
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 242
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.288338,
+          "simulated_best_utility": 0.294099,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000252
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.170843,
+            "abs_utility_error": 0.002187,
+            "simulated_mean_quality": 0.648333,
+            "simulated_std_quality": 0.477491
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.26627,
+            "simulated_utility": 0.269906,
+            "abs_utility_error": 0.003636,
+            "simulated_mean_quality": 0.652917,
+            "simulated_std_quality": 0.353011
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.288338,
+            "simulated_utility": 0.294099,
+            "abs_utility_error": 0.005761,
+            "simulated_mean_quality": 0.653889,
+            "simulated_std_quality": 0.29979
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.288085,
+            "simulated_utility": 0.283519,
+            "abs_utility_error": 0.004566,
+            "simulated_mean_quality": 0.647625,
+            "simulated_std_quality": 0.274106
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.277611,
+            "simulated_utility": 0.279194,
+            "abs_utility_error": 0.001583,
+            "simulated_mean_quality": 0.6509,
+            "simulated_std_quality": 0.251706
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.259206,
+            "abs_utility_error": 0.002309,
+            "simulated_mean_quality": 0.649569,
+            "simulated_std_quality": 0.240364
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 243
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.248338,
+          "simulated_best_utility": 0.251,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002068
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.175224,
+            "abs_utility_error": 0.002194,
+            "simulated_mean_quality": 0.651667,
+            "simulated_std_quality": 0.476442
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.24627,
+            "simulated_utility": 0.251,
+            "abs_utility_error": 0.00473,
+            "simulated_mean_quality": 0.652958,
+            "simulated_std_quality": 0.351958
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.248338,
+            "simulated_utility": 0.247862,
+            "abs_utility_error": 0.000476,
+            "simulated_mean_quality": 0.649333,
+            "simulated_std_quality": 0.301471
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.228085,
+            "simulated_utility": 0.226123,
+            "abs_utility_error": 0.001962,
+            "simulated_mean_quality": 0.647667,
+            "simulated_std_quality": 0.271544
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.197611,
+            "simulated_utility": 0.197182,
+            "abs_utility_error": 0.000429,
+            "simulated_mean_quality": 0.64815,
+            "simulated_std_quality": 0.250968
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.161515,
+            "simulated_utility": 0.159573,
+            "abs_utility_error": 0.001942,
+            "simulated_mean_quality": 0.650444,
+            "simulated_std_quality": 0.240872
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 244
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.21627,
+          "simulated_best_utility": 0.219334,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.027932
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.172373,
+            "abs_utility_error": 0.000657,
+            "simulated_mean_quality": 0.6495,
+            "simulated_std_quality": 0.477127
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.21627,
+            "simulated_utility": 0.219334,
+            "abs_utility_error": 0.003064,
+            "simulated_mean_quality": 0.652208,
+            "simulated_std_quality": 0.352874
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.188338,
+            "simulated_utility": 0.192251,
+            "abs_utility_error": 0.003913,
+            "simulated_mean_quality": 0.651806,
+            "simulated_std_quality": 0.299554
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.138085,
+            "simulated_utility": 0.143883,
+            "abs_utility_error": 0.005798,
+            "simulated_mean_quality": 0.654083,
+            "simulated_std_quality": 0.270201
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.077611,
+            "simulated_utility": 0.077465,
+            "abs_utility_error": 0.000146,
+            "simulated_mean_quality": 0.650883,
+            "simulated_std_quality": 0.253418
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.011515,
+            "simulated_utility": 0.013313,
+            "abs_utility_error": 0.001798,
+            "simulated_mean_quality": 0.651167,
+            "simulated_std_quality": 0.237854
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 245
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.17627,
+          "simulated_best_utility": 0.172811,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.003239
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.172811,
+            "abs_utility_error": 0.000219,
+            "simulated_mean_quality": 0.649833,
+            "simulated_std_quality": 0.477022
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.17627,
+            "simulated_utility": 0.168374,
+            "abs_utility_error": 0.007896,
+            "simulated_mean_quality": 0.645333,
+            "simulated_std_quality": 0.356959
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.108173,
+            "abs_utility_error": 0.000165,
+            "simulated_mean_quality": 0.648306,
+            "simulated_std_quality": 0.300133
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.018085,
+            "simulated_utility": 0.014738,
+            "abs_utility_error": 0.003347,
+            "simulated_mean_quality": 0.645208,
+            "simulated_std_quality": 0.27047
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.082389,
+            "simulated_utility": -0.0836,
+            "abs_utility_error": 0.001211,
+            "simulated_mean_quality": 0.64855,
+            "simulated_std_quality": 0.25215
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.188485,
+            "simulated_utility": -0.19041,
+            "abs_utility_error": 0.001925,
+            "simulated_mean_quality": 0.650194,
+            "simulated_std_quality": 0.240605
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 246
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.324621,
+          "simulated_best_utility": 0.32699,
+          "best_n_gap": 2,
+          "analytic_top2_margin": 0.000803
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.184065,
+            "abs_utility_error": 0.011035,
+            "simulated_mean_quality": 0.658333,
+            "simulated_std_quality": 0.474268
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.270541,
+            "simulated_utility": 0.268414,
+            "abs_utility_error": 0.002127,
+            "simulated_mean_quality": 0.648625,
+            "simulated_std_quality": 0.370211
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.304168,
+            "simulated_utility": 0.299764,
+            "abs_utility_error": 0.004404,
+            "simulated_mean_quality": 0.647694,
+            "simulated_std_quality": 0.32793
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.318338,
+            "simulated_utility": 0.32699,
+            "abs_utility_error": 0.008652,
+            "simulated_mean_quality": 0.655521,
+            "simulated_std_quality": 0.298531
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.323818,
+            "simulated_utility": 0.323581,
+            "abs_utility_error": 0.000237,
+            "simulated_mean_quality": 0.649117,
+            "simulated_std_quality": 0.285536
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.324621,
+            "simulated_utility": 0.32648,
+            "abs_utility_error": 0.001859,
+            "simulated_mean_quality": 0.650111,
+            "simulated_std_quality": 0.273631
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 247
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.264168,
+          "simulated_best_utility": 0.263014,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00583
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.177976,
+            "abs_utility_error": 0.004946,
+            "simulated_mean_quality": 0.65375,
+            "simulated_std_quality": 0.475774
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.250541,
+            "simulated_utility": 0.24419,
+            "abs_utility_error": 0.006351,
+            "simulated_mean_quality": 0.643375,
+            "simulated_std_quality": 0.369185
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.256648,
+            "abs_utility_error": 0.00752,
+            "simulated_mean_quality": 0.644111,
+            "simulated_std_quality": 0.327463
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.258338,
+            "simulated_utility": 0.263014,
+            "abs_utility_error": 0.004676,
+            "simulated_mean_quality": 0.6525,
+            "simulated_std_quality": 0.299486
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.243818,
+            "simulated_utility": 0.247703,
+            "abs_utility_error": 0.003885,
+            "simulated_mean_quality": 0.651217,
+            "simulated_std_quality": 0.283514
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.224621,
+            "simulated_utility": 0.226317,
+            "abs_utility_error": 0.001696,
+            "simulated_mean_quality": 0.650333,
+            "simulated_std_quality": 0.274017
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 248
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.230541,
+          "simulated_best_utility": 0.237266,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006373
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.183065,
+            "abs_utility_error": 0.010035,
+            "simulated_mean_quality": 0.657583,
+            "simulated_std_quality": 0.474518
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.230541,
+            "simulated_utility": 0.237266,
+            "abs_utility_error": 0.006725,
+            "simulated_mean_quality": 0.654458,
+            "simulated_std_quality": 0.367192
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.224168,
+            "simulated_utility": 0.22966,
+            "abs_utility_error": 0.005492,
+            "simulated_mean_quality": 0.653278,
+            "simulated_std_quality": 0.323617
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.198338,
+            "simulated_utility": 0.199346,
+            "abs_utility_error": 0.001008,
+            "simulated_mean_quality": 0.651833,
+            "simulated_std_quality": 0.302488
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.163818,
+            "simulated_utility": 0.163147,
+            "abs_utility_error": 0.000671,
+            "simulated_mean_quality": 0.650117,
+            "simulated_std_quality": 0.28697
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.124621,
+            "simulated_utility": 0.127497,
+            "abs_utility_error": 0.002876,
+            "simulated_mean_quality": 0.650806,
+            "simulated_std_quality": 0.273308
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 249
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.200541,
+          "simulated_best_utility": 0.197907,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.027511
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.176214,
+            "abs_utility_error": 0.003184,
+            "simulated_mean_quality": 0.652417,
+            "simulated_std_quality": 0.476203
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.200541,
+            "simulated_utility": 0.197907,
+            "abs_utility_error": 0.002634,
+            "simulated_mean_quality": 0.647458,
+            "simulated_std_quality": 0.369552
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.164168,
+            "simulated_utility": 0.163924,
+            "abs_utility_error": 0.000244,
+            "simulated_mean_quality": 0.650222,
+            "simulated_std_quality": 0.326298
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.108852,
+            "abs_utility_error": 0.000514,
+            "simulated_mean_quality": 0.649708,
+            "simulated_std_quality": 0.300856
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.043818,
+            "simulated_utility": 0.040586,
+            "abs_utility_error": 0.003232,
+            "simulated_mean_quality": 0.644133,
+            "simulated_std_quality": 0.283547
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.025379,
+            "simulated_utility": -0.022445,
+            "abs_utility_error": 0.002934,
+            "simulated_mean_quality": 0.651847,
+            "simulated_std_quality": 0.274293
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 250
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.168117,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.012489
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.168117,
+            "abs_utility_error": 0.004913,
+            "simulated_mean_quality": 0.64625,
+            "simulated_std_quality": 0.478133
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.156495,
+            "abs_utility_error": 0.004046,
+            "simulated_mean_quality": 0.647917,
+            "simulated_std_quality": 0.371422
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.084168,
+            "simulated_utility": 0.094123,
+            "abs_utility_error": 0.009955,
+            "simulated_mean_quality": 0.656778,
+            "simulated_std_quality": 0.322654
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.011662,
+            "simulated_utility": -0.005645,
+            "abs_utility_error": 0.006017,
+            "simulated_mean_quality": 0.653042,
+            "simulated_std_quality": 0.298687
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.116182,
+            "simulated_utility": -0.109916,
+            "abs_utility_error": 0.006266,
+            "simulated_mean_quality": 0.654467,
+            "simulated_std_quality": 0.284382
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.225379,
+            "simulated_utility": -0.226095,
+            "abs_utility_error": 0.000716,
+            "simulated_mean_quality": 0.649903,
+            "simulated_std_quality": 0.275998
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 251
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 6,
+          "match": false,
+          "analytic_best_utility": 0.279546,
+          "simulated_best_utility": 0.278597,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.001004
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.173798,
+            "abs_utility_error": 0.000768,
+            "simulated_mean_quality": 0.650583,
+            "simulated_std_quality": 0.476786
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.248129,
+            "simulated_utility": 0.250584,
+            "abs_utility_error": 0.002455,
+            "simulated_mean_quality": 0.651042,
+            "simulated_std_quality": 0.390458
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.27095,
+            "simulated_utility": 0.27509,
+            "abs_utility_error": 0.00414,
+            "simulated_mean_quality": 0.653806,
+            "simulated_std_quality": 0.358716
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.278542,
+            "simulated_utility": 0.27277,
+            "abs_utility_error": 0.005772,
+            "simulated_mean_quality": 0.646146,
+            "simulated_std_quality": 0.343376
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.279546,
+            "simulated_utility": 0.276765,
+            "abs_utility_error": 0.002781,
+            "simulated_mean_quality": 0.647017,
+            "simulated_std_quality": 0.330252
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.27709,
+            "simulated_utility": 0.278597,
+            "abs_utility_error": 0.001507,
+            "simulated_mean_quality": 0.650681,
+            "simulated_std_quality": 0.322083
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 252
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.23095,
+          "simulated_best_utility": 0.235734,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002821
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.171717,
+            "abs_utility_error": 0.001313,
+            "simulated_mean_quality": 0.649,
+            "simulated_std_quality": 0.477283
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.228129,
+            "simulated_utility": 0.228059,
+            "abs_utility_error": 7e-05,
+            "simulated_mean_quality": 0.651292,
+            "simulated_std_quality": 0.393232
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.23095,
+            "simulated_utility": 0.235734,
+            "abs_utility_error": 0.004784,
+            "simulated_mean_quality": 0.65375,
+            "simulated_std_quality": 0.358016
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.218542,
+            "simulated_utility": 0.219029,
+            "abs_utility_error": 0.000487,
+            "simulated_mean_quality": 0.651417,
+            "simulated_std_quality": 0.342388
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.199546,
+            "simulated_utility": 0.199032,
+            "abs_utility_error": 0.000514,
+            "simulated_mean_quality": 0.65,
+            "simulated_std_quality": 0.330968
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.17709,
+            "simulated_utility": 0.175251,
+            "abs_utility_error": 0.001839,
+            "simulated_mean_quality": 0.647986,
+            "simulated_std_quality": 0.322735
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 253
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.208129,
+          "simulated_best_utility": 0.213256,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.017179
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.172702,
+            "abs_utility_error": 0.000328,
+            "simulated_mean_quality": 0.64975,
+            "simulated_std_quality": 0.477048
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.208129,
+            "simulated_utility": 0.213256,
+            "abs_utility_error": 0.005127,
+            "simulated_mean_quality": 0.65375,
+            "simulated_std_quality": 0.390494
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.19095,
+            "simulated_utility": 0.189089,
+            "abs_utility_error": 0.001861,
+            "simulated_mean_quality": 0.650889,
+            "simulated_std_quality": 0.3618
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.158542,
+            "simulated_utility": 0.157145,
+            "abs_utility_error": 0.001397,
+            "simulated_mean_quality": 0.648125,
+            "simulated_std_quality": 0.34098
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.119546,
+            "simulated_utility": 0.123885,
+            "abs_utility_error": 0.004339,
+            "simulated_mean_quality": 0.652967,
+            "simulated_std_quality": 0.329081
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.07709,
+            "simulated_utility": 0.073682,
+            "abs_utility_error": 0.003408,
+            "simulated_mean_quality": 0.645764,
+            "simulated_std_quality": 0.322082
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 254
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.178129,
+          "simulated_best_utility": 0.182119,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005099
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.163236,
+            "abs_utility_error": 0.009794,
+            "simulated_mean_quality": 0.6425,
+            "simulated_std_quality": 0.479264
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.178129,
+            "simulated_utility": 0.182119,
+            "abs_utility_error": 0.00399,
+            "simulated_mean_quality": 0.652167,
+            "simulated_std_quality": 0.390047
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.13095,
+            "simulated_utility": 0.141125,
+            "abs_utility_error": 0.010175,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.355875
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.068542,
+            "simulated_utility": 0.060631,
+            "abs_utility_error": 0.007911,
+            "simulated_mean_quality": 0.645271,
+            "simulated_std_quality": 0.34464
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.000454,
+            "simulated_utility": -0.00531,
+            "abs_utility_error": 0.004856,
+            "simulated_mean_quality": 0.646583,
+            "simulated_std_quality": 0.331894
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.07291,
+            "simulated_utility": -0.075105,
+            "abs_utility_error": 0.002195,
+            "simulated_mean_quality": 0.649083,
+            "simulated_std_quality": 0.324189
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 255
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.16703,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.034901
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.16703,
+            "abs_utility_error": 0.006,
+            "simulated_mean_quality": 0.645417,
+            "simulated_std_quality": 0.478387
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.138129,
+            "simulated_utility": 0.139708,
+            "abs_utility_error": 0.001579,
+            "simulated_mean_quality": 0.6525,
+            "simulated_std_quality": 0.392792
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.05095,
+            "simulated_utility": 0.050926,
+            "abs_utility_error": 2.4e-05,
+            "simulated_mean_quality": 0.650972,
+            "simulated_std_quality": 0.360046
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.051458,
+            "simulated_utility": -0.054008,
+            "abs_utility_error": 0.00255,
+            "simulated_mean_quality": 0.646771,
+            "simulated_std_quality": 0.340779
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.160454,
+            "simulated_utility": -0.16008,
+            "abs_utility_error": 0.000374,
+            "simulated_mean_quality": 0.650333,
+            "simulated_std_quality": 0.330414
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.27291,
+            "simulated_utility": -0.26667,
+            "abs_utility_error": 0.00624,
+            "simulated_mean_quality": 0.653931,
+            "simulated_std_quality": 0.3206
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 256
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.242922,
+          "simulated_best_utility": 0.248351,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002366
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.175774,
+            "abs_utility_error": 0.002744,
+            "simulated_mean_quality": 0.652083,
+            "simulated_std_quality": 0.476309
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.226932,
+            "simulated_utility": 0.237328,
+            "abs_utility_error": 0.010396,
+            "simulated_mean_quality": 0.656042,
+            "simulated_std_quality": 0.408714
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.240556,
+            "simulated_utility": 0.248351,
+            "abs_utility_error": 0.007795,
+            "simulated_mean_quality": 0.655611,
+            "simulated_std_quality": 0.38726
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.242922,
+            "simulated_utility": 0.238763,
+            "abs_utility_error": 0.004159,
+            "simulated_mean_quality": 0.64625,
+            "simulated_std_quality": 0.377487
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.240541,
+            "simulated_utility": 0.237393,
+            "abs_utility_error": 0.003148,
+            "simulated_mean_quality": 0.649333,
+            "simulated_std_quality": 0.37194
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.235708,
+            "simulated_utility": 0.228069,
+            "abs_utility_error": 0.007639,
+            "simulated_mean_quality": 0.6465,
+            "simulated_std_quality": 0.368431
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 257
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.206932,
+          "simulated_best_utility": 0.20241,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006376
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.163344,
+            "abs_utility_error": 0.009686,
+            "simulated_mean_quality": 0.642583,
+            "simulated_std_quality": 0.479239
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.206932,
+            "simulated_utility": 0.20241,
+            "abs_utility_error": 0.004522,
+            "simulated_mean_quality": 0.645667,
+            "simulated_std_quality": 0.413257
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.200556,
+            "simulated_utility": 0.195982,
+            "abs_utility_error": 0.004574,
+            "simulated_mean_quality": 0.647306,
+            "simulated_std_quality": 0.391324
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.182922,
+            "simulated_utility": 0.189006,
+            "abs_utility_error": 0.006084,
+            "simulated_mean_quality": 0.654729,
+            "simulated_std_quality": 0.375724
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.159034,
+            "abs_utility_error": 0.001507,
+            "simulated_mean_quality": 0.648483,
+            "simulated_std_quality": 0.369449
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.135708,
+            "simulated_utility": 0.136988,
+            "abs_utility_error": 0.00128,
+            "simulated_mean_quality": 0.649833,
+            "simulated_std_quality": 0.362845
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 258
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.186932,
+          "simulated_best_utility": 0.188745,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.013902
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.177755,
+            "abs_utility_error": 0.004725,
+            "simulated_mean_quality": 0.653583,
+            "simulated_std_quality": 0.475828
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.186932,
+            "simulated_utility": 0.188745,
+            "abs_utility_error": 0.001813,
+            "simulated_mean_quality": 0.650458,
+            "simulated_std_quality": 0.411714
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.160556,
+            "simulated_utility": 0.164195,
+            "abs_utility_error": 0.003639,
+            "simulated_mean_quality": 0.653389,
+            "simulated_std_quality": 0.389194
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.122922,
+            "simulated_utility": 0.126223,
+            "abs_utility_error": 0.003301,
+            "simulated_mean_quality": 0.649646,
+            "simulated_std_quality": 0.373423
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.080541,
+            "simulated_utility": 0.085268,
+            "abs_utility_error": 0.004727,
+            "simulated_mean_quality": 0.652933,
+            "simulated_std_quality": 0.367666
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.035708,
+            "simulated_utility": 0.03383,
+            "abs_utility_error": 0.001878,
+            "simulated_mean_quality": 0.648528,
+            "simulated_std_quality": 0.364698
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 259
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.16877,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.016098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.16877,
+            "abs_utility_error": 0.00426,
+            "simulated_mean_quality": 0.64675,
+            "simulated_std_quality": 0.47798
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.156932,
+            "simulated_utility": 0.159865,
+            "abs_utility_error": 0.002933,
+            "simulated_mean_quality": 0.654042,
+            "simulated_std_quality": 0.414176
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.100556,
+            "simulated_utility": 0.099318,
+            "abs_utility_error": 0.001238,
+            "simulated_mean_quality": 0.648056,
+            "simulated_std_quality": 0.388737
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.032922,
+            "simulated_utility": 0.035612,
+            "abs_utility_error": 0.00269,
+            "simulated_mean_quality": 0.652167,
+            "simulated_std_quality": 0.376554
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.039459,
+            "simulated_utility": -0.044462,
+            "abs_utility_error": 0.005003,
+            "simulated_mean_quality": 0.646067,
+            "simulated_std_quality": 0.370528
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.114292,
+            "simulated_utility": -0.106013,
+            "abs_utility_error": 0.008279,
+            "simulated_mean_quality": 0.655861,
+            "simulated_std_quality": 0.361874
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 12000,
+          "seed": 260
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.172811,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.172811,
+            "abs_utility_error": 0.000219,
+            "simulated_mean_quality": 0.649833,
+            "simulated_std_quality": 0.477022
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.116932,
+            "simulated_utility": 0.112133,
+            "abs_utility_error": 0.004799,
+            "simulated_mean_quality": 0.647042,
+            "simulated_std_quality": 0.414909
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.020556,
+            "simulated_utility": 0.019946,
+            "abs_utility_error": 0.00061,
+            "simulated_mean_quality": 0.651306,
+            "simulated_std_quality": 0.391359
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.087078,
+            "simulated_utility": -0.08881,
+            "abs_utility_error": 0.001732,
+            "simulated_mean_quality": 0.649125,
+            "simulated_std_quality": 0.377935
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.199459,
+            "simulated_utility": -0.191015,
+            "abs_utility_error": 0.008444,
+            "simulated_mean_quality": 0.654867,
+            "simulated_std_quality": 0.365882
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.314292,
+            "simulated_utility": -0.304503,
+            "abs_utility_error": 0.009789,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.361503
+          }
+        ]
+      }
+    ]
+  },
+  "calibrated_model_check": {
+    "inputs": {
+      "error_rate": 0.25817756653992396,
+      "rho": 0.03201330798479087,
+      "coordination_cost": 0.5666666666666667,
+      "risk_aversion": 1.0,
+      "n_max": 6,
+      "trials": 12000,
+      "seed": 10186
+    },
+    "recommendation": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.304078,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    },
+    "rows": [
+      {
+        "n": 1,
+        "analytic_utility": 0.30419,
+        "simulated_utility": 0.304078,
+        "abs_utility_error": 0.000112,
+        "simulated_mean_quality": 0.74175,
+        "simulated_std_quality": 0.437672
+      },
+      {
+        "n": 2,
+        "analytic_utility": -0.139211,
+        "simulated_utility": -0.131898,
+        "abs_utility_error": 0.007313,
+        "simulated_mean_quality": 0.746667,
+        "simulated_std_quality": 0.311898
+      },
+      {
+        "n": 3,
+        "analytic_utility": -0.652141,
+        "simulated_utility": -0.644911,
+        "abs_utility_error": 0.00723,
+        "simulated_mean_quality": 0.745806,
+        "simulated_std_quality": 0.257384
+      },
+      {
+        "n": 4,
+        "analytic_utility": -1.18726,
+        "simulated_utility": -1.188212,
+        "abs_utility_error": 0.000952,
+        "simulated_mean_quality": 0.740812,
+        "simulated_std_quality": 0.229024
+      },
+      {
+        "n": 5,
+        "analytic_utility": -1.732713,
+        "simulated_utility": -1.734339,
+        "abs_utility_error": 0.001626,
+        "simulated_mean_quality": 0.741217,
+        "simulated_std_quality": 0.208889
+      },
+      {
+        "n": 6,
+        "analytic_utility": -2.283942,
+        "simulated_utility": -2.28639,
+        "abs_utility_error": 0.002448,
+        "simulated_mean_quality": 0.738764,
+        "simulated_std_quality": 0.19182
+      }
+    ]
+  },
+  "interpretation": "If match rate is high and utility error is low, the closed-form spawn_math utility is a reliable decision proxy under the exchangeable-error model."
+}

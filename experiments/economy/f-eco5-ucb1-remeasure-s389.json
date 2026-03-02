@@ -1,0 +1,69 @@
+{
+  "experiment": "F-ECO5: UCB1 14-session re-measurement",
+  "session": "S389",
+  "frontier": "F-ECO5",
+  "status": "S376 predictions MIXED (cumulative on-track, era-specific WORSENED)",
+  "data": {
+    "total_lanes": 254,
+    "all_time_domains": 40,
+    "pre_ucb1_lanes": 186,
+    "pre_ucb1_domains": 38,
+    "ucb1_lanes": 68,
+    "ucb1_domains": 19
+  },
+  "gini_analysis": {
+    "cumulative": {
+      "S325": 0.5512,
+      "S350": 0.6250,
+      "S375": 0.5695,
+      "S380": 0.5368,
+      "S385": 0.5182,
+      "S389": 0.5203,
+      "note": "Peaked at S350, declining since. On track for <0.45 by ~S430."
+    },
+    "era_specific": {
+      "pre_ucb1": 0.5868,
+      "ucb1_era": 0.7518,
+      "delta": "+0.165 (+28%)",
+      "note": "UCB1 is MORE concentrated within its own era than pre-UCB1 was."
+    },
+    "rolling_50": {
+      "S302_S335": 0.763,
+      "S335_S351": 0.756,
+      "S358_S375": 0.683,
+      "S375_S389": 0.780,
+      "note": "S358-S375 was best (cooldown+saturation fresh). S375+ reverted."
+    }
+  },
+  "coverage": {
+    "cumulative": "40/40 (100%) — full coverage maintained all-time",
+    "ucb1_era_only": "19/40 (48%) — half of domains get ZERO in 14 sessions",
+    "domains_attrited": 20,
+    "top_attrited": ["linguistics=15", "governance=8", "brain=7", "conflict=7", "helper-swarm=5"]
+  },
+  "quality": {
+    "merge_rate_pre": "78.0%",
+    "merge_rate_ucb1": "87.5%",
+    "yield_per_lane": 1.38,
+    "note": "Quality UP despite coverage DOWN. UCB1 selects productive domains."
+  },
+  "concentration": {
+    "top3_pre": "meta=39, nk-complexity=22, linguistics=15 (40.9%)",
+    "top3_ucb1": "strategy=13, meta=11, security=8 (47.1%)",
+    "meta_share": {"pre": "21%", "ucb1": "16%", "delta": "-5pp (IMPROVED)"}
+  },
+  "s376_predictions": {
+    "visit_gini_lt_045": {
+      "status": "NOT YET (cumulative 0.520, era 0.752)",
+      "trajectory": "Cumulative on-track for ~S430. Era-specific will NOT meet target.",
+      "note": "S376 predicted cumulative, which is improving but slower than expected."
+    },
+    "yield_gte_03": {
+      "status": "CONFIRMED (1.38 L-refs/lane)",
+      "note": "Yield doubled relative to pre-UCB1 (~0.7)"
+    }
+  },
+  "key_finding": "TWO-SPEED COVERAGE PARADOX: UCB1 improves cumulative Gini (0.625→0.520) by shifting exploitation clusters between eras, while era-specific Gini worsens (0.587→0.752). Within any 14-session window, 52% of domains get zero visits. This is by design — UCB1 minimizes cumulative regret, not per-window balance. Practical impact: domain knowledge decays for abandoned domains, but merge rate and yield improve because exploitation targets productive domains.",
+  "root_cause": "UCB1 explore term = sqrt(log(N)/n_i). Domains with high historical visits (linguistics=15) have small explore bonuses. Outcome feedback (PROVEN → low bonus per L-654) further reduces incentive. Domains rationally abandoned are historically well-explored but low-current-yield.",
+  "recommendation": "Accept two-speed coverage as feature, not bug. If domain attrition is concerning, add a REVIVAL mechanism: every ~30 sessions, force one dispatch to the longest-dormant domain. Alternatively, increase c parameter from 1.414 to ~2.0 to weight exploration more."
+}

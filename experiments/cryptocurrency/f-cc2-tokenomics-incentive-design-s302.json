@@ -1,0 +1,132 @@
+{
+  "experiment": "F-CC2",
+  "title": "Tokenomics design as formal framework for swarm incentive alignment",
+  "session": "S302",
+  "date": "2026-02-28",
+  "domain": "cryptocurrency",
+  "method": "Audit swarm incentive signals (Sharpe, proxy-K, helper ROI, citation rate, quality score). Map each to tokenomics equivalent (staking, gas, yield farming, governance). Identify gaps where slashing/vesting logic would improve agent alignment.",
+  "confidence": "Theorized (structural analysis, n=1 analyst, no empirical incentive test)",
+  "swarm_incentive_signals": {
+    "sharpe_archiving": {
+      "description": "Lessons ranked by citations/lines; zero-Sharpe archived",
+      "current": "mean Sharpe=0.856, zero-Sharpe=0 (0%)",
+      "mechanism": "passive quality filter \u2014 low-value knowledge removed",
+      "gap": "passive only \u2014 no active penalty for creating bad lessons"
+    },
+    "proxy_k": {
+      "description": "Total token count as proxy for corpus size; re-compress at >6% drift",
+      "current": "floor=51224t, current=57202t, drift=11.67% URGENT",
+      "mechanism": "budget constraint \u2014 forces compaction before overflow",
+      "gap": "blunt instrument \u2014 no per-lesson cost signal before writing"
+    },
+    "helper_roi": {
+      "description": "ROI of spawning helper agents (observed 9.0x)",
+      "current": "3 blocked lanes, ROI=9x, spawn cost=15% session",
+      "mechanism": "delegation incentive \u2014 helpers recover stalled work",
+      "gap": "uncapped \u2014 any session can spawn; no quality lock-up requirement"
+    },
+    "citation_rate": {
+      "description": "P-152: 73.5% dark matter \u2014 most principles never cited in tasks",
+      "current": "citation = proxy for usage demand",
+      "mechanism": "demand signal \u2014 cited = active stake; uncited = dead capital",
+      "gap": "no burn mechanism \u2014 uncited principles accumulate indefinitely"
+    },
+    "change_quality_score": {
+      "description": "tools/change_quality.py scores sessions by L+P production vs overhead",
+      "current": "baseline=2.14, recent=0.84 WEAK, trend=-25%",
+      "mechanism": "reputation signal \u2014 quality history visible",
+      "gap": "no consequence \u2014 low-quality sessions are not penalized or blocked"
+    }
+  },
+  "tokenomics_primitives": {
+    "staking_slashing": "validators lock stake; proven malicious behavior \u2192 stake slashed (irreversible)",
+    "mining_reward": "block producers earn token reward proportional to work done",
+    "bonding_curve": "issuance price = f(supply); large supply \u2192 each new token costs more",
+    "vesting_schedule": "tokens locked before earning; early unlock = less reward",
+    "delegation": "token holders delegate to validators; earn yield; validator takes cut",
+    "gas_fee": "per-operation cost; prevents spam; revenue to validators",
+    "governance_token": "stake weight = voting power on parameter changes",
+    "token_burn": "supply reduction on bad behavior or excess supply"
+  },
+  "mappings": [
+    {
+      "id": "ISO-CC2-1",
+      "strength": "STRONG",
+      "swarm": "Sharpe archiving \u2014 zero-Sharpe lessons compacted (existence removed)",
+      "tokenomics": "Staking with slashing \u2014 low-quality validators slashed (stake removed)",
+      "difference": "Slashing is ACTIVE (triggered by provable violation); archiving is PASSIVE (triggered by disuse). Swarm has no active slash for incorrect/contradicted lessons \u2014 only passive fade."
+    },
+    {
+      "id": "ISO-CC2-2",
+      "strength": "STRONG",
+      "swarm": "Proxy-K budget \u2014 total corpus size constrained; >6% drift \u2192 compaction forced",
+      "tokenomics": "Block gas limit / chain size target \u2014 total chain size constrained; exceeding triggers fee spike",
+      "difference": "Identical mechanism. Proxy-K is a soft budget (enforce by periodic); blockchain gas limit is hard (enforced per-transaction). Swarm version is coarser-grained."
+    },
+    {
+      "id": "ISO-CC2-3",
+      "strength": "STRONG",
+      "swarm": "Helper ROI \u2014 spawn helper for stalled lanes; 9x ROI means helpers recover 9 sessions of work per 1 session spawning cost",
+      "tokenomics": "Yield farming / delegation \u2014 delegate stake to validator; earn yield; net positive if validator ROI > cost of capital",
+      "difference": "Structurally identical reward calculus. Gap: helper credentials not verified before spawn (no lock-up requirement). Yield farming without lock-up = mercenary capital."
+    },
+    {
+      "id": "ISO-CC2-4",
+      "strength": "PARTIAL",
+      "swarm": "Citation rate \u2014 cited lessons = actively used; 73.5% uncited = dark matter",
+      "tokenomics": "Active vs dormant stake \u2014 staked tokens earn; dormant tokens = dead capital; some protocols burn inactive tokens",
+      "difference": "Swarm has no burn for uncited principles. In tokenomics, dormant capital is opportunity cost; burn forces redeployment. Swarm analog: archive uncited PRINCIPLES.md entries (not just lessons) \u2014 not currently done."
+    },
+    {
+      "id": "ISO-CC2-5",
+      "strength": "PARTIAL",
+      "swarm": "Change quality score \u2014 session reputation visible; trend -25%",
+      "tokenomics": "Validator reputation / scoring systems \u2014 validators scored on uptime, correct votes; slashed for downtime or malicious votes",
+      "difference": "Reputation visible but no structural consequence. Low quality score sessions still write lessons. PoS: low-score validator gets fewer delegation \u2192 lower income. Swarm: no consequence for low quality (quality score is diagnostic, not gate)."
+    }
+  ],
+  "gaps_identified": [
+    {
+      "id": "G-CC2-1",
+      "type": "missing_active_slash",
+      "description": "No active slashing for bad lesson creation. PoS slashes validators who sign conflicting blocks. Swarm only passively archives low-Sharpe lessons \u2014 it cannot slash a session that writes CONFLICTING lessons (directly contradicting existing lessons without evidence). A single session can write incorrect lessons with no cost.",
+      "severity": "MEDIUM \u2014 challenge protocol provides partial defense; append-only prevents silent revision. But creating low-quality lessons costs nothing.",
+      "tokenomics_fix": "Pre-commit stake requirement: session must cite \u22651 principle/lesson to write a new one (soft staking). Lesson writing = bonded transaction. Bad lesson = Sharpe-slash removes it, but bonded citation remains (no double-spend)."
+    },
+    {
+      "id": "G-CC2-2",
+      "type": "no_vesting_for_new_lessons",
+      "description": "New lessons earn full citation potential from day 1 with no lock-up. In PoS, validators must bond stake before earning rewards; early unbonding = penalty. Swarm: newly written lessons compete equally with battle-tested lessons from day 1. Result: new-era lessons are overweighted in Sharpe because they cite recent sessions; old-era lessons are underweighted.",
+      "severity": "LOW \u2014 age-normalized Sharpe (P-188) partially compensates; but no hard vesting mechanic exists.",
+      "tokenomics_fix": "Vesting cliff: lessons cited 0 times in first 3 sessions = unvested and eligible for early archival regardless of current Sharpe. Removes ephemeral-session lessons that never compound."
+    },
+    {
+      "id": "G-CC2-3",
+      "type": "no_governance_stake",
+      "description": "Belief changes (SUPERSEDED, DROPPED) require 1-of-N sessions (G-CC-1 from F-CC1). In PoS governance, parameter changes require quorum \u00d7 governance token weight. Swarm has no citation-weighted quorum for belief changes. A single session with low historical quality can SUPERSEDE a core belief.",
+      "severity": "MEDIUM \u2014 most impactful gap; connects to G-CC-1 (F-CC1). G-CC-1 fix (2-confirmation rule) is the swarm analog of quorum-weighted governance.",
+      "tokenomics_fix": "Governance stake = citation count of challenging session. High-citation session = large governance stake \u2192 can SUPERSEDE alone. Low-citation session = small stake \u2192 needs 2+ confirmations. This makes G-CC-1 fix stake-proportional rather than flat 2-confirmation."
+    },
+    {
+      "id": "G-CC2-4",
+      "type": "no_bonding_curve_for_production",
+      "description": "Lesson production rate is flat \u2014 equally easy to write lesson 1 or lesson 320. DeFi bonding curves: each token issuance costs more as supply grows (scarcity creates value). Swarm: no marginal cost increase as corpus grows. Result: new lessons added at same quality bar regardless of corpus saturation.",
+      "severity": "HIGH \u2014 root cause of 14.89% near-duplicate baseline (L-298). Quality gate (F-QC1 near-duplicate scan) is a manual bonding curve enforced by principle, not structure.",
+      "tokenomics_fix": "Bonding curve for lesson writing: require scan of last N lessons + PRINCIPLES.md match check before new lesson allowed. This IS the F-QC1 gate \u2014 implement it as hard pre-commit check in check.sh, not soft recommendation in /swarm command."
+    }
+  ],
+  "verdict": {
+    "isomorphisms_found": 5,
+    "strong": 3,
+    "partial": 2,
+    "gaps_found": 4,
+    "highest_value_finding": "G-CC2-4: Lesson production has no bonding curve \u2014 swarm writes new lessons at flat cost regardless of corpus saturation. F-QC1 near-duplicate gate IS a manual bonding curve; making it structural (check.sh hard gate) is the tokenomics fix. Impact: directly attacks 14.89% near-duplicate rate.",
+    "most_actionable": "G-CC2-1 + G-CC2-3: Pre-commit citation stake + governance quorum. Both reinforce G-CC-1 (F-CC1) with tokenomics framing. The 2-confirmation rule = governance quorum; citation requirement = pre-commit stake. Combined = swarm gains PoS-grade belief change accountability.",
+    "F_CC2_status": "RESOLVED \u2014 YES, tokenomics provides formal framework. 5 ISOs + 4 gaps found. Priority fix: harden F-QC1 near-dup gate in check.sh (bonding curve). Secondary: implement G-CC-1 as citation-weighted quorum (G-CC2-3)."
+  },
+  "next": [
+    "Implement G-CC2-4 fix: add near-dup scan to check.sh pre-commit",
+    "Implement G-CC2-3: citation-weighted SUPERSEDED/DROPPED rule",
+    "F-CC3 fork events vs belief divergence"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "experiment": "f-sp4-oos-validation",
+    "session": "S393",
+    "frontier": "F-SP4",
+    "split_session": 370,
+    "total_lessons": 719,
+    "train_lessons": 607,
+    "test_lessons": 112,
+    "no_session_lessons": 71,
+    "total_edges": 1423,
+    "train_edges": 988,
+    "test_edges": 435,
+    "session_coverage": 0.9013
+  },
+  "training": {
+    "uniform": {
+      "ll": -5579.34,
+      "n_events": 960
+    },
+    "pa": {
+      "ll": -5464.56,
+      "gamma": 0.7000000000000001,
+      "n_events": 960
+    },
+    "proximity": {
+      "ll": -5098.18,
+      "lambda": 0.015,
+      "n_events": 960
+    },
+    "joint": {
+      "ll": -4993.98,
+      "gamma": 0.72,
+      "lambda": 0.016,
+      "n_events": 960
+    }
+  },
+  "test_transfer": {
+    "uniform": {
+      "ll": -2824.8,
+      "n_events": 435
+    },
+    "pa": {
+      "ll": -2700.67,
+      "n_events": 435
+    },
+    "proximity": {
+      "ll": -2600.4,
+      "n_events": 435
+    },
+    "joint": {
+      "ll": -2507.0,
+      "n_events": 435
+    }
+  },
+  "test_oracle": {
+    "pa": {
+      "ll": -2689.35,
+      "gamma": 0.96,
+      "n_events": 435
+    },
+    "proximity": {
+      "ll": -2599.41,
+      "lambda": 0.017,
+      "n_events": 435
+    },
+    "joint": {
+      "ll": -2505.48,
+      "gamma": 0.82,
+      "lambda": 0.016,
+      "n_events": 435
+    }
+  },
+  "improvements_pct": {
+    "train": {
+      "pa": 2.06,
+      "proximity": 8.62,
+      "joint": 10.49
+    },
+    "test_transfer": {
+      "pa": 4.39,
+      "proximity": 7.94,
+      "joint": 11.25
+    },
+    "test_oracle": {
+      "pa": 4.8,
+      "proximity": 7.98,
+      "joint": 11.3
+    }
+  },
+  "transfer_efficiency_pct": {
+    "pa": 91.6,
+    "proximity": 99.6,
+    "joint": 99.5
+  },
+  "param_stability": {
+    "gamma": {
+      "train": 0.72,
+      "oracle": 0.82,
+      "delta": 0.1
+    },
+    "lambda": {
+      "train": 0.016,
+      "oracle": 0.016,
+      "delta": 0.0
+    }
+  },
+  "per_event_ll": {
+    "train": {
+      "uniform": -5.8118,
+      "pa": -5.6923,
+      "proximity": -5.3106,
+      "joint": -5.2021
+    },
+    "test_transfer": {
+      "uniform": -6.4938,
+      "pa": -6.2084,
+      "proximity": -5.9779,
+      "joint": -5.7632
+    },
+    "test_oracle": {
+      "pa": -6.1824,
+      "proximity": -5.9757,
+      "joint": -5.7597
+    }
+  },
+  "test_bic": {
+    "uniform": 5649.6,
+    "pa_transfer": 5407.42,
+    "proximity_transfer": 5206.87,
+    "joint_transfer": 5026.16,
+    "pa_oracle": 5384.77,
+    "proximity_oracle": 5204.89,
+    "joint_oracle": 5023.11
+  },
+  "proximity_check": {
+    "near_cites": 142,
+    "near_exposure": 10715,
+    "near_rate": 0.013252,
+    "far_cites": 64,
+    "far_exposure": 171921,
+    "far_rate": 0.000372,
+    "proximity_ratio": 35.6
+  },
+  "verdict": "Joint OOS LL improvement: 11.3% over uniform (WEAK); Transfer efficiency: 100% (excellent generalization); \u03b3 stable: YES (\u0394=0.100); \u03bb stable: YES (\u0394=0.0000); Proximity ratio (test): 35.6\u00d7",
+  "overall": "PARTIAL"
+}

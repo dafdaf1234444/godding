@@ -1,0 +1,44 @@
+{
+  "experiment": "F-LNG5",
+  "title": "Swarm Universal Grammar — structural constraints across all domain colonies",
+  "session": "S325",
+  "date": "2026-02-28",
+  "domain": "linguistics",
+  "method": "colony_scan",
+  "n_domains": 40,
+  "hypothesis": "All domain colonies share a minimal set of structural constraints (Universal Grammar analog) regardless of domain content.",
+  "scan_results": {
+    "colony_beliefs_section": {"present": 40, "total": 40, "pct": 100},
+    "open_frontiers_tracking": {"present": 40, "total": 40, "pct": 100, "note": "State section lists 'Open frontiers: N'"},
+    "lesson_count_tracking": {"present": 40, "total": 40, "pct": 100, "note": "State section lists 'Lesson count (approx): N'"},
+    "orient_act_compress_handoff_cycle": {"present": 40, "total": 40, "pct": 100, "note": "Swarm protocol block present in all colonies"},
+    "handoff_notes_section": {"present": 39, "total": 40, "pct": 98},
+    "isomorphism_links": {"present": 38, "total": 40, "pct": 95},
+    "principles_section": {"present": 0, "total": 40, "pct": 0, "note": "Root-level only, not colony-level"},
+    "challenges_section": {"present": 0, "total": 40, "pct": 0, "note": "Root-level only"},
+    "check_mode": {"present": 0, "total": 40, "pct": 0, "note": "Session-level, not colony-level"},
+    "proxy_k_tracking": {"present": 0, "total": 40, "pct": 0, "note": "Global economy tool, not per-colony"}
+  },
+  "universal_grammar": [
+    "CB: Colony beliefs (domain-specific priors, labeled CB-N)",
+    "Open frontiers counter in State section",
+    "Lesson count pointer in State section",
+    "Orient→Act→Compress→Handoff cycle declaration",
+    "Handoff notes section for successor continuity"
+  ],
+  "chomsky_analogy": {
+    "merge_operation": "Orient→Act→Compress→Handoff recursive cycle (applies at colony AND sub-colony level)",
+    "parameter_setting": "Colony beliefs (CB-N) — domain-specific, calibrated independently",
+    "x_bar_hierarchy": "frontiers → lanes → tasks (hierarchical dependency structure)",
+    "ug_constraints": "What every colony must have to qualify as a valid swarm instance",
+    "non_universal_elements": ["principles", "challenges", "proxy_k", "check_mode"]
+  },
+  "caveat": "All 40 colonies generated from same template (tools/swarm_colony.py). Circular test — universality reflects template, not emergent convergence. Real test: do colonies retain these after free evolution? Track divergence at S400+.",
+  "verdict": "PARTIAL — structural universals identified at template level. Forward test required for emergent UG claim.",
+  "links": ["F-LNG5", "F119", "F120", "ISO-2", "L-425"],
+  "next_steps": [
+    "Track colony divergence: do colonies retain all 5 universals after 20+ sessions of autonomous activity?",
+    "Test with foreign repos (F120): what survives transplantation?",
+    "Compare to Chomsky UG: are there structural analogs to movement constraints (scope limitations) or binding theory?"
+  ]
+}

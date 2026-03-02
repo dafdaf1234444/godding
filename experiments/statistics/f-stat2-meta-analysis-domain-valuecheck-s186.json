@@ -1,0 +1,276 @@
+{
+  "frontier_id": "F-STAT2",
+  "title": "Cross-domain random-effects meta-analysis",
+  "study_count": 26,
+  "families": {
+    "control_threshold_sweep": 4,
+    "finance_factual_qa": 15,
+    "information_science_lane_distill": 7
+  },
+  "overall": {
+    "k": 26,
+    "pooled_effect": -0.016166,
+    "pooled_se": 0.022294,
+    "ci95": [
+      -0.059862,
+      0.02753
+    ],
+    "tau2": 0.005471,
+    "Q": 49.507784,
+    "I2_percent": 49.50289
+  },
+  "by_family": {
+    "control_threshold_sweep": {
+      "k": 4,
+      "pooled_effect": 0.068959,
+      "pooled_se": 0.053726,
+      "ci95": [
+        -0.036344,
+        0.174263
+      ],
+      "tau2": 0.0,
+      "Q": 1.026758,
+      "I2_percent": 0.0
+    },
+    "finance_factual_qa": {
+      "k": 15,
+      "pooled_effect": -0.001529,
+      "pooled_se": 0.016849,
+      "ci95": [
+        -0.034554,
+        0.031496
+      ],
+      "tau2": 0.0,
+      "Q": 8.004308,
+      "I2_percent": 0.0
+    },
+    "information_science_lane_distill": {
+      "k": 7,
+      "pooled_effect": -0.181423,
+      "pooled_se": 0.094039,
+      "ci95": [
+        -0.365738,
+        0.002893
+      ],
+      "tau2": 0.047814,
+      "Q": 36.178708,
+      "I2_percent": 83.41566
+    }
+  },
+  "transfer_decision": {
+    "label": "inconclusive",
+    "rule": "ci95 above zero => positive; below zero => negative; crossing zero => inconclusive"
+  },
+  "studies": [
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-direct-debug-s186.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0167,
+      "se": 0.089443,
+      "n": 5,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-direct-rerun-s186.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0104,
+      "se": 0.070711,
+      "n": 8,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-direct-rerun20-s186.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0084,
+      "se": 0.044721,
+      "n": 20,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-direct-rerun20b-s186.json",
+      "family": "finance_factual_qa",
+      "effect": 0.0,
+      "se": 0.044721,
+      "n": 20,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-direct-s186.json",
+      "family": "finance_factual_qa",
+      "effect": 0.1666,
+      "se": 0.2,
+      "n": 1,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-p005.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0584,
+      "se": 0.069448,
+      "n": 10,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-p015.json",
+      "family": "finance_factual_qa",
+      "effect": -0.1334,
+      "se": 0.105409,
+      "n": 5,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-p025.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0166,
+      "se": 0.089443,
+      "n": 5,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-p035.json",
+      "family": "finance_factual_qa",
+      "effect": 0.025,
+      "se": 0.063246,
+      "n": 10,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-rerun.json",
+      "family": "finance_factual_qa",
+      "effect": 0.1,
+      "se": 0.089443,
+      "n": 5,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-rerun20-p0.json",
+      "family": "finance_factual_qa",
+      "effect": -0.0166,
+      "se": 0.044721,
+      "n": 20,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-rerun20.json",
+      "family": "finance_factual_qa",
+      "effect": 0.0208,
+      "se": 0.044721,
+      "n": 20,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-rerun8.json",
+      "family": "finance_factual_qa",
+      "effect": 0.0208,
+      "se": 0.070711,
+      "n": 8,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+      "family": "finance_factual_qa",
+      "effect": -0.2083,
+      "se": 0.141421,
+      "n": 2,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/finance/f-fin1-factual-qa-s186.json",
+      "family": "finance_factual_qa",
+      "effect": 0.0833,
+      "se": 0.089443,
+      "n": 5,
+      "metric": "mean_accuracy_n3_minus_n1"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-s186-pass-a.json",
+      "family": "information_science_lane_distill",
+      "effect": 0.0491,
+      "se": 0.108905,
+      "n": 37,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-s186-pass-b.json",
+      "family": "information_science_lane_distill",
+      "effect": 0.028,
+      "se": 0.08919,
+      "n": 41,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-s186-selected-vs-backlog.json",
+      "family": "information_science_lane_distill",
+      "effect": 0.0,
+      "se": 0.044721,
+      "n": 20,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-s186.json",
+      "family": "information_science_lane_distill",
+      "effect": 0.0326,
+      "se": 0.094556,
+      "n": 40,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-tags-s186-overlap.json",
+      "family": "information_science_lane_distill",
+      "effect": -0.7677,
+      "se": 0.181682,
+      "n": 31,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-tags-s186-rerun2.json",
+      "family": "information_science_lane_distill",
+      "effect": -0.2867,
+      "se": 0.151182,
+      "n": 39,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/information-science/f-is5-lane-distill-tags-s186.json",
+      "family": "information_science_lane_distill",
+      "effect": -0.625,
+      "se": 0.150779,
+      "n": 40,
+      "metric": "transfer_acceptance_rate_minus_collision_frequency"
+    },
+    {
+      "study_id": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d03.json",
+      "family": "control_threshold_sweep",
+      "effect": 0.0,
+      "se": 0.106394,
+      "n": 43,
+      "metric": "current_alert_burden_minus_best_alert_burden"
+    },
+    {
+      "study_id": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d05.json",
+      "family": "control_threshold_sweep",
+      "effect": 0.0465,
+      "se": 0.093969,
+      "n": 43,
+      "metric": "current_alert_burden_minus_best_alert_burden"
+    },
+    {
+      "study_id": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all.json",
+      "family": "control_threshold_sweep",
+      "effect": 0.1163,
+      "se": 0.106039,
+      "n": 43,
+      "metric": "current_alert_burden_minus_best_alert_burden"
+    },
+    {
+      "study_id": "experiments/control-theory/f-ctl1-threshold-sweep-s186.json",
+      "family": "control_threshold_sweep",
+      "effect": 0.1481,
+      "se": 0.13373,
+      "n": 27,
+      "metric": "current_alert_burden_minus_best_alert_burden"
+    }
+  ],
+  "notes": "Effects are normalized as improvement deltas from each artifact family. SEs are approximated from available trial/count fields; interpretation should be paired with F-STAT3 multiplicity controls.",
+  "generated_at_utc": "2026-02-27T21:35:57Z"
+}

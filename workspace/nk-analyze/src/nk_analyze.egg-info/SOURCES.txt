@@ -1,0 +1,11 @@
+pyproject.toml
+src/nk_analyze/__init__.py
+src/nk_analyze/cli.py
+src/nk_analyze/core.py
+src/nk_analyze.egg-info/PKG-INFO
+src/nk_analyze.egg-info/SOURCES.txt
+src/nk_analyze.egg-info/dependency_links.txt
+src/nk_analyze.egg-info/entry_points.txt
+src/nk_analyze.egg-info/top_level.txt
+tests/test_analyze_path.py
+tests/test_core.py

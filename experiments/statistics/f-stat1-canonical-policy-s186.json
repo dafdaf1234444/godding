@@ -1,0 +1,145 @@
+{
+  "frontier_id": "F-STAT1",
+  "title": "Canonical promotion policy reconciliation",
+  "inputs": {
+    "experiment_gates": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/statistics/f-stat1-experiment-gates-s186.json",
+    "promotion_gates": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/statistics/f-stat1-promotion-gates-s186.json",
+    "replay_gates": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/statistics/f-stat1-gates-s186.json"
+  },
+  "policy": [
+    {
+      "class_name": "live_query",
+      "status": "PROVISIONAL",
+      "confidence": "LOW",
+      "canonical_gate": {
+        "min_runs": 15,
+        "min_per_run_sample": 300,
+        "min_abs_effect": 0.1733,
+        "promotion_rule": "Promote only when independent run count, per-run sample, and absolute effect all meet or exceed this class gate."
+      },
+      "source_gates": {
+        "experiment_gates": {
+          "min_runs": 15,
+          "min_per_run_sample": 8,
+          "min_abs_effect": 0.0477
+        },
+        "promotion_gates": {
+          "min_per_run_sample": 300,
+          "min_abs_effect": 0.05
+        },
+        "replay_gates": {
+          "min_per_run_sample": 300,
+          "min_abs_effect": 0.1733
+        }
+      },
+      "diagnostics": {
+        "effect_threshold_ratio_max_over_min": 3.6331,
+        "issues": [
+          "effect_threshold_dispersion",
+          "underpowered_practical_cap",
+          "mixed_regime_risk"
+        ],
+        "prerequisites": [
+          "Increase live_query sample target toward power-model n_for_80pct or keep practical-cap caveat explicit.",
+          "Split live_query by scoring regime (resolver-proxy vs direct-answer) before hard-locking gates."
+        ],
+        "promotion_data_confidence": "HIGH",
+        "replay_confidence": "HIGH",
+        "estimated_power_at_recommended_n": 0.2315,
+        "power_model_n_for_80pct": 1565
+      }
+    },
+    {
+      "class_name": "simulation",
+      "status": "PROVISIONAL",
+      "confidence": "MEDIUM",
+      "canonical_gate": {
+        "min_runs": 4,
+        "min_per_run_sample": 80,
+        "min_abs_effect": 0.2442,
+        "promotion_rule": "Promote only when independent run count, per-run sample, and absolute effect all meet or exceed this class gate."
+      },
+      "source_gates": {
+        "experiment_gates": {
+          "min_runs": 4,
+          "min_per_run_sample": 43,
+          "min_abs_effect": 0.0389
+        },
+        "promotion_gates": {
+          "min_per_run_sample": 80,
+          "min_abs_effect": 0.2442
+        },
+        "replay_gates": {
+          "min_per_run_sample": 43,
+          "min_abs_effect": 0.1242
+        }
+      },
+      "diagnostics": {
+        "effect_threshold_ratio_max_over_min": 6.2776,
+        "issues": [
+          "effect_threshold_dispersion"
+        ],
+        "prerequisites": [],
+        "promotion_data_confidence": "HIGH",
+        "replay_confidence": "LOW",
+        "estimated_power_at_recommended_n": 0.8707,
+        "power_model_n_for_80pct": 66
+      }
+    },
+    {
+      "class_name": "lane_log_extraction",
+      "status": "PROVISIONAL",
+      "confidence": "MEDIUM",
+      "canonical_gate": {
+        "min_runs": 8,
+        "min_per_run_sample": 34,
+        "min_abs_effect": 0.4583,
+        "promotion_rule": "Promote only when independent run count, per-run sample, and absolute effect all meet or exceed this class gate."
+      },
+      "source_gates": {
+        "experiment_gates": {
+          "min_runs": 8,
+          "min_per_run_sample": 28,
+          "min_abs_effect": 0.1241
+        },
+        "promotion_gates": {
+          "min_per_run_sample": 28,
+          "min_abs_effect": 0.2195
+        },
+        "replay_gates": {
+          "min_per_run_sample": 34,
+          "min_abs_effect": 0.4583
+        }
+      },
+      "diagnostics": {
+        "effect_threshold_ratio_max_over_min": 3.693,
+        "issues": [
+          "effect_threshold_dispersion"
+        ],
+        "prerequisites": [
+          "Add independent replications with explicit transfer tags until lane threshold spread narrows."
+        ],
+        "promotion_data_confidence": "MEDIUM",
+        "replay_confidence": "MEDIUM",
+        "estimated_power_at_recommended_n": null,
+        "power_model_n_for_80pct": null
+      }
+    }
+  ],
+  "summary": {
+    "ready_classes": [],
+    "provisional_classes": [
+      "live_query",
+      "simulation",
+      "lane_log_extraction"
+    ],
+    "all_classes_ready": false,
+    "policy_lock_recommended": false
+  },
+  "notes": [
+    "Canonical gate picks the strictest threshold (max sample, max effect) across available source gates.",
+    "A class is PROVISIONAL when source dispersion or known methodological caveats remain unresolved.",
+    "Live-query class remains provisional until regime split and power-gap handling are explicit."
+  ],
+  "generated_at_utc": "2026-02-27T21:29:19Z"
+}

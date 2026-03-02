@@ -1,0 +1,76 @@
+{
+  "session": "S390",
+  "frontier": "F-STR3",
+  "lane": "DOMEX-STR-S390b",
+  "date": "2026-03-01",
+  "title": "Explicit mode= field: open_lane.py + dispatch_optimizer.py fix",
+  "cites": ["L-766", "L-755", "L-764"],
+
+  "problem": {
+    "description": "L-766 found 0% mode-shift adoption across 8 multi-wave campaigns. Root cause: mode inferred from intent= keyword matching in dispatch_optimizer.py. Intent field often omitted or generic. 100% of multi-wave lanes misclassified as exploration.",
+    "bottleneck": "Classification accuracy, not dispatch quality"
+  },
+
+  "changes": {
+    "open_lane.py": {
+      "added": "--mode {exploration,hardening,replication,resolution}",
+      "behavior": [
+        "Includes mode=X in Etc column when specified",
+        "For 2nd+ wave lanes: WARN if mode repeats previous wave (valley-of-death signal)",
+        "For 2nd+ wave lanes: WARN if --mode omitted (prompt to make explicit)",
+        "For 2nd+ wave lanes: INFO if mode shift detected (positive reinforcement)"
+      ],
+      "function_added": "get_frontier_previous_mode(frontier_id) -> str | None"
+    },
+    "dispatch_optimizer.py": {
+      "changed": "_get_campaign_waves() mode detection",
+      "behavior": "Prefers explicit mode= field over keyword inference from intent=",
+      "pattern": "re.search(r'\\bmode=(exploration|hardening|replication|resolution)\\b', etc)"
+    }
+  },
+
+  "tests": [
+    {
+      "case": "mode repeat (exploration→exploration)",
+      "input": "--mode exploration on F-STR3 (prior mode: exploration)",
+      "expected": "WARN about valley-of-death risk",
+      "actual": "WARN: mode=exploration repeats previous wave mode for F-STR3. Mode-repeat is the #1 predictor of valley-of-death stalls (L-755/L-766). Consider a different mode: hardening, replication, resolution",
+      "pass": true
+    },
+    {
+      "case": "mode shift (exploration→hardening)",
+      "input": "--mode hardening on F-STR3 (prior mode: exploration)",
+      "expected": "INFO positive reinforcement",
+      "actual": "INFO: mode shift exploration → hardening for F-STR3 — mode transition increases resolution probability (L-755).",
+      "pass": true
+    },
+    {
+      "case": "no mode + multi-wave frontier",
+      "input": "no --mode on F-STR3",
+      "expected": "WARN to add --mode",
+      "actual": "WARN: F-STR3 has prior lane(s) (last mode: ...). Consider --mode to make campaign progression explicit.",
+      "pass": true
+    },
+    {
+      "case": "dispatch_optimizer wave plan still works",
+      "input": "python3 tools/dispatch_optimizer.py --wave-plan",
+      "expected": "no errors, still shows 11 unresolved campaigns",
+      "actual": "11 unresolved campaigns, 4 COMMIT, 6 mode stalls",
+      "pass": true
+    }
+  ],
+
+  "diff_from_expect": {
+    "expected": "open_lane.py gains --mode param; dispatch_optimizer uses explicit mode= not keyword intent; 2nd+ wave warns on mode repeat",
+    "actual": "All 3 expected behaviors implemented. Additional: advisory WARN when --mode omitted for multi-wave frontier (not just repeat).",
+    "unexpected": "Dispatch_optimizer wave plan output unchanged (no new explicit modes to consume yet — all historical lanes used keyword inference)"
+  },
+
+  "open_questions": [
+    "Will agents actually use --mode when opening lanes? Adoption requires doc update or enforced required field.",
+    "Should --mode be REQUIRED (not optional) for 2nd+ wave lanes? Current design warns but doesn't block.",
+    "Prospective test: do explicit mode= lanes have higher resolution rate than keyword-inferred ones?"
+  ],
+
+  "verdict": "IMPLEMENTED — fix addresses bottleneck identified in L-766. Adoption is voluntary; consider making required for 2nd+ wave lanes in future."
+}

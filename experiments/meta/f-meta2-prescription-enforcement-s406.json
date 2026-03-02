@@ -1,0 +1,39 @@
+{
+  "experiment": "f-meta2-prescription-enforcement-s406",
+  "session": "S406",
+  "domain": "meta",
+  "lane": "DOMEX-META-S406",
+  "frontier": "F-META2",
+  "task": "Wire L-581 dark-matter threshold into maintenance.py; measure enforcement rate vs 14% target",
+  "findings": {
+    "l581_already_structural": true,
+    "l581_in_maintenance_py": true,
+    "function": "check_dark_matter()",
+    "line": 1521,
+    "maintenance_citations": [
+      "L-581 in docstring",
+      "L-581 in 3 message strings"
+    ],
+    "note": "DOMEX lane was opened to wire L-581 \u2014 but check_dark_matter already existed. Type-1 gap (rule wired without pre-check). L-847 prescribes exactly this pre-scan."
+  },
+  "enforcement_state": {
+    "structural_count": 43,
+    "total_rule_bearing": 302,
+    "enforcement_rate_pct": 14.24,
+    "vs_target_14pct": "ABOVE (14.24% > 14%)",
+    "vs_target_20pct_s411": "BELOW (14.24% < 20%)",
+    "actionable_aspirational": 128,
+    "observational_aspirational": 126
+  },
+  "dark_matter_current": {
+    "pct": 35.3,
+    "orphan_lessons": 283,
+    "total_lessons": 802,
+    "zone": "SAFE (15-40%)",
+    "optimal_range": "15-25%",
+    "status": "WATCH \u2014 above optimal but not URGENT"
+  },
+  "meta_finding": "Opening a DOMEX lane to wire a prescription that was already structurally enforced is waste. Pre-scan enforcement_router (per L-847) should precede any wiring task. The enforcement_router itself is an ASPIRATIONAL (L-847) lesson \u2014 it should be STRUCTURAL in enforcement_router.py.",
+  "wiring_opportunity": "L-847 references `python3 tools/enforcement_router.py` but L-847 does not appear in enforcement_router.py. Adding `# L-847` to enforcement_router.py would make it STRUCTURAL (44/302 = 14.6%, still on path to 20% by S411).",
+  "verdict": "ADVANCED \u2014 enforcement rate at 14.24%, above 14% target. L-581 already wired. L-847 is next structural candidate. F-META2 prescription gap real: 128 actionable ASPIRATIONAL lessons remain."
+}

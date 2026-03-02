@@ -1,0 +1,89 @@
+{
+  "frontier_id": "F-EVO1",
+  "session": 188,
+  "created_on": "2026-02-28",
+  "description": "Cross-session diversity vs novelty-yield coupling (S175-S188)",
+  "n_sessions_analyzed": 5,
+  "n_sessions_eligible": 5,
+  "diversity_yield_correlation": 0.5625,
+  "hhi_yield_correlation": 0.4315,
+  "interpretation": {
+    "diversity_yield": "positive = diverse sessions produce more L+P; negative = focus wins",
+    "hhi_yield": "negative = diverse focus (low HHI) produces more L+P"
+  },
+  "mean_scope_diversity": 0.5267,
+  "mean_yield_lp": 5.8,
+  "per_session": [
+    {
+      "session": "S348",
+      "yield_lp": 8,
+      "merged_lanes": 6,
+      "unique_scope_keys": 2,
+      "scope_diversity_ratio": 0.3333,
+      "focus_hhi": 0.3333,
+      "frontier_count": 0,
+      "focus_distribution": {
+        "global": 3,
+        "domains/psychology": 1,
+        "governance": 1,
+        "domains/meta": 1
+      }
+    },
+    {
+      "session": "S349",
+      "yield_lp": 9,
+      "merged_lanes": 2,
+      "unique_scope_keys": 2,
+      "scope_diversity_ratio": 1.0,
+      "focus_hhi": 1.0,
+      "frontier_count": 0,
+      "focus_distribution": {
+        "global": 2
+      }
+    },
+    {
+      "session": "S350",
+      "yield_lp": 5,
+      "merged_lanes": 4,
+      "unique_scope_keys": 2,
+      "scope_diversity_ratio": 0.5,
+      "focus_hhi": 1.0,
+      "frontier_count": 0,
+      "focus_distribution": {
+        "global": 4
+      }
+    },
+    {
+      "session": "S351",
+      "yield_lp": 5,
+      "merged_lanes": 5,
+      "unique_scope_keys": 2,
+      "scope_diversity_ratio": 0.4,
+      "focus_hhi": 0.28,
+      "frontier_count": 0,
+      "focus_distribution": {
+        "global": 2,
+        "domains/meta": 1,
+        "domains/ai": 1,
+        "compaction": 1
+      }
+    },
+    {
+      "session": "S352",
+      "yield_lp": 2,
+      "merged_lanes": 5,
+      "unique_scope_keys": 2,
+      "scope_diversity_ratio": 0.4,
+      "focus_hhi": 0.28,
+      "frontier_count": 0,
+      "focus_distribution": {
+        "global": 2,
+        "domains/control-theory": 1,
+        "domains/finance": 1,
+        "domains/evolution": 1
+      }
+    }
+  ],
+  "s186_baseline_ref": "experiments/evolution/f-evo1-lane-diversity-s186.json",
+  "next_step": "If |diversity_yield_corr| < 0.3: inconclusive (need more sessions); if positive: bias toward heterogeneous lane allocation; if negative: tight-focus allocation preferred"
+}

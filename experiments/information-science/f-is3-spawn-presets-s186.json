@@ -1,0 +1,103 @@
+{
+  "experiment": "F-IS3-spawn-presets",
+  "source_artifacts": {
+    "sensitivity": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is3-sensitivity-s186.json",
+    "calibrated": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is3-spawn-math-s186-calibrated.json"
+  },
+  "sensitivity_summary": {
+    "spawn_true_cases": 22,
+    "spawn_false_cases": 8,
+    "n2_cases": 15,
+    "n3plus_cases": 7
+  },
+  "regime_envelopes": {
+    "no_spawn": {
+      "count": 8,
+      "rho_min": 0.2,
+      "rho_max": 0.5,
+      "coordination_cost_min": 0.03,
+      "coordination_cost_max": 0.05,
+      "best_n_values": [
+        1
+      ]
+    },
+    "duo_spawn": {
+      "count": 15,
+      "rho_min": 0.0,
+      "rho_max": 0.5,
+      "coordination_cost_min": 0.01,
+      "coordination_cost_max": 0.05,
+      "best_n_values": [
+        2
+      ]
+    },
+    "broad_spawn": {
+      "count": 7,
+      "rho_min": 0.0,
+      "rho_max": 0.4,
+      "coordination_cost_min": 0.01,
+      "coordination_cost_max": 0.02,
+      "best_n_values": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "presets": [
+    {
+      "id": "P0-no-spawn",
+      "intent": "High coupling or high overhead tasks where diversification benefit is dominated by coordination risk.",
+      "recommended_n": 1,
+      "operating_regime": {
+        "rho_gte": 0.3,
+        "coordination_cost_gte": 0.04
+      },
+      "task_classes": [
+        "hotfile-synchronization",
+        "sequential-verification",
+        "shared-state-editing"
+      ]
+    },
+    {
+      "id": "P1-duo-spawn",
+      "intent": "Default exploration/synthesis split with bounded coordination overhead.",
+      "recommended_n": 2,
+      "operating_regime": {
+        "rho_between": [
+          0.0,
+          0.5
+        ],
+        "coordination_cost_between": [
+          0.02,
+          0.05
+        ]
+      },
+      "task_classes": [
+        "frontier-probe-plus-verifier",
+        "analysis-plus-fact-check",
+        "bounded-domain-experiment"
+      ]
+    },
+    {
+      "id": "P2-broad-spawn",
+      "intent": "Low-coupling, low-overhead discovery where parallel diversity dominates.",
+      "recommended_n": 3,
+      "operating_regime": {
+        "rho_lte": 0.2,
+        "coordination_cost_lte": 0.02
+      },
+      "task_classes": [
+        "independent-domain-scan",
+        "multi-topic-hypothesis-generation",
+        "parallel-read-only-harvest"
+      ]
+    }
+  ],
+  "calibration_note": {
+    "ai2_inferred_rho": 0.03201330798479087,
+    "ai2_inferred_coordination_cost": 0.01,
+    "ai2_best_n_raw": 6,
+    "interpretation": "AI2 calibration uses a low coordination-cost floor; apply P2 only when measured overhead stays at or below the low-cost regime."
+  }
+}

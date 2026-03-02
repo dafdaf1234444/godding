@@ -1,0 +1,40 @@
+{
+  "frontier_id": "F-ECO5",
+  "session": "S352",
+  "date": "2026-03-01",
+  "hypothesis": "Explicit dispatch scores increase domain coverage uniformity by ≥15%",
+  "method": "Parse DOMEX lanes from SWARM-LANES.md + ARCHIVE. Split at S302 (dispatch optimizer introduced). Compare Gini coefficient and domain coverage ratio across eras.",
+  "pre_dispatch_era": {
+    "sessions": "S1-S301",
+    "unique_domex_lanes": 67,
+    "unique_domains": 37,
+    "domain_coverage_pct": 88.1,
+    "gini": 0.3622,
+    "merged_rate_pct": 52,
+    "top_domains": ["nk-complexity(8)", "meta(6)", "linguistics(6)"]
+  },
+  "post_dispatch_era": {
+    "sessions": "S302-S352",
+    "unique_domex_lanes": 72,
+    "unique_domains": 29,
+    "domain_coverage_pct": 69.0,
+    "gini": 0.4588,
+    "merged_rate_pct": 75,
+    "top_domains": ["meta(13)", "nk-complexity(8)", "linguistics(8)", "conflict(5)"]
+  },
+  "result": {
+    "uniformity_change_pct": -26.7,
+    "coverage_change_pp": -19.0,
+    "merge_rate_change_pp": 23.0,
+    "verdict": "NEGATIVE — dispatch scores concentrate work, not spread it",
+    "f_eco5_threshold_met": false
+  },
+  "interpretation": "Explicit pricing (dispatch scores) trades breadth for depth. The optimizer directs work to high-scoring domains, improving merge rate (quality) but reducing coverage (diversity). This is the classic exploration-exploitation tradeoff. The swarm's dispatch mechanism is an exploitation amplifier, not a diversity mechanism.",
+  "recommendation": "To improve coverage uniformity: (1) add dormant-domain bonus in dispatch scoring (already exists as +3.0 but insufficient), (2) enforce minimum per-domain DOMEX cadence (at least 1 lane per 20 sessions per domain), (3) separate 'exploration budget' that dispatches to lowest-coverage domains regardless of score.",
+  "caveats": [
+    "Lane ID parsing has noise (abbreviation codes not fully mapped)",
+    "Pre-dispatch era includes many S186 expert-generator lanes (batch creation inflates count)",
+    "Post-dispatch era is shorter (50 sessions vs 301 sessions)"
+  ],
+  "iso": "ISO-1 (resource allocation optimization), ISO-7 (specialization tradeoff)"
+}

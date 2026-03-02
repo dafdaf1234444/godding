@@ -1,0 +1,5845 @@
+{
+  "frontier_id": "F-IS3",
+  "title": "Spawn math analytic-vs-simulation validation",
+  "generated_at": "2026-02-28T11:58:28.787639+00:00",
+  "inputs": {
+    "grid_error_rates": [
+      0.15,
+      0.25,
+      0.35
+    ],
+    "grid_rhos": [
+      0.0,
+      0.1,
+      0.2,
+      0.35,
+      0.5
+    ],
+    "grid_coordination_costs": [
+      0.01,
+      0.03,
+      0.05,
+      0.08,
+      0.12
+    ],
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "trials": 3000,
+    "seed": 307,
+    "calibrated_model": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is3-spawn-math-s186-cost-calibrated.json",
+    "model": "heterogeneous",
+    "agent_sd": 0.05,
+    "difficulty_sd": 0.05
+  },
+  "summary": {
+    "grid": {
+      "scenario_count": 75,
+      "recommendation_match_rate": 0.48,
+      "recommendation_within_one_n_rate": 0.906667,
+      "mismatch_low_margin_rate": 0.589744,
+      "mean_abs_utility_error": 0.03806,
+      "max_abs_utility_error": 0.267781
+    },
+    "calibrated_model_check": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.25575,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    }
+  },
+  "grid": {
+    "scenario_count": 75,
+    "recommendation_match_count": 36,
+    "recommendation_match_rate": 0.48,
+    "recommendation_within_one_n_rate": 0.906667,
+    "mismatch_low_margin_rate": 0.589744,
+    "mean_abs_utility_error": 0.03806,
+    "max_abs_utility_error": 0.267781,
+    "mismatch_examples": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 307,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.654226,
+          "simulated_best_utility": 0.678146,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.003913
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 309,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.547512,
+          "simulated_best_utility": 0.520022,
+          "best_n_gap": -3,
+          "analytic_top2_margin": 0.003668
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 311,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.536363,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.015416
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 312,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.621464,
+          "simulated_best_utility": 0.652234,
+          "best_n_gap": 3,
+          "analytic_top2_margin": 0.000409
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 313,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.564168,
+          "simulated_best_utility": 0.76071,
+          "best_n_gap": 2,
+          "analytic_top2_margin": 0.00773
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 315,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.505189,
+          "simulated_best_utility": 0.58313,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.01226
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 316,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.464193,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.02774
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 317,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.595757,
+          "simulated_best_utility": 0.662481,
+          "best_n_gap": 4,
+          "analytic_top2_margin": 0.001589
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 318,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.546074,
+          "simulated_best_utility": 0.595778,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.00266
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 320,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.643635,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 307,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.654226,
+          "simulated_best_utility": 0.678146,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.003913
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.557937,
+            "abs_utility_error": 0.065008,
+            "simulated_mean_quality": 0.881333,
+            "simulated_std_quality": 0.323396
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.587512,
+            "simulated_utility": 0.606268,
+            "abs_utility_error": 0.018756,
+            "simulated_mean_quality": 0.861167,
+            "simulated_std_quality": 0.244899
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.623845,
+            "simulated_utility": 0.671315,
+            "abs_utility_error": 0.04747,
+            "simulated_mean_quality": 0.882333,
+            "simulated_std_quality": 0.191018
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.641464,
+            "simulated_utility": 0.658952,
+            "abs_utility_error": 0.017488,
+            "simulated_mean_quality": 0.863833,
+            "simulated_std_quality": 0.174882
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.650313,
+            "simulated_utility": 0.678146,
+            "abs_utility_error": 0.027833,
+            "simulated_mean_quality": 0.8706,
+            "simulated_std_quality": 0.152454
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.654226,
+            "simulated_utility": 0.627018,
+            "abs_utility_error": 0.027208,
+            "simulated_mean_quality": 0.834278,
+            "simulated_std_quality": 0.15726
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 308,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.583845,
+          "simulated_best_utility": 0.630671,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00238
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.392453,
+            "abs_utility_error": 0.100476,
+            "simulated_mean_quality": 0.795667,
+            "simulated_std_quality": 0.403214
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.567512,
+            "simulated_utility": 0.602299,
+            "abs_utility_error": 0.034787,
+            "simulated_mean_quality": 0.8685,
+            "simulated_std_quality": 0.236201
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.583845,
+            "simulated_utility": 0.630671,
+            "abs_utility_error": 0.046826,
+            "simulated_mean_quality": 0.880889,
+            "simulated_std_quality": 0.190218
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.581464,
+            "simulated_utility": 0.564277,
+            "abs_utility_error": 0.017187,
+            "simulated_mean_quality": 0.842417,
+            "simulated_std_quality": 0.18814
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.570313,
+            "simulated_utility": 0.521753,
+            "abs_utility_error": 0.04856,
+            "simulated_mean_quality": 0.819667,
+            "simulated_std_quality": 0.177914
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.554226,
+            "simulated_utility": 0.612345,
+            "abs_utility_error": 0.058119,
+            "simulated_mean_quality": 0.894278,
+            "simulated_std_quality": 0.131932
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 309,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.547512,
+          "simulated_best_utility": 0.520022,
+          "best_n_gap": -3,
+          "analytic_top2_margin": 0.003668
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.485051,
+            "abs_utility_error": 0.007878,
+            "simulated_mean_quality": 0.846,
+            "simulated_std_quality": 0.360949
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.547512,
+            "simulated_utility": 0.512513,
+            "abs_utility_error": 0.034999,
+            "simulated_mean_quality": 0.829833,
+            "simulated_std_quality": 0.26732
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.543845,
+            "simulated_utility": 0.515977,
+            "abs_utility_error": 0.027868,
+            "simulated_mean_quality": 0.836889,
+            "simulated_std_quality": 0.220912
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.469712,
+            "abs_utility_error": 0.051752,
+            "simulated_mean_quality": 0.814583,
+            "simulated_std_quality": 0.194871
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.490313,
+            "simulated_utility": 0.520022,
+            "abs_utility_error": 0.029709,
+            "simulated_mean_quality": 0.8756,
+            "simulated_std_quality": 0.155578
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.454226,
+            "simulated_utility": 0.436242,
+            "abs_utility_error": 0.017984,
+            "simulated_mean_quality": 0.843,
+            "simulated_std_quality": 0.156758
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 310,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.517512,
+          "simulated_best_utility": 0.56454,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.024584
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.54286,
+            "abs_utility_error": 0.049931,
+            "simulated_mean_quality": 0.874333,
+            "simulated_std_quality": 0.331473
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.517512,
+            "simulated_utility": 0.56454,
+            "abs_utility_error": 0.047028,
+            "simulated_mean_quality": 0.877,
+            "simulated_std_quality": 0.23246
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.483845,
+            "simulated_utility": 0.457662,
+            "abs_utility_error": 0.026183,
+            "simulated_mean_quality": 0.833,
+            "simulated_std_quality": 0.215338
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.431464,
+            "simulated_utility": 0.4501,
+            "abs_utility_error": 0.018636,
+            "simulated_mean_quality": 0.864167,
+            "simulated_std_quality": 0.174067
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370313,
+            "simulated_utility": 0.351812,
+            "abs_utility_error": 0.018501,
+            "simulated_mean_quality": 0.839533,
+            "simulated_std_quality": 0.167721
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.304226,
+            "simulated_utility": 0.314074,
+            "abs_utility_error": 0.009848,
+            "simulated_mean_quality": 0.8615,
+            "simulated_std_quality": 0.147426
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 311,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.536363,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.015416
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.441331,
+            "abs_utility_error": 0.051598,
+            "simulated_mean_quality": 0.823,
+            "simulated_std_quality": 0.381669
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.477512,
+            "simulated_utility": 0.536363,
+            "abs_utility_error": 0.058851,
+            "simulated_mean_quality": 0.885,
+            "simulated_std_quality": 0.228637
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.403845,
+            "simulated_utility": 0.370619,
+            "abs_utility_error": 0.033226,
+            "simulated_mean_quality": 0.829333,
+            "simulated_std_quality": 0.218714
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.311464,
+            "simulated_utility": 0.317714,
+            "abs_utility_error": 0.00625,
+            "simulated_mean_quality": 0.856583,
+            "simulated_std_quality": 0.178869
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.210313,
+            "simulated_utility": 0.199529,
+            "abs_utility_error": 0.010784,
+            "simulated_mean_quality": 0.844,
+            "simulated_std_quality": 0.164471
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.104226,
+            "simulated_utility": 0.066478,
+            "abs_utility_error": 0.037748,
+            "simulated_mean_quality": 0.825722,
+            "simulated_std_quality": 0.159244
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 312,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.621464,
+          "simulated_best_utility": 0.652234,
+          "best_n_gap": 3,
+          "analytic_top2_margin": 0.000409
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.601558,
+            "abs_utility_error": 0.108629,
+            "simulated_mean_quality": 0.900667,
+            "simulated_std_quality": 0.299109
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.575189,
+            "simulated_utility": 0.521001,
+            "abs_utility_error": 0.054188,
+            "simulated_mean_quality": 0.816833,
+            "simulated_std_quality": 0.285832
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.604168,
+            "simulated_utility": 0.652234,
+            "abs_utility_error": 0.048066,
+            "simulated_mean_quality": 0.882,
+            "simulated_std_quality": 0.209766
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.616438,
+            "simulated_utility": 0.519459,
+            "abs_utility_error": 0.096979,
+            "simulated_mean_quality": 0.778417,
+            "simulated_std_quality": 0.228958
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.621056,
+            "simulated_utility": 0.649094,
+            "abs_utility_error": 0.028038,
+            "simulated_mean_quality": 0.8732,
+            "simulated_std_quality": 0.184106
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.621464,
+            "simulated_utility": 0.584459,
+            "abs_utility_error": 0.037005,
+            "simulated_mean_quality": 0.829111,
+            "simulated_std_quality": 0.194652
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 313,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.564168,
+          "simulated_best_utility": 0.76071,
+          "best_n_gap": 2,
+          "analytic_top2_margin": 0.00773
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.76071,
+            "abs_utility_error": 0.267781,
+            "simulated_mean_quality": 0.959,
+            "simulated_std_quality": 0.19829
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.555189,
+            "simulated_utility": 0.640214,
+            "abs_utility_error": 0.085025,
+            "simulated_mean_quality": 0.8985,
+            "simulated_std_quality": 0.228286
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.564168,
+            "simulated_utility": 0.544759,
+            "abs_utility_error": 0.019409,
+            "simulated_mean_quality": 0.837889,
+            "simulated_std_quality": 0.23313
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.556438,
+            "simulated_utility": 0.521007,
+            "abs_utility_error": 0.035431,
+            "simulated_mean_quality": 0.82525,
+            "simulated_std_quality": 0.214243
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.541056,
+            "simulated_utility": 0.513112,
+            "abs_utility_error": 0.027944,
+            "simulated_mean_quality": 0.832733,
+            "simulated_std_quality": 0.199621
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.453227,
+            "abs_utility_error": 0.068237,
+            "simulated_mean_quality": 0.805833,
+            "simulated_std_quality": 0.202606
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 314,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.535189,
+          "simulated_best_utility": 0.66963,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.011021
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.475968,
+            "abs_utility_error": 0.016961,
+            "simulated_mean_quality": 0.841333,
+            "simulated_std_quality": 0.365365
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.535189,
+            "simulated_utility": 0.66963,
+            "abs_utility_error": 0.134441,
+            "simulated_mean_quality": 0.920833,
+            "simulated_std_quality": 0.201203
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.524168,
+            "simulated_utility": 0.513524,
+            "abs_utility_error": 0.010644,
+            "simulated_mean_quality": 0.844667,
+            "simulated_std_quality": 0.231143
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.496438,
+            "simulated_utility": 0.483218,
+            "abs_utility_error": 0.01322,
+            "simulated_mean_quality": 0.842083,
+            "simulated_std_quality": 0.208866
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.461056,
+            "simulated_utility": 0.442416,
+            "abs_utility_error": 0.01864,
+            "simulated_mean_quality": 0.838533,
+            "simulated_std_quality": 0.196117
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.421464,
+            "simulated_utility": 0.386033,
+            "abs_utility_error": 0.035431,
+            "simulated_mean_quality": 0.828222,
+            "simulated_std_quality": 0.19219
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 315,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.505189,
+          "simulated_best_utility": 0.58313,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.01226
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.58313,
+            "abs_utility_error": 0.090201,
+            "simulated_mean_quality": 0.892667,
+            "simulated_std_quality": 0.309537
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.505189,
+            "simulated_utility": 0.47368,
+            "abs_utility_error": 0.031509,
+            "simulated_mean_quality": 0.8345,
+            "simulated_std_quality": 0.28082
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.464168,
+            "simulated_utility": 0.451778,
+            "abs_utility_error": 0.01239,
+            "simulated_mean_quality": 0.846333,
+            "simulated_std_quality": 0.234555
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.406438,
+            "simulated_utility": 0.331215,
+            "abs_utility_error": 0.075223,
+            "simulated_mean_quality": 0.803417,
+            "simulated_std_quality": 0.232201
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.341056,
+            "simulated_utility": 0.402188,
+            "abs_utility_error": 0.061132,
+            "simulated_mean_quality": 0.892267,
+            "simulated_std_quality": 0.170079
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.271464,
+            "simulated_utility": 0.276448,
+            "abs_utility_error": 0.004984,
+            "simulated_mean_quality": 0.850389,
+            "simulated_std_quality": 0.173941
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 316,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.464193,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.02774
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.302398,
+            "abs_utility_error": 0.190531,
+            "simulated_mean_quality": 0.740667,
+            "simulated_std_quality": 0.438269
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.465189,
+            "simulated_utility": 0.464193,
+            "abs_utility_error": 0.000996,
+            "simulated_mean_quality": 0.849333,
+            "simulated_std_quality": 0.265141
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.411716,
+            "abs_utility_error": 0.027548,
+            "simulated_mean_quality": 0.868333,
+            "simulated_std_quality": 0.216618
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.286438,
+            "simulated_utility": 0.312176,
+            "abs_utility_error": 0.025738,
+            "simulated_mean_quality": 0.866833,
+            "simulated_std_quality": 0.194658
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.181056,
+            "simulated_utility": 0.202362,
+            "abs_utility_error": 0.021306,
+            "simulated_mean_quality": 0.865467,
+            "simulated_std_quality": 0.183105
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.071464,
+            "simulated_utility": 0.061827,
+            "abs_utility_error": 0.009637,
+            "simulated_mean_quality": 0.846056,
+            "simulated_std_quality": 0.184228
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 317,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.595757,
+          "simulated_best_utility": 0.662481,
+          "best_n_gap": 4,
+          "analytic_top2_margin": 0.001589
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.662481,
+            "abs_utility_error": 0.169552,
+            "simulated_mean_quality": 0.925333,
+            "simulated_std_quality": 0.262853
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.563414,
+            "simulated_utility": 0.492647,
+            "abs_utility_error": 0.070767,
+            "simulated_mean_quality": 0.809,
+            "simulated_std_quality": 0.306353
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.586074,
+            "simulated_utility": 0.623541,
+            "abs_utility_error": 0.037467,
+            "simulated_mean_quality": 0.871333,
+            "simulated_std_quality": 0.227792
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.594168,
+            "simulated_utility": 0.580912,
+            "abs_utility_error": 0.013256,
+            "simulated_mean_quality": 0.845333,
+            "simulated_std_quality": 0.234421
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.595757,
+            "simulated_utility": 0.635202,
+            "abs_utility_error": 0.039445,
+            "simulated_mean_quality": 0.8776,
+            "simulated_std_quality": 0.202398
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.593845,
+            "simulated_utility": 0.628014,
+            "abs_utility_error": 0.034169,
+            "simulated_mean_quality": 0.875111,
+            "simulated_std_quality": 0.197097
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 318,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.546074,
+          "simulated_best_utility": 0.595778,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.00266
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.510978,
+            "abs_utility_error": 0.018049,
+            "simulated_mean_quality": 0.859,
+            "simulated_std_quality": 0.348022
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.543414,
+            "simulated_utility": 0.595778,
+            "abs_utility_error": 0.052364,
+            "simulated_mean_quality": 0.878,
+            "simulated_std_quality": 0.252222
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.546074,
+            "simulated_utility": 0.483958,
+            "abs_utility_error": 0.062116,
+            "simulated_mean_quality": 0.813333,
+            "simulated_std_quality": 0.269375
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.534168,
+            "simulated_utility": 0.505282,
+            "abs_utility_error": 0.028886,
+            "simulated_mean_quality": 0.836083,
+            "simulated_std_quality": 0.240802
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.515757,
+            "simulated_utility": 0.472532,
+            "abs_utility_error": 0.043225,
+            "simulated_mean_quality": 0.824533,
+            "simulated_std_quality": 0.232002
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.493845,
+            "simulated_utility": 0.524099,
+            "abs_utility_error": 0.030254,
+            "simulated_mean_quality": 0.871111,
+            "simulated_std_quality": 0.197012
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 319,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.523414,
+          "simulated_best_utility": 0.546197,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01734
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.399417,
+            "abs_utility_error": 0.093512,
+            "simulated_mean_quality": 0.799667,
+            "simulated_std_quality": 0.40025
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.523414,
+            "simulated_utility": 0.546197,
+            "abs_utility_error": 0.022783,
+            "simulated_mean_quality": 0.8635,
+            "simulated_std_quality": 0.267303
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.506074,
+            "simulated_utility": 0.47307,
+            "abs_utility_error": 0.033004,
+            "simulated_mean_quality": 0.832556,
+            "simulated_std_quality": 0.259486
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.474168,
+            "simulated_utility": 0.383718,
+            "abs_utility_error": 0.09045,
+            "simulated_mean_quality": 0.792667,
+            "simulated_std_quality": 0.258949
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.435757,
+            "simulated_utility": 0.464542,
+            "abs_utility_error": 0.028785,
+            "simulated_mean_quality": 0.869333,
+            "simulated_std_quality": 0.204791
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.393845,
+            "simulated_utility": 0.415305,
+            "abs_utility_error": 0.02146,
+            "simulated_mean_quality": 0.869222,
+            "simulated_std_quality": 0.203918
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 320,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.643635,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.643635,
+            "abs_utility_error": 0.150706,
+            "simulated_mean_quality": 0.918,
+            "simulated_std_quality": 0.274365
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.493414,
+            "simulated_utility": 0.567752,
+            "abs_utility_error": 0.074338,
+            "simulated_mean_quality": 0.8905,
+            "simulated_std_quality": 0.242748
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.446074,
+            "simulated_utility": 0.390523,
+            "abs_utility_error": 0.055551,
+            "simulated_mean_quality": 0.816222,
+            "simulated_std_quality": 0.265699
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.395251,
+            "abs_utility_error": 0.011083,
+            "simulated_mean_quality": 0.859333,
+            "simulated_std_quality": 0.224082
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.315757,
+            "simulated_utility": 0.24127,
+            "abs_utility_error": 0.074487,
+            "simulated_mean_quality": 0.8096,
+            "simulated_std_quality": 0.24833
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.243845,
+            "simulated_utility": 0.24029,
+            "abs_utility_error": 0.003555,
+            "simulated_mean_quality": 0.846833,
+            "simulated_std_quality": 0.206544
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 321,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.519153,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.039515
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.519153,
+            "abs_utility_error": 0.026224,
+            "simulated_mean_quality": 0.863,
+            "simulated_std_quality": 0.343847
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.474774,
+            "abs_utility_error": 0.02136,
+            "simulated_mean_quality": 0.8625,
+            "simulated_std_quality": 0.267726
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.366074,
+            "simulated_utility": 0.353959,
+            "abs_utility_error": 0.012115,
+            "simulated_mean_quality": 0.842778,
+            "simulated_std_quality": 0.248819
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.246976,
+            "abs_utility_error": 0.017192,
+            "simulated_mean_quality": 0.841917,
+            "simulated_std_quality": 0.234941
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.155757,
+            "simulated_utility": 0.086417,
+            "abs_utility_error": 0.06934,
+            "simulated_mean_quality": 0.807733,
+            "simulated_std_quality": 0.241316
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.043845,
+            "simulated_utility": 0.080855,
+            "abs_utility_error": 0.03701,
+            "simulated_mean_quality": 0.875778,
+            "simulated_std_quality": 0.194922
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 322,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.564376,
+          "simulated_best_utility": 0.649828,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001762
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.350811,
+            "abs_utility_error": 0.142118,
+            "simulated_mean_quality": 0.771,
+            "simulated_std_quality": 0.420189
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.546636,
+            "simulated_utility": 0.451818,
+            "abs_utility_error": 0.094818,
+            "simulated_mean_quality": 0.795833,
+            "simulated_std_quality": 0.334015
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.561206,
+            "simulated_utility": 0.633956,
+            "abs_utility_error": 0.07275,
+            "simulated_mean_quality": 0.891444,
+            "simulated_std_quality": 0.237489
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.564376,
+            "simulated_utility": 0.649828,
+            "abs_utility_error": 0.085452,
+            "simulated_mean_quality": 0.898167,
+            "simulated_std_quality": 0.218338
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.562614,
+            "simulated_utility": 0.532656,
+            "abs_utility_error": 0.029958,
+            "simulated_mean_quality": 0.831467,
+            "simulated_std_quality": 0.258811
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.558262,
+            "simulated_utility": 0.596699,
+            "abs_utility_error": 0.038437,
+            "simulated_mean_quality": 0.871444,
+            "simulated_std_quality": 0.224745
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 323,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.526636,
+          "simulated_best_utility": 0.626784,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005429
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.534397,
+            "abs_utility_error": 0.041468,
+            "simulated_mean_quality": 0.870333,
+            "simulated_std_quality": 0.335936
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.526636,
+            "simulated_utility": 0.626784,
+            "abs_utility_error": 0.100148,
+            "simulated_mean_quality": 0.902333,
+            "simulated_std_quality": 0.245549
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.521206,
+            "simulated_utility": 0.490707,
+            "abs_utility_error": 0.030499,
+            "simulated_mean_quality": 0.835111,
+            "simulated_std_quality": 0.284404
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.504376,
+            "simulated_utility": 0.474103,
+            "abs_utility_error": 0.030273,
+            "simulated_mean_quality": 0.828917,
+            "simulated_std_quality": 0.264814
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.482614,
+            "simulated_utility": 0.499223,
+            "abs_utility_error": 0.016609,
+            "simulated_mean_quality": 0.859867,
+            "simulated_std_quality": 0.240644
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.458262,
+            "simulated_utility": 0.513449,
+            "abs_utility_error": 0.055187,
+            "simulated_mean_quality": 0.885111,
+            "simulated_std_quality": 0.221662
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 324,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.506636,
+          "simulated_best_utility": 0.633636,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.013707
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.633636,
+            "abs_utility_error": 0.140707,
+            "simulated_mean_quality": 0.914,
+            "simulated_std_quality": 0.280364
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.506636,
+            "simulated_utility": 0.451705,
+            "abs_utility_error": 0.054931,
+            "simulated_mean_quality": 0.818,
+            "simulated_std_quality": 0.316295
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.481206,
+            "simulated_utility": 0.479855,
+            "abs_utility_error": 0.001351,
+            "simulated_mean_quality": 0.850778,
+            "simulated_std_quality": 0.270923
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.444376,
+            "simulated_utility": 0.51826,
+            "abs_utility_error": 0.073884,
+            "simulated_mean_quality": 0.89075,
+            "simulated_std_quality": 0.22249
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.402614,
+            "simulated_utility": 0.464034,
+            "abs_utility_error": 0.06142,
+            "simulated_mean_quality": 0.883867,
+            "simulated_std_quality": 0.219833
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.358262,
+            "simulated_utility": 0.356172,
+            "abs_utility_error": 0.00209,
+            "simulated_mean_quality": 0.848556,
+            "simulated_std_quality": 0.242384
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 325,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.544993,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.016293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.544993,
+            "abs_utility_error": 0.052064,
+            "simulated_mean_quality": 0.875333,
+            "simulated_std_quality": 0.330341
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.476636,
+            "simulated_utility": 0.520952,
+            "abs_utility_error": 0.044316,
+            "simulated_mean_quality": 0.873667,
+            "simulated_std_quality": 0.272715
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.421206,
+            "simulated_utility": 0.333153,
+            "abs_utility_error": 0.088053,
+            "simulated_mean_quality": 0.799444,
+            "simulated_std_quality": 0.306292
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.354376,
+            "simulated_utility": 0.308859,
+            "abs_utility_error": 0.045517,
+            "simulated_mean_quality": 0.827,
+            "simulated_std_quality": 0.278141
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.282614,
+            "simulated_utility": 0.338182,
+            "abs_utility_error": 0.055568,
+            "simulated_mean_quality": 0.886333,
+            "simulated_std_quality": 0.228152
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.208262,
+            "simulated_utility": 0.19049,
+            "abs_utility_error": 0.017772,
+            "simulated_mean_quality": 0.844278,
+            "simulated_std_quality": 0.253787
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 326,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.438874,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.438874,
+            "abs_utility_error": 0.054055,
+            "simulated_mean_quality": 0.821667,
+            "simulated_std_quality": 0.382793
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.436636,
+            "simulated_utility": 0.358665,
+            "abs_utility_error": 0.077971,
+            "simulated_mean_quality": 0.802333,
+            "simulated_std_quality": 0.323668
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.341206,
+            "simulated_utility": 0.402866,
+            "abs_utility_error": 0.06166,
+            "simulated_mean_quality": 0.883667,
+            "simulated_std_quality": 0.240801
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.234376,
+            "simulated_utility": 0.277958,
+            "abs_utility_error": 0.043582,
+            "simulated_mean_quality": 0.875917,
+            "simulated_std_quality": 0.237958
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.122614,
+            "simulated_utility": 0.185964,
+            "abs_utility_error": 0.06335,
+            "simulated_mean_quality": 0.886133,
+            "simulated_std_quality": 0.220169
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.008262,
+            "simulated_utility": 0.015225,
+            "abs_utility_error": 0.006963,
+            "simulated_mean_quality": 0.855056,
+            "simulated_std_quality": 0.239831
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 327,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.538452,
+          "simulated_best_utility": 0.63369,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000742
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.357418,
+            "abs_utility_error": 0.135511,
+            "simulated_mean_quality": 0.775,
+            "simulated_std_quality": 0.417582
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.530767,
+            "simulated_utility": 0.469439,
+            "abs_utility_error": 0.061328,
+            "simulated_mean_quality": 0.816667,
+            "simulated_std_quality": 0.337227
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.538452,
+            "simulated_utility": 0.63369,
+            "abs_utility_error": 0.095238,
+            "simulated_mean_quality": 0.896889,
+            "simulated_std_quality": 0.243199
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.53771,
+            "simulated_utility": 0.53523,
+            "abs_utility_error": 0.00248,
+            "simulated_mean_quality": 0.849417,
+            "simulated_std_quality": 0.284187
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.533414,
+            "simulated_utility": 0.516633,
+            "abs_utility_error": 0.016781,
+            "simulated_mean_quality": 0.841533,
+            "simulated_std_quality": 0.284901
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.527282,
+            "simulated_utility": 0.536157,
+            "abs_utility_error": 0.008875,
+            "simulated_mean_quality": 0.857111,
+            "simulated_std_quality": 0.270954
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 328,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.510767,
+          "simulated_best_utility": 0.580113,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.012315
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.580113,
+            "abs_utility_error": 0.087184,
+            "simulated_mean_quality": 0.891333,
+            "simulated_std_quality": 0.311221
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.510767,
+            "simulated_utility": 0.503321,
+            "abs_utility_error": 0.007446,
+            "simulated_mean_quality": 0.846833,
+            "simulated_std_quality": 0.313512
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.498452,
+            "simulated_utility": 0.511671,
+            "abs_utility_error": 0.013219,
+            "simulated_mean_quality": 0.858,
+            "simulated_std_quality": 0.286329
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.47771,
+            "simulated_utility": 0.535111,
+            "abs_utility_error": 0.057401,
+            "simulated_mean_quality": 0.880333,
+            "simulated_std_quality": 0.255222
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.474512,
+            "abs_utility_error": 0.021098,
+            "simulated_mean_quality": 0.8644,
+            "simulated_std_quality": 0.269888
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.427282,
+            "simulated_utility": 0.467578,
+            "abs_utility_error": 0.040296,
+            "simulated_mean_quality": 0.872389,
+            "simulated_std_quality": 0.25481
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 329,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.644899,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.002162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.466361,
+            "abs_utility_error": 0.026568,
+            "simulated_mean_quality": 0.836333,
+            "simulated_std_quality": 0.369973
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.490767,
+            "simulated_utility": 0.644899,
+            "abs_utility_error": 0.154132,
+            "simulated_mean_quality": 0.9245,
+            "simulated_std_quality": 0.229601
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.458452,
+            "simulated_utility": 0.386639,
+            "abs_utility_error": 0.071813,
+            "simulated_mean_quality": 0.806889,
+            "simulated_std_quality": 0.32025
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41771,
+            "simulated_utility": 0.403971,
+            "abs_utility_error": 0.013739,
+            "simulated_mean_quality": 0.841,
+            "simulated_std_quality": 0.287029
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.373414,
+            "simulated_utility": 0.403897,
+            "abs_utility_error": 0.030483,
+            "simulated_mean_quality": 0.867133,
+            "simulated_std_quality": 0.263236
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.327282,
+            "simulated_utility": 0.30999,
+            "abs_utility_error": 0.017292,
+            "simulated_mean_quality": 0.839667,
+            "simulated_std_quality": 0.279677
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 330,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.426559,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.032162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.378707,
+            "abs_utility_error": 0.114222,
+            "simulated_mean_quality": 0.787667,
+            "simulated_std_quality": 0.40896
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.460767,
+            "simulated_utility": 0.426559,
+            "abs_utility_error": 0.034208,
+            "simulated_mean_quality": 0.831833,
+            "simulated_std_quality": 0.325274
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.398452,
+            "simulated_utility": 0.288661,
+            "abs_utility_error": 0.109791,
+            "simulated_mean_quality": 0.786444,
+            "simulated_std_quality": 0.337784
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.32771,
+            "simulated_utility": 0.345315,
+            "abs_utility_error": 0.017605,
+            "simulated_mean_quality": 0.861417,
+            "simulated_std_quality": 0.276102
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.253414,
+            "simulated_utility": 0.251162,
+            "abs_utility_error": 0.002252,
+            "simulated_mean_quality": 0.8478,
+            "simulated_std_quality": 0.276638
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.177282,
+            "simulated_utility": 0.1254,
+            "abs_utility_error": 0.051882,
+            "simulated_mean_quality": 0.819333,
+            "simulated_std_quality": 0.293933
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 331,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.439487,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.072162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.439487,
+            "abs_utility_error": 0.053442,
+            "simulated_mean_quality": 0.822,
+            "simulated_std_quality": 0.382513
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.420767,
+            "simulated_utility": 0.339788,
+            "abs_utility_error": 0.080979,
+            "simulated_mean_quality": 0.8035,
+            "simulated_std_quality": 0.343712
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.318452,
+            "simulated_utility": 0.307051,
+            "abs_utility_error": 0.011401,
+            "simulated_mean_quality": 0.845444,
+            "simulated_std_quality": 0.298393
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20771,
+            "simulated_utility": 0.181213,
+            "abs_utility_error": 0.026497,
+            "simulated_mean_quality": 0.835667,
+            "simulated_std_quality": 0.294454
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.093414,
+            "simulated_utility": 0.039577,
+            "abs_utility_error": 0.053837,
+            "simulated_mean_quality": 0.8236,
+            "simulated_std_quality": 0.304023
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.022718,
+            "simulated_utility": -0.009248,
+            "abs_utility_error": 0.01347,
+            "simulated_mean_quality": 0.859778,
+            "simulated_std_quality": 0.269026
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 332,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.523223,
+          "simulated_best_utility": 0.563875,
+          "best_n_gap": 3,
+          "analytic_top2_margin": 0.006872
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.313839,
+            "abs_utility_error": 0.003148,
+            "simulated_mean_quality": 0.748,
+            "simulated_std_quality": 0.434161
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.433814,
+            "simulated_utility": 0.433984,
+            "abs_utility_error": 0.00017,
+            "simulated_mean_quality": 0.753,
+            "simulated_std_quality": 0.309016
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.48,
+            "simulated_utility": 0.563875,
+            "abs_utility_error": 0.083875,
+            "simulated_mean_quality": 0.809333,
+            "simulated_std_quality": 0.225458
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.503494,
+            "simulated_utility": 0.464227,
+            "abs_utility_error": 0.039267,
+            "simulated_mean_quality": 0.723917,
+            "simulated_std_quality": 0.229689
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.516351,
+            "simulated_utility": 0.48965,
+            "abs_utility_error": 0.026701,
+            "simulated_mean_quality": 0.73,
+            "simulated_std_quality": 0.20035
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.523223,
+            "simulated_utility": 0.478208,
+            "abs_utility_error": 0.045015,
+            "simulated_mean_quality": 0.717444,
+            "simulated_std_quality": 0.189237
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 333,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.443494,
+          "simulated_best_utility": 0.490068,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.003494
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.371923,
+            "abs_utility_error": 0.054936,
+            "simulated_mean_quality": 0.783667,
+            "simulated_std_quality": 0.411744
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.413814,
+            "simulated_utility": 0.392678,
+            "abs_utility_error": 0.021136,
+            "simulated_mean_quality": 0.7365,
+            "simulated_std_quality": 0.313822
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.44,
+            "simulated_utility": 0.490068,
+            "abs_utility_error": 0.050068,
+            "simulated_mean_quality": 0.788,
+            "simulated_std_quality": 0.237932
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.443494,
+            "simulated_utility": 0.401489,
+            "abs_utility_error": 0.042005,
+            "simulated_mean_quality": 0.721167,
+            "simulated_std_quality": 0.229678
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.436351,
+            "simulated_utility": 0.460117,
+            "abs_utility_error": 0.023766,
+            "simulated_mean_quality": 0.774,
+            "simulated_std_quality": 0.193883
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.423223,
+            "simulated_utility": 0.380469,
+            "abs_utility_error": 0.042754,
+            "simulated_mean_quality": 0.719278,
+            "simulated_std_quality": 0.188809
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 334,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.4,
+          "simulated_best_utility": 0.435134,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.006186
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.223286,
+            "abs_utility_error": 0.093701,
+            "simulated_mean_quality": 0.687,
+            "simulated_std_quality": 0.463714
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.393814,
+            "simulated_utility": 0.392986,
+            "abs_utility_error": 0.000828,
+            "simulated_mean_quality": 0.7565,
+            "simulated_std_quality": 0.313514
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.4,
+            "simulated_utility": 0.365793,
+            "abs_utility_error": 0.034207,
+            "simulated_mean_quality": 0.727778,
+            "simulated_std_quality": 0.261984
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.435134,
+            "abs_utility_error": 0.05164,
+            "simulated_mean_quality": 0.790917,
+            "simulated_std_quality": 0.205783
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.356351,
+            "simulated_utility": 0.358874,
+            "abs_utility_error": 0.002523,
+            "simulated_mean_quality": 0.7558,
+            "simulated_std_quality": 0.196926
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.323223,
+            "simulated_utility": 0.325019,
+            "abs_utility_error": 0.001796,
+            "simulated_mean_quality": 0.754167,
+            "simulated_std_quality": 0.179147
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 335,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.363814,
+          "simulated_best_utility": 0.33367,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.023814
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.225628,
+            "abs_utility_error": 0.091359,
+            "simulated_mean_quality": 0.688667,
+            "simulated_std_quality": 0.463039
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.363814,
+            "simulated_utility": 0.288663,
+            "abs_utility_error": 0.075151,
+            "simulated_mean_quality": 0.698,
+            "simulated_std_quality": 0.329337
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.34,
+            "simulated_utility": 0.33367,
+            "abs_utility_error": 0.00633,
+            "simulated_mean_quality": 0.746778,
+            "simulated_std_quality": 0.253108
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.293494,
+            "simulated_utility": 0.256993,
+            "abs_utility_error": 0.036501,
+            "simulated_mean_quality": 0.725083,
+            "simulated_std_quality": 0.22809
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236351,
+            "simulated_utility": 0.211373,
+            "abs_utility_error": 0.024978,
+            "simulated_mean_quality": 0.732867,
+            "simulated_std_quality": 0.201494
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.173223,
+            "simulated_utility": 0.170833,
+            "abs_utility_error": 0.00239,
+            "simulated_mean_quality": 0.751667,
+            "simulated_std_quality": 0.180834
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 336,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.323814,
+          "simulated_best_utility": 0.333365,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.006826
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.197069,
+            "abs_utility_error": 0.119918,
+            "simulated_mean_quality": 0.668,
+            "simulated_std_quality": 0.470931
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.323814,
+            "simulated_utility": 0.328549,
+            "abs_utility_error": 0.004735,
+            "simulated_mean_quality": 0.756167,
+            "simulated_std_quality": 0.307618
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26,
+            "simulated_utility": 0.333365,
+            "abs_utility_error": 0.073365,
+            "simulated_mean_quality": 0.801444,
+            "simulated_std_quality": 0.228079
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.173494,
+            "simulated_utility": 0.197078,
+            "abs_utility_error": 0.023584,
+            "simulated_mean_quality": 0.7685,
+            "simulated_std_quality": 0.211422
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.076351,
+            "simulated_utility": 0.050248,
+            "abs_utility_error": 0.026103,
+            "simulated_mean_quality": 0.729533,
+            "simulated_std_quality": 0.199285
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.026777,
+            "simulated_utility": -0.048022,
+            "abs_utility_error": 0.021245,
+            "simulated_mean_quality": 0.735111,
+            "simulated_std_quality": 0.183133
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 337,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.483494,
+          "simulated_best_utility": 0.491549,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002622
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.295201,
+            "abs_utility_error": 0.021786,
+            "simulated_mean_quality": 0.736,
+            "simulated_std_quality": 0.440799
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.418869,
+            "simulated_utility": 0.341478,
+            "abs_utility_error": 0.077391,
+            "simulated_mean_quality": 0.696667,
+            "simulated_std_quality": 0.345189
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.456139,
+            "simulated_utility": 0.447521,
+            "abs_utility_error": 0.008618,
+            "simulated_mean_quality": 0.743667,
+            "simulated_std_quality": 0.276145
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.473145,
+            "simulated_utility": 0.450062,
+            "abs_utility_error": 0.023083,
+            "simulated_mean_quality": 0.732167,
+            "simulated_std_quality": 0.252105
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.480871,
+            "simulated_utility": 0.491549,
+            "abs_utility_error": 0.010678,
+            "simulated_mean_quality": 0.758133,
+            "simulated_std_quality": 0.226584
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.483494,
+            "simulated_utility": 0.443354,
+            "abs_utility_error": 0.04014,
+            "simulated_mean_quality": 0.721333,
+            "simulated_std_quality": 0.227979
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 338,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.416139,
+          "simulated_best_utility": 0.397509,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.002994
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.259169,
+            "abs_utility_error": 0.057818,
+            "simulated_mean_quality": 0.712,
+            "simulated_std_quality": 0.452831
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.398869,
+            "simulated_utility": 0.376052,
+            "abs_utility_error": 0.022817,
+            "simulated_mean_quality": 0.738,
+            "simulated_std_quality": 0.331948
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.416139,
+            "simulated_utility": 0.387345,
+            "abs_utility_error": 0.028794,
+            "simulated_mean_quality": 0.727333,
+            "simulated_std_quality": 0.279989
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.413145,
+            "simulated_utility": 0.387709,
+            "abs_utility_error": 0.025436,
+            "simulated_mean_quality": 0.7355,
+            "simulated_std_quality": 0.257791
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.400871,
+            "simulated_utility": 0.397509,
+            "abs_utility_error": 0.003362,
+            "simulated_mean_quality": 0.7484,
+            "simulated_std_quality": 0.230891
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.361407,
+            "abs_utility_error": 0.022087,
+            "simulated_mean_quality": 0.729444,
+            "simulated_std_quality": 0.218038
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 339,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.378869,
+          "simulated_best_utility": 0.417886,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00273
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.184065,
+            "abs_utility_error": 0.132922,
+            "simulated_mean_quality": 0.658333,
+            "simulated_std_quality": 0.474268
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.378869,
+            "simulated_utility": 0.417886,
+            "abs_utility_error": 0.039017,
+            "simulated_mean_quality": 0.776333,
+            "simulated_std_quality": 0.308448
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376139,
+            "simulated_utility": 0.356569,
+            "abs_utility_error": 0.01957,
+            "simulated_mean_quality": 0.736,
+            "simulated_std_quality": 0.279431
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.353145,
+            "simulated_utility": 0.36523,
+            "abs_utility_error": 0.012085,
+            "simulated_mean_quality": 0.76075,
+            "simulated_std_quality": 0.24552
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.320871,
+            "simulated_utility": 0.304229,
+            "abs_utility_error": 0.016642,
+            "simulated_mean_quality": 0.7358,
+            "simulated_std_quality": 0.231571
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.283494,
+            "simulated_utility": 0.306712,
+            "abs_utility_error": 0.023218,
+            "simulated_mean_quality": 0.770667,
+            "simulated_std_quality": 0.213955
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 340,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.348869,
+          "simulated_best_utility": 0.351359,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.031882
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.351359,
+            "abs_utility_error": 0.034372,
+            "simulated_mean_quality": 0.771333,
+            "simulated_std_quality": 0.419974
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.348869,
+            "simulated_utility": 0.346179,
+            "abs_utility_error": 0.00269,
+            "simulated_mean_quality": 0.748667,
+            "simulated_std_quality": 0.322488
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.316139,
+            "simulated_utility": 0.330966,
+            "abs_utility_error": 0.014827,
+            "simulated_mean_quality": 0.762667,
+            "simulated_std_quality": 0.2717
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.263145,
+            "simulated_utility": 0.217814,
+            "abs_utility_error": 0.045331,
+            "simulated_mean_quality": 0.715667,
+            "simulated_std_quality": 0.257852
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.200871,
+            "simulated_utility": 0.159322,
+            "abs_utility_error": 0.041549,
+            "simulated_mean_quality": 0.7186,
+            "simulated_std_quality": 0.239278
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.133494,
+            "simulated_utility": 0.173937,
+            "abs_utility_error": 0.040443,
+            "simulated_mean_quality": 0.781111,
+            "simulated_std_quality": 0.207174
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 341,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.421288,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008118
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.421288,
+            "abs_utility_error": 0.104301,
+            "simulated_mean_quality": 0.812,
+            "simulated_std_quality": 0.390712
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.308869,
+            "simulated_utility": 0.266025,
+            "abs_utility_error": 0.042844,
+            "simulated_mean_quality": 0.719,
+            "simulated_std_quality": 0.332975
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.247509,
+            "abs_utility_error": 0.01137,
+            "simulated_mean_quality": 0.761111,
+            "simulated_std_quality": 0.273602
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.143145,
+            "simulated_utility": 0.157556,
+            "abs_utility_error": 0.014411,
+            "simulated_mean_quality": 0.761917,
+            "simulated_std_quality": 0.244361
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.040871,
+            "simulated_utility": 0.026206,
+            "abs_utility_error": 0.014665,
+            "simulated_mean_quality": 0.739133,
+            "simulated_std_quality": 0.232928
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.066506,
+            "simulated_utility": -0.114091,
+            "abs_utility_error": 0.047585,
+            "simulated_mean_quality": 0.716222,
+            "simulated_std_quality": 0.230313
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 342,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.450192,
+          "simulated_best_utility": 0.477284,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000192
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.23317,
+            "abs_utility_error": 0.083817,
+            "simulated_mean_quality": 0.694,
+            "simulated_std_quality": 0.46083
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.40459,
+            "simulated_utility": 0.40778,
+            "abs_utility_error": 0.00319,
+            "simulated_mean_quality": 0.753667,
+            "simulated_std_quality": 0.335887
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.434196,
+            "simulated_utility": 0.408258,
+            "abs_utility_error": 0.025938,
+            "simulated_mean_quality": 0.739222,
+            "simulated_std_quality": 0.310964
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.446139,
+            "simulated_utility": 0.477284,
+            "abs_utility_error": 0.031145,
+            "simulated_mean_quality": 0.772333,
+            "simulated_std_quality": 0.265049
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.450192,
+            "simulated_utility": 0.378765,
+            "abs_utility_error": 0.071427,
+            "simulated_mean_quality": 0.7,
+            "simulated_std_quality": 0.281235
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.45,
+            "simulated_utility": 0.408416,
+            "abs_utility_error": 0.041584,
+            "simulated_mean_quality": 0.720056,
+            "simulated_std_quality": 0.261639
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 343,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.394196,
+          "simulated_best_utility": 0.425137,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008057
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.267038,
+            "abs_utility_error": 0.049949,
+            "simulated_mean_quality": 0.717333,
+            "simulated_std_quality": 0.450296
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.38459,
+            "simulated_utility": 0.417484,
+            "abs_utility_error": 0.032894,
+            "simulated_mean_quality": 0.771333,
+            "simulated_std_quality": 0.323849
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.394196,
+            "simulated_utility": 0.425137,
+            "abs_utility_error": 0.030941,
+            "simulated_mean_quality": 0.771556,
+            "simulated_std_quality": 0.286418
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.386139,
+            "simulated_utility": 0.365422,
+            "abs_utility_error": 0.020717,
+            "simulated_mean_quality": 0.7345,
+            "simulated_std_quality": 0.279078
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370192,
+            "simulated_utility": 0.371495,
+            "abs_utility_error": 0.001303,
+            "simulated_mean_quality": 0.755533,
+            "simulated_std_quality": 0.264038
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.35,
+            "simulated_utility": 0.38676,
+            "abs_utility_error": 0.03676,
+            "simulated_mean_quality": 0.782667,
+            "simulated_std_quality": 0.245906
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 344,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.36459,
+          "simulated_best_utility": 0.361219,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.010394
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.311746,
+            "abs_utility_error": 0.005241,
+            "simulated_mean_quality": 0.746667,
+            "simulated_std_quality": 0.43492
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.36459,
+            "simulated_utility": 0.351263,
+            "abs_utility_error": 0.013327,
+            "simulated_mean_quality": 0.743,
+            "simulated_std_quality": 0.341737
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354196,
+            "simulated_utility": 0.361219,
+            "abs_utility_error": 0.007023,
+            "simulated_mean_quality": 0.753444,
+            "simulated_std_quality": 0.292225
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.326139,
+            "simulated_utility": 0.340163,
+            "abs_utility_error": 0.014024,
+            "simulated_mean_quality": 0.764333,
+            "simulated_std_quality": 0.274171
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.290192,
+            "simulated_utility": 0.25877,
+            "abs_utility_error": 0.031422,
+            "simulated_mean_quality": 0.730333,
+            "simulated_std_quality": 0.271563
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.25919,
+            "abs_utility_error": 0.00919,
+            "simulated_mean_quality": 0.756389,
+            "simulated_std_quality": 0.247199
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 345,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.33459,
+          "simulated_best_utility": 0.343851,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.017603
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.323321,
+            "abs_utility_error": 0.006334,
+            "simulated_mean_quality": 0.754,
+            "simulated_std_quality": 0.430679
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.33459,
+            "simulated_utility": 0.343851,
+            "abs_utility_error": 0.009261,
+            "simulated_mean_quality": 0.758167,
+            "simulated_std_quality": 0.334315
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.294196,
+            "simulated_utility": 0.319619,
+            "abs_utility_error": 0.025423,
+            "simulated_mean_quality": 0.767111,
+            "simulated_std_quality": 0.287492
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.278652,
+            "abs_utility_error": 0.042513,
+            "simulated_mean_quality": 0.7785,
+            "simulated_std_quality": 0.259848
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.170192,
+            "simulated_utility": 0.193511,
+            "abs_utility_error": 0.023319,
+            "simulated_mean_quality": 0.766,
+            "simulated_std_quality": 0.252489
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.1,
+            "simulated_utility": 0.078943,
+            "abs_utility_error": 0.021057,
+            "simulated_mean_quality": 0.737333,
+            "simulated_std_quality": 0.25839
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 346,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.43826,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.022397
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.43826,
+            "abs_utility_error": 0.121273,
+            "simulated_mean_quality": 0.821333,
+            "simulated_std_quality": 0.383073
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.361351,
+            "abs_utility_error": 0.066761,
+            "simulated_mean_quality": 0.795833,
+            "simulated_std_quality": 0.314483
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214196,
+            "simulated_utility": 0.324045,
+            "abs_utility_error": 0.109849,
+            "simulated_mean_quality": 0.822444,
+            "simulated_std_quality": 0.2584
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.116139,
+            "simulated_utility": 0.159396,
+            "abs_utility_error": 0.043257,
+            "simulated_mean_quality": 0.782167,
+            "simulated_std_quality": 0.262771
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.010192,
+            "simulated_utility": -0.008213,
+            "abs_utility_error": 0.018405,
+            "simulated_mean_quality": 0.738667,
+            "simulated_std_quality": 0.26688
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.1,
+            "simulated_utility": -0.100454,
+            "abs_utility_error": 0.000454,
+            "simulated_mean_quality": 0.748278,
+            "simulated_std_quality": 0.248732
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 347,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.41001,
+          "simulated_best_utility": 0.422407,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 1e-05
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.359632,
+            "abs_utility_error": 0.042645,
+            "simulated_mean_quality": 0.776333,
+            "simulated_std_quality": 0.416701
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.384244,
+            "simulated_utility": 0.325745,
+            "abs_utility_error": 0.058499,
+            "simulated_mean_quality": 0.709,
+            "simulated_std_quality": 0.373255
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.40404,
+            "simulated_utility": 0.414127,
+            "abs_utility_error": 0.010087,
+            "simulated_mean_quality": 0.757,
+            "simulated_std_quality": 0.322873
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41001,
+            "simulated_utility": 0.378515,
+            "abs_utility_error": 0.031495,
+            "simulated_mean_quality": 0.728083,
+            "simulated_std_quality": 0.319568
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.41,
+            "simulated_utility": 0.422407,
+            "abs_utility_error": 0.012407,
+            "simulated_mean_quality": 0.7594,
+            "simulated_std_quality": 0.296993
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.406849,
+            "simulated_utility": 0.367502,
+            "abs_utility_error": 0.039347,
+            "simulated_mean_quality": 0.724056,
+            "simulated_std_quality": 0.306553
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 348,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.364244,
+          "simulated_best_utility": 0.385728,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.223754,
+            "abs_utility_error": 0.093233,
+            "simulated_mean_quality": 0.687333,
+            "simulated_std_quality": 0.46358
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.364244,
+            "simulated_utility": 0.291395,
+            "abs_utility_error": 0.072849,
+            "simulated_mean_quality": 0.7035,
+            "simulated_std_quality": 0.382105
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.36404,
+            "simulated_utility": 0.385728,
+            "abs_utility_error": 0.021688,
+            "simulated_mean_quality": 0.766444,
+            "simulated_std_quality": 0.320717
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.35001,
+            "simulated_utility": 0.349107,
+            "abs_utility_error": 0.000903,
+            "simulated_mean_quality": 0.749583,
+            "simulated_std_quality": 0.310477
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.33,
+            "simulated_utility": 0.324703,
+            "abs_utility_error": 0.005297,
+            "simulated_mean_quality": 0.748,
+            "simulated_std_quality": 0.303297
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.306849,
+            "simulated_utility": 0.288773,
+            "abs_utility_error": 0.018076,
+            "simulated_mean_quality": 0.742389,
+            "simulated_std_quality": 0.303616
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 349,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.344244,
+          "simulated_best_utility": 0.421862,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.020204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.372486,
+            "abs_utility_error": 0.055499,
+            "simulated_mean_quality": 0.784,
+            "simulated_std_quality": 0.411514
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.344244,
+            "simulated_utility": 0.421862,
+            "abs_utility_error": 0.077618,
+            "simulated_mean_quality": 0.802833,
+            "simulated_std_quality": 0.330971
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.32404,
+            "simulated_utility": 0.325292,
+            "abs_utility_error": 0.001252,
+            "simulated_mean_quality": 0.745444,
+            "simulated_std_quality": 0.320153
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.29001,
+            "simulated_utility": 0.287567,
+            "abs_utility_error": 0.002443,
+            "simulated_mean_quality": 0.749917,
+            "simulated_std_quality": 0.31235
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.19977,
+            "abs_utility_error": 0.05023,
+            "simulated_mean_quality": 0.713467,
+            "simulated_std_quality": 0.313696
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.206849,
+            "simulated_utility": 0.160226,
+            "abs_utility_error": 0.046623,
+            "simulated_mean_quality": 0.718889,
+            "simulated_std_quality": 0.308663
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 350,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.25844,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.002744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.188077,
+            "abs_utility_error": 0.12891,
+            "simulated_mean_quality": 0.661333,
+            "simulated_std_quality": 0.473256
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.314244,
+            "simulated_utility": 0.25844,
+            "abs_utility_error": 0.055804,
+            "simulated_mean_quality": 0.7085,
+            "simulated_std_quality": 0.37006
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26404,
+            "simulated_utility": 0.210803,
+            "abs_utility_error": 0.053237,
+            "simulated_mean_quality": 0.714111,
+            "simulated_std_quality": 0.343308
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20001,
+            "simulated_utility": 0.176699,
+            "abs_utility_error": 0.023311,
+            "simulated_mean_quality": 0.734417,
+            "simulated_std_quality": 0.317718
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.13,
+            "simulated_utility": 0.110193,
+            "abs_utility_error": 0.019807,
+            "simulated_mean_quality": 0.734333,
+            "simulated_std_quality": 0.30414
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.056849,
+            "simulated_utility": 0.039744,
+            "abs_utility_error": 0.017105,
+            "simulated_mean_quality": 0.7375,
+            "simulated_std_quality": 0.297756
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 351,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.26162,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.042744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.26162,
+            "abs_utility_error": 0.055367,
+            "simulated_mean_quality": 0.713667,
+            "simulated_std_quality": 0.452047
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.274244,
+            "simulated_utility": 0.178318,
+            "abs_utility_error": 0.095926,
+            "simulated_mean_quality": 0.683833,
+            "simulated_std_quality": 0.385515
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.18404,
+            "simulated_utility": 0.167566,
+            "abs_utility_error": 0.016474,
+            "simulated_mean_quality": 0.741,
+            "simulated_std_quality": 0.333434
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.08001,
+            "simulated_utility": 0.087323,
+            "abs_utility_error": 0.007313,
+            "simulated_mean_quality": 0.756917,
+            "simulated_std_quality": 0.309593
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.03,
+            "simulated_utility": -0.04917,
+            "abs_utility_error": 0.01917,
+            "simulated_mean_quality": 0.742333,
+            "simulated_std_quality": 0.311504
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.143151,
+            "simulated_utility": -0.146663,
+            "abs_utility_error": 0.003512,
+            "simulated_mean_quality": 0.751444,
+            "simulated_std_quality": 0.298108
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 352,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.377673,
+          "simulated_best_utility": 0.436353,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001227
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.301882,
+            "abs_utility_error": 0.015105,
+            "simulated_mean_quality": 0.740333,
+            "simulated_std_quality": 0.438452
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.365,
+            "simulated_utility": 0.313564,
+            "abs_utility_error": 0.051436,
+            "simulated_mean_quality": 0.713667,
+            "simulated_std_quality": 0.390102
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376447,
+            "simulated_utility": 0.406376,
+            "abs_utility_error": 0.029929,
+            "simulated_mean_quality": 0.769444,
+            "simulated_std_quality": 0.343068
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.377673,
+            "simulated_utility": 0.436353,
+            "abs_utility_error": 0.05868,
+            "simulated_mean_quality": 0.790667,
+            "simulated_std_quality": 0.324314
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.37459,
+            "simulated_utility": 0.398049,
+            "abs_utility_error": 0.023459,
+            "simulated_mean_quality": 0.767667,
+            "simulated_std_quality": 0.329618
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.369281,
+            "simulated_utility": 0.404808,
+            "abs_utility_error": 0.035527,
+            "simulated_mean_quality": 0.775,
+            "simulated_std_quality": 0.320192
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 353,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.345,
+          "simulated_best_utility": 0.317369,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008553
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.257214,
+            "abs_utility_error": 0.059773,
+            "simulated_mean_quality": 0.710667,
+            "simulated_std_quality": 0.453453
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.345,
+            "simulated_utility": 0.317369,
+            "abs_utility_error": 0.027631,
+            "simulated_mean_quality": 0.733,
+            "simulated_std_quality": 0.385631
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.336447,
+            "simulated_utility": 0.304751,
+            "abs_utility_error": 0.031696,
+            "simulated_mean_quality": 0.731667,
+            "simulated_std_quality": 0.366915
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.317673,
+            "simulated_utility": 0.280516,
+            "abs_utility_error": 0.037157,
+            "simulated_mean_quality": 0.723583,
+            "simulated_std_quality": 0.353067
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.30532,
+            "abs_utility_error": 0.01073,
+            "simulated_mean_quality": 0.7562,
+            "simulated_std_quality": 0.33088
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.269281,
+            "simulated_utility": 0.241499,
+            "abs_utility_error": 0.027782,
+            "simulated_mean_quality": 0.728889,
+            "simulated_std_quality": 0.33739
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 354,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.325,
+          "simulated_best_utility": 0.318639,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008013
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.28959,
+            "abs_utility_error": 0.027397,
+            "simulated_mean_quality": 0.732333,
+            "simulated_std_quality": 0.442743
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.325,
+            "simulated_utility": 0.318639,
+            "abs_utility_error": 0.006361,
+            "simulated_mean_quality": 0.746333,
+            "simulated_std_quality": 0.377695
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.296447,
+            "simulated_utility": 0.286512,
+            "abs_utility_error": 0.009935,
+            "simulated_mean_quality": 0.744,
+            "simulated_std_quality": 0.357488
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.257673,
+            "simulated_utility": 0.279053,
+            "abs_utility_error": 0.02138,
+            "simulated_mean_quality": 0.762667,
+            "simulated_std_quality": 0.333613
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.21459,
+            "simulated_utility": 0.188721,
+            "abs_utility_error": 0.025869,
+            "simulated_mean_quality": 0.7302,
+            "simulated_std_quality": 0.341479
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.169281,
+            "simulated_utility": 0.189367,
+            "abs_utility_error": 0.020086,
+            "simulated_mean_quality": 0.767667,
+            "simulated_std_quality": 0.328299
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 355,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.320668,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.021987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.269017,
+            "abs_utility_error": 0.04797,
+            "simulated_mean_quality": 0.718667,
+            "simulated_std_quality": 0.44965
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.295,
+            "simulated_utility": 0.320668,
+            "abs_utility_error": 0.025668,
+            "simulated_mean_quality": 0.767667,
+            "simulated_std_quality": 0.366998
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236447,
+            "simulated_utility": 0.165276,
+            "abs_utility_error": 0.071171,
+            "simulated_mean_quality": 0.702333,
+            "simulated_std_quality": 0.377057
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.167673,
+            "simulated_utility": 0.221188,
+            "abs_utility_error": 0.053515,
+            "simulated_mean_quality": 0.78625,
+            "simulated_std_quality": 0.325062
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.09459,
+            "simulated_utility": 0.102225,
+            "abs_utility_error": 0.007635,
+            "simulated_mean_quality": 0.7582,
+            "simulated_std_quality": 0.335975
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.019281,
+            "simulated_utility": -0.028035,
+            "abs_utility_error": 0.047316,
+            "simulated_mean_quality": 0.715944,
+            "simulated_std_quality": 0.343979
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 356,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.375873,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.061987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.375873,
+            "abs_utility_error": 0.058886,
+            "simulated_mean_quality": 0.786,
+            "simulated_std_quality": 0.410127
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.255,
+            "simulated_utility": 0.268129,
+            "abs_utility_error": 0.013129,
+            "simulated_mean_quality": 0.758833,
+            "simulated_std_quality": 0.370705
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.156447,
+            "simulated_utility": 0.163655,
+            "abs_utility_error": 0.007208,
+            "simulated_mean_quality": 0.757111,
+            "simulated_std_quality": 0.353456
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.047673,
+            "simulated_utility": 0.065763,
+            "abs_utility_error": 0.01809,
+            "simulated_mean_quality": 0.761833,
+            "simulated_std_quality": 0.33607
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.06541,
+            "simulated_utility": -0.056616,
+            "abs_utility_error": 0.008794,
+            "simulated_mean_quality": 0.7606,
+            "simulated_std_quality": 0.337216
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.180719,
+            "simulated_utility": -0.145245,
+            "abs_utility_error": 0.035474,
+            "simulated_mean_quality": 0.768889,
+            "simulated_std_quality": 0.314134
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 357,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.405278,
+          "simulated_best_utility": 0.447724,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008585
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.110504,
+            "abs_utility_error": 0.062526,
+            "simulated_mean_quality": 0.600333,
+            "simulated_std_quality": 0.48983
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.302732,
+            "simulated_utility": 0.315587,
+            "abs_utility_error": 0.012855,
+            "simulated_mean_quality": 0.6625,
+            "simulated_std_quality": 0.336913
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354621,
+            "simulated_utility": 0.381158,
+            "abs_utility_error": 0.026537,
+            "simulated_mean_quality": 0.672778,
+            "simulated_std_quality": 0.27162
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.381515,
+            "simulated_utility": 0.359919,
+            "abs_utility_error": 0.021596,
+            "simulated_mean_quality": 0.635167,
+            "simulated_std_quality": 0.245248
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.396693,
+            "simulated_utility": 0.402292,
+            "abs_utility_error": 0.005599,
+            "simulated_mean_quality": 0.658533,
+            "simulated_std_quality": 0.216242
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.405278,
+            "simulated_utility": 0.447724,
+            "abs_utility_error": 0.042446,
+            "simulated_mean_quality": 0.692556,
+            "simulated_std_quality": 0.194832
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 358,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.321515,
+          "simulated_best_utility": 0.35543,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.004822
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.164751,
+            "abs_utility_error": 0.008279,
+            "simulated_mean_quality": 0.643667,
+            "simulated_std_quality": 0.478915
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.282732,
+            "simulated_utility": 0.30293,
+            "abs_utility_error": 0.020198,
+            "simulated_mean_quality": 0.664333,
+            "simulated_std_quality": 0.331403
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.314621,
+            "simulated_utility": 0.286081,
+            "abs_utility_error": 0.02854,
+            "simulated_mean_quality": 0.627444,
+            "simulated_std_quality": 0.281363
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.321515,
+            "simulated_utility": 0.35543,
+            "abs_utility_error": 0.033915,
+            "simulated_mean_quality": 0.678833,
+            "simulated_std_quality": 0.233403
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.316693,
+            "simulated_utility": 0.283121,
+            "abs_utility_error": 0.033572,
+            "simulated_mean_quality": 0.621933,
+            "simulated_std_quality": 0.218813
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.305278,
+            "simulated_utility": 0.311389,
+            "abs_utility_error": 0.006111,
+            "simulated_mean_quality": 0.661056,
+            "simulated_std_quality": 0.199666
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 359,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.274621,
+          "simulated_best_utility": 0.253907,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.01189
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.110504,
+            "abs_utility_error": 0.062526,
+            "simulated_mean_quality": 0.600333,
+            "simulated_std_quality": 0.48983
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.262732,
+            "simulated_utility": 0.234222,
+            "abs_utility_error": 0.02851,
+            "simulated_mean_quality": 0.626333,
+            "simulated_std_quality": 0.342111
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.274621,
+            "simulated_utility": 0.232807,
+            "abs_utility_error": 0.041814,
+            "simulated_mean_quality": 0.619556,
+            "simulated_std_quality": 0.286749
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.253907,
+            "abs_utility_error": 0.007608,
+            "simulated_mean_quality": 0.648417,
+            "simulated_std_quality": 0.24451
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236693,
+            "simulated_utility": 0.234359,
+            "abs_utility_error": 0.002334,
+            "simulated_mean_quality": 0.646333,
+            "simulated_std_quality": 0.211975
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.205278,
+            "simulated_utility": 0.251894,
+            "abs_utility_error": 0.046616,
+            "simulated_mean_quality": 0.689556,
+            "simulated_std_quality": 0.187662
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 360,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.232732,
+          "simulated_best_utility": 0.198451,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01811
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.118583,
+            "abs_utility_error": 0.054447,
+            "simulated_mean_quality": 0.607,
+            "simulated_std_quality": 0.488417
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.232732,
+            "simulated_utility": 0.198451,
+            "abs_utility_error": 0.034281,
+            "simulated_mean_quality": 0.6245,
+            "simulated_std_quality": 0.346049
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214621,
+            "simulated_utility": 0.193694,
+            "abs_utility_error": 0.020927,
+            "simulated_mean_quality": 0.639111,
+            "simulated_std_quality": 0.285417
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.171515,
+            "simulated_utility": 0.162272,
+            "abs_utility_error": 0.009243,
+            "simulated_mean_quality": 0.643917,
+            "simulated_std_quality": 0.241645
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.116693,
+            "simulated_utility": 0.079815,
+            "abs_utility_error": 0.036878,
+            "simulated_mean_quality": 0.623067,
+            "simulated_std_quality": 0.223252
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.055278,
+            "simulated_utility": 0.04357,
+            "abs_utility_error": 0.011708,
+            "simulated_mean_quality": 0.646667,
+            "simulated_std_quality": 0.203096
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 361,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.192732,
+          "simulated_best_utility": 0.201812,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.019701
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.147196,
+            "abs_utility_error": 0.025834,
+            "simulated_mean_quality": 0.63,
+            "simulated_std_quality": 0.482804
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.192732,
+            "simulated_utility": 0.201812,
+            "abs_utility_error": 0.00908,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.335188
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.134621,
+            "simulated_utility": 0.114769,
+            "abs_utility_error": 0.019852,
+            "simulated_mean_quality": 0.634,
+            "simulated_std_quality": 0.279231
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.051515,
+            "simulated_utility": 0.048104,
+            "abs_utility_error": 0.003411,
+            "simulated_mean_quality": 0.646333,
+            "simulated_std_quality": 0.238229
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.043307,
+            "simulated_utility": -0.026751,
+            "abs_utility_error": 0.016556,
+            "simulated_mean_quality": 0.667133,
+            "simulated_std_quality": 0.213884
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.144722,
+            "simulated_utility": -0.155233,
+            "abs_utility_error": 0.010511,
+            "simulated_mean_quality": 0.647889,
+            "simulated_std_quality": 0.203122
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 362,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.361515,
+          "simulated_best_utility": 0.37955,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003904
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.145505,
+            "abs_utility_error": 0.027525,
+            "simulated_mean_quality": 0.628667,
+            "simulated_std_quality": 0.483161
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.28627,
+            "simulated_utility": 0.227863,
+            "abs_utility_error": 0.058407,
+            "simulated_mean_quality": 0.602,
+            "simulated_std_quality": 0.364137
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.328338,
+            "simulated_utility": 0.273776,
+            "abs_utility_error": 0.054562,
+            "simulated_mean_quality": 0.603889,
+            "simulated_std_quality": 0.310113
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.348085,
+            "simulated_utility": 0.347446,
+            "abs_utility_error": 0.000639,
+            "simulated_mean_quality": 0.653333,
+            "simulated_std_quality": 0.275887
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.357611,
+            "simulated_utility": 0.337239,
+            "abs_utility_error": 0.020372,
+            "simulated_mean_quality": 0.634933,
+            "simulated_std_quality": 0.257694
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.361515,
+            "simulated_utility": 0.37955,
+            "abs_utility_error": 0.018035,
+            "simulated_mean_quality": 0.666056,
+            "simulated_std_quality": 0.236505
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 363,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.288338,
+          "simulated_best_utility": 0.31215,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000252
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.179632,
+            "abs_utility_error": 0.006602,
+            "simulated_mean_quality": 0.655,
+            "simulated_std_quality": 0.475368
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.26627,
+            "simulated_utility": 0.277974,
+            "abs_utility_error": 0.011704,
+            "simulated_mean_quality": 0.659,
+            "simulated_std_quality": 0.351026
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.288338,
+            "simulated_utility": 0.31215,
+            "abs_utility_error": 0.023812,
+            "simulated_mean_quality": 0.672222,
+            "simulated_std_quality": 0.300072
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.288085,
+            "simulated_utility": 0.277871,
+            "abs_utility_error": 0.010214,
+            "simulated_mean_quality": 0.645083,
+            "simulated_std_quality": 0.277212
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.277611,
+            "simulated_utility": 0.291286,
+            "abs_utility_error": 0.013675,
+            "simulated_mean_quality": 0.661667,
+            "simulated_std_quality": 0.250381
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.267778,
+            "abs_utility_error": 0.006263,
+            "simulated_mean_quality": 0.658111,
+            "simulated_std_quality": 0.240333
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 364,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.248338,
+          "simulated_best_utility": 0.287099,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002068
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.181845,
+            "abs_utility_error": 0.008815,
+            "simulated_mean_quality": 0.656667,
+            "simulated_std_quality": 0.474822
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.24627,
+            "simulated_utility": 0.287099,
+            "abs_utility_error": 0.040829,
+            "simulated_mean_quality": 0.6785,
+            "simulated_std_quality": 0.341401
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.248338,
+            "simulated_utility": 0.184166,
+            "abs_utility_error": 0.064172,
+            "simulated_mean_quality": 0.598333,
+            "simulated_std_quality": 0.314167
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.228085,
+            "simulated_utility": 0.219934,
+            "abs_utility_error": 0.008151,
+            "simulated_mean_quality": 0.640083,
+            "simulated_std_quality": 0.27015
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.197611,
+            "simulated_utility": 0.187751,
+            "abs_utility_error": 0.00986,
+            "simulated_mean_quality": 0.643467,
+            "simulated_std_quality": 0.255716
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.161515,
+            "simulated_utility": 0.173805,
+            "abs_utility_error": 0.01229,
+            "simulated_mean_quality": 0.660444,
+            "simulated_std_quality": 0.23664
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 365,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.21627,
+          "simulated_best_utility": 0.230073,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.027932
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.227037,
+            "abs_utility_error": 0.054007,
+            "simulated_mean_quality": 0.689667,
+            "simulated_std_quality": 0.46263
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.21627,
+            "simulated_utility": 0.230073,
+            "abs_utility_error": 0.013803,
+            "simulated_mean_quality": 0.655333,
+            "simulated_std_quality": 0.345261
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.188338,
+            "simulated_utility": 0.189701,
+            "abs_utility_error": 0.001363,
+            "simulated_mean_quality": 0.653333,
+            "simulated_std_quality": 0.303632
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.138085,
+            "simulated_utility": 0.146253,
+            "abs_utility_error": 0.008168,
+            "simulated_mean_quality": 0.658583,
+            "simulated_std_quality": 0.27233
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.077611,
+            "simulated_utility": 0.085899,
+            "abs_utility_error": 0.008288,
+            "simulated_mean_quality": 0.659733,
+            "simulated_std_quality": 0.253834
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.011515,
+            "simulated_utility": 0.002401,
+            "abs_utility_error": 0.009114,
+            "simulated_mean_quality": 0.643056,
+            "simulated_std_quality": 0.240655
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 366,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.17627,
+          "simulated_best_utility": 0.191567,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003239
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.064361,
+            "abs_utility_error": 0.108669,
+            "simulated_mean_quality": 0.560667,
+            "simulated_std_quality": 0.496306
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.17627,
+            "simulated_utility": 0.191567,
+            "abs_utility_error": 0.015297,
+            "simulated_mean_quality": 0.659667,
+            "simulated_std_quality": 0.348099
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.149988,
+            "abs_utility_error": 0.04165,
+            "simulated_mean_quality": 0.687,
+            "simulated_std_quality": 0.297012
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.018085,
+            "simulated_utility": 0.001513,
+            "abs_utility_error": 0.016572,
+            "simulated_mean_quality": 0.6365,
+            "simulated_std_quality": 0.274987
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.082389,
+            "simulated_utility": -0.03627,
+            "abs_utility_error": 0.046119,
+            "simulated_mean_quality": 0.690333,
+            "simulated_std_quality": 0.246603
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.188485,
+            "simulated_utility": -0.251672,
+            "abs_utility_error": 0.063187,
+            "simulated_mean_quality": 0.605667,
+            "simulated_std_quality": 0.257339
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 367,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.324621,
+          "simulated_best_utility": 0.350516,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000803
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.11534,
+            "abs_utility_error": 0.05769,
+            "simulated_mean_quality": 0.604333,
+            "simulated_std_quality": 0.488993
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.270541,
+            "simulated_utility": 0.204958,
+            "abs_utility_error": 0.065583,
+            "simulated_mean_quality": 0.595833,
+            "simulated_std_quality": 0.380875
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.304168,
+            "simulated_utility": 0.25288,
+            "abs_utility_error": 0.051288,
+            "simulated_mean_quality": 0.606778,
+            "simulated_std_quality": 0.333897
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.318338,
+            "simulated_utility": 0.334293,
+            "abs_utility_error": 0.015955,
+            "simulated_mean_quality": 0.666,
+            "simulated_std_quality": 0.301707
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.323818,
+            "simulated_utility": 0.322355,
+            "abs_utility_error": 0.001463,
+            "simulated_mean_quality": 0.650867,
+            "simulated_std_quality": 0.288512
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.324621,
+            "simulated_utility": 0.350516,
+            "abs_utility_error": 0.025895,
+            "simulated_mean_quality": 0.6725,
+            "simulated_std_quality": 0.271984
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 368,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.264168,
+          "simulated_best_utility": 0.298492,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.00583
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.105701,
+            "abs_utility_error": 0.067329,
+            "simulated_mean_quality": 0.596333,
+            "simulated_std_quality": 0.490632
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.250541,
+            "simulated_utility": 0.257066,
+            "abs_utility_error": 0.006525,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.369934
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.239965,
+            "abs_utility_error": 0.024203,
+            "simulated_mean_quality": 0.631556,
+            "simulated_std_quality": 0.331591
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.258338,
+            "simulated_utility": 0.251151,
+            "abs_utility_error": 0.007187,
+            "simulated_mean_quality": 0.648917,
+            "simulated_std_quality": 0.307766
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.243818,
+            "simulated_utility": 0.298492,
+            "abs_utility_error": 0.054674,
+            "simulated_mean_quality": 0.6948,
+            "simulated_std_quality": 0.276308
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.224621,
+            "simulated_utility": 0.198966,
+            "abs_utility_error": 0.025655,
+            "simulated_mean_quality": 0.631056,
+            "simulated_std_quality": 0.282089
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 369,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.230541,
+          "simulated_best_utility": 0.313677,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006373
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.155279,
+            "abs_utility_error": 0.017751,
+            "simulated_mean_quality": 0.636333,
+            "simulated_std_quality": 0.481054
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.230541,
+            "simulated_utility": 0.313677,
+            "abs_utility_error": 0.083136,
+            "simulated_mean_quality": 0.713167,
+            "simulated_std_quality": 0.34949
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.224168,
+            "simulated_utility": 0.248738,
+            "abs_utility_error": 0.02457,
+            "simulated_mean_quality": 0.669889,
+            "simulated_std_quality": 0.321151
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.198338,
+            "simulated_utility": 0.198352,
+            "abs_utility_error": 1.4e-05,
+            "simulated_mean_quality": 0.652167,
+            "simulated_std_quality": 0.303815
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.163818,
+            "simulated_utility": 0.147684,
+            "abs_utility_error": 0.016134,
+            "simulated_mean_quality": 0.637133,
+            "simulated_std_quality": 0.28945
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.124621,
+            "simulated_utility": 0.113275,
+            "abs_utility_error": 0.011346,
+            "simulated_mean_quality": 0.642,
+            "simulated_std_quality": 0.278725
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 370,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.200541,
+          "simulated_best_utility": 0.186838,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.027511
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.110905,
+            "abs_utility_error": 0.062125,
+            "simulated_mean_quality": 0.600667,
+            "simulated_std_quality": 0.489761
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.200541,
+            "simulated_utility": 0.105946,
+            "abs_utility_error": 0.094595,
+            "simulated_mean_quality": 0.572667,
+            "simulated_std_quality": 0.386721
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.164168,
+            "simulated_utility": 0.186838,
+            "abs_utility_error": 0.02267,
+            "simulated_mean_quality": 0.665222,
+            "simulated_std_quality": 0.318384
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.089195,
+            "abs_utility_error": 0.019143,
+            "simulated_mean_quality": 0.632083,
+            "simulated_std_quality": 0.302889
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.043818,
+            "simulated_utility": 0.097375,
+            "abs_utility_error": 0.053557,
+            "simulated_mean_quality": 0.692867,
+            "simulated_std_quality": 0.275492
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.025379,
+            "simulated_utility": -0.01204,
+            "abs_utility_error": 0.013339,
+            "simulated_mean_quality": 0.660167,
+            "simulated_std_quality": 0.272207
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 371,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.267797,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.012489
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.184955,
+            "abs_utility_error": 0.011925,
+            "simulated_mean_quality": 0.659,
+            "simulated_std_quality": 0.474045
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.267797,
+            "abs_utility_error": 0.107256,
+            "simulated_mean_quality": 0.736833,
+            "simulated_std_quality": 0.349037
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.084168,
+            "simulated_utility": 0.111563,
+            "abs_utility_error": 0.027395,
+            "simulated_mean_quality": 0.672333,
+            "simulated_std_quality": 0.320771
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.011662,
+            "simulated_utility": -0.048728,
+            "abs_utility_error": 0.037066,
+            "simulated_mean_quality": 0.621833,
+            "simulated_std_quality": 0.310561
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.116182,
+            "simulated_utility": -0.130375,
+            "abs_utility_error": 0.014193,
+            "simulated_mean_quality": 0.639133,
+            "simulated_std_quality": 0.289509
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.225379,
+            "simulated_utility": -0.211643,
+            "abs_utility_error": 0.013736,
+            "simulated_mean_quality": 0.667722,
+            "simulated_std_quality": 0.279366
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 372,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 5,
+          "match": true,
+          "analytic_best_utility": 0.279546,
+          "simulated_best_utility": 0.294425,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001004
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.038371,
+            "abs_utility_error": 0.134659,
+            "simulated_mean_quality": 0.537,
+            "simulated_std_quality": 0.498629
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.248129,
+            "simulated_utility": 0.21818,
+            "abs_utility_error": 0.029949,
+            "simulated_mean_quality": 0.622667,
+            "simulated_std_quality": 0.394486
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.27095,
+            "simulated_utility": 0.25543,
+            "abs_utility_error": 0.01552,
+            "simulated_mean_quality": 0.640667,
+            "simulated_std_quality": 0.365237
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.278542,
+            "simulated_utility": 0.277912,
+            "abs_utility_error": 0.00063,
+            "simulated_mean_quality": 0.645833,
+            "simulated_std_quality": 0.337922
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.279546,
+            "simulated_utility": 0.294425,
+            "abs_utility_error": 0.014879,
+            "simulated_mean_quality": 0.6576,
+            "simulated_std_quality": 0.323175
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.27709,
+            "simulated_utility": 0.285002,
+            "abs_utility_error": 0.007912,
+            "simulated_mean_quality": 0.659444,
+            "simulated_std_quality": 0.324442
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 373,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.23095,
+          "simulated_best_utility": 0.267056,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002821
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.03267,
+            "abs_utility_error": 0.14036,
+            "simulated_mean_quality": 0.531667,
+            "simulated_std_quality": 0.498996
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.228129,
+            "simulated_utility": 0.267056,
+            "abs_utility_error": 0.038927,
+            "simulated_mean_quality": 0.685167,
+            "simulated_std_quality": 0.388111
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.23095,
+            "simulated_utility": 0.199333,
+            "abs_utility_error": 0.031617,
+            "simulated_mean_quality": 0.625222,
+            "simulated_std_quality": 0.365889
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.218542,
+            "simulated_utility": 0.197685,
+            "abs_utility_error": 0.020857,
+            "simulated_mean_quality": 0.638667,
+            "simulated_std_quality": 0.350982
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.199546,
+            "simulated_utility": 0.222855,
+            "abs_utility_error": 0.023309,
+            "simulated_mean_quality": 0.671467,
+            "simulated_std_quality": 0.328612
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.17709,
+            "simulated_utility": 0.160545,
+            "abs_utility_error": 0.016545,
+            "simulated_mean_quality": 0.634611,
+            "simulated_std_quality": 0.324066
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 374,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.208129,
+          "simulated_best_utility": 0.227977,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.017179
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.227977,
+            "abs_utility_error": 0.054947,
+            "simulated_mean_quality": 0.690333,
+            "simulated_std_quality": 0.462356
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.208129,
+            "simulated_utility": 0.136368,
+            "abs_utility_error": 0.071761,
+            "simulated_mean_quality": 0.592333,
+            "simulated_std_quality": 0.405965
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.19095,
+            "simulated_utility": 0.211233,
+            "abs_utility_error": 0.020283,
+            "simulated_mean_quality": 0.662556,
+            "simulated_std_quality": 0.351323
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.158542,
+            "simulated_utility": 0.189161,
+            "abs_utility_error": 0.030619,
+            "simulated_mean_quality": 0.675167,
+            "simulated_std_quality": 0.336006
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.119546,
+            "simulated_utility": 0.086563,
+            "abs_utility_error": 0.032983,
+            "simulated_mean_quality": 0.6272,
+            "simulated_std_quality": 0.340637
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.07709,
+            "simulated_utility": 0.097956,
+            "abs_utility_error": 0.020866,
+            "simulated_mean_quality": 0.670722,
+            "simulated_std_quality": 0.322766
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 375,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.178129,
+          "simulated_best_utility": 0.231678,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005099
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.162156,
+            "abs_utility_error": 0.010874,
+            "simulated_mean_quality": 0.641667,
+            "simulated_std_quality": 0.479511
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.178129,
+            "simulated_utility": 0.231678,
+            "abs_utility_error": 0.053549,
+            "simulated_mean_quality": 0.690167,
+            "simulated_std_quality": 0.378488
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.13095,
+            "simulated_utility": 0.102416,
+            "abs_utility_error": 0.028534,
+            "simulated_mean_quality": 0.627889,
+            "simulated_std_quality": 0.365473
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.068542,
+            "simulated_utility": 0.06615,
+            "abs_utility_error": 0.002392,
+            "simulated_mean_quality": 0.643,
+            "simulated_std_quality": 0.33685
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.000454,
+            "simulated_utility": -0.030766,
+            "abs_utility_error": 0.030312,
+            "simulated_mean_quality": 0.6282,
+            "simulated_std_quality": 0.338966
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.07291,
+            "simulated_utility": -0.070674,
+            "abs_utility_error": 0.002236,
+            "simulated_mean_quality": 0.652,
+            "simulated_std_quality": 0.322674
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 376,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.25575,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.034901
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.25575,
+            "abs_utility_error": 0.08272,
+            "simulated_mean_quality": 0.709667,
+            "simulated_std_quality": 0.453916
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.138129,
+            "simulated_utility": 0.111231,
+            "abs_utility_error": 0.026898,
+            "simulated_mean_quality": 0.624667,
+            "simulated_std_quality": 0.393436
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.05095,
+            "simulated_utility": 0.045041,
+            "abs_utility_error": 0.005909,
+            "simulated_mean_quality": 0.647333,
+            "simulated_std_quality": 0.362292
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.051458,
+            "simulated_utility": -0.01551,
+            "abs_utility_error": 0.035948,
+            "simulated_mean_quality": 0.678167,
+            "simulated_std_quality": 0.333676
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.160454,
+            "simulated_utility": -0.153822,
+            "abs_utility_error": 0.006632,
+            "simulated_mean_quality": 0.655067,
+            "simulated_std_quality": 0.328889
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.27291,
+            "simulated_utility": -0.303118,
+            "abs_utility_error": 0.030208,
+            "simulated_mean_quality": 0.627944,
+            "simulated_std_quality": 0.331063
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 377,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.242922,
+          "simulated_best_utility": 0.251371,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002366
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.166487,
+            "abs_utility_error": 0.006543,
+            "simulated_mean_quality": 0.645,
+            "simulated_std_quality": 0.478513
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.226932,
+            "simulated_utility": 0.210511,
+            "abs_utility_error": 0.016421,
+            "simulated_mean_quality": 0.637167,
+            "simulated_std_quality": 0.416656
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.240556,
+            "simulated_utility": 0.251371,
+            "abs_utility_error": 0.010815,
+            "simulated_mean_quality": 0.655333,
+            "simulated_std_quality": 0.383962
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.242922,
+            "simulated_utility": 0.194651,
+            "abs_utility_error": 0.048271,
+            "simulated_mean_quality": 0.612167,
+            "simulated_std_quality": 0.387516
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.240541,
+            "simulated_utility": 0.236264,
+            "abs_utility_error": 0.004277,
+            "simulated_mean_quality": 0.651733,
+            "simulated_std_quality": 0.375469
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.235708,
+            "simulated_utility": 0.185695,
+            "abs_utility_error": 0.050013,
+            "simulated_mean_quality": 0.609444,
+            "simulated_std_quality": 0.373749
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 378,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.206932,
+          "simulated_best_utility": 0.218091,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.006376
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.070375,
+            "abs_utility_error": 0.102655,
+            "simulated_mean_quality": 0.566,
+            "simulated_std_quality": 0.495625
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.206932,
+            "simulated_utility": 0.197648,
+            "abs_utility_error": 0.009284,
+            "simulated_mean_quality": 0.644667,
+            "simulated_std_quality": 0.417019
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.200556,
+            "simulated_utility": 0.218091,
+            "abs_utility_error": 0.017535,
+            "simulated_mean_quality": 0.663556,
+            "simulated_std_quality": 0.385465
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.182922,
+            "simulated_utility": 0.12657,
+            "abs_utility_error": 0.056352,
+            "simulated_mean_quality": 0.605583,
+            "simulated_std_quality": 0.389013
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.128763,
+            "abs_utility_error": 0.031778,
+            "simulated_mean_quality": 0.6264,
+            "simulated_std_quality": 0.377637
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.135708,
+            "simulated_utility": 0.150819,
+            "abs_utility_error": 0.015111,
+            "simulated_mean_quality": 0.664667,
+            "simulated_std_quality": 0.363847
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 379,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.186932,
+          "simulated_best_utility": 0.182813,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.013902
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.083736,
+            "abs_utility_error": 0.089294,
+            "simulated_mean_quality": 0.577667,
+            "simulated_std_quality": 0.493931
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.186932,
+            "simulated_utility": 0.133281,
+            "abs_utility_error": 0.053651,
+            "simulated_mean_quality": 0.6085,
+            "simulated_std_quality": 0.425219
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.160556,
+            "simulated_utility": 0.182813,
+            "abs_utility_error": 0.022257,
+            "simulated_mean_quality": 0.670333,
+            "simulated_std_quality": 0.38752
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.122922,
+            "simulated_utility": 0.157109,
+            "abs_utility_error": 0.034187,
+            "simulated_mean_quality": 0.677417,
+            "simulated_std_quality": 0.370307
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.080541,
+            "simulated_utility": 0.094064,
+            "abs_utility_error": 0.013523,
+            "simulated_mean_quality": 0.662533,
+            "simulated_std_quality": 0.368469
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.035708,
+            "simulated_utility": 0.011344,
+            "abs_utility_error": 0.024364,
+            "simulated_mean_quality": 0.627722,
+            "simulated_std_quality": 0.366379
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 380,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.174839,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.016098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.135446,
+            "abs_utility_error": 0.037584,
+            "simulated_mean_quality": 0.620667,
+            "simulated_std_quality": 0.485221
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.156932,
+            "simulated_utility": 0.174839,
+            "abs_utility_error": 0.017907,
+            "simulated_mean_quality": 0.665833,
+            "simulated_std_quality": 0.410994
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.100556,
+            "simulated_utility": 0.090727,
+            "abs_utility_error": 0.009829,
+            "simulated_mean_quality": 0.641444,
+            "simulated_std_quality": 0.390717
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.032922,
+            "simulated_utility": -0.01594,
+            "abs_utility_error": 0.048862,
+            "simulated_mean_quality": 0.6115,
+            "simulated_std_quality": 0.38744
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.039459,
+            "simulated_utility": -0.031471,
+            "abs_utility_error": 0.007988,
+            "simulated_mean_quality": 0.657133,
+            "simulated_std_quality": 0.368604
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.114292,
+            "simulated_utility": -0.149047,
+            "abs_utility_error": 0.034755,
+            "simulated_mean_quality": 0.624556,
+            "simulated_std_quality": 0.373602
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 381,
+          "model": "heterogeneous",
+          "agent_sd": 0.05,
+          "difficulty_sd": 0.05
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.357971,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.357971,
+            "abs_utility_error": 0.184941,
+            "simulated_mean_quality": 0.775333,
+            "simulated_std_quality": 0.417363
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.116932,
+            "simulated_utility": 0.156488,
+            "abs_utility_error": 0.039556,
+            "simulated_mean_quality": 0.680167,
+            "simulated_std_quality": 0.403679
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.020556,
+            "simulated_utility": 0.062209,
+            "abs_utility_error": 0.041653,
+            "simulated_mean_quality": 0.685444,
+            "simulated_std_quality": 0.383236
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.087078,
+            "simulated_utility": -0.108002,
+            "abs_utility_error": 0.020924,
+            "simulated_mean_quality": 0.635583,
+            "simulated_std_quality": 0.383586
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.199459,
+            "simulated_utility": -0.250587,
+            "abs_utility_error": 0.051128,
+            "simulated_mean_quality": 0.609333,
+            "simulated_std_quality": 0.37992
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.314292,
+            "simulated_utility": -0.323628,
+            "abs_utility_error": 0.009336,
+            "simulated_mean_quality": 0.646944,
+            "simulated_std_quality": 0.370573
+          }
+        ]
+      }
+    ]
+  },
+  "calibrated_model_check": {
+    "inputs": {
+      "error_rate": 0.25817756653992396,
+      "rho": 0.03201330798479087,
+      "coordination_cost": 0.5666666666666667,
+      "risk_aversion": 1.0,
+      "n_max": 6,
+      "trials": 3000,
+      "seed": 10307,
+      "model": "heterogeneous",
+      "agent_sd": 0.05,
+      "difficulty_sd": 0.05
+    },
+    "recommendation": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.25575,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    },
+    "rows": [
+      {
+        "n": 1,
+        "analytic_utility": 0.30419,
+        "simulated_utility": 0.25575,
+        "abs_utility_error": 0.04844,
+        "simulated_mean_quality": 0.709667,
+        "simulated_std_quality": 0.453916
+      },
+      {
+        "n": 2,
+        "analytic_utility": -0.139211,
+        "simulated_utility": -0.190714,
+        "abs_utility_error": 0.051503,
+        "simulated_mean_quality": 0.7015,
+        "simulated_std_quality": 0.325547
+      },
+      {
+        "n": 3,
+        "analytic_utility": -0.652141,
+        "simulated_utility": -0.682636,
+        "abs_utility_error": 0.030495,
+        "simulated_mean_quality": 0.722,
+        "simulated_std_quality": 0.271302
+      },
+      {
+        "n": 4,
+        "analytic_utility": -1.18726,
+        "simulated_utility": -1.180569,
+        "abs_utility_error": 0.006691,
+        "simulated_mean_quality": 0.745917,
+        "simulated_std_quality": 0.226486
+      },
+      {
+        "n": 5,
+        "analytic_utility": -1.732713,
+        "simulated_utility": -1.681189,
+        "abs_utility_error": 0.051524,
+        "simulated_mean_quality": 0.782933,
+        "simulated_std_quality": 0.197456
+      },
+      {
+        "n": 6,
+        "analytic_utility": -2.283942,
+        "simulated_utility": -2.289045,
+        "abs_utility_error": 0.005103,
+        "simulated_mean_quality": 0.740111,
+        "simulated_std_quality": 0.195823
+      }
+    ]
+  },
+  "interpretation": "If match rate is high and utility error is low, the closed-form spawn_math utility is a reliable decision proxy under the chosen error model."
+}

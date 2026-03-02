@@ -1,0 +1,50 @@
+{
+  "frontier_id": "F-HIS1",
+  "title": "Historian-grounding coverage in active lane rows",
+  "input": "tasks/SWARM-LANES.md",
+  "analysis": {
+    "row_mode": "latest_per_lane",
+    "rows_considered": 152,
+    "active_row_count": 7,
+    "active_lane_count": 7,
+    "historian_check_coverage": 1.0,
+    "artifact_ref_coverage": 1.0,
+    "session_anchor_coverage": 1.0,
+    "mean_grounding_score": 1.0,
+    "high_grounding_rate": 1.0,
+    "low_grounding_threshold": 0.67,
+    "low_grounding_rows": [],
+    "focus_breakdown": {
+      "domains/ai": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/brain": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/evolution": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/information-science": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/operations-research": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "domains/statistics": {
+        "row_count": 1,
+        "mean_score": 1.0
+      },
+      "global": {
+        "row_count": 1,
+        "mean_score": 1.0
+      }
+    },
+    "scope_hotspots": []
+  },
+  "generated_at_utc": "2026-02-27T21:48:09Z"
+}

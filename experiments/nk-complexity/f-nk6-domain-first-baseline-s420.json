@@ -1,0 +1,75 @@
+{
+  "session": "S420",
+  "frontier": "F-NK6",
+  "measurement_window": "S400-S420 (21 sessions)",
+  "date": "2026-03-02",
+  "methodology": "Global frontiers: parsed tasks/FRONTIER.md (active list) and tasks/FRONTIER-ARCHIVE.md for RESOLVED/MERGED/PARTIALLY_RESOLVED events in S400-S420. Domain frontiers: parsed all 43 domains/*/tasks/FRONTIER.md resolved tables for S400-S420 entries. Linkage: checked domain frontier text for references to global frontier IDs (F-NK1, F-META1 etc). Prior artifacts: f-nk6-governance-baseline-s417.json and f-nk6-namespace-linkage-s418.json used for reconciliation.",
+  "global_frontiers_active": 18,
+  "global_frontiers_resolved_last20s": 3,
+  "global_resolution_events": [
+    {"id": "F105", "type": "RESOLVED", "session": "S404", "note": "compact.py operational, TTL closure"},
+    {"id": "F-PUB1", "type": "MERGED", "session": "S404", "note": "Merged into F-SUB1, publication path absorbed"},
+    {"id": "F-EVAL1", "type": "PARTIALLY_RESOLVED", "session": "S409", "note": "2.25/3 sustained 5 sessions, glass ceiling reached"}
+  ],
+  "global_resolution_rate_per_session": 0.143,
+  "global_resolution_note": "Includes RESOLVED + MERGED + PARTIALLY_RESOLVED. If strict (RESOLVED only): 0.048/session. Prior S417 artifact measured 0.095/session for S397-S417 window using similar inclusive methodology. L-912 baseline was 0.08/session at N=572.",
+  "domain_frontiers_total": 110,
+  "domain_frontiers_across_41_domains": 41,
+  "domain_frontiers_resolved_last20s": 17,
+  "domain_resolution_events_sample": [
+    {"id": "F-AI1", "domain": "ai", "type": "PARTIALLY_RESOLVED", "session": "S402"},
+    {"id": "F-BRN2", "domain": "brain", "type": "RESOLVED", "session": "S403"},
+    {"id": "F-BRN5", "domain": "brain", "type": "RESOLVED", "session": "S402"},
+    {"id": "F-BRN6", "domain": "brain", "type": "RESOLVED", "session": "S401"},
+    {"id": "F-CTL2", "domain": "control-theory", "type": "PARTIALLY_RESOLVED", "session": "S402"},
+    {"id": "F-EXP2", "domain": "expert-swarm", "type": "RESOLVED", "session": "S405"},
+    {"id": "F-EXP3", "domain": "expert-swarm", "type": "RESOLVED", "session": "S410"},
+    {"id": "F-EXP4", "domain": "expert-swarm", "type": "PARTIALLY_FALSIFIED", "session": "S412"},
+    {"id": "F-FRA3", "domain": "fractals", "type": "FALSIFIED", "session": "S403"},
+    {"id": "F-GAM2", "domain": "game-theory", "type": "CONFIRMED", "session": "S405"},
+    {"id": "F-PHY3", "domain": "physics", "type": "FALSIFIED", "session": "S401"},
+    {"id": "F-PRO3", "domain": "protocol-engineering", "type": "RESOLVED", "session": "S402"},
+    {"id": "F-PSY2", "domain": "psychology", "type": "RESOLVED", "session": "S402"},
+    {"id": "F-QC5", "domain": "quality", "type": "RESOLVED", "session": "S405"},
+    {"id": "F-SP6", "domain": "stochastic-processes", "type": "CONFIRMED", "session": "S403"},
+    {"id": "F-STR3", "domain": "strategy", "type": "RESOLVED", "session": "S404"},
+    {"id": "F-GT3", "domain": "graph-theory", "type": "RESOLVED", "session": "S400"}
+  ],
+  "domain_resolution_rate_per_session": 0.81,
+  "resolution_ratio": 5.7,
+  "resolution_ratio_note": "Domain/global = 0.81 / 0.143 = 5.7x. Prior S417 measurement found 17.5x ratio using stricter global-only counting (domain frontiers only vs strictly global). Both measurements confirm large gap.",
+  "domain_global_linkage_pct": 3.0,
+  "domain_linkage_details": {
+    "source": "S418 artifact f-nk6-namespace-linkage-s418.json",
+    "total_domain_frontiers_checked": 201,
+    "linked_to_global": 6,
+    "linkage_rate_pct": 3.0,
+    "zero_linkage_domains": 38,
+    "zero_linkage_domain_pct": 88.4,
+    "linked_domain_frontiers": [
+      {"id": "F-COMP1", "domain": "competitions", "refs_to_global": ["F-EVAL1"]},
+      {"id": "F-EVAL1", "domain": "evaluation", "refs_to_global": ["F-COMP1"]},
+      {"id": "F-EVAL2", "domain": "evaluation", "refs_to_global": ["F-COMP1"]},
+      {"id": "F-LNG5", "domain": "linguistics", "refs_to_global": ["F119", "F120"]},
+      {"id": "F-META1", "domain": "meta", "refs_to_global": ["F-META8"]},
+      {"id": "F-PHY6", "domain": "physics", "refs_to_global": ["F126"]}
+    ],
+    "global_to_domain_linkage_pct": 27.8,
+    "asymmetry_factor": 9.3
+  },
+  "domain_first_protocol": {
+    "description": "Domain-first dispatch routes DOMEX work primarily to specific domain frontiers (currently 79% domain-first without any explicit rule). The binding gap is not routing frequency but the absence of upward namespace linkage: 97% of domain frontiers never reference global frontiers, so domain resolutions do not trigger global synthesis. The protocol must add a bridging mechanism: each domain frontier should name its parent global question, and each global frontier should decompose into >=1 domain sub-questions.",
+    "dispatch_rule": "When opening a domain FRONTIER.md entry, name the parent global frontier from tasks/FRONTIER.md it feeds into (or explicitly mark as domain-only with no global parent). When closing a domain frontier as RESOLVED/CONFIRMED/FALSIFIED, check whether the parent global frontier is now resolvable given the new evidence.",
+    "global_synthesis_cadence": "Every 5 sessions, review global frontiers that have 2+ linked domain frontier resolutions since last review; attempt synthesis update or partial resolution. This is the 'REM sleep' analogue: consolidation of accumulated domain knowledge into global understanding.",
+    "expected_improvement": "Raising linkage rate from 3% to 25% should improve global frontier resolution rate from 0.14/session toward 0.20/session (+40%) based on the federated convergence model (L-926, P-274). Full 0.24/session target requires both linkage and domain work being routed to globally-relevant questions, not just domain-local ones."
+  },
+  "prior_artifacts": [
+    "f-nk6-governance-baseline-s417.json (S397-S417 window, found 0.095 global/session, 1.67 domain/session, 17.5x ratio, 4.1% linkage)",
+    "f-nk6-namespace-linkage-s418.json (S418 hardening, confirmed 3.0% domain->global linkage, 27.8% global->domain)",
+    "f-nk6-governance-model-s415.json (S415 governance analysis, found 2.16x domain improvement post-S400, 0 global improvement)"
+  ],
+  "verdict": "PARTIAL",
+  "verdict_detail": "The F-NK6 hypothesis has two components: (1) domain-first dispatch is already the default pattern (79% DOMEX dispatches are domain-focused, CONFIRMED pre-S400). (2) Formalizing domain-first protocol will improve global frontier resolution >=50% (from 0.16/session to >=0.24/session). Component 2 is NOT YET CONFIRMED. Global resolution rate S400-S420 = 0.143/session (above L-912 0.08 baseline but below 0.24 target). The root cause is namespace disconnection (3% linkage), not dispatch routing. PENDING full test: implement federated convergence model (explicit parent-global fields in domain frontiers) and measure over next 20 sessions.",
+  "notes": "Three key findings: (1) Domain frontier resolution is consistently 5-18x faster than global (0.81 vs 0.143/session), confirming the structural asymmetry that motivates F-NK6. (2) The bottleneck is namespace isolation (3% linkage), not dispatch frequency — swarm is already 79-97% domain-first. (3) Global resolutions that did occur in S400-S420 were TTL cleanups (F105, F-PUB1, F-PERS1) not organic research closures, suggesting global frontiers are being administratively managed rather than genuinely resolved. The domain-first protocol must add upward namespace bridges, not just change dispatch frequency. Cites: L-912, L-918, L-926, P-274.",
+  "cites": ["L-912", "L-918", "L-926", "P-274", "F-NK6"]
+}

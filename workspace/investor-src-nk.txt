@@ -1,0 +1,105 @@
+=== NK ANALYSIS: investor ===
+
+  Path: <your-repos>/investor/src/investor
+  Total LOC: 25685
+  Architecture: distributed
+
+  NK Metrics:
+    N (modules):          68
+    K_total (edges):      123
+    K_avg:                1.81
+    K/N:                  0.027
+    K_max:                13 (core.data_manager)
+    Cycles:               0
+    K_avg*N + Cycles:     123.0
+    Hub concentration:    11%
+
+  Modules:
+    Module                       LOC  K_out  K_in  Imports
+    ----------------------------------------------------------------------
+    __init__                      14      5     0  data, data.stock_data, utils, utils.date_utils, utils.logging
+    analysis.holiday_effects     508      0     1  (none)
+    analysis.market_regime       322      0     0  (none)
+    analysis.options_analysis    616      7     1  core, core.config, data, data.options_data, models, models.options_pricing, visualization.options_charts
+    analysis.regime_switching    430      3     0  core, core.error_handling, core.exceptions
+    config                       137      0     0  (none)
+    core                           3      0     4  (none)
+    core.analysis_manager        422     12     1  analysis.holiday_effects, analysis.options_analysis, core.config, core.error_handling, core.exceptions, data, data.events, forecasting, forecasting.data_processor, forecasting.ensemble, forecasting.investment_anomaly_detector, forecasting.model_manager
+    core.analysis_orchestrator    380      5     0  core.analysis_manager, core.config, core.data_manager, core.output_manager, core.visualization_manager
+    core.config                  157      0     6  (none)
+    core.data_manager            721     13     1  core.config, core.error_handling, core.exceptions, data, data.crypto_data, data.currency_converter, data.earnings_data, data.earnings_processor, data.macro_data, data.sector_data, data.stock_data, data.storage, data.unified_data_manager
+    core.error_handling          328      1     5  core.exceptions
+    core.exceptions              174      0     7  (none)
+    core.output_manager          544      2     1  core.config, core.exceptions
+    core.visualization_manager    541      8     1  core.config, core.exceptions, data, data.events, forecasting, forecasting.scalable_plotting, visualization.events_overlay, visualization.market_dashboard
+    data                           7      2     7  data.stock_data, data.storage
+    data.base                      4      0     4  (none)
+    data.base.cache_manager      291      2     6  data.base.interfaces, data.base.utils
+    data.base.interfaces         197      0     7  (none)
+    data.base.provider_registry    267      2     1  data.base.cache_manager, data.base.interfaces
+    data.base.utils              282      0     2  (none)
+    data.base.yfinance_provider    265      3     2  data.base.cache_manager, data.base.interfaces, data.base.utils
+    data.base_downloader         405      5     0  core, core.error_handling, utils, utils.parallel_processing, utils.performance
+    data.crypto_data             420      2     1  utils, utils.performance
+    data.currency_converter      583      1     1  data.storage
+    data.earnings_data           461      2     1  utils, utils.performance
+    data.earnings_processor      479      0     1  (none)
+    data.events                  265      0     3  (none)
+    data.external_data           414      0     0  (none)
+    data.factor_data             405      3     0  core, core.error_handling, core.exceptions
+    data.macro_data              467      0     2  (none)
+    data.options_data            354      3     1  data.base, data.base.cache_manager, data.base.interfaces
+    data.providers                 3      0     1  (none)
+    data.providers.crypto_provider    217      4     1  data.base, data.base.cache_manager, data.base.interfaces, data.base.yfinance_provider
+    data.providers.stock_provider    112      4     1  data.base, data.base.cache_manager, data.base.interfaces, data.base.yfinance_provider
+    data.sector_data             254      1     2  data.stock_data
+    data.stock_data              259      2     5  utils, utils.performance
+    data.storage                1011      0     4  (none)
+    data.unified_data_manager    261      9     1  data.base, data.base.cache_manager, data.base.interfaces, data.base.provider_registry, data.macro_data, data.providers, data.providers.crypto_provider, data.providers.stock_provider, data.sector_data
+    data_loader                  106      3     0  data, data.stock_data, data.storage
+    forecasting                   14      4     2  forecasting.darts_model_manager, forecasting.data_processor, forecasting.ensemble, forecasting.model_manager
+    forecasting.advanced_anomaly_detection    583      0     0  (none)
+    forecasting.anomaly_detection    596      0     0  (none)
+    forecasting.big_data_models    591      0     0  (none)
+    forecasting.darts_model_manager    660      0     1  (none)
+    forecasting.data_processor    729      3     2  utils, utils.performance, utils.temporal_validation
+    forecasting.ensemble         478      0     2  (none)
+    forecasting.investment_anomaly_detector    900      2     1  utils, utils.temporal_validation
+    forecasting.ml_model_manager    531      0     0  (none)
+    forecasting.model_manager    396      0     2  (none)
+    forecasting.scalable_plotting    875      2     1  data, data.events
+    models                        25      1     2  models.factor_models
+    models.factor_models         729      2     1  utils, utils.temporal_validation
+    models.options_pricing       542      0     2  (none)
+    trading                       24      1     0  trading.pairs_trading
+    trading.anomaly_strategy     717      0     0  (none)
+    trading.pairs_trading        844      0     1  (none)
+    utils                         12      2     8  utils.date_utils, utils.logging
+    utils.date_utils             112      0     2  (none)
+    utils.forecast_logger        207      0     0  (none)
+    utils.logging                 38      0     2  (none)
+    utils.parallel_processing    339      0     1  (none)
+    utils.performance             96      0     5  (none)
+    utils.temporal_validation    453      0     3  (none)
+    utils.unified_cache          463      0     0  (none)
+    visualization.events_overlay    428      0     1  (none)
+    visualization.market_dashboard    638      0     1  (none)
+    visualization.options_charts    579      2     1  models, models.options_pricing
+
+  Cross-Package Comparison:
+    Package                 Score
+    ------------------------------
+    logging                   1.0
+    json                      2.0
+    urllib                    6.0
+    unittest                 28.0
+    importlib                38.0
+    email                    46.0
+    requests                 55.0
+    click                    68.0
+    multiprocessing         102.0
+    jinja2                  109.0
+  → investor                123.0  ← THIS
+    asyncio                 128.0
+    flask                   130.0
+    werkzeug                238.0

@@ -1,0 +1,126 @@
+{
+  "frontier_id": "F-CTL1",
+  "session": 186,
+  "artifacts_compared": [
+    "experiments/control-theory/f-ctl1-threshold-sweep-s186.json",
+    "experiments/control-theory/f-ctl1-threshold-sweep-s186-all.json",
+    "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d03.json",
+    "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d05.json"
+  ],
+  "runs": [
+    {
+      "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186.json",
+      "schema_mode": "latest",
+      "drop_threshold": 0.04,
+      "n_sessions": 27,
+      "compaction_event_count": 1,
+      "data_confidence": "LOW",
+      "best": {
+        "due": 0.12,
+        "urgent": 0.15,
+        "missed_events": 0,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.4815,
+        "score": 44.8148
+      },
+      "current_policy": {
+        "due": 0.06,
+        "urgent": 0.1,
+        "missed_events": 0,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.6296,
+        "score": 46.2963,
+        "score_delta_vs_best": 1.4815
+      }
+    },
+    {
+      "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all.json",
+      "schema_mode": "all",
+      "drop_threshold": 0.04,
+      "n_sessions": 43,
+      "compaction_event_count": 4,
+      "data_confidence": "MEDIUM",
+      "best": {
+        "due": 0.12,
+        "urgent": 0.15,
+        "missed_events": 2,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.5116,
+        "score": 245.6163
+      },
+      "current_policy": {
+        "due": 0.06,
+        "urgent": 0.1,
+        "missed_events": 2,
+        "false_alarm_episodes": 3,
+        "alert_burden": 0.6279,
+        "score": 266.7791,
+        "score_delta_vs_best": 21.1628
+      }
+    },
+    {
+      "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d03.json",
+      "schema_mode": "all",
+      "drop_threshold": 0.03,
+      "n_sessions": 43,
+      "compaction_event_count": 8,
+      "data_confidence": "HIGH",
+      "best": {
+        "due": 0.04,
+        "urgent": 0.07,
+        "missed_events": 2,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.5814,
+        "score": 246.9806
+      },
+      "current_policy": {
+        "due": 0.06,
+        "urgent": 0.1,
+        "missed_events": 2,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.5814,
+        "score": 246.9806,
+        "score_delta_vs_best": 0.0
+      }
+    },
+    {
+      "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d05.json",
+      "schema_mode": "all",
+      "drop_threshold": 0.05,
+      "n_sessions": 43,
+      "compaction_event_count": 2,
+      "data_confidence": "MEDIUM",
+      "best": {
+        "due": 0.11,
+        "urgent": 0.14,
+        "missed_events": 1,
+        "false_alarm_episodes": 1,
+        "alert_burden": 0.7209,
+        "score": 128.2093
+      },
+      "current_policy": {
+        "due": 0.06,
+        "urgent": 0.1,
+        "missed_events": 1,
+        "false_alarm_episodes": 2,
+        "alert_burden": 0.7674,
+        "score": 148.6744,
+        "score_delta_vs_best": 20.4651
+      }
+    }
+  ],
+  "robustness": {
+    "most_frequent_best_pair": {
+      "due": 0.12,
+      "urgent": 0.15
+    },
+    "frequency": 2,
+    "total_runs": 4,
+    "robustness_ratio": 0.5
+  },
+  "interpretation": {
+    "main_signal": "Threshold recommendation is sensitive to compaction-event detection settings; event detector calibration is the dominant uncertainty.",
+    "policy_note": "Current 0.06/0.10 is not uniformly optimal, but no single alternative is robust across detector assumptions.",
+    "next_step": "Treat event-detection calibration as F-CTL1 sub-problem before changing maintenance defaults."
+  }
+}

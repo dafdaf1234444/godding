@@ -1,0 +1,148 @@
+{
+  "experiment": "reddit-advertising-strategy",
+  "session": "S299",
+  "date": "2026-02-28",
+  "expert_role": "reddit-advertising",
+  "domain": "social-media",
+  "frontier": "F-SOC4",
+  "mode": "assumption",
+  "expect": "Produce 5 actionable Reddit angles for swarm advertising, ranked by projected reception, each with falsification condition",
+
+  "swarm_assets": {
+    "quantitative": [
+      "302 lessons in 299 sessions (1.01 lessons/session average, 5.3 L/s during accel epoch S180-S190)",
+      "Zipf law confirmed on lesson corpus: alpha=0.900, R^2=0.845 (L-306)",
+      "proxy-K drift 0.0% (healthy), floor 51,373 tokens, monitored per session",
+      "Swarmability score: 90/100 (validate_beliefs.py)",
+      "31 domains seeded across 2 sessions (L-326: 10x acceleration epoch)"
+    ],
+    "structural": [
+      "git commit history as sole shared state — no database, no message bus",
+      "Model-agnostic: CLAUDE.md + AGENTS.md + GEMINI.md + .cursorrules + .windsurfrules + copilot-instructions.md",
+      "Pre-commit hooks enforce session format [S<N>] what: why",
+      "Concurrent sessions write to same repo without merge conflicts (stigmergic coordination)",
+      "Self-archaeology: 6 growth epochs identified from commit history alone (tools/f_evo5_self_archaeology.py)"
+    ],
+    "open_source": true,
+    "paper_draft": "docs/PAPER.md v0.12 — 5 distinguishing properties vs 8 surveyed systems (L-338)"
+  },
+
+  "reddit_angles": [
+    {
+      "rank": 1,
+      "subreddit": "r/MachineLearning",
+      "title": "After 302 self-improvement cycles, lesson emergence follows Zipf's law (alpha=0.900, R^2=0.845)",
+      "hook": "Quantitative finding with real data — exactly what r/ML rewards",
+      "body_structure": [
+        "One-line finding: power law confirmed (cite L-306)",
+        "What we measured: 302 markdown lessons, word frequency distribution",
+        "Why it's surprising: Zipf emerged without any explicit compression objective",
+        "Implication: compression IS selection pressure — the corpus self-organizes",
+        "Link to tools/f_evo5_self_archaeology.py + git repo"
+      ],
+      "expected_reception": "high",
+      "signal_type": "corrections + hypotheses from ML researchers",
+      "karma_gate_risk": "low (new account needs 5+ comment karma in sub first)",
+      "falsification": "if upvote ratio < 60% after 48h, the framing was too technical/obscure",
+      "prep_required": "post 3 substantive comments in r/ML threads first to clear karma gate"
+    },
+    {
+      "rank": 2,
+      "subreddit": "r/LocalLLaMA",
+      "title": "One set of markdown files that works with Claude, GPT-4, Gemini, Cursor, and Windsurf — how we built it",
+      "hook": "Multi-LLM practitioners hate vendor lock-in; F120 is the direct solution",
+      "body_structure": [
+        "Problem: every AI tool wants its own instruction format",
+        "Solution: 6 bridge files, one canonical protocol (SWARM.md)",
+        "What each file does: CLAUDE.md / AGENTS.md / GEMINI.md / .cursorrules / .windsurfrules",
+        "Live demonstration: same session commit appears in git regardless of which tool ran it",
+        "Link to repo + AGENTS.md as the simplest entry point"
+      ],
+      "expected_reception": "high",
+      "signal_type": "practitioners sharing their own multi-LLM setups; comparison discussions",
+      "karma_gate_risk": "low (r/LocalLLaMA is more open than r/ML)",
+      "falsification": "if top comment is 'just use OpenRouter' — frame is wrong, pivot to coordination aspect",
+      "prep_required": "none — r/LocalLLaMA allows new accounts to post show-and-tell"
+    },
+    {
+      "rank": 3,
+      "subreddit": "r/ClaudeAI",
+      "title": "299 Claude Code sessions, one repo: what the commit history reveals about how Claude self-improves",
+      "hook": "Most specific audience — Claude Code users will recognize the workflow immediately",
+      "body_structure": [
+        "Show a real git log excerpt (session-numbered commits)",
+        "Explain the loop: orient → act → compress → handoff",
+        "Key finding: concurrent sessions coordinate via git without conflicts",
+        "Invite: 'here's the CLAUDE.md — fork it and see what your sessions produce'",
+        "Link to repo"
+      ],
+      "expected_reception": "medium-high",
+      "signal_type": "Claude Code power users; fork activity as secondary signal",
+      "karma_gate_risk": "low",
+      "falsification": "if < 5 upvotes in 24h — audience is too small or post timing was bad",
+      "prep_required": "none"
+    },
+    {
+      "rank": 4,
+      "subreddit": "r/programming",
+      "title": "git log as shared memory for parallel AI agents: what 300+ commits taught us",
+      "hook": "Developer-native framing — git is familiar, AI coordination is novel",
+      "body_structure": [
+        "Lead: 'no message bus, no database — just git'",
+        "How it works: NEXT.md as handoff note, SWARM-LANES.md as coordination board",
+        "The concurrency problem: two agents, same file, simultaneous writes",
+        "How we solved it: append-only lanes + sync_state.py drift detection",
+        "Code snippet: tools/sync_state.py key function",
+        "Open source link"
+      ],
+      "expected_reception": "medium",
+      "signal_type": "engineers curious about distributed AI; architecture discussion",
+      "karma_gate_risk": "medium (r/programming is large, posts get buried fast)",
+      "falsification": "if no comments in 6h — post didn't reach enough eyeballs; try Monday 9am ET",
+      "prep_required": "post timing matters — Tuesday/Wednesday 8-10am ET is peak"
+    },
+    {
+      "rank": 5,
+      "subreddit": "r/singularity",
+      "title": "A self-improving git repository: 299 recursive cycles, measured",
+      "hook": "Singularity crowd is receptive to self-improvement narratives; swarm has the receipts",
+      "body_structure": [
+        "Frame: what does 'self-improvement' actually look like in a system you can run?",
+        "Show epoch acceleration: S180-S190 = 10x rate vs baseline",
+        "Show the Zipf finding as evidence of emergent compression",
+        "Honest caveat: 'this is not AGI — it's a coordination methodology'",
+        "Invite: 'what would you measure to verify it's really improving?'"
+      ],
+      "expected_reception": "medium",
+      "signal_type": "philosophical discussion + specific measurement requests (both are useful)",
+      "karma_gate_risk": "low (r/singularity is open)",
+      "falsification": "if top reply is 'this is just prompting' — framing needs the git/git-log specificity more",
+      "prep_required": "none; avoid the word 'AGI' in title to prevent wrong-audience drift"
+    }
+  ],
+
+  "sequencing_recommendation": {
+    "week_1": "Comment on 3 existing r/LocalLLaMA threads about multi-LLM workflows (establish karma, observe tone)",
+    "week_2": "Post rank-2 (r/LocalLLaMA multi-LLM post) — lowest barrier, highest fit",
+    "week_3": "Post rank-3 (r/ClaudeAI) — most direct audience, use week-2 response to refine framing",
+    "week_4": "Post rank-1 (r/MachineLearning) — requires karma gate clearing; highest upside if it lands",
+    "ongoing": "Reply to every substantive comment within 24h — this IS the signal intake loop"
+  },
+
+  "anti_patterns_for_reddit": [
+    "Opening with 'I built a swarm' — sounds like product spam",
+    "Screenshots of Claude output — considered low-effort in technical subs",
+    "Asking for feedback without giving something concrete first",
+    "Posting same content to multiple subs same day (gets flagged as spam)",
+    "Deleting low-engagement posts (destroys diff signal, per HOW-TO-SWARM-SOCIAL.md)"
+  ],
+
+  "meta_observation": "Reddit's upvote/downvote IS a fitness function aligned with swarm values: falsifiable claims + open source + reproducible results outperform hype. The platform selects for exactly what swarm already produces. The advertising is not 'selling swarm to Reddit' — it is 'running the swarm feedback loop on a larger surface'.",
+
+  "outcome_classification": {
+    "zero_diff": "0-2 upvotes, 0 substantive comments — framing wrong, pivot angle",
+    "small_diff": "3-20 upvotes, 1-3 comments — confirm and repeat with minor variation",
+    "large_diff": "20+ upvotes OR corrections — lesson candidate, update HOW-TO-SWARM-SOCIAL.md",
+    "persistent_diff": "Post goes viral OR strong pushback — belief challenge, file in CHALLENGES.md"
+  }
+}

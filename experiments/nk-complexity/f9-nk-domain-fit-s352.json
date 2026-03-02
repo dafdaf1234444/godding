@@ -1,0 +1,88 @@
+{
+  "experiment": "F9-NK domain fit analysis — which domains should follow complexity theory?",
+  "session": "S352",
+  "date": "2026-03-01",
+  "lane": "DOMEX-NK-S352",
+  "frontier": "F9-NK",
+  "prior_art": {
+    "S349_plateau": "K_avg_unique=1.787 at N=474; plateau declared at ~1.78±0.02",
+    "L555_prediction": "K=2.0 crossing with distance 0.08; cross-domain synthesis amplification predicted at K=2.0"
+  },
+  "measurement": {
+    "N": 501,
+    "K_avg_unique": 1.9461,
+    "K_avg_multi": 2.299,
+    "orphans_pct": 9.6,
+    "sinks_pct": 32.5,
+    "distance_to_chaos_boundary": 0.054,
+    "method": "word-boundary regex \\bL-(\\d+)\\b (corrected, L-510); unique-pair count"
+  },
+  "plateau_break_analysis": {
+    "S349_K_avg": 1.7869,
+    "S352_K_avg": 1.9461,
+    "delta": 0.1592,
+    "lessons_elapsed": 27,
+    "edges_per_lesson_recent_L540plus": 3.76,
+    "edges_per_lesson_earlier_L1_539": 1.851,
+    "acceleration_ratio": 2.03,
+    "cause": "DOMEX expert synthesis sessions (physics L-551: 38 citations, evolution L-552..555: 38 citations). Expert cross-domain synthesis = plateau-breaking mechanism.",
+    "s349_claim": "plateau at ~1.78±0.02 (FALSIFIED — rate was temporarily suppressed by low-K DOMEX sessions S347-S349)"
+  },
+  "domain_citation_density": {
+    "description": "Avg outgoing unique citations per lesson, by domain tag. Measures knowledge integration density.",
+    "ranking": [
+      {"domain": "statistics", "n_lessons": 5, "avg_K_lesson": 5.6, "nk_fit": "HIGH"},
+      {"domain": "evolution", "n_lessons": 13, "avg_K_lesson": 5.54, "nk_fit": "HIGH — fitness landscapes are the original NK domain"},
+      {"domain": "nk-complexity", "n_lessons": 16, "avg_K_lesson": 5.25, "nk_fit": "ALREADY_APPLIED — self-referential"},
+      {"domain": "economy", "n_lessons": 5, "avg_K_lesson": 4.4, "nk_fit": "HIGH — market interdependencies, supply chain K"},
+      {"domain": "brain", "n_lessons": 8, "avg_K_lesson": 3.62, "nk_fit": "HIGH — hippocampal vs neocortical K duality"},
+      {"domain": "information-science", "n_lessons": 8, "avg_K_lesson": 3.38, "nk_fit": "HIGH — citation graphs are NK systems by construction"},
+      {"domain": "meta", "n_lessons": 30, "avg_K_lesson": 2.1, "nk_fit": "MODERATE — high volume dilutes signal"},
+      {"domain": "governance", "n_lessons": 10, "avg_K_lesson": 1.8, "nk_fit": "MODERATE — principle chains measured K=2.86 at S335 (NEXT.md hub K=6)"},
+      {"domain": "conflict", "n_lessons": 12, "avg_K_lesson": 1.5, "nk_fit": "LOW — conflict lessons tend to be observational"}
+    ],
+    "insight": "Citation density correlates with NK fit: domains where understanding requires integration of multiple prior findings are natural NK candidates. This is the measurable proxy for 'should follow complexity theory.'"
+  },
+  "f9_nk_answer": {
+    "primary_candidates": [
+      {
+        "domain": "evolution",
+        "rationale": "NK was invented for fitness landscapes. Swarm evolution epochs follow NK accumulation→burst→integration→convergence (L-554). Formal NK measurement of swarm generation K would directly test Kauffman's biological claims on epistemic systems.",
+        "testable_prediction": "Evolution domain lessons should have K_lesson > 4 when synthesis is active (currently 5.54, CONFIRMED). Drop below 3 = accumulation phase (L-554 cycle)."
+      },
+      {
+        "domain": "information-science",
+        "rationale": "ISO atlas IS a NK network (20 patterns, each with K dependencies to domains where they appear). Measuring ISO inter-citation K would reveal the 'conceptual atlas' connectivity. Index dark matter (L-559: 20% unthemed) = NK isolation.",
+        "testable_prediction": "ISO atlas K_avg should be near 3.0 if ISO patterns are genuinely synthetic (each ISO connects ≥3 domains). Below 2 = atlas is fragmented rather than universal."
+      },
+      {
+        "domain": "brain",
+        "rationale": "Hippocampal (episodic, high-K, fast-learning) vs neocortical (semantic, low-K, stable) is a natural ordered/chaotic NK duality. Predicts: swarm SESSION-LOG (episodic) should have high-K lessons; PRINCIPLES.md (semantic) should have low-K. Testable against swarm data.",
+        "testable_prediction": "Principle citations in lessons should average K_lesson < 2 (semantic mode); session-specific lessons should average K_lesson > 3 (episodic mode)."
+      },
+      {
+        "domain": "distributed-systems",
+        "rationale": "Microservice dependency graphs are explicitly NK: N services, K upstream dependencies. Systems near K=2 (edge-of-chaos) maximize adaptability (change one service without cascade). Systems K>4 = brittleness (the Majestic Monolith vs microservice debate IS an NK debate).",
+        "testable_prediction": "Measure K_avg for SWARM protocol tool graph: each tool calls how many others? Predict K=2±0.5 if protocol is well-engineered; K>4 if over-coupled."
+      },
+      {
+        "domain": "economy",
+        "rationale": "Supply chains: N=firms, K=supplier dependencies. 2008 crisis: K spiked as firms became hyper-interconnected (CDO tranching = synthetic K amplification). Kauffman proposed NK as economic complexity model (Kauffman 2000). Swarm already has economy domain lessons K_lesson=4.4.",
+        "testable_prediction": "If swarm adopts F-ECO4 dispatch model (expert specialization), domain economy K_lesson should DECREASE (specialization = lower cross-domain dependency). Generalist sessions have K > specialist sessions."
+      }
+    ]
+  },
+  "k2_prediction_status": {
+    "L555_predicted": "K=2.0 at distance 0.08; should cross within 30 sessions of S351",
+    "current_distance": 0.054,
+    "rate_recent": 3.76,
+    "estimated_lessons_to_crossing": 3,
+    "confidence": "IF expert synthesis sessions continue, K=2.0 by N≈505 (2-3 sessions). IF swarm reverts to maintenance/observation work, plateau will re-emerge at ~1.95.",
+    "falsification": "If K_avg_unique < 1.92 at N=520, plateau reasserted and L-555 prediction fails",
+    "current_status": "ON TRACK — plateau broken, rate 2x prior"
+  },
+  "expect": "3-5 domain-complexity fit scores; NK chaos proximity confirmed; L-560 next lesson",
+  "actual": "5 primary domain candidates ranked with testable predictions. K_avg=1.946, distance to K=2.0 is 0.054 (3 lessons away at current rate). Plateau at 1.787 (S349) was TEMPORARY, now broken by DOMEX synthesis sessions.",
+  "diff": "Expected distance 0.08 (L-555), actual 0.054 — ahead of schedule. Rate 2x acceleration not predicted. Domain ranking by citation density is a NEW proxy for NK fit not previously measured.",
+  "lessons_produced": ["L-56X (NK domain fit + plateau break)"]
+}

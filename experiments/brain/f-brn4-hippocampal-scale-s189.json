@@ -1,0 +1,53 @@
+{
+  "frontier_id": "F-BRN4",
+  "session": 189,
+  "created_on": "2026-02-28",
+  "description": "INDEX.md hippocampal indexing degradation test at 288 lessons vs projected 500",
+  "hypothesis": "INDEX.md retrieval quality degrades as lesson count grows beyond the theme bucket maintenance cadence",
+  "current_state": {
+    "lesson_count": 288,
+    "theme_indexed": 207,
+    "coverage_ratio": 0.7188,
+    "uncovered_lessons": 81,
+    "index_lines": 51,
+    "index_bytes": 4917,
+    "orient_py_latency_s": 8.36,
+    "theme_buckets": {
+      "Architecture": 15,
+      "Protocols": 15,
+      "Strategy": 13,
+      "Complexity (NK)": 33,
+      "Evolution": 55,
+      "Distributed Systems": 10,
+      "Governance": 8,
+      "Meta": 58
+    },
+    "avg_lessons_per_theme": 25.9,
+    "next_hit_rate": 0.1579,
+    "next_items_total": 19,
+    "next_items_done": 3
+  },
+  "scale_projections_500L": {
+    "coverage_frozen_index": 0.414,
+    "coverage_proportional_index": 0.7188,
+    "orient_latency_projected_s": 14.5,
+    "meta_bucket_size_proportional": 101,
+    "evolution_bucket_size_proportional": 95,
+    "note": "Frozen index loses 30 percentage points of coverage; proportional needs constant manual update"
+  },
+  "degradation_signals": {
+    "coverage_gap_now": "81 lessons (28.1%) uncounted in theme index — theme counts are stale",
+    "bucket_diffusion": "Meta (58) and Evolution (55) already too large for targeted retrieval; at 500L these become 101 and 95",
+    "next_hit_rate": "Only 15.79% of For-next-session items get marked DONE — low recall on coordination signals",
+    "orient_latency": "8.4s at 288L (mostly WSL I/O); will slow but not critically at 500L"
+  },
+  "verdict": "PARTIAL-DEGRADATION",
+  "verdict_notes": "INDEX.md is already degraded (28% uncovered). Graceful degradation only holds if theme buckets are maintained. Without maintenance, coverage falls to 41% at 500L. The hippocampal analogy holds: false retrieval (searching Meta/Evolution finds wrong lessons) increases with bucket size. Key signal: NEXT.md hit rate (15.79%) shows coordination pointers already have low pickup rate.",
+  "remediation": [
+    "Add domain shards to INDEX.md themes (domains/ sections now carry their own indexes)",
+    "Add 'new lessons since last INDEX update' counter to orient.py output",
+    "Cap theme bucket size at 40 lessons; split buckets when exceeded",
+    "measure_orient_latency as a periodic (every 20 sessions) to track I/O degradation"
+  ],
+  "related": ["F101 (domain sharding)", "F105 (compaction)", "F121 (human signal capture)", "B-BRN2"]
+}

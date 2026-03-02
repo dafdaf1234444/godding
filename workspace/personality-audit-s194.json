@@ -1,0 +1,111 @@
+{
+  "personalities_defined": 14,
+  "deployment_gap": [
+    "adversary",
+    "builder",
+    "commit-expert",
+    "commit-swarmer",
+    "explorer",
+    "harvest-expert",
+    "skeptic",
+    "swarm-expert-builder",
+    "synthesizer",
+    "usage-identifier-expert"
+  ],
+  "gap_count": 10,
+  "lane_counts": {
+    "adversary": 0,
+    "builder": 0,
+    "commit-expert": 0,
+    "commit-swarmer": 0,
+    "conflict-expert": 5,
+    "domain-expert": 135,
+    "dream-expert": 2,
+    "explorer": 0,
+    "farming-expert": 1,
+    "harvest-expert": 0,
+    "skeptic": 0,
+    "swarm-expert-builder": 0,
+    "synthesizer": 0,
+    "usage-identifier-expert": 0
+  },
+  "lesson_alignment": {
+    "adversary": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0
+    },
+    "builder": {
+      "hits": 56,
+      "total": 304,
+      "pct": 18.4
+    },
+    "commit-expert": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "commit-swarmer": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "conflict-expert": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "domain-expert": {
+      "hits": 75,
+      "total": 304,
+      "pct": 24.7
+    },
+    "dream-expert": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "explorer": {
+      "hits": 24,
+      "total": 304,
+      "pct": 7.9
+    },
+    "farming-expert": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "harvest-expert": {
+      "hits": 32,
+      "total": 304,
+      "pct": 10.5
+    },
+    "skeptic": {
+      "hits": 55,
+      "total": 304,
+      "pct": 18.1
+    },
+    "swarm-expert-builder": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    },
+    "synthesizer": {
+      "hits": 2,
+      "total": 304,
+      "pct": 0.7
+    },
+    "usage-identifier-expert": {
+      "hits": 0,
+      "total": 304,
+      "pct": 0.0,
+      "no_pattern": true
+    }
+  }
+}

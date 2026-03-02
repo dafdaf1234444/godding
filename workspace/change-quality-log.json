@@ -1,0 +1,65 @@
+{
+  "schema": "change-quality-log-v1",
+  "entries": [
+    {
+      "session": 346,
+      "score": 8.86,
+      "rating": "STRONG",
+      "lessons": 7,
+      "principles": 0,
+      "frontier_advances": 1,
+      "domex": 4,
+      "council": 1,
+      "overhead_pct": 0.23,
+      "commits": 13
+    },
+    {
+      "session": 347,
+      "score": 9.99,
+      "rating": "STRONG",
+      "lessons": 10,
+      "principles": 1,
+      "frontier_advances": 1,
+      "domex": 3,
+      "council": 1,
+      "overhead_pct": 0.29,
+      "commits": 14
+    },
+    {
+      "session": 348,
+      "score": 15.48,
+      "rating": "STRONG",
+      "lessons": 11,
+      "principles": 1,
+      "frontier_advances": 3,
+      "domex": 8,
+      "council": 0,
+      "overhead_pct": 0.22,
+      "commits": 18
+    },
+    {
+      "session": 349,
+      "score": 11.65,
+      "rating": "STRONG",
+      "lessons": 5,
+      "principles": 0,
+      "frontier_advances": 2,
+      "domex": 5,
+      "council": 0,
+      "overhead_pct": 0.1,
+      "commits": 10
+    },
+    {
+      "session": 350,
+      "score": 3.8,
+      "rating": "ON PAR",
+      "lessons": 1,
+      "principles": 0,
+      "frontier_advances": 1,
+      "domex": 2,
+      "council": 0,
+      "overhead_pct": 0.0,
+      "commits": 2
+    }
+  ]
+}

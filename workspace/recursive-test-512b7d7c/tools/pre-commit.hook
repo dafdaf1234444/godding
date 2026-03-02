@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+if [ -f "beliefs/DEPS.md" ]; then
+    if command -v python3 >/dev/null 2>&1 && python3 -c "import sys" >/dev/null 2>&1; then
+        python3 tools/validate_beliefs.py
+    elif command -v python >/dev/null 2>&1 && python -c "import sys" >/dev/null 2>&1; then
+        python tools/validate_beliefs.py
+    else
+        echo "No runnable python interpreter found (python3/python)." >&2
+        exit 1
+    fi
+fi

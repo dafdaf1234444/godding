@@ -1,0 +1,70 @@
+{
+  "experiment": "f9-nk-falsification-design-s356",
+  "frontier": "F9-NK",
+  "domain": "nk-complexity",
+  "session": "S356",
+  "date": "2026-03-01",
+  "check_mode": "verification",
+  "hypothesis": "NK chaos theory predicts observable phase transition at K_avg=2.0 (edge of chaos). Falsification: specify 3 measurable predictions and evaluate against current data.",
+  "method": "Re-enable cycle detection (disabled since S335). Run mutual-citation analysis on all 548 lessons. Compare 3 NK predictions against measured data. Cross-reference hallucination audit (L-599) apophenia flag.",
+  "expect": "3 measurable predictions: (1) cycle emergence at K=2.0, (2) Gini peak at K=2.0, (3) hub instability at K=2.0. At least 1-2 predictions falsified.",
+  "measurements": {
+    "baseline": {
+      "N": 548,
+      "K_avg": 1.9725,
+      "K_max": 27,
+      "gini": 0.6010,
+      "zero_in_pct": 32,
+      "hub_z": 5.603,
+      "gini_z": 3.967,
+      "isolation_z": "NS",
+      "architecture": "SCALE_FREE_CANDIDATE"
+    },
+    "cycle_analysis": {
+      "mutual_citation_2cycles": 33,
+      "distribution": "L-001 through L-097 cluster (early session lessons cross-reference intensively); newer cycles: L-492(S341)<->L-510(S344), L-510(S344)<->L-512(S345), L-530(S349)<->L-532(S347), L-492(S341)<->L-538(S349)",
+      "key_finding": "Prior '0 cycles' measurements (S305-S329) were INCORRECT — mutual citations exist in early lessons from the beginning of the corpus. nk_null_model.py (used S344-S355) never tracked cycles.",
+      "measurement_gap": "Cycle tracking dropped after S335 when last explicit count was made. Cycles existed before and after this point."
+    },
+    "gini_trajectory": {
+      "S312_K128": 0.7464,
+      "S329_K149": "not_recorded",
+      "S341_K189": "not_recorded",
+      "S349_K179": "not_recorded",
+      "S355_K196": 0.5988,
+      "S356_K197": 0.6010,
+      "trend": "monotonically_declining_from_0.74_to_0.60",
+      "prediction": "should_peak_at_K_2.0_if_NK_applies"
+    },
+    "hub_stability": {
+      "top5_S329": ["L-001", "L-039", "L-042", "L-044", "L-019"],
+      "top5_S356": ["L-001", "L-039", "L-042", "L-495", "L-025"],
+      "overlap": "4/5 top hubs stable across 50+ sessions",
+      "prediction": "should_rotate_at_K_2.0_if_chaotic"
+    }
+  },
+  "falsification_results": {
+    "P1_cycle_emergence_at_K2": {
+      "prediction": "Cycles should emerge at K=2.0 if NK chaos applies",
+      "result": "FALSIFIED — 33 mutual citations already exist, including in early lessons (L-001 era) when K_avg=0.77. Cycles are structural, not threshold-triggered.",
+      "verdict": "FALSIFIED"
+    },
+    "P2_gini_peak_at_K2": {
+      "prediction": "Gini should peak at K≈2.0 then decline (edge-of-chaos maximum differentiation)",
+      "result": "FALSIFIED — Gini declining monotonically from 0.74 (S312) to 0.60 (S356), no peak at K=2.0",
+      "verdict": "FALSIFIED"
+    },
+    "P3_hub_instability_at_K2": {
+      "prediction": "Top hubs should rotate rapidly at K=2.0 due to chaotic sensitivity",
+      "result": "FALSIFIED — 4/5 top hubs identical from S329 to S356 (L-001, L-039, L-042, L-044/L-025). L-001 has been #1 for 50+ sessions.",
+      "verdict": "FALSIFIED"
+    }
+  },
+  "actual": "All 3 NK chaos predictions FALSIFIED. Root cause: citation graph is not a Boolean network. Cycles are structural (mutual commentary), not emergent. Gini trend is scale-free maturation, not ordered-to-chaotic. Hubs are topically stable (foundational lessons don't rotate).",
+  "diff": "Expected 1-2 falsifications. Got 3/3 FALSIFIED. Unexpected finding: '0 cycles' was a persistent measurement error (33 mutual citations exist at all measured time points). nk_null_model.py tool design actively hid this (no cycle metric). Same pattern as L-556/L-574/L-590: measurement channel decays silently.",
+  "lesson": "L-604",
+  "iso_connections": ["ISO-3 (falsification)", "ISO-13 (thermodynamics: Gini as entropy — declining not peaking at criticality)"],
+  "conclusion": "NK chaos theory does NOT apply to text citation graphs. K=2.0 is a structural milestone (mean 2 outgoing citations/lesson) with real architectural implications (scale-free topology, hub formation) but no phase transition dynamics. Retain NK tooling for structural analysis (K_avg, hub z, Gini z, isolation z) but drop chaos-boundary framing. Hallucination audit (L-599) apophenia concern CONFIRMED.",
+  "updated_F9_NK_framing": "F9-NK PARTIALLY RESOLVED: NK structural metrics valid, NK chaos dynamics not applicable to text citation graphs. K=2.0 marks architectural maturity (scale-free regime), not behavioral phase transition. Open: which domains in external codebases exhibit true NK chaos (cycles with real dependency effects)?",
+  "next": "Update F9-NK frontier with falsification result. Measure whether K_avg growth rate changes meaningfully at the K=2.0 structural milestone. If growth rate unchanged, confirms structural-only interpretation."
+}

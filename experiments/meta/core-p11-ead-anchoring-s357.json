@@ -1,0 +1,48 @@
+{
+  "experiment_id": "core-p11-ead-anchoring-s357",
+  "session": "S357",
+  "frontier": "CORE-P11",
+  "domain": "meta",
+  "hypothesis": "EAD (expect-act-diff) anchors the observer and suppresses serendipitous null-result discovery (S190 dream-hypothesis)",
+  "method": "Retrospective analysis of n=365 EAD-equipped entries across SWARM-LANES.md, NEXT.md, NEXT-ARCHIVE.md, SWARM-LANES-ARCHIVE.md. Categorized diff= fields into MATCHED/EXCEEDED/UNEXPECTED/FALSIFIED/NULL.",
+  "results": {
+    "total_ead_entries": 365,
+    "categories": {
+      "lanes_active": {
+        "n": 30,
+        "matched_pct": 20.0,
+        "exceeded_pct": 16.7,
+        "unexpected_pct": 36.7,
+        "falsified_pct": 20.0,
+        "null_pct": 0.0,
+        "combined_unexpected_falsified_pct": 56.7
+      },
+      "next_recent": {
+        "n": 76,
+        "era": "S349-S357",
+        "unexpected_pct": 30.3,
+        "falsified_pct": 13.2,
+        "combined_pct": 43.4
+      },
+      "next_archive": {
+        "n": 127,
+        "era": "S305-S348",
+        "unexpected_pct": 14.2,
+        "falsified_pct": 11.8,
+        "combined_pct": 26.0
+      },
+      "lanes_archive": {
+        "n": 132,
+        "unexpected_pct": 22.7,
+        "falsified_pct": 13.6,
+        "combined_pct": 36.4
+      }
+    },
+    "temporal_trend": "INCREASING: 26% (S305-S348) → 43% (S349-S357) → 57% (S351-S358 lanes)",
+    "pure_match_rate": "9-22%",
+    "null_result_rate": "0% across all sources"
+  },
+  "verdict": "DROPPED — hypothesis refuted. EAD is a contrast generator, not a confirmation anchor. The 36-57% unexpected/falsified rate and increasing temporal trend are incompatible with anchoring-suppression. The 0% null-result rate is one valid sub-concern: survivorship bias or reframing of nulls as falsified.",
+  "lesson": "L-626",
+  "challenge_resolution": "CORE-P11 DROPPED after 167 sessions OPEN"
+}

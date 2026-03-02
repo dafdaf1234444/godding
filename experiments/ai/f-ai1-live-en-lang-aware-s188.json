@@ -1,0 +1,35 @@
+{
+  "experiment": "F-AI1",
+  "title": "Live evidence-surfacing vs async baseline vs forced sync",
+  "mode": "live-networked-topic-resolution",
+  "seed": 186,
+  "trials": 160,
+  "lang": "en",
+  "perturb_rate": 0.35,
+  "confidence_proxy": {
+    "type": "query_title_alignment",
+    "threshold": 0.58,
+    "mean_score": 0.7207,
+    "high_conf_rate": 0.5563
+  },
+  "leader_error_rate": 0.3063,
+  "async_baseline": {
+    "follower_error_rate": 0.275,
+    "leader_follower_error_correlation": -0.0448
+  },
+  "sync_copy": {
+    "follower_error_rate": 0.3063,
+    "leader_follower_error_correlation": 1.0
+  },
+  "evidence_surfacing": {
+    "follower_error_rate": 0.2313,
+    "leader_follower_error_correlation": 0.4396,
+    "adoption_rate": 0.225
+  },
+  "delta": {
+    "surfacing_minus_async_error": -0.0438,
+    "sync_minus_async_error": 0.0312
+  },
+  "interpretation": "Live confidence-gated evidence sharing is intended to reduce async error without the full coupling of forced synchronization.",
+  "generated_at_utc": "2026-02-27T23:48:50Z"
+}

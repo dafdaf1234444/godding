@@ -1,0 +1,123 @@
+{
+  "experiment": "CAP-1",
+  "session": "S194",
+  "date": "2026-02-28",
+  "domain": "claude-code",
+  "question": "What are Claude Code's tool capabilities and limitations that constrain swarm design?",
+  "method": "Systematic audit: CLI --help, settings.json inspection, hook script analysis, documentation review",
+
+  "findings": {
+    "cli_automation": {
+      "key_flag": "--print / -p",
+      "effect": "Non-interactive mode: prints response and exits. Enables headless swarm sessions.",
+      "f134_relevance": "DIRECT PATH: 'claude --print $(cat .claude/commands/swarm.md)' from cron/CI enables autonomous cross-session initiation without human trigger",
+      "companion_flags": [
+        "--dangerously-skip-permissions: bypass all permission prompts (required for unattended runs)",
+        "--permission-mode bypassPermissions: same but without the scary flag name",
+        "--max-budget-usd <N>: cost ceiling — critical for preventing runaway automated runs",
+        "--model sonnet/opus/haiku: specify model for cost/quality tradeoff",
+        "--output-format json|stream-json: machine-readable output for post-processing",
+        "--no-session-persistence: ephemeral run (no session saved to disk)",
+        "--continue: resume most recent conversation in cwd",
+        "--resume <uuid>: resume specific session by ID",
+        "--max-turns not exposed as CLI flag — only available via Task tool parameter",
+        "--effort low|medium|high: controls thoroughness/token usage"
+      ],
+      "automation_pattern": "claude --print '$(cat .claude/commands/swarm.md)' --dangerously-skip-permissions --max-budget-usd 1.00 --model sonnet"
+    },
+
+    "hook_system": {
+      "event_types": {
+        "PreToolUse": {
+          "fires": "Before any tool execution",
+          "can_block": true,
+          "block_mechanism": "exit code 2 with stderr message",
+          "receives": "tool_name, tool_input, session_id, cwd",
+          "swarm_use": "Enforce protocol rules (e.g., block git add -A, enforce commit message format)"
+        },
+        "PostToolUse": {
+          "fires": "After tool execution completes",
+          "can_block": false,
+          "receives": "tool_name, tool_input, tool_response, session_id, cwd",
+          "swarm_use": "Validate beliefs after edits (current: post-edit-validate.py)"
+        },
+        "Stop": {
+          "fires": "When session ends",
+          "can_block": false,
+          "can_restart_session": false,
+          "receives": "cwd, stop_hook_active (to prevent infinite loops)",
+          "swarm_use": "Health check, push reminders, handoff validation (current: session-end-check.py)",
+          "f134_limitation": "CANNOT auto-start new session — can only write state files for external watchers"
+        },
+        "SubagentStop": {
+          "fires": "When Task tool sub-agent completes",
+          "can_block": false,
+          "swarm_use": "Harvest sub-agent results, trigger next dispatch"
+        },
+        "Notification": {
+          "fires": "User notification events",
+          "swarm_use": "Alert on DUE items, BLOCKED lanes — not currently wired"
+        },
+        "PreCompact": {
+          "fires": "Before context window compaction",
+          "swarm_use": "Save critical state before compression — not currently wired (HIGH VALUE)"
+        }
+      },
+      "current_active_hooks": ["PostToolUse (beliefs/ files)", "Stop (session health check)"],
+      "missing_high_value_hooks": [
+        "PreToolUse: block 'git add -A' or 'git add .' pattern — prevent mass-deletion bug",
+        "PreCompact: write memory checkpoint before compaction — prevent mid-session state loss",
+        "SubagentStop: harvest sub-agent outputs automatically"
+      ]
+    },
+
+    "task_tool": {
+      "sub_agent_types": ["general-purpose", "Explore", "Plan", "code-simplifier", "statusline-setup", "claude-code-guide"],
+      "spawning_modes": {
+        "foreground": "Blocks parent, returns result when done",
+        "background": "run_in_background=true; parent notified on completion via system message",
+        "worktree": "isolation=worktree; creates isolated git copy, auto-cleaned if no changes"
+      },
+      "max_turns": "Configurable via max_turns parameter; default uncapped",
+      "context_sharing": "Sub-agent receives full conversation history at spawn time; cannot observe subsequent parent changes",
+      "tool_availability": "Sub-agents get same tools as parent unless restricted by parent task description",
+      "swarm_parallelism": "Background mode enables genuine concurrency within a session (limited by API rate)"
+    },
+
+    "context_limits": {
+      "memory_md_truncation": "Lines after 200 truncated in MEMORY.md auto-load context",
+      "session_context": "Entire conversation compressed automatically at limits; prior messages summarized",
+      "project_instructions": "CLAUDE.md auto-loaded on session start (this repo's entry file)",
+      "auto_memory_dir": "/home/<user>/.claude/projects/<hash>/memory/ — persists across conversations",
+      "system_reminder": "Injected periodically by platform; not conversation turns"
+    },
+
+    "settings_capabilities": {
+      "tool_control": ["allowedTools", "disabledTools", "autoApproveTools"],
+      "model_config": ["model", "fallbackModel"],
+      "mcp": "mcpServers — connect external tools via Model Context Protocol",
+      "permission_modes": ["acceptEdits", "bypassPermissions", "default", "dontAsk", "plan"],
+      "hook_matchers": "Regex pattern matching on tool names for selective hook firing"
+    },
+
+    "slash_commands": {
+      "location": ".claude/commands/*.md",
+      "invocation": "/command-name or via Skill tool",
+      "current_commands": ["swarm.md (the main entry point)"],
+      "note": "User-invocable skills also available via Skill tool in assistant context"
+    }
+  },
+
+  "swarm_design_implications": {
+    "f134_path_confirmed": "claude --print + cron/CI is a working path for cross-session initiation. No API access needed — it's just a CLI call. Implementation: add 'bash tools/autoswarm.sh' to cron or GitHub Actions.",
+    "missing_precompact_hook": "HIGH PRIORITY: PreCompact hook would let swarm checkpoint critical state before context compaction. Currently unprotected — if compaction fires mid-session, in-flight work may be lost.",
+    "blocking_precompact": "PreToolUse can block 'git add -A' — should be wired to prevent mass-deletion WSL bug (L-179 / MEMORY.md). Currently relying only on memory/convention.",
+    "subagent_stop_harvest": "SubagentStop hook could auto-collect sub-agent outputs into a staging file. Currently manual — parent must read sub-agent result from Task tool return value.",
+    "session_resume": "claude --continue or --resume <uuid> preserves conversation state within a session. Cross-session: relies on files only (git state, NEXT.md). No session-to-session memory bridge except file system."
+  },
+
+  "open_questions_for_domain": ["F-CC1", "F-CC2", "F-CC3", "F-CC4"],
+
+  "verdict": "PARTIAL — hard limits confirmed; automation path for F134 identified; 3 missing hooks documented",
+  "n": "1 audit session, comprehensive tooling review"
+}

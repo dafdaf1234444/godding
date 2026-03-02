@@ -1,0 +1,113 @@
+name: Swarm Mission
+description: Define a swarm-ready objective with bounded scope and validation.
+title: "[Swarm] "
+labels:
+  - swarm
+  - intake
+body:
+  - type: textarea
+    id: objective
+    attributes:
+      label: Objective
+      description: What outcome should the swarm produce?
+      placeholder: Ship X with Y constraints and measurable output.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expectation
+    attributes:
+      label: Expect (Before Acting)
+      description: Per CORE principle 11, what do you predict will be true after execution?
+      placeholder: I expect file A and artifact B to change, with no new DUE/URGENT maintenance findings.
+    validations:
+      required: true
+
+  - type: textarea
+    id: diff_signal
+    attributes:
+      label: Diff Signal (After Acting)
+      description: How should we classify outcomes (confirm/learn/challenge) once the work lands?
+      placeholder: Confirm if checks pass and metrics move as predicted; learn if deltas differ; challenge if diff persists across reruns.
+    validations:
+      required: true
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Which files/subsystems are in-scope and out-of-scope?
+      placeholder: In: tools/swarm_pr.py, docs/REAL-WORLD-SWARMING.md. Out: memory/lessons, unrelated domains.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: lane
+    attributes:
+      label: Primary lane type
+      description: Choose the main lane this mission writes to.
+      options:
+        - tooling
+        - core-state
+        - docs
+        - domains
+        - experiments
+        - workspace
+        - other
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance checks
+      description: What must be true before this is mergeable, with evidence paths?
+      placeholder: "`bash tools/check.sh --quick` passes; `tasks/SWARM-LANES.md` updated; artifact path(s) linked in `tasks/NEXT.md`."
+    validations:
+      required: true
+
+  - type: textarea
+    id: state_sync
+    attributes:
+      label: State sync path
+      description: Where will progress/evidence be recorded for handoff continuity?
+      placeholder: Update `tasks/NEXT.md` and `tasks/SWARM-LANES.md` with lane, artifact paths, and blockers.
+    validations:
+      required: true
+
+  - type: textarea
+    id: available
+    attributes:
+      label: Available now
+      description: What can move immediately with current authority/data/runtime?
+      placeholder: Implement X in files A/B, run quick checks, and publish artifact C.
+    validations:
+      required: true
+
+  - type: textarea
+    id: blocked
+    attributes:
+      label: Blocked by
+      description: What constraints currently block full completion? Use `none` if clear.
+      placeholder: none
+    validations:
+      required: true
+
+  - type: textarea
+    id: human_open_item
+    attributes:
+      label: Human open item
+      description: Exact human decision/input needed next. Use `none` if no human ask.
+      placeholder: Decide A vs B for release gate, or none.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: constraints
+    attributes:
+      label: Safety and collaboration
+      options:
+        - label: I confirmed this request avoids destructive/out-of-scope changes.
+          required: true
+        - label: I will provide blockers as explicit unblocking asks.
+          required: true

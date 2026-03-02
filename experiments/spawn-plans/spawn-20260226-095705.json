@@ -1,0 +1,33 @@
+{
+  "id": "spawn-20260226-095705",
+  "task": "Analyze structural trajectory of Python web frameworks",
+  "items": [
+    "flask",
+    "werkzeug",
+    "jinja2"
+  ],
+  "tool_cmd": "",
+  "output_format": "summary table + answers",
+  "created": "2026-02-26T09:57:05.991623",
+  "status": "planned",
+  "agents": [
+    {
+      "id": "agent-A",
+      "item": "flask",
+      "status": "pending",
+      "result": null
+    },
+    {
+      "id": "agent-B",
+      "item": "werkzeug",
+      "status": "pending",
+      "result": null
+    },
+    {
+      "id": "agent-C",
+      "item": "jinja2",
+      "status": "pending",
+      "result": null
+    }
+  ]
+}

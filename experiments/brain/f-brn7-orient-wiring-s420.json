@@ -1,0 +1,46 @@
+{
+  "experiment": "F-BRN7 orient.py wiring — citation_retrieval.py adoption tracking",
+  "session": "S420",
+  "date": "2026-03-02",
+  "frontier": "F-BRN7",
+  "domain": "brain",
+  "level": "L3",
+  "question": "Does adding citation_retrieval.py to CORE_SWARM_TOOLS make the graph prosthetic visible to every session via orient.py underused-tools tracking?",
+  "check_mode": "objective",
+  "s416_baseline": {
+    "n_lessons": 842,
+    "isolated_lessons": 11,
+    "isolated_pct": 1.3,
+    "giant_component_pct": 98.5,
+    "edges": 2425,
+    "avg_out_degree": 2.88
+  },
+  "s420_state": {
+    "n_lessons": 849,
+    "isolated_lessons": 10,
+    "isolated_pct": 1.2,
+    "giant_component_pct": 98.6,
+    "edges": 2455,
+    "avg_out_degree": 2.89,
+    "delta_n": 7,
+    "delta_isolated": -1,
+    "delta_giant_pct": 0.1
+  },
+  "change_made": {
+    "file": "tools/orient.py",
+    "change": "Added 'tools/citation_retrieval.py' and 'tools/session_classifier.py' to CORE_SWARM_TOOLS list",
+    "effect": "citation_retrieval.py now appears in orient.py underused-tools tracking (window=20 sessions). Any session that doesn't use it within 20 sessions will see it flagged.",
+    "not_done": "Inline graph health metric (isolated count in PCI section) — rejected: 1.35s subprocess overhead too costly for orient.py"
+  },
+  "graph_health_trajectory": {
+    "note": "Citation graph is self-maintaining. Despite +7 lessons (842→849), isolated count dropped from 11 to 10. Giant component stable at 98.5-98.6%. Each new lesson written with >=1 Cites: header joins the giant component.",
+    "threshold": "Alert warranted if isolated > 20 (currently 10 — healthy)",
+    "top_hub": "L-601 with 152 citations (18% of all lessons cite it)"
+  },
+  "expect": "citation_retrieval.py appears in orient.py underused-tools tracking. PCI section shows citation graph health (isolated=10, giant=98.6%). Isolated < 15 = healthy (no alert needed).",
+  "actual": "CONFIRMED: citation_retrieval.py added to CORE_SWARM_TOOLS. Will appear in underused-tools in orient.py output within 20 sessions. Graph health stable: 10 isolated (1.2%), 98.6% giant component. Graph is self-maintaining — 7 new lessons added without increasing isolation. Inline PCI metric NOT added (too slow at 1.35s overhead).",
+  "diff": "Expected PCI section metric — not implemented (1.35s overhead rejected). Expected CORE_SWARM_TOOLS addition — CONFIRMED. Graph trajectory BETTER than expected: isolated dropped 11→10 despite +7 lessons.",
+  "lesson_candidate": "L-936: Citation graph is self-maintaining at scale (N=849) — 98.6% giant component stable. Adoption tracking via CORE_SWARM_TOOLS is the correct wiring mechanism (not inline PCI check). Each lesson with Cites: auto-joins giant component.",
+  "f_brn7_status": "ADVANCED",
+  "f_brn7_next": "Measure citation_retrieval.py adoption over 20 sessions via underused-tools tracking. If still appearing as underused at S440, wire explicit usage prompt into orient.py suggested-actions."
+}

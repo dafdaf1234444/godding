@@ -1,0 +1,30 @@
+{
+  "experiment": "F-IS5",
+  "session": "S186",
+  "source": "experiments/information-science/f-is5-arxiv-swarmable-s186-rerun.json",
+  "runs": [
+    {
+      "id": "pass-a",
+      "artifact": "experiments/information-science/f-is5-lane-distill-s186-pass-a.json",
+      "claims_total": 28,
+      "duplicate_claim_rate": 0.0,
+      "transfer_acceptance_rate": 0.3514,
+      "merge_collision_frequency": 0.3023
+    },
+    {
+      "id": "pass-b",
+      "artifact": "experiments/information-science/f-is5-lane-distill-s186-pass-b.json",
+      "claims_total": 28,
+      "duplicate_claim_rate": 0.0,
+      "transfer_acceptance_rate": 0.2195,
+      "merge_collision_frequency": 0.1915
+    }
+  ],
+  "deltas": {
+    "transfer_acceptance_rate_abs_diff": 0.1319,
+    "merge_collision_frequency_abs_diff": 0.1108,
+    "duplicate_claim_rate_abs_diff": 0.0
+  },
+  "interpretation": "Two independent lane-owner distillation passes completed. Duplicate-claim rate stayed at 0.0 in both passes; transfer acceptance and collision frequency differed materially, indicating assignment sensitivity that now needs explicit transfer tags and stricter merge protocol.",
+  "generated_at_utc": "2026-02-27T20:48:58Z"
+}

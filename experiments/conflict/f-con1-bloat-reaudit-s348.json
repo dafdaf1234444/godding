@@ -1,0 +1,27 @@
+{
+  "experiment": "F-CON1 bloat reaudit",
+  "session": "S348",
+  "domain": "conflict",
+  "frontier": "F-CON1",
+  "date": "2026-03-01",
+  "expect": "Merge-on-close reduced bloat from 3.72x to <2.0x. C1 <3%. Fewer stale active.",
+  "measurements": {
+    "bloat_ratio": 1.0,
+    "total_rows": 38,
+    "unique_lanes": 38,
+    "s299_baseline": 3.72,
+    "delta": -2.72,
+    "status_breakdown": {
+      "MERGED": 34,
+      "ABANDONED": 2,
+      "ACTIVE": 2
+    },
+    "merge_on_close_single_row_merged": 34,
+    "multi_row_lanes": 0,
+    "c1_candidates": 0,
+    "c1_rate": 0.0,
+    "active_lanes": 2,
+    "stale_active_count": 0,
+    "stale_active_lanes": []
+  }
+}

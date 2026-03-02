@@ -1,0 +1,29 @@
+{
+  "frontier_id": "F-BRN6",
+  "session": "S351",
+  "date": "2026-03-01",
+  "hypothesis": "Neuroplasticity (domain-seeding) co-occurs with principle CREATION, not just P-mention",
+  "method": "Extracted P-creation sessions (SESSION-LOG +NP>0, n=38) and domain-seeding sessions (git diff-filter=A domains/*/DOMAIN.md, n=17) from full history (181 sessions). Computed co-occurrence lift at windows 0-3.",
+  "s326_comparison": {
+    "s326_metric": "P-mention (any P-NNN reference in session)",
+    "s326_lift_w0": 3.66,
+    "s351_metric": "P-creation (SESSION-LOG +NP > 0)",
+    "s351_lift_w0": 1.40,
+    "narrowing_factor": 2.61
+  },
+  "window_analysis": {
+    "0": {"d_near_p": 5, "d_total": 17, "d_rate": 0.294, "b_rate": 0.210, "lift": 1.40},
+    "1": {"d_near_p": 9, "d_total": 17, "d_rate": 0.529, "b_rate": 0.315, "lift": 1.68},
+    "2": {"d_near_p": 9, "d_total": 17, "d_rate": 0.529, "b_rate": 0.354, "lift": 1.50},
+    "3": {"d_near_p": 10, "d_total": 17, "d_rate": 0.588, "b_rate": 0.387, "lift": 1.52}
+  },
+  "p_creation_sessions": [57,58,59,60,61,62,64,65,67,68,69,71,74,75,76,77,78,79,80,81,82,93,95,96,169,171,174,175,176,178,179,180,181,182,186,189,342,344],
+  "domain_seed_sessions": [52,178,179,180,182,183,186,187,188,190,192,194,196,301,303,307,335],
+  "verdict": "PARTIAL: narrowing from P-mention to P-creation reduces lift from 3.66x to 1.40x (window=0). Domain seeding co-occurs with P-rich contexts (mention) but not proportionally with P-creation. The neuroplasticity↔principle-extraction isomorphism is weaker than S326 suggested.",
+  "interpretation": "S326's 3.66x measured domain-seeding sessions as P-discussion-rich contexts, not as P-creation triggers. The causal link (domain novelty triggers principle formation) is weaker (1.4x) than the contextual association (3.66x). F-BRN6 downgrades from CONFIRMED to PARTIAL.",
+  "caveat": "Small n (17 domain-seed sessions). P-creation detection via SESSION-LOG may miss principles created but not logged in the same session. Domain seeding detection via DOMAIN.md file creation misses informal seeding.",
+  "n_domain_seed": 17,
+  "n_p_creation": 38,
+  "n_total_sessions": 181,
+  "iso": "ISO-3 (neuroplasticity), ISO-14 (self-similarity)"
+}

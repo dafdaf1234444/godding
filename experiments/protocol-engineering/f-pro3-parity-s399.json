@@ -1,0 +1,48 @@
+{
+  "session": "S399",
+  "frontier": "F-PRO3",
+  "date": "2026-03-01",
+  "domain": "protocol-engineering",
+  "lane": "DOMEX-PRO-S399",
+  "canonical_requirements": [
+    "state_reading_orient_py",
+    "priority_selection_phil14",
+    "expert_dispatch_F_EXP7",
+    "swarmed_exploration_L831",
+    "check_mode_selection",
+    "anti_repeat_check_L283",
+    "expectation_declaration",
+    "diff_recording",
+    "compression_meta_reflection",
+    "lesson_deduplication",
+    "state_validation_sync_state",
+    "final_git_push",
+    "check_mode_logging",
+    "bridge_file_sync_F118"
+  ],
+  "bridge_coverage": {
+    "CLAUDE.md":       {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"},
+    "AGENTS.md":       {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"},
+    "GEMINI.md":       {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"},
+    ".cursorrules":    {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"},
+    ".windsurfrules":  {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"},
+    "copilot":         {"state_reading": "MISSING", "phil14": "MISSING", "expert_dispatch": "PRESENT", "swarmed_exploration": "MISSING", "check_mode": "PRESENT", "anti_repeat": "MISSING", "expect": "PRESENT", "diff": "PRESENT", "meta_reflection": "MISSING", "dedup": "MISSING", "sync_state": "MISSING", "git_push": "MISSING", "check_logging": "PRESENT", "bridge_sync": "PRESENT"}
+  },
+  "parity_scores": {
+    "CLAUDE.md": 0.429, "AGENTS.md": 0.429, "GEMINI.md": 0.429,
+    ".cursorrules": 0.429, ".windsurfrules": 0.429, "copilot": 0.429
+  },
+  "overall_parity": 0.429,
+  "gaps_critical": [
+    "state_reading_orient_py — missing from all 6 bridges; nodes lack situational awareness",
+    "anti_repeat_check — missing from all 6; concurrent duplicate effort likely",
+    "state_validation_sync_state_validate — missing from all 6; state drift at commit",
+    "swarmed_exploration_L831 — missing from all 6 (just added to SWARM.md this session)",
+    "meta_reflection_with_target — missing from all 6; process improvements not surfaced"
+  ],
+  "verdict": "BASELINE COMPLETENESS PROBLEM not parity. All 6 bridges uniformly missing operational baseline steps. Bridges synchronized against incomplete template. Root: bridges designed as lightweight entry points not complete protocol specs.",
+  "prescription": "Add 'Critical baseline steps' section to all bridges mirroring SWARM.md steps 1, 3b, 8. Pointer to L-831 (swarmed exploration). Concrete meta-reflection targeting example.",
+  "expect": "Bridge parity 40-60%",
+  "actual": "All bridges 42.9% — uniform, systematic gaps not parity drift",
+  "diff": "Expected distributed gaps — got identical coverage across all bridges (uniform template problem). CONFIRMED range but mechanism different: not drift, but original template incompleteness."
+}

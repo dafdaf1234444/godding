@@ -1,0 +1,154 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa",
+  "seed": 186,
+  "lang": "en",
+  "trials_per_condition": 10,
+  "perturb_rate": 0.05,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.75,
+      0.6667,
+      0.6667,
+      0.9167,
+      0.6667,
+      0.5,
+      0.5833,
+      0.3333,
+      0.5833,
+      0.5
+    ],
+    "summary": {
+      "mean": 0.6167,
+      "std": 0.15,
+      "variance": 0.0225
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "predictions": [
+          "Closed-ended question"
+        ],
+        "vote": "Closed-ended question"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "predictions": [
+          "SailGP"
+        ],
+        "vote": "SailGP"
+      },
+      {
+        "country": "Sweden",
+        "expected": "Stockholm",
+        "predictions": [
+          "Capital punishment in Sweden"
+        ],
+        "vote": "Capital punishment in Sweden"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.8333,
+      0.5833,
+      0.5,
+      0.6667,
+      0.5833,
+      0.5,
+      0.25,
+      0.5,
+      0.5,
+      0.6667
+    ],
+    "summary": {
+      "mean": 0.5583,
+      "std": 0.1446,
+      "variance": 0.020903
+    },
+    "mean_pairwise_prediction_agreement": 0.4056,
+    "error_samples": [
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "predictions": [
+          "what is the capital of Spain",
+          "what is the capital of Spain",
+          "capital of Spain"
+        ],
+        "vote": "what is the capital of Spain"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "predictions": [
+          "capital of Egypt",
+          "Egypt capital city",
+          "capital of Egypt"
+        ],
+        "vote": "capital of Egypt"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": -0.0584,
+    "variance_ratio_n3_over_n1": 0.929
+  },
+  "interpretation": "This is a redesign step for F-FIN1 using fixed ground-truth factual QA and majority voting. It validates diversification mechanics on a live knowledge source, but remains a resolver proxy rather than direct LLM answer generation.",
+  "generated_at_utc": "2026-02-27T20:40:34Z"
+}

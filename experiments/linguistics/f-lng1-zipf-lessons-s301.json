@@ -1,0 +1,67 @@
+{
+  "experiment": "F-LNG1",
+  "session": "S301",
+  "description": "Zipf re-measurement at n=311 (was n=288 at baseline S190)",
+  "baseline_session": "S190",
+  "baseline_alpha": 0.9005,
+  "baseline_r2": 0.8448,
+  "baseline_n": 288,
+  "total_lessons": 311,
+  "cited_lessons": 311,
+  "zero_cited_lessons": 0,
+  "citation_coverage_pct": 100.0,
+  "top_10": [
+    [
+      "L-336",
+      50
+    ],
+    [
+      "L-001",
+      40
+    ],
+    [
+      "L-257",
+      28
+    ],
+    [
+      "L-005",
+      26
+    ],
+    [
+      "L-012",
+      26
+    ],
+    [
+      "L-304",
+      25
+    ],
+    [
+      "L-216",
+      24
+    ],
+    [
+      "L-220",
+      24
+    ],
+    [
+      "L-214",
+      24
+    ],
+    [
+      "L-011",
+      23
+    ]
+  ],
+  "zero_cited_sample": [],
+  "power_law_alpha": 0.8468,
+  "alpha_delta": -0.0537,
+  "power_law_r_squared": 0.8239,
+  "zipf_holds": true,
+  "zipf_strong": true,
+  "head_heavy": false,
+  "tail_flat": false,
+  "median_citations_nonzero": 4,
+  "p90_citations": 15,
+  "verdict": "ZIPF_STRONG",
+  "interpretation": "n=311 (+23 from baseline). alpha=0.8468 (delta=-0.0537 from baseline 0.900). R\u00b2=0.8239. ZIPF_STRONG. Power law holds as corpus grows. Alpha drift direction: toward isolation (tail-flat trend)."
+}

@@ -1,0 +1,38 @@
+{
+  "frontier_id": "F-OPS1",
+  "title": "Active-lane WIP cap replay",
+  "session": 0,
+  "inputs": {
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "next_path": "tasks/NEXT.md",
+    "min_cap": 2,
+    "max_cap": 6,
+    "conflict_weight": 0.8,
+    "overhead_weight": 0.27,
+    "ab_cap_a": 4,
+    "ab_cap_b": 5,
+    "heuristic_note": "Replay score is heuristic for lane-cap decisions. Treat as scheduling aid, not causal estimate."
+  },
+  "observed_profile": {
+    "job_count": 0,
+    "horizon_start": 0,
+    "horizon_end": 0,
+    "horizon_ticks": 0,
+    "observed_peak_wip": 0,
+    "observed_mean_wip": 0.0
+  },
+  "cap_results": [],
+  "recommended": {},
+  "recommendation_confidence": {
+    "level": "LOW",
+    "reason": "no_results",
+    "boundary_recommendation": false,
+    "top_score_gap": 0.0
+  },
+  "ab_comparison": {
+    "available": false,
+    "cap_a": 4,
+    "cap_b": 5,
+    "reason": "requested caps are outside evaluated range"
+  }
+}

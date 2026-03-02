@@ -1,0 +1,50 @@
+{
+  "frontier_id": "F-OPS2",
+  "title": "Post-slot policy consolidation",
+  "inputs": {
+    "ops1": "experiments/operations-research/f-ops1-wip-limit-s186-msw2-s3-rerun3.json",
+    "is5": "experiments/information-science/f-is5-lane-distill-tags-s186-overlap-sweep.json",
+    "stat1": "experiments/statistics/f-stat1-canonical-policy-s186.json",
+    "stat2": "experiments/statistics/f-stat2-meta-analysis-domain-integrity-s186.json",
+    "stat3": "experiments/statistics/f-stat3-multiplicity-domain-integrity-s186.json"
+  },
+  "policy": {
+    "wip_cap": {
+      "default_wip_cap": 4,
+      "confidence": "MEDIUM",
+      "ab_hint": "inconclusive_needs_live_ab",
+      "delta_b_minus_a": {
+        "net_score": -0.1168,
+        "conflict_rate": 0.0121,
+        "overhead_ratio": 0.625
+      },
+      "cap5_promotion_ready_now": false,
+      "cap5_promotion_rule": "Require two consecutive reruns with delta_net_score>=0 and non-worsening conflict/overhead before promoting cap 5."
+    },
+    "overlap": {
+      "shared_per_lane_default": 2,
+      "transfer_acceptance_rate": 0.0882,
+      "merge_collision_frequency": 0.6,
+      "contested_transfer_candidates": 10,
+      "target_collision_frequency_max": 0.5,
+      "disagreement_reduction_needed": true,
+      "rule": "Keep explicit decision tags mandatory. If two consecutive reruns stay at collision>=0.6, run disagreement reduction before increasing overlap."
+    },
+    "promotion": {
+      "policy_lock_recommended": false,
+      "all_classes_ready": false,
+      "provisional_classes": [
+        "live_query",
+        "simulation",
+        "lane_log_extraction"
+      ],
+      "transfer_decision": "inconclusive",
+      "overall_i2_percent": 57.255325,
+      "candidate_family": "information_science_lane_distill",
+      "candidate_family_promotion_ready": true,
+      "candidate_family_i2_percent": 82.527811,
+      "rule": "Keep promotion provisional unless canonical class gates are READY, pooled transfer decision is positive, and heterogeneity is controlled (overall I2<50 and family I2<70)."
+    }
+  },
+  "generated_at_utc": "2026-02-27T21:58:38Z"
+}

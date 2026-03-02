@@ -1,0 +1,76 @@
+{
+  "experiment": "F-HS1 temporal dynamics: where compression fails across granularity levels",
+  "session": "S422",
+  "date": "2026-03-02",
+  "frontier": "F-HS1",
+  "domain": "human-systems",
+  "level": "L4",
+  "lesson": "L-943",
+  "principle": "P-276",
+  "prior_work": "S375 established three-tier compaction gradient (tools 55% > principles 12.3% > lessons 2.7%). This experiment adds temporal dynamics and identifies the granularity mechanism.",
+  "method": "Analyze lesson survival rates, proxy-K sawtooth dynamics, production-compaction ratios across 5 eras (S1-S422), and granularity-level compaction mechanisms. N=856 lesson files, 63 proxy-K measurements, 670 session-attributed lessons.",
+  "expect": "Two regimes (early rapid, late stabilization). Half-life ~150 sessions. Compaction is sunset mechanism.",
+  "data": {
+    "lesson_creation_by_era": {
+      "S001-S100": {"lessons": 61, "rate_per_session": 0.61},
+      "S101-S200": {"lessons": 113, "rate_per_session": 1.13},
+      "S201-S300": {"lessons": 9, "rate_per_session": 0.09},
+      "S301-S400": {"lessons": 399, "rate_per_session": 3.99},
+      "S401-S422": {"lessons": 88, "rate_per_session": 4.00}
+    },
+    "lesson_survival": {
+      "era_1_survival_pct": 100.0,
+      "era_2_survival_pct": 100.0,
+      "era_3_survival_pct": 100.0,
+      "era_4_survival_pct": 100.0,
+      "era_5_survival_pct": 100.0,
+      "total_files": 856,
+      "total_with_session_header": 670,
+      "half_life_sessions": "infinite — 0 lessons ever deleted"
+    },
+    "compaction_events_by_era": {
+      "S001-S100": 21,
+      "S101-S200": 38,
+      "S201-S300": 5,
+      "S301-S400": 204,
+      "S401-S422": 30
+    },
+    "proxy_k_sawtooth": {
+      "total_drops": 15,
+      "mean_interval_sessions": 23,
+      "mean_drop_amplitude_pct": 4.5,
+      "max_drop_pct": 18.8,
+      "max_drop_session": "S127",
+      "trajectory": "monotonically increasing with reactive oscillations",
+      "total_range": "23,631 (S89) → 67,479 (S411) = +185.6%"
+    },
+    "principle_lifecycle": {
+      "highest_p_id": 275,
+      "unique_referenced": 214,
+      "gap_rate_pct": 22.2,
+      "subsumed_mentions": 8,
+      "note": "Principles DO get retired (22% gap), unlike lessons (0% deletion)"
+    },
+    "tool_archival_by_era": {
+      "S001-S100": 1,
+      "S101-S200": 5,
+      "S201-S300": 0,
+      "S301-S400": 11,
+      "S401-S422": 3
+    }
+  },
+  "findings": {
+    "granularity_gap": "Compression failure operates at the wrong granularity level. Swarm has CONTENT-level compaction (20-line trim, SUPERSEDED pointers) but ZERO UNIT-level compaction (lesson deletion). 856 lessons, 0 deletions, 100% survival across all eras. Compaction events (298 commits) modify content within units but never remove units.",
+    "three_regimes_not_two": "Expected 2 regimes but found 3: growth (S1-S200, 0.6-1.1 L/s), dormancy (S201-S300, 0.09 L/s), explosion (S301+, 4.0 L/s). No stabilization regime exists — production ACCELERATED 40x from dormancy. Expect FALSIFIED.",
+    "sawtooth_dynamics": "Proxy-K follows a reactive sawtooth cycle: 23-session mean period, 4.5% mean amplitude. Growth → threshold → compaction → temporary drop → resumed growth. Long-term trajectory monotonically increasing despite 15 compaction events. Reactive compaction is bounded — it creates oscillations but cannot reverse the trend.",
+    "layer_asymmetry": "Three compaction granularities coexist: lessons (content-only, 0% unit removal), principles (22% unit retirement via subsumption), tools (55% unit archival). The binding constraint is the LOWEST compaction level — lesson accumulation drives proxy-K because it's the largest store with zero unit-level compaction.",
+    "bureaucratic_isomorphism": "Exact structural match: regulations get amended (content-level) but rarely repealed (unit-level). The US CFR grew 20K→185K pages because amendment exists but repeal doesn't. Same mechanism: content compaction saturates when units reach minimum size; the only remaining lever is unit deletion, which no mechanism supports."
+  },
+  "prediction_check": {
+    "two_regimes": {"expected": "2 (early rapid, late stabilization)", "actual": "3 (growth, dormancy, explosion)", "verdict": "FALSIFIED — no stabilization; 40x acceleration"},
+    "half_life_150": {"expected": "~150 sessions", "actual": "infinite (0 deletions)", "verdict": "FALSIFIED — lessons never die"},
+    "compaction_is_sunset": {"expected": "compact.py is the sunset mechanism", "actual": "compact.py is content-trim, not sunset. No sunset mechanism exists for lessons", "verdict": "PARTIALLY FALSIFIED — compaction ≠ sunset"}
+  },
+  "actual": "L4 finding: compression failure operates at the wrong granularity level. Content-level compaction (trim, amend) exists but unit-level compaction (delete, repeal) is absent. 100% lesson survival (N=856), proxy-K sawtooth (23s period, 4.5% amplitude, monotonically increasing). Three production regimes not two. Bureaucratic isomorphism exact: amendment without repeal = structural sclerosis.",
+  "diff": "All 3 expectations falsified or partially falsified. Did NOT predict infinite half-life, 3 regimes, or the granularity gap (main finding). Expected stabilization, got acceleration. The finding is more specific than the expectation: it identifies WHERE compression fails (unit vs content level), not just THAT it fails."
+}

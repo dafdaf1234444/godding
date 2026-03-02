@@ -1,0 +1,69 @@
+{
+  "experiment": "F-EVO2",
+  "title": "Variation-selection-retention extraction from SWARM-LANES",
+  "rows_analyzed": 146,
+  "status_counts": {
+    "ACTIVE": 3,
+    "MERGED": 112,
+    "READY": 31
+  },
+  "retention_threshold_sessions": 2,
+  "retained_mutations": [
+    {
+      "base_lane": "L-UNDERSTAND-SWARM",
+      "events": 4,
+      "sessions": [
+        184,
+        185
+      ],
+      "status_counts": {
+        "ACTIVE": 1,
+        "MERGED": 3
+      },
+      "dominant_scope": "tasks/NEXT.md"
+    }
+  ],
+  "top_scopes": [
+    {
+      "scope_key": "tasks/NEXT.md",
+      "events": 9
+    },
+    {
+      "scope_key": "tools/wiki_swarm.py",
+      "events": 7
+    },
+    {
+      "scope_key": "tools/maintenance.py",
+      "events": 5
+    },
+    {
+      "scope_key": "domains/brain/tasks/FRONTIER.md",
+      "events": 5
+    },
+    {
+      "scope_key": "domains/ai/tasks/FRONTIER.md",
+      "events": 5
+    },
+    {
+      "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+      "events": 5
+    },
+    {
+      "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+      "events": 5
+    },
+    {
+      "scope_key": "domains/evolution/tasks/FRONTIER.md",
+      "events": 5
+    },
+    {
+      "scope_key": "tools/f_stat1_promotion_gates.py",
+      "events": 4
+    },
+    {
+      "scope_key": "tools/f_stat1_reporting_quality.py",
+      "events": 4
+    }
+  ],
+  "generated_at_utc": "2026-02-27T21:18:59Z"
+}

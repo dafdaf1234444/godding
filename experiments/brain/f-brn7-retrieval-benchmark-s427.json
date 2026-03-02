@@ -1,0 +1,45 @@
+{
+  "experiment": "f-brn7-retrieval-benchmark-s427",
+  "session": "S427",
+  "frontier": "F-BRN7",
+  "domain": "brain",
+  "date": "2026-03-02",
+  "hypothesis": "2-hop traversal from INDEX.md seeds covers >=65% of lesson corpus. INDEX.md direct coverage <30%. citation_retrieval.py closes gap to >=80%.",
+  "method": "Parse all L-*.md Cites: headers + body L-NNN refs to build citation graph. Measure: (1) INDEX.md direct L-ref count, (2) 1-hop reachability, (3) 2-hop reachability, (4) giant component size. Compare to L-929 baseline (S417).",
+  "results": {
+    "n_lessons": 879,
+    "index_direct_coverage": 104,
+    "index_direct_pct": 11.8,
+    "hop1_reachable": 544,
+    "hop1_pct": 61.9,
+    "hop2_reachable": 796,
+    "hop2_pct": 90.6,
+    "giant_component": 867,
+    "giant_component_pct": 98.6,
+    "unreachable_at_2hop": 83,
+    "unreachable_domain_dist": {
+      "unknown": 36,
+      "meta": 4,
+      "meta/coordination": 3,
+      "meta/personality": 3,
+      "meta/tooling": 2,
+      "human-systems": 2,
+      "economy": 2,
+      "NK Complexity": 2,
+      "governance": 2,
+      "ai (F-AI2)": 1
+    },
+    "total_edges": 2643,
+    "avg_out_degree": 3.01,
+    "zero_outbound": 49,
+    "zero_inbound": 210,
+    "baseline_s417_index_pct": 29.5,
+    "baseline_s417_giant_pct": 86.6
+  },
+  "verdict": {
+    "h1_2hop_gte65pct": "CONFIRMED",
+    "h2_index_lt30pct": "CONFIRMED",
+    "h3_retrieval_gte80pct": "CONFIRMED",
+    "overall": "F-BRN7 CONFIRMED: citation graph traversal provides 90.6% coverage at N=879. INDEX.md decay (29.5%->11.8%) confirms structural retrieval gap. Giant component grew 86.6%->98.6%."
+  }
+}

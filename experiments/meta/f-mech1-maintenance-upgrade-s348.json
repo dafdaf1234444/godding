@@ -1,0 +1,51 @@
+{
+  "experiment": "F-MECH1: maintenance_checks tool-grade → swarm-grade upgrade",
+  "session": "S348",
+  "frontier": "F-MECH1",
+  "domain": "meta",
+  "lesson": "L-537",
+  "hypothesis": "Adding persistent outcome tracking + learning to maintenance.py closes GAP-1 (diagnostic-execution bridge) and enables self-improving check prioritization",
+  "method": {
+    "mechanism": "maintenance_checks (tools/maintenance.py)",
+    "before": {
+      "grade": "tool-grade",
+      "checks": 35,
+      "persistent_state": false,
+      "outcome_tracking": false,
+      "learning": false,
+      "gap1_status": "OPEN — 37 checks, 0 automatic fixes, no resolution tracking"
+    },
+    "after": {
+      "grade": "swarm-grade",
+      "checks": 35,
+      "persistent_state": true,
+      "outcome_tracking": true,
+      "learning": true,
+      "features_added": [
+        "workspace/maintenance-outcomes.json — per-check fire/resolve history (last 30 sessions)",
+        "--learn flag — computes fire rates, resolution rates, chronic/actionable classification",
+        "CHRONIC detection — checks firing >80% with <20% resolution (anti-windup candidates)",
+        "ACTIONABLE detection — checks firing >30% with >50% resolution (productive checks)",
+        "SILENT detection — checks that never fire (vestigial candidates)",
+        "Trend analysis — total check items over last 3 sessions"
+      ],
+      "gap1_status": "PARTIAL — diagnostic→learning bridge built; diagnostic→auto-fix bridge still open"
+    }
+  },
+  "results": {
+    "initial_recording": {
+      "session": 348,
+      "checks_recorded": 35,
+      "fired": 14,
+      "silent": 21,
+      "totals": {"URGENT": 1, "DUE": 2, "PERIODIC": 6, "NOTICE": 14}
+    },
+    "learn_mode_test": "Confirmed working with synthetic 2-session data. CHRONIC/ACTIONABLE/SILENT classification operates correctly.",
+    "lines_added": 120,
+    "outcome_file_size_bytes": "~3KB per session recording"
+  },
+  "expect": "maintenance_checks gains persistent state + outcome learning. GAP-1 partially closed. Learn mode identifies chronic vs actionable checks after 2+ sessions.",
+  "actual": "CONFIRMED. 120 lines added. Outcome tracking saves per-check fire/severity data. --learn mode computes resolution rates and classifies checks as CHRONIC/ACTIONABLE/SILENT. First real recording: 14/35 checks fired. GAP-1 PARTIAL (learning bridge built, auto-fix bridge still open).",
+  "diff": "Expected: persistent state + learning. Got: exactly that. GAP-1 only partially closed — the next step is wiring chronic-check insights into automatic suppression or escalation, not just reporting.",
+  "successor": "Wire CHRONIC checks into orient.py recommended actions. Add auto-suppression for NOTICE-level chronic checks after 10+ consecutive fires without resolution."
+}

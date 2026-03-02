@@ -1,0 +1,96 @@
+{
+  "experiment": "F-AI2/F-HLT2",
+  "title": "Live fetch perturbation: forced sync vs async independence",
+  "mode": "live-perturbation",
+  "seed": 185,
+  "trials": 120,
+  "lang": "en",
+  "perturb_rate": 0.4,
+  "leader_error_rate": 0.4667,
+  "async": {
+    "follower_error_rate": 0.325,
+    "joint_error_rate": 0.15,
+    "leader_follower_error_correlation": -0.0071
+  },
+  "sync": {
+    "follower_error_rate": 0.4667,
+    "joint_error_rate": 0.4667,
+    "leader_follower_error_correlation": 1.0
+  },
+  "mismatch_samples": [
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swarmintelligence",
+      "leader_resolved": "Swarmintelligence"
+    },
+    {
+      "base_topic": "Error handling",
+      "canonical": "Exception handling",
+      "leader_query": "Errorhandling",
+      "leader_resolved": "Errorhandling"
+    },
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "Transactiv memory",
+      "leader_resolved": "Transactiv memory"
+    },
+    {
+      "base_topic": "Error handling",
+      "canonical": "Exception handling",
+      "leader_query": "Errro handling",
+      "leader_resolved": "Errro handling"
+    },
+    {
+      "base_topic": "Error handling",
+      "canonical": "Exception handling",
+      "leader_query": "Errorhandling",
+      "leader_resolved": "Errorhandling"
+    },
+    {
+      "base_topic": "Error handling",
+      "canonical": "Exception handling",
+      "leader_query": "Errro handling",
+      "leader_resolved": "Errro handling"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Distributed ysstems",
+      "leader_resolved": "Distributed ysstems"
+    },
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "Transactvie memory",
+      "leader_resolved": "Transactvie memory"
+    },
+    {
+      "base_topic": "Swarm intelligence",
+      "canonical": "Swarm intelligence",
+      "leader_query": "Swram intelligence",
+      "leader_resolved": "Swram intelligence"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-free repicated data type",
+      "leader_resolved": "Conflict-free repicated data type"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Distributed ysstems",
+      "leader_resolved": "Distributed ysstems"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Dstributed systems",
+      "leader_resolved": "Dstributed systems"
+    }
+  ],
+  "verdict": "Live topic perturbations preserve the same directional result: forced synchronization propagates leader mistakes, while asynchronous followers remain less correlated.",
+  "generated_at_utc": "2026-02-27T20:15:14Z"
+}

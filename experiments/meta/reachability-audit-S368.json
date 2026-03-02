@@ -1,0 +1,65 @@
+{
+  "experiment": "reachability-audit-S368",
+  "session": "S368",
+  "frontier": "F-META2",
+  "question": "At 604L/184P scale, how much of the swarm knowledge graph is structurally unreachable?",
+  "method": "5-dimensional grep-based reachability scan across lessons, principles, tools, domains, and files",
+  "expect": "10-20% orphan rate across knowledge elements; domains with zero external refs exist",
+  "results": {
+    "lessons": {
+      "total": 607,
+      "orphans": 1,
+      "orphan_rate": "0.16%",
+      "orphan_ids": ["L-649"],
+      "note": "compact-lesson-cache.json indexes all lessons mechanically; semantic orphan rate is 0.16%. Citation network is remarkably dense."
+    },
+    "principles": {
+      "total": 216,
+      "orphans": 0,
+      "orphan_rate": "0.0%",
+      "note": "Every principle is referenced outside PRINCIPLES.md. Cross-referencing practices effective."
+    },
+    "tools": {
+      "total": 99,
+      "orphans": 23,
+      "orphan_rate": "23.2%",
+      "orphan_tools": [
+        "f_act1_action_recommender.py", "f_ai1_evidence_surfacing.py",
+        "f_evo5_self_archaeology.py", "f_far1_fallow_measure.py",
+        "f_game1_roguelike.py", "f_game3_flow_zone.py",
+        "f_his1_historian_grounding.py", "f_his2_chronology_conflicts.py",
+        "f_is3_math_validation.py", "f_lng1_zipf_lessons.py",
+        "f_ops1_wip_limit.py", "f_ops2_domain_priority.py",
+        "f_ops2_guard_comparison.py", "f_qc1_repeated_knowledge.py",
+        "test_close_lane.py", "test_f_ai1_evidence_surfacing.py",
+        "test_f_his1_historian_grounding.py", "test_f_his2_chronology_conflicts.py",
+        "test_f_is3_math_validation.py", "test_f_ops1_wip_limit.py",
+        "test_f_ops2_domain_priority.py", "test_f_ops2_guard_comparison.py",
+        "test_lanes_compact.py"
+      ],
+      "note": "All 23 are F-frontier tools and their tests from S186-era that should have been archived in S363 consolidation but were missed."
+    },
+    "domains": {
+      "total": 44,
+      "fully_disconnected": ["cryptography", "fluid-dynamics", "guesstimates"],
+      "nearly_disconnected": ["cryptocurrency", "security", "social-media"],
+      "disconnected_count": 6,
+      "disconnected_rate": "13.6%",
+      "frontier_id_collision": "cryptocurrency F-CC1/2/3 collides with claude-code F-CC1/2/3/4",
+      "zero_experiments_with_open_frontiers": ["security", "cryptography", "guesstimates", "fractals", "protocol-engineering"],
+      "note": "6 domains (13.6%) are structurally isolated from main navigation. 5 domains have open frontiers with zero experiments."
+    }
+  },
+  "actual": "Knowledge graph orphan rate is near-zero (0.16% lessons, 0% principles). Infrastructure orphan rate is 23% (tools not archived). Domain disconnection rate is 14%. Prediction of 10-20% was WRONG for knowledge, CORRECT for infrastructure.",
+  "diff": "Expected uniform orphan rate; found split: knowledge dense (0%), infra dead (23%), domains patchy (14%). The swarm's citation practices are effective; the gap is in tool lifecycle and domain navigation.",
+  "root_causes": [
+    "S363 tool consolidation archived 25 tools but missed 14 F-tools and 9 test files",
+    "Domain creation is easy but navigation wiring is manual — no enforcement mechanism",
+    "Frontier ID namespace is global but assigned per-domain without collision check"
+  ],
+  "remediation": {
+    "tools": "Archive 23 orphan F-tools and tests to tools/archive/",
+    "domains": "Add disconnected domains to top-level FRONTIER.md; fix F-CC collision",
+    "knowledge": "L-649 needs one external citation to connect it"
+  }
+}

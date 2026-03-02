@@ -1,0 +1,94 @@
+{
+  "frontier_id": "F-EVO5",
+  "session": 307,
+  "created_on": "2026-02-28",
+  "check_mode": "objective",
+  "description": "Structural analyst pass for F-EVO5: domain-to-tool coupling analysis. Measuring how tightly domain growth is coupled to tool birth and whether domain seeding sessions predict tool creation.",
+  "hypothesis": "Domains seeded in burst sessions (S186, S188) will have higher tool coupling ratios than individually seeded domains, because burst sessions create scaffold tools alongside domain scaffolds.",
+  "expect": "S186 burst (13 domains) and S188 (4 domains) = 17 burst-seeded domains. Expect these 17 to have >2x more domain-tagged tools per domain than the remaining 14 non-burst domains.",
+  "actual": {
+    "total_tools": 160,
+    "domain_experiment_tools_f_prefix": 45,
+    "domain_tagged_tools": {
+      "total": 23,
+      "by_domain": {
+        "evo": 6,
+        "gam": 5,
+        "ops": 6,
+        "his": 2,
+        "eco": 1,
+        "brn": 1,
+        "ai": 1,
+        "lng": 1
+      }
+    },
+    "uncoupled_tools": 137,
+    "uncoupled_pct": 85.6,
+    "tool_categories": {
+      "colony_tools": 4,
+      "maintenance_ops_tools": 11,
+      "domain_experiment_f_prefix": 45,
+      "expert_dispatch_tools": 8,
+      "other_general": 93
+    },
+    "domain_count": 38,
+    "domains_with_any_tagged_tool": 8,
+    "domains_with_zero_tagged_tools": 30,
+    "burst_session_domains": {
+      "s186_burst": 13,
+      "s188_burst": 4,
+      "total_burst": 17
+    },
+    "burst_domain_tool_coverage": {
+      "domains_with_domain_tool": 3,
+      "pct_coverage": 17.6
+    },
+    "non_burst_domain_tool_coverage": {
+      "domains_with_domain_tool": 5,
+      "pct_coverage": 23.8
+    }
+  },
+  "diff": {
+    "expectation_met": false,
+    "finding": "Hypothesis INVERTED — burst-seeded domains (S186/S188) have LOWER tool coupling (17.6%) than non-burst domains (23.8%). Burst sessions seed scaffold files (DOMAIN.md, INDEX.md, FRONTIER.md) but not experiment tools. Domain-specific tools grow organically in subsequent sessions when a frontier gains traction.",
+    "key_insight": "Domain seeding and tool birth are DECOUPLED in time. The 3 domains with most tools (evo=6, ops=6, gam=5) are high-engagement domains that ran many experiment sessions, not burst-seeded domains. Tool coupling is a proxy for DOMAIN DEPTH, not birth cohort.",
+    "calibration": "Only 8/38 domains (21%) have any domain-tagged tool. The 85.6% uncoupled tool rate confirms that most tools serve the global swarm infrastructure, not individual domain frontiers."
+  },
+  "structural_signals": {
+    "epoch_tool_births": {
+      "S1_S57_genesis": "estimated 30-40 general tools (wiki_swarm, agent_swarm, orientation suite)",
+      "S57_S179_steady": "estimated 60-80 general tools + first domain tools (brn, eco)",
+      "S180_S190_burst": "45 domain-experiment f_* tools born in 10-session window",
+      "S190_S307_expansion": "20+ specialized tools (colony stack, dispatch suite, expert suite)"
+    },
+    "epoch_tool_concentration": "The S180-S190 burst corresponds to the 5.3 L/s growth rate (F-EVO5 S195). Domain-experiment tool births track frontier opening rate, not domain seeding rate.",
+    "domain_depth_proxy": {
+      "formula": "depth_score = domain_tool_count * 3 + resolved_frontiers * 2 + active_frontiers",
+      "top_3_domains": [
+        {"domain": "evolution", "tool_count": 6, "score": "6*3 + 0*2 + 5 = 23"},
+        {"domain": "game-theory", "tool_count": 5, "score": "5*3 + 0*2 + 3 = 18"},
+        {"domain": "operations-research", "tool_count": 6, "score": "6*3 + 3*2 + 2 = 26"}
+      ]
+    }
+  },
+  "skeptic_challenge": {
+    "challenge": "The 'burst-seeded' classification is confounded: S186/S188 were high-session-count periods, so they also produced more general tools. The domain attribution may be wrong.",
+    "response": "Valid concern. The f_* prefix naming convention is the only reliable domain-coupling signal. General tools born in S186 are not tagged and correctly classified as uncoupled. The confound would inflate burst-domain tool counts, not deflate them — the observed inversion is robust to this bias."
+  },
+  "iso_isomorphism": {
+    "ISO_id": "ISO-3",
+    "domain": "evolution",
+    "finding": "Tool birth tracks selection pressure, not genesis events. Domains that receive repeated experimental attention (high-pressure frontiers) develop richer tool ecosystems — analogous to adaptive radiation in resource-rich niches vs rapid speciation in low-resource environments.",
+    "swarm_implication": "Domain tool depth is a leading indicator of frontier quality, not a lagging indicator of domain age. Domains with 0 tools are not 'young' — they may have poor frontier definition or low isomorphism yield."
+  },
+  "next_action": {
+    "recommendation": "Add domain depth score (tool_count + resolved + active) to dispatch_optimizer.py scoring formula. This operationalizes the finding: route new DOMEX sessions to high-depth domains to increase tool reuse and cross-domain transfer.",
+    "f_evo5_status": "S208 structural pass + S307 coupling analysis complete. Remaining: re-segment epochs with L+P and git-only provenance (S208 skeptic flag). F-EVO5 is PARTIAL with good structural signal.",
+    "next_session": "Dispatch skeptic to challenge epoch boundaries using L+P segmentation (not just L-only). EVO5 requires 1 more replication session for RESOLVED status."
+  },
+  "swarm_facing_extraction": {
+    "type": "isomorphism",
+    "text": "Domain tool depth (tool count) measures frontier quality, not domain age. Dispatch priority should weight tool-poor domains lower (weak frontiers) unless they have high-scoring active frontiers. ISO-3 adaptive radiation: resource-rich niches (high-engagement domains) produce more tool diversity than rapid-burst seeding events."
+  },
+  "status": "PARTIAL — coupling hypothesis inverted (burst != deep). Structural insight: tool depth tracks engagement, not birth cohort. F-EVO5 PARTIAL, needs epoch re-segmentation with L+P provenance to resolve."
+}

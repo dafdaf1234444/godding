@@ -1,0 +1,34 @@
+{
+  "experiment": "task-coordination-s374",
+  "session": "S374",
+  "domain": "meta",
+  "frontier": "F-CON2",
+  "date": "2026-03-01",
+  "question": "Can task-level claiming reduce concurrent session duplication at N>=3?",
+  "design": "Extend claim.py with task fingerprint claiming (600s TTL), integrate into task_order.py (deprioritize claimed tasks -100 score), add session heartbeat broadcasting to orient.py for cross-session visibility.",
+  "expect": "Three gaps exist: (1) no task-level claiming, (2) identical task recommendations across sessions, (3) no concurrent session visibility. Building all three should enable automatic task divergence.",
+  "actual": "All three mechanisms built and tested: claim-task/check-task/release-task/list-tasks (task claims), --claim-top (auto-claim in task_order.py), heartbeat/sessions (session broadcasting), orient.py concurrent activity display. Claimed tasks show [CLAIMED] with score -100. Sessions visible in orient output.",
+  "diff": "No prediction errors — gaps were structural and obvious. Implementation was straightforward extension of existing claim.py patterns. Key design choice: 600s TTL for tasks (5x file claim TTL) because tasks last minutes not seconds.",
+  "components_built": {
+    "claim.py": {
+      "new_commands": ["claim-task", "check-task", "release-task", "list-tasks", "heartbeat", "sessions"],
+      "importable_functions": ["get_active_task_claims()", "get_active_sessions()"],
+      "constants": {"TASK_CLAIM_TTL_SECONDS": 600, "SESSION_TTL_SECONDS": 600}
+    },
+    "task_order.py": {
+      "new_functions": ["_get_task_fingerprint()", "_check_task_claims()", "_auto_claim_task()"],
+      "new_flags": ["--claim-top"],
+      "behavior": "Claimed tasks get score -100 and tier suffix [CLAIMED]"
+    },
+    "orient.py": {
+      "new_section": "--- Concurrent activity --- (shows sessions + task claims)"
+    }
+  },
+  "coordination_layers": {
+    "file_claims": {"purpose": "prevent edit collisions", "ttl_s": 120, "existed_before": true},
+    "task_claims": {"purpose": "prevent work duplication", "ttl_s": 600, "existed_before": false},
+    "session_heartbeats": {"purpose": "cross-session visibility", "ttl_s": 600, "existed_before": false}
+  },
+  "lesson": "L-687",
+  "outcome": "BUILT"
+}

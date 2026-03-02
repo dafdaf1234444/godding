@@ -1,0 +1,259 @@
+{
+  "session": "S109",
+  "date": "2026-02-27",
+  "method": "ThreadPool max_workers benchmark with warmup removed, wall-time measured around full workload batch",
+  "benchmarks": {
+    "wiki_same_workload": {
+      "1": {
+        "runs": [
+          {
+            "wall_seconds": 3.25375449999774,
+            "ok": true
+          },
+          {
+            "wall_seconds": 3.493822200001887,
+            "ok": true
+          },
+          {
+            "wall_seconds": 3.525611100001697,
+            "ok": true
+          },
+          {
+            "wall_seconds": 3.3228364000024158,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 3.4083293000021513,
+          "mean": 3.399006050000935,
+          "min": 3.25375449999774,
+          "max": 3.525611100001697
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 1.0,
+          "efficiency": 1.0
+        }
+      },
+      "2": {
+        "runs": [
+          {
+            "wall_seconds": 2.210829700001341,
+            "ok": true
+          },
+          {
+            "wall_seconds": 2.240502099997684,
+            "ok": true
+          },
+          {
+            "wall_seconds": 2.241158599998016,
+            "ok": true
+          },
+          {
+            "wall_seconds": 2.187233099997684,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 2.2256658999995125,
+          "mean": 2.2199308749986812,
+          "min": 2.187233099997684,
+          "max": 2.241158599998016
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 1.5313750819486869,
+          "efficiency": 0.7656875409743434
+        }
+      },
+      "3": {
+        "runs": [
+          {
+            "wall_seconds": 1.202785199999198,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.2048719999984314,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.259055200000148,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.2527145999993081,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 1.2287932999988698,
+          "mean": 1.2298567499992714,
+          "min": 1.202785199999198,
+          "max": 1.259055200000148
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 2.77372060866973,
+          "efficiency": 0.9245735362232433
+        }
+      },
+      "4": {
+        "runs": [
+          {
+            "wall_seconds": 1.2797127999983786,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.1532206000010774,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.2533484000014141,
+            "ok": true
+          },
+          {
+            "wall_seconds": 1.3142721999975038,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 1.2665305999998964,
+          "mean": 1.2501384999995935,
+          "min": 1.1532206000010774,
+          "max": 1.3142721999975038
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 2.691075367624304,
+          "efficiency": 0.672768841906076
+        }
+      }
+    },
+    "compute_heavy_workload": {
+      "1": {
+        "runs": [
+          {
+            "wall_seconds": 0.40607620000082534,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.441301899998507,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.42124759999933303,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.4037053000029118,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 0.4136619000000792,
+          "mean": 0.4180827500003943,
+          "min": 0.4037053000029118,
+          "max": 0.441301899998507
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 1.0,
+          "efficiency": 1.0
+        }
+      },
+      "2": {
+        "runs": [
+          {
+            "wall_seconds": 0.25390759999936563,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.2583279999998922,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.2706335000002582,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.27913819999957923,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 0.2644807500000752,
+          "mean": 0.2655018249997738,
+          "min": 0.25390759999936563,
+          "max": 0.27913819999957923
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 1.5640529603759878,
+          "efficiency": 0.7820264801879939
+        }
+      },
+      "3": {
+        "runs": [
+          {
+            "wall_seconds": 0.1771203999996942,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.17432349999944563,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.16428470000028028,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.16972600000008242,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 0.17202474999976403,
+          "mean": 0.17136364999987563,
+          "min": 0.16428470000028028,
+          "max": 0.1771203999996942
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 2.4046650264025766,
+          "efficiency": 0.8015550088008588
+        }
+      },
+      "4": {
+        "runs": [
+          {
+            "wall_seconds": 0.16774299999815412,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.16915390000212938,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.1693392999986827,
+            "ok": true
+          },
+          {
+            "wall_seconds": 0.16861620000054245,
+            "ok": true
+          }
+        ],
+        "summary": {
+          "median": 0.1688850500013359,
+          "mean": 0.16871309999987716,
+          "min": 0.16774299999815412,
+          "max": 0.1693392999986827
+        },
+        "failures": 0,
+        "derived": {
+          "speedup_vs_n1": 2.449369556374629,
+          "efficiency": 0.6123423890936572
+        }
+      }
+    }
+  }
+}

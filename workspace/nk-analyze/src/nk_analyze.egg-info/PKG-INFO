@@ -1,0 +1,14 @@
+Metadata-Version: 2.4
+Name: nk-analyze
+Version: 0.2.0
+Summary: NK landscape analysis for Python packages — measure coupling, cycles, and architectural complexity
+License: MIT
+Keywords: complexity,static-analysis,coupling,dependencies,architecture
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.10

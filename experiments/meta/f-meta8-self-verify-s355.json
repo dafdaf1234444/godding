@@ -1,0 +1,31 @@
+{
+  "experiment": "f-meta8-self-verify-s355",
+  "frontier": "F-META8",
+  "domain": "meta",
+  "session": "S355",
+  "date": "2026-03-01",
+  "question": "Can the minimal self-model contract auto-verify its own satisfaction?",
+  "method": "Build contract_check.py with 5 binary validators (one per L-586 component). Test against current state (should PASS), synthetic failures (missing invariants, hash mismatch, non-existent session), and edge cases (concurrent uncommitted work). Measure: detection rate, false positive rate, execution time.",
+  "expect": "Tool detects >=3/5 failure modes. False positive rate <10%. Execution <2s.",
+  "actual": "Tool detects all 5 component types. 5/5 pass on healthy state. Write obligation correctly distinguishes committed (S354: 3 commits) vs in-progress (uncommitted changes) vs unknown sessions. Fixed git grep regex bug (bracket character class). 7/7 tests pass. Execution <1s.",
+  "diff": "Expected >=3 detectable failures; achieved 5/5. Better than expected. One implementation bug caught during testing (git --grep character class treated [S999] as regex, not literal).",
+  "result": "CONFIRMED",
+  "artifacts": [
+    "tools/contract_check.py",
+    "tools/test_contract_check.py"
+  ],
+  "findings": [
+    "Self-verification IS achievable: all 5 L-586 components can be checked programmatically",
+    "Each validator maps 1:1 to a documented failure mode — the contract is both minimal and complete",
+    "Protocol handshake (component 5) was already validated by validate_beliefs.py — contract_check.py unifies all 5 under one tool",
+    "Write obligation has two valid modes: pre-handoff (uncommitted changes present) and post-handoff (committed artifacts searchable). Both are correctly detected.",
+    "False positive observed: identity_invariant regex matches I9/I10/I11/I12 anywhere in INVARIANTS.md — could match in comments. Acceptable for v1.0."
+  ],
+  "next_steps": [
+    "Wire contract_check.py into check.sh as pre-commit validation (step 2 of F-META8 design)",
+    "Measure false-positive rate over 20 sessions (step 3 of F-META8 design)",
+    "Add monotonicity comparison: compare state vector against previous session's committed values (currently only checks format, not direction)"
+  ],
+  "iso_connections": ["ISO-14 (self-similarity: contract checks itself)", "ISO-6 (boundary: 5 components define minimal identity)"],
+  "lesson": "L-592"
+}

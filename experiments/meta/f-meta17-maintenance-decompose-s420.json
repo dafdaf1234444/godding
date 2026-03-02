@@ -1,0 +1,66 @@
+{
+  "experiment": "DOMEX-META-S420: maintenance.py decomposition — 5 modules extracted",
+  "session": "S420",
+  "date": "2026-03-02",
+  "frontier": "F-META17",
+  "domain": "meta",
+  "level": "L3",
+  "question": "Can maintenance.py (31179t) be decomposed into smaller modules? Which subsystems are extractable as standalone modules?",
+  "check_mode": "objective",
+  "baseline": {
+    "maintenance_py_tokens": 31179,
+    "maintenance_py_lines": 2448,
+    "ceiling": 5000
+  },
+  "extraction_completed": {
+    "tools/maintenance_lanes.py": {
+      "lines": 283,
+      "functions": ["check_swarm_lanes", "check_swarm_coordinator", "check_lane_reporting_quality"],
+      "description": "Lane hygiene: staleness, metadata, coordination contracts, evidence fields"
+    },
+    "tools/maintenance_domains.py": {
+      "lines": 248,
+      "functions": ["check_domain_frontier_consistency", "check_frontier_decay", "check_anxiety_zones", "check_frontier_registry", "check_domain_expert_coverage", "check_historian_integrity"],
+      "description": "Domain INDEX/FRONTIER alignment, frontier decay, anxiety zones, DOMEX coverage"
+    },
+    "tools/maintenance_inventory.py": {
+      "lines": 188,
+      "functions": ["build_inventory", "print_inventory", "check_runtime_portability", "check_commit_hooks"],
+      "description": "Swarm capability enumeration, bridge files, command availability, inter-swarm connectivity"
+    },
+    "tools/maintenance_outcomes.py": {
+      "lines": 151,
+      "functions": ["load_outcomes", "save_outcomes_direct", "learn_from_outcomes"],
+      "description": "Per-session check result recording, CHRONIC/ACTIONABLE/SILENT classification, trend analysis"
+    },
+    "tools/maintenance_drift.py": {
+      "lines": 216,
+      "functions": ["check_proxy_k_drift", "check_observer_staleness"],
+      "description": "Proxy-K token drift monitoring (dirty-tree handling, stale-floor rebaselining), observer baseline age"
+    }
+  },
+  "result": {
+    "original_lines": 2448,
+    "original_tokens_approx": 31179,
+    "final_lines": 1537,
+    "final_tokens_approx": 19955,
+    "reduction_pct": 36.0,
+    "modules_extracted": 5,
+    "total_extracted_lines": 1086,
+    "pattern": "Pure function injection — each module receives dependencies as parameters, no circular imports"
+  },
+  "verification": {
+    "maintenance_quick": "PASS — identical output",
+    "maintenance_inventory": "PASS",
+    "maintenance_inventory_json": "PASS — valid JSON",
+    "maintenance_learn": "PASS — correct classification",
+    "orient_py": "PASS — maintenance.py is a dependency",
+    "check_sh": "PASS — CHECK COMPLETE"
+  },
+  "expect": "maintenance.py has 4+ extractable subsystems >=100L each. Largest extraction saves >5k tokens. Post-decomposition size <20k tokens.",
+  "actual": "5 modules extracted (1086L total). maintenance.py 2448→1537L, ~31179t→~19955t (36% reduction). All checks PASS. Under 20k target CONFIRMED.",
+  "diff": "Expected 4+ subsystems — got 5. Expected >5k token savings — got ~11k. Expected <20k final — CONFIRMED (19955t). All 3 predictions directionally correct, magnitude exceeded on extraction count and savings.",
+  "f_meta17_status": "ADVANCED",
+  "f_meta17_next": "maintenance.py still 4x ceiling. Next extraction targets: check_mission_constraints (~70L), check_session_log_integrity, check_correction_propagation. orient.py at 16623t is the #2 oversized tool.",
+  "cites": ["L-935", "L-908", "L-601"]
+}

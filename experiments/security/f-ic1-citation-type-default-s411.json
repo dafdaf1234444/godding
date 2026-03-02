@@ -1,0 +1,24 @@
+{
+  "session": "S411",
+  "frontier": "F-IC1",
+  "lane": "DOMEX-SEC-S411",
+  "question": "Does making citation-type classification always-on reduce false-positive actionable gap count? (L-904 tool prescription)",
+  "expect": "classify=True default: correction queue always shows citation_type HIGH/MEDIUM/LOW; 0 HIGH gaps at N=823; actionable gap ~70% lower than raw count",
+  "method": "Changed _find_correction_gaps(classify=False) -> classify=True default, same for run_analysis(). CLI flag --classify -> --no-classify (opt-out). Ran tool at N=824 lessons.",
+  "results": {
+    "total_lessons": 824,
+    "total_falsified_detected": 11,
+    "total_uncorrected_citations": 20,
+    "citation_type_coverage": "20/20 (100% — was 0/20 without --classify)",
+    "high_priority": 0,
+    "medium_priority": 2,
+    "low_priority": 18,
+    "actionable_gap_reduction": "2 MEDIUM vs 20 raw (90% reduction)",
+    "correction_rate": "61%"
+  },
+  "actual": "CONFIRMED: citation_type always-on. 20 queue items, all classified. 0 HIGH priority (confirming L-904 S410 manual finding at N=814). 2 MEDIUM (structural), 18 LOW (citation-only). The tool now gives actionable triage by default without --classify flag.",
+  "diff": "Expected ~70% actionable gap reduction. Actual: 90% (2 MEDIUM vs 20 raw). All prior L-025 citers are citation-only (structural architecture citations, not claim-propagating). The --classify barrier was preventing teams from seeing this — most sessions ran without it.",
+  "verdict": "CONFIRMED",
+  "citations": ["L-904", "L-739", "L-885", "F-IC1"],
+  "lesson": "L-911"
+}

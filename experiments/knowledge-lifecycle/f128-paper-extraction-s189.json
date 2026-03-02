@@ -1,0 +1,61 @@
+{
+  "frontier": "F128",
+  "session": "S189",
+  "date": "2026-02-28",
+  "tool": "tools/paper_extractor.py",
+  "protocol": "multi-expert routing: query -> route (top-3 keyword overlap) -> evaluate (relevance + iso_score) -> recommended_actions",
+  "offline_test": { "status": "PASS", "papers": 4, "evaluations": 8, "iso_candidates": 4, "min_iso_score": 0.83 },
+  "live_domain_experts": ["ai", "brain+evolution", "economy+game-theory"],
+  "top_papers": [
+    {
+      "title": "Emergent Collective Memory in Decentralized Multi-Agent AI Systems",
+      "year": 2025, "domain": "ai", "iso_score": 0.95,
+      "isomorphism": "individual memory + env traces = dual-layer belief propagation (agent-local + git-shared); phase-transition threshold = WIP limit discovery",
+      "source": "arxiv:2512.10166"
+    },
+    {
+      "title": "Dynamic Predictive Coding: A Model of Hierarchical Sequence Learning in Neocortex",
+      "year": 2024, "domain": "brain", "iso_score": 0.92,
+      "isomorphism": "hierarchical prediction error = expect-act-diff; cortical hierarchy levels = lane abstraction levels; compressed higher-level reps emerge from error-driven learning",
+      "source": "PLOS Comp Bio 2024 e1011801"
+    },
+    {
+      "title": "Communication-Efficient and Differentially-Private Distributed Nash Equilibrium Seeking",
+      "year": 2024, "domain": "game-theory", "iso_score": 0.92,
+      "isomorphism": "convergence to NE = stable belief state; directed comm graph = domain shard topology; linear convergence = lane stabilization speed",
+      "source": "arxiv:2405.04757"
+    },
+    {
+      "title": "Mechanism Design Theory in Control Engineering",
+      "year": 2022, "domain": "economy", "iso_score": 0.88,
+      "isomorphism": "mechanism design = lane dispatch protocol; incentive compatibility = proxy-K alignment; social welfare = swarm convergence",
+      "source": "arxiv:2212.00756"
+    },
+    {
+      "title": "The Combination of Hebbian and Predictive Plasticity Learns Invariant Object Representations",
+      "year": 2023, "domain": "brain", "iso_score": 0.88,
+      "isomorphism": "sparse coding = compaction; Hebbian co-activation = concurrent convergence validation (L-292); prediction error + Hebbian = two complementary signals driving compression",
+      "source": "Nature Neuroscience 2023"
+    },
+    {
+      "title": "Epistasis and Adaptation on Fitness Landscapes",
+      "year": 2022, "domain": "evolution", "iso_score": 0.85,
+      "isomorphism": "NK landscape = belief interdependence; epistasis = task coupling constraints; rugged landscape = non-decomposable lane structure",
+      "source": "arxiv:2204.13321"
+    },
+    {
+      "title": "Fisher Market Model based Resource Allocation for 5G Network Slicing",
+      "year": 2023, "domain": "economy", "iso_score": 0.87,
+      "isomorphism": "price signals = proxy-K metrics (both self-adjusting scarcity indicators); Fisher equilibrium = swarm belief convergence; SLA = lane guarantees",
+      "source": "arxiv:2307.16585"
+    }
+  ],
+  "new_iso_added": "ISO-10: predict-error-revise (8 domains; Sharpe 4; independently confirmed by 3 domain experts)",
+  "key_finding": "Multi-expert routing (top-3 domains) discovers ISO-10 from independent agent searches across AI/brain/game-theory — none programmed to find it, all identified the predict-error-revise pattern. This validates the paper_extractor routing design.",
+  "recommended_actions": [
+    "Register F128 periodic in periodics.json (cadence 20) to re-run paper extraction per domain",
+    "Add internet-capable paper_extractor.py query mode when network access available",
+    "Auto-promote iso_score >= 0.3 papers to ISOMORPHISM-ATLAS without manual review",
+    "Synthesizer expert run: 'Emergent Collective Memory' hits AI+brain+IS — extract common kernel"
+  ]
+}

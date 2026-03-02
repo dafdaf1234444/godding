@@ -1,0 +1,91 @@
+{
+  "model": {
+    "baseline_quality": 0.741822433460076,
+    "baseline_std": 0.4376321636665284,
+    "error_correlation_rho": 0.03201330798479087,
+    "coordination_cost_per_extra_agent": 0.01,
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "p119_threshold_fraction": 0.45
+  },
+  "recommendation": {
+    "best_n": 6,
+    "best_utility": 0.499391,
+    "spawn": true
+  },
+  "rows": [
+    {
+      "n": 1,
+      "std_factor": 1.0,
+      "utility": 0.30419,
+      "gain_vs_n1": 0.0,
+      "required_degradation_fraction": 0.0,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 2,
+      "std_factor": 0.718336,
+      "utility": 0.417455,
+      "gain_vs_n1": 0.113265,
+      "required_degradation_fraction": 0.02285,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 3,
+      "std_factor": 0.595546,
+      "utility": 0.461192,
+      "gain_vs_n1": 0.043737,
+      "required_degradation_fraction": 0.0457,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 4,
+      "std_factor": 0.52346,
+      "utility": 0.48274,
+      "gain_vs_n1": 0.021547,
+      "required_degradation_fraction": 0.068551,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 5,
+      "std_factor": 0.474985,
+      "utility": 0.493954,
+      "gain_vs_n1": 0.011214,
+      "required_degradation_fraction": 0.091401,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 6,
+      "std_factor": 0.439709,
+      "utility": 0.499391,
+      "gain_vs_n1": 0.005438,
+      "required_degradation_fraction": 0.114251,
+      "passes_p119_gate": true
+    }
+  ],
+  "calibration": {
+    "artifact_count": 12,
+    "weighted_trials": 5260,
+    "used_artifacts": [
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-forced-sync-s185.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s185.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s186-es.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s186.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-sync-correlation-s184.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-025-s186.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-050-s186.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-075-s186.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-100-s186.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-s185.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-perturbation-s185.json",
+      "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-query-perturb-s185-es.json"
+    ],
+    "leader_error_rate_mean": 0.2672992395437262,
+    "async_error_rate_mean": 0.25817756653992396,
+    "abs_async_corr_mean": 0.03201330798479087,
+    "inferred_baseline_quality": 0.741822433460076,
+    "inferred_baseline_std": 0.4376321636665284,
+    "inferred_rho": 0.03201330798479087,
+    "inferred_coordination_cost": 0.01
+  }
+}

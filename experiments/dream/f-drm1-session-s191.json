@@ -1,0 +1,44 @@
+{
+  "session": "S191",
+  "dream_run_output": {
+    "unthemed_lessons": 198,
+    "total_lessons": 294,
+    "uncited_principles": 37,
+    "resonances": 19,
+    "candidate_frontiers": 2
+  },
+  "actions_taken": {
+    "lesson_written": "L-311",
+    "frontier_added": "F130",
+    "uncited_principle_cited": "P-027"
+  },
+  "genuinely_new_frontiers": 1,
+  "frontier_breakdown": {
+    "candidate_1_meta_structural_pattern": {
+      "verdict": "GENUINELY_NEW",
+      "rationale": "Dream cycle surfaced 33-lesson 'meta' cluster as densest theme. F-META1..F-META4 address coordination/signals/quality/visual — none address whether the density implies an unextracted structural principle. F130 added.",
+      "id": "F130"
+    },
+    "candidate_2_ai_brain_third_isomorphism": {
+      "verdict": "REDISCOVERY",
+      "rationale": "F126 open item (5) already says 'check whether AI and brain ISOs share a 3rd unmapped structural equivalence beyond predictive-coding/expect-act-diff and pruning/Sharpe'. Dream cycle found what F126 already has open.",
+      "id": "F126 open item (5)"
+    }
+  },
+  "resonance_validation": {
+    "brain_predictive_coding_P175_P182": "Already captured: ISO-10 (predict-error-revise) covers brain predictive coding and swarm expect-act-diff. P-175 (enforcement tiers) and P-182 (expect-act-diff) are already in ISO-10 manifestations. Not a new resonance.",
+    "brain_synaptic_pruning_P188": "Partially captured: ISO-1 (optimization) includes synaptic plasticity; P-188 (lesson Sharpe compaction) is already ISO-1 swarm manifestation. The pruning↔Sharpe link exists implicitly but is not a named ISO entry. Candidate for ISO-11 or ISO-1 expansion.",
+    "brain_memory_consolidation_P163_P188": "Partially captured: ISO-9 (information bottleneck) and ISO-3 (MDL) cover memory compression angles. P-163 (proxy-K drift) and P-188 (compaction) are already ISO-3/ISO-9 swarm manifestations. Not independently new.",
+    "overall": "0 resonances are fully new; 1 (synaptic-pruning↔Sharpe) is partially new as an explicit named link not yet in ISOMORPHISM-ATLAS. All others are already implicit in ISO-1/ISO-3/ISO-9/ISO-10."
+  },
+  "uncited_principle_analysis": {
+    "P-027": "separate principles from stories — governs how lessons compress into principles; ironically uncited despite being the compaction meta-rule. L-311 now cites it.",
+    "P-005": "match names to coordination models — remains uncited; candidate for a future naming-audit lesson.",
+    "P-016": "integrate into existing sections — remains uncited; candidate for a structural integration lesson.",
+    "P-017": "git forking free, merge-back is hard — remains uncited; relevant to cross-swarm harvest (F127).",
+    "P-022": "never claim proven without majority observed — remains uncited; relevant to evidence quality checks.",
+    "P-026": "measure git co-occurrence not intended coupling — remains uncited; relevant to NK analysis domain."
+  },
+  "verdict": "DREAM_PRODUCTIVE",
+  "notes": "F-DRM3 baseline check: directed sessions add ~0.3 F-NNN per session. This dream session added 1 (F130) → above baseline. F-DRM1 success criterion (≥50% genuinely new) met at 50% (1/2). First session establishes baseline for comparing against F-DRM2 and F-DRM3 sessions."
+}

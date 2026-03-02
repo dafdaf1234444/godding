@@ -1,0 +1,855 @@
+{
+  "experiment": "F-META16: Single-Agent Knowledge Transfer Lab",
+  "session": "S394",
+  "lane": "DOMEX-META-S394",
+  "date": "2026-03-01",
+  "question": "What are the measurable knowledge attributes of a single agent session, and how much knowledge actually transfers across session boundaries?",
+  "method": "Parse all commits (git log --name-only) and all lesson files to compute 7 per-session attributes: production, citation_reach, absorption_rate, transfer_out, knowledge_scope, boot_surface, session_type. Analyze distributions, correlations, and transfer fidelity across 393 sessions.",
+  "expectations": {
+    "predicted": {
+      "measurable_profiles": "Sessions have quantifiable knowledge profiles",
+      "transfer_fidelity": "<60% of produced knowledge is cited by future sessions",
+      "absorption_production_correlation": "Sessions that cite more existing knowledge produce higher-quality outputs (r>0.3)"
+    },
+    "actual": {
+      "measurable_profiles": true,
+      "transfer_fidelity_under_60pct": false,
+      "absorption_production_r_gt_03": false
+    }
+  },
+  "analysis": {
+    "n_sessions": 189,
+    "n_producing": 143,
+    "attribute_stats": {
+      "lessons_produced": {
+        "mean": 3.032,
+        "median": 2,
+        "stdev": 3.582,
+        "max": 23,
+        "nonzero_count": 143,
+        "nonzero_pct": 0.757
+      },
+      "citation_reach": {
+        "mean": 7.042,
+        "median": 3,
+        "stdev": 9.054,
+        "max": 40,
+        "nonzero_count": 142,
+        "nonzero_pct": 0.751
+      },
+      "absorption_rate": {
+        "mean": 0.047,
+        "median": 0.023,
+        "stdev": 0.092,
+        "max": 1.0,
+        "nonzero_count": 142,
+        "nonzero_pct": 0.751
+      },
+      "transfer_out": {
+        "mean": 5.317,
+        "median": 2,
+        "stdev": 9.719,
+        "max": 95,
+        "nonzero_count": 123,
+        "nonzero_pct": 0.651
+      },
+      "knowledge_scope": {
+        "mean": 2.085,
+        "median": 1,
+        "stdev": 2.337,
+        "max": 13,
+        "nonzero_count": 143,
+        "nonzero_pct": 0.757
+      },
+      "n_commits": {
+        "mean": 7.984,
+        "median": 5,
+        "stdev": 8.116,
+        "max": 56,
+        "nonzero_count": 189,
+        "nonzero_pct": 1.0
+      },
+      "files_touched": {
+        "mean": 36.101,
+        "median": 22,
+        "stdev": 53.211,
+        "max": 463,
+        "nonzero_count": 189,
+        "nonzero_pct": 1.0
+      }
+    },
+    "session_type_breakdown": {
+      "mixed": 86,
+      "knowledge": 17,
+      "maintenance": 18,
+      "domex": 68
+    },
+    "type_averages": {
+      "mixed": {
+        "avg_production": 1.92,
+        "avg_transfer": 3.3,
+        "avg_absorption": 0.0463
+      },
+      "knowledge": {
+        "avg_production": 1.12,
+        "avg_transfer": 1.12,
+        "avg_absorption": 0.032
+      },
+      "maintenance": {
+        "avg_production": 1.22,
+        "avg_transfer": 0.89,
+        "avg_absorption": 0.0981
+      },
+      "domex": {
+        "avg_production": 5.4,
+        "avg_transfer": 10.09,
+        "avg_absorption": 0.0373
+      }
+    },
+    "transfer_fidelity": {
+      "mean": 1.526,
+      "median": 1.2,
+      "zero_transfer_sessions": 20,
+      "zero_transfer_pct": 0.14
+    },
+    "correlations": {
+      "absorption_vs_production": 0.066,
+      "citation_reach_vs_transfer": 0.564
+    },
+    "knowledge_lifetime": {
+      "mean_sessions": 32.0,
+      "median_sessions": 4.0,
+      "max_sessions": 294,
+      "zero_lifetime_pct": 0.321
+    },
+    "era_evolution": {
+      "S1-S99": {
+        "n": 34,
+        "avg_absorption": 0.1369,
+        "avg_transfer_rate": 0.633,
+        "avg_lessons": 1.74
+      },
+      "S100-S199": {
+        "n": 28,
+        "avg_absorption": 0.0485,
+        "avg_transfer_rate": 1.527,
+        "avg_lessons": 3.86
+      },
+      "S200-S299": {
+        "n": 3,
+        "avg_absorption": 0.0198,
+        "avg_transfer_rate": 1.083,
+        "avg_lessons": 2.33
+      },
+      "S300-S393": {
+        "n": 78,
+        "avg_absorption": 0.0354,
+        "avg_transfer_rate": 1.932,
+        "avg_lessons": 5.12
+      }
+    },
+    "top_10_by_influence": [
+      {
+        "session": 355,
+        "transfer_out": 95,
+        "lessons": 13,
+        "type": "domex"
+      },
+      {
+        "session": 347,
+        "transfer_out": 33,
+        "lessons": 8,
+        "type": "domex"
+      },
+      {
+        "session": 356,
+        "transfer_out": 31,
+        "lessons": 7,
+        "type": "mixed"
+      },
+      {
+        "session": 189,
+        "transfer_out": 30,
+        "lessons": 13,
+        "type": "domex"
+      },
+      {
+        "session": 358,
+        "transfer_out": 30,
+        "lessons": 14,
+        "type": "domex"
+      },
+      {
+        "session": 352,
+        "transfer_out": 28,
+        "lessons": 14,
+        "type": "domex"
+      },
+      {
+        "session": 188,
+        "transfer_out": 26,
+        "lessons": 12,
+        "type": "mixed"
+      },
+      {
+        "session": 359,
+        "transfer_out": 26,
+        "lessons": 13,
+        "type": "domex"
+      },
+      {
+        "session": 353,
+        "transfer_out": 23,
+        "lessons": 14,
+        "type": "domex"
+      },
+      {
+        "session": 306,
+        "transfer_out": 22,
+        "lessons": 23,
+        "type": "domex"
+      }
+    ],
+    "zero_transfer_by_type": {
+      "mixed": 13,
+      "knowledge": 4,
+      "maintenance": 1,
+      "domex": 2
+    }
+  },
+  "sample_profiles": {
+    "S355": {
+      "session": 355,
+      "n_commits": 9,
+      "session_type": "domex",
+      "production": {
+        "lessons": 13,
+        "lesson_ids": [
+          590,
+          591,
+          592,
+          596,
+          597,
+          598,
+          599,
+          600,
+          601,
+          603,
+          604,
+          605,
+          606
+        ],
+        "principles": 0,
+        "tools": 3,
+        "total": 16
+      },
+      "citation_reach": 26,
+      "absorption_rate": 0.0627,
+      "transfer_out": 95,
+      "knowledge_scope": 5,
+      "domains": [
+        "conflict",
+        "game-theory",
+        "history",
+        "meta",
+        "nk-complexity"
+      ],
+      "boot_surface": 9,
+      "files_touched": 41
+    },
+    "S347": {
+      "session": 347,
+      "n_commits": 14,
+      "session_type": "domex",
+      "production": {
+        "lessons": 8,
+        "lesson_ids": [
+          519,
+          520,
+          521,
+          522,
+          523,
+          525,
+          526,
+          532
+        ],
+        "principles": 1,
+        "tools": 3,
+        "total": 12
+      },
+      "citation_reach": 12,
+      "absorption_rate": 0.0356,
+      "transfer_out": 33,
+      "knowledge_scope": 4,
+      "domains": [
+        "governance",
+        "helper-swarm",
+        "information-science",
+        "meta"
+      ],
+      "boot_surface": 2,
+      "files_touched": 47
+    },
+    "S356": {
+      "session": 356,
+      "n_commits": 8,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 7,
+        "lesson_ids": [
+          602,
+          607,
+          608,
+          609,
+          610,
+          611,
+          613
+        ],
+        "principles": 1,
+        "tools": 2,
+        "total": 10
+      },
+      "citation_reach": 21,
+      "absorption_rate": 0.0498,
+      "transfer_out": 31,
+      "knowledge_scope": 4,
+      "domains": [
+        "conflict",
+        "meta",
+        "nk-complexity",
+        "stochastic-processes"
+      ],
+      "boot_surface": 19,
+      "files_touched": 61
+    },
+    "S189": {
+      "session": 189,
+      "n_commits": 33,
+      "session_type": "domex",
+      "production": {
+        "lessons": 13,
+        "lesson_ids": [
+          295,
+          296,
+          297,
+          298,
+          299,
+          302,
+          303,
+          304,
+          305,
+          307,
+          308,
+          309,
+          310
+        ],
+        "principles": 2,
+        "tools": 8,
+        "total": 23
+      },
+      "citation_reach": 18,
+      "absorption_rate": 0.1132,
+      "transfer_out": 30,
+      "knowledge_scope": 13,
+      "domains": [
+        "brain/coordination",
+        "conflict",
+        "conflict/coordination",
+        "farming",
+        "gaming",
+        "gaming/frontier-design",
+        "knowledge-lifecycle",
+        "meta/compaction",
+        "meta/knowledge-structure",
+        "meta/quality",
+        "quality/knowledge-management",
+        "quality/meta",
+        "tooling/compaction"
+      ],
+      "boot_surface": 1,
+      "files_touched": 54
+    },
+    "S358": {
+      "session": 358,
+      "n_commits": 15,
+      "session_type": "domex",
+      "production": {
+        "lessons": 14,
+        "lesson_ids": [
+          616,
+          619,
+          620,
+          621,
+          622,
+          624,
+          625,
+          627,
+          628,
+          629,
+          630,
+          632,
+          635,
+          637
+        ],
+        "principles": 0,
+        "tools": 4,
+        "total": 18
+      },
+      "citation_reach": 35,
+      "absorption_rate": 0.0788,
+      "transfer_out": 30,
+      "knowledge_scope": 6,
+      "domains": [
+        "economy",
+        "empathy",
+        "governance",
+        "meta",
+        "statistics",
+        "stochastic-processes"
+      ],
+      "boot_surface": 2,
+      "files_touched": 243
+    },
+    "S352": {
+      "session": 352,
+      "n_commits": 14,
+      "session_type": "domex",
+      "production": {
+        "lessons": 14,
+        "lesson_ids": [
+          555,
+          556,
+          558,
+          559,
+          560,
+          561,
+          563,
+          564,
+          565,
+          567,
+          568,
+          569,
+          571,
+          579
+        ],
+        "principles": 1,
+        "tools": 1,
+        "total": 16
+      },
+      "citation_reach": 36,
+      "absorption_rate": 0.0942,
+      "transfer_out": 28,
+      "knowledge_scope": 9,
+      "domains": [
+        "conflict",
+        "control-theory",
+        "economy",
+        "empathy",
+        "evolution",
+        "finance",
+        "information-science",
+        "meta",
+        "nk-complexity"
+      ],
+      "boot_surface": 10,
+      "files_touched": 45
+    },
+    "S188": {
+      "session": 188,
+      "n_commits": 28,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 12,
+        "lesson_ids": [
+          281,
+          284,
+          285,
+          286,
+          287,
+          288,
+          289,
+          290,
+          292,
+          293,
+          294,
+          300
+        ],
+        "principles": 1,
+        "tools": 10,
+        "total": 23
+      },
+      "citation_reach": 12,
+      "absorption_rate": 0.0822,
+      "transfer_out": 26,
+      "knowledge_scope": 10,
+      "domains": [
+        "economy",
+        "evolution",
+        "gaming",
+        "helper-swarm",
+        "meta",
+        "meta/cross-swarm",
+        "meta/swarm-behavior",
+        "meta/swarm-structure",
+        "meta/tooling",
+        "unknown"
+      ],
+      "boot_surface": 13,
+      "files_touched": 74
+    },
+    "S359": {
+      "session": 359,
+      "n_commits": 16,
+      "session_type": "domex",
+      "production": {
+        "lessons": 13,
+        "lesson_ids": [
+          633,
+          634,
+          636,
+          639,
+          640,
+          641,
+          642,
+          643,
+          644,
+          645,
+          647,
+          648,
+          650
+        ],
+        "principles": 0,
+        "tools": 27,
+        "total": 40
+      },
+      "citation_reach": 24,
+      "absorption_rate": 0.0525,
+      "transfer_out": 26,
+      "knowledge_scope": 6,
+      "domains": [
+        "distributed-systems",
+        "governance",
+        "helper-swarm",
+        "meta",
+        "nk-complexity",
+        "quality"
+      ],
+      "boot_surface": 7,
+      "files_touched": 86
+    },
+    "S353": {
+      "session": 353,
+      "n_commits": 24,
+      "session_type": "domex",
+      "production": {
+        "lessons": 14,
+        "lesson_ids": [
+          570,
+          572,
+          573,
+          574,
+          575,
+          576,
+          577,
+          578,
+          581,
+          582,
+          583,
+          587,
+          588,
+          589
+        ],
+        "principles": 1,
+        "tools": 7,
+        "total": 22
+      },
+      "citation_reach": 32,
+      "absorption_rate": 0.0808,
+      "transfer_out": 23,
+      "knowledge_scope": 11,
+      "domains": [
+        "brain",
+        "conflict",
+        "empathy",
+        "expert-swarm",
+        "field",
+        "game-theory",
+        "governance",
+        "information-science",
+        "meta",
+        "statistics",
+        "stochastic-processes"
+      ],
+      "boot_surface": 9,
+      "files_touched": 270
+    },
+    "S306": {
+      "session": 306,
+      "n_commits": 47,
+      "session_type": "domex",
+      "production": {
+        "lessons": 23,
+        "lesson_ids": [
+          371,
+          372,
+          373,
+          374,
+          375,
+          376,
+          378,
+          379,
+          380,
+          381,
+          383,
+          384,
+          386,
+          387,
+          388,
+          389,
+          390,
+          391,
+          392,
+          393,
+          395,
+          397,
+          398
+        ],
+        "principles": 0,
+        "tools": 5,
+        "total": 28
+      },
+      "citation_reach": 29,
+      "absorption_rate": 0.1239,
+      "transfer_out": 22,
+      "knowledge_scope": 11,
+      "domains": [
+        "catastrophic-risks",
+        "cryptocurrency",
+        "expert-swarm",
+        "governance/meta",
+        "graph-theory",
+        "meta",
+        "meta/coordination",
+        "meta/generalizer",
+        "meta/swarm-lanes",
+        "nk-complexity",
+        "physics"
+      ],
+      "boot_surface": 0,
+      "files_touched": 152
+    },
+    "S199": {
+      "session": 199,
+      "n_commits": 3,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 1,
+        "total": 1
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 7,
+      "files_touched": 18
+    },
+    "S287": {
+      "session": 287,
+      "n_commits": 1,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 0,
+        "total": 0
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 7,
+      "files_touched": 7
+    },
+    "S288": {
+      "session": 288,
+      "n_commits": 2,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 0,
+        "total": 0
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 4,
+      "files_touched": 6
+    },
+    "S314": {
+      "session": 314,
+      "n_commits": 1,
+      "session_type": "domex",
+      "production": {
+        "lessons": 1,
+        "lesson_ids": [
+          423
+        ],
+        "principles": 0,
+        "tools": 0,
+        "total": 1
+      },
+      "citation_reach": 2,
+      "absorption_rate": 0.0078,
+      "transfer_out": 0,
+      "knowledge_scope": 1,
+      "domains": [
+        "graph-theory"
+      ],
+      "boot_surface": 3,
+      "files_touched": 3
+    },
+    "S331": {
+      "session": 331,
+      "n_commits": 15,
+      "session_type": "domex",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 2,
+        "total": 2
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 5,
+      "files_touched": 22
+    },
+    "S332": {
+      "session": 332,
+      "n_commits": 11,
+      "session_type": "domex",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 1,
+        "total": 1
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 4,
+      "files_touched": 15
+    },
+    "S333": {
+      "session": 333,
+      "n_commits": 7,
+      "session_type": "domex",
+      "production": {
+        "lessons": 0,
+        "lesson_ids": [],
+        "principles": 0,
+        "tools": 0,
+        "total": 0
+      },
+      "citation_reach": 0,
+      "absorption_rate": 0.0,
+      "transfer_out": 0,
+      "knowledge_scope": 0,
+      "domains": [],
+      "boot_surface": 9,
+      "files_touched": 13
+    },
+    "S361": {
+      "session": 361,
+      "n_commits": 2,
+      "session_type": "knowledge",
+      "production": {
+        "lessons": 2,
+        "lesson_ids": [
+          651,
+          652
+        ],
+        "principles": 0,
+        "tools": 1,
+        "total": 3
+      },
+      "citation_reach": 7,
+      "absorption_rate": 0.0152,
+      "transfer_out": 0,
+      "knowledge_scope": 1,
+      "domains": [
+        "meta"
+      ],
+      "boot_surface": 238,
+      "files_touched": 239
+    },
+    "S362": {
+      "session": 362,
+      "n_commits": 4,
+      "session_type": "mixed",
+      "production": {
+        "lessons": 2,
+        "lesson_ids": [
+          653,
+          655
+        ],
+        "principles": 0,
+        "tools": 5,
+        "total": 7
+      },
+      "citation_reach": 6,
+      "absorption_rate": 0.013,
+      "transfer_out": 0,
+      "knowledge_scope": 1,
+      "domains": [
+        "meta"
+      ],
+      "boot_surface": 98,
+      "files_touched": 116
+    },
+    "S393": {
+      "session": 393,
+      "n_commits": 8,
+      "session_type": "domex",
+      "production": {
+        "lessons": 5,
+        "lesson_ids": [
+          786,
+          787,
+          788,
+          789,
+          791
+        ],
+        "principles": 0,
+        "tools": 4,
+        "total": 9
+      },
+      "citation_reach": 18,
+      "absorption_rate": 0.0306,
+      "transfer_out": 0,
+      "knowledge_scope": 2,
+      "domains": [
+        "meta",
+        "strategy"
+      ],
+      "boot_surface": 12,
+      "files_touched": 34
+    }
+  }
+}

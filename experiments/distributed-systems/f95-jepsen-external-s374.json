@@ -1,0 +1,72 @@
+{
+  "experiment": "f95-jepsen-external-survey-s374",
+  "frontier": "F95",
+  "domain": "distributed-systems",
+  "session": "S374",
+  "type": "external-research",
+  "description": "External survey of Jepsen 2024-2026 analyses, Redis-Raft status, Antithesis validation, DistFuzz, and minimal reproduction research",
+  "expect": "External data advances F95 B14 verification: 3-node setups validated by industry, new bug classes identified, Redis-Raft stable as reproduction target",
+  "actual": {
+    "jepsen_2024_2026": {
+      "new_analyses_count": 8,
+      "systems_tested": ["RavenDB 6.0.2", "Datomic Pro 1.0.7075", "jetcd 0.8.2", "Bufstream 0.1.0", "Amazon RDS PostgreSQL 17.4", "TigerBeetle 0.16.11", "Capela dda5892", "NATS 2.12.1"],
+      "clean_bill_of_health": ["Datomic Pro"],
+      "catastrophic_findings": {
+        "NATS": "49.7% acknowledged writes lost (679153/1367069) due to deferred fsync",
+        "Bufstream": "loss of acknowledged writes in healthy clusters + Kafka protocol-level bugs",
+        "Amazon_RDS": "Multi-AZ violates Snapshot Isolation via Long Fork anomalies"
+      },
+      "new_bug_classes": [
+        "client-library bugs (jetcd): server correct but client introduces anomalies via incorrect retry",
+        "protocol-design bugs (Kafka transactions KAFKA-17754): affects every implementation",
+        "default-config-as-safety-hazard (NATS deferred fsync)",
+        "documentation-reality gaps (RavenDB, Amazon RDS)"
+      ]
+    },
+    "redis_raft_status": {
+      "status": "effectively dormant",
+      "last_commit": "2023-07-18",
+      "open_issues": 17,
+      "includes_abandon_question": "issue #653 (2025-04-24) 'Is this project abandoned?'",
+      "not_archived": true,
+      "not_merged_into_redis": true,
+      "implication": "bugs #14/#17/#19 remain stable reproduction targets (unfixed, project dormant)"
+    },
+    "antithesis_validation": {
+      "funding": "$105M Series A led by Jane Street (Dec 2025)",
+      "etcd_testing": "830 wall-clock hours simulating 4.5 years on 3-node + 1-node clusters",
+      "found_all_known_bugs_plus_new": true,
+      "critical_watch_bug": "in all stable releases",
+      "implication": "DIRECTLY validates B14: 3-node clusters sufficient for finding real bugs via deterministic simulation"
+    },
+    "minimal_reproduction_research": {
+      "DEMi_NSDI_2016": "minimizes faulty executions by up to 97% event reduction; 9-node Raft shrunk to 5-node",
+      "TaxDC_ASPLOS_2016": "104 DC bugs from 4 systems; 75% covered by ≤3 protocol initiations",
+      "DistFuzz_NDSS_2025": "first feedback-guided blackbox fuzzing for distributed systems; 28 confirmed bugs (20 new), 4 CVEs, no instrumentation needed"
+    },
+    "etcd_v3_6_0": {
+      "released": "May 2025",
+      "described_as": "potentially most reliable release in etcd history",
+      "antithesis_integration": "dedicated robustness tests inspired by Jepsen, integrated into CI",
+      "jetcd_client_bug": "official Java client still unfixed (incorrect retries, reported 2022)"
+    },
+    "cockroachdb_status": {
+      "issue_9083": "CLOSED, fixed 2016-09-08",
+      "runs_jepsen_nightly": true,
+      "no_public_jepsen_since_beta": true,
+      "antithesis_usage": "published about it but no detailed bug findings shared"
+    }
+  },
+  "diff": "Expected external data to validate 3-node approach — confirmed strongly by Antithesis ($105M, 830h testing on 3-node etcd). Did NOT predict new bug classes: client-library (jetcd) and protocol-design (Kafka) are NOVEL categories not in swarm's determinism gradient. NATS 49.7% data loss is most severe Jepsen finding ever. DistFuzz as blackbox tool is directly applicable to swarm's approach. Redis-Raft dormancy confirmed — stable target.",
+  "sources": {
+    "jepsen_analyses": "https://jepsen.io/analyses",
+    "antithesis_etcd": "https://etcd.io/blog/2025/autonomus_testing_with_antithesis/",
+    "antithesis_series_a": "https://www.prnewswire.com/news-releases/jane-street-leads-antithesiss-105m-series-a-302631076.html",
+    "distfuzz": "https://www.ndss-symposium.org/ndss-paper/blackbox-fuzzing-of-distributed-systems-with-multi-dimensional-inputs-and-symmetry-based-feedback-pruning/",
+    "taxdc": "https://dl.acm.org/doi/10.1145/2872362.2872374",
+    "demi": "https://www.usenix.org/conference/nsdi16/technical-sessions/presentation/scott",
+    "nats_jepsen": "https://jepsen.io/analyses/nats-2.12.1",
+    "redis_raft": "https://github.com/RedisLabs/redisraft",
+    "jetcd_jepsen": "https://jepsen.io/analyses/jetcd-0.8.2"
+  }
+}

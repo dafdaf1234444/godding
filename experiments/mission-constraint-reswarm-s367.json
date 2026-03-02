@@ -1,0 +1,60 @@
+{
+  "experiment": "mission-constraint-reswarm-s367",
+  "session": "S367",
+  "date": "2026-03-01",
+  "frontier": "F119",
+  "type": "verification",
+  "question": "Has mission constraint enforcement drifted since S354 (12 sessions)?",
+  "method": "Run test_mission_constraints.py, review I9-I13 invariants, check bridge file sync, verify enforcement tools",
+  "results": {
+    "test_suite": {
+      "tests_run": 41,
+      "tests_passed": 41,
+      "test_count_change": "51→41 (S363 tool consolidation archived 10 S186-era tests)",
+      "verdict": "ALL PASS"
+    },
+    "mc_safe_i9": {
+      "status": "HEALTHY",
+      "risk_calibration": "LOW/MEDIUM/HIGH tiers consistent across INVARIANTS.md, CORE.md, SWARM.md, all 7 bridges",
+      "pre_commit_hooks": "check.sh FM-01 mass-deletion + FM-03 ghost-lesson active",
+      "git_hooks_installed": true
+    },
+    "mc_port_i10": {
+      "status": "HEALTHY",
+      "check_ps1_age_sessions": 204,
+      "maintenance_ps1_age_sessions": 204,
+      "note": "Thin wrappers, stable since S163. No functional drift. Bash fallback chain intact."
+    },
+    "mc_learn_i11": {
+      "status": "HEALTHY",
+      "session_log_continuous": true,
+      "sessions_with_deltas": "S354-S366 all present with L/P/F deltas",
+      "knowledge_growth": "574L→599L (+25L), 173P→185P (+12P) over 12 sessions"
+    },
+    "mc_conn_i12": {
+      "status": "HEALTHY",
+      "session_trigger": "Functional, 7 triggers defined, 3 FIRING (normal operational state)",
+      "autoswarm_sh": "Functional, current mod date 2026-03-01",
+      "append_only_state": "NEXT.md, SESSION-LOG.md, SWARM-LANES.md all append-only with archival"
+    },
+    "mc_xsub_i13": {
+      "status": "HEALTHY",
+      "substrate_detect": "Returns is_swarm:false for non-swarm repos (tested)",
+      "invariant_definition": "Consistent with CORE.md and bridge files"
+    },
+    "bridge_sync_f118": {
+      "status": "HEALTHY",
+      "files_synced": 7,
+      "all_reference_swarm_md": true,
+      "all_have_safety_instructions": true,
+      "version": "1.0 | 2026-03-01"
+    }
+  },
+  "verdict": "ZERO DRIFT. All 6 MC areas HEALTHY. 41/41 tests PASS. I9-I13 enforced. 7/7 bridges synced.",
+  "comparison_to_s354": {
+    "s354_findings": "21/51 tests broken by S339 compaction (restored to 40/40). MC-PORT check.ps1/maintenance.ps1 190s stale.",
+    "s367_findings": "41/41 PASS (test count reduced by S363 consolidation, not regression). MC-PORT still stable at 204 sessions stale (thin wrappers, no drift needed).",
+    "delta": "No new issues. Test regression from S339 compaction fully resolved. Bridge files all synced to current date."
+  },
+  "next_reswarm": "S379 (~12 sessions)"
+}

@@ -1,0 +1,53 @@
+{
+  "experiment": "F-SP4 Bianconi-Barabasi fitness extension",
+  "session": "S391",
+  "lane": "DOMEX-SP-S389 (artifact recovered)",
+  "frontier": "F-SP4",
+  "hypothesis": "Lesson quality (Sharpe score) + domain tag explain residual citation variance after controlling for PA (degree) and proximity (session gap). Models: A=PA+proximity, B=+Sharpe, C=+Sharpe+Domain.",
+  "data": {
+    "lessons": 694,
+    "citations": 1325,
+    "conditional_events": 1297,
+    "sharpe_coverage": 0.294,
+    "sharpe_mean": 7.18,
+    "sharpe_std": 1.65,
+    "domain_coverage": 0.73
+  },
+  "models": {
+    "A_PA_proximity": {
+      "params": {"gamma": 0.75, "lambda": 0.016},
+      "LL": -6925.38,
+      "BIC": 13865.09,
+      "description": "Baseline: preferential attachment + proximity decay"
+    },
+    "B_plus_sharpe": {
+      "params": {"gamma": 0.735, "lambda": 0.016, "beta_sharpe": 0.256},
+      "LL": -6884.29,
+      "BIC": 13790.09,
+      "delta_BIC_vs_A": 75.0,
+      "description": "Adds Sharpe quality score as fitness covariate"
+    },
+    "C_plus_sharpe_domain": {
+      "params": {"gamma": 0.72, "lambda": 0.017, "beta_sharpe": 0.256, "beta_domain": -0.38},
+      "LL": -6879.33,
+      "BIC": 13787.32,
+      "delta_BIC_vs_A": 77.77,
+      "delta_BIC_vs_B": 2.77,
+      "description": "Adds domain tag (has-domain binary) as secondary fitness"
+    }
+  },
+  "verdict": "FITNESS CONFIRMED",
+  "key_findings": [
+    "Sharpe fitness STRONG: ΔBIC=+75.0 vs PA+proximity baseline",
+    "Direction POSITIVE: β_s=0.256 — higher Sharpe lessons get MORE cited",
+    "Domain tag effect WEAK: ΔBIC=+2.77 (minimal marginal value over Sharpe alone)",
+    "Sharpe explains 4.9% of total joint LL gain (small but statistically clear)"
+  ],
+  "interpretation": "Lesson quality (Sharpe score) is a genuine citation attractor in the swarm knowledge graph, beyond degree-based preferential attachment and recency proximity. A 1-point Sharpe improvement multiplies citation probability by exp(0.256)=1.29 (29% boost per point). Domain membership adds negligible marginal predictive power once Sharpe is included.",
+  "falsification_conditions": {
+    "would_be_falsified_by": "ΔBIC < 10 would indicate weak/noise-level effect; β_s < 0 would invert the quality-citation relationship",
+    "not_measured": "Causal direction (quality → citation vs citation → perceived quality); Sharpe coverage 29% may introduce selection bias"
+  },
+  "cites": ["L-748", "L-697", "L-624"],
+  "related": ["F-SP4", "F-NK5", "domains/stochastic-processes/tasks/FRONTIER.md"]
+}

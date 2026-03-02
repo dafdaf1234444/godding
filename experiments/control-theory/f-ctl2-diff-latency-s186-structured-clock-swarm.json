@@ -1,0 +1,58 @@
+{
+  "frontier_id": "F-CTL2",
+  "title": "Expect-act-diff to correction latency baseline",
+  "source": "lanes",
+  "session_filter_min": 150,
+  "session_range": {
+    "start": 185,
+    "end": 186
+  },
+  "classification": {
+    "diff_event_rule": "explicit expect+actual+diff tags in SWARM-LANES etc/notes",
+    "correction_rule": "explicit correction tag in SWARM-LANES etc/notes",
+    "anchor_linking": "prefer matching F/L/P/PHIL anchors; fallback to next correction event if no anchor match"
+  },
+  "summary": {
+    "diff_events_total": 1,
+    "resolved_events": 1,
+    "unresolved_events": 0,
+    "anchor_matched_events": 1,
+    "same_session_resolved_events": 1,
+    "cross_session_resolved_events": 0,
+    "same_session_resolution_rate": 1.0,
+    "mean_lag_sessions": 0.0,
+    "cross_session_mean_lag_sessions": 0.0,
+    "mean_lag_floor_1_sessions": 1.0,
+    "median_lag_sessions": 0.0,
+    "p90_lag_sessions": 0.0,
+    "within_1_session_rate": 1.0
+  },
+  "auto_routing": {
+    "policy": {
+      "route_after_sessions": 1,
+      "rule": "If lag exceeds threshold, emit required follow-up for next session."
+    },
+    "eligible_events": 0,
+    "baseline_mean_lag": 0.0,
+    "projected_mean_lag": 0.0,
+    "estimated_mean_reduction": 0.0
+  },
+  "events_sample": [
+    {
+      "event_session": 186,
+      "anchors": [
+        "F-CTL2"
+      ],
+      "matched_correction_session": 186,
+      "lag_sessions": 0,
+      "anchor_matched": true,
+      "event_excerpt": "setup=codex-windows+powershell, focus=domains/control-theory, frontier=F-CTL2, check_focus=verification, progress=running, available=ready, blocked=none, next_step=emit-structured-correction, human_open_item=none, expect",
+      "correction_excerpt": "setup=codex-windows+powershell, focus=domains/control-theory, frontier=F-CTL2, check_focus=verification, progress=completed, available=yes, blocked=none, next_step=rerun-lane-source, human_open_item=none, correction=stru"
+    }
+  ],
+  "interpretation": {
+    "caveat": "Structured lane-tag mode is explicit but currently low-sample; same-session rows can optimistically compress lag until more cross-session tagged events accumulate.",
+    "direction": "healthy"
+  },
+  "generated_at_utc": "2026-02-27T22:12:51Z"
+}

@@ -1,0 +1,7 @@
+{
+  "child": "f107-ablate-uncertainty",
+  "date": "2026-02-27",
+  "integrated_via": "merge-report",
+  "merge_report": "experiments/merge-reports/f107-ablate-uncertainty.md",
+  "note": "Manually harvested across S64-S68; merge report written S68. Integration-log entry added S70."
+}

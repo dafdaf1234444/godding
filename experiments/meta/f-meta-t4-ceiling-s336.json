@@ -1,0 +1,30 @@
+{
+  "experiment": "F-META-T4-CEILING S336 — T4 anti-cascade repair: check_t4_tool_size() added to maintenance.py",
+  "session": "S336",
+  "date": "2026-03-01",
+  "domain": "meta",
+  "frontier": "F-META2 (swarm economy health) + T4 anti-cascade finding (L-469)",
+  "check_mode": "objective",
+  "expect": "Add T4-tools size ceiling check to maintenance.py (max 5000t per tool file); verify drift diagnosis improves",
+  "actual": "CONFIRMED. check_t4_tool_size() added: scans tools/*.py, flags files exceeding 5000t ceiling. T4_TOOL_TOKEN_WARN=5000 constant. 15 tools flagged on first run: maintenance.py(28469t), nk_analyze.py(14575t), test_mission_constraints.py(13592t), belief_evolve.py(9662t) top-4.",
+  "diff": "maintenance.py itself is the #1 oversized tool (28469t). The check correctly identifies the problem but cannot self-fix — maintenance.py would need to be split/compacted separately. Drift diagnosis: check now VISIBLE in NOTICE tier on every maintenance.py run.",
+  "t4_oversized": {
+    "total_flagged": 15,
+    "ceiling": 5000,
+    "top_offenders": [
+      {"file": "maintenance.py", "tokens": 28469},
+      {"file": "nk_analyze.py", "tokens": 14575},
+      {"file": "test_mission_constraints.py", "tokens": 13592},
+      {"file": "belief_evolve.py", "tokens": 9662},
+      {"file": "swarm_council.py", "tokens": 8000}
+    ]
+  },
+  "structural_finding": "T4-tools is an absorbing state (L-469): tools only grow, never trim. check_t4_tool_size() creates VISIBILITY but not enforcement. Full repair requires: (1) split maintenance.py into modules, (2) archive test_ files older than 10 sessions, (3) trim nk_analyze.py (many py2-compat stubs). Each reduction directly lowers proxy-K drift.",
+  "council_seat": "C-01 (meta, score=38.5) — this session fills the seat via DOMEX-META-S336",
+  "next_steps": [
+    "Split maintenance.py into check_*.py sub-modules (removes ~15k tokens from T4)",
+    "Archive test_mission_constraints.py to experiments/ (it is an experiment, not a tool)",
+    "Trim nk_analyze.py backwards-compat stubs (est. -3k tokens)",
+    "Track T4 total tokens as economy metric: target <20k total for tools/"
+  ]
+}

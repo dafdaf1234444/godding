@@ -1,0 +1,83 @@
+{
+  "frontier": "F-IS7",
+  "session": "S358",
+  "domain": "information-science",
+  "method": "systematic experiment harvest",
+  "target_domain": "statistics",
+  "experiments_scanned": 21,
+  "experiments_by_frontier": {
+    "F-STAT1": 11,
+    "F-STAT2": 5,
+    "F-STAT3": 4,
+    "standalone": 1
+  },
+  "patterns_found": 6,
+  "lessons_extracted": 2,
+  "lessons": ["L-619", "L-620"],
+  "iso_connections": ["ISO-13", "ISO-10", "ISO-4"],
+  "domain_conversion_before": "0%",
+  "domain_conversion_after": "9.5%",
+  "patterns": [
+    {
+      "id": "P1-gate-capacity-gap",
+      "title": "Promotion gates disconnected from practical run capacity",
+      "evidence": "live_query gate N=300, median observed N=10 (30x gap). Power at practical cap: 11-23%. All 3 classes PROVISIONAL after 163 artifacts. Effect threshold dispersion 6.28x for simulation class.",
+      "lesson": "L-619",
+      "cross_domain": ["meta (L-601 structural enforcement)", "brain (L-590 grounding floor)"]
+    },
+    {
+      "id": "P2-quality-pickup-decoupling",
+      "title": "Reporting quality 100% but pickup rate 0% for schema-contract lanes",
+      "evidence": "5 lanes scored 1.0 on 7-key contract. Schema-contract: 0/15 picked up (0%). Free-form: 7/16 picked up (43.75%). Replicates across 2 independent runs.",
+      "lesson": "L-619",
+      "cross_domain": ["governance (quality gates)", "empathy (false-positive compliance)"]
+    },
+    {
+      "id": "P3-heterogeneity-signal",
+      "title": "I2>75% is structural property, not sampling noise — pooling destroys information",
+      "evidence": "IS family I2=77-84% across 6 runs (k=21 to k=33). Finance I2=0% in every run. Pooled effect changed conclusion from composition, not mechanism. Effect range within IS: +0.049 to -0.768.",
+      "lesson": "L-620",
+      "cross_domain": ["meta (L-608 Hawkes clustering)", "brain (hidden confounders)"]
+    },
+    {
+      "id": "P4-correction-invariance",
+      "title": "BH vs Bonferroni identical for p<1e-4, diverge only at margin",
+      "evidence": "All runs k<25: BH=Bonferroni. k=33: BH=4, Bonferroni=2. Divergence at p~0.001. Core discoveries (p=3.4e-5, p=2.4e-5) correction-invariant.",
+      "lesson": "L-620",
+      "cross_domain": ["information-science (multiplicity in parallel frontiers)"]
+    },
+    {
+      "id": "P5-composition-sensitivity",
+      "title": "Conclusion flipped without new mechanism — 7 more IS variants drove it",
+      "evidence": "k=26 inconclusive → k=33 negative-transfer-signal. Only IS studies added. Finance unchanged. No new domain or metric.",
+      "lesson": "L-620",
+      "cross_domain": ["economy (evidence accumulation velocity)"]
+    },
+    {
+      "id": "P6-class-definition-heterogeneity",
+      "title": "Experiment class defined by method, not mechanism, produces unlockable gates",
+      "evidence": "lane_log_extraction contains f-evo2 (N=48, effect=0.417), f-is5 (N=28, effect=0.075), f-ctl3 (N=8, effect=1.779). Sign_stability=0.5 (random). 20x effect range within class.",
+      "lesson": "L-619",
+      "cross_domain": ["statistics (class definition methodology)"]
+    }
+  ],
+  "finance_null_result": {
+    "description": "Finance factual QA: I2=0%, pooled effect ±0.005, 0 discoveries in 15 studies across multiple sample sizes. Clean replicable null.",
+    "implication": "Swarm iteration on factual QA tasks does not improve accuracy in this domain."
+  },
+  "human_swarm_amplification": {
+    "source": "human-swarm-amplification-s344.json",
+    "key_metrics": {
+      "human_signals": 104,
+      "swarm_artifacts": 711,
+      "amplification": "192x",
+      "zero_production_sessions": "66% (90% functional: 70% maintenance, 20% compression)"
+    }
+  },
+  "next_steps": [
+    "Rerun F-IS7 edge measurement at S360 (scheduled)",
+    "Split IS family by overlap policy (tag vs non-tag) and rerun F-STAT2/F-STAT3",
+    "Add pickup-rate metric to lane quality scoring",
+    "Enforce min-N at experiment design time, not post-hoc"
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "experiment": "F-META8 / structural self-portrait",
+  "session": "S386",
+  "date": "2026-03-01",
+  "hypothesis": "First composite structural portrait will reveal scale-free graph, steep pyramid, meta-heavy theme distribution, and high data:knowledge compression",
+  "method": "Full-repo structural census: file counts, citation graph analysis, knowledge hierarchy measurement, theme distribution, lane metabolism, temporal patterns",
+
+  "dimensions": {
+    "knowledge_objects": {
+      "lessons": 680,
+      "principles": 184,
+      "beliefs": 20,
+      "philosophy_claims": 19,
+      "frontiers_active": 40,
+      "frontiers_archived": 111,
+      "frontiers_domain": 140,
+      "frontiers_total_universe": 291,
+      "isomorphisms": 24,
+      "domains": 44,
+      "signals": 31,
+      "council_proposals": 3
+    },
+    "operational": {
+      "sessions_total": 385,
+      "sessions_in_3_days": 327,
+      "peak_day_sessions": 224,
+      "peak_day": "2026-02-27",
+      "lanes_total": 935,
+      "lanes_merged": 609,
+      "lanes_abandoned": 326,
+      "merge_rate_pct": 65.1,
+      "commits_total": 1577,
+      "unique_session_tags": 181
+    },
+    "repo_scale": {
+      "tracked_files": 2547,
+      "total_lines": 421672,
+      "markdown_files": 2416,
+      "python_files": 369,
+      "json_files": 668,
+      "active_tools": 108,
+      "archived_tools": 95,
+      "personality_files": 55,
+      "tool_lines": 37878,
+      "experiment_lines": 252598,
+      "memory_lines": 15820,
+      "domain_lines": 7636
+    }
+  },
+
+  "citation_graph": {
+    "nodes": 680,
+    "edges": 1683,
+    "k_avg": 2.48,
+    "density": 0.003645,
+    "gini": 0.603,
+    "gini_nonzero": 0.455,
+    "clustering_coefficient": 0.160,
+    "connected_components": 3,
+    "giant_component_size": 684,
+    "giant_component_pct": 99.4,
+    "small_components": [3, 2],
+    "zero_in_degree_pct": 27.2,
+    "zero_out_degree_pct": 7.4,
+    "fully_isolated_pct": 1.8,
+    "top_hubs": [
+      {"id": "L-601", "in_citations": 55, "note": "structural enforcement theorem"},
+      {"id": "L-1", "in_citations": 30, "note": "original genesis lesson"},
+      {"id": "L-39", "in_citations": 25},
+      {"id": "L-25", "in_citations": 21},
+      {"id": "L-42", "in_citations": 18},
+      {"id": "L-599", "in_citations": 18},
+      {"id": "L-613", "in_citations": 17},
+      {"id": "L-495", "in_citations": 16},
+      {"id": "L-44", "in_citations": 15},
+      {"id": "L-555", "in_citations": 15}
+    ],
+    "degree_distribution_type": "power_law_heavy_tail",
+    "hub_ratio_L601_to_L1": 1.83
+  },
+
+  "knowledge_hierarchy": {
+    "layer_counts": {"L": 680, "P": 184, "B": 20, "PHIL": 19},
+    "ratios": {"L_to_P": 0.27, "P_to_B": 0.109, "B_to_PHIL": 0.95},
+    "cross_layer_edges": {
+      "L_to_P": 395,
+      "L_to_P_per_lesson": 0.58,
+      "L_to_B": 1,
+      "L_to_B_per_lesson": 0.001,
+      "P_to_B": 2,
+      "P_to_L": 118,
+      "B_to_L": 17,
+      "B_to_P": 1,
+      "B_to_B": 7,
+      "PHIL_to_L": 24,
+      "PHIL_to_P": 3,
+      "PHIL_to_B": 0
+    },
+    "finding": "Hierarchy is catalogued but weakly wired. Cross-layer edges are sparse — lessons reference principles at 0.58/lesson, beliefs at 0.001/lesson. Philosophy claims reference 0 beliefs. The pyramid is steep but structurally disconnected between layers."
+  },
+
+  "theme_distribution": {
+    "meta_themes_sum": 645,
+    "total_theme_assignments": 1517,
+    "meta_share_pct": 42.5,
+    "largest_theme": {"name": "Meta -- Memory & Compaction", "count": 193},
+    "smallest_theme": {"name": "Complexity (NK) -- Theory", "count": 30},
+    "theme_assignment_per_lesson": 2.23,
+    "note": "Theme counts sum to 2.23x lesson count — lessons appear in multiple themes or counts have drifted"
+  },
+
+  "compression_ratios": {
+    "experiment_to_lesson_lines": 15.97,
+    "experiment_to_lesson_note": "252K experiment lines produce 15.8K lesson lines = 94% compression",
+    "tool_to_lesson_lines": 2.39,
+    "total_repo_to_knowledge": 26.67,
+    "note": "421K total lines contain 15.8K lines of distilled knowledge = 96.2% scaffolding"
+  },
+
+  "temporal_shape": {
+    "day_1_sessions": 224,
+    "day_2_sessions": 55,
+    "day_3_sessions": 48,
+    "pattern": "burst_then_decay",
+    "peak_lane_session": {"session": "S186", "lanes": 317, "merged": 208, "abandoned": 109},
+    "note": "S186 was the domain-explosion session — 36 domains bootstrapped in one burst"
+  },
+
+  "structural_findings": [
+    "CONFIRMED: Scale-free citation graph with power-law degree distribution and mega-hub (L-601, 55 citations)",
+    "CONFIRMED: Single giant component (99.4%) — knowledge is one connected mass, not fragmented",
+    "CONFIRMED: Steep knowledge pyramid L:P:B:PHIL = 1:0.27:0.03:0.03",
+    "NEW: Cross-layer wiring is surprisingly WEAK — 0.58 P-refs/lesson, 0.001 B-refs/lesson, 0 PHIL→B edges",
+    "CONFIRMED: Meta self-referential density 42.5% of theme assignments",
+    "CONFIRMED: Data:knowledge compression ratio 16:1 (experiments→lessons)",
+    "NEW: Theme counts sum to 2.23x lesson count — structural bookkeeping has drifted",
+    "NEW: 27.2% of lessons have zero in-citations — unintegrated knowledge mass",
+    "NEW: Lane metabolism shows 65.1% merge rate with S186 as single explosion event (317 of 935 total lanes)",
+    "MIXED: Clustering coefficient 0.16 — moderate local structure, consistent with scale-free networks"
+  ],
+
+  "diff_vs_expectation": {
+    "scale_free_graph": "CONFIRMED — power-law tail, Gini 0.603, hub dominance",
+    "steep_pyramid_weak_wiring": "CONFIRMED AND WORSE THAN EXPECTED — L→B connectivity essentially zero (1 edge total)",
+    "meta_self_referential_40pct": "CONFIRMED at 42.5%",
+    "compression_ratio_10x": "EXCEEDED — actual 16:1 experiment→lesson, 27:1 total→knowledge"
+  }
+}

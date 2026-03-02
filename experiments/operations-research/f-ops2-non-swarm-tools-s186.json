@@ -1,0 +1,259 @@
+{
+  "generated_at": "2026-02-27T21:16:56.326560+00:00",
+  "session": "S186",
+  "host": {
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "python": "/usr/bin/python3"
+  },
+  "scoring": {
+    "weights": {
+      "swarm_gain": 0.35,
+      "automation_gain": 0.25,
+      "observability_gain": 0.2,
+      "portability_gain": 0.2
+    },
+    "penalties": {
+      "setup_effort": 0.35,
+      "risk": 0.25
+    },
+    "availability_bonus": {
+      "ready": 1.0,
+      "partial": 0.4,
+      "missing": 0.0
+    }
+  },
+  "command_state": {
+    "act": false,
+    "gh": true,
+    "git": true,
+    "jq": false,
+    "just": false,
+    "pre-commit": false,
+    "pytest": true,
+    "rg": false,
+    "sqlite3": false,
+    "uv": true
+  },
+  "summary": {
+    "tool_count": 10,
+    "ready_count": 4,
+    "missing_count": 6,
+    "top_recommendations": [
+      "git-worktree",
+      "gh-cli",
+      "jq",
+      "uv",
+      "pytest-xdist",
+      "ripgrep",
+      "pre-commit",
+      "sqlite3"
+    ],
+    "top_ready": [
+      "git-worktree",
+      "gh-cli",
+      "uv",
+      "pytest-xdist"
+    ],
+    "top_missing": [
+      "jq",
+      "ripgrep",
+      "pre-commit",
+      "sqlite3",
+      "just"
+    ]
+  },
+  "ranked_tools": [
+    {
+      "id": "git-worktree",
+      "name": "Git Worktree",
+      "category": "parallel-execution",
+      "commands": [
+        "git"
+      ],
+      "status": "ready",
+      "score": 4.95,
+      "weighted_value": 4.55,
+      "availability_bonus": 1.0,
+      "setup_effort": 1.0,
+      "risk": 1.0,
+      "missing_commands": [],
+      "rationale": "Isolates lane branches without context switching collisions.",
+      "next_step": "Use one worktree per READY lane before fan-out execution.",
+      "rank": 1
+    },
+    {
+      "id": "gh-cli",
+      "name": "GitHub CLI",
+      "category": "coordination",
+      "commands": [
+        "gh"
+      ],
+      "status": "ready",
+      "score": 4.225,
+      "weighted_value": 4.425,
+      "availability_bonus": 1.0,
+      "setup_effort": 2.0,
+      "risk": 2.0,
+      "missing_commands": [],
+      "rationale": "Bridges local swarm state with PR/issues without manual UI work.",
+      "next_step": "Automate lane claim/status updates from issue and PR events.",
+      "rank": 2
+    },
+    {
+      "id": "jq",
+      "name": "jq",
+      "category": "artifact-analysis",
+      "commands": [
+        "jq"
+      ],
+      "status": "missing",
+      "score": 3.675,
+      "weighted_value": 4.275,
+      "availability_bonus": 0.0,
+      "setup_effort": 1.0,
+      "risk": 1.0,
+      "missing_commands": [
+        "jq"
+      ],
+      "rationale": "Makes JSON artifacts queryable for quick diff and gating checks.",
+      "next_step": "Add jq-based smoke checks for key experiment artifacts in CI.",
+      "rank": 3
+    },
+    {
+      "id": "uv",
+      "name": "uv",
+      "category": "runtime",
+      "commands": [
+        "uv"
+      ],
+      "status": "ready",
+      "score": 3.625,
+      "weighted_value": 3.575,
+      "availability_bonus": 1.0,
+      "setup_effort": 2.0,
+      "risk": 1.0,
+      "missing_commands": [],
+      "rationale": "Stabilizes Python environments across multi-host swarms.",
+      "next_step": "Pin tool dependencies and run CI scripts through `uv run`.",
+      "rank": 4
+    },
+    {
+      "id": "pytest-xdist",
+      "name": "pytest + xdist",
+      "category": "verification-throughput",
+      "commands": [
+        "pytest"
+      ],
+      "status": "ready",
+      "score": 3.6,
+      "weighted_value": 3.975,
+      "availability_bonus": 1.0,
+      "setup_effort": 2.5,
+      "risk": 2.0,
+      "missing_commands": [],
+      "rationale": "Parallel test execution cuts verification latency for lane merges.",
+      "next_step": "Split quick/full suites and run quick suite with `-n auto`.",
+      "rank": 5
+    },
+    {
+      "id": "ripgrep",
+      "name": "ripgrep",
+      "category": "search",
+      "commands": [
+        "rg"
+      ],
+      "status": "missing",
+      "score": 3.6,
+      "weighted_value": 4.2,
+      "availability_bonus": 0.0,
+      "setup_effort": 1.0,
+      "risk": 1.0,
+      "missing_commands": [
+        "rg"
+      ],
+      "rationale": "Fast repo-wide retrieval keeps orientation and audits cheap.",
+      "next_step": "Replace slow grep/find calls in scripts with `rg` where possible.",
+      "rank": 6
+    },
+    {
+      "id": "pre-commit",
+      "name": "pre-commit",
+      "category": "quality-gates",
+      "commands": [
+        "pre-commit"
+      ],
+      "status": "missing",
+      "score": 3.025,
+      "weighted_value": 3.975,
+      "availability_bonus": 0.0,
+      "setup_effort": 2.0,
+      "risk": 1.0,
+      "missing_commands": [
+        "pre-commit"
+      ],
+      "rationale": "Enforces consistent checks before noisy commits land.",
+      "next_step": "Mirror `tools/check.sh --quick` in a pre-commit profile.",
+      "rank": 7
+    },
+    {
+      "id": "sqlite3",
+      "name": "sqlite3",
+      "category": "historical-analysis",
+      "commands": [
+        "sqlite3"
+      ],
+      "status": "missing",
+      "score": 2.95,
+      "weighted_value": 3.725,
+      "availability_bonus": 0.0,
+      "setup_effort": 1.5,
+      "risk": 1.0,
+      "missing_commands": [
+        "sqlite3"
+      ],
+      "rationale": "Enables ad-hoc querying over lane/history exports for trends.",
+      "next_step": "Export lane rows to sqlite for pickup-latency and closure analyses.",
+      "rank": 8
+    },
+    {
+      "id": "just",
+      "name": "just",
+      "category": "task-orchestration",
+      "commands": [
+        "just"
+      ],
+      "status": "missing",
+      "score": 2.85,
+      "weighted_value": 3.625,
+      "availability_bonus": 0.0,
+      "setup_effort": 1.5,
+      "risk": 1.0,
+      "missing_commands": [
+        "just"
+      ],
+      "rationale": "Standard command recipes reduce setup variance across agents.",
+      "next_step": "Define canonical targets (`orient`, `check`, `lane-claim`, `lane-close`).",
+      "rank": 9
+    },
+    {
+      "id": "act",
+      "name": "act",
+      "category": "ci-local-replay",
+      "commands": [
+        "act"
+      ],
+      "status": "missing",
+      "score": 2.075,
+      "weighted_value": 3.75,
+      "availability_bonus": 0.0,
+      "setup_effort": 3.0,
+      "risk": 2.5,
+      "missing_commands": [
+        "act"
+      ],
+      "rationale": "Replays GitHub workflows locally before CI queue delay.",
+      "next_step": "Replay `swarm-check` and intake workflows before pushing.",
+      "rank": 10
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schema": "session-outcomes-v1",
+  "sessions": [
+    {
+      "session": 349,
+      "timestamp": "2026-03-01T03:15:08+01:00",
+      "efficiency": {
+        "lessons_per_commit": 41.5,
+        "principles_per_commit": 22.9,
+        "knowledge_density": 9.907692307692308,
+        "frontier_resolution_rate": -4.8
+      },
+      "gains": {
+        "lessons": 415,
+        "principles": 229,
+        "frontier_resolved": -72
+      },
+      "session_type": "BREAKTHROUGH",
+      "elapsed_minutes": null
+    }
+  ]
+}

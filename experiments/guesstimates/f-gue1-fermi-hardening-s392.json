@@ -1,0 +1,127 @@
+{
+  "experiment": "F-GUE1 Fermi hardening",
+  "session": "S392",
+  "frontier": "F-GUE1",
+  "mode": "hardening",
+  "date": "2026-03-01",
+  "n_metrics": 5,
+  "estimates": {
+    "duplication_rate": {
+      "fermi_estimate": 0.45,
+      "reasoning": "703L / 35 domains / ~5 findings per domain = 4L per finding. Long-tail domains reduce overlap, concurrency increases it. Net: ~45% in dup pairs.",
+      "confidence_band": [
+        0.25,
+        0.65
+      ]
+    },
+    "lesson_half_life_sessions": {
+      "fermi_estimate": 15,
+      "reasoning": "~1.8 L/session creation rate. Most citations are recent (recency bias). Bimodal: fast-decay majority + long-tail classics. Median active window ~15 sessions.",
+      "confidence_band": [
+        5,
+        50
+      ]
+    },
+    "commits_per_session": {
+      "fermi_estimate": 5.0,
+      "reasoning": "1-2 DOMEX lanes \u00d7 2 commits + 2-3 maintenance + 1 handoff = ~5. High concurrency sessions skew up.",
+      "confidence_band": [
+        2,
+        12
+      ]
+    },
+    "principles_per_lesson": {
+      "fermi_estimate": 0.25,
+      "reasoning": "Principles compress ~4 lessons each. 185P/703L structurally. Extraction rate declined over time (diminishing novelty). Ratio ~0.25.",
+      "confidence_band": [
+        0.15,
+        0.4
+      ]
+    },
+    "domain_gini": {
+      "fermi_estimate": 0.6,
+      "reasoning": "Meta-heavy system: top domain ~35% of lessons. Top 5 domains ~65%. Long tail of 1-5 lesson domains. Gini ~0.60.",
+      "confidence_band": [
+        0.45,
+        0.75
+      ]
+    }
+  },
+  "ground_truth": {
+    "duplication_rate": {
+      "measured": 0.011,
+      "method": "Jaccard > 0.3 on body words (first 150, >=3 chars). 8/710 lessons in dup pair. 4 dup pairs.",
+      "n": 710
+    },
+    "lesson_half_life_sessions": {
+      "measured": 15,
+      "method": "Median citation window. n=359. Mean=46.9, Med=15, P25=4, P75=56",
+      "n": 359
+    },
+    "commits_per_session": {
+      "measured": 7.95,
+      "method": "Git log [S<N>] tags. n=188 sessions. Mean=7.95, Med=5, Min=1, Max=56",
+      "n": 188
+    },
+    "principles_per_lesson": {
+      "measured": 0.3141,
+      "method": "223P / 710L = 0.3141",
+      "n": 710
+    },
+    "domain_gini": {
+      "measured": 0.735,
+      "method": "Gini over 100 domains. Top: unknown=253. Top-5 share: 424/710 (59.7%)",
+      "n": 100
+    }
+  },
+  "comparison": {
+    "duplication_rate": {
+      "fermi": 0.45,
+      "measured": 0.011,
+      "ratio": 40.909,
+      "log_error": 1.612,
+      "within_oom": false,
+      "in_confidence_band": false
+    },
+    "lesson_half_life_sessions": {
+      "fermi": 15,
+      "measured": 15,
+      "ratio": 1.0,
+      "log_error": 0.0,
+      "within_oom": true,
+      "in_confidence_band": true
+    },
+    "commits_per_session": {
+      "fermi": 5.0,
+      "measured": 7.95,
+      "ratio": 0.629,
+      "log_error": 0.201,
+      "within_oom": true,
+      "in_confidence_band": true
+    },
+    "principles_per_lesson": {
+      "fermi": 0.25,
+      "measured": 0.3141,
+      "ratio": 0.796,
+      "log_error": 0.099,
+      "within_oom": true,
+      "in_confidence_band": true
+    },
+    "domain_gini": {
+      "fermi": 0.6,
+      "measured": 0.735,
+      "ratio": 0.816,
+      "log_error": 0.088,
+      "within_oom": true,
+      "in_confidence_band": true
+    },
+    "summary": {
+      "within_oom": 4,
+      "total": 5,
+      "threshold": 3,
+      "f_gue1_pass": true
+    }
+  },
+  "lesson": "L-782",
+  "principle_note": "No new principle: generalizes existing insight (Fermi viable for operational metrics). Rule already in L-782 prescription."
+}

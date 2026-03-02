@@ -1,0 +1,704 @@
+{
+  "experiment": "F-IS5",
+  "title": "two-pass lane distillation scoring",
+  "source_intake_artifact": "experiments/information-science/f-is5-arxiv-swarmable-s186-rerun.json",
+  "active_target_sources": [
+    "tasks/FRONTIER.md",
+    "domains/information-science/tasks/FRONTIER.md",
+    "domains/finance/tasks/FRONTIER.md",
+    "domains/ai/tasks/FRONTIER.md",
+    "memory/PRINCIPLES.md",
+    "beliefs/PHILOSOPHY.md"
+  ],
+  "pass_count": 2,
+  "pass_sources": {
+    "lane-owner-A": "selected",
+    "lane-owner-B": "backlog"
+  },
+  "overlap_slice": {
+    "enabled": true,
+    "shared_source": "selected",
+    "shared_per_lane": 1,
+    "shared_seed": 2860,
+    "shared_lane_count": 5,
+    "shared_papers_total": 5,
+    "shared_claim_keys": 5
+  },
+  "input_papers": 24,
+  "input_lanes": 5,
+  "summary_metrics": {
+    "claims_total": 21,
+    "claims_unique_id": 21,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 31,
+    "contested_transfer_candidates": 5,
+    "transfer_accepted": 1,
+    "transfer_acceptance_rate": 0.0323,
+    "merge_collision_count": 4,
+    "merge_collision_frequency": 0.8,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 14,
+        "cross_domain_targets": 22,
+        "accepted_targets": 10,
+        "rejected_targets": 12
+      },
+      "lane-owner-B": {
+        "claims": 7,
+        "cross_domain_targets": 14,
+        "accepted_targets": 8,
+        "rejected_targets": 6
+      }
+    }
+  },
+  "claims": [
+    {
+      "claim_id": "lane-owner-A|selected|ARX-01|2602.20059v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.20059v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.20059v1 reports a protocol-orchestration signal via 'Interaction Theater: A case of LLM Agents Interacting at Scale'. Evidence preview: As multi-agent architectures and agent-to-agent protocols proliferate, a fundamental question arises: what actually happens when autonomous LLM agents...",
+      "targets": [
+        "F-IS4",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "F-AI2"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS4",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": false
+        },
+        {
+          "target": "F-AI2",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-01|2602.21351v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.21351v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.21351v1 reports a protocol-orchestration signal via 'A Hierarchical Multi-Agent System for Autonomous Discovery in Geoscientific Data Archives'. Evidence preview: The rapid accumulation of Earth science data has created a significant scalability challenge; while repositories like PANGAEA host...",
+      "targets": [
+        "F-IS4",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "F-AI2"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS4",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": false
+        },
+        {
+          "target": "F-AI2",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-01|2602.16873v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.16873v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.16873v1 reports a protocol-orchestration signal via 'AdaptOrch: Task-Adaptive Multi-Agent Orchestration in the Era of LLM Performance Convergence'. Evidence preview: As large language models from diverse providers converge toward comparable benchmark performance, the traditional paradigm of selecting a...",
+      "targets": [
+        "F-IS4",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "F-AI2"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS4",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": false
+        },
+        {
+          "target": "F-AI2",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-02|2602.14160v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.14160v1",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.14160v1 reports a evaluation-scaling signal via 'Process-Supervised Multi-Agent Reinforcement Learning for Reliable Clinical Reasoning'. Evidence preview: Clinical decision-making requires nuanced reasoning over heterogeneous evidence and traceable justifications. While recent LLM multi-agent systems (MAS) show...",
+      "targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "cross_domain_targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F124",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "F-FIN1",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-02|2602.08023v2",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.08023v2",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.08023v2 reports a evaluation-scaling signal via 'CyberExplorer: Benchmarking LLM Offensive Security Capabilities in a Real-World Attacking Simulation Environment'. Evidence preview: Real-world offensive security operations are inherently open-ended: attackers explore unknown attack surfaces, revise hypotheses under uncertainty, and operate...",
+      "targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "cross_domain_targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F124",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F-FIN1",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-02|2602.09159v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.09159v1",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.09159v1 reports a evaluation-scaling signal via 'CoMMa: Contribution-Aware Medical Multi-Agents From A Game-Theoretic Perspective'. Evidence preview: Recent multi-agent frameworks have broadened the ability to tackle oncology decision support tasks that require reasoning over dynamic,...",
+      "targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "cross_domain_targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F124",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "F-FIN1",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-03|2602.21477v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.21477v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.21477v1 reports a memory-knowledge signal via 'Pancake: Hierarchical Memory System for Multi-Agent LLM Serving'. Evidence preview: In this work, we identify and address the core challenges of agentic memory management in LLM serving, where...",
+      "targets": [
+        "F-IS3",
+        "P-152"
+      ],
+      "cross_domain_targets": [
+        "P-152"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS3",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": false
+        },
+        {
+          "target": "P-152",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-03|2602.17902v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.17902v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.17902v1 reports a memory-knowledge signal via 'El Agente Gr\u00e1fico: Structured Execution Graphs for Scientific Agents'. Evidence preview: Large language models (LLMs) are increasingly used to automate scientific workflows, yet their integration with heterogeneous computational tools...",
+      "targets": [
+        "F-IS3",
+        "P-152"
+      ],
+      "cross_domain_targets": [
+        "P-152"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS3",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": false
+        },
+        {
+          "target": "P-152",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-03|2602.11510v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.11510v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.11510v1 reports a memory-knowledge signal via 'AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems'. Evidence preview: Multi-agent Large Language Model (LLM) systems create privacy risks that current benchmarks cannot measure. When agents coordinate on...",
+      "targets": [
+        "F-IS3",
+        "P-152"
+      ],
+      "cross_domain_targets": [
+        "P-152"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-IS3",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": false
+        },
+        {
+          "target": "P-152",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-04|2602.10479v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.10479v1",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.10479v1 reports a tool-use-execution signal via 'From Prompt-Response to Goal-Directed Systems: The Evolution of Agentic AI Software Architecture'. Evidence preview: Agentic AI denotes an architectural transition from stateless, prompt-driven generative models toward goal-directed systems capable of autonomous perception,...",
+      "targets": [
+        "F111",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "F111",
+        "F120"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F111",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F120",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-04|2602.16898v3",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.16898v3",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.16898v3 reports a tool-use-execution signal via 'MALLVI: A Multi-Agent Framework for Integrated Generalized Robotics Manipulation'. Evidence preview: Task planning for robotic manipulation with large language models (LLMs) is an emerging area. Prior approaches rely on...",
+      "targets": [
+        "F111",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "F111",
+        "F120"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F111",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F120",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-04|2602.11790v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.11790v1",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.11790v1 reports a tool-use-execution signal via 'Beyond End-to-End Video Models: An LLM-Based Multi-Agent System for Educational Video Generation'. Evidence preview: Although recent end-to-end video generation models demonstrate impressive performance in visually oriented content creation, they remain limited in...",
+      "targets": [
+        "F111",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "F111",
+        "F120"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F111",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F120",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-05|2602.23005v1",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-05",
+      "paper_id": "2602.23005v1",
+      "theme": "safety-reliability",
+      "claim_text": "2602.23005v1 reports a safety-reliability signal via 'Managing Uncertainty in LLM-based Multi-Agent System Operation'. Evidence preview: Applying LLM-based multi-agent software systems in safety-critical domains such as lifespan echocardiography introduces system-level risks that cannot be...",
+      "targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "cross_domain_targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F119",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "PHIL-13",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-A|selected|ARX-05|2602.13477v2",
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-05",
+      "paper_id": "2602.13477v2",
+      "theme": "safety-reliability",
+      "claim_text": "2602.13477v2 reports a safety-reliability signal via 'OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage'. Evidence preview: As Large Language Model (LLM) agents become more capable, their coordinated use in the form of multi-agent systems...",
+      "targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "cross_domain_targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F119",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "PHIL-13",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-01|2602.20059v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.20059v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.20059v1 suggests a protocol-orchestration signal via 'Interaction Theater: A case of LLM Agents Interacting at Scale'. Evidence preview: As multi-agent architectures and agent-to-agent protocols proliferate, a fundamental question arises: what actually happens when autonomous LLM agents...",
+      "targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "cross_domain_targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-AI2",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "F122",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-01|2602.21806v2",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.21806v2",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.21806v2 suggests a protocol-orchestration signal via 'An Empirical Study of Bugs in Modern LLM Agent Frameworks'. Evidence preview: LLM agents have been widely adopted in real-world applications, relying on agent frameworks for workflow execution and multi-agent...",
+      "targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "cross_domain_targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-AI2",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F122",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-01|2602.11754v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.11754v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.11754v1 suggests a protocol-orchestration signal via 'Cooperation Breakdown in LLM Agents Under Communication Delays'. Evidence preview: LLM-based multi-agent systems (LLM-MAS), in which autonomous AI agents cooperate to solve tasks, are gaining increasing attention. For...",
+      "targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "cross_domain_targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-AI2",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        },
+        {
+          "target": "F122",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-02|2602.14160v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.14160v1",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.14160v1 suggests a evaluation-scaling signal via 'Process-Supervised Multi-Agent Reinforcement Learning for Reliable Clinical Reasoning'. Evidence preview: Clinical decision-making requires nuanced reasoning over heterogeneous evidence and traceable justifications. While recent LLM multi-agent systems (MAS) show...",
+      "targets": [
+        "F-FIN1",
+        "P-197"
+      ],
+      "cross_domain_targets": [
+        "F-FIN1",
+        "P-197"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F-FIN1",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "P-197",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-03|2602.21477v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.21477v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.21477v1 suggests a memory-knowledge signal via 'Pancake: Hierarchical Memory System for Multi-Agent LLM Serving'. Evidence preview: In this work, we identify and address the core challenges of agentic memory management in LLM serving, where...",
+      "targets": [
+        "P-152",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "P-152",
+        "F120"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "P-152",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "F120",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-04|2602.10479v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.10479v1",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.10479v1 suggests a tool-use-execution signal via 'From Prompt-Response to Goal-Directed Systems: The Evolution of Agentic AI Software Architecture'. Evidence preview: Agentic AI denotes an architectural transition from stateless, prompt-driven generative models toward goal-directed systems capable of autonomous perception,...",
+      "targets": [
+        "F120",
+        "P-195"
+      ],
+      "cross_domain_targets": [
+        "F120",
+        "P-195"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "F120",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "P-195",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        }
+      ]
+    },
+    {
+      "claim_id": "lane-owner-B|backlog|ARX-05|2602.23005v1",
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-05",
+      "paper_id": "2602.23005v1",
+      "theme": "safety-reliability",
+      "claim_text": "2602.23005v1 suggests a safety-reliability signal via 'Managing Uncertainty in LLM-based Multi-Agent System Operation'. Evidence preview: Applying LLM-based multi-agent software systems in safety-critical domains such as lifespan echocardiography introduces system-level risks that cannot be...",
+      "targets": [
+        "PHIL-13",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "PHIL-13",
+        "F-AI2"
+      ],
+      "transfer_decisions": [
+        {
+          "target": "PHIL-13",
+          "decision": "accepted",
+          "rationale": "owner-vote-pass",
+          "cross_domain": true
+        },
+        {
+          "target": "F-AI2",
+          "decision": "rejected",
+          "rationale": "owner-vote-fail",
+          "cross_domain": true
+        }
+      ]
+    }
+  ],
+  "interpretation": "Pass A and Pass B independently distilled the same lane pack. Transfer acceptance now requires explicit per-target accepted tags from both owners, and collision frequency reflects explicit accepted/rejected disagreement.",
+  "generated_at_utc": "2026-02-27T21:19:13Z"
+}

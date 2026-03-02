@@ -1,0 +1,487 @@
+{
+  "session": 186,
+  "inputs": {
+    "agent_count": 4,
+    "policies_evaluated": [
+      "fifo",
+      "risk_first",
+      "value_density",
+      "hybrid"
+    ],
+    "next_path": "tasks/NEXT.md",
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "domains_root": "domains",
+    "findings_window": 20
+  },
+  "domain_signals": [
+    {
+      "domain": "ai",
+      "frontier_path": "domains/ai/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-AI1",
+        "F-AI2",
+        "F-AI3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 2,
+      "next_priority_weight": 6.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "brain",
+      "frontier_path": "domains/brain/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-BRN2",
+        "F-BRN3",
+        "F-BRN4"
+      ],
+      "updated_session": 183,
+      "age_sessions": 3,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "control-theory",
+      "frontier_path": "domains/control-theory/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-CTL1",
+        "F-CTL2",
+        "F-CTL3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 4,
+      "finding_priority_weight": 15.95,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "distributed-systems",
+      "frontier_path": "domains/distributed-systems/tasks/FRONTIER.md",
+      "active_frontier_count": 0,
+      "active_frontiers": [],
+      "updated_session": 0,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "evolution",
+      "frontier_path": "domains/evolution/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-EVO1",
+        "F-EVO2",
+        "F-EVO3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "finance",
+      "frontier_path": "domains/finance/tasks/FRONTIER.md",
+      "active_frontier_count": 1,
+      "active_frontiers": [
+        "F-FIN1"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 1,
+      "next_priority_weight": 4.0,
+      "finding_mentions": 4,
+      "finding_priority_weight": 14.9,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "game-theory",
+      "frontier_path": "domains/game-theory/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-GAM1",
+        "F-GAM2",
+        "F-GAM3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 1,
+      "next_priority_weight": 1.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "health",
+      "frontier_path": "domains/health/tasks/FRONTIER.md",
+      "active_frontier_count": 0,
+      "active_frontiers": [],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "information-science",
+      "frontier_path": "domains/information-science/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-IS3",
+        "F-IS4",
+        "F-IS5"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 3,
+      "next_priority_weight": 12.0,
+      "finding_mentions": 4,
+      "finding_priority_weight": 8.2,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "meta",
+      "frontier_path": "domains/meta/tasks/FRONTIER.md",
+      "active_frontier_count": 0,
+      "active_frontiers": [],
+      "updated_session": 0,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "nk-complexity",
+      "frontier_path": "domains/nk-complexity/tasks/FRONTIER.md",
+      "active_frontier_count": 0,
+      "active_frontiers": [],
+      "updated_session": 0,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "operations-research",
+      "frontier_path": "domains/operations-research/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-OPS1",
+        "F-OPS2",
+        "F-OPS3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 1
+    },
+    {
+      "domain": "psychology",
+      "frontier_path": "domains/psychology/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-PSY1",
+        "F-PSY2",
+        "F-PSY3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 0,
+      "finding_priority_weight": 0.0,
+      "active_lane_pressure": 0
+    },
+    {
+      "domain": "statistics",
+      "frontier_path": "domains/statistics/tasks/FRONTIER.md",
+      "active_frontier_count": 3,
+      "active_frontiers": [
+        "F-STAT1",
+        "F-STAT2",
+        "F-STAT3"
+      ],
+      "updated_session": 186,
+      "age_sessions": 0,
+      "next_mentions": 0,
+      "next_priority_weight": 0.0,
+      "finding_mentions": 2,
+      "finding_priority_weight": 9.0,
+      "active_lane_pressure": 0
+    }
+  ],
+  "policies": {
+    "fifo": {
+      "scores": {
+        "ai": 0.3,
+        "brain": 3.3,
+        "control-theory": 0.3,
+        "distributed-systems": 0.0,
+        "evolution": 0.3,
+        "finance": 0.1,
+        "game-theory": 0.3,
+        "health": 0.0,
+        "information-science": 0.3,
+        "meta": 0.0,
+        "nk-complexity": 0.0,
+        "operations-research": 0.3,
+        "psychology": 0.3,
+        "statistics": 0.3
+      },
+      "ranked_domains": [
+        "brain",
+        "statistics",
+        "psychology",
+        "operations-research",
+        "information-science",
+        "game-theory",
+        "evolution",
+        "control-theory",
+        "ai",
+        "finance",
+        "nk-complexity",
+        "meta",
+        "health",
+        "distributed-systems"
+      ],
+      "allocations": {
+        "ai": 0,
+        "brain": 4,
+        "control-theory": 0,
+        "distributed-systems": 0,
+        "evolution": 0,
+        "finance": 0,
+        "game-theory": 0,
+        "health": 0,
+        "information-science": 0,
+        "meta": 0,
+        "nk-complexity": 0,
+        "operations-research": 0,
+        "psychology": 0,
+        "statistics": 0
+      },
+      "metrics": {
+        "projected_gain": 18.0,
+        "collision_risk": 6.0,
+        "net_score": 9.0
+      }
+    },
+    "risk_first": {
+      "scores": {
+        "ai": 7.0,
+        "brain": 8.0,
+        "control-theory": 11.0,
+        "distributed-systems": 0.0,
+        "evolution": 5.0,
+        "finance": 8.0,
+        "game-theory": 6.0,
+        "health": 0.0,
+        "information-science": 13.0,
+        "meta": 0.0,
+        "nk-complexity": 0.0,
+        "operations-research": 5.0,
+        "psychology": 6.0,
+        "statistics": 8.5
+      },
+      "ranked_domains": [
+        "information-science",
+        "control-theory",
+        "statistics",
+        "finance",
+        "brain",
+        "ai",
+        "psychology",
+        "game-theory",
+        "operations-research",
+        "evolution",
+        "nk-complexity",
+        "meta",
+        "health",
+        "distributed-systems"
+      ],
+      "allocations": {
+        "ai": 0,
+        "brain": 1,
+        "control-theory": 1,
+        "distributed-systems": 0,
+        "evolution": 0,
+        "finance": 0,
+        "game-theory": 0,
+        "health": 0,
+        "information-science": 1,
+        "meta": 0,
+        "nk-complexity": 0,
+        "operations-research": 0,
+        "psychology": 0,
+        "statistics": 1
+      },
+      "metrics": {
+        "projected_gain": 115.8,
+        "collision_risk": 0.0,
+        "net_score": 115.8
+      }
+    },
+    "value_density": {
+      "scores": {
+        "ai": 10.5,
+        "brain": 1.5,
+        "control-theory": 34.9,
+        "distributed-systems": 0.0,
+        "evolution": 1.5,
+        "finance": 42.8,
+        "game-theory": 3.0,
+        "health": 0.0,
+        "information-science": 27.7,
+        "meta": 0.0,
+        "nk-complexity": 0.0,
+        "operations-research": 1.5,
+        "psychology": 3.0,
+        "statistics": 21.0
+      },
+      "ranked_domains": [
+        "finance",
+        "control-theory",
+        "information-science",
+        "statistics",
+        "ai",
+        "psychology",
+        "game-theory",
+        "operations-research",
+        "evolution",
+        "brain",
+        "nk-complexity",
+        "meta",
+        "health",
+        "distributed-systems"
+      ],
+      "allocations": {
+        "ai": 0,
+        "brain": 0,
+        "control-theory": 1,
+        "distributed-systems": 0,
+        "evolution": 0,
+        "finance": 2,
+        "game-theory": 0,
+        "health": 0,
+        "information-science": 1,
+        "meta": 0,
+        "nk-complexity": 0,
+        "operations-research": 0,
+        "psychology": 0,
+        "statistics": 0
+      },
+      "metrics": {
+        "projected_gain": 175.9,
+        "collision_risk": 1.0,
+        "net_score": 174.4
+      }
+    },
+    "hybrid": {
+      "scores": {
+        "ai": 10.0,
+        "brain": 3.0,
+        "control-theory": 26.925,
+        "distributed-systems": 0.0,
+        "evolution": 2.0,
+        "finance": 31.35,
+        "game-theory": 3.333333,
+        "health": 0.0,
+        "information-science": 26.2,
+        "meta": 0.0,
+        "nk-complexity": 0.0,
+        "operations-research": 2.0,
+        "psychology": 3.0,
+        "statistics": 16.5
+      },
+      "ranked_domains": [
+        "finance",
+        "control-theory",
+        "information-science",
+        "statistics",
+        "ai",
+        "game-theory",
+        "psychology",
+        "brain",
+        "operations-research",
+        "evolution",
+        "nk-complexity",
+        "meta",
+        "health",
+        "distributed-systems"
+      ],
+      "allocations": {
+        "ai": 0,
+        "brain": 0,
+        "control-theory": 1,
+        "distributed-systems": 0,
+        "evolution": 0,
+        "finance": 1,
+        "game-theory": 0,
+        "health": 0,
+        "information-science": 1,
+        "meta": 0,
+        "nk-complexity": 0,
+        "operations-research": 0,
+        "psychology": 0,
+        "statistics": 1
+      },
+      "metrics": {
+        "projected_gain": 154.1,
+        "collision_risk": 0.0,
+        "net_score": 154.1
+      }
+    }
+  },
+  "recommended_policy": "value_density",
+  "recommended_plan": [
+    {
+      "slot": 1,
+      "domain": "finance",
+      "lane_focus": "domains/finance/tasks/FRONTIER.md",
+      "reason": "score=42.800; next_weight=4.0; finding_weight=14.9; active_frontiers=1; lane_pressure=0; allocation_index=1/2"
+    },
+    {
+      "slot": 2,
+      "domain": "finance",
+      "lane_focus": "domains/finance/tasks/FRONTIER.md",
+      "reason": "score=42.800; next_weight=4.0; finding_weight=14.9; active_frontiers=1; lane_pressure=0; allocation_index=2/2"
+    },
+    {
+      "slot": 3,
+      "domain": "control-theory",
+      "lane_focus": "domains/control-theory/tasks/FRONTIER.md",
+      "reason": "score=34.900; next_weight=0.0; finding_weight=16.0; active_frontiers=3; lane_pressure=0; allocation_index=1/1"
+    },
+    {
+      "slot": 4,
+      "domain": "information-science",
+      "lane_focus": "domains/information-science/tasks/FRONTIER.md",
+      "reason": "score=27.700; next_weight=12.0; finding_weight=8.2; active_frontiers=3; lane_pressure=1; allocation_index=1/1"
+    }
+  ]
+}

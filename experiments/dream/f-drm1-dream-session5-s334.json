@@ -1,0 +1,64 @@
+{
+  "session": "S334",
+  "date": "2026-02-28",
+  "experiment": "f-drm1-dream-session5",
+  "theme": "Swarm dreams about the best possible swarm (meta-recursive dream)",
+  "dream_mode": "meta-self",
+  "cross_domain_pairs": [
+    "Evolution x Information-science",
+    "Brain x Game-theory"
+  ],
+  "inversions": [
+    "compression is the primary selection mechanism",
+    "K_avg is an auxiliary metric"
+  ],
+  "seed_lessons": ["L-129", "L-189", "L-192", "L-225", "L-324"],
+  "dream_output": {
+    "DRM-H14": {
+      "type": "DREAM-HYPOTHESIS",
+      "cross_domain": "Evolution x Information-science",
+      "claim": "K_avg (citation density) is the swarm's true fitness signal. Propagation = survival. Proxy-K tokens measure capacity, not fitness.",
+      "falsification": "Compare lesson survival rate at N+100 for high-K_avg vs high-token lessons; K_avg should predict survival better than lesson length.",
+      "related": "F9-NK, F-GT1, L-457, L-462"
+    },
+    "DRM-H15": {
+      "type": "DREAM-HYPOTHESIS",
+      "cross_domain": "Brain x Game-theory",
+      "claim": "Current swarm is Nash-equilibrium-seeking within sessions (maximize L+P per session → lesson inflation). Best swarm is Pareto-optimal across sessions. NEXT.md acts as 'future shadow' enabling iterated Prisoner's Dilemma cooperation.",
+      "falsification": "Add K_avg delta as a session metric. Track whether sessions with visible K_avg delta produce fewer low-K_avg lessons.",
+      "related": "L-189, L-447, L-449, F-EXP7"
+    },
+    "DRM-H16": {
+      "type": "DREAM-HYPOTHESIS",
+      "counterfactual_inversion": "compression is the primary selection mechanism",
+      "claim": "Frontier zone = expansion-only; structure zone = compression-only. L-463 evidence: sparse domain DOMAIN.mds give dream.py zero resonances outside brain (22/22 brain). Fix is ENRICHMENT, not compression. Best swarm: compact.py touches only T0/T1; T3-frontier is append-only until harvest.",
+      "falsification": "Enrich 5 domain DOMAIN.mds per L-463 prescription; re-run dream.py; count non-brain resonances. Expect >3.",
+      "related": "L-463, F-DRM1, DRM-H5"
+    },
+    "DRM-H17": {
+      "type": "DREAM-HYPOTHESIS",
+      "cross_domain": "Physics x Meta",
+      "claim": "Information conservation law: when compact.py removes a lesson, all cited insights must survive in ≥1 remaining lesson. Current compact.py has no conservation check — silent insight deletion possible.",
+      "falsification": "Audit compact.py for citation tracking before deletion. Test: identify one compacted lesson; check if its core insight appears in any remaining lesson.",
+      "related": "L-225, L-324, F105, F-DRM4 (new)"
+    },
+    "DRM-H18": {
+      "type": "DREAM-HYPOTHESIS",
+      "amplify": "L-129",
+      "claim": "Best swarm has periodic latent-mining sessions: ask the LLM 'what do you know about domain X not in these files?' Dream.py recombines existing lessons; latent mining extracts pre-file substrate. Orthogonal coverage mechanisms.",
+      "falsification": "Run 1 latent-mining session per domain; count lessons proposed that have no existing near-duplicate (>50% novelty threshold). Expect >60% novelty.",
+      "related": "L-129, F-DRM3, B-DRM1"
+    }
+  },
+  "genuinely_new_check": {
+    "DRM-H14": "NEW — K_avg-as-fitness not framed in existing frontiers (F-GT1 studies structure, not fitness signal)",
+    "DRM-H15": "NEW — Pareto vs Nash framing not in FRONTIER.md or SWARM-LANES.md",
+    "DRM-H16": "PARTIAL — DRM-H5 (session 1) had two-regime policy; H16 sharpens with L-463 evidence and names the zones",
+    "DRM-H17": "NEW — information conservation law not in any frontier",
+    "DRM-H18": "NEW — latent-mining distinct from dream.py recombination (orthogonal mechanism)"
+  },
+  "f_drm1_score": "4/5 genuinely new (80%) — exceeds 50% threshold",
+  "new_frontiers": ["F-DRM4: Does compaction conserve structural information?"],
+  "lesson": "L-464",
+  "meta_reflection": "Dreaming about the best possible swarm is itself a dream mechanism — the swarm uses unconstrained recombination to surface structural improvements it cannot see while executing directed tasks. The recursive structure is not infinite regress (DRM-H4) but productive: each dream session adds hypotheses that directed sessions can test."
+}

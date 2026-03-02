@@ -1,0 +1,46 @@
+{
+  "experiment": "F-GOV4",
+  "session": "S359",
+  "date": "2026-03-01",
+  "question": "Can a multi-expert council with voting govern when genesis experiments are allowed to run?",
+  "focus": "Council staleness audit — what happens to CONDITIONAL proposals that are never executed?",
+  "method": "Historical trace of sub-colony-gov3 proposal (S303 CONDITIONAL) through session log. Track session distance from proposal to resolution. Compare actual governance path vs council-intended path.",
+  "findings": {
+    "proposal_age_sessions": 56,
+    "proposal_session": "S303",
+    "audit_session": "S359",
+    "original_objective": "Measure F-GOV3 challenge throughput via sub-colony bootstrap",
+    "f_gov3_resolved": true,
+    "f_gov3_resolution_session": "S348",
+    "f_gov3_resolution_method": "Direct operational work (one focused session), not sub-colony",
+    "conditions_met": {
+      "CON-1": "unknown — challenge existence not verified before S307",
+      "CON-2": "not executed — directory was never created",
+      "CON-3": "not executed — sub-colony never registered"
+    },
+    "council_ttl_mechanism": false,
+    "council_auto_retire_mechanism": false,
+    "council_staleness_detection": false
+  },
+  "governance_gaps": [
+    "No TTL on CONDITIONAL proposals — they accumulate indefinitely",
+    "No trigger to re-evaluate proposal relevance when prerequisite frontier resolves",
+    "No mechanism to mark proposal SUPERSEDED when objective is achieved another way",
+    "GENESIS-COUNCIL.md state section shows 1 open proposal (S303) 56 sessions later — administrative debt"
+  ],
+  "proposed_fixes": [
+    "Add TTL=10 sessions to CONDITIONAL proposals — auto-retire if conditions not met",
+    "Add 'objective resolved by other means' trigger — check on each frontier resolution",
+    "Add SUPERSEDED status to proposal log alongside APPROVE/CONDITIONAL/BLOCK/ABANDONED",
+    "Wire staleness check into maintenance.py: proposals >10s without condition update → DUE alert"
+  ],
+  "council_effectiveness_assessment": {
+    "vote_mechanics": "VALIDATED (n=1 — quorum met, roles worked)",
+    "staleness_handling": "UNVALIDATED (0 cases tested — gap exists)",
+    "exit_paths": "INCOMPLETE (APPROVE/CONDITIONAL/BLOCK exist; SUPERSEDED/ABANDONED missing)",
+    "overall": "PARTIAL — mechanics validated but lifecycle incomplete"
+  },
+  "f_gov4_status_update": "PARTIAL+ → PARTIAL+ (new evidence: council lifecycle gap confirmed at n=1)",
+  "lesson": "L-632",
+  "artifact_type": "historical_trace_n1"
+}

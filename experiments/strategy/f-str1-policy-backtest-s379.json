@@ -1,0 +1,548 @@
+{
+  "experiment": "F-STR1 policy backtest",
+  "session": "S379",
+  "method": "Retrospective correlation: 5 priority policies ranked against historical DOMEX domain outcomes",
+  "n_lanes": 250,
+  "n_domains_with_outcomes": 37,
+  "n_domains_total": 43,
+  "outcomes": {
+    "meta": {
+      "total_lanes": 46,
+      "merged": 39,
+      "abandoned": 6,
+      "merge_rate": 0.867,
+      "total_lessons": 27,
+      "lessons_per_lane": 0.59,
+      "avg_ead": 2.74,
+      "quality_score": 3.755
+    },
+    "linguistics": {
+      "total_lanes": 15,
+      "merged": 14,
+      "abandoned": 1,
+      "merge_rate": 0.933,
+      "total_lessons": 12,
+      "lessons_per_lane": 0.8,
+      "avg_ead": 2.47,
+      "quality_score": 3.327
+    },
+    "nk-complexity": {
+      "total_lanes": 23,
+      "merged": 19,
+      "abandoned": 4,
+      "merge_rate": 0.826,
+      "total_lessons": 15,
+      "lessons_per_lane": 0.65,
+      "avg_ead": 2.43,
+      "quality_score": 3.116
+    },
+    "conflict": {
+      "total_lanes": 14,
+      "merged": 11,
+      "abandoned": 3,
+      "merge_rate": 0.786,
+      "total_lessons": 9,
+      "lessons_per_lane": 0.64,
+      "avg_ead": 1.5,
+      "quality_score": 2.595
+    },
+    "philosophy": {
+      "total_lanes": 2,
+      "merged": 2,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 3,
+      "lessons_per_lane": 1.5,
+      "avg_ead": 3.0,
+      "quality_score": 2.386
+    },
+    "economy": {
+      "total_lanes": 6,
+      "merged": 5,
+      "abandoned": 1,
+      "merge_rate": 0.833,
+      "total_lessons": 4,
+      "lessons_per_lane": 0.67,
+      "avg_ead": 2.5,
+      "quality_score": 2.175
+    },
+    "expert-swarm": {
+      "total_lanes": 10,
+      "merged": 9,
+      "abandoned": 1,
+      "merge_rate": 0.9,
+      "total_lessons": 3,
+      "lessons_per_lane": 0.3,
+      "avg_ead": 2.4,
+      "quality_score": 2.148
+    },
+    "information-science": {
+      "total_lanes": 13,
+      "merged": 9,
+      "abandoned": 4,
+      "merge_rate": 0.692,
+      "total_lessons": 7,
+      "lessons_per_lane": 0.54,
+      "avg_ead": 2.31,
+      "quality_score": 2.132
+    },
+    "empathy": {
+      "total_lanes": 2,
+      "merged": 2,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 2,
+      "lessons_per_lane": 1.0,
+      "avg_ead": 3.0,
+      "quality_score": 2.099
+    },
+    "stochastic-processes": {
+      "total_lanes": 4,
+      "merged": 4,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 3.0,
+      "quality_score": 2.099
+    },
+    "security": {
+      "total_lanes": 3,
+      "merged": 2,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.67,
+      "avg_ead": 3.0,
+      "quality_score": 2.099
+    },
+    "ai": {
+      "total_lanes": 2,
+      "merged": 2,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 3.0,
+      "quality_score": 1.693
+    },
+    "farming": {
+      "total_lanes": 1,
+      "merged": 1,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 1,
+      "lessons_per_lane": 1.0,
+      "avg_ead": 2.0,
+      "quality_score": 1.693
+    },
+    "strategy": {
+      "total_lanes": 2,
+      "merged": 1,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 3.0,
+      "quality_score": 1.693
+    },
+    "quality": {
+      "total_lanes": 2,
+      "merged": 2,
+      "abandoned": 0,
+      "merge_rate": 1.0,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 3.0,
+      "quality_score": 1.693
+    },
+    "brain": {
+      "total_lanes": 5,
+      "merged": 4,
+      "abandoned": 1,
+      "merge_rate": 0.8,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.4,
+      "avg_ead": 3.0,
+      "quality_score": 1.679
+    },
+    "governance": {
+      "total_lanes": 10,
+      "merged": 7,
+      "abandoned": 3,
+      "merge_rate": 0.7,
+      "total_lessons": 3,
+      "lessons_per_lane": 0.3,
+      "avg_ead": 2.1,
+      "quality_score": 1.67
+    },
+    "helper-swarm": {
+      "total_lanes": 10,
+      "merged": 7,
+      "abandoned": 3,
+      "merge_rate": 0.7,
+      "total_lessons": 3,
+      "lessons_per_lane": 0.3,
+      "avg_ead": 2.1,
+      "quality_score": 1.67
+    },
+    "fluid-dynamics": {
+      "total_lanes": 3,
+      "merged": 2,
+      "abandoned": 1,
+      "merge_rate": 0.667,
+      "total_lessons": 3,
+      "lessons_per_lane": 1.0,
+      "avg_ead": 3.0,
+      "quality_score": 1.591
+    },
+    "evaluation": {
+      "total_lanes": 5,
+      "merged": 3,
+      "abandoned": 2,
+      "merge_rate": 0.6,
+      "total_lessons": 3,
+      "lessons_per_lane": 0.6,
+      "avg_ead": 1.2,
+      "quality_score": 1.432
+    },
+    "catastrophic-risks": {
+      "total_lanes": 3,
+      "merged": 2,
+      "abandoned": 1,
+      "merge_rate": 0.667,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.67,
+      "avg_ead": 2.0,
+      "quality_score": 1.399
+    },
+    "evolution": {
+      "total_lanes": 3,
+      "merged": 2,
+      "abandoned": 1,
+      "merge_rate": 0.667,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.33,
+      "avg_ead": 2.0,
+      "quality_score": 1.129
+    },
+    "graph-theory": {
+      "total_lanes": 10,
+      "merged": 4,
+      "abandoned": 6,
+      "merge_rate": 0.4,
+      "total_lessons": 5,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 0.6,
+      "quality_score": 1.117
+    },
+    "finance": {
+      "total_lanes": 6,
+      "merged": 3,
+      "abandoned": 3,
+      "merge_rate": 0.5,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.33,
+      "avg_ead": 1.5,
+      "quality_score": 1.049
+    },
+    "human-systems": {
+      "total_lanes": 4,
+      "merged": 2,
+      "abandoned": 2,
+      "merge_rate": 0.5,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.5,
+      "avg_ead": 1.5,
+      "quality_score": 1.049
+    },
+    "cryptography": {
+      "total_lanes": 4,
+      "merged": 2,
+      "abandoned": 2,
+      "merge_rate": 0.5,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.25,
+      "avg_ead": 1.75,
+      "quality_score": 0.847
+    },
+    "gaming": {
+      "total_lanes": 7,
+      "merged": 3,
+      "abandoned": 3,
+      "merge_rate": 0.5,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.14,
+      "avg_ead": 2.0,
+      "quality_score": 0.847
+    },
+    "distributed-systems": {
+      "total_lanes": 5,
+      "merged": 2,
+      "abandoned": 3,
+      "merge_rate": 0.4,
+      "total_lessons": 2,
+      "lessons_per_lane": 0.4,
+      "avg_ead": 1.2,
+      "quality_score": 0.839
+    },
+    "physics": {
+      "total_lanes": 5,
+      "merged": 2,
+      "abandoned": 3,
+      "merge_rate": 0.4,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.2,
+      "avg_ead": 1.2,
+      "quality_score": 0.677
+    },
+    "cryptocurrency": {
+      "total_lanes": 6,
+      "merged": 2,
+      "abandoned": 4,
+      "merge_rate": 0.333,
+      "total_lessons": 1,
+      "lessons_per_lane": 0.17,
+      "avg_ead": 0.5,
+      "quality_score": 0.564
+    },
+    "statistics": {
+      "total_lanes": 2,
+      "merged": 1,
+      "abandoned": 1,
+      "merge_rate": 0.5,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 1.5,
+      "quality_score": 0.5
+    },
+    "competitions": {
+      "total_lanes": 3,
+      "merged": 1,
+      "abandoned": 2,
+      "merge_rate": 0.333,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.0,
+      "quality_score": 0.333
+    },
+    "psychology": {
+      "total_lanes": 4,
+      "merged": 1,
+      "abandoned": 3,
+      "merge_rate": 0.25,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.75,
+      "quality_score": 0.25
+    },
+    "fractals": {
+      "total_lanes": 3,
+      "merged": 0,
+      "abandoned": 3,
+      "merge_rate": 0.0,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.0,
+      "quality_score": 0.0
+    },
+    "guesstimates": {
+      "total_lanes": 3,
+      "merged": 0,
+      "abandoned": 3,
+      "merge_rate": 0.0,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.0,
+      "quality_score": 0.0
+    },
+    "social-media": {
+      "total_lanes": 3,
+      "merged": 0,
+      "abandoned": 3,
+      "merge_rate": 0.0,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.0,
+      "quality_score": 0.0
+    },
+    "operations-research": {
+      "total_lanes": 1,
+      "merged": 0,
+      "abandoned": 1,
+      "merge_rate": 0.0,
+      "total_lessons": 0,
+      "lessons_per_lane": 0.0,
+      "avg_ead": 0.0,
+      "quality_score": 0.0
+    }
+  },
+  "policy_results": {
+    "fifo": {
+      "top_5": [
+        "physics",
+        "graph-theory",
+        "cryptocurrency",
+        "cryptography",
+        "fluid-dynamics"
+      ],
+      "correlation": {
+        "rho": -0.4631,
+        "p": 0.004455,
+        "n": 36
+      },
+      "scores_top10": {
+        "physics": 999.6,
+        "graph-theory": 999.5,
+        "cryptocurrency": 999.3,
+        "cryptography": 999.3,
+        "fluid-dynamics": 999.3,
+        "guesstimates": 999.3,
+        "competitions": 999.1,
+        "empathy": 999.0,
+        "linguistics": 999.0,
+        "game-theory": 193.4
+      }
+    },
+    "risk_first": {
+      "top_5": [
+        "physics",
+        "graph-theory",
+        "cryptocurrency",
+        "cryptography",
+        "fluid-dynamics"
+      ],
+      "correlation": {
+        "rho": -0.3882,
+        "p": 0.019319,
+        "n": 36
+      },
+      "scores_top10": {
+        "physics": 1011.0,
+        "graph-theory": 1009.0,
+        "cryptocurrency": 1005.0,
+        "cryptography": 1005.0,
+        "fluid-dynamics": 1005.0,
+        "guesstimates": 1005.0,
+        "competitions": 1001.0,
+        "empathy": 999.0,
+        "linguistics": 999.0,
+        "game-theory": 201.0
+      }
+    },
+    "value_density": {
+      "top_5": [
+        "linguistics",
+        "conflict",
+        "empathy",
+        "nk-complexity",
+        "governance"
+      ],
+      "correlation": {
+        "rho": 0.7923,
+        "p": 0.0,
+        "n": 36
+      },
+      "scores_top10": {
+        "linguistics": 3.327,
+        "conflict": 2.595,
+        "empathy": 2.099,
+        "nk-complexity": 2.077,
+        "governance": 1.67,
+        "helper-swarm": 1.113,
+        "security": 1.05,
+        "catastrophic-risks": 0.933,
+        "economy": 0.87,
+        "ai": 0.847
+      }
+    },
+    "hybrid": {
+      "top_5": [
+        "physics",
+        "graph-theory",
+        "human-systems",
+        "strategy",
+        "fluid-dynamics"
+      ],
+      "correlation": {
+        "rho": -0.2929,
+        "p": 0.08296,
+        "n": 36
+      },
+      "scores_top10": {
+        "physics": 31.677,
+        "graph-theory": 31.117,
+        "human-systems": 30.049,
+        "strategy": 29.693,
+        "fluid-dynamics": 29.591,
+        "evaluation": 29.432,
+        "game-theory": 29.0,
+        "cryptography": 28.847,
+        "cryptocurrency": 28.564,
+        "statistics": 28.5
+      }
+    },
+    "ucb1": {
+      "top_5": [
+        "claude-code",
+        "control-theory",
+        "dream",
+        "game-theory",
+        "health"
+      ],
+      "correlation": {
+        "rho": -0.1436,
+        "p": 0.403319,
+        "n": 36
+      },
+      "scores_top10": {
+        "claude-code": Infinity,
+        "control-theory": Infinity,
+        "dream": Infinity,
+        "game-theory": Infinity,
+        "health": Infinity,
+        "history": Infinity,
+        "protocol-engineering": Infinity,
+        "farming": 4.32,
+        "empathy": 3.348,
+        "operations-research": 3.32
+      }
+    }
+  },
+  "ll_results": {
+    "fifo": {
+      "rho": -0.3758,
+      "p": 0.023898,
+      "n": 36
+    },
+    "risk_first": {
+      "rho": -0.3356,
+      "p": 0.045359,
+      "n": 36
+    },
+    "value_density": {
+      "rho": 0.783,
+      "p": 0.0,
+      "n": 36
+    },
+    "hybrid": {
+      "rho": -0.2247,
+      "p": 0.187636,
+      "n": 36
+    },
+    "ucb1": {
+      "rho": 0.209,
+      "p": 0.221193,
+      "n": 36
+    }
+  },
+  "best_policy_quality": "value_density",
+  "best_policy_ll": "value_density",
+  "top3_overlap": {
+    "fifo": 0,
+    "risk_first": 0,
+    "value_density": 1,
+    "hybrid": 0,
+    "ucb1": 0
+  }
+}

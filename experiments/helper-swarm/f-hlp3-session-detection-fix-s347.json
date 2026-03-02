@@ -1,0 +1,32 @@
+{
+  "experiment_id": "DOMEX-HLP3-S347-session-fix",
+  "date": "2026-03-01",
+  "session": "S347",
+  "frontier": "F-HLP1",
+  "check_mode": "objective",
+  "expect": "git-log session derivation correctly flags prior-session lanes; no false positives for within-session lanes",
+  "bug_description": {
+    "symptom": "orient.py stale-lane check used INDEX.md Sessions: N for current session number. INDEX.md only updates when sync_state.py runs (at handoff). So at session start, current_session == last_session, and lanes from the last session have lane_session < current_session = False — invisible.",
+    "example": "S346 opened DOMEX-HLP2-S346. S347 starts, INDEX.md still says Sessions: 346. check_stale_lanes(346) checks 346 < 346 = False. DOMEX-HLP2 not flagged despite being stale.",
+    "location": "tools/orient.py:639-651 (stale lane check block)"
+  },
+  "fix": {
+    "approach": "Add get_current_session_from_git() that reads git log --oneline -1 and extracts [S###] + 1. Falls back to INDEX.md if git log fails.",
+    "code_added": "get_current_session_from_git() at orient.py:157-172 (after get_recent_commits)",
+    "code_changed": "stale lane check now uses git_session if >0, else INDEX.md session",
+    "why_correct": "git log -1 always reflects the last committed session. New session N runs after last commit was [S(N-1)], so N-1+1=N is accurate."
+  },
+  "verification": {
+    "test_git_session": "python3 -c shows git-derived session=347 when last commit is [S346] — correct",
+    "false_positive_check": "Lanes opened in current session S347 have lane_session=347, check is 347 < 347 = False — no false positive",
+    "false_negative_check": "S346 lanes have lane_session=346, check is 346 < 347 = True — correctly flagged",
+    "fallback_check": "If git log fails (no commits or no [S###] pattern), falls back to INDEX.md session — safe degradation"
+  },
+  "predicted_vs_actual": {
+    "predicted": "Fix would correctly flag S346 lanes when running in S347",
+    "actual": "CONFIRMED — test shows git_session=347, flag condition correct",
+    "diff": "No false positives found. Bug was exactly as diagnosed: INDEX.md lag."
+  },
+  "related": ["L-515", "DOMEX-HLP2-S346", "DOMEX-HLP3-S347"],
+  "lesson": "L-515 updated with bug note (line 17-18 of L-515.md)"
+}

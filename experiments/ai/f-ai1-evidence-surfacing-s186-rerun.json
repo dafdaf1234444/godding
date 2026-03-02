@@ -1,0 +1,29 @@
+{
+  "experiment": "F-AI1",
+  "title": "Evidence-surfacing vs async baseline vs forced sync",
+  "seed": 186,
+  "trials": 2000,
+  "follower_accuracy": 0.65,
+  "leader_high_accuracy": 0.82,
+  "leader_low_accuracy": 0.52,
+  "leader_high_conf_prob": 0.45,
+  "leader_error_rate": 0.355,
+  "async_baseline": {
+    "follower_error_rate": 0.349,
+    "leader_follower_error_correlation": 0.0092
+  },
+  "sync_copy": {
+    "follower_error_rate": 0.355,
+    "leader_follower_error_correlation": 1.0
+  },
+  "evidence_surfacing": {
+    "follower_error_rate": 0.2795,
+    "leader_follower_error_correlation": 0.3878
+  },
+  "delta": {
+    "surfacing_minus_async_error": -0.0695,
+    "sync_minus_async_error": 0.006
+  },
+  "interpretation": "Confidence-gated evidence sharing lowers follower error versus async baseline while preserving lower coupling than forced sync.",
+  "generated_at_utc": "2026-02-27T20:20:14Z"
+}

@@ -1,0 +1,77 @@
+{
+  "experiment": "F-EVO2",
+  "title": "Cross-domain contamination pressure profile",
+  "inputs": {
+    "lanes": "tasks/SWARM-LANES.md",
+    "gam2": "experiments/game-theory/f-gam2-reputation-signals-s186-post-msw-s3.json",
+    "is5": "experiments/information-science/f-is5-lane-distill-tags-s186-overlap.json",
+    "stat2": "experiments/statistics/f-stat2-meta-analysis-s186-rerun.json",
+    "ops1": "experiments/operations-research/f-ops1-wip-limit-s186-msw2-s3-rerun3.json",
+    "his2": "experiments/history/f-his2-chronology-conflicts-s186-rerun.json"
+  },
+  "components": {
+    "lane_queue_pressure": {
+      "active_lane_count": 3,
+      "ready_count": 2,
+      "running_count": 1,
+      "ready_to_running_ratio": 2.0,
+      "component": 0.4
+    },
+    "gam2_reputation_gap": {
+      "reputation_signal_rate_active": 0.6667,
+      "integrity_score": 0.9667,
+      "component": 0.3333,
+      "frontier_id": "F-GAM2"
+    },
+    "is5_transfer_collision": {
+      "merge_collision_frequency": 0.8,
+      "transfer_acceptance_rate": 0.0323,
+      "component": 0.7677,
+      "frontier_id": "F-IS5"
+    },
+    "stat2_heterogeneity": {
+      "i2_percent": 49.5029,
+      "pooled_effect": -0.016166,
+      "component": 0.495,
+      "frontier_id": "F-STAT2"
+    },
+    "ops1_conflict_pressure": {
+      "conflict_rate": 0.4124,
+      "overhead_ratio": 1.9509,
+      "decision_hint": "inconclusive_needs_live_ab",
+      "component": 0.4624,
+      "frontier_id": "F-OPS1"
+    },
+    "his2_chronology_gap": {
+      "missing_link_rate": 0.1042,
+      "inversion_rate": 0.0104,
+      "component": 0.1146,
+      "frontier_id": "F-HIS2"
+    }
+  },
+  "weights": {
+    "lane_queue_pressure": 0.2,
+    "gam2_reputation_gap": 0.15,
+    "is5_transfer_collision": 0.2,
+    "stat2_heterogeneity": 0.2,
+    "ops1_conflict_pressure": 0.15,
+    "his2_chronology_gap": 0.1
+  },
+  "weighted_terms": {
+    "lane_queue_pressure": 0.08,
+    "gam2_reputation_gap": 0.05,
+    "is5_transfer_collision": 0.1535,
+    "stat2_heterogeneity": 0.099,
+    "ops1_conflict_pressure": 0.0694,
+    "his2_chronology_gap": 0.0115
+  },
+  "contamination_index": 0.4634,
+  "contamination_band": "MEDIUM",
+  "decontamination_recommendations": [
+    "Run F-IS5 overlap-intensity sweep and keep only settings with collision<0.5 while preserving non-zero transfer acceptance.",
+    "Split high-heterogeneity families and rerun F-STAT2/F-STAT3 before promoting cross-domain transfer claims.",
+    "Keep cap-4 default under F-OPS1 until live A/B demonstrates cap-5 gains without conflict/overhead regression.",
+    "Backfill lane-level artifact refs for unmatched NEXT events to lower chronology contamination below 0.05."
+  ],
+  "generated_at_utc": "2026-02-27T22:00:25Z"
+}

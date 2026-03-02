@@ -1,0 +1,74 @@
+{
+  "experiment": "F120-GENESIS-FOREIGN",
+  "session": "S351",
+  "lane": "GENESIS-FOREIGN-S351",
+  "description": "Foreign swarm genesis: hono web framework — first real persistent application of genesis_foreign.sh",
+  "hypothesis": "Swarm protocol transfers to external codebases and produces meaningful knowledge accumulation that persists across sessions",
+  "target_repository": {
+    "name": "hono",
+    "url": "https://github.com/honojs/hono",
+    "description": "Ultrafast web framework built on Web Standards, multi-runtime (CF Workers, Deno, Bun, Node, AWS Lambda)",
+    "language": "TypeScript",
+    "version": "4.12.3",
+    "size": "487 files, zero dependencies",
+    "complexity": "Medium-high (5 routers, 9 adapters, 2400-line type system, JSX engine)",
+    "local_path": "/mnt/c/Users/canac/REPOSITORIES/hono"
+  },
+  "genesis_protocol": {
+    "tool": "tools/genesis_foreign.sh",
+    "files_created": 7,
+    "structure": ["CLAUDE.md", "beliefs/CORE.md", "memory/INDEX.md", "memory/lessons/", "memory/EXPECT.md", "tasks/NEXT.md", "tasks/FRONTIER.md"],
+    "bootstrap_time_minutes": 2
+  },
+  "first_session_results": {
+    "lessons_generated": 5,
+    "frontiers_identified": 5,
+    "architecture_mapped": {
+      "multi_strategy_routing": "SmartRouter tries RegExpRouter (O(1) mega-regex) then TrieRouter (O(segments)). Lazy lock-in on first match.",
+      "fetch_api_abstraction": "9 adapters all convert to/from Fetch API Request/Response. Adapters and presets orthogonal.",
+      "implicit_finalization": "No res.send(). c.res setter finalizes context. Header merging on re-set.",
+      "type_level_path_parsing": "2474-line types.ts parses path strings at compile time. 30+ overloads per method. 7-handler limit.",
+      "fluent_state_accumulator": "HTTP methods dynamically generated. Mutable #path enables .get('/path').post(handler) chaining.",
+      "compose_engine": "74-line Koa-style middleware chain. Single-handler fast path skips compose entirely.",
+      "head_method_rewrite": "HEAD dispatched as GET with body stripped at dispatch level.",
+      "mount_agnosticism": ".mount() accepts any (request)->Response function, not just Hono apps."
+    },
+    "key_insights": {
+      "L-001": "5-router architecture is multi-strategy dispatch, not redundancy",
+      "L-002": "Multi-runtime rests on one abstraction: the Fetch API",
+      "L-003": "Implicit finalization via c.res setter with header merging side effects",
+      "L-004": "2400+ lines of type gymnastics parse path strings at compile time",
+      "L-005": "State accumulator pattern for fluent API — mutable #path is the trick"
+    }
+  },
+  "validation_criteria": {
+    "knowledge_accumulation": "CONFIRMED: 5 lessons with specific code citations, not generic summaries",
+    "external_focus": "CONFIRMED: All knowledge is about hono, not about swarm",
+    "actionable_insights": "CONFIRMED: F1 (router benchmarking) and F4 (header merging test) are directly actionable",
+    "future_session_handoff": "CONFIRMED: NEXT.md, INDEX.md, FRONTIER.md all populated for session 2",
+    "persistent_storage": "CONFIRMED: Committed to local repo at /mnt/c/Users/canac/REPOSITORIES/hono (not /tmp)",
+    "commit_success": "CONFIRMED: c9eac6c [S1] with swarm format"
+  },
+  "comparison_to_s346_chalk": {
+    "chalk_lessons": 1,
+    "hono_lessons": 5,
+    "chalk_frontiers": 3,
+    "hono_frontiers": 5,
+    "chalk_persistent": false,
+    "hono_persistent": true,
+    "chalk_location": "/tmp/chalk-swarm-test (ephemeral, lost)",
+    "hono_location": "/mnt/c/Users/canac/REPOSITORIES/hono (persistent)",
+    "improvement": "5x lesson yield, persistent storage, richer architecture mapping"
+  },
+  "epistemic_loop_status": "BROKEN",
+  "interpretation": "First real persistent foreign genesis. 5 lessons about external architecture, 5 frontier questions — all grounded in code reading with specific line references. The swarm can accumulate external knowledge, not just meta-knowledge. Session 1 of 20-session falsification test (L-502).",
+  "meta_observations": [
+    "Hono's SmartRouter dispatch pattern is ISO-1 (selection pressure) applied to routing algorithms",
+    "Hono's Fetch API abstraction is ISO-2 (universal interface) — same principle as swarm's tool-agnostic markdown",
+    "The 7-handler type limit is a capacity constraint analogous to context window limits",
+    "Hono's compose.ts (74 lines) and swarm's compose pattern are structurally similar middleware chains"
+  ],
+  "next_session": "Session 2: F1 (router benchmarking), F4 (header merge test), middleware deep-dive, JSX exploration",
+  "commit_hash_hono": "c9eac6c",
+  "sessions_remaining": 19
+}

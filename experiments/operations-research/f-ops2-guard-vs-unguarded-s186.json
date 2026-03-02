@@ -1,0 +1,70 @@
+{
+  "frontier_id": "F-OPS2",
+  "title": "Guarded vs unguarded live-dispatch comparison",
+  "inputs": {
+    "guarded_artifact": "experiments/operations-research/f-ops2-domain-priority-automability-floor50-live-s186.json",
+    "unguarded_artifact": "experiments/operations-research/f-ops2-domain-priority-automability-live-unguarded-s186.json",
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "domains_root": "domains",
+    "session_min": 186
+  },
+  "profiles": {
+    "guarded": {
+      "domains": [
+        "ai",
+        "brain",
+        "information-science",
+        "operations-research",
+        "statistics"
+      ],
+      "session_min": 186,
+      "rows_observed": 138,
+      "lanes_observed": 55,
+      "pickup_candidates": 11,
+      "pickup_success": 8,
+      "pickup_rate": 0.7273,
+      "blocked_entries": 0,
+      "blocked_transitions": 0,
+      "blocked_transition_rate_per_lane": 0.0,
+      "blocked_reason_churn": 0,
+      "collision_keyword_rows": 11,
+      "collision_keyword_rate_per_row": 0.0797,
+      "merged_lanes": 52,
+      "open_lanes": 3,
+      "open_lane_rate": 0.0545
+    },
+    "unguarded": {
+      "domains": [
+        "information-science",
+        "operations-research"
+      ],
+      "session_min": 186,
+      "rows_observed": 70,
+      "lanes_observed": 34,
+      "pickup_candidates": 4,
+      "pickup_success": 4,
+      "pickup_rate": 1.0,
+      "blocked_entries": 0,
+      "blocked_transitions": 0,
+      "blocked_transition_rate_per_lane": 0.0,
+      "blocked_reason_churn": 0,
+      "collision_keyword_rows": 10,
+      "collision_keyword_rate_per_row": 0.1429,
+      "merged_lanes": 34,
+      "open_lanes": 0,
+      "open_lane_rate": 0.0
+    }
+  },
+  "comparison": {
+    "delta_guarded_minus_unguarded": {
+      "pickup_rate": -0.2727,
+      "blocked_transition_rate_per_lane": 0.0,
+      "blocked_reason_churn": 0,
+      "collision_keyword_rate_per_row": -0.0632
+    },
+    "recommendation": "guarded",
+    "recommendation_score": 2,
+    "rule": "Prefer guarded when pickup does not regress and normalized blocking/collision rates do not worsen."
+  },
+  "generated_at_utc": "2026-02-27T22:03:14Z"
+}

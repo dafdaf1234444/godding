@@ -1,0 +1,7 @@
+{
+  "variant": "principles-first",
+  "description": "Prioritize extracting reusable principles over accumulating beliefs",
+  "hypothesis": "Principles-focused swarms produce more transferable knowledge",
+  "spawned": "2026-02-26",
+  "child_dir": "<swarm-repo>/experiments/children/belief-principles-first"
+}

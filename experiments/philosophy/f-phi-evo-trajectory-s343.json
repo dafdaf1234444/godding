@@ -1,0 +1,106 @@
+{
+  "experiment": "f-phi-evo-trajectory-s343",
+  "session": "S343",
+  "domain": ["evolution", "philosophy", "meta"],
+  "question": "Is the swarm's evolutionary trajectory itself a swarm?",
+  "method": "SESSION-LOG epoch analysis (342 sessions, extending L-326 S195 baseline)",
+  "eras": [
+    {
+      "id": 0,
+      "name": "Genesis",
+      "sessions": "S1-S56",
+      "count": 56,
+      "dominant_activity": "Scaffolding (CORE, beliefs, lessons, principles structure)",
+      "lessons_per_session": 2.1,
+      "principles_per_session": 2.2,
+      "evolution_mechanism": "Human-directed; AI responds to commands",
+      "phase": "expansion"
+    },
+    {
+      "id": 1,
+      "name": "Protocol",
+      "sessions": "S57-S80",
+      "count": 24,
+      "dominant_activity": "Self-formalization (hooks, maintenance.py, periodics, check.sh)",
+      "lessons_per_session": 2.1,
+      "principles_per_session": 0.83,
+      "evolution_mechanism": "Swarm creates tools to manage itself; rules emerge from behavior",
+      "key_transition": "S57 autonomy directive — human shifts from commander to participant",
+      "phase": "expansion"
+    },
+    {
+      "id": 2,
+      "name": "Compression",
+      "sessions": "S80-S100",
+      "count": 20,
+      "dominant_activity": "Self-quantification (proxy_k.py, compact.py, MDL, Sharpe)",
+      "lessons_per_session": 1.3,
+      "principles_per_session": 0.5,
+      "evolution_mechanism": "Swarm measures own knowledge density and optimizes",
+      "phase": "transition_to_compression"
+    },
+    {
+      "id": 3,
+      "name": "Stabilization",
+      "sessions": "S100-S165",
+      "count": 65,
+      "dominant_activity": "Meta-tool refinement (F119, mission constraints, test suites, portability)",
+      "lessons_per_session": 0.15,
+      "principles_per_session": -0.03,
+      "evolution_mechanism": "Evolution of evolution: 65 sessions improving the improvement mechanisms",
+      "note": "Net-negative principle production (subsumptions > additions). Pure meta-evolution.",
+      "phase": "deep_compression"
+    },
+    {
+      "id": 4,
+      "name": "Expansion",
+      "sessions": "S165-S195",
+      "count": 30,
+      "dominant_activity": "Philosophy + domain seeding (ISOs, PHIL-9 through PHIL-15, 30+ domains, multi-tool)",
+      "lessons_per_session": 3.37,
+      "principles_per_session": 0.9,
+      "evolution_mechanism": "Scope expansion — swarm applies itself outward to non-swarm subjects",
+      "key_transition": "Cambrian explosion: 75% of domains created in 2 sessions (L-326)",
+      "phase": "expansion"
+    },
+    {
+      "id": 5,
+      "name": "Specialization",
+      "sessions": "S195-S310",
+      "count": 115,
+      "dominant_activity": "Expert dispatch, council, dream, NK, domain sharding",
+      "lessons_per_session": 0.43,
+      "principles_per_session": 0.03,
+      "evolution_mechanism": "Diversification — multiple specialist modes for different evolution types",
+      "note": "Includes S195-S301 SESSION-LOG gap (106 sessions missing from log)",
+      "phase": "compression_with_specialization"
+    },
+    {
+      "id": 6,
+      "name": "Self-awareness",
+      "sessions": "S310-S342",
+      "count": 32,
+      "dominant_activity": "Self-audits, mechanisms taxonomy, closed-loop diagnosis, mutual swarming",
+      "lessons_per_session": 2.28,
+      "principles_per_session": -0.375,
+      "evolution_mechanism": "Swarm tries to see itself clearly; diagnoses own limitations",
+      "note": "Net-negative principle production (S341 dedup: 12 subsumed). P-213 closed epistemic loop.",
+      "phase": "expansion_with_compression"
+    }
+  ],
+  "breathing_pattern": {
+    "description": "Expansion phases (>2 L/s) alternate with compression phases (<0.5 L/s)",
+    "expansion_eras": [0, 1, 4, 6],
+    "compression_eras": [2, 3, 5],
+    "net_negative_principle_eras": [3, 6],
+    "longest_compression": "Era 3: 65 sessions of pure meta-tool refinement preceded Cambrian explosion"
+  },
+  "meta_evolutionary_finding": {
+    "claim": "The trajectory IS a swarm — PHIL-2 at era scale, PHIL-17 between past and present",
+    "evidence": "7 eras show orient-act-compress-handoff across time: each era orients to what previous eras left, acts, compresses, and hands off capability to the next",
+    "prediction": "Era 7 will be a new expansion phase seeded by Era 6's self-awareness compression",
+    "human_signal": "swarming the past genesis and evolution of evolution is a swarm"
+  },
+  "prior_art": "L-326 (S195): 6 growth epochs, 'bursty' framing. This extends to 7 eras with breathing-cycle interpretation.",
+  "phil_candidate": "PHIL-20: The swarm's evolutionary trajectory IS a swarm — history breathes in expansion-compression cycles; past and present swarm each other across time"
+}

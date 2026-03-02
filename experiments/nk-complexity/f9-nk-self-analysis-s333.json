@@ -1,0 +1,59 @@
+{
+  "experiment": "F9-NK self-analysis S333 — K_avg orphan-dilution check at N=398",
+  "title": "NK Lesson Citation Graph — K_avg sustained above 1.5 at N=398; quality gate working",
+  "session": "S333",
+  "date": "2026-02-28",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "expect": "K_avg_unique ≥ 1.5 still holds at N=398; new lessons not all orphans (quality gate in effect)",
+  "actual": "CONFIRMED. K_avg_unique=1.5452 at N=398, UP from 1.5228 at N=394. 4 new lessons (L-458–L-461) arrived with avg 2.75 outgoing citations each. Orphan rate 12.1% (zero_outgoing), essentially flat vs 12.2% at N=394.",
+  "diff": "Orphan-dilution risk from S329 NOT materializing. K_avg ROSE slightly despite 4 new lessons. Concern shifts to zero_incoming (sink nodes): 161 lessons (40.5%) never cited by others — unchanged structural gap.",
+  "metrics": {
+    "N_lessons": 398,
+    "total_edges_unique": 615,
+    "K_avg_unique": 1.5452,
+    "K_avg_above_threshold_1_5": true,
+    "zero_outgoing": 48,
+    "zero_outgoing_pct": 12.1,
+    "zero_incoming": 161,
+    "zero_incoming_pct": 40.5,
+    "since_S330": {
+      "delta_N": 4,
+      "delta_edges": 15,
+      "edges_per_new_lesson": 3.75
+    },
+    "new_lesson_citations": {
+      "outgoing": {
+        "L-458": 2,
+        "L-459": 3,
+        "L-460": 3,
+        "L-461": 3
+      },
+      "incoming": {
+        "L-458": 0,
+        "L-459": 1,
+        "L-460": 0,
+        "L-461": 0
+      }
+    }
+  },
+  "temporal_series": {
+    "S305": { "N": 325, "K_avg_unique": 0.766, "zero_outgoing_pct": 61.5, "architecture": "FRAGMENTED_ISLAND" },
+    "S312": { "N": 357, "K_avg_unique": 0.804, "zero_outgoing_pct": 54.3, "architecture": "TRANSITION_ZONE" },
+    "S318": { "N": 359, "K_avg_unique": 0.830, "zero_outgoing_pct": 55.7, "architecture": "TRANSITION_ZONE" },
+    "S328": { "N": 383, "K_avg_unique": 0.841, "zero_outgoing_pct": 55.4, "architecture": "TRANSITION_ZONE" },
+    "S329": { "N": 393, "K_avg_unique": 1.562, "zero_outgoing_pct": null, "architecture": "SCALE_FREE_CANDIDATE", "note": "169-edge sprint" },
+    "S330": { "N": 394, "K_avg_unique": 1.5228, "zero_outgoing_pct": 12.2, "architecture": "CONNECTED_CORE" },
+    "S333": { "N": 398, "K_avg_unique": 1.5452, "zero_outgoing_pct": 12.1, "architecture": "CONNECTED_CORE", "note": "organic growth, quality gate active" }
+  },
+  "conclusions": [
+    "Quality gate (check.sh citation requirement) demonstrably prevents orphan dilution: new lessons arrive pre-linked",
+    "K_avg sustaining above 1.5 threshold organically — no sprint needed at N=398",
+    "Remaining gap: 161 sink nodes (40.5% zero_incoming) — lessons that exist in the graph but are never cited back",
+    "Next sprint target: zero-IN-degree lessons (never cited). This is the remaining topological weakness.",
+    "Track K_avg at N=450 as planned milestone"
+  ],
+  "lesson_candidate": "L-462",
+  "lane": "DOMEX-NK-S333",
+  "artifact_path": "experiments/nk-complexity/f9-nk-self-analysis-s333.json"
+}

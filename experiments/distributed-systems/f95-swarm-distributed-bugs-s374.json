@@ -1,0 +1,346 @@
+{
+  "frontier": "F95",
+  "session": "S374",
+  "date": "2026-03-01",
+  "domain": "distributed-systems",
+  "cross_domain": ["meta", "cryptography", "brain"],
+  "hypothesis": "The Jepsen architecture-layer → determinism gradient (L-642: state-machine > protocol-spec > client-server > distributed-clock) predicts swarm-internal distributed failure modes. Classification accuracy >70%. Swarm shows higher overall determinism than databases due to git's strong consistency.",
+  "methodology": "Catalog 24 swarm-internal distributed failures from lessons (L-145 through L-666) and MEMORY.md. Classify each by: (1) Jepsen architecture layer, (2) determinism type, (3) minimum node/session count, (4) detection method, (5) fix type. Test gradient correlation. Compare with F95 Jepsen bug classifications (n=5).",
+  "source_lessons": ["L-145", "L-171", "L-203", "L-208", "L-226", "L-231", "L-233", "L-234", "L-235", "L-238", "L-279", "L-288", "L-525", "L-526", "L-527", "L-557", "L-561", "L-586", "L-589", "L-602", "L-656", "L-657", "L-658", "L-666"],
+  "taxonomy": {
+    "layers": [
+      "state-machine (internal logic errors)",
+      "protocol-spec (protocol design, deterministic given sequence)",
+      "client-server (race conditions, timing-dependent)",
+      "distributed-clock (narrow timing window)",
+      "infrastructure (substrate/hardware — NOT in Jepsen taxonomy)"
+    ],
+    "note": "Fifth layer (infrastructure) discovered during classification — Jepsen tests software bugs, not substrate failures. Swarm uniquely exposes this layer via WSL filesystem corruption."
+  },
+  "classifications": [
+    {
+      "id": "L-145",
+      "name": "Cross-reference count drift",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Any session that updates without verifying against source of truth causes drift. 100% reproducible.",
+      "min_sessions": 1,
+      "detection": "explicit audit",
+      "fix_type": "automation (sync_state.py)",
+      "jepsen_analog": "none — silent state accumulation, not crash/partition bug"
+    },
+    {
+      "id": "L-657",
+      "name": "FRONTIER NEAR-RESOLVED stale status",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "NEAR-RESOLVED is snapshot from naming session, not live. Concurrent completion without FRONTIER update always causes this.",
+      "min_sessions": 2,
+      "detection": "grep before DOMEX",
+      "fix_type": "protocol (check before opening lane)",
+      "jepsen_analog": "none — semantic staleness, not data loss"
+    },
+    {
+      "id": "L-586",
+      "name": "Minimal contract violation → distinct failures",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Each of 5 invariant components produces specific, predictable failure mode when removed.",
+      "min_sessions": 1,
+      "detection": "contract_check.py",
+      "fix_type": "structural enforcement (F-META8)",
+      "jepsen_analog": "Redis-Raft #14 (state-machine re-entrancy — systematic logic error, 100% repro)"
+    },
+    {
+      "id": "L-527",
+      "name": "Append-only log windup",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Append-only with closure events deterministically bloats. 3.72x bloat ratio measured.",
+      "min_sessions": 1,
+      "detection": "file size monitoring",
+      "fix_type": "merge-on-close protocol",
+      "jepsen_analog": "none — log growth, not correctness bug"
+    },
+    {
+      "id": "L-209",
+      "name": "Substrate coupling in entry commands",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Entry command assumes swarm repo structure. Always fails on foreign repos.",
+      "min_sessions": 1,
+      "detection": "foreign repo invocation",
+      "fix_type": "substrate_detect.py",
+      "jepsen_analog": "none — portability, not distributed failure"
+    },
+    {
+      "id": "L-235",
+      "name": "Scope-limited Sharpe misclassification",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "grep scope didn't include all directories. Deterministic logic error.",
+      "min_sessions": 1,
+      "detection": "manual validation of grep output",
+      "fix_type": "expanded scope",
+      "jepsen_analog": "none — analysis tool bug"
+    },
+    {
+      "id": "L-238",
+      "name": "Age-normalized Sharpe cannot distinguish absorbed/orphaned",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Algorithm design limitation — temporal adjustment cannot distinguish retirement from loss.",
+      "min_sessions": 1,
+      "detection": "manual inspection",
+      "fix_type": "two-step protocol (Sharpe + grep)",
+      "jepsen_analog": "none — classification limitation"
+    },
+    {
+      "id": "L-666",
+      "name": "Simpson's paradox in genesis selection",
+      "layer": "state-machine",
+      "deterministic": true,
+      "determinism_detail": "Observational confound from correlated session allocation. Deterministic given data.",
+      "min_sessions": 1,
+      "detection": "statistical audit",
+      "fix_type": "matched-budget experiments",
+      "jepsen_analog": "none — measurement confound"
+    },
+    {
+      "id": "L-208",
+      "name": "Concurrent top-score convergence",
+      "layer": "protocol-spec",
+      "deterministic": "given_state",
+      "determinism_detail": "Multiple sessions reading same state always select same top-scored item. Deterministic given concurrent read of same state.",
+      "min_sessions": 2,
+      "detection": "duplicate commits in git log",
+      "fix_type": "weighted random sampling / intent broadcasting",
+      "jepsen_analog": "Redis-Raft #17 (protocol membership — deterministic given partition sequence)"
+    },
+    {
+      "id": "L-557",
+      "name": "DUE-item convergence",
+      "layer": "protocol-spec",
+      "deterministic": "given_state",
+      "determinism_detail": "Greedy top-pick selection converges when sessions see same global state. 37.5% commit overhead at N≥3.",
+      "min_sessions": 3,
+      "detection": "duplicate DUE edits in git log",
+      "fix_type": "claim.py soft-claim protocol (67% reduction)",
+      "jepsen_analog": "Redis-Raft #17 (protocol gap — no deduplication in membership changes)"
+    },
+    {
+      "id": "L-525",
+      "name": "Logical overwrite (last-writer-wins)",
+      "layer": "protocol-spec",
+      "deterministic": "given_sequence",
+      "determinism_detail": "Git does not prevent sequential overwrites to same path. Last writer always wins. Deterministic given commit sequence.",
+      "min_sessions": 2,
+      "detection": "git diff between commits; content comparison",
+      "fix_type": "two-layer guard (P-081 density + check HEAD:path before write)",
+      "jepsen_analog": "Redis-Raft #19 (stale reads — missing protocol step allows incorrect state)"
+    },
+    {
+      "id": "L-561",
+      "name": "Lane-closure orphaning",
+      "layer": "protocol-spec",
+      "deterministic": "given_sequence",
+      "determinism_detail": "When work diffuses across sessions, no single session owns closing ritual. Deterministic given concurrent work pattern.",
+      "min_sessions": 2,
+      "detection": "orient.py stale-lane flag",
+      "fix_type": "detect ACTIVE + artifact committed = closing-gap",
+      "jepsen_analog": "none — ownership diffusion, novel to multi-agent"
+    },
+    {
+      "id": "L-526",
+      "name": "Orient→execute pre-emption",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "Planning becomes obsolete during orient phase. All planned tasks pre-empted at N≥3. Timing-dependent: commit rate exceeds planning cycle.",
+      "min_sessions": 3,
+      "threshold_behavior": "N<3: never; N≥3: always (sharp threshold)",
+      "detection": "git log shows task completed during planning",
+      "fix_type": "re-check git log before each task; switch to novel work",
+      "jepsen_analog": "etcd #11456 (client-server race — wide timing window)"
+    },
+    {
+      "id": "L-203",
+      "name": "Shared-file write loss",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "Lock-free append under N=2-4 lost 12/1040 writes. Fixed by lock-file protocol to 0 loss.",
+      "min_sessions": 2,
+      "threshold_behavior": "N=1: zero; N≥2: probabilistic",
+      "detection": "entry count audit",
+      "fix_type": "lock-file protocol",
+      "jepsen_analog": "etcd #11456 (race condition in client library, wide window)"
+    },
+    {
+      "id": "L-602",
+      "name": "Lesson-slot contention",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "Two sessions independently choose same lesson number. 8 events at N≥5.",
+      "min_sessions": 5,
+      "threshold_behavior": "N<5: rare; N≥5: frequent (8 events observed)",
+      "detection": "duplicate lesson file detection",
+      "fix_type": "claim.py atomic slot reservation",
+      "jepsen_analog": "CockroachDB #9083 (concurrent timestamp collision)"
+    },
+    {
+      "id": "L-226",
+      "name": "Hot-file contention",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "Concurrent sessions converge on same hot files (PAPER.md, INDEX.md, FRONTIER.md). Orient.py output stale before execution.",
+      "min_sessions": 2,
+      "threshold_behavior": "grows linearly with N; systematic at N≥3",
+      "detection": "file modified since read errors",
+      "fix_type": "verify periodics.json directly; file-level conflict avoidance",
+      "jepsen_analog": "etcd #11456 (concurrent access to shared resource)"
+    },
+    {
+      "id": "staging-absorption",
+      "name": "Staged files absorbed by concurrent commits (N≥8)",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "At N≥8, staged files get absorbed/emptied by concurrent commits. Small fast commits work; large batches don't.",
+      "min_sessions": 8,
+      "threshold_behavior": "N<8: rare; N≥8: systematic",
+      "detection": "empty staged files after commit attempt",
+      "fix_type": "stage→commit immediately, never batch",
+      "jepsen_analog": "none — unique to shared working tree (databases don't share staging)"
+    },
+    {
+      "id": "commit-by-proxy",
+      "name": "Commit-by-proxy absorption (N≥5)",
+      "layer": "client-server",
+      "deterministic": false,
+      "determinism_detail": "Concurrent nodes harvest uncommitted working tree files into their handoff commits. Normal at high concurrency.",
+      "min_sessions": 5,
+      "threshold_behavior": "N<5: rare; N≥5: default pattern",
+      "detection": "git log shows content in another session's commit",
+      "fix_type": "check git log before re-doing; accepted as normal",
+      "jepsen_analog": "none — unique to shared working tree; more like gossip protocol than bug"
+    },
+    {
+      "id": "L-589",
+      "name": "Claim TTL ghost lock",
+      "layer": "distributed-clock",
+      "deterministic": false,
+      "determinism_detail": "TTL calibrated for single-session (300s) creates 5-cycle overlap at N≥5. Depends on session count vs TTL ratio.",
+      "min_sessions": 3,
+      "threshold_behavior": "ghost_cycles = ceil(TTL / commit_cycle) - 1; at 300s/60s = 4 extra cycles",
+      "detection": "session reports claim held by expired session",
+      "fix_type": "reduce TTL 300s→120s + GC before claim + release on git-add",
+      "jepsen_analog": "CockroachDB #9083 (distributed-clock: timing mismatch between assumed and actual clock behavior)"
+    },
+    {
+      "id": "L-234",
+      "name": "WSL mass-staging of deletions",
+      "layer": "infrastructure",
+      "deterministic": false,
+      "determinism_detail": "WSL filesystem corruption causes git index to see existing files as absent. Environmental, not reproducible on-demand.",
+      "min_sessions": 1,
+      "detection": "git status shows 729 deletions for existing files",
+      "fix_type": "never use git add -A; always add specific files; spot-check",
+      "jepsen_analog": "NONE — hardware/substrate failure, outside Jepsen scope"
+    },
+    {
+      "id": "L-288",
+      "name": "Git index corruption under concurrent load",
+      "layer": "infrastructure",
+      "deterministic": false,
+      "determinism_detail": "Index file smaller than expected during high-concurrency commit race. One instance at N≥5.",
+      "min_sessions": 5,
+      "detection": "all git operations become fatal",
+      "fix_type": "rm .git/index && git reset",
+      "jepsen_analog": "NONE — index corruption is filesystem failure"
+    },
+    {
+      "id": "L-658",
+      "name": "Loose object corruption",
+      "layer": "infrastructure",
+      "deterministic": false,
+      "determinism_detail": "WSL filesystem corruption produces zlib error on commit object. One instance.",
+      "min_sessions": 1,
+      "detection": "git operations fatal with zlib error",
+      "fix_type": "remove corrupt object via reflog, reset to parent SHA",
+      "jepsen_analog": "NONE — filesystem corruption"
+    },
+    {
+      "id": "L-279",
+      "name": "WSL resurrection after compaction",
+      "layer": "infrastructure",
+      "deterministic": "conditional",
+      "determinism_detail": "WSL resurrects deleted files after context-limit resumption. Deterministic in WSL+compaction+resume scenario.",
+      "min_sessions": 1,
+      "detection": "git status shows new file for recently deleted path",
+      "fix_type": "verify new file against git log before committing",
+      "jepsen_analog": "NONE — WSL filesystem behavior"
+    },
+    {
+      "id": "L-233",
+      "name": "git ls-files transient empty return",
+      "layer": "infrastructure",
+      "deterministic": false,
+      "determinism_detail": "Transient; resolved by retry. WSL index lock or concurrent writes.",
+      "min_sessions": 1,
+      "detection": "tool output shows 0 lessons",
+      "fix_type": "retry",
+      "jepsen_analog": "NONE — transient filesystem"
+    }
+  ],
+  "results": {
+    "gradient_test": {
+      "state_machine": {"total": 8, "deterministic": 8, "rate": "100%"},
+      "protocol_spec": {"total": 4, "deterministic_given_sequence": 4, "rate": "100%"},
+      "client_server": {"total": 6, "timing_dependent": 6, "rate": "0% strictly deterministic"},
+      "distributed_clock": {"total": 1, "timing_dependent": 1, "rate": "0%"},
+      "infrastructure": {"total": 5, "non_deterministic": 4, "conditional": 1, "rate": "20%"},
+      "gradient_holds": true,
+      "in_model_accuracy": "19/19 (100%) — Jepsen 4-layer gradient perfectly predicts swarm bug determinism",
+      "out_of_model": "5/24 (21%) bugs in infrastructure layer not covered by Jepsen taxonomy"
+    },
+    "overall_determinism": {
+      "strict": "12/24 = 50%",
+      "including_given_sequence": "16/24 = 67%",
+      "jepsen_comparison": "Jepsen 60-80% (3-4/5 bugs). Swarm 50-67%. LOWER, not higher.",
+      "prediction_wrong": "Predicted swarm determinism > databases due to git consistency. WRONG — infrastructure layer (WSL, 21%) and threshold-based client-server bugs lower the average."
+    },
+    "novel_findings": {
+      "fifth_layer": "Infrastructure/substrate layer not in Jepsen taxonomy. Jepsen tests software correctness under partitions; swarm exposes hardware/filesystem bugs that Jepsen assumes away. 21% of swarm failures are in this layer.",
+      "threshold_behavior": "Swarm client-server bugs have sharp concurrency thresholds (N=3, N=5, N≥8) — below threshold = never, above = always/frequent. Jepsen bugs are probabilistic per-event. This is qualitatively different: swarm failures are phase-transition-like, not probabilistic.",
+      "no_byzantine_faults": "Git provides linearizable commits. No swarm bug involves conflicting truth or Byzantine disagreement. Entire failure class present in distributed databases is eliminated by consensus substrate (git).",
+      "ownership_diffusion": "L-561 (lane-closure orphaning) is a novel failure mode: work diffuses across sessions so no single session owns the closing ritual. No Jepsen analog — unique to multi-agent systems with shared ownership.",
+      "absorption_as_feature": "Commit-by-proxy (N≥5) looks like a bug but functions as gossip protocol. Information propagation via working-tree harvest is an emergent coordination mechanism."
+    },
+    "concurrency_thresholds": {
+      "N1": "state-machine bugs only (logic errors independent of concurrency)",
+      "N2": "protocol-spec bugs emerge (convergence, logical overwrite)",
+      "N3": "client-server bugs emerge (orient pre-emption, DUE convergence, hot-file contention)",
+      "N5": "high-concurrency regime (lesson-slot contention, commit-by-proxy, TTL ghost locks, index corruption)",
+      "N8": "extreme regime (staging absorption, commit-by-proxy becomes default pattern)"
+    },
+    "jepsen_vs_swarm_comparison": {
+      "jepsen_layers_4": "state-machine (100%) > protocol-spec (100% given seq) > client-server (wide timing) > distributed-clock (narrow timing)",
+      "swarm_layers_5": "state-machine (100%) > protocol-spec (100% given seq) > client-server (threshold-based) > distributed-clock (TTL mismatch) > infrastructure (substrate)",
+      "key_difference": "Jepsen gradient is smooth probability decay. Swarm gradient is CLIFF: 100%/100% → 0%/0%. No intermediate. The cliff is sharper because git eliminates partial-order bugs — failures are either deterministic logic or concurrency races, nothing in between.",
+      "shared_pattern": "Architecture layer predicts determinism in both substrates. The gradient transfers across domains (ISO candidate)."
+    }
+  },
+  "prediction_assessment": {
+    "gradient_predicts_swarm_bugs": "CONFIRMED — 19/19 in-model accuracy (100%)",
+    "accuracy_above_70pct": "CONFIRMED — 100% within Jepsen layers; 79% including infrastructure (19/24)",
+    "higher_determinism_than_databases": "WRONG — 50-67% vs Jepsen 60-80%. Root cause: infrastructure layer + threshold-based client-server bugs",
+    "overall": "2/3 predictions confirmed, 1/3 wrong (direction of overall determinism)"
+  },
+  "iso_candidate": "ISO-21: Architecture-layer → determinism gradient transfers from databases (Jepsen) to knowledge systems (swarm). Lower abstraction = more deterministic. Independent of substrate.",
+  "lesson": "L-699",
+  "next_steps": [
+    "Test gradient on third substrate (e.g., Kubernetes failure modes, CI/CD pipeline bugs)",
+    "Build swarm-internal bug classifier tool that auto-tags new failures by architecture layer",
+    "Measure if infrastructure-layer bugs decrease after WSL→native migration",
+    "File ISO-21 if gradient holds on third substrate",
+    "Connect threshold behavior (N=3/5/8) to F-SP2 throughput ceiling findings"
+  ]
+}

@@ -1,0 +1,403 @@
+{
+  "experiment": "F-BRN5",
+  "session": "S345",
+  "hypothesis": "Sessions at K>27k show lower challenge rate and citation quality",
+  "threshold": 27000,
+  "current_session": 345,
+  "methodology": {
+    "proxy_k_source": "experiments/proxy-k-log.json",
+    "citation_source": "experiments/compact-citation-cache.json (inverted)",
+    "lesson_source": "experiments/compact-lesson-cache.json",
+    "age_normalization": "citations_per_lesson / (current_session - lesson_session)",
+    "challenge_detection": "regex PHIL-\\d+|CHALLENGE|challenge|falsif in lesson text"
+  },
+  "results": {
+    "low_k": {
+      "sessions": [
+        0,
+        75,
+        77,
+        80,
+        85,
+        86,
+        87,
+        96,
+        99
+      ],
+      "n_sessions_with_lessons": 9,
+      "raw_citations": {
+        "n": 9,
+        "mean": 3.559,
+        "median": 3.0,
+        "stdev": 1.66272,
+        "min": 1.0,
+        "max": 6.364
+      },
+      "age_norm_citations": {
+        "n": 9,
+        "mean": 0.01299,
+        "median": 0.0122,
+        "stdev": 0.00518,
+        "min": 0.00402,
+        "max": 0.02099
+      },
+      "lessons_per_session": {
+        "n": 9,
+        "mean": 16.11111,
+        "median": 1,
+        "stdev": 42.354,
+        "min": 1,
+        "max": 129
+      }
+    },
+    "high_k": {
+      "sessions": [
+        125,
+        167,
+        168,
+        175,
+        179,
+        180,
+        181,
+        182,
+        186,
+        188,
+        191,
+        195,
+        301,
+        306,
+        335,
+        339
+      ],
+      "n_sessions_with_lessons": 16,
+      "raw_citations": {
+        "n": 16,
+        "mean": 6.83844,
+        "median": 5.5,
+        "stdev": 4.14487,
+        "min": 2.0,
+        "max": 15.0
+      },
+      "age_norm_citations": {
+        "n": 16,
+        "mean": 0.13071,
+        "median": 0.05006,
+        "stdev": 0.23299,
+        "min": 0.00909,
+        "max": 0.94444
+      },
+      "lessons_per_session": {
+        "n": 16,
+        "mean": 6.0625,
+        "median": 4.0,
+        "stdev": 6.09337,
+        "min": 1,
+        "max": 25
+      }
+    },
+    "effect_sizes": {
+      "raw_citation_pct_change": 92.14,
+      "norm_citation_pct_change": 906.51
+    },
+    "challenge_rate": {
+      "low_k": {
+        "sessions": 18,
+        "with_challenges": 30,
+        "rate": 1.6667
+      },
+      "high_k": {
+        "sessions": 34,
+        "with_challenges": 23,
+        "rate": 0.6765
+      }
+    }
+  },
+  "per_session": {
+    "low_k": [
+      {
+        "session": 0,
+        "proxy_k": 24620,
+        "n_lessons": 129,
+        "total_citations": 821,
+        "avg_citations_per_lesson": 6.364,
+        "age_sessions": 345,
+        "age_norm_citations": 0.01845
+      },
+      {
+        "session": 75,
+        "proxy_k": 26197,
+        "n_lessons": 3,
+        "total_citations": 17,
+        "avg_citations_per_lesson": 5.667,
+        "age_sessions": 270,
+        "age_norm_citations": 0.02099
+      },
+      {
+        "session": 77,
+        "proxy_k": 24560,
+        "n_lessons": 4,
+        "total_citations": 10,
+        "avg_citations_per_lesson": 2.5,
+        "age_sessions": 268,
+        "age_norm_citations": 0.00933
+      },
+      {
+        "session": 80,
+        "proxy_k": 25010,
+        "n_lessons": 4,
+        "total_citations": 10,
+        "avg_citations_per_lesson": 2.5,
+        "age_sessions": 265,
+        "age_norm_citations": 0.00943
+      },
+      {
+        "session": 85,
+        "proxy_k": 25011,
+        "n_lessons": 1,
+        "total_citations": 4,
+        "avg_citations_per_lesson": 4.0,
+        "age_sessions": 260,
+        "age_norm_citations": 0.01538
+      },
+      {
+        "session": 86,
+        "proxy_k": 23383,
+        "n_lessons": 1,
+        "total_citations": 3,
+        "avg_citations_per_lesson": 3.0,
+        "age_sessions": 259,
+        "age_norm_citations": 0.01158
+      },
+      {
+        "session": 87,
+        "proxy_k": 23899,
+        "n_lessons": 1,
+        "total_citations": 4,
+        "avg_citations_per_lesson": 4.0,
+        "age_sessions": 258,
+        "age_norm_citations": 0.0155
+      },
+      {
+        "session": 96,
+        "proxy_k": 24836,
+        "n_lessons": 1,
+        "total_citations": 1,
+        "avg_citations_per_lesson": 1.0,
+        "age_sessions": 249,
+        "age_norm_citations": 0.00402
+      },
+      {
+        "session": 99,
+        "proxy_k": 24825,
+        "n_lessons": 1,
+        "total_citations": 3,
+        "avg_citations_per_lesson": 3.0,
+        "age_sessions": 246,
+        "age_norm_citations": 0.0122
+      }
+    ],
+    "high_k": [
+      {
+        "session": 125,
+        "proxy_k": 28064,
+        "n_lessons": 1,
+        "total_citations": 2,
+        "avg_citations_per_lesson": 2.0,
+        "age_sessions": 220,
+        "age_norm_citations": 0.00909
+      },
+      {
+        "session": 167,
+        "proxy_k": 38899,
+        "n_lessons": 1,
+        "total_citations": 15,
+        "avg_citations_per_lesson": 15.0,
+        "age_sessions": 178,
+        "age_norm_citations": 0.08427
+      },
+      {
+        "session": 168,
+        "proxy_k": 38899,
+        "n_lessons": 1,
+        "total_citations": 14,
+        "avg_citations_per_lesson": 14.0,
+        "age_sessions": 177,
+        "age_norm_citations": 0.0791
+      },
+      {
+        "session": 175,
+        "proxy_k": 37260,
+        "n_lessons": 6,
+        "total_citations": 88,
+        "avg_citations_per_lesson": 14.667,
+        "age_sessions": 170,
+        "age_norm_citations": 0.08627
+      },
+      {
+        "session": 179,
+        "proxy_k": 39172,
+        "n_lessons": 4,
+        "total_citations": 25,
+        "avg_citations_per_lesson": 6.25,
+        "age_sessions": 166,
+        "age_norm_citations": 0.03765
+      },
+      {
+        "session": 180,
+        "proxy_k": 40798,
+        "n_lessons": 5,
+        "total_citations": 43,
+        "avg_citations_per_lesson": 8.6,
+        "age_sessions": 165,
+        "age_norm_citations": 0.05212
+      },
+      {
+        "session": 181,
+        "proxy_k": 40814,
+        "n_lessons": 4,
+        "total_citations": 16,
+        "avg_citations_per_lesson": 4.0,
+        "age_sessions": 164,
+        "age_norm_citations": 0.02439
+      },
+      {
+        "session": 182,
+        "proxy_k": 42937,
+        "n_lessons": 12,
+        "total_citations": 72,
+        "avg_citations_per_lesson": 6.0,
+        "age_sessions": 163,
+        "age_norm_citations": 0.03681
+      },
+      {
+        "session": 186,
+        "proxy_k": 51373,
+        "n_lessons": 4,
+        "total_citations": 12,
+        "avg_citations_per_lesson": 3.0,
+        "age_sessions": 159,
+        "age_norm_citations": 0.01887
+      },
+      {
+        "session": 188,
+        "proxy_k": 51536,
+        "n_lessons": 13,
+        "total_citations": 55,
+        "avg_citations_per_lesson": 4.231,
+        "age_sessions": 157,
+        "age_norm_citations": 0.02695
+      },
+      {
+        "session": 191,
+        "proxy_k": 54939,
+        "n_lessons": 4,
+        "total_citations": 20,
+        "avg_citations_per_lesson": 5.0,
+        "age_sessions": 154,
+        "age_norm_citations": 0.03247
+      },
+      {
+        "session": 195,
+        "proxy_k": 56129,
+        "n_lessons": 5,
+        "total_citations": 36,
+        "avg_citations_per_lesson": 7.2,
+        "age_sessions": 150,
+        "age_norm_citations": 0.048
+      },
+      {
+        "session": 301,
+        "proxy_k": 58098,
+        "n_lessons": 6,
+        "total_citations": 32,
+        "avg_citations_per_lesson": 5.333,
+        "age_sessions": 44,
+        "age_norm_citations": 0.12121
+      },
+      {
+        "session": 306,
+        "proxy_k": 58753,
+        "n_lessons": 25,
+        "total_citations": 120,
+        "avg_citations_per_lesson": 4.8,
+        "age_sessions": 39,
+        "age_norm_citations": 0.12308
+      },
+      {
+        "session": 335,
+        "proxy_k": 60238,
+        "n_lessons": 3,
+        "total_citations": 11,
+        "avg_citations_per_lesson": 3.667,
+        "age_sessions": 10,
+        "age_norm_citations": 0.36667
+      },
+      {
+        "session": 339,
+        "proxy_k": 55930,
+        "n_lessons": 3,
+        "total_citations": 17,
+        "avg_citations_per_lesson": 5.667,
+        "age_sessions": 6,
+        "age_norm_citations": 0.94444
+      }
+    ]
+  },
+  "refined_analysis": {
+    "session_0_excluded": true,
+    "challenge_rate_corrected": {
+      "low_k": {
+        "lessons": 16,
+        "with_challenges": 4,
+        "rate": 0.25
+      },
+      "high_k": {
+        "lessons": 97,
+        "with_challenges": 23,
+        "rate": 0.237
+      },
+      "difference": "Not significant (25.0% vs 23.7%)"
+    },
+    "k_citation_correlation": {
+      "pearson_r": 0.4375,
+      "n": 24,
+      "direction": "POSITIVE (opposite of hypothesis)",
+      "interpretation": "Higher K correlates with higher age-normalized citation quality"
+    },
+    "within_high_k_gradient": {
+      "27_40k": {
+        "sessions": 5,
+        "raw_cites_mean": 10.38,
+        "norm_mean": 0.05928
+      },
+      "40_55k": {
+        "sessions": 6,
+        "raw_cites_mean": 5.14,
+        "norm_mean": 0.03193
+      },
+      "55k_plus": {
+        "sessions": 5,
+        "raw_cites_mean": 5.33,
+        "norm_mean": 0.32068
+      },
+      "note": "Drop from 27-40k to 40k+ (~50%) is intriguing but n is small and age-confounded"
+    },
+    "compaction_events": {
+      "n_events": 11,
+      "largest_drop": "S126\u2192S127: -5072 tokens (-18.8%)",
+      "pre_post_quality_data": "Insufficient (most events lack lesson data in both windows)"
+    }
+  },
+  "verdict": {
+    "prediction_met": false,
+    "status": "REFUTED_OBSERVATIONALLY_CONFOUNDED",
+    "summary": "K and session-age are perfectly collinear. K only grows monotonically. Observational test cannot separate K-degradation from maturation-improvement. Challenge rate is essentially equal (25.0% vs 23.7%). Citation quality positively correlates with K (r=+0.44), opposite of prediction.",
+    "methodological_finding": "The sleep-deprivation analog is UNTESTABLE with observational data because the swarm never returns to low-K after crossing threshold. Controlled experiment required: pre/post compaction comparison, or cross-system comparison of two swarms at different K levels.",
+    "within_high_k_hint": "Drop from 10.38 to 5.14 cites/lesson between 27-40k and 40-55k bands is suggestive but small-n (5 vs 6) and temporally confounded.",
+    "next_steps": [
+      "Design controlled experiment: compact to K<27k, then measure next 5 sessions quality",
+      "Track within-high-K gradient as more data accumulates (currently n too small)",
+      "Cross-system comparison if/when child swarms reach different K levels"
+    ]
+  }
+}

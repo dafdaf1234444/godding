@@ -1,0 +1,184 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa-direct-answer",
+  "seed": 186,
+  "lang": "en",
+  "trials_per_condition": 8,
+  "perturb_rate": 0.25,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.8333,
+      0.75
+    ],
+    "summary": {
+      "mean": 0.7604,
+      "std": 0.0276,
+      "variance": 0.00076
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "France"
+        ],
+        "predictions": [
+          "Closed-ended question"
+        ],
+        "vote": "Closed-ended question"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "resolved_titles": [
+          "India"
+        ],
+        "predictions": [
+          "Delhi"
+        ],
+        "vote": "Delhi"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "resolved_titles": [
+          "Egypt"
+        ],
+        "predictions": [
+          "The New Capital"
+        ],
+        "vote": "The New Capital"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75,
+      0.75
+    ],
+    "summary": {
+      "mean": 0.75,
+      "std": 0.0,
+      "variance": 0.0
+    },
+    "mean_pairwise_prediction_agreement": 0.9653,
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "France",
+          "France",
+          "France"
+        ],
+        "predictions": [
+          "Closed-ended question",
+          "Closed-ended question",
+          "Closed-ended question"
+        ],
+        "vote": "Closed-ended question"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "resolved_titles": [
+          "India",
+          "New Delhi",
+          "India"
+        ],
+        "predictions": [
+          "Delhi",
+          "New Delhi",
+          "Delhi"
+        ],
+        "vote": "Delhi"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "resolved_titles": [
+          "Egypt",
+          "Egypt",
+          "Egypt"
+        ],
+        "predictions": [
+          "The New Capital",
+          "The New Capital",
+          "The New Capital"
+        ],
+        "vote": "The New Capital"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": -0.0104,
+    "variance_ratio_n3_over_n1": 0.0
+  },
+  "interpretation": "This run scores direct capital answers extracted from fetched knowledge content (with fallback to resolved title), reducing resolver-proxy bias in the F-FIN1 factual diversification test.",
+  "generated_at_utc": "2026-02-27T21:00:01Z"
+}

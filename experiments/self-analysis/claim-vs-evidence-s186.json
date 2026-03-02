@@ -1,0 +1,25 @@
+{
+  "session": "S186",
+  "generated_utc": "2026-02-27T20:31:39Z",
+  "source_files": [
+    "beliefs/PHILOSOPHY.md",
+    "beliefs/CHALLENGES.md"
+  ],
+  "scope": "PHILOSOPHY challenge table only",
+  "philosophy_challenge_status_counts": {
+    "PARTIAL": 1,
+    "SUPERSEDED": 2,
+    "CONFIRMED": 3,
+    "REFINED": 12
+  },
+  "philosophy_challenge_total": 18,
+  "philosophy_confirmed_ratio": 0.1667,
+  "p164_underchallenging_threshold": 0.8,
+  "p164_underchallenging_triggered": false,
+  "core_open_challenge_count": 0,
+  "summary": {
+    "claim_vs_evidence_audit": "PASS",
+    "mission_constraints_regression": "PASS (34/34)",
+    "proxy_k_saved": "experiments/proxy-k-log.json"
+  }
+}

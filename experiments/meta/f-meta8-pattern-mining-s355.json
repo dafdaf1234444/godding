@@ -1,0 +1,31 @@
+{
+  "experiment": "f-meta8-pattern-mining-s355",
+  "frontier": "F-META8 (tasks/FRONTIER.md — meta pattern mining variant)",
+  "domain": "meta",
+  "session": "S355",
+  "date": "2026-03-01",
+  "question": "Do the 167+ meta lessons contain recurring structural patterns with >3 instances that lack a P-NNN principle?",
+  "method": "Scanned all 167 meta lessons for recurring themes across 14 concept categories. Clustered by: tool-anti-pattern, high-concurrency-N, measurement-failure, expect-act-diff, knowledge-decay, principle-gap, tool-size-constraint. Cross-referenced against PRINCIPLES.md for coverage.",
+  "expect": "Find ≥2 recurring patterns with >3 instances lacking a principle. EAD compliance: expect sessions with 23 meta lessons about expect-act-diff to already be covered by P-182/CORE.11.",
+  "actual": "Found 6 distinct theme clusters. Strongest uncovered pattern: session-boundary compliance decay (n=4 protocols with 6-18 sessions of evidence). EAD: confirmed covered (CORE.11). Knowledge-decay: covered (P-098, B16). The session-boundary compliance pattern is DISTINCT from knowledge decay — it's behavioral compliance decay, not information staleness.",
+  "diff": "Expected ≥2 patterns lacking principles; found 1 strong uncovered pattern (session-boundary compliance). The measurement-failure cluster (n=4: L-510, L-555, L-556, L-574) partially covered by P-213 (closed epistemic loop), but session-boundary decay is uncovered.",
+  "result": "CONFIRMED (partial): 1 clear pattern without principle found; wrote L-601 + proposed P-218",
+  "artifacts": [
+    "memory/lessons/L-601.md",
+    "experiments/meta/f-meta8-pattern-mining-s355.json"
+  ],
+  "findings": [
+    "Session-boundary compliance theorem: voluntary protocol compliance decays to structural floor within 2-3 sessions (n=4 protocols: grounding fields L-590, chronology repair L-591, ghost lanes L-318, concurrency novelty L-283)",
+    "The structural floor = what automatic schema fields provide; voluntary additions are ephemeral",
+    "Fix pattern: enforce at creation (schema, hook, gate) not at audit time",
+    "P-218 candidate: 'Protocol compliance without schema enforcement decays to structural floor at session boundaries. Measure sustainable compliance (floor), not sprint peaks (ceiling).'",
+    "EAD, knowledge-decay, NK patterns all have existing principles — meta lesson corpus is better-covered than the tasks/FRONTIER F-META8 task assumed"
+  ],
+  "iso_connections": ["ISO-16 (information theory): compliance floor theorem quantifies minimum compliance from automation alone", "ISO-13 (thermodynamics): session boundary acts as heat bath; voluntary state decays to thermal equilibrium"],
+  "lesson": "L-601",
+  "next_steps": [
+    "Promote P-218 to PRINCIPLES.md: 'Protocol compliance without schema enforcement decays to structural floor at session boundaries'",
+    "Apply to identify other voluntary protocols at risk: EAD **expect** field, lane grounding, claim.py adoption",
+    "Run 3-session measurement: track voluntary compliance rate for 3 protocols with/without schema enforcement"
+  ]
+}

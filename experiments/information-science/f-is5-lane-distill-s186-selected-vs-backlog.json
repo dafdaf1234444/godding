@@ -1,0 +1,233 @@
+{
+  "experiment": "F-IS5",
+  "title": "two-pass lane distillation scoring",
+  "source_intake_artifact": "experiments/information-science/f-is5-arxiv-swarmable-s186-rerun.json",
+  "active_target_sources": [
+    "tasks/FRONTIER.md",
+    "domains/information-science/tasks/FRONTIER.md",
+    "domains/finance/tasks/FRONTIER.md",
+    "domains/ai/tasks/FRONTIER.md",
+    "memory/PRINCIPLES.md",
+    "beliefs/PHILOSOPHY.md"
+  ],
+  "pass_count": 2,
+  "pass_sources": {
+    "lane-owner-A": "selected",
+    "lane-owner-B": "backlog"
+  },
+  "input_papers": 24,
+  "input_lanes": 5,
+  "summary_metrics": {
+    "claims_total": 12,
+    "claims_unique_text": 12,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 20,
+    "transfer_accepted": 0,
+    "transfer_acceptance_rate": 0.0,
+    "merge_collision_count": 0,
+    "merge_collision_frequency": 0.0,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 10,
+        "cross_domain_targets": 16
+      },
+      "lane-owner-B": {
+        "claims": 2,
+        "cross_domain_targets": 4
+      }
+    }
+  },
+  "claims": [
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.19843v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.19843v1 reports a protocol-orchestration signal via 'MAS-FIRE: Fault Injection and Reliability Evaluation for LLM-Based Multi-Agent Systems'. Evidence preview: As LLM-based Multi-Agent Systems (MAS) are increasingly deployed for complex tasks, ensuring their reliability has become a pressing...",
+      "targets": [
+        "F-IS4",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "F-AI2"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.16873v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.16873v1 reports a protocol-orchestration signal via 'AdaptOrch: Task-Adaptive Multi-Agent Orchestration in the Era of LLM Performance Convergence'. Evidence preview: As large language models from diverse providers converge toward comparable benchmark performance, the traditional paradigm of selecting a...",
+      "targets": [
+        "F-IS4",
+        "F-AI2"
+      ],
+      "cross_domain_targets": [
+        "F-AI2"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.09159v1",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.09159v1 reports a evaluation-scaling signal via 'CoMMa: Contribution-Aware Medical Multi-Agents From A Game-Theoretic Perspective'. Evidence preview: Recent multi-agent frameworks have broadened the ability to tackle oncology decision support tasks that require reasoning over dynamic,...",
+      "targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "cross_domain_targets": [
+        "F124",
+        "F-FIN1"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-02",
+      "paper_id": "2602.14160v1",
+      "theme": "evaluation-scaling",
+      "claim_text": "2602.14160v1 reports a evaluation-scaling signal via 'Process-Supervised Multi-Agent Reinforcement Learning for Reliable Clinical Reasoning'. Evidence preview: Clinical decision-making requires nuanced reasoning over heterogeneous evidence and traceable justifications. While recent LLM multi-agent systems (MAS) show...",
+      "targets": [
+        "F124",
+        "F-FIN1"
+      ],
+      "cross_domain_targets": [
+        "F124",
+        "F-FIN1"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.11510v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.11510v1 reports a memory-knowledge signal via 'AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems'. Evidence preview: Multi-agent Large Language Model (LLM) systems create privacy risks that current benchmarks cannot measure. When agents coordinate on...",
+      "targets": [
+        "F-IS3",
+        "P-152"
+      ],
+      "cross_domain_targets": [
+        "P-152"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-03",
+      "paper_id": "2602.20934v1",
+      "theme": "memory-knowledge",
+      "claim_text": "2602.20934v1 reports a memory-knowledge signal via 'Architecting AgentOS: From Token-Level Context to Emergent System-Level Intelligence'. Evidence preview: The paradigm of Large Language Models is undergoing a fundamental transition from static inference engines to dynamic autonomous...",
+      "targets": [
+        "F-IS3",
+        "P-152"
+      ],
+      "cross_domain_targets": [
+        "P-152"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.16898v3",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.16898v3 reports a tool-use-execution signal via 'MALLVI: A Multi-Agent Framework for Integrated Generalized Robotics Manipulation'. Evidence preview: Task planning for robotic manipulation with large language models (LLMs) is an emerging area. Prior approaches rely on...",
+      "targets": [
+        "F111",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "F111",
+        "F120"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-04",
+      "paper_id": "2602.11790v1",
+      "theme": "tool-use-execution",
+      "claim_text": "2602.11790v1 reports a tool-use-execution signal via 'Beyond End-to-End Video Models: An LLM-Based Multi-Agent System for Educational Video Generation'. Evidence preview: Although recent end-to-end video generation models demonstrate impressive performance in visually oriented content creation, they remain limited in...",
+      "targets": [
+        "F111",
+        "F120"
+      ],
+      "cross_domain_targets": [
+        "F111",
+        "F120"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-05",
+      "paper_id": "2602.13477v2",
+      "theme": "safety-reliability",
+      "claim_text": "2602.13477v2 reports a safety-reliability signal via 'OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage'. Evidence preview: As Large Language Model (LLM) agents become more capable, their coordinated use in the form of multi-agent systems...",
+      "targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "cross_domain_targets": [
+        "F119",
+        "PHIL-13"
+      ]
+    },
+    {
+      "owner": "lane-owner-A",
+      "source_set": "selected",
+      "lane_id": "ARX-05",
+      "paper_id": "2602.23005v1",
+      "theme": "safety-reliability",
+      "claim_text": "2602.23005v1 reports a safety-reliability signal via 'Managing Uncertainty in LLM-based Multi-Agent System Operation'. Evidence preview: Applying LLM-based multi-agent software systems in safety-critical domains such as lifespan echocardiography introduces system-level risks that cannot be...",
+      "targets": [
+        "F119",
+        "PHIL-13"
+      ],
+      "cross_domain_targets": [
+        "F119",
+        "PHIL-13"
+      ]
+    },
+    {
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.21806v2",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.21806v2 suggests a protocol-orchestration signal via 'An Empirical Study of Bugs in Modern LLM Agent Frameworks'. Evidence preview: LLM agents have been widely adopted in real-world applications, relying on agent frameworks for workflow execution and multi-agent...",
+      "targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "cross_domain_targets": [
+        "F-AI2",
+        "F122"
+      ]
+    },
+    {
+      "owner": "lane-owner-B",
+      "source_set": "backlog",
+      "lane_id": "ARX-01",
+      "paper_id": "2602.11754v1",
+      "theme": "protocol-orchestration",
+      "claim_text": "2602.11754v1 suggests a protocol-orchestration signal via 'Cooperation Breakdown in LLM Agents Under Communication Delays'. Evidence preview: LLM-based multi-agent systems (LLM-MAS), in which autonomous AI agents cooperate to solve tasks, are gaining increasing attention. For...",
+      "targets": [
+        "F-AI2",
+        "F122"
+      ],
+      "cross_domain_targets": [
+        "F-AI2",
+        "F122"
+      ]
+    }
+  ],
+  "interpretation": "Pass A and Pass B independently distilled the same lane pack. Transfer acceptance requires both passes proposing the same target for a paper and target presence in active frontiers/principles.",
+  "generated_at_utc": "2026-02-27T20:49:45Z"
+}

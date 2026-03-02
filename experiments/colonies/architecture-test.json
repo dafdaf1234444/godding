@@ -1,0 +1,29 @@
+{
+  "name": "architecture-test",
+  "children": [
+    {
+      "name": "architecture-test-baseline",
+      "topic": "baseline"
+    },
+    {
+      "name": "architecture-test-minimal",
+      "topic": "minimal-structure-test"
+    }
+  ],
+  "sessions_per_child": 1,
+  "status": "spawned",
+  "results": [
+    {
+      "name": "architecture-test-baseline",
+      "topic": "baseline",
+      "status": "spawned",
+      "path": "<swarm-repo>/experiments/children/architecture-test-baseline"
+    },
+    {
+      "name": "architecture-test-minimal",
+      "topic": "minimal-structure-test",
+      "status": "spawned",
+      "path": "<swarm-repo>/experiments/children/architecture-test-minimal"
+    }
+  ]
+}

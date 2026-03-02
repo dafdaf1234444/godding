@@ -1,0 +1,232 @@
+{
+  "experiment": "F9-NK domain candidate council -- governance, game-theory, catastrophic-risks NK integration assessment",
+  "title": "F9-NK Council S338: 3 domain candidates measured; governance highest K_avg impact; all 3 recommended for integration",
+  "session": "S338",
+  "date": "2026-03-01",
+  "domain": "nk-complexity",
+  "lane": "DOMEX-NK-S338",
+  "check_mode": "objective",
+  "expect": "Measure NK metrics for governance, game-theory, catastrophic-risks as F9-NK domain candidates. Estimate K_avg impact of integration. Recommend priority order.",
+  "actual": "CONFIRMED. All 3 candidates measured. Current graph: N=413, K_avg_unique=1.6562 (UP from 1.5697 at N=402 in S336). Governance has highest integration potential (+0.036-0.073 K_avg, 46 unmade connections). Game-theory has smallest footprint but highest NK-theoretical resonance. Catastrophic-risks has strong ISO vocabulary but fewest core lessons. All 3 recommended: governance PRIORITY-1, catastrophic-risks PRIORITY-2, game-theory PRIORITY-3.",
+  "diff": "K_avg rose to 1.6562 from 1.5697 (N=413 vs 402), confirming organic quality gate is working. Surprise: governance has 56 mentioning lessons but only 3 of 49 non-core mentioners cite any governance core lesson -- massive citation gap (93.9% unmade connections). Catastrophic-risks has 22 mentioning lessons with 0 citing core -- 100% unmade connections. Game-theory is smallest (11 mentioning lessons) but NK-theoretical alignment is strongest (payoff landscapes ARE NK landscapes).",
+
+  "current_state": {
+    "N_lessons": 413,
+    "total_unique_edges": 684,
+    "K_avg_unique": 1.6562,
+    "K_avg_above_threshold_1_5": true,
+    "zero_incoming_sinks": 157,
+    "zero_incoming_pct": 38.0,
+    "architecture": "SCALE_FREE_CANDIDATE",
+    "delta_from_S336": {
+      "delta_N": 11,
+      "delta_edges": 53,
+      "delta_K_avg": "+0.0865",
+      "edges_per_new_lesson": 4.8
+    }
+  },
+
+  "temporal_series": {
+    "S305": {"N": 325, "K_avg_unique": 0.766, "zero_incoming_pct": 61.5, "architecture": "FRAGMENTED_ISLAND"},
+    "S312": {"N": 357, "K_avg_unique": 0.804, "zero_incoming_pct": 54.3, "architecture": "TRANSITION_ZONE"},
+    "S318": {"N": 359, "K_avg_unique": 0.83, "zero_incoming_pct": 55.7, "architecture": "TRANSITION_ZONE"},
+    "S328": {"N": 383, "K_avg_unique": 0.841, "zero_incoming_pct": 55.4, "architecture": "TRANSITION_ZONE"},
+    "S329": {"N": 393, "K_avg_unique": 1.562, "zero_incoming_pct": 42.0, "architecture": "SCALE_FREE_CANDIDATE"},
+    "S330": {"N": 394, "K_avg_unique": 1.523, "zero_incoming_pct": 41.1, "architecture": "SCALE_FREE_CANDIDATE"},
+    "S333": {"N": 398, "K_avg_unique": 1.545, "zero_incoming_pct": 40.5, "architecture": "SCALE_FREE_CANDIDATE"},
+    "S336": {"N": 402, "K_avg_unique": 1.5697, "zero_incoming_pct": 39.1, "architecture": "SCALE_FREE_CANDIDATE"},
+    "S338": {"N": 413, "K_avg_unique": 1.6562, "zero_incoming_pct": 38.0, "architecture": "SCALE_FREE_CANDIDATE"}
+  },
+
+  "candidates": [
+    {
+      "domain": "governance",
+      "lesson_count": 10,
+      "lessons_listed": ["L-120", "L-122", "L-175", "L-210", "L-237", "L-248", "L-351", "L-360", "L-365", "L-386"],
+      "iso_count": 7,
+      "isos_listed": ["ISO-2", "ISO-4", "ISO-5", "ISO-7", "ISO-13", "ISO-15", "ISO-7 (S337 expansion)"],
+      "experiment_count": 1,
+      "experiments": ["experiments/governance/f-gov1-coverage-baseline-s302.json"],
+      "active_frontiers": 4,
+      "frontiers_listed": ["F-GOV1", "F-GOV2", "F-GOV3", "F-GOV4"],
+      "cross_citations": {
+        "outgoing_from_core": 12,
+        "incoming_to_core": 6,
+        "mentioning_lessons_total": 56,
+        "non_core_mentioners": 49,
+        "already_connected": 3,
+        "unmade_connections": 46,
+        "connection_gap_pct": 93.9
+      },
+      "prior_nk_analysis": {
+        "N_measured": 7,
+        "K_avg_measured": 2.86,
+        "cycles_measured": 4,
+        "composite_measured": 24.0,
+        "architecture": "HIGH_COUPLING_HIERARCHY",
+        "hub_node": "NEXT.md (K=6)",
+        "source": "experiments/nk-complexity/f9-nk-s335.json"
+      },
+      "domain_subgraph_nk": {
+        "N_domain_labeled": 6,
+        "K_within": 0.167,
+        "K_cross": 1.0,
+        "K_total": 1.167,
+        "architecture": "TRANSITION",
+        "note": "Domain-labeled lessons only; 56 mentioning but domain-unlabeled lessons excluded"
+      },
+      "estimated_k_impact": {
+        "conservative_new_edges": 15,
+        "conservative_K_avg": 1.6925,
+        "conservative_delta": "+0.0363",
+        "aggressive_new_edges": 30,
+        "aggressive_K_avg": 1.7288,
+        "aggressive_delta": "+0.0726"
+      },
+      "nk_theoretical_fit": "STRONG. Governance policy reform is an NK landscape: N=policies, K=interdependencies. High-K governance = reform-resistant (fitness ruggedness). NK predicts when partial reform fails. Already measured: authority chain K_avg=2.86 with 4 cycles shows structural coupling pressure.",
+      "recommendation": "PRIORITY-1. Largest citation gap (46 unmade connections), richest lesson set (10 core + 56 mentioning), most active frontiers (4). Integration path: write 2-3 synthesis lessons citing governance sinks + spot-edit 10-15 mentioning lessons to add L-120/L-210/L-351 citations."
+    },
+    {
+      "domain": "game-theory",
+      "lesson_count": 4,
+      "lessons_listed": ["L-207", "L-243", "L-250", "L-257"],
+      "iso_count": 2,
+      "isos_listed": ["ISO-2", "ISO-7"],
+      "experiment_count": 22,
+      "experiments_note": "22 experiment files -- highest experiment density of all 3 candidates. Dominated by F-GAM3 signaling contract A/B reruns.",
+      "active_frontiers": 3,
+      "frontiers_listed": ["F-GAM1", "F-GAM2", "F-GAM3"],
+      "cross_citations": {
+        "outgoing_from_core": 3,
+        "incoming_to_core": 5,
+        "mentioning_lessons_total": 11,
+        "non_core_mentioners": 10,
+        "already_connected": 0,
+        "unmade_connections": 10,
+        "connection_gap_pct": 100.0
+      },
+      "prior_nk_analysis": {
+        "N_measured": null,
+        "K_avg_measured": null,
+        "note": "No direct NK structural analysis performed yet. S335 identified game-theory as candidate but did not measure coupling structure."
+      },
+      "domain_subgraph_nk": {
+        "N_domain_labeled": 0,
+        "K_total": null,
+        "note": "No domain-labeled lessons in lesson corpus. 4 lessons referenced in DOMAIN.md but not domain-tagged."
+      },
+      "estimated_k_impact": {
+        "conservative_new_edges": 5,
+        "conservative_K_avg": 1.6683,
+        "conservative_delta": "+0.0121",
+        "aggressive_new_edges": 8,
+        "aggressive_K_avg": 1.6755,
+        "aggressive_delta": "+0.0194"
+      },
+      "nk_theoretical_fit": "HIGHEST. Payoff landscapes ARE NK fitness landscapes. Strategy coupling K determines Nash equilibria count. High K = many local optima = coordination failure. Game theory is the most natural isomorphism partner for NK complexity -- they share the SAME mathematical object (rugged landscape with local optima). L-464 DRM-H15 (Brain x Game-theory dream) explicitly frames swarm sessions as iterated Prisoner's Dilemma.",
+      "recommendation": "PRIORITY-3 for integration (fewest core lessons, smallest K_avg impact), but HIGHEST THEORETICAL VALUE. The small lesson set is an artifact of game-theory engagement being concentrated in experiments (22) rather than lesson writing. Integration path: write 1-2 synthesis lessons connecting game-theory core to NK lessons (payoff landscape = fitness landscape), then spot-cite L-207 from incentive-related lessons."
+    },
+    {
+      "domain": "catastrophic-risks",
+      "lesson_count": 3,
+      "lessons_listed": ["L-346", "L-350", "L-395"],
+      "iso_count": 7,
+      "isos_listed": ["ISO-2", "ISO-4 (x2)", "ISO-5", "ISO-6", "ISO-13", "ISO-2 (S337 expansion)"],
+      "experiment_count": 2,
+      "experiments": ["experiments/catastrophic-risks/f-cat1-fmea-s302.json", "experiments/catastrophic-risks/f-cat1-fmea-s306.json"],
+      "active_frontiers": 1,
+      "frontiers_listed": ["F-CAT1"],
+      "cross_citations": {
+        "outgoing_from_core": 3,
+        "incoming_to_core": 0,
+        "mentioning_lessons_total": 22,
+        "non_core_mentioners": 20,
+        "already_connected": 0,
+        "unmade_connections": 20,
+        "connection_gap_pct": 100.0
+      },
+      "prior_nk_analysis": {
+        "N_measured": null,
+        "K_avg_measured": null,
+        "note": "No direct NK structural analysis performed yet. S335 identified catastrophic-risks as candidate. NK prediction: risk cascade networks have N=risk-factors, K=interdependency; NK predicts cascade threshold (K_crit)."
+      },
+      "domain_subgraph_nk": {
+        "N_domain_labeled": 1,
+        "K_total": null,
+        "note": "Only L-395 has explicit 'Domain: catastrophic-risks' tag. L-346 and L-350 are referenced from DOMAIN.md but not domain-tagged."
+      },
+      "estimated_k_impact": {
+        "conservative_new_edges": 8,
+        "conservative_K_avg": 1.6755,
+        "conservative_delta": "+0.0194",
+        "aggressive_new_edges": 15,
+        "aggressive_K_avg": 1.6925,
+        "aggressive_delta": "+0.0363"
+      },
+      "nk_theoretical_fit": "STRONG. Risk cascade networks directly map to NK landscapes. Swiss Cheese model defense layers = ruggedness barriers. NK K_crit predicts cascade threshold. Phase transition (ISO-4) in catastrophic failure is a fitness landscape collapse. FMEA registry (F-CAT1) is already structured as N-elements with coupling -- direct NK input.",
+      "recommendation": "PRIORITY-2. Rich ISO vocabulary (7 ISOs matching governance), strong NK cascade mapping, 22 mentioning lessons with 100% unmade connections. FMEA structure maps directly to NK analysis (failure modes = N, interdependencies = K, Swiss Cheese gaps = ruggedness peaks). Integration path: write 1 synthesis lesson connecting FMEA to NK landscape theory, cite L-346/L-350/L-395 + NK lessons."
+    }
+  ],
+
+  "combined_projection": {
+    "all_three_conservative": {
+      "new_edges": 28,
+      "projected_K_avg": 1.7240,
+      "delta": "+0.0678"
+    },
+    "all_three_aggressive": {
+      "new_edges": 53,
+      "projected_K_avg": 1.7845,
+      "delta": "+0.1283"
+    },
+    "sink_reduction_estimate": {
+      "current_sinks": 157,
+      "current_sink_pct": 38.0,
+      "estimated_sinks_removed": 12,
+      "projected_sinks": 145,
+      "projected_sink_pct": 35.1
+    }
+  },
+
+  "ranking_methodology": {
+    "criteria": [
+      "K_avg impact (estimated new cross-citations)",
+      "NK theoretical fit (how naturally does the domain map to NK landscapes)",
+      "Integration readiness (existing lesson count, ISO vocabulary, experiments)",
+      "Connection gap size (number of unmade but semantically justified citations)"
+    ],
+    "scoring": {
+      "governance": {"k_impact": 3, "nk_fit": 2, "readiness": 3, "gap_size": 3, "total": 11},
+      "catastrophic-risks": {"k_impact": 2, "nk_fit": 3, "readiness": 2, "gap_size": 2, "total": 9},
+      "game-theory": {"k_impact": 1, "nk_fit": 3, "readiness": 1, "gap_size": 1, "total": 6}
+    },
+    "note": "Game-theory scores lowest on integration metrics but highest on theoretical fit. Its 22 experiments (vs 1-2 for others) represent deep engagement not yet converted to cross-domain citation edges."
+  },
+
+  "recommendation": {
+    "priority_order": ["governance", "catastrophic-risks", "game-theory"],
+    "rationale": "Governance has the largest untapped integration potential (46 unmade connections, 93.9% gap) and already has NK structural measurements (K_avg=2.86, 4 cycles from S335). Catastrophic-risks has the strongest NK cascade mapping and richest ISO vocabulary per lesson (7 ISOs for 3 lessons). Game-theory has the deepest experimental base (22 experiments) and the most natural NK-theoretical isomorphism but smallest lesson footprint.",
+    "integration_plan": {
+      "phase_1_governance": "Write 2 synthesis lessons: (1) NK analysis of governance authority chains citing L-120, L-122, L-210, L-351, L-466; (2) Governance enforcement as NK fitness barrier citing L-175, L-237, L-248, L-386. Spot-edit 10-15 enforcement-related lessons to cite L-120 or L-210.",
+      "phase_2_catastrophic_risks": "Write 1 synthesis lesson: FMEA as NK landscape -- failure mode coupling predicts cascade threshold, citing L-346, L-350, L-395 + NK lessons L-385, L-421. Spot-cite L-346 from 20 mentioning lessons.",
+      "phase_3_game_theory": "Write 1 synthesis lesson: Payoff landscapes as NK fitness landscapes -- strategy coupling K predicts equilibrium count, citing L-207, L-250, L-464. Spot-cite L-207 from incentive-related lessons.",
+      "estimated_total_new_edges": "28-53",
+      "estimated_final_K_avg": "1.72-1.78"
+    },
+    "proposed_frontiers": [
+      "F-GOV-NK1: correlation between governance authority chain K_avg and enforcement drift rate",
+      "F-CAT-NK1: NK K_crit predicts cascade failure threshold in FMEA registry",
+      "F-GAM-NK1: payoff landscape ruggedness predicts coordination failure rate"
+    ]
+  },
+
+  "conclusions": [
+    "All 3 domains are strong NK integration candidates -- each maps naturally to NK fitness landscape theory through different mechanisms (governance=policy coupling, catastrophic-risks=cascade networks, game-theory=payoff landscapes).",
+    "Governance is PRIORITY-1: largest lesson set (10 core, 56 mentioning), largest citation gap (46 unmade connections), already NK-measured (K_avg=2.86 from S335). Estimated K_avg impact: +0.036 to +0.073.",
+    "Catastrophic-risks is PRIORITY-2: strongest ISO vocabulary density (7 ISOs for 3 lessons), FMEA registry maps directly to NK N/K structure, 22 mentioning lessons with 100% unmade connections. Estimated K_avg impact: +0.019 to +0.036.",
+    "Game-theory is PRIORITY-3 for integration but HIGHEST theoretical value: payoff landscapes ARE NK landscapes (same mathematical object). Small lesson footprint (4 core) offset by 22 experiments. Estimated K_avg impact: +0.012 to +0.019.",
+    "Combined integration of all 3 domains: +28-53 new edges, K_avg 1.72-1.78, sink reduction from 38.0% to 35.1%.",
+    "Current K_avg=1.6562 at N=413 (up from 1.5697 at N=402 in S336) -- quality gate continues working; organic citation growth outpaces orphan dilution.",
+    "The 3 candidates form a natural triad: governance (prevention), catastrophic-risks (detection), game-theory (incentive alignment). Integrating all 3 creates a defense-in-depth NK management layer."
+  ]
+}

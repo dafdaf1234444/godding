@@ -1,0 +1,872 @@
+{
+  "belief-aggressive-challenge": [
+    {
+      "timestamp": "2026-02-26T11:33:33",
+      "fitness": 105.0,
+      "commits": 4,
+      "beliefs": 5,
+      "observed": 2
+    },
+    {
+      "timestamp": "2026-02-26T11:39:46",
+      "fitness": 135.0,
+      "commits": 5,
+      "beliefs": 6,
+      "observed": 3
+    },
+    {
+      "timestamp": "2026-02-26T11:58:26",
+      "fitness": 174.0,
+      "commits": 5,
+      "beliefs": 7,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:10:57",
+      "fitness": 192.0,
+      "commits": 6,
+      "beliefs": 7,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:19:31",
+      "fitness": 198.0,
+      "commits": 6,
+      "beliefs": 7,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:20:42",
+      "fitness": 203.0,
+      "commits": 6,
+      "beliefs": 7,
+      "observed": 5
+    }
+  ],
+  "belief-control": [
+    {
+      "timestamp": "2026-02-26T11:33:33",
+      "fitness": 130.0,
+      "commits": 4,
+      "beliefs": 6,
+      "observed": 3
+    },
+    {
+      "timestamp": "2026-02-26T11:40:12",
+      "fitness": 171.0,
+      "commits": 5,
+      "beliefs": 6,
+      "observed": 6
+    },
+    {
+      "timestamp": "2026-02-27T00:59:50",
+      "fitness": 197.0,
+      "commits": 6,
+      "beliefs": 7,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-27T01:10:59",
+      "fitness": 212.0,
+      "commits": 6,
+      "beliefs": 7,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-27T01:14:27",
+      "fitness": 248.0,
+      "commits": 6,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:29:07",
+      "fitness": 230.0,
+      "commits": 7,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:31:25",
+      "fitness": 248.0,
+      "commits": 7,
+      "beliefs": 8,
+      "observed": 8
+    }
+  ],
+  "belief-minimal": [
+    {
+      "timestamp": "2026-02-26T11:33:34",
+      "fitness": 179.0,
+      "commits": 5,
+      "beliefs": 7,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-26T11:47:02",
+      "fitness": 236.0,
+      "commits": 6,
+      "beliefs": 10,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:11:00",
+      "fitness": 254.0,
+      "commits": 6,
+      "beliefs": 10,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:19:33",
+      "fitness": 263.0,
+      "commits": 6,
+      "beliefs": 10,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:20:44",
+      "fitness": 304.14213562373095,
+      "commits": 6,
+      "beliefs": 12,
+      "observed": 12
+    }
+  ],
+  "belief-no-falsification": [
+    {
+      "timestamp": "2026-02-26T11:33:35",
+      "fitness": 247.0,
+      "commits": 6,
+      "beliefs": 11,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-26T11:38:15",
+      "fitness": 264.0,
+      "commits": 7,
+      "beliefs": 11,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-26T11:48:37",
+      "fitness": 345.0,
+      "commits": 8,
+      "beliefs": 12,
+      "observed": 12
+    },
+    {
+      "timestamp": "2026-02-26T11:57:28",
+      "fitness": 434.0,
+      "commits": 8,
+      "beliefs": 16,
+      "observed": 16
+    },
+    {
+      "timestamp": "2026-02-26T12:05:56",
+      "fitness": 553.0,
+      "commits": 10,
+      "beliefs": 21,
+      "observed": 21
+    },
+    {
+      "timestamp": "2026-02-27T00:59:55",
+      "fitness": 632.0,
+      "commits": 10,
+      "beliefs": 25,
+      "observed": 25
+    },
+    {
+      "timestamp": "2026-02-27T01:11:04",
+      "fitness": 755.5889894354068,
+      "commits": 10,
+      "beliefs": 29,
+      "observed": 29
+    },
+    {
+      "timestamp": "2026-02-27T01:14:32",
+      "fitness": 809.9041575982343,
+      "commits": 11,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:19:37",
+      "fitness": 823.9041575982343,
+      "commits": 11,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:22:11",
+      "fitness": 739.9041575982343,
+      "commits": 12,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:22:28",
+      "fitness": 823.9041575982343,
+      "commits": 12,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:25:21",
+      "fitness": 835.9041575982343,
+      "commits": 12,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:28:01",
+      "fitness": 849.9583152331272,
+      "commits": 12,
+      "beliefs": 33,
+      "observed": 33
+    },
+    {
+      "timestamp": "2026-02-27T01:28:52",
+      "fitness": 789.9583152331272,
+      "commits": 12,
+      "beliefs": 33,
+      "observed": 33
+    },
+    {
+      "timestamp": "2026-02-27T01:31:31",
+      "fitness": 876.9583152331272,
+      "commits": 12,
+      "beliefs": 33,
+      "observed": 33
+    },
+    {
+      "timestamp": "2026-02-27T01:53:06",
+      "fitness": 950.9901951359278,
+      "commits": 13,
+      "beliefs": 36,
+      "observed": 36
+    }
+  ],
+  "belief-no-lesson-limit": [
+    {
+      "timestamp": "2026-02-26T11:33:36",
+      "fitness": 121.0,
+      "commits": 3,
+      "beliefs": 5,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-26T11:40:59",
+      "fitness": 204.0,
+      "commits": 3,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T00:59:55",
+      "fitness": 210.0,
+      "commits": 4,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:11:04",
+      "fitness": 236.0,
+      "commits": 4,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:36:05",
+      "fitness": 245.0,
+      "commits": 4,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:53:07",
+      "fitness": 334.0,
+      "commits": 5,
+      "beliefs": 11,
+      "observed": 11
+    }
+  ],
+  "belief-no-modes": [
+    {
+      "timestamp": "2026-02-26T11:33:37",
+      "fitness": 108.0,
+      "commits": 3,
+      "beliefs": 4,
+      "observed": 3
+    },
+    {
+      "timestamp": "2026-02-26T11:38:26",
+      "fitness": 132.0,
+      "commits": 4,
+      "beliefs": 4,
+      "observed": 4
+    },
+    {
+      "timestamp": "2026-02-26T11:58:33",
+      "fitness": 273.0,
+      "commits": 4,
+      "beliefs": 10,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:11:05",
+      "fitness": 302.0,
+      "commits": 5,
+      "beliefs": 10,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:25:23",
+      "fitness": 364.32050807568874,
+      "commits": 5,
+      "beliefs": 13,
+      "observed": 11
+    }
+  ],
+  "belief-nofalsif-aggressive": [
+    {
+      "timestamp": "2026-02-26T11:33:37",
+      "fitness": 127.0,
+      "commits": 3,
+      "beliefs": 8,
+      "observed": 2
+    },
+    {
+      "timestamp": "2026-02-26T11:41:27",
+      "fitness": 198.0,
+      "commits": 4,
+      "beliefs": 8,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-27T01:11:06",
+      "fitness": 213.0,
+      "commits": 4,
+      "beliefs": 8,
+      "observed": 7
+    },
+    {
+      "timestamp": "2026-02-27T01:19:40",
+      "fitness": 251.0,
+      "commits": 4,
+      "beliefs": 10,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:20:51",
+      "fitness": 258.0,
+      "commits": 4,
+      "beliefs": 10,
+      "observed": 8
+    }
+  ],
+  "belief-nofalsif-nolimit": [
+    {
+      "timestamp": "2026-02-26T11:33:38",
+      "fitness": 161.0,
+      "commits": 5,
+      "beliefs": 8,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-26T11:42:22",
+      "fitness": 196.0,
+      "commits": 6,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T00:59:58",
+      "fitness": 202.0,
+      "commits": 6,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:11:07",
+      "fitness": 220.0,
+      "commits": 6,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:31:34",
+      "fitness": 232.0,
+      "commits": 6,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-27T01:32:32",
+      "fitness": 279.32050807568874,
+      "commits": 6,
+      "beliefs": 13,
+      "observed": 10
+    },
+    {
+      "timestamp": "2026-02-27T01:36:06",
+      "fitness": 292.32050807568874,
+      "commits": 7,
+      "beliefs": 13,
+      "observed": 10
+    }
+  ],
+  "belief-nolimit-aggressive": [
+    {
+      "timestamp": "2026-02-26T11:33:39",
+      "fitness": 136.0,
+      "commits": 3,
+      "beliefs": 6,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-26T11:38:16",
+      "fitness": 150.0,
+      "commits": 4,
+      "beliefs": 6,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:11:08",
+      "fitness": 162.0,
+      "commits": 4,
+      "beliefs": 6,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:14:36",
+      "fitness": 168.0,
+      "commits": 4,
+      "beliefs": 6,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:19:41",
+      "fitness": 197.0,
+      "commits": 5,
+      "beliefs": 8,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:29:10",
+      "fitness": 179.0,
+      "commits": 5,
+      "beliefs": 8,
+      "observed": 5
+    },
+    {
+      "timestamp": "2026-02-27T01:31:35",
+      "fitness": 197.0,
+      "commits": 5,
+      "beliefs": 8,
+      "observed": 5
+    }
+  ],
+  "belief-minimal-nofalsif": [
+    {
+      "timestamp": "2026-02-26T11:41:42",
+      "fitness": 198.0,
+      "commits": 2,
+      "beliefs": 10,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-26T11:48:36",
+      "fitness": 313.0,
+      "commits": 2,
+      "beliefs": 15,
+      "observed": 15
+    },
+    {
+      "timestamp": "2026-02-26T11:58:29",
+      "fitness": 396.0,
+      "commits": 4,
+      "beliefs": 19,
+      "observed": 19
+    },
+    {
+      "timestamp": "2026-02-26T12:04:23",
+      "fitness": 480.0,
+      "commits": 5,
+      "beliefs": 24,
+      "observed": 23
+    },
+    {
+      "timestamp": "2026-02-27T00:59:52",
+      "fitness": 570.0,
+      "commits": 5,
+      "beliefs": 29,
+      "observed": 28
+    },
+    {
+      "timestamp": "2026-02-27T01:11:01",
+      "fitness": 655.9583152331272,
+      "commits": 6,
+      "beliefs": 33,
+      "observed": 31
+    },
+    {
+      "timestamp": "2026-02-27T01:14:29",
+      "fitness": 665.9583152331272,
+      "commits": 6,
+      "beliefs": 33,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:19:34",
+      "fitness": 806.9615242270663,
+      "commits": 7,
+      "beliefs": 37,
+      "observed": 36
+    },
+    {
+      "timestamp": "2026-02-27T01:28:57",
+      "fitness": 707.9615242270663,
+      "commits": 7,
+      "beliefs": 37,
+      "observed": 36
+    },
+    {
+      "timestamp": "2026-02-27T01:31:27",
+      "fitness": 816.9615242270663,
+      "commits": 7,
+      "beliefs": 37,
+      "observed": 37
+    },
+    {
+      "timestamp": "2026-02-27T01:36:00",
+      "fitness": 882.7722557505166,
+      "commits": 7,
+      "beliefs": 40,
+      "observed": 40
+    },
+    {
+      "timestamp": "2026-02-27T01:53:02",
+      "fitness": 947.4456264653803,
+      "commits": 8,
+      "beliefs": 43,
+      "observed": 43
+    }
+  ],
+  "belief-aggressive-minimal": [
+    {
+      "timestamp": "2026-02-26T11:42:29",
+      "fitness": 150.0,
+      "commits": 2,
+      "beliefs": 7,
+      "observed": 6
+    },
+    {
+      "timestamp": "2026-02-26T11:48:33",
+      "fitness": 208.0,
+      "commits": 2,
+      "beliefs": 9,
+      "observed": 9
+    },
+    {
+      "timestamp": "2026-02-27T00:59:49",
+      "fitness": 247.0,
+      "commits": 3,
+      "beliefs": 11,
+      "observed": 11
+    },
+    {
+      "timestamp": "2026-02-27T01:10:58",
+      "fitness": 270.0,
+      "commits": 3,
+      "beliefs": 11,
+      "observed": 11
+    },
+    {
+      "timestamp": "2026-02-27T01:31:24",
+      "fitness": 317.32050807568874,
+      "commits": 3,
+      "beliefs": 13,
+      "observed": 13
+    },
+    {
+      "timestamp": "2026-02-27T01:52:58",
+      "fitness": 413.0,
+      "commits": 4,
+      "beliefs": 14,
+      "observed": 14
+    }
+  ],
+  "belief-principles-first": [
+    {
+      "timestamp": "2026-02-26T11:44:47",
+      "fitness": 163.0,
+      "commits": 2,
+      "beliefs": 7,
+      "observed": 6
+    },
+    {
+      "timestamp": "2026-02-26T11:48:41",
+      "fitness": 224.0,
+      "commits": 2,
+      "beliefs": 9,
+      "observed": 9
+    },
+    {
+      "timestamp": "2026-02-26T11:58:07",
+      "fitness": 345.0,
+      "commits": 4,
+      "beliefs": 14,
+      "observed": 14
+    },
+    {
+      "timestamp": "2026-02-26T12:03:53",
+      "fitness": 415.0,
+      "commits": 5,
+      "beliefs": 17,
+      "observed": 17
+    },
+    {
+      "timestamp": "2026-02-27T01:11:09",
+      "fitness": 450.4575131106459,
+      "commits": 5,
+      "beliefs": 17,
+      "observed": 17
+    },
+    {
+      "timestamp": "2026-02-27T01:25:26",
+      "fitness": 462.4575131106459,
+      "commits": 5,
+      "beliefs": 17,
+      "observed": 17
+    },
+    {
+      "timestamp": "2026-02-27T01:28:07",
+      "fitness": 543.166247903554,
+      "commits": 5,
+      "beliefs": 21,
+      "observed": 21
+    },
+    {
+      "timestamp": "2026-02-27T01:53:13",
+      "fitness": 655.0,
+      "commits": 6,
+      "beliefs": 26,
+      "observed": 26
+    }
+  ],
+  "belief-test-first": [
+    {
+      "timestamp": "2026-02-26T11:44:55",
+      "fitness": 186.0,
+      "commits": 1,
+      "beliefs": 8,
+      "observed": 8
+    },
+    {
+      "timestamp": "2026-02-26T11:48:42",
+      "fitness": 276.0,
+      "commits": 2,
+      "beliefs": 13,
+      "observed": 13
+    },
+    {
+      "timestamp": "2026-02-26T11:58:08",
+      "fitness": 409.0,
+      "commits": 4,
+      "beliefs": 19,
+      "observed": 19
+    },
+    {
+      "timestamp": "2026-02-26T12:03:43",
+      "fitness": 467.0,
+      "commits": 5,
+      "beliefs": 22,
+      "observed": 22
+    },
+    {
+      "timestamp": "2026-02-27T01:00:00",
+      "fitness": 539.0,
+      "commits": 5,
+      "beliefs": 26,
+      "observed": 26
+    },
+    {
+      "timestamp": "2026-02-27T01:11:10",
+      "fitness": 602.5889894354068,
+      "commits": 6,
+      "beliefs": 29,
+      "observed": 29
+    },
+    {
+      "timestamp": "2026-02-27T01:14:38",
+      "fitness": 611.5889894354068,
+      "commits": 6,
+      "beliefs": 29,
+      "observed": 29
+    },
+    {
+      "timestamp": "2026-02-27T01:19:43",
+      "fitness": 661.9041575982343,
+      "commits": 6,
+      "beliefs": 32,
+      "observed": 32
+    },
+    {
+      "timestamp": "2026-02-27T01:28:08",
+      "fitness": 721.0,
+      "commits": 7,
+      "beliefs": 35,
+      "observed": 35
+    },
+    {
+      "timestamp": "2026-02-27T01:29:02",
+      "fitness": 646.0,
+      "commits": 7,
+      "beliefs": 35,
+      "observed": 35
+    },
+    {
+      "timestamp": "2026-02-27T01:31:37",
+      "fitness": 721.0,
+      "commits": 8,
+      "beliefs": 35,
+      "observed": 35
+    },
+    {
+      "timestamp": "2026-02-27T01:53:14",
+      "fitness": 838.9615242270663,
+      "commits": 8,
+      "beliefs": 37,
+      "observed": 37
+    }
+  ],
+  "belief-minimal-nofalsif-principles-first": [
+    {
+      "timestamp": "2026-02-26T11:57:56",
+      "fitness": 100.0,
+      "commits": 2,
+      "beliefs": 7,
+      "observed": 0
+    },
+    {
+      "timestamp": "2026-02-26T11:59:47",
+      "fitness": 115.0,
+      "commits": 2,
+      "beliefs": 7,
+      "observed": 0
+    },
+    {
+      "timestamp": "2026-02-26T12:02:25",
+      "fitness": 184.0,
+      "commits": 3,
+      "beliefs": 12,
+      "observed": 0
+    },
+    {
+      "timestamp": "2026-02-27T00:59:53",
+      "fitness": 367.0,
+      "commits": 4,
+      "beliefs": 12,
+      "observed": 12
+    },
+    {
+      "timestamp": "2026-02-27T01:11:02",
+      "fitness": 502.4575131106459,
+      "commits": 5,
+      "beliefs": 17,
+      "observed": 12
+    },
+    {
+      "timestamp": "2026-02-27T01:14:30",
+      "fitness": 514.4575131106459,
+      "commits": 5,
+      "beliefs": 17,
+      "observed": 12
+    },
+    {
+      "timestamp": "2026-02-27T01:19:35",
+      "fitness": 597.166247903554,
+      "commits": 6,
+      "beliefs": 21,
+      "observed": 15
+    },
+    {
+      "timestamp": "2026-02-27T01:25:19",
+      "fitness": 606.166247903554,
+      "commits": 6,
+      "beliefs": 21,
+      "observed": 15
+    },
+    {
+      "timestamp": "2026-02-27T01:27:59",
+      "fitness": 648.166247903554,
+      "commits": 6,
+      "beliefs": 21,
+      "observed": 18
+    },
+    {
+      "timestamp": "2026-02-27T01:31:28",
+      "fitness": 701.4165738677394,
+      "commits": 6,
+      "beliefs": 24,
+      "observed": 18
+    },
+    {
+      "timestamp": "2026-02-27T01:36:02",
+      "fitness": 698.4165738677394,
+      "commits": 7,
+      "beliefs": 24,
+      "observed": 18
+    },
+    {
+      "timestamp": "2026-02-27T01:53:04",
+      "fitness": 789.5889894354068,
+      "commits": 7,
+      "beliefs": 29,
+      "observed": 18
+    }
+  ],
+  "belief-minimal-test-first": [
+    {
+      "timestamp": "2026-02-26T11:57:57",
+      "fitness": 27.0,
+      "commits": 1,
+      "beliefs": 2,
+      "observed": 0
+    },
+    {
+      "timestamp": "2026-02-26T12:03:19",
+      "fitness": 145.0,
+      "commits": 2,
+      "beliefs": 6,
+      "observed": 6
+    },
+    {
+      "timestamp": "2026-02-27T00:59:53",
+      "fitness": 199.0,
+      "commits": 2,
+      "beliefs": 9,
+      "observed": 9
+    },
+    {
+      "timestamp": "2026-02-27T01:11:02",
+      "fitness": 211.0,
+      "commits": 2,
+      "beliefs": 9,
+      "observed": 9
+    },
+    {
+      "timestamp": "2026-02-27T01:19:36",
+      "fitness": 269.14213562373095,
+      "commits": 2,
+      "beliefs": 12,
+      "observed": 12
+    },
+    {
+      "timestamp": "2026-02-27T01:20:47",
+      "fitness": 292.14213562373095,
+      "commits": 2,
+      "beliefs": 12,
+      "observed": 12
+    }
+  ]
+}

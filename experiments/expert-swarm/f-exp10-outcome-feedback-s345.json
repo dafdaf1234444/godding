@@ -1,0 +1,25 @@
+{
+  "frontier": "F-EXP10",
+  "session": "S345",
+  "question": "Does wiring outcome feedback into dispatch_optimizer.py scoring improve dispatch quality?",
+  "status": "PARTIAL — binary MERGED/ABANDONED already implemented; lesson yield added this session",
+  "findings": {
+    "pre_s345_state": "Binary outcome feedback existed (MERGED/ABANDONED per domain via LANE_ABBREV_TO_DOMAIN). meta=PROVEN(3/3). expert-swarm=NEW(n=1).",
+    "gap_1_council_attribution": "COUNCIL-* lanes unattributed — COUNCIL-EXPERT-SWARM-S343 MERGED not counted in expert-swarm outcome_map. ~30-40% data loss.",
+    "gap_2_lesson_yield": "All MERGED lanes scored equally regardless of lessons produced. No quality gradient.",
+    "fix_1": "Added COUNCIL_TOPIC_TO_DOMAIN map; COUNCIL-*-SN regex matches before focus= fallback.",
+    "fix_2": "Added lesson count: L-NNN pattern in notes column → outcome_lessons per domain.",
+    "post_s345_state": "meta=PROVEN(6/6, 5L). expert-swarm still NEW (DOMEX-EXP-S345 active, not yet MERGED).",
+    "data_sparsity": "9/10 domains show outcome_n < OUTCOME_MIN_N=3. Feedback kicks in for meta only.",
+    "design_remaining": "Per-lane lesson yield still coarse (notes pattern). Structured yield log (lessons_produced, frontiers_advanced) would require close_lane.py extension."
+  },
+  "measurement": {
+    "council_lanes_added": 5,
+    "meta_outcome_n_before": 3,
+    "meta_outcome_n_after": 6,
+    "meta_lessons_tracked": 5,
+    "domains_with_feedback_active": 1
+  },
+  "next_step": "Run 10 DOMEX sessions with outcome logging; compare Sharpe of dispatched lessons PROVEN vs NEW domains",
+  "artifact": "tools/dispatch_optimizer.py (COUNCIL_TOPIC_TO_DOMAIN + outcome_lessons), memory/lessons/L-509.md"
+}

@@ -1,0 +1,7 @@
+{
+  "variant": "minimal",
+  "description": "Absolute minimum: just CLAUDE.md + DEPS.md, no protocols",
+  "hypothesis": "Minimal structure lets the swarm self-organize, but may lose knowledge",
+  "spawned": "2026-02-26",
+  "child_dir": "<swarm-repo>/experiments/children/belief-minimal"
+}

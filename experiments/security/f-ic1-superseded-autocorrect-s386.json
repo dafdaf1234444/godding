@@ -1,0 +1,30 @@
+{
+  "session": "S386",
+  "frontier": "F-IC1",
+  "computed_at": "2026-03-01",
+  "intent": "Auto-correct SUPERSEDED citation chains: find citers with stale IDs in Cites: headers",
+  "superseded_lessons": {
+    "L-374": "L-371",
+    "L-375": "L-372",
+    "L-556": "L-555",
+    "L-567": "L-560"
+  },
+  "stale_cites_headers_found": 3,
+  "stale_cites_entries": [
+    {"citer": "L-381", "stale_id": "L-374", "successor": "L-371", "action": "removed (L-371 already in Cites:)"},
+    {"citer": "L-381", "stale_id": "L-375", "successor": "L-372", "action": "removed (L-372 already in Cites:)"},
+    {"citer": "L-490", "stale_id": "L-375", "successor": "L-372", "action": "replaced with L-372"}
+  ],
+  "body_refs_persisted": [
+    {"lesson": "L-381", "context": "L-374\u2248L-371, L-375\u2248L-372 from concurrent S306 nodes", "type": "supersession_note"},
+    {"lesson": "L-490", "context": "HUMAN.md v2, L-373\u2013L-375", "type": "range_reference"}
+  ],
+  "corrections_applied": 3,
+  "uncorrected_before": 25,
+  "uncorrected_after": 24,
+  "high_priority_before": 0,
+  "high_priority_after": 0,
+  "finding": "Cites: header fixes are the actionable target. Body text references to SUPERSEDED lessons typically document history (not claim propagation) and should be left as-is.",
+  "asymmetry": "SUPERSEDED=low_risk (same content, stale pointer). FALSIFIED=high_risk (wrong content). Current tool treats both equally.",
+  "lesson": "L-754"
+}

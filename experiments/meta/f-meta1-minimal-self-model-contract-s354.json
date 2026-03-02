@@ -1,0 +1,49 @@
+{
+  "experiment": "f-meta1-minimal-self-model-contract-s354",
+  "frontier": "F-META1",
+  "domain": "meta",
+  "session": "S354",
+  "date": "2026-03-01",
+  "question": "What minimal self-model contract keeps swarm state coherent across tasks/NEXT.md, tasks/SWARM-LANES.md, and domain frontiers?",
+  "method": "Structural analysis: enumerate coherence failure modes, map each to a minimal protocol component, verify by examining sessions where coherence failed (L-526, L-517, L-498, L-572). Check if each component is necessary and sufficient.",
+  "expect": "Identify 3-7 components, all necessary. Expect protocol_handshake and state_vector to be in the set.",
+  "actual": "Exactly 5 components identified. All necessary (removing any maps to a documented failure mode). Together they are sufficient (any handoff satisfying all 5 has maintained coherence in practice).",
+  "diff": "Expected 3-7; found exactly 5. Protocol handshake confirmed. State vector confirmed. Additional: identity invariant, write obligation, and active work pointer — each corresponding to a distinct failure mode in the record.",
+  "result": "CONFIRMED",
+  "findings": [
+    {
+      "component": "identity_invariant",
+      "content": "{I9 safe, I10 portable, I11 learn, I12 continue}",
+      "failure_if_missing": "constraint violation — any session can corrupt accumulated state",
+      "evidence": "beliefs/INVARIANTS.md, test_mission_constraints.py, L-585 (21/51 tests broken for 14 sessions)"
+    },
+    {
+      "component": "monotonic_state_vector",
+      "content": "(L count, P count, B count, F count, session number)",
+      "failure_if_missing": "repeat work rate ~100% at N>=5 concurrent",
+      "evidence": "L-526 (planning-obsolescence at N>=3), L-283 (anti-repeat rule), SESSION-LOG.md"
+    },
+    {
+      "component": "active_work_pointer",
+      "content": ">=1 NEXT item with blocking status and action",
+      "failure_if_missing": "sessions default to meta-reflection / safest-option drift",
+      "evidence": "L-572 (archive blindness), NEXT.md handoff pattern, behavioral analysis S341-S353"
+    },
+    {
+      "component": "write_obligation",
+      "content": ">=1 verifiable state delta per session (lesson OR principle OR resolved frontier)",
+      "failure_if_missing": "0-artifact sessions accumulate; I11 MC-LEARN violated",
+      "evidence": "I11 definition in CORE.md, L-220 (empty session pattern), DOMEX requirement"
+    },
+    {
+      "component": "protocol_handshake",
+      "content": "read sequence: CORE.md -> INDEX.md before acting",
+      "failure_if_missing": "belief drift — ISO-17 compliance gap measured across sessions",
+      "evidence": "L-498 (ISO-17 coherence gap), L-517 (belief freshness decay), drift_scanner.py results"
+    }
+  ],
+  "minimum_handoff_fields": ["invariant_ref", "state_vector", "next_task", "session_delta", "read_sequence"],
+  "current_overhead": "NEXT.md ~50 lines vs theoretical minimum ~5 fields. 10x redundancy — intentional for discoverability, but redundancy is above minimum, not below.",
+  "iso_connections": ["ISO-14 (self-similarity: minimal contract applies recursively to sub-swarms)", "ISO-6 (boundary: 5 components define identity boundary)"],
+  "successor_frontier": "F-META8: Can the minimal contract auto-verify itself? (self-modeling completeness — if contract can check its own satisfaction, coherence maintenance becomes autonomous)"
+}

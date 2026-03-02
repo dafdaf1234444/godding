@@ -1,0 +1,460 @@
+{
+  "session": "S377",
+  "problems": [
+    {
+      "source": "maintenance-DUE",
+      "text": "1 lesson(s) over 20 lines: L-707.md",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.6,
+          "reason": "Keyword 'lesson.*over.*\\d+.*lines?' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "[health-check] System health check (memory/HEALTH.md): knowledge growth, accuracy, compactness, belief evolution, task throughput (every ~5 sessions, last: S365)",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "economy",
+          "confidence": 0.9,
+          "reason": "Keyword 'health[- ]?check' matched"
+        },
+        {
+          "domain": "evolution",
+          "confidence": 0.8,
+          "reason": "Keyword 'evolution|cadence|era' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "[fundamental-setup-reswarm] Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action). (every ~5 sessions, last: S365)",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "security",
+          "confidence": 0.9,
+          "reason": "Keyword 'security|audit|integrity' matched"
+        },
+        {
+          "domain": "meta",
+          "confidence": 0.7,
+          "reason": "Keyword 'fundamental[- ]?setup|setup[- ]?reswarm' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "[state-sync] Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff. (every ~1 sessions, last: S368)",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.8,
+          "reason": "Keyword 'state[- ]?sync' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "[change-quality-check] Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223) (every ~5 sessions, last: S363)",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "evaluation",
+          "confidence": 0.9,
+          "reason": "Keyword 'change[- ]?quality' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "[action-board-refresh] Refresh ACTION-BOARD.md: run `python3 tools/f_act1_action_recommender.py` \u2014 scores swarm state across urgency/coverage/impact/novelty and writes workspace/ACTION-BOARD.md with ranked recommendations for all sessions + human visibility. Use action-expert personality for this task. (F-ACT1) (every ~5 sessions, last: S365)",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "strategy",
+          "confidence": 0.8,
+          "reason": "Keyword 'action[- ]?board' matched"
+        },
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        },
+        {
+          "domain": "evolution",
+          "confidence": 0.8,
+          "reason": "Keyword 'evolution|cadence|era' matched"
+        },
+        {
+          "domain": "psychology",
+          "confidence": 0.8,
+          "reason": "Keyword 'personality|psych' matched"
+        },
+        {
+          "domain": "nk-complexity",
+          "confidence": 0.8,
+          "reason": "Keyword 'NK|complexity|chaos' matched"
+        }
+      ]
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "3 active lane(s) missing coordination contract tags (setup/focus/available/blocked/next_step/human_open_item): DOMEX-META2-S377(setup,available,blocked,next_step,human_open_item), DOMEX-META3-S378(setup,available,blocked,next_step,human_open_item), DOMEX-CAT-S377(setup,available,blocked,next_step,human_open_item)",
+      "urgency": "MEDIUM",
+      "routes": []
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "Active lane scope collision(s): domains/meta/tasks/frontier.md:DOMEX-META2-S377/DOMEX-META3-S378",
+      "urgency": "MEDIUM",
+      "routes": []
+    },
+    {
+      "source": "maintenance-DUE",
+      "text": "3 active dispatch lane(s) have no active coordinator lane: DOMEX-META2-S377, DOMEX-META3-S378, DOMEX-CAT-S377",
+      "urgency": "MEDIUM",
+      "routes": [
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        }
+      ]
+    },
+    {
+      "source": "scope-collision",
+      "text": "Lane scope collision: domains/meta/tasks/frontier.md:DOMEX-META2-S377/DOMEX-META3-S378",
+      "urgency": "MEDIUM",
+      "routes": []
+    },
+    {
+      "source": "trigger",
+      "text": "T3-MAINTENANCE-DUE: orient.py DUE items present (>0)",
+      "urgency": "MEDIUM",
+      "action": "run DUE maintenance task",
+      "trigger_id": "T3-MAINTENANCE-DUE",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.6,
+          "reason": "Keyword 'T3-MAINTENANCE' matched"
+        }
+      ]
+    },
+    {
+      "source": "trigger",
+      "text": "T4-ANXIETY-ZONE: Frontier open >15 sessions without update",
+      "urgency": "MEDIUM",
+      "action": "open DOMEX or CLOSE",
+      "trigger_id": "T4-ANXIETY-ZONE",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.5,
+          "reason": "Keyword 'T4-ANXIETY' matched"
+        }
+      ]
+    },
+    {
+      "source": "trigger",
+      "text": "T5-DISPATCH-GAP: Top-3 dispatch domain has no active DOMEX lane",
+      "urgency": "MEDIUM",
+      "action": "open DOMEX for top domain",
+      "trigger_id": "T5-DISPATCH-GAP",
+      "routes": [
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        }
+      ]
+    },
+    {
+      "source": "trigger",
+      "text": "T6-HEALTH-CHECK: Health-check periodic overdue by >2 intervals",
+      "urgency": "LOW",
+      "action": "run health check",
+      "trigger_id": "T6-HEALTH-CHECK",
+      "routes": [
+        {
+          "domain": "economy",
+          "confidence": 0.9,
+          "reason": "Keyword 'health[- ]?check' matched"
+        }
+      ]
+    },
+    {
+      "source": "trigger",
+      "text": "T7-PROXY-K-DRIFT: Proxy-K drift > 10% from last clean snapshot",
+      "urgency": "LOW",
+      "action": "run compact.py",
+      "trigger_id": "T7-PROXY-K-DRIFT",
+      "routes": [
+        {
+          "domain": "economy",
+          "confidence": 0.8,
+          "reason": "Keyword 'proxy[- ]?k|compaction|compact' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-1: Node generalization: all participants modeled as nodes with properties, not hardcoded special cases",
+      "urgency": "MEDIUM",
+      "signal_id": "SIG-1",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "evolution",
+          "confidence": 0.8,
+          "reason": "Keyword 'evolution|cadence|era' matched"
+        },
+        {
+          "domain": "meta",
+          "confidence": 0.7,
+          "reason": "Keyword 'node[_ ]?generalization' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-2: Improve inter-agent communication \u2014 structured signals, not ad-hoc file edits",
+      "urgency": "MEDIUM",
+      "signal_id": "SIG-2",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.6,
+          "reason": "Keyword 'communication|signal' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-6: LLM context swarm \u2014 human directs swarm to think about the context window as swarm medium, not just constraint. Three th",
+      "urgency": "LOW",
+      "signal_id": "SIG-6",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "nk-complexity",
+          "confidence": 0.8,
+          "reason": "Keyword 'NK|complexity|chaos' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-13: S346 human signal: 'swarm why human named swarm swarm domain experts' \u2014 investigate naming origin using domain experts",
+      "urgency": "LOW",
+      "signal_id": "SIG-13",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        },
+        {
+          "domain": "meta",
+          "confidence": 0.6,
+          "reason": "Keyword 'communication|signal' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-14: everything in the swarm should be subject to the swarm for the swarm \u2014 total self-application: no component exempt from ",
+      "urgency": "LOW",
+      "signal_id": "SIG-14",
+      "signal_type": "directive",
+      "routes": []
+    },
+    {
+      "source": "signal",
+      "text": "SIG-16: commit-push should be autonomous \u2014 swarm should handle push as part of its workflow, not require human gating. Regular p",
+      "urgency": "LOW",
+      "signal_id": "SIG-16",
+      "signal_type": "directive",
+      "routes": []
+    },
+    {
+      "source": "signal",
+      "text": "SIG-17: the more swarm is swarmed in a swarm way swarm can swarm more \u2014 recursive self-application as growth law: swarming capac",
+      "urgency": "LOW",
+      "signal_id": "SIG-17",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.7,
+          "reason": "Keyword 'self[- ]?apply|recursive|self[- ]?swarm' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-18: everything in the swarm should be subject to the swarm for the swarm \u2014 encoded as CORE P14 (v1.0), orient.py stale-infra",
+      "urgency": "LOW",
+      "signal_id": "SIG-18",
+      "signal_type": "directive",
+      "routes": []
+    },
+    {
+      "source": "signal",
+      "text": "SIG-21: swarm analyzing an agent through its work \u2014 use swarm methods to characterize the agent (swarm itself) by examining its ",
+      "urgency": "LOW",
+      "signal_id": "SIG-21",
+      "signal_type": "directive",
+      "routes": []
+    },
+    {
+      "source": "signal",
+      "text": "SIG-23: Human: 'inform the swarm about swarm swarm' \u2014 reinforcement of recursive self-application. Existing: PHIL-2+PHIL-17+P14.",
+      "urgency": "LOW",
+      "signal_id": "SIG-23",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.7,
+          "reason": "Keyword 'self[- ]?apply|recursive|self[- ]?swarm' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-24: Human S376: 'swarm experts domains to think about better swarm dependency management understanding of swarm swarm' \u2014 use",
+      "urgency": "LOW",
+      "signal_id": "SIG-24",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "graph-theory",
+          "confidence": 0.8,
+          "reason": "Keyword 'dependency|dependencies' matched"
+        },
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        },
+        {
+          "domain": "nk-complexity",
+          "confidence": 0.8,
+          "reason": "Keyword 'NK|complexity|chaos' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-25: domain knowledge + experts + memory + beliefs coordination assessment; if sufficient, tools themselves should swarm (sel",
+      "urgency": "LOW",
+      "signal_id": "SIG-25",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-26: Human S377: 'swarm has to think about programmatically swarm the swarm more swarm' \u2014 directive to increase programmatic ",
+      "urgency": "LOW",
+      "signal_id": "SIG-26",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "nk-complexity",
+          "confidence": 0.8,
+          "reason": "Keyword 'NK|complexity|chaos' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-27: Epistemological state model: swarm must know what it HAS to know / SHOULD know / KNEW, how these relate, how expert doma",
+      "urgency": "MEDIUM",
+      "signal_id": "SIG-27",
+      "signal_type": "directive",
+      "routes": [
+        {
+          "domain": "meta",
+          "confidence": 0.9,
+          "reason": "Keyword 'epistemolog|knowledge[_ ]?state' matched"
+        },
+        {
+          "domain": "expert-swarm",
+          "confidence": 0.8,
+          "reason": "Keyword 'dispatch|scheduling|expert' matched"
+        }
+      ]
+    },
+    {
+      "source": "signal",
+      "text": "SIG-28: swarm has to understand its agents better \u2014 how are they spending their time",
+      "urgency": "LOW",
+      "signal_id": "SIG-28",
+      "signal_type": "directive",
+      "routes": []
+    }
+  ],
+  "analysis": {
+    "total_problems": 30,
+    "mapped_count": 22,
+    "unmapped_count": 8,
+    "mapping_rate": 0.733,
+    "problem_top5": [
+      "meta",
+      "expert-swarm",
+      "nk-complexity",
+      "economy",
+      "evolution"
+    ],
+    "dispatch_top5": [
+      "security",
+      "gaming",
+      "strategy",
+      "graph-theory",
+      "fluid-dynamics"
+    ],
+    "overlap": [],
+    "mismatch_rate": 1.0,
+    "demand_without_supply": [
+      "meta",
+      "expert-swarm",
+      "nk-complexity",
+      "economy",
+      "evolution"
+    ],
+    "supply_without_demand": [
+      "security",
+      "gaming",
+      "strategy",
+      "graph-theory",
+      "fluid-dynamics"
+    ],
+    "domain_demand_scores": {
+      "meta": 7.3999999999999995,
+      "expert-swarm": 5.6,
+      "nk-complexity": 3.2,
+      "economy": 2.6,
+      "evolution": 2.4000000000000004,
+      "security": 0.9,
+      "evaluation": 0.9,
+      "strategy": 0.8,
+      "psychology": 0.8,
+      "graph-theory": 0.8
+    }
+  }
+}

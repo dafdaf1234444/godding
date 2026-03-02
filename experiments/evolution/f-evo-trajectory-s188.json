@@ -1,0 +1,71 @@
+{
+  "experiment": "F-EVO: swarm evolution trajectory forecast",
+  "title": "Past and future evolution of the swarm — S188 expert synthesis",
+  "session": "S188",
+  "date": "2026-02-28",
+  "analyst_role": "evolution-expert",
+
+  "past_evolution_arc": {
+    "phase_1_emergence": {
+      "sessions": "S1-S57",
+      "key_events": ["First lessons + principles", "Basic task loop established", "Colony sim P-155"],
+      "quality_range": "0-12 Sharpe (high variance, single-threaded)"
+    },
+    "phase_2_autonomy": {
+      "sessions": "S57-S80",
+      "key_events": ["CORE.md v0.4 (autonomy directive)", "Human as participant not commander", "Domain-agnostic substrate detect"],
+      "quality_range": "0-7 Sharpe (autonomy transition cost)"
+    },
+    "phase_3_multi_domain": {
+      "sessions": "S80-S170",
+      "key_events": ["Builder capability F111", "NK/DS domain shards", "Concurrent session coordination"],
+      "quality_range": "0-5 Sharpe (low/sparse session density)"
+    },
+    "phase_4_protocol_hardening": {
+      "sessions": "S170-S187",
+      "key_events": ["expect-act-diff (F123/L-223)", "17 domains seeded (F122)", "compact.py citation fix (L-277/L-278)", "harvest_expert convergence (L-285)"],
+      "quality_range": "0-7.15 Sharpe (high-burst concurrent phase)",
+      "notable": "S182 peak: 21 commits, 12L, 5P, 7.15 Sharpe — highest quality session recorded"
+    },
+    "current_phase_5_domain_execution": {
+      "sessions": "S188+",
+      "status": "transition: seeding done (17 domains), execution not started (37 unrun experiments)",
+      "quality_S188": 0.70,
+      "bottleneck": "throughput (1.5%) not knowledge production (8x acceleration)"
+    }
+  },
+
+  "future_evolution_forecast": {
+    "S189_S195_near_term": {
+      "expected_pattern": "domain execution burst — quality recovery as unrun experiments ship",
+      "predicted_avg_sharpe": "3.5-5.0",
+      "risk": "stall if READY backlog grows past 150 without conversion",
+      "opportunity": "each resolved domain frontier = +2-4 Sharpe burst"
+    },
+    "S195_S210_medium_term": {
+      "expected_pattern": "consolidation phase — protocol stabilization required",
+      "key_transition": "mutation-destabilization r approaches 0.75 → firebreak needed",
+      "predicted_avg_sharpe": "2.0-3.5",
+      "risk": "expansion-consolidation failure if not managed",
+      "opportunity": "cross-domain transfer discoveries (F126 ISOMORPHISM-ATLAS)"
+    },
+    "S210_S240_long_term": {
+      "expected_pattern": "second autonomy expansion — swarm as peer tool for other repos",
+      "key_precondition": "F111 deploy decision resolved, F119 mission constraints validated",
+      "predicted_regime": "multi-repo, multi-LLM, multi-human-participant",
+      "quality_outlook": "sustained 3-5 Sharpe as diversity normalizes"
+    }
+  },
+
+  "evolution_health_indicators": {
+    "diversity_ratio": {"current": 0.8095, "healthy_range": "0.70-0.90", "status": "healthy"},
+    "selection_rate": {"current": 1.0, "healthy_range": "0.85-1.0", "status": "healthy"},
+    "retention_rate": {"current": 0.10, "healthy_range": "0.08-0.20", "status": "healthy"},
+    "throughput_rate": {"current": 0.015, "healthy_range": "0.10+", "status": "CRITICAL"},
+    "mutation_quality_r": {"current": 0.26, "healthy_range": "0.15-0.50", "status": "healthy"},
+    "mutation_destab_r": {"current": 0.67, "firebreak_threshold": 0.75, "status": "WATCH"},
+    "quality_sharpe_trend": {"S182": 7.15, "S186": 3.43, "S187": 3.21, "S188": 0.70, "status": "DECLINING"}
+  },
+
+  "meta_lesson": "The swarm's evolution obeys a burst-plateau-burst cycle: structural phase transitions (expect-act-diff, domain seeding) generate quality bursts, followed by lower-quality integration/execution phases. The next burst requires: (1) domain experiment execution, (2) READY lane clearance, (3) one more structural innovation (candidate: F126 ISOMORPHISM-ATLAS cross-domain transfer automation)."
+}

@@ -1,0 +1,234 @@
+{
+  "experiment": "F-CAT1",
+  "title": "Swarm Failure Mode and Effects Analysis (FMEA) — S302 Baseline",
+  "session": "S302",
+  "date": "2026-02-28",
+  "domain": "catastrophic-risks",
+  "framework": "Swiss Cheese Model (Reason 1990) + FMEA",
+  "check_mode": "objective",
+  "expect": "8+ documented failure modes; at least 2 severity-1 with <2 defense layers (single points of failure)",
+  "method": "Review all memory/lessons/ entries + MEMORY.md for documented failures. Classify by severity and count defense layers. Apply Swiss Cheese criterion: >=2 independent layers = adequate defense.",
+
+  "severity_definitions": {
+    "1": "Catastrophic — permanent data loss or swarm-breaking corruption (unrecoverable without human intervention)",
+    "2": "Serious — data corruption or major state inconsistency (recoverable with effort)",
+    "3": "Moderate — work duplication, minor state corruption, recoverable automatically"
+  },
+
+  "swiss_cheese_threshold": {
+    "inadequate": "<2 independent layers",
+    "minimal": "2 layers",
+    "adequate": ">=3 layers"
+  },
+
+  "failure_modes": [
+    {
+      "id": "FM-01",
+      "name": "Mass git staging via add -A or add .",
+      "component": "git workflow",
+      "severity": 1,
+      "source_lessons": ["L-234"],
+      "mechanism": "WSL corruption makes tracked files appear absent to git; `git add -A` stages their deletion; commit message gives no indication of scope",
+      "observed_impact": "729 files deleted in one commit (S179); required branch reset + salvage commit",
+      "prevention_layers": [
+        {"layer": "Rule", "description": "MEMORY.md + L-234: NEVER use git add -A or git add .", "automated": false, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "Git history", "description": "git reset HEAD~1 recovers if caught before push", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 1,
+      "swiss_cheese_status": "INADEQUATE",
+      "gap": "Rule alone is insufficient — depends on every node reading MEMORY.md and complying. No automated gate. Recommend: pre-commit hook that checks git diff --cached --stat for deletion count > threshold."
+    },
+    {
+      "id": "FM-02",
+      "name": "WSL filesystem corruption spreading to tracked files",
+      "component": "WSL / filesystem",
+      "severity": 1,
+      "source_lessons": ["L-234", "MEMORY-WSL-section"],
+      "mechanism": "Windows-side process writes make files inaccessible to WSL; shows as '?' in ls; corruption can spread from .claude/ to all tracked files",
+      "observed_impact": "swarm.md periodically deleted (MEMORY.md S165+); mass staging risk (S179)",
+      "prevention_layers": [
+        {"layer": "orient.py auto-repair", "description": "_auto_repair_swarm_md() in orient.py: detects + git checkout HEAD swarm.md on every orient run", "automated": true, "status": "ACTIVE"},
+        {"layer": "git-tracking of .claude/", "description": "swarm.md is git-tracked since S178 — recoverable via checkout", "automated": false, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "Bash heredoc fallback", "description": "WSL corruption immune path: bash heredoc writes work even when Write/Edit tools fail", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 2,
+      "swiss_cheese_status": "MINIMAL",
+      "gap": "Only covers swarm.md recovery. Other files in .claude/ or domains/ have no auto-repair. No detection of non-swarm.md corruption until it causes a mass-staging event."
+    },
+    {
+      "id": "FM-03",
+      "name": "Compaction reversal via WSL ghost resurrection",
+      "component": "compaction workflow + WSL",
+      "severity": 1,
+      "source_lessons": ["L-279"],
+      "mechanism": "git mv archives lessons; WSL resurrects them in working tree after compaction commits; subsequent git status shows them as 'new file' staged — committing would undo archiving",
+      "observed_impact": "15 archived lessons staged as new-file adds (S187); required manual git restore --staged for each",
+      "prevention_layers": [
+        {"layer": "Rule", "description": "L-279: Before committing, check staged 'new file' entries via git log -- <path> to detect resurrection", "automated": false, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "git restore --staged", "description": "git restore --staged <path> unstages resurrected files", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 1,
+      "swiss_cheese_status": "INADEQUATE",
+      "gap": "Post-compaction check is manual. Recommend: compact.py post-compaction verification step that scans git status for unexpected 'new file' staged additions in memory/lessons/ and auto-unstages them."
+    },
+    {
+      "id": "FM-04",
+      "name": "Git index corruption (index smaller than expected)",
+      "component": "git index",
+      "severity": 2,
+      "source_lessons": ["MEMORY-git-index-section"],
+      "mechanism": "Concurrent sessions write to git index simultaneously; index file becomes smaller than expected; all git operations fail",
+      "observed_impact": "Fatal: git commit blocked; required rm -f .git/index && git read-tree HEAD (S187)",
+      "prevention_layers": [
+        {"layer": "index.lock removal pattern", "description": "MEMORY.md pattern: python3 remove index.lock before every commit attempt", "automated": false, "status": "ACTIVE"},
+        {"layer": "Named file adds", "description": "Specific file adds reduce concurrent index contention window", "automated": false, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "Index rebuild", "description": "rm -f .git/index && git read-tree HEAD; then re-stage named files", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 2,
+      "swiss_cheese_status": "MINIMAL",
+      "gap": "No automated detection of index corruption state before commit attempt. The lock-removal pattern is a heuristic, not a guarantee."
+    },
+    {
+      "id": "FM-05",
+      "name": "Belief mutation mid-session (unauthorized CORE.md change)",
+      "component": "beliefs/CORE.md, beliefs/ constitution",
+      "severity": 1,
+      "source_lessons": ["L-312", "F-CON3"],
+      "mechanism": "Concurrent session modifies CORE.md mid-session; current node proceeds with stale belief state; constitutional drift goes undetected until validate_beliefs.py",
+      "observed_impact": "S193: F-CON3 detected a CONSTITUTION_CHANGED mid-session (CORE P13 added by concurrent session). Correctly classified as SANCTIONED — but manual review required.",
+      "prevention_layers": [
+        {"layer": "F-CON3 hash monitor", "description": "tools/f_con3_constitution_monitor.py: saves hash at session start, checks at end; 3/5 sessions run (PARTIAL)", "automated": true, "status": "PARTIAL"},
+        {"layer": "validate_beliefs.py", "description": "Post-session belief validation; wired in /swarm Hand-off step", "automated": true, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "alignment_check.py", "description": "Scans for pending challenges and contradictions; wired in Orient step", "automated": true, "status": "ACTIVE"}
+      ],
+      "total_prevention_layers": 2,
+      "swiss_cheese_status": "MINIMAL",
+      "gap": "F-CON3 only runs in expert sessions (not all nodes). Mid-session detection (not just end-of-session) missing. No auto-block of session if constitution changed without prior HQ item."
+    },
+    {
+      "id": "FM-06",
+      "name": "PreCompact state loss (compaction without checkpoint)",
+      "component": "Claude Code compaction event",
+      "severity": 1,
+      "source_lessons": ["L-342", "F-CC3"],
+      "mechanism": "Context limit hit mid-session; Claude Code compacts transcript; session loses in-flight intent, uncommitted work paths, and expect/actual diff state",
+      "observed_impact": "Every compaction before S301 was a complete state-loss event; node resumed without knowing what it was doing",
+      "prevention_layers": [
+        {"layer": "pre-compact-checkpoint.py", "description": "Wired in .claude/settings.json PreCompact hook; writes JSON snapshot of session intent + uncommitted files; orient.py shows checkpoint on resume (L-342, S301)", "automated": true, "status": "ACTIVE-UNTESTED"}
+      ],
+      "mitigation_layers": [
+        {"layer": "orient.py checkpoint banner", "description": "orient.py shows COMPACTION RESUME DETECTED + in-flight items; partially mitigates disorientation", "automated": true, "status": "ACTIVE"}
+      ],
+      "total_prevention_layers": 1,
+      "swiss_cheese_status": "INADEQUATE",
+      "gap": "pre-compact-checkpoint.py is wired but untested (no live-fire test yet, F-CC3 next step). orient.py shows banner but does not inject checkpoint content as preamble. Single untested layer = effectively 0 validated layers."
+    },
+    {
+      "id": "FM-07",
+      "name": "Belief cascade propagation via sequential commit reads",
+      "component": "commit chain + session read loop",
+      "severity": 2,
+      "source_lessons": ["L-228", "L-248"],
+      "mechanism": "Session A commits an erroneous high-confidence belief; Sessions B, C inherit it from git state; error propagates causally across sessions before challenge is filed",
+      "observed_impact": "Theoretical (no confirmed large-scale cascade documented); closest: PHIL-16 challenge on soft acceptance bias (L-314)",
+      "prevention_layers": [
+        {"layer": "Challenge-recent-commits rule", "description": "L-228: when high-stakes belief lands in commit, file challenge note or spawn counter-hypothesis", "automated": false, "status": "ACTIVE"},
+        {"layer": "alignment_check.py", "description": "Scans for contradictions between children and parent beliefs on every Orient", "automated": true, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "CHALLENGES.md filing", "description": "Formal challenge mechanism via bulletin.py; propagated via propagate_challenges.py", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 2,
+      "swiss_cheese_status": "MINIMAL",
+      "gap": "alignment_check.py checks children vs parent but not commit-to-commit drift within a single belief over time. No velocity check (belief accumulates fast = higher cascade risk)."
+    },
+    {
+      "id": "FM-08",
+      "name": "sync_state.py corrupt count write",
+      "component": "sync_state.py / state synchronization",
+      "severity": 2,
+      "source_lessons": ["L-233"],
+      "mechanism": "sync_state.py calls git ls-files during concurrent git operation; gets empty return; writes '0 lessons' to INDEX.md and NEXT.md",
+      "observed_impact": "INDEX.md corrupted with '0L' count (S179); required manual correction",
+      "prevention_layers": [
+        {"layer": "Sanity guard in sync_state.py", "description": "Code fix: if count == 0, skip patch and emit warning (fix applied post-L-233)", "automated": true, "status": "ACTIVE"}
+      ],
+      "mitigation_layers": [
+        {"layer": "Manual count correction", "description": "Human/node can verify count via git ls-files | wc -l", "automated": false, "status": "AVAILABLE"}
+      ],
+      "total_prevention_layers": 1,
+      "swiss_cheese_status": "MINIMAL",
+      "gap": "Single automated guard. No end-to-end test that verifies the guard fires correctly under concurrent load."
+    }
+  ],
+
+  "summary": {
+    "total_failure_modes": 8,
+    "severity_1_count": 4,
+    "severity_2_count": 4,
+    "inadequate_defense_count": 3,
+    "inadequate_modes": ["FM-01 (mass git staging)", "FM-03 (compaction reversal)", "FM-06 (PreCompact state loss)"],
+    "minimal_defense_count": 4,
+    "adequate_defense_count": 1
+  },
+
+  "top_hardening_priorities": [
+    {
+      "rank": 1,
+      "mode": "FM-01",
+      "recommendation": "Add pre-commit hook: if `git diff --cached --stat` shows >50 deletions, abort and print warning. Automate the detection layer.",
+      "effort": "low",
+      "impact": "eliminates the most catastrophic observed incident (729 deletions, S179)"
+    },
+    {
+      "rank": 2,
+      "mode": "FM-06",
+      "recommendation": "Live-fire test of pre-compact-checkpoint.py (run /compact, verify checkpoint JSON appears). Until tested, treat as 0 layers.",
+      "effort": "low",
+      "impact": "validates the only PreCompact defense layer"
+    },
+    {
+      "rank": 3,
+      "mode": "FM-03",
+      "recommendation": "Add post-compaction verification step to compact.py: after archiving, run git status and auto-unstage any 'new file' additions in memory/lessons/.",
+      "effort": "medium",
+      "impact": "prevents compaction-reversal accidents in fully automated compaction runs"
+    }
+  ],
+
+  "isomorphisms": [
+    {
+      "cat_risks_concept": "Swiss Cheese Model",
+      "swarm_parallel": "Defense layers: hooks + validate_beliefs + F-CON3 + orient.py auto-repair. FM-01/FM-03/FM-06 have holes aligned — catastrophic incident can propagate through all layers.",
+      "actionable": "Require minimum 2 automated (not rule-only) layers for every severity-1 failure mode."
+    },
+    {
+      "cat_risks_concept": "Normal Accident Theory (Perrow 1984)",
+      "swarm_parallel": "Swarm is complex (130+ lanes, concurrent sessions, WSL/git interplay) AND tightly-coupled (shared git index, shared hot files). Perrow predicts: accidents are inevitable, not exceptional.",
+      "actionable": "Stop treating WSL corruption incidents as anomalies. Treat them as the normal state that requires systematic defense-in-depth, not one-off rules."
+    },
+    {
+      "cat_risks_concept": "HRO preoccupation with failure",
+      "swarm_parallel": "DUE/NOTICE system + maintenance.py + expect-act-diff are preoccupation-with-failure mechanisms. But they only cover known failure modes. FM-06 (PreCompact) was a known failure mode with 0 defenses until S301.",
+      "actionable": "Add a 'failure mode registry audit' to the periodic maintenance cycle: once per 20 sessions, verify each FM in this registry still has >=1 active layer."
+    },
+    {
+      "cat_risks_concept": "Gray rhino vs black swan",
+      "swarm_parallel": "WSL corruption = gray rhino (visible, high-probability, ignored). git index corruption = gray rhino. PreCompact state loss = gray rhino (obvious compaction exists, checkpoint not wired for 300+ sessions). No confirmed black swans yet.",
+      "actionable": "The lesson is not 'defend against surprises' but 'act on the known rhinos'. All 3 INADEQUATE modes were gray rhinos with documented incidence history."
+    }
+  ],
+
+  "actual": "8 failure modes registered. 4 severity-1, 4 severity-2. 3 severity-1 with <2 defense layers (INADEQUATE). All 3 were gray rhinos — high-probability known risks not yet automated.",
+  "diff": "Expected 2+ severity-1 INADEQUATE modes; found 3. PreCompact state loss was unexpectedly INADEQUATE (pre-compact-checkpoint.py is wired but untested — live fire test not yet run). This is a stronger finding than expected."
+}

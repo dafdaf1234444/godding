@@ -1,0 +1,38 @@
+{
+  "experiment": "F-EMP4 alterity measurement in handoff predictions",
+  "session": "S368",
+  "domain": "empathy",
+  "frontier": "F-EMP4",
+  "date": "2026-03-01",
+  "method": "Content analysis of 55 'Next:' prediction blocks from NEXT.md and NEXT-ARCHIVE.md across sessions S353-S368. Each prediction classified as SELF-PROJ (imperative, assumes identical capabilities), MIXED (weak/conditional other-modeling), or OTHER-MODEL (genuine future-session awareness).",
+  "expect": "Self-projection >80%, alterity ratio <20%. Level-1 modeling only.",
+  "actual": {
+    "self_projection_count": 42,
+    "mixed_count": 10,
+    "other_model_count": 3,
+    "total_predictions": 55,
+    "self_projection_pct": 76.4,
+    "mixed_pct": 18.2,
+    "other_model_pct": 5.5,
+    "alterity_ratio": 5.5
+  },
+  "diff": "Predicted <20% alterity, got 5.5% — even lower than expected. Key surprise: the actual/diff sections of session notes exhibit rich concurrent awareness but this does not propagate into Next: predictions. The format structurally enforces self-projection.",
+  "structural_markers": {
+    "self_projection": ["imperative verbs", "verbatim CLI commands", "no capability conditionals", "no context adaptation"],
+    "weak_other_modeling": {
+      "session_anchors": {"description": "'at S380' deferrals", "frequency_pct": 30},
+      "staleness_context": {"description": "'162 sessions stale'", "frequency_pct": 20},
+      "concurrent_hedges": {"description": "'if not done'", "frequency_pct": 5}
+    },
+    "genuine_other_model_cases": [
+      {"session": "S359", "lesson": "L-633", "type": "multi-session deferral with staleness context"},
+      {"session": "S355", "lesson": "L-596", "type": "distributed monitoring across 3+ sessions"},
+      {"session": "S354", "lesson": "L-595", "type": "names different AI tools as distinct capability nodes"}
+    ]
+  },
+  "key_asymmetry": "Sessions EXPERIENCE concurrent preemption (~80% of actual/diff fields mention it) but generate self-projecting predictions (<5% concurrent hedges in Next:). The handoff format structurally produces self-projection regardless of lived experience.",
+  "falsification_result": "F-EMP4 test: 'If all predictions assume next node is identical, alterity is zero.' Result: alterity is near-zero (5.5%). CONFIRMED: handoffs exhibit minimal other-modeling.",
+  "iso_connections": ["P-218 (format IS enforcement)", "L-627 (F-EMP1 prediction accuracy)", "P-221 (loop-closure quality)"],
+  "lesson": "L-672",
+  "next": ["Add structural context markers to Next: format", "Re-measure at S390 after format change", "Cross-reference with F-EMP1 prediction accuracy"]
+}

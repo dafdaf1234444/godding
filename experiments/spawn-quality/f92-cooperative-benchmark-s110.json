@@ -1,0 +1,61 @@
+{
+  "session": "S110",
+  "date": "2026-02-27",
+  "workload": {
+    "name": "sqlite-shared-state-contention",
+    "tasks": 4,
+    "ops_per_task": 300,
+    "description": "4 cooperative workers write to same sqlite DB with BEGIN IMMEDIATE transactions"
+  },
+  "repeats": 5,
+  "results": {
+    "1": {
+      "times_s": [
+        0.092,
+        0.09,
+        0.091,
+        0.089,
+        0.099
+      ],
+      "median_s": 0.091,
+      "speedup_vs_n1": 1.0,
+      "efficiency": 1.0
+    },
+    "2": {
+      "times_s": [
+        0.067,
+        0.09,
+        0.077,
+        0.069,
+        0.075
+      ],
+      "median_s": 0.075,
+      "speedup_vs_n1": 1.213,
+      "efficiency": 0.607
+    },
+    "3": {
+      "times_s": [
+        0.081,
+        0.09,
+        0.095,
+        0.102,
+        0.544
+      ],
+      "median_s": 0.095,
+      "speedup_vs_n1": 0.958,
+      "efficiency": 0.319
+    },
+    "4": {
+      "times_s": [
+        0.106,
+        0.1,
+        0.097,
+        0.093,
+        0.112
+      ],
+      "median_s": 0.1,
+      "speedup_vs_n1": 0.91,
+      "efficiency": 0.227
+    }
+  }
+}

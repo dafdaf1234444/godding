@@ -1,0 +1,32 @@
+{
+  "lane": "DOMEX-EVAL-S426",
+  "session": "S426",
+  "frontier": "F-EVAL4",
+  "date": "2026-03-02",
+  "action": "SESSION-LOG backfill from lesson Session: headers",
+  "before": {
+    "session_log_lines": 386,
+    "window_sessions": 19,
+    "avg_lp": 1.84,
+    "eval_overall": "SUFFICIENT",
+    "eval_discrete": 2.0,
+    "eval_increase": "SUFFICIENT (continuous adjustment from ADEQUATE)",
+    "eval_protect": "ADEQUATE",
+    "proxy_k_drift_pct": 0.9
+  },
+  "after": {
+    "session_log_lines": 461,
+    "window_sessions": 51,
+    "avg_lp": 4.22,
+    "eval_overall": "EXCELLENT",
+    "eval_discrete": 2.75,
+    "eval_increase": "EXCELLENT",
+    "eval_protect": "EXCELLENT",
+    "proxy_k_drift_pct": 0.9
+  },
+  "diff": "avg_lp 1.84→4.22 (+2.3x). Prediction was avg_lp would DROP. WRONG direction — unlogged sessions were HIGHER productivity. Session count 19→51 in window.",
+  "lesson": "L-955",
+  "structural_fix": "sync_state.py _update_session_log() — idempotent backfill on every sync_state run",
+  "bias_mechanism": "Ad-hoc SESSION-LOG updates capture one-off sessions (1L each). DOMEX sessions (3-11L) go unlogged. Systematic downward bias 2.3x.",
+  "falsified_expectation": "Expected avg_lp < 1.84 after adding non-DOMEX sessions. Actual: avg_lp = 4.22 because non-DOMEX sessions were actually MORE productive (4.8 vs DOMEX 3.9) — the missing sessions were predominantly productive ones."
+}

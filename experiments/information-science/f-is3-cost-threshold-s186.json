@@ -1,0 +1,25 @@
+{
+  "experiment": "F-IS3-cost-threshold",
+  "source": "spawn_math calibrated S186",
+  "model": {
+    "baseline_quality": 0.741822433460076,
+    "baseline_std": 0.4376321636665284,
+    "rho": 0.03201330798479087,
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "p119_threshold_fraction": 0.45
+  },
+  "breakpoints": {
+    "n3_or_more_max_cost": 0.053,
+    "n2_min_cost": 0.054,
+    "n2_max_cost": 0.123,
+    "n1_min_cost": 0.124
+  },
+  "interpretation": [
+    "If effective coordination cost per extra agent <= 0.053, model prefers N>=3.",
+    "If cost is 0.054..0.123, model prefers N=2.",
+    "If cost >= 0.124, model recommends no spawn (N=1).",
+    "Current calibrated run used coordination_cost=0.01, which lies in the N>=3 regime."
+  ],
+  "generated_at_utc": "2026-02-27T20:26:13Z"
+}

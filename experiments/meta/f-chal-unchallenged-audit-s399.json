@@ -1,0 +1,49 @@
+{
+  "id": "f-chal-unchallenged-audit-s399",
+  "session": "S399",
+  "frontier": "F-META12",
+  "domain": "meta",
+  "hypothesis": "Challenge coverage is evenly distributed across structural layers",
+  "method": "Full audit of CHALLENGES.md, PHILOSOPHY.md challenges table, test_mission_constraints.py, CONFLICTS.md usage, SWARM-LANES.md append-only compliance",
+  "pre_registration": {
+    "prediction": "At least 50% of beliefs have challenge entries",
+    "falsification": "If <30% of beliefs are challenged, challenge mechanism has coverage gap"
+  },
+  "results": {
+    "beliefs_challenged_pct": 20.0,
+    "beliefs_total": 20,
+    "beliefs_with_challenges": 4,
+    "beliefs_never_challenged": ["B-1", "B-2", "B-3", "B-6", "B-7", "B-9", "B-10", "B-11", "B-12", "B-13", "B-14", "B-15", "B-16", "B-17", "B-18", "B-EVAL1", "B-EVAL2", "B-EVAL3"],
+    "principles_total": 248,
+    "principles_zero_citation_zero_challenge": 74,
+    "principles_dark_matter_pct": 29.8,
+    "invariants_with_enforcement_tests": {
+      "I1": false, "I2": false, "I3": true, "I4": false, "I5": false, "I6": false, "I7": false, "I8": false,
+      "I9": true, "I10": true, "I11": true, "I12": true, "I13": true
+    },
+    "invariants_enforced_count": "5/13 (I3 + I9-I13)",
+    "invariants_unenforced_count": "7/13 (I1, I2, I4, I5, I6, I7, I8)",
+    "conflicts_md_invocations": 0,
+    "conflicts_md_sessions_existed": 399,
+    "lane_append_only_violations": "1630+ line deletions in git history (merge-on-close)",
+    "lane_untracked_commits": "20+ maintenance/harvest commits without lane entries",
+    "philosophy_challenge_power_law": {
+      "PHIL-2_challenges": 5,
+      "PHIL-13_challenges": 4,
+      "PHIL-16_challenges": 4,
+      "PHIL-3_challenges": 3,
+      "unchallenged_phil_claims": 0,
+      "note": "Philosophy layer is well-covered; belief layer is not"
+    },
+    "challenge_outcome_distribution": {
+      "CONFIRMED": 8,
+      "SUPERSEDED": 7,
+      "DROPPED": 2,
+      "OPEN": 6,
+      "REFINED": "~70% of CONFIRMED involve language softening"
+    }
+  },
+  "conclusion": "FALSIFIED — challenge coverage is power-law distributed. Philosophy layer saturated (100% claims challenged). Belief layer 20% covered. Principle layer 70% cited but <4% formally challenged. Invariant enforcement 38%. Core protocol (CONFLICTS.md) dead. Lane system append-only claim falsified.",
+  "lesson": "L-830",
+  "artifacts_produced": ["memory/lessons/L-830.md", "experiments/meta/f-chal-unchallenged-audit-s399.json"]
+}

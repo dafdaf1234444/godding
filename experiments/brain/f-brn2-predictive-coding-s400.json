@@ -1,0 +1,45 @@
+{
+  "frontier": "F-BRN2",
+  "session": "S400",
+  "analysis": "prediction-error-vs-lesson-quality",
+  "mode": "hardening",
+  "date": "2026-03-01",
+  "hypothesis": "Prediction error magnitude correlates r>0.3 with lesson quality (Sharpe). EAD implements predictive coding: surprise drives learning.",
+  "sharpe_analysis": {
+    "LOW_ERROR": {"n": 15, "mean_sharpe": 8.07, "range": "5-9"},
+    "MEDIUM_ERROR": {"n": 20, "mean_sharpe": 8.25, "range": "7-9"},
+    "HIGH_ERROR": {"n": 9, "mean_sharpe": 8.44, "range": "7-9"},
+    "r": 0.156,
+    "t": 1.024,
+    "p": ">0.05 (NS)",
+    "verdict": "Weak positive, NOT significant. Ceiling effect at Sharpe 7-9."
+  },
+  "citation_analysis": {
+    "LOW_ERROR": {"n": 26, "mean_citations": 16.35, "median": 3},
+    "MEDIUM_ERROR": {"n": 33, "mean_citations": 19.15, "median": 4},
+    "HIGH_ERROR": {"n": 26, "mean_citations": 12.42, "median": 3},
+    "r": -0.047,
+    "t": -0.431,
+    "p": ">0.05 (NS)",
+    "verdict": "Null. No relationship between error magnitude and citation impact."
+  },
+  "falsified_vs_confirmed": {
+    "falsified": {"n": 26, "mean_sharpe": 8.50, "mean_citations": 12.42},
+    "confirmed": {"n": 26, "mean_sharpe": 8.07, "mean_citations": 16.35},
+    "cohen_d_citations": -0.129,
+    "verdict": "Sharpe slightly favors falsified (d≈0.4 but underpowered). Citations slightly favor confirmed (d=-0.13). Both NS."
+  },
+  "expectations_vs_actual": {
+    "r_expect": ">0.3",
+    "r_sharpe_actual": 0.156,
+    "r_citations_actual": -0.047,
+    "prediction_verdict": "FAILS — both measures bracket zero, well below 0.3 threshold"
+  },
+  "interpretation": {
+    "mechanism": "EAD works through LOOP CLOSURE (having expect+actual+diff at all → +39.8pp merge, S360), NOT through ERROR MAGNITUDE (how wrong → r≈0). The swarm has a structured-reflection mechanism, not a prediction-error mechanism.",
+    "brain_analogy": "PARTIAL — the swarm has the predict-compare-update loop (structural isomorphism), but lacks error-dependent learning rate (functional divergence). Predictive coding in neuroscience preferentially updates from high-surprise signals; EAD updates uniformly regardless of surprise magnitude.",
+    "prior_work": "S360: loop existence → +39.8pp merge. S367: causal (OR=203). S371: loop closure mediates (phi=0.37). THIS: error magnitude does NOT mediate (r≈0)."
+  },
+  "lesson": "L-841",
+  "verdict": "F-BRN2 predictive coding claim REFINED: EAD is attention mechanism (forces reflection), not prediction-error mechanism (doesn't learn differentially from surprises). Brain analogy partial: structure yes, function no."
+}

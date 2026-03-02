@@ -1,0 +1,32 @@
+{
+  "analysis": "swarm-history-population-dynamics",
+  "generated_at": "2026-02-27",
+  "lane_population": {
+    "total_rows": 43,
+    "status_counts": {
+      "ACTIVE": 2,
+      "MERGED": 39,
+      "READY": 2
+    },
+    "active_rows": 4,
+    "merged_rows": 39,
+    "session_distribution_top": {
+      "S185": 17,
+      "S186": 15,
+      "S184": 11
+    }
+  },
+  "session_population": {
+    "parsed_rows": 267,
+    "recent_window": "S180+",
+    "recent_rows": 12,
+    "lessons_added_total": 15,
+    "principles_added_total": 7,
+    "knowledge_delta_total": 22
+  },
+  "signals": [
+    "Lane population is merge-heavy with low active residue: coordination debt currently low.",
+    "Recent S180+ history shows positive knowledge throughput but with bursty session-to-session output.",
+    "Population dynamics trend: many short, mergeable lanes around AI2/AI1 frontier work indicate high reproductive rate of experiments with fast closure."
+  ]
+}

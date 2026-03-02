@@ -1,0 +1,420 @@
+{
+  "frontier_id": "F-HIS2",
+  "title": "Chronology conflict detection across NEXT, SWARM-LANES, and artifacts",
+  "inputs": {
+    "next": "tasks/NEXT.md",
+    "lanes": "tasks/SWARM-LANES.md"
+  },
+  "analysis": {
+    "next_events_total": 235,
+    "next_events_with_refs": 154,
+    "matched_next_events": 43,
+    "missing_link_events": [
+      {
+        "session": 190,
+        "refs": [
+          "tools/personalities/dream-expert.md"
+        ],
+        "next_event_text": "S190 (this node, dream-expert dispatch): **Dream domain seeded** \u2014 `domains/dream/` (DOMAIN.md + INDEX.md + tasks/FRONTIER.md), `tools/personalities/dream-expert.md`, DOMEX-DREAM-S190 lane, F129 added. **3 dream sessions swarmed**: Session 1 (farming\u00d7fractals, DRM-H1..H5, L-312), Session 2 (F-DRM1 PARTIAL \u2014 50% genuinely new, L-311), Session 3 F-DRM2 counterfactual inversion \u2014 2 fragile beliefs exposed (P11 expect-anchoring suppresses null discoveries; B8 frontier staleness 166 sessions), DRM-H6..H10, F131+F132 added, 2 CHALLENGES.md entries filed. F129 PARTIAL (3/3 sessions complete). PHIL-16 REFINED (outcome-grounding criterion, L-314). Stale lane DOMEX-COORD-S189C closed."
+      },
+      {
+        "session": 188,
+        "refs": [
+          "tools/maintenance.py"
+        ],
+        "next_event_text": "S188 (tool-consolidation node, verification check_mode): tool-consolidation periodic (every 25 sessions, last S163) executed \u2014 audited 140 tools in tools/. Found maintenance.py capabilities map stale by 25 sessions: missing 11 active tools (orient.py, sync_state.py, substrate_detect.py, alignment_check.py, close_lane.py, harvest_expert.py, dream.py, change_quality.py, task_recognizer.py, and 2 others). Fix applied to tools/maintenance.py capability_sets (lines 2104-2115): orientation now 7/7, inter_swarm 5/5, analysis 6/6. L-290 written. periodics.json tool-consolidation+state-sync advanced to S188. No duplicates or dead code found. Expect-act diff: expected duplicates/dead-code \u2192 actual: stale capabilities map only (SMALL diff). Meta-friction: adding a new tool to tools/ without updating the capabilities map is a silent P-134 violation \u2014 rule now in L-290."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ctl2_diff_latency.py",
+          "experiments/control-theory/f-ctl2-diff-latency-s186-clock-swarm.json",
+          "experiments/control-theory/f-ctl2-diff-latency-s186-structured-clock-swarm.json",
+          "tools/test_f_ctl2_diff_latency.py"
+        ],
+        "next_event_text": "S186: user-directed \"swarm the clock of the swarm for the swarm\" pass executed for F-CTL2 via `tools/f_ctl2_diff_latency.py` (`verification+coordination` check mode), producing `experiments/control-theory/f-ctl2-diff-latency-s186-clock-swarm.json` and `experiments/control-theory/f-ctl2-diff-latency-s186-structured-clock-swarm.json` with regression confirmation (`python3 -m unittest tools/test_f_ctl2_diff_latency.py`, 10/10). Expectation: commit-source clock should remain cross-session at the one-session floor while structured-lane clock stays low-sample/same-session. Actual: commit-source stayed stable (`diff_events=4`, `resolved=4`, `same_session_resolution_rate=0.0`, `cross_session_mean_lag=1.0`, `mean_lag_floor_1=1.0`, auto-routing `eligible=0`), and structured source stayed low-sample (`diff_events=1`, `resolved=1`, `same_session_resolution_rate=1.0`, `mean_lag=0.0`, `mean_lag_floor_1=1.0`). Diff: expectation confirmed; next leverage is collecting cross-session structured Expect/Actual/Diff tags before any route-threshold change."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop-f121-domex-gen.json",
+          "tools/test_f_gam3_signal_contract.py"
+        ],
+        "next_event_text": "S186: generated game-theory expert lane `L-S186-DOMEX-GEN-GAMETHEORY-1` was executed (`coordination` check mode) via `tools/f_gam3_signal_contract.py --holdout-latest-sessions 1 --suppress-noop-rows`, artifact `experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop-f121-domex-gen.json` (tests: `tools/test_f_gam3_signal_contract.py`, 9/9). Expectation: generated-domain execution might improve F-GAM3/F121 holdout viability. Actual: strict and F121 cohorts remain absent under one-session holdout (`strict_contract_lanes=0/21`, `f121_contract_lanes=0`, holdout-suppressed rows `339`, cutoff `S185`). Diff: execution succeeded but confirms the same blocker: `capabilities`/strict tag persistence must survive beyond latest-session rows."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/wiki_swarm.py",
+          "tools/test_wiki_swarm.py",
+          "tools/personalities/swarm-expert-builder.md"
+        ],
+        "next_event_text": "S186: user phrase \"swarm expert builder to swarm the swarm\" is now supported as a direct swarm command path: `tools/wiki_swarm.py` generic invocation parser accepts the phrase (including `builder` token), `tools/test_wiki_swarm.py` includes regression coverage, and new profile `tools/personalities/swarm-expert-builder.md` plus README activation docs make expert-capacity buildout immediately spawnable."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ai1_evidence_surfacing.py",
+          "tools/test_f_ai1_evidence_surfacing.py",
+          "experiments/ai/f-ai1-live-evidence-s186-nonoracle-en.json",
+          "experiments/ai/f-ai1-live-evidence-s186-nonoracle-es.json"
+        ],
+        "next_event_text": "S186: AI domain lane `L-S186-DOMEX-AI` executed with non-oracle confidence calibration for F-AI1 live evidence-surfacing. `tools/f_ai1_evidence_surfacing.py` now uses query-title alignment scoring (`SequenceMatcher` + token overlap) instead of perturbation-status confidence, with regression suite `tools/test_f_ai1_evidence_surfacing.py` at 4/4. New artifacts: `experiments/ai/f-ai1-live-evidence-s186-nonoracle-en.json` (async `0.275` -> surfacing `0.2313`, sync `0.3125`) and `experiments/ai/f-ai1-live-evidence-s186-nonoracle-es.json` (async `0.2437` -> surfacing `0.3250`, sync `0.3000`). Diff: optimistic bias is reduced and language-sensitive confidence calibration risk is now explicit; next step is threshold/feature calibration per language before globalizing live surfacing policy."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop.json",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop-f121.json",
+          "tools/test_f_gam3_signal_contract.py"
+        ],
+        "next_event_text": "S186: F-GAM3 holdout+suppression live-state rerun refreshed (`coordination` check mode) via `tools/f_gam3_signal_contract.py --holdout-latest-sessions 1 --suppress-noop-rows --min-maturity-sessions 1` with artifacts `experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop.json` and `experiments/game-theory/f-gam3-signaling-contract-s186-holdout1-noop-f121.json` (tests `tools/test_f_gam3_signal_contract.py`, 9/9). Expectation: check whether prior holdout/f121 findings remain stable on latest lane state. Actual: holdout removed `326` rows (cutoff `S185`), strict cohort remained absent (`strict_contract_lanes=0/20`, matured strict `0/3`), F121 cohort stayed absent (`f121_contract_lanes=0`, `capabilities_tagged_lanes=0`), and free-form matured update density stayed `2.3333`. Diff: result is stable; contract tags and capabilities tags are still concentrated in latest-session rows and need cross-session persistence before causal pickup-speed A/B is estimable."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "experiments/evolution/f-evo2-contamination-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo2-retention-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo3-protocol-cadence-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo4-multibranch-s186-swarm-the-swarm.json"
+        ],
+        "next_event_text": "S186: user-directed \"swarm the swarm\" evolution replay executed across F-EVO2/F-EVO3/F-EVO4 (`experiments/evolution/f-evo2-contamination-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo2-retention-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo3-protocol-cadence-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo4-multibranch-s186-swarm-the-swarm.json`). Check mode `assumption+verification+coordination`; expectation was contamination would stay MEDIUM while queue-pressure improves and multibranch pass remains intact. Actual: contamination improved from `0.5184` to `0.4784` (MEDIUM, ready/running `1.0`), cadence couplings stayed directionally stable (mutation-overhead `+0.3033`, mutation-destabilization `+0.4554`), and multibranch verdict remained full pass (`verdict_strength=1.0`, overall score `0.6989`). Diff: expectation confirmed on contamination and multibranch stability; retention bottleneck persists (`338` rows, only one retained base lane, READY residue `107`) so next action is quality-linkage for retained mutations plus continued READY-lane conversion."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/orient.py",
+          "tools/test_orient.py"
+        ],
+        "next_event_text": "S186: unused-surface swarming pass landed via `tools/orient.py` (`coordination` check mode): orientation now emits an `Underused core tools` section from recent session-log evidence (last 20 sessions) alongside unrun domain experiments, so dormant swarm capabilities are visible at startup without a manual audit. Regression coverage added in `tools/test_orient.py` (4/4). Diff: unused-part activation is now first-class in the default orientation loop."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "experiments/operations-research/f-ops3-queue-aging-s186-fullhistory-rerun.json",
+          "experiments/operations-research/f-ops3-queue-aging-s186-synthetic-rerun.json",
+          "experiments/operations-research/f-ops3-queue-aging-s186-synthetic-lanes.md"
+        ],
+        "next_event_text": "S186: floor-`0.3333` coordinator slot-1 operations execution completed via F-OPS3 queue-aging replays (`coordination+verification` check modes) with artifacts `experiments/operations-research/f-ops3-queue-aging-s186-fullhistory-rerun.json` and `experiments/operations-research/f-ops3-queue-aging-s186-synthetic-rerun.json` (using synthetic backlog slice file `experiments/operations-research/f-ops3-queue-aging-s186-synthetic-lanes.md`). Expectation: explicit backlog-slice injection should separate queue-aging from recency-bias so slot policy can progress beyond tie/null. Actual: live replay remains narrow (`ready_session_min=184`, `job_count=20`) and effectively tie (`score=0.9` both), while synthetic backlog replay separates policies (`job_count=26`, ready window `180..186`) but favors `recency_bias` (`0.4038` vs `-0.5077`) because naive queue-aging induces high `global_delay_rate=1.0` and `mean_positive_shift=2.0` despite stale-unresolved improvement (`0.0` vs `0.2308`). Diff: slot-1 produced actionable F-OPS3 signal (aging policy needs guardrails for global-delay/shift, not just stale reduction); coordinator can advance to slot-2 information-science."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ops2_guard_comparison.py",
+          "tools/test_f_ops2_guard_comparison.py",
+          "experiments/operations-research/f-ops2-guard-vs-unguarded-s186.json"
+        ],
+        "next_event_text": "S186: F-OPS2 realized guard-vs-unguarded comparison landed via `tools/f_ops2_guard_comparison.py` with regression coverage (`tools/test_f_ops2_guard_comparison.py`, 3/3) and artifact `experiments/operations-research/f-ops2-guard-vs-unguarded-s186.json`. Check mode `coordination`; expectation was to close the open F-OPS2 follow-up by measuring guarded vs unguarded plans against observed lane pickup/collision/blocked churn instead of scheduler-only projections. Actual: comparator reads both artifacts + lane history and reports guarded preference on normalized risk signals (`collision_keyword_rate_per_row 0.0797 vs 0.1429`, blocked-transition rate parity `0.0`), but with pickup-rate regression (`0.7273 vs 1.0`). Diff: guarded profile remains the safer live default, but pickup recovery is now the explicit next optimization target."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "tools/test_f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-rerun3.json",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-noop-suppressed.json"
+        ],
+        "next_event_text": "S186: F-GAM3 no-op suppression pass landed. `tools/f_gam3_signal_contract.py` now supports `--suppress-noop-rows` (collapse repeated same lane/session/status rows before analysis), regression coverage expanded to `tools/test_f_gam3_signal_contract.py` 7/7, and paired artifacts were generated on the same snapshot: unsuppressed `experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-rerun3.json` vs suppressed `experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-noop-suppressed.json`. Check mode `coordination`; expectation was reduced status-noise distortion without changing lag/stale conclusions. Actual: strict adoption remained `18/172` and lag/stale stayed parity (`0.0` / `0.0`), while churn deltas dropped from `updates/lane +7.3015` and lifecycle-density `+5.1587` to `+0.9481` and `-0.1429` (`suppressed_row_count=129`). Diff: no-op suppression materially improves F-GAM3 signal quality; next leverage is a post-`S187` holdout rerun for matured strict-cohort viability."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "tools/test_f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-noop-f121.json"
+        ],
+        "next_event_text": "S186: F-GAM3 holdout/F121 instrumentation landed. `tools/f_gam3_signal_contract.py` now exposes `f121_contract_ab` (`capabilities+available+blocked+next_step+human_open_item`) and latest-session holdout filtering (`--holdout-latest-sessions`); regression suite is now 9/9 (`tools/test_f_gam3_signal_contract.py`). Fresh suppressed artifacts `experiments/game-theory/f-gam3-signaling-contract-s186-noop-f121.json` and `...-holdout1-noop-f121.json` confirm strict cohort presence (`19/187`) but zero F121-capabilities cohort (`f121_contract_lanes=0`, `capabilities_tagged_lanes=0`), so matured F121 A/B remains non-viable pending explicit `capabilities=` tagging rollout."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "tools/test_f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-holdout-noop-suppressed.json"
+        ],
+        "next_event_text": "S186: F-GAM3 holdout-aware replay executed via `tools/f_gam3_signal_contract.py --holdout-latest-sessions 1 --suppress-noop-rows` with regression suite now 8/8 (`tools/test_f_gam3_signal_contract.py`) and artifact `experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2-holdout-noop-suppressed.json`. Check mode `coordination`; expectation was cleaner matured-cohort signal after latest-session censoring + no-op suppression. Actual: holdout removed `314` latest-session rows (`cutoff=S185`) and no-op suppression removed `3` more, but strict cohort disappeared (`strict_contract_lanes=0/20`, matured strict `0/3`) so A/B viability remains false. Diff: suppression improves signal quality, but strict contract adoption is not yet cross-session durable; next action is explicit persistence of strict tags across sessions before the next matured-cohort rerun."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ops2_post_slot_policy.py",
+          "tools/test_f_ops2_post_slot_policy.py",
+          "experiments/operations-research/f-ops2-post-slot-policy-s186.json"
+        ],
+        "next_event_text": "S186: F-OPS2 post-slot consolidation packet executed via `tools/f_ops2_post_slot_policy.py` (regression `tools/test_f_ops2_post_slot_policy.py`, 3/3) with artifact `experiments/operations-research/f-ops2-post-slot-policy-s186.json`. Check mode `coordination`; expectation was to convert completed slot outcomes into one coordinator-ready policy artifact. Actual: the packet unifies three live guards in one place: F-OPS1 default `wip_cap=4` (cap-5 promotion not ready), F-IS5 overlap baseline `shared_per_lane=2` with disagreement-reduction trigger (`collision>=0.6`), and statistics promotion lock held false while transfer remains inconclusive/high-heterogeneity. Diff: priority-1 consolidation is now executable from a single artifact and cross-linked across OR/statistics/information-science frontiers."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/spawn_math.py",
+          "tools/test_spawn_math.py",
+          "experiments/information-science/f-is3-spawn-math-s186-tie-guard.json",
+          "experiments/information-science/f-is3-spawn-math-s186-cost-calibrated.json"
+        ],
+        "next_event_text": "S186: F-IS3 tie-margin policy was operationalized in `tools/spawn_math.py` with configurable top-2 margin guard (`--tie-margin-min`) and conservative fallback to lower near-best `N` when the raw optimum is a near tie; `tools/test_spawn_math.py` now passes 11/11. Check mode `verification`; expectation was visible guard behavior in a low-cost near-tie regime while keeping cost-heavy calibrated recommendations unchanged. Actual: demo artifact `experiments/information-science/f-is3-spawn-math-s186-tie-guard.json` shifts raw `N=5` to guarded `N=3` (`raw_top2_margin=0.000557`, candidates `[3,4]`), while calibrated-cost rerun `experiments/information-science/f-is3-spawn-math-s186-cost-calibrated.json` remains `N=1` (`tie_guard_triggered=false`). Diff: fragile-N promotion risk is now bounded in core spawn policy."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam3_signal_contract.py",
+          "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2.json",
+          "tools/test_f_gam3_signal_contract.py"
+        ],
+        "next_event_text": "S186: F-GAM3 slot-2 follow-up rerun executed via `tools/f_gam3_signal_contract.py --out experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s2.json --min-maturity-sessions 1` with regression confirmation (`tools/test_f_gam3_signal_contract.py`, 6/6). Check mode `coordination`; expectation was non-empty strict cohort with clearer pickup-speed/stale separation after prior contract rollout. Actual: strict cohort stayed non-empty (`18/165`, `rate=0.1091`) but lag/stale remained parity (`0.0`/`0.0`), contract update volume spiked (`updates/lane 8.2778` vs `1.1293`, lifecycle-density delta `+4.9921`), and matured strict cohort is still unavailable (`0` lanes). Diff: signal quality is currently dominated by same-session churn, so next leverage is a one-session holdout plus no-op row suppression before rerunning."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/maintenance.py",
+          "tools/test_mission_constraints.py"
+        ],
+        "next_event_text": "S186: user safety directive (\"swwarm always has to be safe swarm\") was converted into executable MC-SAFE enforcement. `tools/maintenance.py` now flags active lanes with high-risk/irreversible intent unless `human_open_item=HQ-N` is present; regression coverage added in `tools/test_mission_constraints.py` (`high-risk without HQ` => DUE, `with HQ` => pass), and `SWARM.md` signaling now explicitly requires HQ references for high-risk lane actions."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_is3_math_validation.py",
+          "tools/test_f_is3_math_validation.py",
+          "experiments/information-science/f-is3-math-validation-s186.json"
+        ],
+        "next_event_text": "S186: math experiment pass for F-IS3 completed via `tools/f_is3_math_validation.py` (regression `tools/test_f_is3_math_validation.py`, 3/3) with artifact `experiments/information-science/f-is3-math-validation-s186.json`. Check mode `verification`; expectation was low analytic-vs-sim error with stable calibrated recommendation under the cost-heavy model. Actual: 75 scenarios at 12k trials/scenario produced mean absolute utility error `0.003657`, exact best-N agreement `0.7733`, within-one-N agreement `0.9733`, and mismatch_low_margin_rate `1.0`; calibrated model stayed `N*=1` in both analytic and simulated paths. Diff: spawn-math is numerically reliable in the exchangeable-error regime, and disagreement is concentrated in near-tie margins."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_meta4_visual_representability.py",
+          "tools/test_f_meta4_visual_representability.py",
+          "experiments/self-analysis/f-meta4-visual-representability-s186.json"
+        ],
+        "next_event_text": "S186: F-META4 visual representability baseline executed via `tools/f_meta4_visual_representability.py` (regression `tools/test_f_meta4_visual_representability.py`, 3/3) with artifact `experiments/self-analysis/f-meta4-visual-representability-s186.json`. Check mode `coordination`; expectation was that the newly landed visual contract would be structurally present but could still show adoption gaps. Actual: contract primitive/view/freshness coverage is `1.0` and adoption checks are `5/5` (`README.md`, `memory/INDEX.md`, `domains/meta/tasks/FRONTIER.md`, `domains/meta/INDEX.md`, `tasks/SWARM-LANES.md`), yielding overall score `1.0`. Diff: structural representability baseline is complete; next F-META4 step is behavioral validation (pickup-quality and contradiction-rate deltas under visual-guided handoff)."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_is6_unchallenged_beliefs.py",
+          "experiments/information-science/f-is6-unchallenged-beliefs-s186-rerun.json",
+          "tools/test_f_is6_unchallenged_beliefs.py"
+        ],
+        "next_event_text": "S186: F-IS6 stability rerun executed via `tools/f_is6_unchallenged_beliefs.py --out experiments/information-science/f-is6-unchallenged-beliefs-s186-rerun.json` after regression confirmation (`tools/test_f_is6_unchallenged_beliefs.py`, 3/3). Check mode `assumption`; expectation was that no challenge lane closure yet should keep the unchallenged profile effectively unchanged. Actual: baseline held exactly (`total_principles=166`, `challenged=1`, `unchallenged=165`, `unchallenged_ratio=0.994`, `longstanding_unchallenged_count=127`). Diff: F-IS6 signal is stable and still indicates high leverage in running a concrete challenge lane (starting with `P-032`) before next rerun."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_is6_unchallenged_beliefs.py",
+          "tools/test_f_is6_unchallenged_beliefs.py",
+          "experiments/information-science/f-is6-unchallenged-beliefs-s186.json"
+        ],
+        "next_event_text": "S186: F-IS6 long-standing unchallenged-principles baseline executed via `tools/f_is6_unchallenged_beliefs.py` with regression `tools/test_f_is6_unchallenged_beliefs.py` (3/3), producing `experiments/information-science/f-is6-unchallenged-beliefs-s186.json`. Check mode `assumption`; expectation was a high unchallenged backlog with concentration in governance/evolution themes. Actual: `total_principles=166`, `challenged=1`, `unchallenged=165` (`0.994`), `longstanding_unchallenged_count=127`, with diverse top challenge set led by `P-032`/`P-081`/`P-001`/`P-007`. Diff: F-IS6 was added as an active information-science frontier with next action to execute a concrete challenge lane and rerun the audit for ratio delta."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/maintenance.py",
+          "tools/test_mission_constraints.py"
+        ],
+        "next_event_text": "S186: swarm-integrity hardening pass landed in `tools/maintenance.py` for lane contract quality. `check_swarm_lanes` now validates canonical `available` values (`yes|no|partial`) and reports legacy aliases (`ready|now|true|false`) as migration notices; regression coverage was added in `tools/test_mission_constraints.py` (new available-value cases) and validated with `bash -lc \"python3 -m unittest tools.test_mission_constraints\"` (49/49) plus `bash -lc \"python3 -m unittest tools.test_swarm_lanes\"` (4/4). Quick-check remains NOTICE-only with the new availability guard active for future drift."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ctl2_diff_latency.py",
+          "tools/test_f_ctl2_diff_latency.py",
+          "experiments/control-theory/f-ctl2-diff-latency-s186.json"
+        ],
+        "next_event_text": "S186: F-CTL2 clock pass landed in `tools/f_ctl2_diff_latency.py` with regression suite now 10/10 (`tools/test_f_ctl2_diff_latency.py`). Summary now reports explicit same-session compression vs cross-session latency plus a minimum one-session clock floor (`same_session_resolution_rate`, `cross_session_mean_lag_sessions`, `mean_lag_floor_1_sessions`). Rerun artifacts (`experiments/control-theory/f-ctl2-diff-latency-s186.json`, `...-structured.json`) show commit-source lag stable at 1.0 session while structured-source remains low-sample and same-session (`rate=1.0`) but floor-1 lag still 1.0."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_ctl2_diff_latency.py",
+          "tools/test_f_ctl2_diff_latency.py",
+          "experiments/control-theory/f-ctl2-diff-latency-s186-structured.json"
+        ],
+        "next_event_text": "S186: F-CTL2 structured-lane rerun hygiene pass completed: `tools/f_ctl2_diff_latency.py` now accepts `--output` as alias for `--out` (CLI parity with other frontier tools), regression suite expanded to 9/9 in `tools/test_f_ctl2_diff_latency.py`, and `experiments/control-theory/f-ctl2-diff-latency-s186-structured.json` was regenerated with stable low-sample telemetry (`diff_events_total=1`, `mean_lag_sessions=0.0`)."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/context_router.py"
+        ],
+        "next_event_text": "S186: meta self-domain expansion landed from user signal (\"swarm should expand its domain knowledge on itself\"). `domains/meta/` was upgraded to parity with newer domains: refreshed `DOMAIN.md`, new `INDEX.md`, and executable frontier reset to `F-META1..3` (self-model contract, signal-to-action conversion, and self-improvement ROI). Routing and discoverability were wired by adding `domain_meta` mapping in `tools/context_router.py` and registering `domains/meta/tasks/FRONTIER.md` in global `tasks/FRONTIER.md`."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/f_gam2_reputation_integrity.py",
+          "experiments/game-theory/f-gam2-reputation-signals-s186-rerun.json"
+        ],
+        "next_event_text": "S186: F-GAM2 slot-2 execution progressed from planning to tagged rerun. `tools/f_gam2_reputation_integrity.py` (tests 5/5) first emitted assignment plan in `experiments/game-theory/f-gam2-reputation-signals-s186-rerun.json`, then after tagging lanes `L-S186-DOMEX-AI/BRN/EVO` produced `...-s186-rerun2.json` with non-zero active reputation coverage (`3/10`, rate `0.3`) and stronger integrity (`0.93`). Planner now reports `additional_tagged_needed=0`; next measurement should hold cohorts stable for >=1 session before comparing lag/conflict deltas because current tagged group remains high-activity/selection-biased (`updates/lane=6.0`, `conflict_rate=1.0`)."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/personalities/commit-expert.md",
+          "tools/agent_swarm.py"
+        ],
+        "next_event_text": "S186: swarm commit-expert profile added (`tools/personalities/commit-expert.md`) and documented for `tools/agent_swarm.py --personality commit-expert` usage. The profile introduces adaptive commit-accumulation control (default soft/hard triggers at 8/15 unpushed commits, overridden by newer OPS policy) plus required lane/NEXT signaling during backlog spikes."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/personalities/usage-identifier-expert.md",
+          "tools/agent_swarm.py"
+        ],
+        "next_event_text": "S186: swarm usage-identifier-expert profile added (`tools/personalities/usage-identifier-expert.md`) and documented for `tools/agent_swarm.py --personality usage-identifier-expert` usage. The profile targets identifier hygiene by enforcing explicit lane/frontier/artifact references and reducing ambiguous handoff phrasing before promotion."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/personalities/harvest-expert.md",
+          "tools/agent_swarm.py"
+        ],
+        "next_event_text": "S186: swarm harvest-expert profile added (`tools/personalities/harvest-expert.md`) and documented for `tools/agent_swarm.py --personality harvest-expert` usage. The profile targets harvest quality by enforcing expect/actual/diff summaries, all-outcomes signal capture, and explicit lane-to-artifact routing before promotion."
+      }
+    ],
+    "missing_link_rate": 0.7208,
+    "inversion_events": [],
+    "inversion_rate": 0.0,
+    "missing_artifacts": [],
+    "lane_only_artifacts_not_in_next": [
+      {
+        "ref": "experiments/architecture/swarm-scalability-s240.md",
+        "first_lane_session": 240,
+        "last_lane_session": 300
+      },
+      {
+        "ref": "experiments/economy/computational-utilization-expert-s245.md",
+        "first_lane_session": 245,
+        "last_lane_session": 299
+      },
+      {
+        "ref": "experiments/architecture/loop-expert-s287.md",
+        "first_lane_session": 287,
+        "last_lane_session": 298
+      },
+      {
+        "ref": "experiments/context-coordination/opinions-expert-s281.md",
+        "first_lane_session": 281,
+        "last_lane_session": 298
+      },
+      {
+        "ref": "experiments/architecture/multidisciplinary-swarm-architecture-expert-s286.md",
+        "first_lane_session": 286,
+        "last_lane_session": 286
+      },
+      {
+        "ref": "experiments/politics/politics-expert-s284.md",
+        "first_lane_session": 284,
+        "last_lane_session": 284
+      },
+      {
+        "ref": "experiments/information-science/researcher-expert-s283.md",
+        "first_lane_session": 283,
+        "last_lane_session": 283
+      },
+      {
+        "ref": "experiments/architecture/shared-clock-notifier-expert-s281.md",
+        "first_lane_session": 281,
+        "last_lane_session": 281
+      },
+      {
+        "ref": "experiments/self-analysis/tooler-expert-s279.md",
+        "first_lane_session": 279,
+        "last_lane_session": 279
+      },
+      {
+        "ref": "experiments/context-coordination/expert-classifier-expert-s275.md",
+        "first_lane_session": 273,
+        "last_lane_session": 275
+      },
+      {
+        "ref": "experiments/architecture/coupling-expert-s263.md",
+        "first_lane_session": 263,
+        "last_lane_session": 273
+      },
+      {
+        "ref": "experiments/fun/ysera-dream-atlas-s264.md",
+        "first_lane_session": 264,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/fun/zergs-swarm-rush-vs-tech-s264.md",
+        "first_lane_session": 264,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/quality/numerical-verification-expert-s255.md",
+        "first_lane_session": 255,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/quality/reality-check-expert-s243.md",
+        "first_lane_session": 243,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/self-analysis/git-expert-s264.md",
+        "first_lane_session": 264,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/self-analysis/swarm-health-expert-s261.md",
+        "first_lane_session": 261,
+        "last_lane_session": 264
+      },
+      {
+        "ref": "experiments/context-coordination/command-classification-expert-s260.md",
+        "first_lane_session": 260,
+        "last_lane_session": 260
+      },
+      {
+        "ref": "experiments/self-analysis/generalizer-expert-s260.md",
+        "first_lane_session": 260,
+        "last_lane_session": 260
+      },
+      {
+        "ref": "experiments/quality/expert-checker-s241.md",
+        "first_lane_session": 241,
+        "last_lane_session": 242
+      },
+      {
+        "ref": "experiments/self-analysis/idea-investigator-expert-s237.md",
+        "first_lane_session": 237,
+        "last_lane_session": 242
+      },
+      {
+        "ref": "experiments/quality/expert-checker-s236.md",
+        "first_lane_session": 236,
+        "last_lane_session": 236
+      },
+      {
+        "ref": "experiments/self-analysis/info-collector-expert-s235.md",
+        "first_lane_session": 235,
+        "last_lane_session": 235
+      },
+      {
+        "ref": "experiments/evolution/",
+        "first_lane_session": 200,
+        "last_lane_session": 200
+      },
+      {
+        "ref": "experiments/architecture/f-pers1-controlled-comparison-s198.md",
+        "first_lane_session": 198,
+        "last_lane_session": 198
+      },
+      {
+        "ref": "experiments/evolution/f-evo5-self-archaeology-s195.json",
+        "first_lane_session": 195,
+        "last_lane_session": 195
+      },
+      {
+        "ref": "experiments/claude-code/capability-audit-s194.json",
+        "first_lane_session": 194,
+        "last_lane_session": 194
+      }
+    ]
+  },
+  "generated_at_utc": "2026-02-28T11:03:52Z"
+}

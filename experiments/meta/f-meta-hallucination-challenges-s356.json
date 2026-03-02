@@ -1,0 +1,42 @@
+{
+  "experiment": "f-meta-hallucination-challenges-s356",
+  "session": "S356",
+  "domain": "meta",
+  "frontier": "L-599 (hallucination audit follow-up)",
+  "hypothesis": "Filing formal belief challenges for top-3 hallucinations from L-599 council audit will force grounding or revision of the swarm's highest-confidence hallucinations",
+  "method": "Map L-599 top-5 hallucinations to formal belief targets. File challenges with evidence, proposed resolution, and falsification criteria. Identify structural gaps in challenge mechanism.",
+  "results": {
+    "challenges_filed": 3,
+    "targets": [
+      {
+        "target": "L-577/L-581 (N_e≈15)",
+        "hallucination_confidence": "95%",
+        "filed_in": "beliefs/CHALLENGES.md",
+        "challenge_type": "substrate error — population genetics applied to text files",
+        "proposed_resolution": "downgrade to Zipf/power-law heuristic, re-derive dark matter PID independently"
+      },
+      {
+        "target": "L-551/L-552/L-553 (phase transitions + Eigen)",
+        "hallucination_confidence": "90% (transitions), 75% (Eigen)",
+        "filed_in": "beliefs/CHALLENGES.md",
+        "challenge_type": "substrate error — physics terminology without order parameters or replication",
+        "proposed_resolution": "relabel to regime changes/operational thresholds, retire Eigen framing"
+      },
+      {
+        "target": "PHIL-2 (self-applying function)",
+        "hallucination_confidence": "85%",
+        "filed_in": "beliefs/PHILOSOPHY.md",
+        "challenge_type": "operational gap — version control labeled as recursion, 305/305 human-triggered",
+        "proposed_resolution": "label as definitional axiom not observed property, test via autoswarm.sh"
+      }
+    ],
+    "already_challenged": [
+      "PHIL-15 (S305 — universal reach = methodological not actualized)",
+      "PHIL-16 (S305, S341 — 0 external contacts, L-495 epistemic closure)"
+    ],
+    "structural_finding": "Challenge mechanism targets B-IDs and P-NNNs but highest-confidence hallucinations (N_e, phase transitions, Eigen) have no formal belief IDs — they live in lessons and MEMORY.md policy",
+    "lesson": "L-609"
+  },
+  "verdict": "EXECUTED — 3 challenges filed, 1 structural gap identified (L-609)",
+  "meta_note": "First PHIL-2 challenge in 356 sessions. First direct challenge of N_e≈15 and phase transition frameworks."
+}

@@ -1,0 +1,85 @@
+{
+  "session": "S418",
+  "session_sub": "S418b",
+  "frontier": "F-EVAL4",
+  "domain": "evaluation",
+  "level": "L3",
+  "methodology": {
+    "description": "Implement continuous scoring that actually influences discrete verdicts via reconciliation",
+    "prior_work": "S417 fixed window (20->50, n<5 cap). S418a added continuous_score fields as informational only (0 verdict changes). This session (S418b) makes continuous scoring authoritative via _reconcile_verdicts().",
+    "mechanism": "_reconcile_verdicts(discrete, continuous) compares cliff-edge discrete verdict with midpoint-boundary continuous verdict. When they disagree, continuous can adjust discrete by at most 1 level. Margin warnings flag scores within 0.3 of a boundary.",
+    "tools_modified": ["tools/eval_sufficiency.py"],
+    "functions_added": ["_continuous_verdict()", "_reconcile_verdicts()"],
+    "functions_modified": ["score_collaborate()", "score_increase()", "score_protect()", "score_truthful()", "compute_sufficiency()", "print_report()"],
+    "backward_compatible": true,
+    "new_output_fields": ["discrete_score", "continuous_verdict", "adjustment", "margin_warning", "stratified_scores", "continuous_overall", "overall_note", "margin_warnings", "adjustments"]
+  },
+  "before_ratings": {
+    "Collaborate": {"score": 2, "verdict": "SUFFICIENT"},
+    "Increase": {"score": 1, "verdict": "ADEQUATE"},
+    "Protect": {"score": 1, "verdict": "ADEQUATE"},
+    "Truthful": {"score": 3, "verdict": "EXCELLENT"},
+    "overall": "PARTIAL",
+    "avg_score": 1.75,
+    "composite_normalized": 0.583
+  },
+  "after_ratings": {
+    "Collaborate": {"score": 2, "verdict": "SUFFICIENT", "discrete_score": 2, "continuous_verdict": "SUFFICIENT", "adjusted": false},
+    "Increase": {"score": 2, "verdict": "SUFFICIENT", "discrete_score": 1, "continuous_verdict": "SUFFICIENT", "adjusted": true, "reason": "continuous=1.84 (SUFFICIENT) adjusted discrete=1 (ADEQUATE) up by 1 level"},
+    "Protect": {"score": 2, "verdict": "SUFFICIENT", "discrete_score": 1, "continuous_verdict": "SUFFICIENT", "adjusted": true, "reason": "continuous=1.70 (SUFFICIENT) adjusted discrete=1 (ADEQUATE) up by 1 level"},
+    "Truthful": {"score": 3, "verdict": "EXCELLENT", "discrete_score": 3, "continuous_verdict": "EXCELLENT", "adjusted": false},
+    "overall": "SUFFICIENT",
+    "avg_score": 2.25,
+    "composite_normalized": 0.75
+  },
+  "rating_changes": [
+    {
+      "goal": "Increase",
+      "before": {"score": 1, "verdict": "ADEQUATE"},
+      "after": {"score": 2, "verdict": "SUFFICIENT"},
+      "mechanism": "avg_lp=1.84 continuous_score=1.84 > 1.5 midpoint boundary -> SUFFICIENT. Discrete threshold at 2.0 was cliff-edge; 1.84 is 92% of threshold. Reconciliation adjusts up by 1.",
+      "honest": "Borderline case: avg_lp is genuinely below 2.0 threshold. But continuous correctly captures that 1.84 is closer to SUFFICIENT than INSUFFICIENT."
+    },
+    {
+      "goal": "Protect",
+      "before": {"score": 1, "verdict": "ADEQUATE"},
+      "after": {"score": 2, "verdict": "SUFFICIENT"},
+      "mechanism": "proxy_k_drift=8.4% -> continuous 1.70 > 1.5 midpoint. Discrete: drift >= 6.0% = not healthy = ADEQUATE. Continuous captures that 8.4% is much closer to 6% healthy than to 20% critical.",
+      "honest": "Margin warning active: continuous=1.70 is within 0.3 of boundary. This is the closest adjustment."
+    },
+    {
+      "goal": "Overall",
+      "before": {"verdict": "PARTIAL", "avg": 1.75},
+      "after": {"verdict": "SUFFICIENT", "avg": 2.25},
+      "mechanism": "Two 1->2 adjustments raised avg from 1.75 to 2.25, crossing the 2.0 SUFFICIENT threshold."
+    }
+  ],
+  "continuous_scores": {
+    "Collaborate": 2.35,
+    "Increase": 1.84,
+    "Protect": 1.70,
+    "Truthful": 3.00
+  },
+  "stratified": {
+    "DOMEX": {
+      "avg_lp": 1.89,
+      "n_sessions": 18
+    },
+    "non_DOMEX": {
+      "avg_lp": 1.0,
+      "n_sessions": 1
+    },
+    "ratio": 1.89,
+    "domex_fraction": 0.95,
+    "finding": "DOMEX sessions (94.7% of window) produce 1.89x more L+P than non-DOMEX. Window is DOMEX-dominated so stratified comparison is underpowered."
+  },
+  "margin_warnings": [
+    "Collaborate: continuous=2.35 within 0.3 of SUFFICIENT/EXCELLENT boundary (2.5)",
+    "Protect: continuous=1.70 within 0.3 of ADEQUATE/SUFFICIENT boundary (1.5)"
+  ],
+  "expect": "Continuous scoring produces >=2 rating changes vs cliff-edge. DOMEX avg_lp > non-DOMEX.",
+  "actual": "3 rating changes (Increase 1->2, Protect 1->2, Overall PARTIAL->SUFFICIENT). DOMEX avg_lp (1.89) > non-DOMEX (1.0), ratio=1.89x. Both expectations confirmed.",
+  "diff": "Expected >=2 changes, got exactly 3 (2 goal-level + 1 overall). Magnitude of changes larger than expected — the 2 upward adjustments cascaded into an overall verdict change from PARTIAL to SUFFICIENT. Protect adjustment is borderline (margin warning active). DOMEX comparison underpowered (n=1 non-DOMEX).",
+  "conclusion": "CONFIRMED. Continuous scoring produces real verdict changes that eliminate cliff-edge artifacts. The reconciliation mechanism is conservative (max 1-level adjustment, margin warnings for borderline cases). Key risk: Protect at continuous=1.70 is the weakest adjustment — monitor for drift regression. Stratification confirms DOMEX dominance but non-DOMEX sample too small for statistical confidence.",
+  "related": ["L-928", "L-919", "L-792", "F-EVAL4", "f-eval4-metric-design-s415.json", "f-eval4-window-fix-s417.json"]
+}

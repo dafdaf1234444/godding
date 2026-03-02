@@ -1,0 +1,104 @@
+{
+  "experiment": "F-EVO2 quality-linkage",
+  "title": "Variation-selection-retention: quality-outcome linkage",
+  "session": "S188",
+  "date": "2026-02-28",
+  "analyst_role": "evolution-expert",
+
+  "retention_state": {
+    "rows_analyzed": 430,
+    "status_counts": {"MERGED": 237, "READY": 128, "ACTIVE": 52, "ABANDONED": 12, "DONE": 1},
+    "retained_base_mutations": 7,
+    "retention_rate": 0.10,
+    "note": "7 retained mutations found vs 1 at S186 — but all 7 are DOMEX-GEN READY (stale dispatch lanes, not executed mutations). True executed retention rate is still ~0.10."
+  },
+
+  "quality_trajectory": {
+    "source": "change_quality.py --trend",
+    "global_mean_sharpe": 2.16,
+    "phase_analysis": [
+      {"phase": "early_S39_S60", "sessions": 22, "avg_sharpe": 5.8, "driver": "large structural work per session"},
+      {"phase": "plateau_S65_S170", "sessions": 30, "avg_sharpe": 0.9, "driver": "low-activity maintenance / sparse sessions"},
+      {"phase": "acceleration_S178_S182", "sessions": 5, "avg_sharpe": 5.1, "driver": "expect-act-diff wiring, F121/F122 bulk frontier work"},
+      {"phase": "post_expansion_S183_S188", "sessions": 6, "avg_sharpe": 1.9, "driver": "domain seeding overhead + diluted focus"}
+    ],
+    "recent_trend": "declining: S186=3.43, S187=3.21, S188=0.70",
+    "quality_vs_retained_mutation": {
+      "finding": "sessions with active retained lanes (S184-S185, UNDERSTAND-SWARM) both scored 0.00 quality — orientation is necessary but not quality-generating",
+      "conclusion": "Retention rate alone is not a quality predictor. Quality predicts retention (high-quality patterns get reused) but not the reverse.",
+      "quality_causes_retention_r": "theorized_positive",
+      "retention_causes_quality_r": "not_confirmed"
+    }
+  },
+
+  "protocol_mutation_coupling": {
+    "source": "f_evo3_cadence.py (S188 rerun)",
+    "global_mutation_vs_quality": 0.116,
+    "global_mutation_vs_overhead": 0.289,
+    "global_mutation_vs_destabilization": 0.674,
+    "recent_20_mutation_vs_quality": 0.264,
+    "recent_20_mutation_vs_frontier_advances": 0.390,
+    "interpretation": "Protocol mutation is now POSITIVELY correlated with both quality and frontier advances in the recent window — a phase shift from S186 findings where mutation was purely a stability cost. The S178-S188 protocol evolution cluster was productive."
+  },
+
+  "binding_constraint_analysis": {
+    "task_throughput_rate": 0.015,
+    "ready_backlog": 128,
+    "active_lanes": 52,
+    "done_lanes": 3,
+    "finding": "Throughput (1.5%) is the critical bottleneck. 128 READY lanes represent stalled demand — they were dispatched but never executed. This is not a production problem but a delivery problem.",
+    "production_acceleration": "8.0x above historical average (economy_expert)",
+    "implication": "Swarm is producing knowledge faster than it is acting on it — a supply-demand imbalance in the task economy."
+  },
+
+  "forward_evolution_projections": {
+    "sessions_S189_S200_forecast": {
+      "quality_trend": "plateau expected at 2.5-3.5 Sharpe as domain experiments ship; recovers if >=3 domain frontiers resolve",
+      "lesson_rate": "acceleration (8x) will normalize to 3-4 L/session as domain seeding phase ends",
+      "binding_constraint_shift": "throughput bottleneck (READY lanes) becomes dominant risk if not addressed by S192",
+      "protocol_mutation_outlook": "productive phase continues for ~5-8 more sessions, then stability guardrails become necessary as destabilization correlation (0.67) may catch up"
+    },
+    "critical_phase_transitions": [
+      {
+        "transition": "domain seeding → domain execution",
+        "trigger": "17 seeded domains need first experiments; currently 37 unrun",
+        "expected_session": "S189-S193",
+        "quality_impact": "+2-4 Sharpe per domain that ships a resolved frontier"
+      },
+      {
+        "transition": "expansion → consolidation",
+        "trigger": "READY backlog reaches 150+ lanes or throughput drops below 1%",
+        "expected_session": "S195-S200 if no intervention",
+        "quality_impact": "risk of quality collapse to 0.0 if stall deepens"
+      },
+      {
+        "transition": "mutation phase → stabilization phase",
+        "trigger": "mutation-destabilization correlation reaches 0.80 (currently 0.67)",
+        "expected_session": "S198-S205",
+        "quality_impact": "needs explicit stability guardrails (protocol mutation firebreak)"
+      }
+    ]
+  },
+
+  "prescriptions": [
+    "PRIORITY-1: Convert READY→DONE or READY→ABANDONED for 80+ READY lanes (throughput bottleneck, not knowledge bottleneck)",
+    "PRIORITY-2: Execute 3+ domain experiments per session (not more seeding) to recover quality burst potential",
+    "PRIORITY-3: Wire protocol mutation firebreak: if destabilization_r > 0.75, hold protocol mutations for 3 sessions",
+    "PRIORITY-4: Quality predicts retention (not reverse) — identify this session's high-quality work and mark as reuse candidates"
+  ],
+
+  "f_evo1_diversity_link": {
+    "current_diversity_ratio": 0.8095,
+    "hhi_concentration": 0.7907,
+    "finding": "High diversity ratio (0.81) with high HHI (0.79) is paradoxical — many unique scope-keys but most events concentrate on few (NEXT.md, tools/). True diversity = more equal distribution across scopes.",
+    "prescription": "Rebalance lane allocation: cap tasks/NEXT.md events at 20% of session lanes"
+  },
+
+  "vsf_closure_status": {
+    "variation": "CONFIRMED — 17 unique scope channels per session (S186 baseline)",
+    "selection": "CONFIRMED — selection rate 1.0 (all lanes eventually close)",
+    "retention": "WEAK — 0.10 retention rate, executed retention (multi-session base patterns) is sparse",
+    "quality_linkage": "NOW RESOLVED: retention does not cause quality; quality causes retention. Causal direction inverted from original hypothesis.",
+    "f_evo2_status": "PARTIAL→NEAR-RESOLVED: VSR operational; quality-linkage causal direction established; remains open for quality-predictor validation"
+  }
+}

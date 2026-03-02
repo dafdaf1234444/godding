@@ -1,0 +1,181 @@
+{
+  "frontier_id": "F-CTL1",
+  "input": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/proxy-k-log.json",
+  "session_range": {
+    "start": 74,
+    "end": 182
+  },
+  "n_sessions": 43,
+  "schema_mode": "all",
+  "window_sessions": 5,
+  "drop_threshold": 0.03,
+  "compaction_event_sessions": [
+    77,
+    86,
+    99,
+    115,
+    126,
+    127,
+    167,
+    171
+  ],
+  "compaction_event_count": 8,
+  "current_policy_reference": {
+    "due_threshold": 0.06,
+    "urgent_threshold": 0.1,
+    "score": 246.9806,
+    "missed_events": 2,
+    "false_alarm_episodes": 2,
+    "alert_sessions": 25,
+    "urgent_sessions": 22,
+    "alert_burden": 0.5814,
+    "mean_lead_sessions": 3.8333
+  },
+  "best_thresholds": {
+    "due_threshold": 0.04,
+    "urgent_threshold": 0.07,
+    "score": 246.9806,
+    "missed_events": 2,
+    "false_alarm_episodes": 2,
+    "alert_sessions": 25,
+    "urgent_sessions": 24,
+    "alert_burden": 0.5814,
+    "mean_lead_sessions": 3.8333
+  },
+  "top_candidates": [
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.07,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 24,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.08,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 23,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.09,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 22,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.1,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 22,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.11,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 22,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.12,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 19,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.13,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 19,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.14,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 19,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.15,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 19,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.16,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 19,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.17,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 18,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    },
+    {
+      "due_threshold": 0.04,
+      "urgent_threshold": 0.18,
+      "score": 246.9806,
+      "missed_events": 2,
+      "false_alarm_episodes": 2,
+      "alert_sessions": 25,
+      "urgent_sessions": 17,
+      "alert_burden": 0.5814,
+      "mean_lead_sessions": 3.8333
+    }
+  ],
+  "data_confidence": "HIGH",
+  "notes": "Objective weights missed compaction warnings highest, then false alarm episodes, then alert burden. Mean lead time is rewarded."
+}

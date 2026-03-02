@@ -1,0 +1,7 @@
+{
+  "variant": "control",
+  "description": "Standard genesis.sh, no modifications",
+  "hypothesis": "Baseline: standard beliefs produce standard outcomes",
+  "spawned": "2026-02-26",
+  "child_dir": "<swarm-repo>/experiments/children/belief-control"
+}

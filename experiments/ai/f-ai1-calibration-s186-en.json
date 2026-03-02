@@ -1,0 +1,62 @@
+{
+  "experiment": "F-AI1-calibrate",
+  "title": "Threshold calibration sweep for evidence-surfacing confidence proxy",
+  "lang": "en",
+  "trials": 60,
+  "perturb_rate": 0.35,
+  "seed": 187,
+  "sweep": [
+    {
+      "threshold": 0.2,
+      "surfacing_error": 0.25,
+      "async_error": 0.3833,
+      "delta": -0.1333,
+      "adoption_rate": 0.3833,
+      "high_conf_rate": 0.9
+    },
+    {
+      "threshold": 0.35,
+      "surfacing_error": 0.2667,
+      "async_error": 0.3833,
+      "delta": -0.1167,
+      "adoption_rate": 0.3667,
+      "high_conf_rate": 0.8833
+    },
+    {
+      "threshold": 0.45,
+      "surfacing_error": 0.2167,
+      "async_error": 0.3833,
+      "delta": -0.1667,
+      "adoption_rate": 0.3167,
+      "high_conf_rate": 0.8333
+    },
+    {
+      "threshold": 0.58,
+      "surfacing_error": 0.2833,
+      "async_error": 0.3833,
+      "delta": -0.1,
+      "adoption_rate": 0.2167,
+      "high_conf_rate": 0.5833
+    },
+    {
+      "threshold": 0.7,
+      "surfacing_error": 0.2833,
+      "async_error": 0.3833,
+      "delta": -0.1,
+      "adoption_rate": 0.2167,
+      "high_conf_rate": 0.5833
+    },
+    {
+      "threshold": 0.85,
+      "surfacing_error": 0.3,
+      "async_error": 0.3833,
+      "delta": -0.0833,
+      "adoption_rate": 0.2,
+      "high_conf_rate": 0.5667
+    }
+  ],
+  "optimal_threshold": 0.45,
+  "optimal_surfacing_error": 0.2167,
+  "optimal_delta": -0.1667,
+  "generated_at_utc": "2026-02-27T23:07:33Z"
+}

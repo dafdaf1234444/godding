@@ -1,0 +1,46 @@
+{
+  "experiment": "F-ECO5 heat tracker archive blindness bug",
+  "session": "S358",
+  "date": "2026-03-01",
+  "frontier": "F-ECO5",
+  "hypothesis": "_get_domain_heat() only reading SWARM-LANES.md (not archive) causes high-visit domains to be misclassified as NEW, receiving +13 undeserved boost that amplifies exploitation",
+  "method": "Compared heat classifications before/after fixing _get_domain_heat() to read both LANES_FILE and LANES_ARCHIVE with full domain resolution (DOMEX prefix + COUNCIL topic + focus= fallback). Measured score deltas for top-visit domains.",
+  "baseline_bug_state": {
+    "heat_sources_read": ["SWARM-LANES.md"],
+    "domain_resolution": "focus= field only",
+    "domains_found_by_heat": 7,
+    "domains_found_by_outcomes": 37,
+    "misclassified_as_NEW": 30,
+    "worst_offenders": {
+      "operations-research": {"visits": 47, "heat": "NEW", "boost": 13.0, "score": 32.9},
+      "game-theory": {"visits": 37, "heat": "NEW", "boost": 13.0, "score": 28.2},
+      "statistics": {"visits": 36, "heat": "NEW", "boost": 13.0, "score": 32.8},
+      "information-science": {"visits": 33, "heat": "NEW", "boost": 13.0, "score": 54.0}
+    }
+  },
+  "fix": {
+    "heat_sources_read": ["SWARM-LANES.md", "SWARM-LANES-ARCHIVE.md"],
+    "domain_resolution": "DOMEX lane prefix + COUNCIL topic mapping + focus= fallback (same as _get_domain_outcomes)"
+  },
+  "result": {
+    "domains_reclassified": 7,
+    "total_score_correction": -56.0,
+    "mean_correction_per_domain": -8.0,
+    "corrections": {
+      "operations-research": {"before": "NEW", "after": "COLD", "delta": -6.0},
+      "game-theory": {"before": "NEW", "after": "COLD", "delta": -6.0},
+      "statistics": {"before": "NEW", "after": "COLD", "delta": -6.0},
+      "information-science": {"before": "NEW", "after": "HOT", "delta": -20.0},
+      "nk-complexity": {"before": "WARM", "after": "HOT", "delta": -6.0},
+      "helper-swarm": {"before": "NEW", "after": "COLD", "delta": -6.0},
+      "ai": {"before": "NEW", "after": "COLD", "delta": -6.0}
+    },
+    "heat_domains_after": 46,
+    "hot_before": 2,
+    "hot_after": 7
+  },
+  "root_cause": "Feature asymmetry: _get_domain_outcomes() reads both files with 3-tier domain resolution; _get_domain_heat() read 1 file with 1-tier resolution. Same class as L-556 (stale baseline), L-510 (regex), L-530 (field parser): state growth outpaces tool assumptions.",
+  "verdict": "CONFIRMED: heat tracker archive blindness caused exploitation amplification. 30+ domains misclassified. Fix aligns heat/outcome domain resolution. Concurrent session's score Gini measurements were partially contaminated by this bug.",
+  "iso": "ISO-13 (integral windup — heat tracker accumulated an ever-growing gap between its state model and reality as archive grew)",
+  "related": ["L-556", "L-510", "L-530", "L-571", "f-eco5-coverage-scoring-s358.json"]
+}

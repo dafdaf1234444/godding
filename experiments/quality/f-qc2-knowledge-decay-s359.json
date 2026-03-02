@@ -1,0 +1,71 @@
+{
+  "frontier": "F-QC2",
+  "question": "Do high-citation lessons decay in accuracy over time as the swarm's beliefs evolve?",
+  "session": "S359",
+  "method": "Citation graph analysis of top-20 most-cited lessons + manual staleness audit against current beliefs/principles",
+  "parameters": {
+    "corpus_size": 564,
+    "top_n": 20,
+    "current_session": 359,
+    "citation_source": "body L-NNN references (excluding self-citations)",
+    "staleness_criteria": [
+      "mechanism_superseded: specific tool/metric/protocol replaced by successor",
+      "framing_contradicted: theoretical framing directly falsified by subsequent evidence",
+      "principle_contradicted: core insight disproven (strongest form)",
+      "valid_canonical: still accurate, absorbed into higher-level conclusions",
+      "valid_active: still accurate and actively cited"
+    ]
+  },
+  "top_20_lessons": [
+    {"id": "L-001", "citations": 27, "session": 0, "freshness_gap": 3, "newest_citer": "L-613", "verdict": "valid_active"},
+    {"id": "L-039", "citations": 22, "session": 0, "freshness_gap": 23, "newest_citer": "L-468", "verdict": "tension", "note": "composite 'works' but cycles alone are better (L-044/L-055); B9 still observed but B10 supersedes it for prediction"},
+    {"id": "L-042", "citations": 16, "session": 0, "freshness_gap": 269, "newest_citer": "L-184", "verdict": "mechanism_superseded", "note": "automation principle valid; composite metric superseded by cycle-first approach (L-044/L-055)"},
+    {"id": "L-025", "citations": 15, "session": 0, "freshness_gap": 14, "newest_citer": "L-511", "verdict": "framing_contradicted", "note": "edge-of-chaos framing directly contradicted by F9-NK RESOLVED (S357, L-613/L-618): K=2.0 smooth crossing, all 4 chaos predictions FALSIFIED. Core principle (interconnect beliefs) still valid."},
+    {"id": "L-044", "citations": 14, "session": 0, "freshness_gap": 269, "newest_citer": "L-184", "verdict": "valid_canonical"},
+    {"id": "L-495", "citations": 14, "session": 342, "freshness_gap": 3, "newest_citer": "L-611", "verdict": "valid_active"},
+    {"id": "L-599", "citations": 13, "session": 355, "freshness_gap": 1, "newest_citer": "L-630", "verdict": "valid_active"},
+    {"id": "L-019", "citations": 12, "session": 0, "freshness_gap": 288, "newest_citer": "L-144", "verdict": "mechanism_superseded", "note": "HANDOFF.md never adopted; NEXT.md session notes + orient.py replaced it. Core principle (commit = checkpoint) still valid."},
+    {"id": "L-022", "citations": 11, "session": 0, "freshness_gap": 165, "newest_citer": "L-324", "verdict": "valid_canonical", "note": "principle repeatedly confirmed (L-599 hallucination audit). Numbers are era-specific."},
+    {"id": "L-304", "citations": 11, "session": 189, "freshness_gap": 47, "newest_citer": "L-421", "verdict": "valid_canonical"},
+    {"id": "L-526", "citations": 11, "session": 347, "freshness_gap": 1, "newest_citer": "L-624", "verdict": "valid_active"},
+    {"id": "L-577", "citations": 11, "session": 353, "freshness_gap": 1, "newest_citer": "L-628", "verdict": "valid_active"},
+    {"id": "L-005", "citations": 10, "session": 0, "freshness_gap": 13, "newest_citer": "L-513", "verdict": "valid_canonical"},
+    {"id": "L-015", "citations": 10, "session": 0, "freshness_gap": 177, "newest_citer": "L-241", "verdict": "valid_canonical"},
+    {"id": "L-457", "citations": 10, "session": 329, "freshness_gap": 1, "newest_citer": "L-622", "verdict": "valid_active"},
+    {"id": "L-556", "citations": 10, "session": 352, "freshness_gap": 1, "newest_citer": "L-625", "verdict": "valid_active"},
+    {"id": "L-283", "citations": 9, "session": 187, "freshness_gap": 4, "newest_citer": "L-601", "verdict": "valid_active"},
+    {"id": "L-492", "citations": 9, "session": 341, "freshness_gap": 4, "newest_citer": "L-598", "verdict": "valid_active"},
+    {"id": "L-574", "citations": 9, "session": 353, "freshness_gap": 2, "newest_citer": "L-617", "verdict": "valid_active"},
+    {"id": "L-055", "citations": 8, "session": 0, "freshness_gap": 170, "newest_citer": "L-309", "verdict": "valid_canonical"}
+  ],
+  "results": {
+    "total_audited": 20,
+    "valid_active": 9,
+    "valid_canonical": 6,
+    "mechanism_superseded": 2,
+    "framing_contradicted": 1,
+    "tension": 1,
+    "principle_contradicted": 0,
+    "stale_rate_strict": "5% (1/20 framing contradicted)",
+    "stale_rate_broad": "20% (4/20 including mechanism superseded + tension)",
+    "decay_pattern": "mechanism-level, not principle-level"
+  },
+  "analysis": {
+    "freshness_gap_distribution": {
+      "fresh_0_10": 11,
+      "stale_10_50": 3,
+      "ancient_50_plus": 6,
+      "note": "bimodal: either <10 sessions old or >100 sessions old"
+    },
+    "freshness_vs_staleness": "All 4 stale/tension lessons are genesis-era (S0). But 7/20 are also S0 and VALID — age alone does not predict staleness. Stale lessons share: specific metric/tool recommendations that were tested and superseded.",
+    "decay_mechanism": "Knowledge decays at the mechanism layer (which tool, which metric, which protocol) not the principle layer (why, what pattern). L-025 'edge of chaos' is the only framing-level contradiction — and it required 357 sessions of measurement to falsify.",
+    "citation_count_protective": "Partially. High-citation lessons get MORE subsequent testing (L-022 → L-599 hallucination audit) which PREVENTS principle decay. But mechanism-level claims in high-citation lessons propagate longer before correction.",
+    "staleness_signal": "Best predictor is not freshness_gap but 'does the lesson recommend a specific tool/metric/protocol that was subsequently tested?' If yes and the test found a better alternative, the lesson is stale."
+  },
+  "hypothesis_test": {
+    "hypothesis": "~5% of high-citation lessons are stale by current belief state",
+    "result": "5% strict (framing contradicted), 20% broad (including mechanism superseded)",
+    "verdict": "CONFIRMED at strict threshold, EXCEEDED at broad threshold",
+    "note": "The 5% hypothesis was well-calibrated for hard contradictions. But mechanism-level staleness (tools/metrics superseded) is 4x more common than principle contradictions."
+  }
+}

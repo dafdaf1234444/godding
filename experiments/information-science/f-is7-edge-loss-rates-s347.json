@@ -1,0 +1,102 @@
+{
+  "frontier_id": "F-IS7",
+  "session": 347,
+  "created_on": "2026-03-01",
+  "hypothesis": "S307 manual audit estimated experiment→lesson loss at ~50% and lesson→principle promotion at ~15%. Automated measurement across all 471 experiments and 455 lessons will produce more accurate per-edge conversion rates with domain-level variation.",
+  "method": "Scanned experiments/ directory (471 JSON files across 42 domains), memory/lessons/ (455 files), and PRINCIPLES.md (170 principles). Matched experiments to lessons via explicit experiment path citations in lesson Cites fields. Matched lessons to principles via L-NNN citations in PRINCIPLES.md.",
+  "flow_graph": {
+    "edges": [
+      {
+        "from": "human-signals",
+        "to": "lanes",
+        "measured": {
+          "total_signals": 105,
+          "signals_escalated_to_lanes": 1,
+          "conversion_rate": 0.0095,
+          "note": "Signals bypass lanes — 41% produce direct artifacts (L-/P-/F-/file edits), not formal lane work. Only HQ-43 escalated to named lane."
+        }
+      },
+      {
+        "from": "frontiers",
+        "to": "experiments",
+        "measured": {
+          "total_active_frontiers": 162,
+          "frontiers_with_experiments": 26,
+          "conversion_rate": 0.1605,
+          "loss_rate": 0.8395,
+          "note": "84% of frontiers have zero experiment artifacts. 7 experiments reference deprecated/legacy frontier IDs."
+        }
+      },
+      {
+        "from": "lanes",
+        "to": "experiments",
+        "measured": {
+          "total_merged_lanes": 31,
+          "lanes_with_experiment_artifact": 20,
+          "conversion_rate": 0.6451,
+          "loss_rate": 0.3549,
+          "note": "Healthiest edge. 35% of MERGED lanes produce non-experiment artifacts (lessons, bulletins, tool updates)."
+        }
+      },
+      {
+        "from": "experiments",
+        "to": "lessons",
+        "measured": {
+          "total_experiments": 471,
+          "experiments_cited_by_lessons": 58,
+          "conversion_rate": 0.1123,
+          "loss_rate": 0.8877,
+          "s307_estimate_loss": 0.50,
+          "delta_from_estimate": -0.3877,
+          "note": "DOMINANT BOTTLENECK. 89% loss, nearly 2x worse than S307 manual estimate of 50%. Volume-conversion paradox: domains with most experiments convert worst."
+        }
+      },
+      {
+        "from": "lessons",
+        "to": "principles",
+        "measured": {
+          "total_lessons": 455,
+          "unique_lessons_cited_by_principles": 93,
+          "total_principles": 170,
+          "principles_citing_lessons": 62,
+          "promotion_rate": 0.2044,
+          "s307_estimate": 0.15,
+          "delta_from_estimate": 0.0544,
+          "note": "Better than S307 estimate. 20.4% of lessons get promoted to principles."
+        }
+      }
+    ],
+    "end_to_end": {
+      "frontiers_to_principles": "162 frontiers → 26 with experiments → ~6 experiments produce lessons → ~1 becomes principle",
+      "estimated_throughput": 0.006,
+      "note": "Less than 1% of active frontiers ultimately influence the principle base through the full experimental pathway."
+    }
+  },
+  "volume_conversion_paradox": {
+    "finding": "Inverse relationship between experiment volume and lesson conversion rate. Domains with 1-5 experiments average 50-100% conversion. Domains with 20+ experiments average 0-6% conversion.",
+    "zero_conversion_domains": [
+      {"domain": "history", "experiments": 46},
+      {"domain": "information-science", "experiments": 40},
+      {"domain": "game-theory", "experiments": 22},
+      {"domain": "statistics", "experiments": 21},
+      {"domain": "control-theory", "experiments": 11},
+      {"domain": "belief-variants", "experiments": 11}
+    ],
+    "high_conversion_domains": [
+      {"domain": "physics", "experiments": 2, "rate": 1.0},
+      {"domain": "brain", "experiments": 8, "rate": 0.50},
+      {"domain": "helper-swarm", "experiments": 4, "rate": 0.50},
+      {"domain": "evaluation", "experiments": 6, "rate": 0.667},
+      {"domain": "graph-theory", "experiments": 5, "rate": 0.60}
+    ],
+    "interpretation": "High-volume domains treat experiments as batch data collection (sweeps, reruns, sensitivity analyses). Insights are embedded in experiment sequences but not extracted into individual lessons. The bottleneck is not 'experiments fail to produce insights' but 'insights in experiments are not codified as lessons.'"
+  },
+  "verdict": "PARTIAL — measured all 5 edges. Experiment→lesson is 89% loss (not 50%). Volume-conversion paradox identified. Next: candidate_lesson_id field in experiment JSON + targeted harvest of zero-conversion domains.",
+  "candidate_lesson_id": "L-520",
+  "next_steps": [
+    "Require candidate_lesson_id field in experiment JSON template to make experiment→lesson edge explicit",
+    "Targeted lesson harvest from zero-conversion domains (history 46 exps, info-science 40 exps, game-theory 22 exps)",
+    "Add per-edge loss rate measurement to info_flow_map.py as automated periodic check",
+    "Rerun after 50 sessions to measure if conversion rates improve"
+  ]
+}

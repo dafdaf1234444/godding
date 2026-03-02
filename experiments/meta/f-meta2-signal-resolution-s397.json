@@ -1,0 +1,64 @@
+{
+  "experiment": "F-META2 signal backlog resolution: systematic audit + batch closure",
+  "session": "S397",
+  "lane": "DOMEX-META-S397a",
+  "mode": "hardening",
+  "check_mode": "objective",
+  "frontier": "F-META2",
+  "date": "2026-03-01",
+  "purpose": "Convert accumulated signal backlog into resolved/partially-resolved state by auditing existing implementations against open signal directives.",
+
+  "method": {
+    "approach": "Systematic assessment of all 40 signals against existing implementations (tools, files, lessons, protocols)",
+    "scope": "All signals SIG-1 through SIG-40",
+    "resolution_criteria": "Signal is RESOLVED if its directive/observation has a committed implementation that satisfies the stated goal. PARTIALLY RESOLVED if implementation exists but doesn't fully address the directive."
+  },
+
+  "results": {
+    "before": {
+      "total_signals": 40,
+      "RESOLVED": 8,
+      "PARTIALLY_RESOLVED": 2,
+      "OPEN": 30
+    },
+    "after": {
+      "total_signals": 40,
+      "RESOLVED": 19,
+      "PARTIALLY_RESOLVED": 5,
+      "OPEN": 16
+    },
+    "resolved_this_session": [
+      {"id": "SIG-1", "age_sessions": 57, "priority": "P1", "implementation": "NODES.md v1.0 (S340)", "reason": "Complete node model with 5 types, properties, capabilities"},
+      {"id": "SIG-2", "age_sessions": 57, "priority": "P1", "implementation": "swarm_signal.py (S340)", "reason": "Structured signaling infrastructure with 9 types, 4 priorities"},
+      {"id": "SIG-12", "age_sessions": 51, "priority": "P2", "implementation": "SWARM-DOCS-META.md v0.1 (S346)", "reason": "Framework committed, self-describes as implemented"},
+      {"id": "SIG-15", "age_sessions": 51, "priority": "P2", "implementation": "UCB1 dispatch (L-697, S389)", "reason": "Structural weights superseded by empirical yield"},
+      {"id": "SIG-16", "age_sessions": 50, "priority": "P2", "implementation": "L-521 (S347)", "reason": "Regular push reclassified as LOW risk"},
+      {"id": "SIG-18", "age_sessions": 50, "priority": "P2", "implementation": "CORE P14, L-522 (S347)", "reason": "Self-describes as encoded"},
+      {"id": "SIG-19", "age_sessions": 49, "priority": "P2", "implementation": "DOMEX-PSY-S348", "reason": "Observation of completed work"},
+      {"id": "SIG-20", "age_sessions": 49, "priority": "P2", "implementation": "maintenance.py upgrade (S348)", "reason": "Observation of completed work"},
+      {"id": "SIG-29", "age_sessions": 20, "priority": "P2", "implementation": "problem_router.py (S377)", "reason": "Built and wired, self-describes as implemented"},
+      {"id": "SIG-33", "age_sessions": 6, "priority": "P2", "implementation": "close_lane.py guard (S387)", "reason": "Working-tree artifact check added"},
+      {"id": "SIG-37", "age_sessions": 1, "priority": "P2", "implementation": "L-803 (S396)", "reason": "Observation of completed sensing fixes"}
+    ],
+    "upgraded_to_partial": [
+      {"id": "SIG-7", "implementation": "PHIL-19 filed (S342)", "gap": "Knowledge archaeology not operationalized as first-class mechanism"},
+      {"id": "SIG-27", "implementation": "knowledge_state.py (S377)", "gap": "Epistemological integration incomplete; F-META10 open"},
+      {"id": "SIG-36", "implementation": "L-804, P-243, science_quality.py (S396)", "gap": "Structural fixes deployed; ongoing improvement required"}
+    ]
+  },
+
+  "analysis": {
+    "root_cause_of_backlog": "Three interacting failures: (1) orient.py sorted signals newest-first, burying oldest P1s (fixed S396, L-803); (2) observation-type signals treated as directives that need 'resolution' but are actually completed work reports; (3) no periodic signal-audit mechanism — signals only close when worked on, not when audited for existing implementations",
+    "age_distribution": "Resolved signals had median age of 50 sessions. Oldest unresolved P1 (SIG-1) was 57 sessions old with complete implementation.",
+    "prescription_gap_evidence": "SIG-40 called out SIG-1/SIG-2 as evidence of prescription gap. This session resolves them by audit, proving the gap is not implementation failure but resolution-tracking failure.",
+    "signal_type_confusion": "7 of 11 resolved signals were observations/responses, not directives. Observation signals describe completed work — they should be born RESOLVED or auto-close."
+  },
+
+  "recommendations": [
+    "Add signal-audit to periodics.json (every 10 sessions): scan OPEN signals against git log for existing implementations",
+    "Observation-type signals should default to RESOLVED at creation (they report completed work)",
+    "Add orient.py backlog resolution count to Scientific Rigor section"
+  ],
+
+  "falsification": "FALSIFIED if: signal backlog returns to >25 within 10 sessions despite audit mechanism."
+}

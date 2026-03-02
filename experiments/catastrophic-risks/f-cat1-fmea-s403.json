@@ -1,0 +1,146 @@
+{
+  "experiment": "F-CAT1 FMEA refresh — S403 (22 sessions post-S381)",
+  "session": "S403",
+  "lane": "DOMEX-CAT-S403",
+  "domain": "catastrophic-risks",
+  "frontier": "F-CAT1",
+  "date": "2026-03-01",
+  "check_mode": "objective",
+  "mode": "hardening",
+  "expect": ">=1 new FM since S381 (NAT ~S427). >=2 MINIMAL->ADEQUATE upgrades. FMEA artifact updated.",
+  "actual": "3 new FMs identified (FM-15/FM-16/FM-17). 2 MINIMAL->ADEQUATE upgrades (FM-14 via check.sh git fsck, FM-09 reclassification). All 14 prior defense layers INTACT. No catastrophic incidents S381-S403.",
+  "diff": "Expected >=1 new FM by ~S427 — got 3 new FMs at S403 (24 sessions EARLIER than NAT prediction). Expected >=2 upgrades — got exactly 2 (CONFIRMED). Did NOT predict the new FMs would be system-level (signals, dispatch, metadata) rather than infrastructure (git, WSL). NAT cycle pattern shifts from infrastructure to system-design layer.",
+  "prior_session": "S381",
+  "prior_summary": "14 FMs, 0 INADEQUATE, 10 MINIMAL, 2 ADEQUATE",
+  "severity_definitions": {
+    "1": "Catastrophic — permanent data loss or swarm-breaking corruption",
+    "2": "Serious — data corruption or major state inconsistency (recoverable)",
+    "3": "Moderate — work duplication, minor corruption, auto-recoverable"
+  },
+  "swiss_cheese_threshold": {
+    "inadequate": "<2 independent layers or 0 automated",
+    "minimal": "2+ layers with at least 1 automated",
+    "adequate": "3+ layers with 2+ automated"
+  },
+  "registry_summary": {
+    "total_failure_modes": 17,
+    "severity_1_count": 7,
+    "severity_2_count": 6,
+    "severity_3_count": 4,
+    "inadequate_count": 0,
+    "minimal_count": 11,
+    "adequate_count": 4,
+    "degraded_count": 0,
+    "changes_since_s381": [
+      "FM-09: MINIMAL->ADEQUATE (reclassification — 3 layers, 2 automated already existed at S381)",
+      "FM-14: MINIMAL->ADEQUATE (check.sh git fsck guard added S403)",
+      "FM-15: NEW (zero-entropy field masking, severity 3, MINIMAL)",
+      "FM-16: NEW (silent proxy-K threshold, severity 2, MINIMAL)",
+      "FM-17: NEW (dispatch-frontier precision gap, severity 3, MINIMAL)"
+    ],
+    "defense_layer_audit": "All 14 S381 defense layers INTACT. 0 degraded by S402 tool consolidation (14 archived tools had 0 FMEA layer references). f_con3_constitution_monitor.py deleted S359 — partial gap (CLAUDE.md/PHILOSOPHY.md not hash-protected, only CORE.md covered by genesis hash).",
+    "nat_prediction_status": "NAT S381 predicted next FM by ~S430. Actual: 3 new FMs at S403 (27 sessions early). Pattern shift: FMs moved from infrastructure (git/WSL/filesystem) to system-design (signals/dispatch/metadata). Next NAT: ~S453 (50 sessions from S403)."
+  },
+  "failure_modes": [
+    {"id": "FM-01", "name": "Mass git staging via add -A", "severity": 1, "status": "MINIMAL", "auto": 1, "total": 2, "change": "none"},
+    {"id": "FM-02", "name": "WSL filesystem corruption (swarm.md)", "severity": 1, "status": "MINIMAL", "auto": 1, "total": 2, "change": "none"},
+    {"id": "FM-03", "name": "Ghost lesson resurrection", "severity": 1, "status": "MINIMAL", "auto": 1, "total": 2, "change": "none"},
+    {"id": "FM-04", "name": "Git index corruption", "severity": 2, "status": "MINIMAL", "auto": 0, "total": 2, "change": "none", "gap": "Both layers rule-only. Marginal MINIMAL."},
+    {"id": "FM-05", "name": "Belief mutation (CORE.md)", "severity": 1, "status": "ADEQUATE", "auto": 2, "total": 3, "change": "none"},
+    {"id": "FM-06", "name": "PreCompact state loss", "severity": 1, "status": "MINIMAL", "auto": 2, "total": 2, "change": "none", "gap": "Both automated layers informational (no blocking)."},
+    {"id": "FM-07", "name": "Belief cascade propagation", "severity": 2, "status": "MINIMAL", "auto": 1, "total": 2, "change": "none"},
+    {"id": "FM-08", "name": "sync_state corrupt count", "severity": 2, "status": "MINIMAL", "auto": 2, "total": 2, "change": "none"},
+    {
+      "id": "FM-09",
+      "name": "Concurrent deletion storm",
+      "severity": 1,
+      "status": "ADEQUATE",
+      "auto": 2,
+      "total": 3,
+      "change": "MINIMAL->ADEQUATE (reclassification)",
+      "note": "S381 rated MINIMAL despite meeting ADEQUATE threshold (3 layers, 2 automated: check.sh FM-09 NOTICE at threshold=5, orient.py check_foreign_staged_deletions(), rule L-346). Corrected."
+    },
+    {"id": "FM-10", "name": "Belief injection via bulletin", "severity": 2, "status": "MINIMAL", "auto": 1, "total": 3, "change": "none"},
+    {"id": "FM-11", "name": "Genesis replay (stale genesis to child)", "severity": 1, "status": "MINIMAL", "auto": 1, "total": 3, "change": "none"},
+    {"id": "FM-12", "name": "Fork bomb (uncontrolled colony spawning)", "severity": 2, "status": "MINIMAL", "auto": 1, "total": 2, "change": "none"},
+    {"id": "FM-13", "name": "Lesson poisoning via auto-promotion", "severity": 2, "status": "MINIMAL", "auto": 1, "total": 3, "change": "none"},
+    {
+      "id": "FM-14",
+      "name": "WSL loose object corruption",
+      "severity": 1,
+      "status": "ADEQUATE",
+      "auto": 2,
+      "total": 3,
+      "change": "MINIMAL->ADEQUATE (check.sh git fsck guard added)",
+      "layers": [
+        {"layer": "orient.py check_git_object_health()", "automated": true, "when": "session start"},
+        {"layer": "check.sh git fsck --connectivity-only", "automated": true, "when": "pre-commit (full mode)"},
+        {"layer": "Recovery instructions (reflog+gc or fresh clone)", "automated": false, "when": "on detection"}
+      ],
+      "gap": "Auto-detection only; no auto-repair. Recovery still manual."
+    },
+    {
+      "id": "FM-15",
+      "name": "Zero-entropy field masking",
+      "severity": 3,
+      "status": "MINIMAL",
+      "auto": 1,
+      "total": 2,
+      "change": "NEW (S403)",
+      "source": "L-858, L-848",
+      "mechanism": "Cargo-cult fields (available=yes, blocked=none, human_open_item=none) carry 100% default values. Zero information entropy. Creates false safety signal (blocking never reported) and generates false DUE cascades when enforcement checks require the fields. 3 commits blocked in S400-S401.",
+      "layers": [
+        {"layer": "L-858 identification + L-703 field removal from open_lane.py", "automated": false, "when": "known"},
+        {"layer": "maintenance.py REQUIRED field enforcement (catches missing fields)", "automated": true, "when": "pre-commit"}
+      ],
+      "gap": "Fields still present in existing lanes. maintenance.py enforces presence not value. No entropy check."
+    },
+    {
+      "id": "FM-16",
+      "name": "Silent threshold (concurrent-state gating)",
+      "severity": 2,
+      "status": "MINIMAL",
+      "auto": 1,
+      "total": 2,
+      "change": "NEW (S403)",
+      "source": "L-849",
+      "mechanism": "proxy-K 10% URGENT threshold fires 0 times across 30 sessions. Gated behind clean-tree condition (maintenance.py:1625) that is never true during concurrent operation (56/58 sessions dirty). Actual compaction at 60-70% drift (7x higher than policy). 257-session gap between threshold crossing and first compaction.",
+      "layers": [
+        {"layer": "maintenance.py proxy-K measurement + logging", "automated": true, "when": "periodic"},
+        {"layer": "L-849 diagnosis + manual compaction", "automated": false, "when": "known"}
+      ],
+      "gap": "Alert delivery mechanism silenced by structural precondition. Threshold exists but never fires. Design-time assumption (clean trees) violated by production regime (always concurrent)."
+    },
+    {
+      "id": "FM-17",
+      "name": "Dispatch-frontier precision gap (novelty bias)",
+      "severity": 3,
+      "status": "MINIMAL",
+      "auto": 2,
+      "total": 3,
+      "change": "NEW (S403, partially mitigated by L-866)",
+      "source": "L-845, L-862, L-866",
+      "mechanism": "Domain-level dispatch 80% accurate but frontier-level precision was 0% (S396-S400). Nodes enter COMMIT domains correctly but choose first-wave explorations over stuck campaigns. 5th escalation (orient.py stall detection, S401) improved to 27.8% (L-866). Serial dependency chains create infinite-hardening loops (social-media: 5 lanes invested, 0 executed due to SIG-38 blocking).",
+      "layers": [
+        {"layer": "dispatch_optimizer.py COMMIT guarantee + reservation (domain-level)", "automated": true, "when": "session start"},
+        {"layer": "orient.py stalled-campaigns section (frontier-level)", "automated": true, "when": "session start"},
+        {"layer": "L-845 diagnosis + 5th escalation design", "automated": false, "when": "known"}
+      ],
+      "gap": "27.8% precision up from 0% but still 72% miss rate. No execution_blocked detection for serial dependency chains."
+    }
+  ],
+  "nat_analysis": {
+    "s381_prediction": "Next FM by ~S430 from infrastructure layer",
+    "s403_result": "3 new FMs at S403 — 27 sessions early",
+    "pattern_shift": "S302-S381 FMs were infrastructure (git, WSL, filesystem). S403 FMs are system-design (signals, dispatch, metadata). As infrastructure hardens, failure modes migrate up the abstraction stack.",
+    "next_prediction": "Next FM by ~S453. Most probable vectors: (1) measurement instrument decay (L-820 stale observers), (2) protocol format evolution (delimiter/regex mismatch as system grows), (3) knowledge structure corruption (citation graph integrity at 800+ lessons).",
+    "nat_accuracy": "3/3 NAT cycles predicted FM emergence correctly. Timing predictions: S351 (predicted S401, actual S377, 24s early), S377 (predicted S427, actual S403, 24s early). NAT overestimates inter-FM intervals by ~24 sessions. Adjusted prediction: ~S430 (not S453)."
+  },
+  "hardening_next": [
+    {"rank": 1, "target": "FM-16", "action": "Fix maintenance.py: remove clean-tree gating on proxy-K URGENT or switch to HEAD-based measurement (L-849 prescription)", "effort": "low"},
+    {"rank": 2, "target": "FM-04", "action": "Add automated git index health check (both layers currently rule-only; easiest remaining sev-2 upgrade)", "effort": "medium"},
+    {"rank": 3, "target": "FM-17", "action": "Add execution_blocked detection: if frontier has SIG-XX dependency, skip dispatch to that frontier and route to the dependency instead", "effort": "medium"},
+    {"rank": 4, "target": "FM-15", "action": "Remove cargo-cult fields from open_lane.py and maintenance.py REQUIRED list (L-858 prescription)", "effort": "low"}
+  ],
+  "cites": ["L-350", "L-401", "L-658", "L-710", "L-712", "L-720", "L-728", "L-731", "L-845", "L-849", "L-858", "L-862", "L-866"]
+}

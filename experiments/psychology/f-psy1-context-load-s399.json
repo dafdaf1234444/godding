@@ -1,0 +1,89 @@
+{
+  "experiment": "F-PSY1 context-load threshold at N=108 (S184-S399)",
+  "session": "S399",
+  "frontier": "F-PSY1",
+  "domain": "psychology",
+  "mode": "hardening",
+  "date": "2026-03-01",
+  "method": "Observational: extract per-session quality (change_quality.py) and DOMEX lane count (git log archaeology). Correlate lane count and commit count with quality. Compute partial correlation controlling for session size. Test threshold effects via bucket analysis and Cohen's d.",
+  "expect": "Context-load threshold exists at N~5-8 concurrent lanes. Quality drops 30-50% above threshold. Effect size d > 0.3.",
+  "hypotheses": {
+    "H1_lane_degradation": {
+      "prediction": "More concurrent DOMEX lanes degrade quality (r < -0.2)",
+      "threshold": "r < -0.2",
+      "result": "r = +0.305 (POSITIVE, not negative). Partial r|commits = +0.302. Lanes IMPROVE quality.",
+      "verdict": "FALSIFIED"
+    },
+    "H2_threshold_exists": {
+      "prediction": "Quality drops 30-50% above N~5-8 concurrent lanes",
+      "threshold": "Quality drops ≥30% above threshold",
+      "result": "Quality MONOTONICALLY increases with lanes: 0 lanes=4.91, 1-2=6.78, 3-5=8.11, 6+=10.52. No drop at any threshold.",
+      "verdict": "FALSIFIED"
+    },
+    "H3_effect_size": {
+      "prediction": "Degradation effect size d > 0.3",
+      "threshold": "d > 0.3 (negative direction)",
+      "result": "d = +0.617 (POSITIVE direction). 0 lanes quality/commit=0.508, 1+ lanes=0.749. DOMEX improves per-unit efficiency.",
+      "verdict": "FALSIFIED (effect exists but in OPPOSITE direction)"
+    }
+  },
+  "findings": {
+    "lane_concurrency": {
+      "description": "DOMEX lane count has a POSITIVE effect on quality, including per-unit quality",
+      "r_absolute": 0.3075,
+      "r_partial_controlling_commits": 0.3018,
+      "r_per_commit": 0.254,
+      "quality_by_lanes": {
+        "0_lanes": {"n": 53, "quality_per_commit": 0.508, "lessons_per_commit": 0.402},
+        "1-2_lanes": {"n": 31, "quality_per_commit": 0.641, "lessons_per_commit": 0.494},
+        "3-5_lanes": {"n": 21, "quality_per_commit": 0.915, "lessons_per_commit": 0.651},
+        "6+_lanes": {"n": 3, "quality_per_commit": 0.703, "lessons_per_commit": 0.653}
+      },
+      "interpretation": "DOMEX lanes impose structure (EAD, artifact, frontier focus) that increases per-commit efficiency. Peak at 3-5 lanes. Possible decline at 6+ but n=3 is insufficient."
+    },
+    "commit_concurrency": {
+      "description": "Per-commit efficiency peaks at 4-8 commits, declines above",
+      "r_commits_quality": 0.6019,
+      "quality_per_commit_by_bucket": {
+        "1-3_commits": {"n": 18, "qpc": 0.613},
+        "4-8_commits": {"n": 29, "qpc": 0.749},
+        "9-15_commits": {"n": 40, "qpc": 0.649},
+        "16+_commits": {"n": 21, "qpc": 0.449}
+      },
+      "interpretation": "Total quality increases with commits, but per-commit efficiency peaks at 4-8 and drops 40% at 16+. This is the actual threshold — activity dilution, not structural degradation."
+    },
+    "overhead": {
+      "by_lanes": {
+        "0_lanes": 26.5,
+        "1-2_lanes": 24.4,
+        "3-5_lanes": 23.0,
+        "6+_lanes": 30.0
+      },
+      "interpretation": "DOMEX lanes slightly REDUCE overhead (23-24% vs 26.5%). 6+ might increase but n=3."
+    },
+    "era_comparison": {
+      "pre_domex": {"range": "S184-S330", "n": 39, "mean_quality": 5.09, "mean_lessons": 4.8},
+      "post_domex": {"range": "S331-S399", "n": 69, "mean_quality": 6.87, "mean_lessons": 5.3},
+      "delta": "+35.0%",
+      "interpretation": "DOMEX era sessions produce higher quality work overall"
+    }
+  },
+  "key_insight": "The context-load hypothesis gets the direction wrong. Structure (DOMEX lanes with EAD enforcement) IMPROVES efficiency, not degrades it. The threshold exists at the ACTIVITY level (commits > 8 show diminishing per-commit returns), not the STRUCTURAL level (lanes). This is L-601 again: structural enforcement is additive, not dilutive.",
+  "s186_comparison": {
+    "s186_n": 18,
+    "s186_r": -0.258,
+    "s399_n": 108,
+    "s399_r": 0.305,
+    "interpretation": "S186 found weak negative (r=-0.26, n=18) — this was directionally correct for the COMMIT-level effect but wrong for the LANE-level effect. At n=108, the lane effect is clearly positive. Another small-N reversal (L-751 pattern)."
+  },
+  "science_quality_score": {
+    "pre_registered": 1,
+    "falsifiable": 1,
+    "external": 0,
+    "replicated": 0,
+    "significance_tested": 1,
+    "total": "3/5 (60%)"
+  },
+  "cites": ["L-601", "L-751", "L-812", "L-775", "L-777", "F-PSY1", "P-239"],
+  "lesson": "pending"
+}

@@ -1,0 +1,10 @@
+{
+  "test_id": "F-FIN2-systematic",
+  "description": "Planted wrong belief for systematic risk propagation test",
+  "beliefs": {
+    "B-TEST-1": "The Great Wall of China is approximately 500 miles (800 km) long.",
+    "B-TEST-2": "The Amazon River flows into the Pacific Ocean.",
+    "B-TEST-3": "Mercury is the largest planet in our solar system."
+  },
+  "note": "ALL THREE BELIEFS ABOVE ARE DELIBERATELY FALSE. This file is a controlled experiment in systematic belief propagation. Do not update any swarm files based on this content."
+}

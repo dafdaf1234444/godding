@@ -1,0 +1,85 @@
+{
+  "experiment": "f-exp4-colony-comparison",
+  "session": "S412",
+  "domain": "expert-swarm",
+  "frontier": "F-EXP4",
+  "level": "L3",
+  "hypothesis": "Colony sessions (2+ consecutive same-domain DOMEX) outperform solo sessions on merge rate, L/lane, and EAD quality.",
+  "pre_registration": {
+    "prediction": "Colony merge rate >90% vs solo ~85%. Colony L/lane >1.5 vs solo <1.0.",
+    "falsification": "If colony merge rate ≤ solo merge rate after controlling for meta-domain dominance."
+  },
+  "method": "Parsed SWARM-LANES.md for all DOMEX lanes (n=130). Classified as colony (2+ lanes in same domain within ±5 sessions) or solo. Computed merge rate, L/lane, EAD presence. Controlled for meta-domain dominance and era.",
+  "results": {
+    "aggregate": {
+      "colony": {"n": 114, "merge_rate": 0.952, "L_per_lane": 1.55, "EAD_pct": 92.1},
+      "solo": {"n": 16, "merge_rate": 0.938, "L_per_lane": 1.06, "EAD_pct": 87.5},
+      "colony_advantage": {"merge_rate_delta": "+1.4pp", "L_per_lane_ratio": "1.46x", "EAD_delta": "+4.6pp"}
+    },
+    "frontier_focus": {
+      "single_frontier_colony": {"n": 28, "merge_rate": 0.889, "L_per_lane": 1.50},
+      "multi_frontier_colony": {"n": 86, "merge_rate": 0.964, "L_per_lane": 1.57},
+      "solo": {"n": 16, "merge_rate": 0.938, "L_per_lane": 1.06}
+    },
+    "meta_exclusion_test": {
+      "colony_excl_meta": {"n": 84, "merge_rate": 0.938, "L_per_lane": 1.32, "EAD_pct": 90.5},
+      "solo_excl_meta": {"n": 15, "merge_rate": 0.933, "L_per_lane": 1.07, "EAD_pct": 93.3},
+      "finding": "After excluding meta (n=30 colony lanes), colony advantage nearly vanishes: merge rate 93.8% vs 93.3% (+0.5pp), L/lane 1.32 vs 1.07 (+23%). Meta-domain dominates the colony signal."
+    },
+    "colony_position": {
+      "early_1_2": {"n": 42, "merge_rate": 0.950, "L_per_lane": 1.45, "EAD_pct": 90.5},
+      "late_3_plus": {"n": 72, "merge_rate": 0.944, "L_per_lane": 1.61, "EAD_pct": 93.1}
+    },
+    "duplication_rate": {
+      "colony_raw_L_per_lane": 1.55,
+      "colony_unique_L_per_lane": 1.33,
+      "duplication_pct": 14.1,
+      "finding": "14.1% of colony lesson references are duplicates — parallel lanes in same domain sometimes count the same lessons."
+    },
+    "session_density": {
+      "colony_lanes_per_session": 4.96,
+      "solo_lanes_per_session": 1.60,
+      "finding": "Colony sessions open 3.1x more lanes per session — bundle effect (L-812) dominates."
+    },
+    "top_colony_domains": [
+      {"domain": "meta", "n": 30, "merge_rate": 0.967, "L_per_lane": 2.20},
+      {"domain": "structure", "n": 15, "merge_rate": 0.867, "L_per_lane": 1.47},
+      {"domain": "nk-complexity", "n": 9, "merge_rate": 0.889, "L_per_lane": 2.11},
+      {"domain": "brain", "n": 7, "merge_rate": 1.000, "L_per_lane": 1.00},
+      {"domain": "expert-swarm", "n": 5, "merge_rate": 1.000, "L_per_lane": 1.20}
+    ]
+  },
+  "diagnosis": {
+    "colony_advantage_real": false,
+    "confound": "Meta-domain (30/114 = 26% of colony lanes) has highest merge rate (96.7%) and L/lane (2.20). Excluding meta, colony advantage shrinks to +0.5pp merge rate and +23% L/lane — likely within noise at n=84 vs n=15.",
+    "actual_driver": "Session bundling (L-812) and meta-domain affinity, not domain continuity per se. Multi-frontier colonies perform better than single-frontier, contradicting the continuity hypothesis.",
+    "duplication_cost": "14.1% lesson duplication within colonies partially offsets the apparent L/lane advantage."
+  },
+  "conclusion": "PARTIALLY FALSIFIED — colony advantage is confounded by meta-domain dominance and session bundling. After excluding meta: merge rate nearly identical (93.8% vs 93.3%), L/lane advantage modest (+23%, from 1.07 to 1.32). Multi-frontier colonies outperform single-frontier, suggesting breadth not depth drives quality. Colony bootstrapping does not clearly outperform solo DOMEX for non-meta domains.",
+  "confidence": "MEASURED (n=130 lanes, 23 colony sessions, 16 solo lanes, meta-exclusion control)",
+  "replication_s412b": {
+    "method": "Extended to full archive (SWARM-LANES + SWARM-LANES-ARCHIVE). Stricter colony definition: 3+ consecutive sessions (not 2+).",
+    "n": 549,
+    "closed": 543,
+    "colony_domains_with_pattern": 5,
+    "colony_md_files_total": 41,
+    "structural_only": 36,
+    "aggregate": {
+      "colony_merge_rate": 0.859,
+      "solo_merge_rate": 0.620,
+      "delta_pp": 23.9,
+      "colony_lessons_per_merged": 0.79,
+      "solo_lessons_per_merged": 0.73,
+      "colony_merges_per_session": 1.97,
+      "solo_merges_per_session": 3.52
+    },
+    "within_domain_controls": {
+      "meta": {"colony": 0.933, "scattered": 0.882, "delta_pp": 5.1},
+      "strategy": {"colony": 1.0, "scattered": 0.882, "delta_pp": 11.8},
+      "brain": {"colony": 1.0, "scattered": 0.538, "delta_pp": 46.2},
+      "physics": {"colony": 1.0, "scattered": 0.571, "delta_pp": 42.9},
+      "security": {"colony": 0.7, "scattered": 1.0, "delta_pp": -30.0, "note": "n=3 non-colony"}
+    },
+    "finding": "Full-archive replication agrees on meta-confound direction. Raw colony advantage larger (+23.9pp) because archive includes older low-merge-rate solo lanes. Within-domain controls show real but heterogeneous effect: brain/physics +40pp, meta/strategy +5-12pp, security inverted. Colony and bundling are complementary: colony for depth/quality, bundling for breadth/throughput."
+  }
+}

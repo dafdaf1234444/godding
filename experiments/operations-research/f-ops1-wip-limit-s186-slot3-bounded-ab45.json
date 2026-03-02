@@ -1,0 +1,154 @@
+{
+  "frontier_id": "F-OPS1",
+  "title": "Active-lane WIP cap replay",
+  "session": 186,
+  "inputs": {
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "next_path": "tasks/NEXT.md",
+    "min_cap": 4,
+    "max_cap": 5,
+    "conflict_weight": 0.8,
+    "overhead_weight": 0.27,
+    "ab_cap_a": 4,
+    "ab_cap_b": 5,
+    "heuristic_note": "Replay score is heuristic for lane-cap decisions. Treat as scheduling aid, not causal estimate."
+  },
+  "observed_profile": {
+    "job_count": 148,
+    "horizon_start": 0,
+    "horizon_end": 246,
+    "horizon_ticks": 247,
+    "observed_peak_wip": 15,
+    "observed_mean_wip": 5.5344
+  },
+  "cap_results": [
+    {
+      "cap": 4,
+      "knowledge_yield": {
+        "merged_completed": 85,
+        "merged_completion_rate": 0.5743,
+        "merged_per_100_ticks": 34.413
+      },
+      "conflict_rate": 0.4454,
+      "overhead_ratio": 2.0486,
+      "net_score": -0.3351,
+      "simulation": {
+        "horizon_ticks": 247,
+        "jobs_total": 148,
+        "jobs_completed": 87,
+        "jobs_spillover": 61,
+        "spillover_rate": 0.4122,
+        "contention_ticks": 163,
+        "contention_rate": 0.6599,
+        "mean_running_wip": 3.0324,
+        "coordination_pressure": 0.1452,
+        "blocked_events_completed": 29,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.4118,
+        "start_count": 89,
+        "run_lane_ticks": 749,
+        "queue_lane_ticks": 6762,
+        "extra_concurrency_ticks": 506
+      }
+    },
+    {
+      "cap": 5,
+      "knowledge_yield": {
+        "merged_completed": 111,
+        "merged_completion_rate": 0.75,
+        "merged_per_100_ticks": 44.9393
+      },
+      "conflict_rate": 0.4553,
+      "overhead_ratio": 2.7085,
+      "net_score": -0.3455,
+      "simulation": {
+        "horizon_ticks": 247,
+        "jobs_total": 148,
+        "jobs_completed": 115,
+        "jobs_spillover": 33,
+        "spillover_rate": 0.223,
+        "contention_ticks": 162,
+        "contention_rate": 0.6559,
+        "mean_running_wip": 3.6923,
+        "coordination_pressure": 0.1923,
+        "blocked_events_completed": 64,
+        "collision_events_completed": 9,
+        "blocked_per_merged": 0.6577,
+        "start_count": 119,
+        "run_lane_ticks": 912,
+        "queue_lane_ticks": 3072,
+        "extra_concurrency_ticks": 669
+      }
+    }
+  ],
+  "recommended": {
+    "cap": 4,
+    "knowledge_yield": {
+      "merged_completed": 85,
+      "merged_completion_rate": 0.5743,
+      "merged_per_100_ticks": 34.413
+    },
+    "conflict_rate": 0.4454,
+    "overhead_ratio": 2.0486,
+    "net_score": -0.3351,
+    "simulation": {
+      "horizon_ticks": 247,
+      "jobs_total": 148,
+      "jobs_completed": 87,
+      "jobs_spillover": 61,
+      "spillover_rate": 0.4122,
+      "contention_ticks": 163,
+      "contention_rate": 0.6599,
+      "mean_running_wip": 3.0324,
+      "coordination_pressure": 0.1452,
+      "blocked_events_completed": 29,
+      "collision_events_completed": 6,
+      "blocked_per_merged": 0.4118,
+      "start_count": 89,
+      "run_lane_ticks": 749,
+      "queue_lane_ticks": 6762,
+      "extra_concurrency_ticks": 506
+    }
+  },
+  "recommendation_confidence": {
+    "level": "LOW",
+    "boundary_recommendation": true,
+    "top_score_gap": 0.0104,
+    "recommended_cap": 4,
+    "runner_up_cap": 5,
+    "notes": [
+      "recommended cap is at evaluated boundary",
+      "top score gap is narrow"
+    ]
+  },
+  "ab_comparison": {
+    "available": true,
+    "cap_a": {
+      "cap": 4,
+      "net_score": -0.3351,
+      "merged_completion_rate": 0.5743,
+      "conflict_rate": 0.4454,
+      "overhead_ratio": 2.0486,
+      "blocked_per_merged": 0.4118,
+      "spillover_rate": 0.4122
+    },
+    "cap_b": {
+      "cap": 5,
+      "net_score": -0.3455,
+      "merged_completion_rate": 0.75,
+      "conflict_rate": 0.4553,
+      "overhead_ratio": 2.7085,
+      "blocked_per_merged": 0.6577,
+      "spillover_rate": 0.223
+    },
+    "delta_b_minus_a": {
+      "net_score": -0.0104,
+      "merged_completion_rate": 0.1757,
+      "conflict_rate": 0.0099,
+      "overhead_ratio": 0.6599,
+      "blocked_per_merged": 0.2459,
+      "spillover_rate": -0.1892
+    },
+    "decision_hint": "prefer_cap_a"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "experiment": "F-FLD3",
+  "session": "S336",
+  "description": "Bernoulli focus-throughput: scope constriction → velocity increase",
+  "hypothesis": "Narrow focus (few domains) → higher L+P throughput per session (Bernoulli: constriction → speed↑)",
+  "data_source": "memory/SESSION-LOG.md S180-S306",
+  "n_sessions_total": 209,
+  "n_sessions_nonzero_lp": 55,
+  "results": {
+    "focused_sessions": {"n": 34, "mean_lp": 1.147, "median_lp": 1, "max_lp": 2},
+    "broad_sessions": {"n": 21, "mean_lp": 1.857, "median_lp": 1, "max_lp": 6},
+    "correlation_r_domains_vs_lp": 0.3177
+  },
+  "verdict": "PROXY_PARADOX: r=+0.317 (OPPOSITE to Bernoulli prediction — more domains → MORE L+P in this proxy)",
+  "paradox_explanation": "The 'domains mentioned in session notes' proxy is confounded with session size/activity. Highly productive sessions naturally mention more domains because they DO more — not because breadth causes productivity. This is a measurement selection artifact.",
+  "reframing": "Bernoulli applies at a FINER granularity than session-level domain count. The correct analogy: within a session, scope narrowing (fewer open tasks, tighter focus window) increases per-task throughput. F-EVO1 r=-0.835 used scope cluster count over S184-S189, a tighter signal.",
+  "bernoulli_evidence_from_f_evo1": {
+    "r": -0.835,
+    "sessions": "S184-S189",
+    "measure": "scope clusters touched (not domains mentioned)",
+    "verdict": "SUPPORTED at finer scale with correct proxy"
+  },
+  "implication": "Bernoulli is supported by F-EVO1 (r=-0.835) at scope-cluster level, not refuted. The F-FLD3 counter-signal reveals that domain breadth is a SIZE proxy, not a FOCUS proxy. Need within-session scope tightness metric.",
+  "next": "F-FLD3 OPEN; needs within-session scope cluster metric, not cross-session domain mentions"
+}

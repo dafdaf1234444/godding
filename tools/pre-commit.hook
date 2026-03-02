@@ -1,0 +1,58 @@
+#!/bin/bash
+# Swarm commit quality gate.
+set -euo pipefail
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || true)"
+if [ -z "$REPO_ROOT" ]; then
+    REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+fi
+cd "$REPO_ROOT"
+
+choose_python() {
+    if command -v python3 >/dev/null 2>&1 && python3 -c "import sys" >/dev/null 2>&1; then
+        PYTHON_CMD=(python3)
+        return 0
+    fi
+    if command -v python >/dev/null 2>&1 && python -c "import sys" >/dev/null 2>&1; then
+        PYTHON_CMD=(python)
+        return 0
+    fi
+    if command -v py >/dev/null 2>&1 && py -3 -c "import sys" >/dev/null 2>&1; then
+        PYTHON_CMD=(py -3)
+        return 0
+    fi
+    return 1
+}
+
+if [ -f "tools/check.sh" ]; then
+    if ! bash tools/check.sh --quick; then
+        echo ""
+        echo "COMMIT BLOCKED: quick swarm checks failed."
+        echo "Fix the issues above before committing."
+        exit 1
+    fi
+    exit 0
+fi
+
+declare -a PYTHON_CMD=()
+if ! choose_python; then
+    echo ""
+    echo "COMMIT BLOCKED: No runnable python interpreter found (python3/python/py -3)."
+    exit 1
+fi
+
+if [ -f "tools/validate_beliefs.py" ]; then
+    if ! "${PYTHON_CMD[@]}" tools/validate_beliefs.py --quick; then
+        echo ""
+        echo "COMMIT BLOCKED: belief validation failed."
+        exit 1
+    fi
+fi
+
+if [ -f "tools/maintenance.py" ]; then
+    if ! "${PYTHON_CMD[@]}" tools/maintenance.py --quick; then
+        echo ""
+        echo "COMMIT BLOCKED: maintenance quick check failed."
+        exit 1
+    fi
+fi

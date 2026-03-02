@@ -1,0 +1,466 @@
+{
+  "frontier_id": "F-STAT1",
+  "title": "Promotion gates by experiment class",
+  "seed": 186,
+  "bootstrap_samples": 3000,
+  "artifact_globs": [
+    "experiments/ai/f-*.json",
+    "experiments/finance/f-*.json",
+    "experiments/information-science/f-*.json",
+    "experiments/control-theory/f-*.json",
+    "experiments/operations-research/f-*.json",
+    "experiments/evolution/f-*.json",
+    "experiments/colonies/p155-*.json"
+  ],
+  "artifacts_considered": 163,
+  "artifacts_usable": 52,
+  "artifacts_skipped": 111,
+  "class_gates": {
+    "simulation": {
+      "observations": 10,
+      "sample_size_distribution": {
+        "min": 80,
+        "median": 190,
+        "q75": 1750,
+        "max": 3000
+      },
+      "effect_abs_distribution": {
+        "min": 0.165,
+        "median": 0.2442,
+        "q75": 0.3354,
+        "max": 0.355,
+        "bootstrap_mean_ci95": [
+          0.2237,
+          0.3031
+        ]
+      },
+      "recommended_min_sample_size": 80,
+      "recommended_min_effect_size": 0.2442,
+      "practical_cap_n": 3000,
+      "power_model_n_for_80pct": 66,
+      "estimated_power_at_recommended_n": 0.8707,
+      "data_confidence": "HIGH"
+    },
+    "live_query": {
+      "observations": 28,
+      "sample_size_distribution": {
+        "min": 1,
+        "median": 70,
+        "q75": 200,
+        "max": 300
+      },
+      "effect_abs_distribution": {
+        "min": 0.0084,
+        "median": 0.12,
+        "q75": 0.2238,
+        "max": 0.3167,
+        "bootstrap_mean_ci95": [
+          0.1006,
+          0.1782
+        ]
+      },
+      "recommended_min_sample_size": 300,
+      "recommended_min_effect_size": 0.03,
+      "practical_cap_n": 300,
+      "power_model_n_for_80pct": 4356,
+      "estimated_power_at_recommended_n": 0.1103,
+      "data_confidence": "HIGH"
+    },
+    "lane_log_extraction": {
+      "observations": 14,
+      "sample_size_distribution": {
+        "min": 24,
+        "median": 28,
+        "q75": 28,
+        "max": 28
+      },
+      "effect_abs_distribution": {
+        "min": 0.0323,
+        "median": 0.1053,
+        "q75": 0.2424,
+        "max": 0.6401,
+        "bootstrap_mean_ci95": [
+          0.108,
+          0.3077
+        ]
+      },
+      "recommended_min_sample_size": 28,
+      "recommended_min_effect_size": 0.0797,
+      "practical_cap_n": null,
+      "power_model_n_for_80pct": null,
+      "estimated_power_at_recommended_n": null,
+      "data_confidence": "HIGH"
+    }
+  },
+  "observations": [
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-s186-pass-a.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.3514,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-s186-pass-b.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.2195,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-s186.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.25,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-disagreeprobe-b.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.1053,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-disagreeprobe-c.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.1053,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-rerun2.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.0769,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-slot2-disagreement-reduced.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.1053,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 28,
+      "effect_abs": 0.075,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl3-open-loop-vs-closed-loop-s186-rerun.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 25,
+      "effect_abs": 0.640132,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/control-theory/f-ctl3-open-loop-vs-closed-loop-s186.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 25,
+      "effect_abs": 0.640132,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-disagreeprobe-a.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 25,
+      "effect_abs": 0.0882,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-overlap-sweep2.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 25,
+      "effect_abs": 0.0882,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-overlap-sweep1.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 24,
+      "effect_abs": 0.0323,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is5-lane-distill-tags-s186-overlap.json",
+      "experiment_class": "lane_log_extraction",
+      "sample_size": 24,
+      "effect_abs": 0.0323,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-025-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 300,
+      "effect_abs": 0.0967,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-050-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 300,
+      "effect_abs": 0.07,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-075-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 300,
+      "effect_abs": 0.1733,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-100-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 300,
+      "effect_abs": 0.2667,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-partial-sync-s185.json",
+      "experiment_class": "live_query",
+      "sample_size": 300,
+      "effect_abs": 0.1067,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-live-evidence-surfacing-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 200,
+      "effect_abs": 0.215,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 200,
+      "effect_abs": 0.235,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-query-perturb-s185-es.json",
+      "experiment_class": "live_query",
+      "sample_size": 200,
+      "effect_abs": 0.22,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-live-evidence-s186-nonoracle-en.json",
+      "experiment_class": "live_query",
+      "sample_size": 160,
+      "effect_abs": 0.3125,
+      "effect_metric_count": 10
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-live-evidence-s186-nonoracle-es.json",
+      "experiment_class": "live_query",
+      "sample_size": 160,
+      "effect_abs": 0.2723,
+      "effect_metric_count": 10
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-live-evidence-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 160,
+      "effect_abs": 0.3063,
+      "effect_metric_count": 9
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s185.json",
+      "experiment_class": "live_query",
+      "sample_size": 120,
+      "effect_abs": 0.2583,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-live-perturb-s186-es.json",
+      "experiment_class": "live_query",
+      "sample_size": 120,
+      "effect_abs": 0.1834,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-live-perturbation-s185.json",
+      "experiment_class": "live_query",
+      "sample_size": 120,
+      "effect_abs": 0.3167,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-rerun20-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 20,
+      "effect_abs": 0.0084,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun20-p0.json",
+      "experiment_class": "live_query",
+      "sample_size": 20,
+      "effect_abs": 0.0166,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun20.json",
+      "experiment_class": "live_query",
+      "sample_size": 20,
+      "effect_abs": 0.0208,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p005.json",
+      "experiment_class": "live_query",
+      "sample_size": 10,
+      "effect_abs": 0.0584,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p035.json",
+      "experiment_class": "live_query",
+      "sample_size": 10,
+      "effect_abs": 0.025,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-rerun-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 8,
+      "effect_abs": 0.0104,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun8.json",
+      "experiment_class": "live_query",
+      "sample_size": 8,
+      "effect_abs": 0.0208,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-debug-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 5,
+      "effect_abs": 0.0167,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p015.json",
+      "experiment_class": "live_query",
+      "sample_size": 5,
+      "effect_abs": 0.1334,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-p025.json",
+      "experiment_class": "live_query",
+      "sample_size": 5,
+      "effect_abs": 0.0166,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-rerun.json",
+      "experiment_class": "live_query",
+      "sample_size": 5,
+      "effect_abs": 0.1,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 5,
+      "effect_abs": 0.0833,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+      "experiment_class": "live_query",
+      "sample_size": 2,
+      "effect_abs": 0.2083,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/finance/f-fin1-factual-qa-direct-s186.json",
+      "experiment_class": "live_query",
+      "sample_size": 1,
+      "effect_abs": 0.1666,
+      "effect_metric_count": 1
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-evidence-surfacing-s186.json",
+      "experiment_class": "simulation",
+      "sample_size": 3000,
+      "effect_abs": 0.354,
+      "effect_metric_count": 7
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-evidence-surfacing-s186-rerun.json",
+      "experiment_class": "simulation",
+      "sample_size": 2000,
+      "effect_abs": 0.355,
+      "effect_metric_count": 7
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-hlt2-sync-correlation-s184.json",
+      "experiment_class": "simulation",
+      "sample_size": 2000,
+      "effect_abs": 0.165,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai2-forced-sync-s185.json",
+      "experiment_class": "simulation",
+      "sample_size": 1000,
+      "effect_abs": 0.17,
+      "effect_metric_count": 3
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/ai/f-ai1-evidence-surfacing-s185.json",
+      "experiment_class": "simulation",
+      "sample_size": 300,
+      "effect_abs": 0.3533,
+      "effect_metric_count": 7
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/colonies/p155-live-trace-s147.json",
+      "experiment_class": "simulation",
+      "sample_size": 80,
+      "effect_abs": 0.24425,
+      "effect_metric_count": 4
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/colonies/p155-live-trace-s184-rerun-2.json",
+      "experiment_class": "simulation",
+      "sample_size": 80,
+      "effect_abs": 0.24425,
+      "effect_metric_count": 4
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/colonies/p155-live-trace-s184-rerun-3.json",
+      "experiment_class": "simulation",
+      "sample_size": 80,
+      "effect_abs": 0.24425,
+      "effect_metric_count": 4
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/colonies/p155-live-trace-s184-rerun.json",
+      "experiment_class": "simulation",
+      "sample_size": 80,
+      "effect_abs": 0.24425,
+      "effect_metric_count": 4
+    },
+    {
+      "artifact": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/colonies/p155-live-trace-verify-s184.json",
+      "experiment_class": "simulation",
+      "sample_size": 80,
+      "effect_abs": 0.2815,
+      "effect_metric_count": 4
+    }
+  ],
+  "notes": [
+    "Effect size uses median absolute bounded effect per artifact from explicit deltas, paired comparisons, and fallback rates/correlations.",
+    "Power model uses normal approximation for two-arm proportion-like comparisons; lane-log extraction uses empirical gates only.",
+    "These are promotion gates (minimums), not optimal design points."
+  ]
+}

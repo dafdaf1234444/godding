@@ -1,0 +1,49 @@
+{
+  "frontier": "F-GT1",
+  "session": "S404",
+  "timestamp": "2026-03-01T20:54:40.274380+00:00",
+  "mode": "hardening",
+  "measurements": {
+    "N": 790,
+    "edges_full": 2197,
+    "edges_header_only": 1826,
+    "K_avg_full": 2.781,
+    "K_avg_header": 2.21,
+    "K_max_full": 121,
+    "K_max_header": 103,
+    "alpha_k_min_1": 1.657,
+    "alpha_k_min_2": 2.124,
+    "giant_component_pct_header": 81.8,
+    "orphan_rate_full": 0.237,
+    "orphan_rate_header": 0.17,
+    "gini_full": 0.6055,
+    "gini_header": 0.65,
+    "top_hub": "L-601",
+    "top_hub_in_degree": 121,
+    "hub_gap_ratio": 5.041666666666667
+  },
+  "comparison_s390": {
+    "N": 695,
+    "alpha_k_min_1": 1.645,
+    "alpha_k_min_2": 2.133,
+    "K_max": 60,
+    "gini": 0.601,
+    "orphan_rate": 0.26,
+    "top_hub": "L-601",
+    "top_hub_in_degree": 60
+  },
+  "findings": [
+    "Alpha stabilization: k_min=1 alpha went from continuous divergence (1.903->1.751->1.645) to flat (1.645->1.657). Structural equilibrium reached.",
+    "Dual regime stable: k_min=2 tail remains scale-free (alpha=2.124, within [2.0,3.0]). Bulk orphan mass prevents full scale-free.",
+    "Hub mega-concentration: L-601 in-degree 60->121 (+102%). Gap to #2 hub (L-613, 24) is 5.0x. Single hub captures 5.5% of all edges.",
+    "Orphan rate improving: 26.0%->23.7% (full graph). Knowledge integration continuing slowly.",
+    "Graph equilibrium hypothesis: alpha stabilization + hub concentration = mature preferential attachment where new citations go to existing hubs, not distributed."
+  ],
+  "verdict": "HARDENED \u2014 structural equilibrium reached. Alpha stable, hub concentration accelerating. Graph topology settled.",
+  "null_model": {
+    "hub_z": 49.387,
+    "gini_z": 15.258,
+    "isolation_z": 4.209,
+    "verdict": "GENUINELY NON-RANDOM"
+  }
+}

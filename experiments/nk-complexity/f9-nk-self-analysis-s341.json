@@ -1,0 +1,146 @@
+{
+  "session": "S341",
+  "N_lessons": 430,
+  "total_edges_unique": 814,
+  "K_avg_unique": 1.893,
+  "zero_incoming": 156,
+  "zero_incoming_pct": 36.3,
+  "zero_outgoing": 38,
+  "zero_outgoing_pct": 8.8,
+  "domain_breakdown": {
+    "brain": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "brain/meta": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "cryptocurrency": {
+      "N": 3,
+      "K_total": 3,
+      "K_avg": 1.0,
+      "class": "TRANSITION"
+    },
+    "expert-swarm": {
+      "N": 4,
+      "K_total": 1,
+      "K_avg": 0.25,
+      "class": "FRAGMENT"
+    },
+    "finance (f-fin1)": {
+      "N": 3,
+      "K_total": 3,
+      "K_avg": 1.0,
+      "class": "TRANSITION"
+    },
+    "graph-theory": {
+      "N": 4,
+      "K_total": 2,
+      "K_avg": 0.5,
+      "class": "FRAGMENT"
+    },
+    "human-systems": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "meta": {
+      "N": 31,
+      "K_total": 21,
+      "K_avg": 0.677,
+      "class": "FRAGMENT"
+    },
+    "meta/compaction": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "meta/coordination": {
+      "N": 9,
+      "K_total": 1,
+      "K_avg": 0.111,
+      "class": "FRAGMENT"
+    },
+    "meta/generalizer": {
+      "N": 3,
+      "K_total": 2,
+      "K_avg": 0.667,
+      "class": "FRAGMENT"
+    },
+    "meta/governance": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "meta/personality": {
+      "N": 3,
+      "K_total": 2,
+      "K_avg": 0.667,
+      "class": "FRAGMENT"
+    },
+    "meta/swarm-structure": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "meta/tooling": {
+      "N": 3,
+      "K_total": 0,
+      "K_avg": 0.0,
+      "class": "FRAGMENT"
+    },
+    "nk complexity": {
+      "N": 5,
+      "K_total": 3,
+      "K_avg": 0.6,
+      "class": "FRAGMENT"
+    },
+    "nk-complexity": {
+      "N": 9,
+      "K_total": 18,
+      "K_avg": 2.0,
+      "class": "SCALE_FREE"
+    }
+  },
+  "series": {
+    "S305": {
+      "N": 325,
+      "K_avg": 0.77
+    },
+    "S312": {
+      "N": 357,
+      "K_avg": 1.028
+    },
+    "S329": {
+      "N": 393,
+      "K_avg": 1.562
+    },
+    "S333": {
+      "N": 398,
+      "K_avg": 1.5452
+    },
+    "S336": {
+      "N": 402,
+      "K_avg": 1.5697
+    },
+    "S338": {
+      "N": 412,
+      "K_avg": 1.6141
+    },
+    "S341": {
+      "N": 430,
+      "K_avg": 1.893
+    }
+  },
+  "delta_from_S338": 0.2789,
+  "growth_rate_per_lesson": 0.0155
+}

@@ -1,0 +1,44 @@
+{
+  "experiment": "F120 portable integrity checker",
+  "session": "S325",
+  "date": "2026-02-28",
+  "domain": "meta/portability",
+  "check_mode": "objective",
+  "expect": "POSIX shell script with 9 gates that works without Python; all gates PASS on swarm repo",
+  "artifact": "tools/portable_check.sh",
+  "gates": [
+    "SWARM.md present",
+    "beliefs/CORE.md present",
+    "memory/INDEX.md present",
+    "tasks/FRONTIER.md present",
+    "lessons present (N>=1)",
+    "git history (at least 1 commit)",
+    "bridge files (at least 1)",
+    "lesson line-limit (latest 10 <= 20 lines)",
+    "tasks/NEXT.md present"
+  ],
+  "result_on_swarm_repo": {
+    "pass": 9,
+    "warn": 0,
+    "fail": 0,
+    "status": "OK",
+    "details": {
+      "lessons": 366,
+      "bridge_files": 6,
+      "git_head": "recent [S313] relay commit",
+      "line_limit_violations_in_latest_10": 0
+    }
+  },
+  "actual": "9/9 PASS. Script exits 0 (no failures). WARN-fallback for unavailable commands (e.g. git not found) is working as designed.",
+  "diff": "Expectation met exactly. No surprises.",
+  "portability_notes": {
+    "python_free": true,
+    "posix_sh_compatible": true,
+    "tested_on": "bash 5.x (WSL)",
+    "untested": ["BSD sh", "dash", "zsh", "actual foreign repos"]
+  },
+  "f120_status": "PARTIAL+ — checker implemented; not yet tested on foreign repos",
+  "next": "Test portable_check.sh on >=3 foreign repos with different stacks (Python, Rust, Node). Expected: SWARM.md FAIL, bridge-files WARN.",
+  "lesson": "L-430",
+  "linked": ["F120", "F119", "L-213", "L-209"]
+}

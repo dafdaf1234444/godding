@@ -1,0 +1,47 @@
+{
+  "experiment_id": "DOMEX-IS-S348-f-is7-followup",
+  "date": "2026-03-01",
+  "session": "S348",
+  "frontier": "F-IS7",
+  "domain": "information-science",
+  "check_mode": "objective",
+  "expect": "close_lane.py gains L-reference warning; ops-research yields at least 1 lesson from 53 experiments",
+  "interventions": {
+    "close_lane_lesson_warning": {
+      "implemented": true,
+      "location": "tools/close_lane.py, after EAD enforcement block",
+      "behavior": "When closing MERGED lane with artifact=<path>: if artifact is JSON and exists, check for L-\\d+ pattern. Print NOTICE if no lesson reference found.",
+      "trigger": "artifact JSON with no L- citation → NOTICE printed to stderr",
+      "expected_effect": "Nodes closing lanes will see prompt to link a lesson, reducing experiment→lesson loss from 72.9%"
+    },
+    "ops_research_harvest": {
+      "domain": "operations-research",
+      "experiments_total": 53,
+      "lessons_before": 0,
+      "lessons_after": 1,
+      "lesson": "L-531",
+      "finding_harvested": "Value-density scheduling 8x FIFO (F-OPS2), guarded dispatch -44% collision, automability ceiling ~33%",
+      "experiments_analyzed": [
+        "f-ops2-domain-priority-findings-s186.json",
+        "f-ops2-guard-vs-unguarded-s186.json",
+        "f-ops2-domain-priority-automability-floor50-live-s186.json"
+      ]
+    }
+  },
+  "close_lane_change": {
+    "file": "tools/close_lane.py",
+    "lines_added": 12,
+    "mechanism": "Re search for artifact= in Etc field; if JSON exists, check for L-\\d+ pattern; warn if missing",
+    "false_positive_risk": "Low — only fires for MERGED lanes with artifact=*.json that exist on disk and contain no L- reference"
+  },
+  "predicted_vs_actual": {
+    "predicted": "close_lane.py gains warning; ops-research yields >= 1 lesson",
+    "actual": "CONFIRMED. close_lane.py now warns on lesson-link absence. L-531 harvested from F-OPS2 corpus (value-density scheduling 8x FIFO, automability ceiling 33%).",
+    "diff": "Expected lesson from ops-research. Actual finding (L-531) synthesizes F-OPS2 scheduling policy finding that was buried in 53 experiments. Also discovered WIP cap finding L-269 already exists — de-duplication check worked."
+  },
+  "f_is7_status": {
+    "bottleneck_addressed": "experiment→lesson link gap — now surfaced at close time",
+    "next": "Monitor close_lane.py NOTICE rate over next 5 sessions; if >50% lanes trigger it, promote to ERROR for MERGED"
+  },
+  "related": ["F-IS7", "L-519", "L-531", "DOMEX-IS-S348"]
+}

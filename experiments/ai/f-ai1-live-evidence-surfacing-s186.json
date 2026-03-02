@@ -1,0 +1,34 @@
+{
+  "experiment": "F-AI1",
+  "title": "Live confidence-gated evidence sharing vs async baseline vs forced sync",
+  "mode": "live-evidence-surfacing",
+  "seed": 186,
+  "trials": 200,
+  "lang": "en",
+  "follower_perturb_rate": 0.35,
+  "leader_high_conf_prob": 0.45,
+  "leader_high_conf_perturb_rate": 0.15,
+  "leader_low_conf_perturb_rate": 0.55,
+  "async": {
+    "follower_error_rate": 0.315,
+    "joint_error_rate": 0.09,
+    "leader_follower_error_correlation": -0.0284
+  },
+  "sync": {
+    "follower_error_rate": 0.305,
+    "joint_error_rate": 0.305,
+    "leader_follower_error_correlation": 1.0
+  },
+  "evidence_surfacing": {
+    "follower_error_rate": 0.215,
+    "joint_error_rate": 0.14,
+    "leader_follower_error_correlation": 0.3935,
+    "adopted_high_conf_disagreements": 40
+  },
+  "delta": {
+    "surfacing_minus_async_error": -0.1,
+    "sync_minus_async_error": -0.01
+  },
+  "verdict": "Confidence-gated evidence sharing can reduce follower error against async baseline while avoiding full synchronization coupling.",
+  "generated_at_utc": "2026-02-27T20:22:18Z"
+}

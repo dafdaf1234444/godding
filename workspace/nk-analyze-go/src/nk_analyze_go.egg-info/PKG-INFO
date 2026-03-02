@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: nk-analyze-go
+Version: 0.1.0
+Summary: NK landscape analysis for Go projects
+Requires-Python: >=3.10

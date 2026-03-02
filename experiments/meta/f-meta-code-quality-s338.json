@@ -1,0 +1,37 @@
+{
+  "experiment": "f-meta-code-quality-s338",
+  "frontier": "F-META1",
+  "session": "S338",
+  "date": "2026-03-01",
+  "hypothesis": "maintenance.py has >=3 dead/redundant check functions removable for >=1000t savings",
+  "method": "3 parallel audit agents (maintenance.py deep, second-tier tools, cross-cutting patterns). AST analysis + grep for dead code. Manual review of 82 functions.",
+  "results": {
+    "dead_functions_found": 0,
+    "note": "All 37 check functions registered in main(). No dead code at function level.",
+    "duplicate_utilities_found": 8,
+    "duplicate_utility_files_affected": 10,
+    "estimated_duplication_tokens": "4000-5000",
+    "silent_json_failures_fixed": 4,
+    "files_wired_to_swarm_io": 10,
+    "maintenance_py_before_tokens": 26465,
+    "maintenance_py_after_tokens": 25997,
+    "maintenance_py_savings_tokens": 468,
+    "key_duplicates": {
+      "_read": {"files": 10, "status": "extracted to swarm_io.py"},
+      "_session_number": {"files": 4, "variants": 3, "status": "canonical in swarm_io.py (maintenance.py version)"},
+      "_git": {"files": 5, "variants": 2, "status": "extracted (silent + strict)"},
+      "_token_count": {"files": 3, "status": "extracted to swarm_io.py"}
+    },
+    "cross_cutting_issues": {
+      "inconsistent_error_handling": "71 files mix silent-fail vs raise",
+      "hardcoded_paths": "162 instances across tools",
+      "repo_root_variants": "5 different variable names, 4 construction patterns",
+      "subprocess_timeout_missing": "37 files use subprocess, not all have timeouts"
+    }
+  },
+  "expect": ">=3 dead/redundant check functions, >=1000t savings",
+  "actual": "0 dead functions, 8 duplicate utilities, 468t immediate savings + 4000-5000t addressable",
+  "diff": "LARGE — expect was wrong. No dead functions, but massive cross-file duplication. The T4 problem is NOT redundant checks, it's duplicated utilities that every new tool copies.",
+  "lesson": "L-482",
+  "artifact": "tools/swarm_io.py (new shared module)"
+}

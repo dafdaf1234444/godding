@@ -1,0 +1,38 @@
+{
+  "frontier_id": "F122",
+  "title": "Knowledge-to-domain swarmer expansion",
+  "session": 186,
+  "summary": {
+    "domain_count_before": 12,
+    "domain_count_after": 15,
+    "created_domains": [
+      "protocol-engineering",
+      "strategy",
+      "governance"
+    ],
+    "routing_updated": true,
+    "global_frontier_updated": true,
+    "global_index_updated": true
+  },
+  "artifacts": {
+    "domains": [
+      "domains/protocol-engineering/DOMAIN.md",
+      "domains/protocol-engineering/INDEX.md",
+      "domains/protocol-engineering/tasks/FRONTIER.md",
+      "domains/strategy/DOMAIN.md",
+      "domains/strategy/INDEX.md",
+      "domains/strategy/tasks/FRONTIER.md",
+      "domains/governance/DOMAIN.md",
+      "domains/governance/INDEX.md",
+      "domains/governance/tasks/FRONTIER.md"
+    ],
+    "global_updates": [
+      "tasks/FRONTIER.md",
+      "tasks/NEXT.md",
+      "memory/INDEX.md",
+      "tools/context_router.py",
+      "tasks/SWARM-LANES.md"
+    ]
+  },
+  "next_step": "Dispatch first execution lanes for F-PRO1/F-STR1/F-GOV1 under current multiswarm coordinator."
+}

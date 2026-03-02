@@ -1,0 +1,91 @@
+{
+  "experiment": "Tool consolidation audit (periodic, last S331)",
+  "session": "S359",
+  "date": "2026-03-01",
+  "domain": "helper-swarm",
+  "periodic": "tool-consolidation",
+  "methodology": {
+    "approach": "3 parallel agents: (1) reference audit across all swarm knowledge files, (2) duplicate/overlap analysis reading first 30 lines of each tool, (3) git log analysis for last-modified sessions",
+    "targets_scanned": "116 non-test Python tools + 50 test files + 6 shell scripts"
+  },
+  "measurements": {
+    "total_non_test_tools": 116,
+    "total_lines": 44279,
+    "total_test_files": 50,
+    "active_last_50_sessions": 64,
+    "abandoned_50plus_sessions": 52,
+    "abandonment_rate": 0.448,
+    "deeply_abandoned_100plus": 16,
+    "lost_embedding_zero_refs": 8
+  },
+  "merge_opportunities": [
+    {
+      "cluster": "f_stat1 gate variants",
+      "files": ["f_stat1_gates.py", "f_stat1_promotion_gates.py", "f_stat1_experiment_gates.py"],
+      "merge_into": "f_stat1_canonical_policy.py",
+      "reduction_files": 3,
+      "reduction_lines": 1300
+    },
+    {
+      "cluster": "validate_beliefs split module",
+      "files": ["validate_beliefs_extras.py"],
+      "merge_into": "validate_beliefs.py",
+      "reduction_files": 1,
+      "reduction_lines": 146
+    },
+    {
+      "cluster": "state snapshot overlap",
+      "files": ["swarm_state.py"],
+      "merge_into": "self_diff.py --compact",
+      "reduction_files": 1,
+      "reduction_lines": 200
+    },
+    {
+      "cluster": "ops2 post-slot policy",
+      "files": ["f_ops2_post_slot_policy.py"],
+      "merge_into": "f_ops2_domain_priority.py",
+      "reduction_files": 1,
+      "reduction_lines": 159
+    }
+  ],
+  "archive_candidates_deep": [
+    "novelty.py (S39)", "nk_analyze_go.py (S42)", "spawn_coordinator.py (S41)",
+    "renew_identity.py (S58)", "pulse.py (S59)", "merge_back.py (S65)",
+    "belief_evolve.py (S79)", "spawn_quality.py (S114)", "agent_swarm.py (S150)",
+    "evolve.py (S159)", "swarm_integration_test.py (S159)", "swarm_pr.py (S159)",
+    "nk_analyze.py (S166)", "substrate_detect.py (S171)", "p155_live_trace.py (S185)",
+    "spawn_math.py (S186)"
+  ],
+  "lost_embedding_tools": [
+    "contamination_investigator.py", "f_lng1_zipf_lessons.py", "p155_live_trace.py",
+    "repair.py", "scaling_model.py", "swarm_integration_test.py", "swarm_pr.py",
+    "validate_beliefs_extras.py"
+  ],
+  "superseded_tools": {
+    "pulse.py": "orient.py",
+    "evolve.py + belief_evolve.py": "colony.py / swarm_colony.py",
+    "spawn_coordinator.py": "genesis_subtask.py",
+    "f_stat1_{gates,promotion_gates,experiment_gates}.py": "f_stat1_canonical_policy.py"
+  },
+  "category_breakdown": {
+    "core_infrastructure": {"count": 14, "active": 13, "abandoned": 1},
+    "state_measurement": {"count": 9, "active": 9, "abandoned": 0},
+    "dispatch_coordination": {"count": 8, "active": 6, "abandoned": 2},
+    "frontier_experiments": {"count": 32, "active": 6, "abandoned": 26},
+    "colony_evolution": {"count": 7, "active": 2, "abandoned": 5},
+    "spawn": {"count": 3, "active": 0, "abandoned": 3},
+    "nk_analysis": {"count": 3, "active": 1, "abandoned": 2},
+    "expert_analysts": {"count": 4, "active": 1, "abandoned": 3},
+    "child_integration": {"count": 7, "active": 1, "abandoned": 6},
+    "knowledge_quality": {"count": 5, "active": 3, "abandoned": 2},
+    "misc_utility": {"count": 12, "active": 1, "abandoned": 11}
+  },
+  "key_finding": "44.8% tool abandonment rate (52/116). Frontier experiment tools account for 50% of abandoned tools (26/52). The S186 session bulk-committed 36 experiment tools that were never touched again — this is a single-session artifact dump, not organic tool growth. Core infrastructure and state/measurement tools have near-zero abandonment. The swarm's active tooling is ~64 tools, not 116.",
+  "recommendations": [
+    "Create tools/archive/ directory, move 16 deeply abandoned tools there",
+    "Merge 4 identified clusters (-7 files, -3,600 lines)",
+    "Add last-modified session to orient.py underused-tools output",
+    "Add tool-count to contract_check.py health metrics"
+  ],
+  "status": "COMPLETE"
+}

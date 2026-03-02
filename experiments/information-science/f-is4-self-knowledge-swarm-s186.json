@@ -1,0 +1,41 @@
+{
+  "experiment": "F-IS4-self-knowledge-swarm-trial",
+  "session": "S186",
+  "run_design": "3 domain lanes + 1 coordinator lane (evaluated via latest merged lane population)",
+  "counts": {
+    "s186_merged_lanes": 17,
+    "mergeable_artifacts": 14,
+    "cross_domain_transfer_candidates": 10,
+    "id_collision_flags": 0
+  },
+  "criteria": {
+    "mergeable_artifacts_min_3": true,
+    "accepted_cross_domain_transfers_min_2": true,
+    "unresolved_id_collisions_eq_0": true,
+    "contradiction_revert_required_eq_0": true
+  },
+  "verdict": "PASS",
+  "evidence_lane_ids": {
+    "mergeable_artifacts_sample": [
+      "L-S186-F-AI2-LIVE-REPL",
+      "L-S186-FAI1-INTERVENTION-VALIDATE",
+      "L-S186-AI1-EVIDENCE",
+      "L-S186-INTEGRITY-AUDIT",
+      "L-S186-AI2-INHERIT-SWEEP",
+      "L-S186-IS3-COST-BANDS",
+      "L-S186-CHILD-ARCH-CONTINUITY",
+      "L-S186-AI2-THRESHOLD-AGG"
+    ],
+    "cross_domain_transfer_sample": [
+      "L-S186-FAI1-INTERVENTION-VALIDATE",
+      "L-S186-AI2-INHERIT-SWEEP",
+      "L-S186-IS3-COST-BANDS",
+      "L-S186-CHILD-ARCH-CONTINUITY",
+      "L-S186-AI2-THRESHOLD-AGG",
+      "L-S186-FAI1-LIVE-INTEGRATION",
+      "L-S186-FAI1-LIVE-RERUN-VERIFY",
+      "L-S186-FAI1-LIVE-RERUN"
+    ]
+  },
+  "notes": "Heuristic lane-log scoring to operationalize F-IS4 pass criteria. Next step: automate strict transfer acceptance tagging in lane notes."
+}

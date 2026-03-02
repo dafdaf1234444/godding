@@ -1,0 +1,38 @@
+{
+  "experiment_id": "harvest-ops-research-s354",
+  "session": "S354",
+  "domain": "operations-research",
+  "type": "harvest",
+  "description": "Systematic harvest of 54 operations-research experiments (0 prior lessons) into 2 lessons",
+  "input": {
+    "experiment_count": 54,
+    "frontier_coverage": ["F-OPS1", "F-OPS2", "F-OPS3"],
+    "prior_lessons_in_domain": 0,
+    "f_ops1_experiments": 10,
+    "f_ops2_experiments": 43,
+    "f_ops3_experiments": 1
+  },
+  "findings": {
+    "f_ops1_wip_cap": {
+      "elbow": "cap=3→4 (70%→92% completion, sharp elbow)",
+      "noise_zone": "cap=4 vs cap=5 gap=0.003-0.049, flips on 10-job window shift",
+      "observed_peak_wip": "9-15 (swarm exceeds all tested caps)",
+      "lesson": "L-593"
+    },
+    "f_ops2_policy_convergence": {
+      "fifo_pathological": "19x less gain than value-density (38.2 vs 298.8)",
+      "policy_convergence": "all non-FIFO policies converge when one domain signal dominates (39.6 weight, 3.3x)",
+      "guard_tradeoff": "collision -6.3pp, pickup -27pp (not Pareto)",
+      "lesson": "L-594"
+    },
+    "f_ops3_queue_aging": {
+      "result": "RESOLVED — recency_bias preferred, queue-aging falsified",
+      "note": "null result due to healthy queue (lag=0, stale=0%)"
+    }
+  },
+  "output": {
+    "lessons_produced": ["L-593", "L-594"],
+    "harvest_rate": "2 lessons from 54 experiments (3.7%)",
+    "remaining_harvestable": "~5-8 more findings extractable with deeper analysis of automability sweep variants"
+  }
+}

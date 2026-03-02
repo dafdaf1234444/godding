@@ -1,0 +1,69 @@
+{
+  "experiment": "F136",
+  "session": "S313",
+  "date": "2026-02-28",
+  "description": "Proxy-K entropy thermodynamics: phase-transition ratio, compaction events, temperature model (S313 re-run, n=50 sessions, 102 log entries)",
+  "baseline_session": "S246",
+  "baseline_median_delta": 692,
+  "baseline_p90": 1995,
+  "n_sessions": 50,
+  "n_log_entries": 102,
+  "total_range_min": 21960,
+  "total_range_max": 60010,
+  "delta_median_abs": 738,
+  "delta_mean_abs": 1376,
+  "delta_p90_abs": 3632,
+  "max_drop": -5072,
+  "max_drop_session": 127,
+  "max_jump": 12554,
+  "max_jump_session": 182,
+  "phase_transition_ratio": 17.0,
+  "top5_drops": [
+    [
+      127,
+      -5072
+    ],
+    [
+      186,
+      -1995
+    ],
+    [
+      171,
+      -1984
+    ],
+    [
+      167,
+      -1660
+    ],
+    [
+      77,
+      -1637
+    ]
+  ],
+  "top5_jumps": [
+    [
+      182,
+      12554
+    ],
+    [
+      191,
+      4526
+    ],
+    [
+      157,
+      3697
+    ],
+    [
+      129,
+      3632
+    ],
+    [
+      301,
+      2169
+    ]
+  ],
+  "punctuated_dynamics_confirmed": true,
+  "entropy_model": "CONFIRMED (ratio=17.0x >> 10x threshold)",
+  "interpretation": "Proxy-K follows punctuated equilibrium thermodynamics. Phase-transition ratio 17.0x (max 12554t at S182 domain-seeding vs median 738t) confirms non-Gaussian, scale-free dynamics. Compaction = entropy-reducing energy injection. URGENT threshold acts as critical temperature: 46/50 measurements above old floor+10% (floor shifted up by growth; modern floor at 58351t gives 0.4% current drift = healthy). S182 domain-seeding burst (+12554t) = phase transition from 23-domain expansion. Swarm temperature dynamics: low-T (compacted, low proxy-K) \u2192 growth \u2192 high-T (URGENT) \u2192 compaction (renormalization) \u2192 low-T again. Sawtooth pattern confirmed.",
+  "verdict": "F136 PARTIAL: entropy model confirmed; temperature definition pending; URGENT-as-critical-point SUPPORTED (not proven)"
+}

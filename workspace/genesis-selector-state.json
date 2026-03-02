@@ -1,0 +1,45 @@
+{
+  "atom_success_rates": {
+    "belief-tracking": 1.0,
+    "conflict-protocol": 0.44,
+    "core-beliefs": 1.0,
+    "distill-protocol": 0.24,
+    "first-task": 1.0,
+    "frontier": 1.0,
+    "lesson-template": 0.28,
+    "memory-index": 1.0,
+    "next-handoff": 1.0,
+    "pre-commit-hook": 1.0,
+    "principles-inherit": 0.71,
+    "self-swarm-tooling": 0.5,
+    "session-modes": 1.0,
+    "session-protocol": 1.0,
+    "sibling-bulletins": 0.5,
+    "validator": 1.0,
+    "verify-protocol": 0.25
+  },
+  "generation": 1,
+  "last_updated": "2026-03-01T02:18:16.887215",
+  "children_analyzed": 33,
+  "viable_count": 26,
+  "proposals": [
+    {
+      "atom": "distill-protocol",
+      "action": "REMOVE",
+      "reason": "Absence viable rate (100%) >= presence rate (74%)",
+      "confidence": "HIGH"
+    },
+    {
+      "atom": "conflict-protocol",
+      "action": "REMOVE",
+      "reason": "Absence viable rate (83%) >= presence rate (78%)",
+      "confidence": "HIGH"
+    },
+    {
+      "atom": "verify-protocol",
+      "action": "REMOVE",
+      "reason": "Absence viable rate (100%) >= presence rate (75%)",
+      "confidence": "HIGH"
+    }
+  ]
+}

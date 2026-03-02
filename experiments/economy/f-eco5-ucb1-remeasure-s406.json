@@ -1,0 +1,33 @@
+{
+  "session": "S406",
+  "frontier": "F-ECO5",
+  "total_lanes": 365,
+  "unique_domains": 65,
+  "cumulative_gini": 0.5883,
+  "cumulative_gini_s404": 0.493,
+  "cumulative_gini_change": 0.0953,
+  "era_gini": 0.4185,
+  "era_gini_s404": 0.646,
+  "era_gini_change": -0.2275,
+  "era_sessions": "S393-S406",
+  "meta_count": 60,
+  "meta_pct": 16.4,
+  "meta_pct_s404": 29,
+  "top_domains": {
+    "meta": 60,
+    "nk-complexity": 31,
+    "structure": 27,
+    "linguistics": 15,
+    "expert-swarm": 15,
+    "brain": 14,
+    "stochastic-processes": 12,
+    "information-science": 12,
+    "game-theory": 11,
+    "economy": 10,
+    "security": 9,
+    "evaluation": 8,
+    "quality-control": 8,
+    "governance": 8,
+    "social-science": 6
+  }
+}

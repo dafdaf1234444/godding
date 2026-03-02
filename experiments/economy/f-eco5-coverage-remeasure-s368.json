@@ -1,0 +1,38 @@
+{
+  "experiment": "F-ECO5 coverage re-measurement S368",
+  "session": "S368",
+  "domain": "economy",
+  "frontier": "F-ECO5",
+  "expect": "Visit Gini improved from 0.459 (S352 pre-fix) via saturation penalty + exploration mode. Expect Gini <0.45 over S358-S368 window. Coverage >80%.",
+  "actual": {
+    "cumulative_coverage_pct": 69.0,
+    "window_coverage_pct_S358_S368": 28.6,
+    "window_visit_gini": 0.827,
+    "pre_fix_gini_S352": 0.459,
+    "total_domex_lanes_S358_S368": 30,
+    "unique_domains_visited_S358_S368": 12,
+    "total_domains_with_frontiers": 42,
+    "meta_concentration_pct": 30.0,
+    "top3_concentration_pct": 53.3,
+    "top3_domains": ["meta(9)", "governance(4)", "quality(3)"],
+    "dispatch_compliance": {
+      "sessions_with_data": 20,
+      "followed_top3_pct": 75,
+      "followed_top1_pct": 50,
+      "meta_dispatched_pct": 45
+    },
+    "saturation_penalty_analysis": {
+      "meta_visits": 36,
+      "meta_penalty": 5.4,
+      "meta_pre_penalty_score": 61.2,
+      "meta_post_penalty_score": 55.8,
+      "governance_score": 49.1,
+      "gap_after_penalty": 6.7,
+      "insufficient_because": "penalty 5.4 < pre-penalty gap 9.4"
+    }
+  },
+  "diff": "Prediction WRONG. Expected Gini <0.45, got 0.827 (worst ever). Expected coverage >80%, got 28.6%. Score improvements at S358 (-37% score Gini) did NOT translate to visit improvements. Root cause: dispatch compliance is 75% but meta still ranks #1 most sessions because saturation coefficient (1.5) is too low to overcome meta's structural score advantage (13 active frontiers). Sessions follow dispatch correctly — the scoring formula is the problem, not compliance.",
+  "lesson": "L-671",
+  "tools_used": ["dispatch_optimizer.py", "SWARM-LANES.md", "SWARM-LANES-ARCHIVE.md"],
+  "outcome": "NEGATIVE"
+}

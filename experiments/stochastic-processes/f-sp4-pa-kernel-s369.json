@@ -1,0 +1,47 @@
+{
+  "experiment_id": "f-sp4-pa-kernel-s369",
+  "frontier": "F-SP4",
+  "session": "S369",
+  "date": "2026-03-01",
+  "domain": "stochastic-processes",
+  "question": "What is the citation preferential attachment kernel?",
+  "hypothesis": "Citations follow PA with kernel f(k)=k^gamma. Predicted gamma=1.3-1.5 (superlinear) under zero-inflated PA model. Zero-inflated model should beat pure PA (BIC).",
+  "method": "Build temporal citation DAG from Cites: headers in 609 lessons. For each citation event, record in-degree of target at citation time. Compute pool-normalized attachment rate rate(k) = attachments_at_k / pool_exposure_at_k. Fit log-log regression of rate vs k for k>=1. Compare uniform vs PA model via BIC.",
+  "data": {
+    "total_lessons": 609,
+    "lessons_with_cites": 325,
+    "coverage": 0.534,
+    "total_edges": 979,
+    "orphan_fraction": 0.417,
+    "n_attachment_events": 979,
+    "mean_degree_at_attachment": 2.026,
+    "fraction_k0": 0.381,
+    "max_degree_at_attachment": 18
+  },
+  "results": {
+    "pa_kernel_gamma": 0.6095,
+    "pa_kernel_r_squared": 0.393,
+    "rate_k0": 0.001892,
+    "rate_k1_mean": 0.009586,
+    "rate_ratio_k1_over_k0": 5.07,
+    "gini_attachment_degree": 0.664,
+    "pa_ratio": 1.295,
+    "bic_uniform": -183.32,
+    "bic_pa": -182.85,
+    "delta_bic_uniform_minus_pa": -0.47,
+    "top_5_cited": ["L-39 (19)", "L-601 (19)", "L-1 (18)", "L-495 (15)", "L-42 (14)"],
+    "kernel_rates": {
+      "k0": 0.00189, "k1": 0.00272, "k2": 0.00263, "k3": 0.00348,
+      "k4": 0.00276, "k5": 0.00563, "k6": 0.00571, "k7": 0.01663,
+      "k8": 0.00578, "k9": 0.00658, "k10": 0.02020, "k11": 0.01066,
+      "k12": 0.01337, "k13": 0.00790, "k14": 0.01843, "k15": 0.00726,
+      "k16": 0.04286, "k17": 0.00429, "k18": 0.00526
+    }
+  },
+  "expect": "Superlinear PA gamma=1.3-1.5. Zero-inflated model beats uniform (BIC). 200+ lessons with citations.",
+  "actual": "SUBLINEAR PA gamma=0.61 (R2=0.39). Zero-inflation CONFIRMED (5x rate jump k0->k1+). BIC INCONCLUSIVE (delta=-0.47, uniform marginally better). PA ratio 1.30 confirms weak PA signal.",
+  "diff": "Predicted superlinear gamma=1.3-1.5, got sublinear gamma=0.61. Direction correct (PA exists), magnitude wrong (2x lower). BIC predicted PA better, got uniform marginally better. Zero-inflation confirmed as predicted. The kernel is noisier than expected at high k (small pool sizes). The initial alpha=1.903 estimate was from degree distribution, NOT from the PA kernel — mixing up degree distribution exponent with attachment exponent is a substrate error.",
+  "outcome": "PARTIALLY CONFIRMED",
+  "artifact": "tools/pa_kernel.py",
+  "lesson": "L-673"
+}

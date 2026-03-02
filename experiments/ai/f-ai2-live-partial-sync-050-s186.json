@@ -1,0 +1,97 @@
+{
+  "experiment": "F-AI2/F-HLT2",
+  "title": "Live fetch perturbation: forced sync vs async independence",
+  "mode": "live-perturbation",
+  "seed": 186,
+  "trials": 300,
+  "lang": "en",
+  "perturb_rate": 0.35,
+  "sync_inherit_prob": 0.5,
+  "leader_error_rate": 0.3033,
+  "async": {
+    "follower_error_rate": 0.3467,
+    "joint_error_rate": 0.1133,
+    "leader_follower_error_correlation": 0.0374
+  },
+  "sync": {
+    "follower_error_rate": 0.32,
+    "joint_error_rate": 0.1833,
+    "leader_follower_error_correlation": 0.4023
+  },
+  "mismatch_samples": [
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-free replictaed data type",
+      "leader_resolved": "Conflict-free replictaed data type"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-free replicated data tye",
+      "leader_resolved": "Conflict-free replicated data tye"
+    },
+    {
+      "base_topic": "Stigmergy",
+      "canonical": "Stigmergy",
+      "leader_query": "Stimergy",
+      "leader_resolved": "Stimergy"
+    },
+    {
+      "base_topic": "Stigmergy",
+      "canonical": "Stigmergy",
+      "leader_query": "Stimergy",
+      "leader_resolved": "Stimergy"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-free replictaed data type",
+      "leader_resolved": "Conflict-free replictaed data type"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-freereplicated data type",
+      "leader_resolved": "Conflict-freereplicated data type"
+    },
+    {
+      "base_topic": "Transactive memory",
+      "canonical": "Transactive memory",
+      "leader_query": "Trnasactive memory",
+      "leader_resolved": "Trnasactive memory"
+    },
+    {
+      "base_topic": "Error handling",
+      "canonical": "Exception handling",
+      "leader_query": "Error hanlding",
+      "leader_resolved": "Error hanlding"
+    },
+    {
+      "base_topic": "Stigmergy",
+      "canonical": "Stigmergy",
+      "leader_query": "Stigmregy",
+      "leader_resolved": "Stigmregy"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Distributed ysstems",
+      "leader_resolved": "Distributed ysstems"
+    },
+    {
+      "base_topic": "Conflict-free replicated data type",
+      "canonical": "Conflict-free replicated data type",
+      "leader_query": "Conflict-free replicated data tye",
+      "leader_resolved": "Conflict-free replicated data tye"
+    },
+    {
+      "base_topic": "Distributed systems",
+      "canonical": "Distributed computing",
+      "leader_query": "Distributed ysstems",
+      "leader_resolved": "Distributed ysstems"
+    }
+  ],
+  "verdict": "Live topic perturbations preserve the same directional result: forced synchronization propagates leader mistakes, while asynchronous followers remain less correlated.",
+  "generated_at_utc": "2026-02-27T20:21:31Z"
+}

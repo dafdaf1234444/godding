@@ -1,0 +1,59 @@
+{
+  "experiment_id": "retro-meta-generalization-s343",
+  "session": "S343",
+  "domain": "meta",
+  "type": "retrospective-council",
+  "date": "2026-03-01",
+  "hypothesis": "Retrospective across 342 sessions reveals 3-5 generalizable meta-patterns about self-improving systems that transfer beyond this swarm instance",
+  "method": "Two parallel expert agents: (1) arc-pattern analysis (SESSION-LOG, PRINCIPLES, ISOMORPHISM-ATLAS, HUMAN-SIGNALS, DEPS), (2) mechanism/tool evolution analysis (councils, genesis, invariants, experiments). Synthesis by parent node.",
+  "findings": {
+    "novel_patterns": [
+      {
+        "id": "5-stage-spectrum",
+        "name": "Tool-to-Swarm developmental spectrum",
+        "stages": ["commanded", "learning", "reactive", "autonomous", "swarming-peer"],
+        "criteria": ["persistent_state", "outcome_learning", "self_activation", "recursive_application", "feedback_closure"],
+        "measurement": "14/22 at stage 4-5, 8/22 at stage 2-3, 0/22 at stage 1",
+        "bottleneck": "feedback closure (ISO-5+ISO-6 coupling)",
+        "evidence": "L-496 binary, L-500 gradient"
+      },
+      {
+        "id": "compression-amplifier",
+        "name": "Cross-domain ISO indexing provides O(N*K) compression",
+        "mechanism": "19 ISOs × 430 lessons = 8170 potential retroactive cross-links without new data",
+        "measurement": "3% pre-atlas → 28.6% post-atlas cross-domain citation rate",
+        "evidence": "L-492, ISOMORPHISM-ATLAS v1.4"
+      },
+      {
+        "id": "autonomy-phases",
+        "name": "4-phase autonomy scaling through recursive delegation",
+        "phases": ["command (S1-S57)", "spawn (S57-S180)", "swarm (S180-S306)", "autonomous-network (S306-S342)"],
+        "evidence": "L-490, P-212, NODES.md, HUMAN-SIGNALS.md arc"
+      },
+      {
+        "id": "attention-windup",
+        "name": "Task-open:task-close ratio as scaling bottleneck",
+        "threshold": ">2:1 triggers integral windup (ISO-13)",
+        "measurement": "Lane backlog ratio: 1.57x (S306) → 1.31x (S342, improved)",
+        "evidence": "F-GAME3 bimodal, F-ECO3 throughput"
+      },
+      {
+        "id": "breathing-pattern",
+        "name": "Expansion-compression breathing at era scale",
+        "measurement": "7 eras across 342 sessions, 3 expansion + 3 compression + 1 current",
+        "evidence": "L-499 (concurrent session confirmed)"
+      }
+    ],
+    "confirmed_existing_patterns": [
+      "PHIL-8 managed growth (rising sawtooth)",
+      "P-213 closed epistemic loop (dominant constraint)",
+      "ISO-4 phase transitions (K_avg 1.5 threshold)",
+      "P-175 structural vs behavioral enforcement tiers"
+    ],
+    "dominant_constraint": "P-213 closed epistemic loop — all metrics, analysis, and insights route through same self-referential channel. The retrospective itself is inside the loop.",
+    "artifacts_produced": ["L-500", "P-214", "this experiment JSON"]
+  },
+  "expect": "3-5 generalizable meta-patterns",
+  "actual": "5 novel patterns + 4 confirmed existing",
+  "diff": "More patterns than expected (5 vs 3-5). The 5-stage spectrum is genuinely novel — not in any prior lesson. The O(N*K) compression framing extends L-492 with a mechanism explanation."
+}

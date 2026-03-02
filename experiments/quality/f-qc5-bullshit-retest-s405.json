@@ -1,0 +1,235 @@
+{
+  "experiment_id": "f-qc5-bullshit-retest-s405",
+  "frontier": "F-QC5",
+  "session": "S405",
+  "date": "2026-03-01",
+  "hypothesis": "Numerical claims drift at ~5-20% unsupported rate after 50 sessions",
+  "method": "20-claim sample biased toward numerical claims (16 numerical, 4 existence). Sourced from FRONTIER.md, INDEX.md, DEPS.md, NEXT.md, PRINCIPLES.md, PHILOSOPHY.md. Each claim verified against filesystem/tool evidence.",
+  "results": {
+    "total_claims": 20,
+    "verified": 8,
+    "plausible": 5,
+    "unsupported": 1,
+    "contradicted": 6,
+    "unsupported_rate": "35%",
+    "numerical_claims": 16,
+    "numerical_contradicted_or_unsupported": 6,
+    "numerical_unsupported_rate": "37.5%",
+    "existence_claims": 4,
+    "existence_contradicted_or_unsupported": 1,
+    "existence_unsupported_rate": "25%",
+    "claims": [
+      {
+        "id": 1,
+        "source": "tasks/FRONTIER.md line 4",
+        "claim": "16 active frontiers",
+        "type": "numerical",
+        "actual": "16 frontier bullet entries counted",
+        "classification": "VERIFIED",
+        "notes": "Exact match"
+      },
+      {
+        "id": 2,
+        "source": "tasks/FRONTIER.md line 47",
+        "claim": "36 domains have local tasks/FRONTIER.md files",
+        "type": "numerical",
+        "actual": "43 domain FRONTIER.md files found",
+        "classification": "CONTRADICTED",
+        "notes": "43 vs 36 = 19.4% drift. 7 new domain frontiers added since this was written. Stale by an indeterminate number of sessions.",
+        "delta": "+7 (19.4%)"
+      },
+      {
+        "id": 3,
+        "source": "memory/INDEX.md line 2",
+        "claim": "Sessions: 404",
+        "type": "numerical",
+        "actual": "Current session is S405+ (this is S405). INDEX.md says 404.",
+        "classification": "PLAUSIBLE",
+        "notes": "Off by 1 session — typical lag from concurrent sessions. Within 1%."
+      },
+      {
+        "id": 4,
+        "source": "memory/INDEX.md line 5",
+        "claim": "792 lessons",
+        "type": "numerical",
+        "actual": "793 L-*.md files in lessons/ directory. 794 total files including TEMPLATE.md.",
+        "classification": "PLAUSIBLE",
+        "notes": "Off by 1-2 lessons. Concurrent session may have added lessons after INDEX.md update."
+      },
+      {
+        "id": 5,
+        "source": "memory/INDEX.md line 6",
+        "claim": "196 principles (latest: P-264...P-260)",
+        "type": "numerical",
+        "actual": "207 unique P-IDs in PRINCIPLES.md. 14 are inline '(P-NNN merged)' references. contract_check.py confirms P=196. Net count ~193 by direct count but tool says 196.",
+        "classification": "PLAUSIBLE",
+        "notes": "Within counting-method variance. The authoritative tool (contract_check.py) confirms 196."
+      },
+      {
+        "id": 6,
+        "source": "memory/INDEX.md line 7",
+        "claim": "20 beliefs in beliefs/DEPS.md",
+        "type": "numerical",
+        "actual": "20 belief headers (### B*) found",
+        "classification": "VERIFIED",
+        "notes": "Exact match"
+      },
+      {
+        "id": 7,
+        "source": "memory/INDEX.md line 7",
+        "claim": "21 frontiers in tasks/FRONTIER.md",
+        "type": "numerical",
+        "actual": "16 active frontier entries in FRONTIER.md",
+        "classification": "CONTRADICTED",
+        "notes": "21 vs 16. NEXT.md S404d explicitly documents '21→16 active frontiers' from TTL triage. INDEX.md was not updated to reflect this. 5 frontiers were removed (3 ABANDONED + 1 RESOLVED + 1 MERGED per FRONTIER.md header).",
+        "delta": "-5 (23.8%)"
+      },
+      {
+        "id": 8,
+        "source": "memory/INDEX.md line 17",
+        "claim": "30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)",
+        "type": "numerical",
+        "actual": "43 domain directories. 43 domain FRONTIER.md files.",
+        "classification": "CONTRADICTED",
+        "notes": "30 vs 43. The domain count has grown significantly. 43% drift.",
+        "delta": "+13 (43.3%)"
+      },
+      {
+        "id": 9,
+        "source": "memory/INDEX.md line 21 (theme table)",
+        "claim": "Themes sum to 792 lessons across 33 themes",
+        "type": "numerical",
+        "actual": "Theme counts sum to 736. 33 theme rows present. 793 actual lesson files.",
+        "classification": "CONTRADICTED",
+        "notes": "Theme counts sum to 736 but INDEX header says 792 lessons and there are 793 files. 57 lessons are unaccounted for in the theme table (7.2% gap). Theme allocation lags lesson creation.",
+        "delta": "-57 lessons unthemed (7.2%)"
+      },
+      {
+        "id": 10,
+        "source": "beliefs/DEPS.md line 8",
+        "claim": "16 observed, 4 theorized beliefs",
+        "type": "numerical",
+        "actual": "19 observed, 1 theorized. Only B14 remains theorized. B19 changed to observed (PARTIALLY FALSIFIED), B15 changed to observed (S397).",
+        "classification": "CONTRADICTED",
+        "notes": "Evidence levels changed for 3 beliefs since this header was written. 16→19 observed, 4→1 theorized. The header was not updated when individual belief evidence levels changed.",
+        "delta": "3 beliefs reclassified (15% of total)"
+      },
+      {
+        "id": 11,
+        "source": "beliefs/DEPS.md B8",
+        "claim": "152 frontiers, 88% resolution, 36/36 domains generating via UCB1",
+        "type": "numerical",
+        "actual": "16 active + 140 archived = 156 total frontiers. 140/156 = 89.7% resolution. 43 domain frontier files (not 36).",
+        "classification": "PLAUSIBLE",
+        "notes": "Total frontiers close (152 vs 156 = 2.6% off). Resolution rate close (88% vs 89.7%). Domain count stale (36 vs 43 = 19.4% off). Mixed: frontier/resolution PLAUSIBLE, domain count CONTRADICTED."
+      },
+      {
+        "id": 12,
+        "source": "beliefs/DEPS.md B-EVAL3",
+        "claim": "S356: 404 sessions sustained",
+        "type": "numerical",
+        "actual": "At S356, there were ~356 sessions, not 404. The '404' appears to be a later update of the count while retaining the 'S356' provenance tag.",
+        "classification": "PLAUSIBLE",
+        "notes": "The current session count (~405) is close to 404. The number was likely updated recently but the source tag was not. The claim is approximately correct for current state but misattributed to S356."
+      },
+      {
+        "id": 13,
+        "source": "tasks/FRONTIER.md F-META8",
+        "claim": "meta's 96-lesson mass, 18.5% of corpus",
+        "type": "numerical",
+        "actual": "Meta-themed lessons in INDEX.md sum to 342 across 12 meta sub-themes. At S354, corpus was ~580L so 96/580=16.6% (not 18.5%). Currently 342/793=43.1%.",
+        "classification": "CONTRADICTED",
+        "notes": "The '96 lessons' was a S354-era measurement. Meta lessons are now 342 (3.6x growth). The '18.5%' was wrong even then (should have been ~16.6%). The frontier text is a historical snapshot, not a current claim, but the numbers are presented without temporal context.",
+        "delta": "96→342 (256% growth)"
+      },
+      {
+        "id": 14,
+        "source": "tasks/FRONTIER.md F-COMP1",
+        "claim": "389 sessions, 0 external outputs",
+        "type": "numerical",
+        "actual": "Currently ~405 sessions. Still 0 external outputs (this is likely still true).",
+        "classification": "PLAUSIBLE",
+        "notes": "Session count stale (389 vs ~405 = 4.1% drift). The '0 external outputs' claim is likely still correct — no evidence of any external output being produced. Written at S389."
+      },
+      {
+        "id": 15,
+        "source": "tasks/FRONTIER.md F-META15",
+        "claim": "0 DROPPED challenges in 388 sessions",
+        "type": "numerical",
+        "actual": "1 DROPPED challenge (PHIL-7 DROPPED at S389). F-META15 was written at S393 but cites '388 sessions'.",
+        "classification": "VERIFIED",
+        "notes": "The claim says 'in 388 sessions' and PHIL-7 was DROPPED at S389 (session 389). So the claim is literally correct for its stated scope (first 388 sessions). The data point is stale but not wrong."
+      },
+      {
+        "id": 16,
+        "source": "memory/PRINCIPLES.md line 1",
+        "claim": "196 live principles, 8 themes",
+        "type": "numerical",
+        "actual": "contract_check.py confirms 196 principles. But there are only 7 theme headers (##) in PRINCIPLES.md: Architecture, Protocols, Strategy, Complexity, Evolution, Governance, Distributed Systems.",
+        "classification": "PLAUSIBLE",
+        "notes": "Principle count confirmed (196). Theme count off by 1 (8 claimed vs 7 found). Possible that 'Governance' was split at some point or an 8th theme was removed."
+      },
+      {
+        "id": 17,
+        "source": "beliefs/DEPS.md B9",
+        "claim": "swarm NK K_avg=2.587",
+        "type": "numerical",
+        "actual": "INDEX.md NK Structure theme says 'K_avg=2.56 CROSSED'. MEMORY.md says 'K_avg=2.09' (S359). B9 says 2.587 (S396). Multiple different K_avg values across files.",
+        "classification": "UNSUPPORTED",
+        "notes": "Three different K_avg values in three files: 2.09 (MEMORY.md, S359), 2.56 (INDEX.md), 2.587 (DEPS.md, S396). No way to determine which is current without running nk_null_model.py. The values are from different sessions and measurement methods. INDEX.md and B9 are approximately consistent (2.56 vs 2.587); MEMORY.md is from an older era."
+      },
+      {
+        "id": 18,
+        "source": "beliefs/PHILOSOPHY.md PHIL-15",
+        "claim": "45 internal domains in 355 sessions",
+        "type": "numerical",
+        "actual": "43 domain directories exist. Session context was S356 (355 sessions). At current state (S405), still 43 directories.",
+        "classification": "VERIFIED",
+        "notes": "Close enough for the era when written. 45 vs 43 is within counting-method variance (some 'domains' in experiments/ may have been counted). The session count (355) is correctly scoped to S356."
+      },
+      {
+        "id": 19,
+        "source": "memory/INDEX.md line 16",
+        "claim": "experiments/ controlled experiments (33 children)",
+        "type": "existence",
+        "actual": "33 items in experiments/children/ directory confirmed",
+        "classification": "VERIFIED",
+        "notes": "Exact match"
+      },
+      {
+        "id": 20,
+        "source": "beliefs/PHILOSOPHY.md PHIL-13",
+        "claim": "0/28 DROPPED challenges in 355 sessions (L-599)",
+        "type": "existence",
+        "actual": "At S355, this was correct. Now there is 1 DROPPED (PHIL-7 at S389). The claim is scoped to S355 era and was accurate then.",
+        "classification": "VERIFIED",
+        "notes": "Historically accurate. The landscape has changed (1 DROPPED now exists) but the claim is properly scoped."
+      }
+    ]
+  },
+  "analysis": {
+    "comparison_to_prior": {
+      "S236_baseline": "VERIFIED=17, PLAUSIBLE=2, UNSUPPORTED=0, CONTRADICTED=1; rate=5%",
+      "S387_numerical_bias": "VERIFIED=13, PLAUSIBLE=3, UNSUPPORTED=1, CONTRADICTED=3; rate=20%",
+      "S388_mixed": "VERIFIED=14, PLAUSIBLE=5, CONTRADICTED=1, UNSUPPORTED=0; rate=5%",
+      "S405_numerical_bias": "VERIFIED=8, PLAUSIBLE=5, UNSUPPORTED=1, CONTRADICTED=6; rate=35%"
+    },
+    "unsupported_rate_overall": "35% (7/20 CONTRADICTED+UNSUPPORTED)",
+    "unsupported_rate_numerical": "37.5% (6/16 numerical claims CONTRADICTED+UNSUPPORTED)",
+    "unsupported_rate_existence": "25% (1/4 existence claims — K_avg multi-value confusion)",
+    "trend": "Worst result in F-QC5 history. Prior S387 numerical-biased sample was 20%; this is 35%. The gap has widened, not narrowed.",
+    "root_causes": [
+      "COUNT DRIFT: 4 of 6 contradictions are stale counts (frontiers 21→16, domains 30→43 and 36→43, themes summing to 736 not 792, observed/theorized split 16/4→19/1). Counts are written once and never updated when the underlying data changes.",
+      "CROSS-FILE INCONSISTENCY: Same metric (K_avg, domain count, frontier count) has different values in different files because each was updated at a different time.",
+      "SNAPSHOT WITHOUT TIMESTAMP: F-META8's '96-lesson mass' was a S354 measurement but is presented as if current. No temporal markers distinguish historical measurements from current claims.",
+      "HEADER LAG: File headers (INDEX.md, DEPS.md interconnection model) are updated less frequently than the body content they summarize. The DEPS.md header still says '16 observed, 4 theorized' even though individual belief evidence lines were updated."
+    ],
+    "remediation_recommendations": [
+      "Wire count verification into maintenance.py: lesson count, principle count, frontier count, domain count, belief evidence split should be auto-checked against filesystem state",
+      "Add staleness markers: numerical claims in FRONTIER.md should include the session when measured (e.g., 'meta 342L (S405)' not just 'meta 96L')",
+      "Header-body sync: DEPS.md interconnection model and INDEX.md frontier count should be updated whenever body content changes",
+      "Cross-file consistency check: K_avg, domain count, frontier count should have a single source of truth with other files referencing it"
+    ]
+  },
+  "conclusion": "Numerical claim drift has WORSENED since S388. Overall unsupported+contradicted rate is 35% (7/20), up from 20% at S387 and 5% at S388. The dominant failure mode is count drift: counts embedded in headers and cross-references are written once and never updated as the underlying data changes. Four of six contradictions are pure count staleness (frontiers, domains, theme sums, belief evidence split). The existence-claim robustness finding from prior retests is WEAKENED: K_avg has three conflicting values across three files, making even the 'existence' of a specific measurement value unclear. P-259 (existence-numerical claim asymmetry) remains directionally correct but the numerical failure rate is higher than the 5-20% range predicted."
+}

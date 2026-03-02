@@ -1,0 +1,38 @@
+{
+  "experiment": "f-meta10-knowledge-state-s376",
+  "session": "S376",
+  "frontier": "F-META10",
+  "domain": "meta",
+  "question": "Can the swarm classify knowledge into epistemological states and use profiles to guide dispatch?",
+  "method": "Built knowledge_state.py (376 lines, concurrent S377). Ran on 641 lessons + 140+ principles + 17 beliefs = 799 items. Classified into MUST-KNOW/ACTIVE/SHOULD-KNOW/DECAYED/BLIND-SPOT using citation recency, boot-file refs, tool refs, frontier counts.",
+  "expect": "Classify 640+ lessons into 5 states. Per-domain profiles reveal SHOULD-KNOW > ACTIVE in >=30% of domains. DECAYED->ACTIVE transitions near 0%.",
+  "actual": {
+    "global_states": {
+      "MUST-KNOW": 215,
+      "ACTIVE": 169,
+      "SHOULD-KNOW": 140,
+      "DECAYED": 275,
+      "BLIND-SPOT": 0
+    },
+    "total_items": 799,
+    "should_know_gt_active_pct": 0.61,
+    "revival_rate_pct": 22.0,
+    "revival_count": 92,
+    "old_items": 419,
+    "domain_count": 44,
+    "unknown_domain_items": 210,
+    "unknown_domain_pct": 0.263,
+    "decay_avg_age": 281,
+    "active_avg_age": 101,
+    "top_domains": {
+      "unknown": {"total": 210, "diagnosis": "DECAY-HEAVY"},
+      "meta": {"total": 152, "diagnosis": "OPERATIONAL"},
+      "nk-complexity": {"total": 20, "diagnosis": "OPERATIONAL"},
+      "expert-swarm": {"total": 19, "diagnosis": "EXPLORE-RICH"},
+      "information-science": {"total": 18, "diagnosis": "EXPLORE-RICH"}
+    }
+  },
+  "diff": "Predicted SHOULD-KNOW > ACTIVE in >=30% — got 61% (CONFIRMED, stronger than predicted). Predicted DECAYED->ACTIVE ~0% — got 22% (WRONG by large margin). Revival IS a mechanism. Did NOT predict domain fragmentation (26% 'unknown'). BLIND-SPOT=0 was expected (not detectable from inside). Key finding: DECAYED is largest state at 34.4% — one-third of all knowledge is stale, but 22% of stale items get revived = knowledge has a lifecycle not a death.",
+  "lesson": "L-714",
+  "tools_used": ["tools/knowledge_state.py"]
+}

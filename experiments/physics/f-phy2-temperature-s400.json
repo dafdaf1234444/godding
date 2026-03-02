@@ -1,0 +1,30 @@
+{
+  "experiment": "f-phy2-temperature-s400",
+  "frontier": "F-PHY2",
+  "domain": "physics",
+  "session": "S400",
+  "date": "2026-03-01",
+  "type": "confirmation",
+  "mode": "hardening",
+  "hypothesis": "Commits/session as temperature proxy discriminates exploration vs focused sessions. High temperature correlates with multi-domain exploration.",
+  "expect": "High-temp sessions (>5 commits) are exploration-dominant. Low-temp (<3) are focused.",
+  "results": {
+    "sessions_analyzed": 88,
+    "r_commits_lessons": 0.798,
+    "r_commits_crystal_rate": -0.196,
+    "temperature_bands": {
+      "HIGH_gt5": {"n": 69, "mean_lessons": 6.84, "mean_domains": 1.67, "crystal_rate": 0.519, "multi_domain_pct": 45},
+      "MED_3to5": {"n": 15, "mean_lessons": 2.47, "mean_domains": 1.27, "crystal_rate": 0.678, "multi_domain_pct": 47},
+      "LOW_lt3": {"n": 4, "mean_lessons": 0.75, "mean_domains": 0.0, "crystal_rate": 0.5, "multi_domain_pct": 0}
+    },
+    "era_shift": {
+      "S300_S350": {"mean_commits": 14.2, "n": 38},
+      "S351_S400": {"mean_commits": 9.3, "n": 50},
+      "trend": "COOLING"
+    },
+    "confirms_L834": true,
+    "note": "Additional evidence for L-834 (F-PHY2 FALSIFIED S399). Temperature is a classification signal not quality predictor."
+  },
+  "verdict": "CONFIRMED L-834: temperature correlates with volume not quality. Cooling trend adds era-dynamics evidence.",
+  "lesson": "No new lesson — L-834 confirmed"
+}

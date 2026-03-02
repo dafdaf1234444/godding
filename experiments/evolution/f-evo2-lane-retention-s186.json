@@ -1,0 +1,134 @@
+{
+  "experiment": "F-EVO2",
+  "title": "Lane-log variation-selection-retention baseline",
+  "session": "S186",
+  "source": "tasks/SWARM-LANES.md",
+  "generated_at_utc": "2026-02-27T20:40:45Z",
+  "summary": {
+    "total_rows": 48,
+    "unique_lanes": 40,
+    "lanes_with_any_closed_status": 40,
+    "lanes_with_any_active_status": 4,
+    "lanes_with_repeated_updates": 4,
+    "lanes_retained_closed_repeated": 4,
+    "status_counts": {
+      "ACTIVE": 2,
+      "MERGED": 44,
+      "READY": 2
+    },
+    "top_scopes": {
+      "tools/wiki_swarm.py": 7,
+      "tasks/NEXT.md": 7,
+      "tools/f_ai1_evidence_surfacing.py": 3,
+      "tools/test_p155_live_trace.py": 2,
+      "tools/periodics.json": 2,
+      "tools/test_wiki_swarm.py": 1,
+      "experiments/ai/f-ai2-hlt2-sync-correlation-s184.json": 1,
+      "experiments/ai/f-ai2-hlt2-live-perturb-s185.json": 1
+    }
+  },
+  "selection_pressure_proxy": {
+    "selection_rate_closed_any": 1.0,
+    "retention_rate_closed_repeated": 0.1,
+    "active_residue_rate": 0.1
+  },
+  "top_retained_lanes": [
+    {
+      "lane": "L-AI2-SYNC-S185",
+      "entries": 4,
+      "has_closed": true,
+      "has_active": true,
+      "retained_closed_repeated": true,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-UNDERSTAND-SWARM",
+      "entries": 4,
+      "has_closed": true,
+      "has_active": true,
+      "retained_closed_repeated": true,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-F-AI2-HLT2-VERIFY",
+      "entries": 2,
+      "has_closed": true,
+      "has_active": true,
+      "retained_closed_repeated": true,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-P155-TEST-HARDEN",
+      "entries": 2,
+      "has_closed": true,
+      "has_active": true,
+      "retained_closed_repeated": true,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-P155-RERUN",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S185-F-AI2-HLT2-METRIC-VERIFY",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S185-COMPACTNESS-PASS",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S185-SWARM-CHECKPOINT",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S186-F-AI2-LIVE-REPL",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-P155-BASELINE-CLARIFY",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S185-PAST-TO-SWARM",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    },
+    {
+      "lane": "L-S184-REFERENCE-HYGIENE",
+      "entries": 1,
+      "has_closed": true,
+      "has_active": false,
+      "retained_closed_repeated": false,
+      "last_status": "MERGED"
+    }
+  ],
+  "notes": "Initial automated extraction from lane log only; next step is linking lane outcomes to quality deltas from change_quality/session metrics."
+}

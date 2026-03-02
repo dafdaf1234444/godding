@@ -1,0 +1,40 @@
+{
+  "session": "S299",
+  "date": "2026-02-28",
+  "measurement": "F-CON1 bloat ratio check",
+  "baseline_s189": {
+    "total_rows": 444,
+    "unique_lanes": 225,
+    "bloat_ratio": 1.97,
+    "ready": null,
+    "merged": null,
+    "abandoned": null
+  },
+  "current_s299": {
+    "total_rows": 492,
+    "unique_lanes": 146,
+    "bloat_ratio": 3.37,
+    "ready": 182,
+    "merged": 121,
+    "active": 91,
+    "abandoned": 53,
+    "note": "unique_lanes lower because many rows share same lane ID (multiple append-only updates per lane)"
+  },
+  "anti_windup_actions": {
+    "lanes_abandoned": 5,
+    "lanes": [
+      "L-S186-DOMEX-BRN",
+      "L-S186-DOMEX-AI",
+      "L-S186-DOMEX-OPS",
+      "L-S186-CTL2-STRUCTURED-TAGGING",
+      "L-S196-ECON-COORD"
+    ],
+    "reason": "anti-windup flag: >=10 rows without MERGED, stale >80 sessions"
+  },
+  "finding": "Bloat ratio 3.37x (target <=1.3x, baseline 1.97x) \u2014 worsened significantly. Root cause: READY queue grows faster than execution capacity (L-336 integral windup). lanes_compact.py age_threshold=20 means rows <20 sessions old are not archived, which excludes ALL current work. Threshold must drop to 5-10 to have any effect.",
+  "next_steps": [
+    "Lower lanes_compact.py age_threshold from 20 to 8",
+    "Run lanes_compact.py to archive MERGED/ABANDONED rows older than cutoff",
+    "Add expert-creation gate: reject if READY>100"
+  ]
+}

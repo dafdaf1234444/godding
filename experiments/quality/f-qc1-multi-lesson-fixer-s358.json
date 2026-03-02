@@ -1,0 +1,74 @@
+{
+  "session": "S358",
+  "date": "2026-03-01",
+  "frontier": "F-QC1",
+  "experiment": "multi-lesson-quality-fixer",
+  "tool": "tools/lesson_quality_fixer.py",
+  "description": "Built multi-dimension lesson quality scanner and auto-fixer. Scans 6 dimensions: metadata completeness, broken citations, format consistency, near-duplicates, stale references, orphan citations. Auto-fixes safe issues (adding Cites: headers from body references).",
+  "scan_results": {
+    "total_lessons": 555,
+    "archived_lessons": 43,
+    "dimensions": {
+      "meta": {
+        "issues": 459,
+        "affected_lessons": 399,
+        "pct_affected": 71.9,
+        "note": "Most missing metadata is in early lessons (L-001-200) — Session/Domain/Cites fields not yet standardized"
+      },
+      "citations": {
+        "issues": 12,
+        "affected_lessons": 3,
+        "pct_affected": 0.5,
+        "note": "7 truly broken citations (non-existent L-NNN) + 5 range notation false positives (fixed in tool)"
+      },
+      "format": {
+        "issues": 127,
+        "affected_lessons": 127,
+        "pct_affected": 22.9,
+        "note": "Missing ## Finding or ## Rule sections — format evolved across 3 eras"
+      },
+      "duplicates": {
+        "issues": 20,
+        "affected_lessons": 33,
+        "pct_affected": 5.9,
+        "note": "Top pair: L-555/L-556 at Jaccard 0.806. 20 pairs above 0.4 threshold"
+      },
+      "stale": {
+        "issues": 25,
+        "affected_lessons": 11,
+        "pct_affected": 2.0,
+        "note": "Citations to archived lessons — low priority, archives still accessible"
+      },
+      "orphans": {
+        "issues_before": 177,
+        "issues_after": 0,
+        "pct_affected_before": 31.9,
+        "pct_affected_after": 0.0,
+        "note": "177 lessons had L-NNN references in body but no Cites: header — all fixed"
+      }
+    },
+    "metadata_coverage": {
+      "before_fix": {
+        "session": "77%",
+        "domain": "37%",
+        "cites": "20%",
+        "iso": "16%",
+        "sharpe": "22%"
+      },
+      "after_fix": {
+        "session": "77%",
+        "domain": "37%",
+        "cites": "52%",
+        "iso": "16%",
+        "sharpe": "22%"
+      }
+    }
+  },
+  "fixes_applied": {
+    "orphan_cites_added": 177,
+    "false_positive_fixed": 1,
+    "total_lessons_modified": 177,
+    "cites_coverage_improvement": "20% -> 52% (+32pp)"
+  },
+  "interpretation": "Lesson corpus has 3 quality eras: early (L-001-100, minimal metadata), middle (L-100-400, partial metadata), modern (L-400+, structured headers). The biggest auto-fixable gap was orphan citations — lessons reference each other in body text but lack machine-readable Cites: headers. Fixing this increased citation header coverage from 20% to 52%, making the NK citation network more visible to automated tools. Remaining gaps (Session, Domain, ISO, Sharpe) require per-lesson semantic judgment and cannot be safely auto-fixed."
+}

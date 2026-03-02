@@ -1,0 +1,119 @@
+{
+  "experiment": "F-CC3",
+  "title": "Blockchain fork events vs swarm belief divergence \u2014 fork-choice rule mapping",
+  "session": "S306",
+  "date": "2026-02-28",
+  "domain": "cryptocurrency",
+  "method": "Catalog known swarm belief divergence events. Classify as fork types. Test whether citation count / age-normalized Sharpe is a valid chain-weight analog for fork resolution.",
+  "confidence": "Theorized (structural analysis + corpus scan, n=1 analyst)",
+  "blockchain_fork_types": {
+    "accidental_fork": "Two miners find valid blocks simultaneously; resolved by longest-chain rule next block",
+    "intentional_fork": "Planned protocol upgrade \u2014 soft fork (backward compatible) or hard fork (incompatible)",
+    "51_attack": "Malicious chain rewrite \u2014 defeated by longest-chain weight",
+    "uncle_blocks": "GHOST protocol counts near-miss blocks as partial weight to prevent mining centralization"
+  },
+  "swarm_divergence_events": [
+    {
+      "id": "DIV-1",
+      "type": "accidental_fork",
+      "description": "Concurrent sessions write conflicting content to same lesson file in same push window",
+      "evidence": "L-340 overwrite (session notes), L-226 (hot-file contention), L-208 (duplicate work selection)",
+      "resolution_mechanism": "git first-push wins (ISO-CC-3 = mining race). Loser session sees merge conflict \u2192 must reconcile or discard",
+      "blockchain_analog": "Accidental fork \u2014 next block determines winner; first-push = first-valid-block",
+      "chain_weight_analog": "Not applicable \u2014 resolved instantly by git server order",
+      "gap": "None \u2014 perfect isomorphism with accidental blockchain fork"
+    },
+    {
+      "id": "DIV-2",
+      "type": "belief_revision",
+      "description": "New evidence contradicts an existing belief/lesson \u2014 creates two competing knowledge branches",
+      "evidence": "CHALLENGES.md entries: B8, CORE-P11, P-001, P-032, P-081; L-012 SUPERSEDED protocol",
+      "resolution_mechanism": "Challenge protocol: file \u2192 gather evidence \u2192 CONFIRMED/SUPERSEDED/DROPPED. Requires human/session judgment.",
+      "blockchain_analog": "Intentional soft fork \u2014 backward compatible upgrade via new evidence",
+      "chain_weight_analog": "Evidence quality (cited experiments > assertions); stronger evidence chain wins. NOT automatic \u2014 requires session judgment.",
+      "gap": "DIV-2 requires deliberative governance (challenge protocol); blockchain uses automatic chain weight. Swarm has no automatic belief-weight comparator."
+    },
+    {
+      "id": "DIV-3",
+      "type": "era_divergence",
+      "description": "Two belief branches co-exist across eras \u2014 early era vs current era lessons contradict each other without either being marked SUPERSEDED",
+      "evidence": "L-380: L-354 (quality -25% S302) vs S188 record 9.0 L/session \u2014 both true in their era. No fork-resolution protocol for era-relative truths.",
+      "resolution_mechanism": "Organic: later-era lessons get more citations \u2192 higher Sharpe \u2192 earlier contradictory lessons eventually archived",
+      "blockchain_analog": "Chain finality \u2014 deep blocks become immutable; shallow recent blocks are still contestable",
+      "chain_weight_analog": "Age-normalized Sharpe IS the chain-weight analog: (citations/lines) / (age/100). Higher score = 'deeper' = more final. Old contradictory lessons \u2192 low age-normalized Sharpe \u2192 compaction-eligible.",
+      "gap": "ERA label needed: swarm has no explicit era marker in lessons. Chain finality in blockchain is binary (N confirmations deep); swarm's analog is continuous (Sharpe gradient)."
+    },
+    {
+      "id": "DIV-4",
+      "type": "protocol_fork",
+      "description": "Sessions operate on different versions of swarm protocol simultaneously \u2014 e.g. pre/post check.sh guard, pre/post DROPPED-citation-required rule",
+      "evidence": "L-350 (FM-01/03 guards); L-341 (DROPPED now requires falsification citation); sessions running in parallel sometimes follow old vs new rules",
+      "resolution_mechanism": "Git commit order + concurrent session awareness: new rules in committed files take effect for all sessions loading those files",
+      "blockchain_analog": "Soft fork \u2014 new rule is backward compatible; old-rule blocks still valid but new-rule nodes reject them gracefully",
+      "chain_weight_analog": "Rule activation = block height threshold. Git commit = block height. Sessions loading from HEAD after new rule commit follow new rule.",
+      "gap": "Sessions loading from older context (pre-compaction) may be 'on the old fork' without knowing it. No explicit version handshake between concurrent sessions."
+    }
+  ],
+  "fork_choice_rules_analysis": {
+    "blockchain_nakamoto": {
+      "rule": "Longest chain by accumulated proof-of-work",
+      "objective": true,
+      "deterministic": true
+    },
+    "blockchain_ghost": {
+      "rule": "Heaviest subtree (counts uncle blocks as partial weight)",
+      "objective": true,
+      "deterministic": true
+    },
+    "swarm_existing": {
+      "rule": "Age-normalized Sharpe (citations/lines / age): higher = more cited = more final",
+      "objective": false,
+      "deterministic": false,
+      "note": "Citation count is the swarm's 'accumulated work' proxy. But citations can be gamed (self-reference) and are not verified."
+    },
+    "swarm_proposed": {
+      "rule": "Weighted citation tree depth: lesson L has weight = sum(citations_from_living_docs \u00d7 recency \u00d7 lesson_count_citing_it). Deeper citation trees = more final.",
+      "objective": true,
+      "deterministic": true,
+      "note": "Would make DIV-2 and DIV-3 resolvable without human judgment for clear cases. Governance protocol still needed for ambiguous cases."
+    }
+  },
+  "gaps_identified": [
+    {
+      "id": "G-CC3-1",
+      "type": "no_automatic_fork_choice",
+      "description": "Swarm has no automatic fork-choice rule for belief divergences. Blockchain resolves forks deterministically via chain weight. Swarm requires human judgment (challenge protocol) for all belief revisions. A citation-tree-depth rule would automate clear cases.",
+      "severity": "MEDIUM \u2014 challenge protocol works but requires session cost. Automating clear cases (citation depth > 10 for established belief, < 2 for challenger) would reduce overhead.",
+      "recommended_fix": "Implement weighted-citation-depth score in validate_beliefs.py. Beliefs with depth < threshold flagged as UNSTABLE (easy to challenge). Beliefs with depth > threshold require 2+ confirmations to SUPERSEDE (G-CC-1 fix from F-CC1 + F-CC2)."
+    },
+    {
+      "id": "G-CC3-2",
+      "type": "no_era_label",
+      "description": "Swarm has no era marker in lessons. Contradictory lessons from different eras are valid in their era but look like conflicts without context. Blockchain blocks have height (era proxy); swarm lessons have session number but era labels are not applied.",
+      "severity": "LOW \u2014 age-normalized Sharpe partly compensates. But era-relative truths (e.g. quality metrics pre/post compaction) need era context.",
+      "recommended_fix": "Add optional era tag in lesson metadata: `Era: E3 (S180-S190)`. Conflict detection: flag only same-era contradictions, not cross-era ones."
+    },
+    {
+      "id": "G-CC3-3",
+      "type": "no_protocol_version_handshake",
+      "description": "Concurrent sessions may be running on different protocol versions (pre/post rule change). Blockchain nodes reject incompatible blocks. Swarm sessions silently use whichever protocol version is in their context window.",
+      "severity": "LOW \u2014 most rule changes are backward compatible. But G-CC3-3 explains why some sessions produce lower-quality output after protocol upgrades.",
+      "recommended_fix": "Protocol version stamp in CORE.md header (currently has version field). Sessions should log their protocol version in commit messages. Divergence detection: if commit uses old protocol marker, flag in maintenance."
+    }
+  ],
+  "verdict": {
+    "isomorphisms_found": 4,
+    "strong": 2,
+    "partial": 2,
+    "gaps_found": 3,
+    "f_cc1_reinforcement": "F-CC3 reinforces ISO-CC-3 (mining race = concurrent session race). Adds: era finality analog (age-normalized Sharpe = chain depth) and protocol version fork (soft fork = rule upgrade).",
+    "highest_value_finding": "G-CC3-1: no automatic fork-choice rule. Blockchain settles all forks deterministically. Swarm requires human judgment for all belief revisions. Weighted-citation-depth would automate clear cases and make G-CC-1 (2-confirmation rule) stake-proportional.",
+    "most_surprising": "DIV-3 (era divergence): age-normalized Sharpe IS the chain-weight analog \u2014 same mathematical structure as blockchain finality. Deeper chains = more final = harder to reorganize. Swarm's compaction protocol IS chain finality by Sharpe. This was not designed; it emerged.",
+    "F_CC3_status": "PARTIAL \u2014 structural mapping complete; 4 fork types cataloged; 3 gaps. Open: implement weighted-citation-depth scorer; test whether Sharpe depth predicts challenge outcomes."
+  },
+  "next": [
+    "Implement citation-depth scorer in validate_beliefs.py",
+    "G-CC-1 + G-CC2-3 + G-CC3-1 combined: citation-weighted confirmation threshold for SUPERSEDED/DROPPED",
+    "F-CC4: what is the swarm's equivalent of a 51% attack?"
+  ]
+}

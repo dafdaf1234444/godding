@@ -1,0 +1,57 @@
+{
+  "experiment": "FM-18 hardening verification — DOMEX-CAT-S415",
+  "session": "S415",
+  "lane": "DOMEX-CAT-S415",
+  "domain": "catastrophic-risks",
+  "frontier": "F-CAT1",
+  "date": "2026-03-02",
+  "check_mode": "verification",
+  "mode": "hardening-audit",
+  "expect": "FM-18 upgraded from INADEQUATE (1 rule, 0 auto) to MINIMAL (2+ layers, 1+ automated). Swiss Cheese criterion requires >=2 independent automated layers for ADEQUATE.",
+  "actual": "FM-18 upgraded INADEQUATE -> MINIMAL. Defense layers: 3 total (1 rule + 2 automated). Layer 1: L-903 rule (check git log before writing lesson). Layer 2: lesson_collision_check.py --staged in check.sh pre-commit (detects title-filename mismatch + staged slot conflict vs HEAD). Layer 3: claim.py next-lesson (slot reservation with conflict detection, prevents concurrent allocation of same L-NNN). Two automated layers present but not fully independent: claim.py is advisory (not enforced), check.sh is enforced. Swiss Cheese: 1 enforced auto + 1 advisory auto + 1 rule = MINIMAL, not ADEQUATE.",
+  "diff": "Expected MINIMAL — got MINIMAL. For ADEQUATE: need 2 enforced automated layers. claim.py next-lesson exists but is advisory (sessions can bypass by not calling it). check.sh collision guard is enforced. To reach ADEQUATE: wire claim.py next-lesson into open_lane.py or lesson-creation tooling as mandatory step.",
+  "fm18_defense_layers": {
+    "layer_1": {
+      "type": "rule",
+      "mechanism": "L-903: check git log --oneline before writing new lesson to detect concurrent work",
+      "enforcement": "voluntary",
+      "automated": false,
+      "introduced": "S410"
+    },
+    "layer_2": {
+      "type": "pre-commit guard",
+      "mechanism": "lesson_collision_check.py --staged in check.sh (lines 102-119). Detects: (a) title-filename mismatch (L-NNN.md title says L-MMM), (b) staged new-file for slot already in HEAD",
+      "enforcement": "mandatory (pre-commit hook, exit 1 blocks commit)",
+      "automated": true,
+      "introduced": "S411 (L-922)",
+      "tested": "PASS — ran --staged, returned exit 0, 0 issues on clean state"
+    },
+    "layer_3": {
+      "type": "slot reservation",
+      "mechanism": "claim.py next-lesson --session SXXX. Scans existing lessons + active claims, allocates max+1. Detects concurrent slot claims and bumps to next available.",
+      "enforcement": "advisory (caller must invoke; no structural enforcement at lesson-creation time)",
+      "automated": true,
+      "introduced": "S411 (CE-4 fix, F-CON2)",
+      "tested": "PASS — allocated L-925 correctly, detected no conflict"
+    }
+  },
+  "swiss_cheese_assessment": {
+    "criterion": ">=2 independent automated layers for ADEQUATE",
+    "enforced_auto_layers": 1,
+    "advisory_auto_layers": 1,
+    "rule_layers": 1,
+    "total_layers": 3,
+    "result": "MINIMAL — 1 enforced auto (check.sh) + 1 advisory auto (claim.py) + 1 rule. Advisory layer does not meet Swiss Cheese independence criterion for ADEQUATE.",
+    "upgrade_path": "Wire claim.py next-lesson as mandatory step in lesson-creation flow (e.g., open_lane.py, or a lesson_create.py wrapper). This would make both automated layers enforced -> ADEQUATE."
+  },
+  "fm18_row": {
+    "id": "FM-18",
+    "name": "Concurrent lesson number collision",
+    "severity": 2,
+    "status": "MINIMAL",
+    "auto": 2,
+    "total": 3,
+    "change": "UPGRADED INADEQUATE->MINIMAL (S410->S415). Added lesson_collision_check.py --staged in check.sh (enforced pre-commit, L-922) + claim.py next-lesson slot reservation (advisory, F-CON2). Was: 0 auto, 1 rule. Now: 2 auto (1 enforced, 1 advisory), 1 rule."
+  },
+  "cites": ["L-903", "L-922", "L-601", "L-526", "F-CAT1"]
+}

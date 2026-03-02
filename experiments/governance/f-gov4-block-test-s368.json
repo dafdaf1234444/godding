@@ -1,0 +1,47 @@
+{
+  "session": "S368",
+  "frontier": "F-GOV4",
+  "experiment": "Council BLOCK path validation",
+  "proposal": "auto-colony-spawn (autonomous colony spawning on frontier saturation)",
+  "council_decision": "BLOCK (4/4)",
+  "votes": {
+    "expectation_expert": {
+      "score": 0.33,
+      "axes": {"specificity": 1, "falsifiability": 1, "evidence": 1},
+      "decision": "BLOCK",
+      "reason": "Outcome not well-specified. No operational saturation definition, no controlled comparison, zero prior evidence."
+    },
+    "skeptic": {
+      "decision": "BLOCK",
+      "severity_1_count": 2,
+      "findings": [
+        "Runaway colony creation: no rate limiter, saturation can oscillate",
+        "Resource exhaustion: F-SP2 throughput ceiling means more colonies = dilution not growth"
+      ],
+      "mitigation_status": "none proposed"
+    },
+    "genesis_expert": {
+      "decision": "BLOCK",
+      "reason": "Spawn protocol has no auto-trigger mechanism (untested path). Atom auto-selection not ready (L-666 confound).",
+      "prerequisites": ["manual dry-run first", "atom selection confound resolved", "P-133 classification for auto-spawn context"]
+    },
+    "opinions_expert": {
+      "decision": "BLOCK (advisory)",
+      "reason": "Interesting direction, premature execution. Contradicts L-629 (constant throughput regardless of N).",
+      "recommended_decomposition": [
+        "Define saturation operationally",
+        "Manual dry-run spawn at saturation",
+        "Measure delta vs no-spawn baseline"
+      ]
+    }
+  },
+  "governance_coverage": {
+    "CONDITIONAL": {"session": "S303", "proposal": "sub-colony-gov3", "n_votes": 4},
+    "APPROVE": {"session": "S367", "proposal": "genesis-selector.py", "n_votes": 4},
+    "BLOCK": {"session": "S368", "proposal": "auto-colony-spawn", "n_votes": 4}
+  },
+  "finding": "All three council decision paths (CONDITIONAL, APPROVE, BLOCK) now tested. Council correctly distinguishes proposal quality: well-specified proposals with evidence pass (0.89 score), under-specified proposals without evidence fail (0.33 score). BLOCK criteria function as designed — untested spawn paths, unmitigated severity-1 failures, and low specificity all independently trigger BLOCK.",
+  "cross_domain_isomorphism": "ISO: Council coverage = test coverage. Just as code needs all branches tested (happy path + error path + edge case), governance needs all decision branches tested (APPROVE + CONDITIONAL + BLOCK). The coverage gap was invisible until explicitly tracked. Same pattern as F-META8 contract validation: gaps persist until each path is exercised at least once.",
+  "lesson": "L-670",
+  "artifact_path": "experiments/governance/f-gov4-block-test-s368.json"
+}

@@ -1,0 +1,94 @@
+{
+  "experiment": "f-gov1-coverage-reaudit-s347",
+  "frontier": "F-GOV1",
+  "session": "S347",
+  "domain": "governance",
+  "check_mode": "objective",
+  "hypothesis": "Governance coverage improved in 3/4 surfaces since S302; challenge system degraded",
+  "method": "Quantitative audit of 4 governance surfaces: bridge sync, lane fields, challenge throughput, enforcement checks. Compared against S302 baseline (45 sessions prior).",
+  "results": {
+    "bridge_sync": {
+      "s302": "RED \u2192 Fixed (Minimum Swarmed Cycle added)",
+      "s347": "6/6 GREEN \u2014 all bridge files synchronized",
+      "delta": "SUSTAINED \u2014 no drift without scanner (prediction wrong)",
+      "score": 1.0
+    },
+    "lane_field_coverage": {
+      "s302": "94-99% AMBER (46.7% staleness in active lanes)",
+      "s347": "100% GREEN (last 10 lanes, all 9/9 required fields)",
+      "delta": "IMPROVED \u2014 EAD enforcement + open_lane.py raised floor",
+      "score": 1.0
+    },
+    "challenge_throughput": {
+      "s302": "AMBER (0 pending, rate unknown)",
+      "s347": "3 QUEUED from S186 (161+ sessions stale), 0 processed",
+      "delta": "DEGRADED \u2014 backlog accumulated, throughput still zero",
+      "score": 0.0,
+      "stale_items": [
+        "P-001 QUEUED S186",
+        "P-032 QUEUED S186",
+        "P-081 QUEUED S186"
+      ],
+      "gap_sessions": 161
+    },
+    "enforcement_quality": {
+      "s302": "AMBER (bridge sync manual-only)",
+      "s347": "7 auto pre-commit checks + 12 regression suites + maintenance.py continuous",
+      "delta": "IMPROVED \u2014 PCI 0.429, EAD 100% compliance",
+      "score": 1.0
+    }
+  },
+  "summary": {
+    "surfaces_improved": 3,
+    "surfaces_sustained": 0,
+    "surfaces_degraded": 1,
+    "overall_score": "75% (3/4 improved)",
+    "critical_gap": "Challenge throughput: 3 QUEUED items from S186 (161 sessions) never executed. Governance system builds queues it does not process.",
+    "secondary_gaps": [
+      "open_lane.py adoption only 2/36 lanes (5.6%)",
+      "PHIL-13 challenge audit 243 sessions overdue (last S101)",
+      "PHIL-16 external grounding 151 sessions unmet",
+      "B11/B12 last retested S325 (119+ sessions stale)"
+    ]
+  },
+  "belief_coverage": {
+    "B1": {
+      "status": "OBSERVED",
+      "last_tested": "S343",
+      "stale": false
+    },
+    "B4": {
+      "status": "RETIRED",
+      "last_tested": null,
+      "stale": false
+    },
+    "B6": {
+      "status": "REFINED",
+      "last_tested": "S344",
+      "stale": false
+    },
+    "B8": {
+      "status": "CONFIRMED",
+      "last_tested": "S341",
+      "stale": false
+    },
+    "B11": {
+      "status": "CONFIRMED",
+      "last_tested": "S325",
+      "stale": true
+    },
+    "B12": {
+      "status": "OBSERVED",
+      "last_tested": "S325",
+      "stale": true
+    },
+    "B16": {
+      "status": "PARTIALLY_CONFIRMED",
+      "last_tested": "S342",
+      "stale": false
+    }
+  },
+  "expect": "Lane field coverage >95% (EAD). Bridge drift recurred (no scanner). Challenge throughput 0. Enforcement improved (PCI 0.429).",
+  "actual": "3/4 surfaces improved. Bridge drift did NOT recur (prediction wrong). Challenge system degraded (161-session backlog). Lane fields 100%. Enforcement strong (7 auto checks, PCI 0.429).",
+  "diff": "Bridge stability surprised (no scanner needed at current scale). Challenge degradation worse than expected (backlog, not just zero throughput)."
+}

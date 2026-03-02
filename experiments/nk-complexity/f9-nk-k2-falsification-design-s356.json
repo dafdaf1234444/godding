@@ -1,0 +1,78 @@
+{
+  "frontier": "F9-NK",
+  "session": "S356",
+  "domain": "nk-complexity",
+  "type": "experiment-design",
+  "title": "K=2.0 Crossing Falsification Experiment",
+  "question": "Does K_avg=2.0 produce observable structural change in the citation graph, or is it just an arithmetic milestone?",
+  "motivation": "S356 hallucination audit correctly flags: 'three quantities converging on K~2.0 is apophenia — same dataset, K-like quantities near 2 by construction.' The frontier requires falsification conditions before claiming K=2.0 matters.",
+
+  "baseline_state": {
+    "N": 545,
+    "K_avg": 1.9725,
+    "K_max": 27,
+    "cycles": 0,
+    "hub_z": 5.603,
+    "gini_z": 3.967,
+    "isolation_z": 1.940,
+    "zero_out_pct": 9.5,
+    "zero_in_pct": 31.6,
+    "edges": 1075,
+    "edges_per_lesson_recent": 2.18
+  },
+
+  "predictions": [
+    {
+      "id": "P1-CYCLES",
+      "claim": "First directed cycles emerge within 50 lessons of K=2.0 crossing",
+      "metric": "cycle_count from nk_null_model.py or manual BFS",
+      "baseline": 0,
+      "threshold": "cycles > 0 within N=560-610",
+      "falsification": "If still 0 cycles at N=610, claim FALSIFIED",
+      "rationale": "At K=2.0 mean outdegree, random graph theory predicts directed cycles at N > 2/K (always true for N=545). Absence means citation targets are intentionally tree-like."
+    },
+    {
+      "id": "P2-ISOLATION-REGIME",
+      "claim": "Isolation z crosses from MARGINAL to SIGNIFICANT at K >= 2.0",
+      "metric": "isolation_z from nk_null_model.py",
+      "baseline": 1.940,
+      "threshold": "isolation_z >= 2.576 (99% CI)",
+      "falsification": "If isolation_z < 2.0 at K >= 2.1, claim FALSIFIED",
+      "rationale": "Marginally significant isolation (z=1.94) should strengthen if network densification produces real preferential-attachment clustering."
+    },
+    {
+      "id": "P3-SINK-ACCELERATION",
+      "claim": "Zero-in % decline rate accelerates after K=2.0 crossing",
+      "metric": "zero_in_pct slope (lessons/pct-point)",
+      "baseline": "32% at N=545, declining ~0.06pp/lesson over S349-S356",
+      "threshold": "Slope at least 2x steeper in 50 lessons post-K=2.0 vs pre",
+      "falsification": "If slope unchanged or slower post-crossing, FALSIFIED",
+      "rationale": "Denser graph should incorporate more nodes into citation chains faster."
+    },
+    {
+      "id": "P4-HUB-REDISTRIBUTION",
+      "claim": "Hub dominance growth rate slows or reverses at K >= 2.0",
+      "metric": "hub_z from nk_null_model.py, K_max",
+      "baseline": "hub_z=5.603, K_max=27",
+      "threshold": "hub_z growth rate < 50% of pre-crossing rate",
+      "falsification": "If hub_z continues growing at same rate post-K=2.0, FALSIFIED",
+      "rationale": "Phase transition should redistribute connectivity. If hubs keep growing, K=2.0 is just arithmetic."
+    }
+  ],
+
+  "null_hypothesis": "K_avg=2.0 is the arithmetic consequence of citation density increasing over time. No observable phase transition occurs. All structural metrics (cycles, isolation, sinks, hubs) continue their pre-existing trends smoothly through K=2.0.",
+
+  "composite_falsification": "If ALL four predictions (P1-P4) are FALSIFIED, conclude: K=2.0 is NOT a meaningful structural milestone for this graph. F9-NK's NK chaos framing should be ABANDONED in favor of simple densification metrics.",
+
+  "composite_confirmation": "If >= 2 of 4 predictions CONFIRMED, conclude: K=2.0 crossing correlates with measurable structural change. But correlation != NK chaos — test for scale-free maintenance via preferential attachment analysis.",
+
+  "measurement_schedule": [
+    {"checkpoint": "K=2.0 crossing", "expected_N": "555-565", "run": "nk_null_model.py + cycle detection"},
+    {"checkpoint": "K=2.0 + 25L", "expected_N": "580-590", "run": "nk_null_model.py, compare slopes"},
+    {"checkpoint": "K=2.0 + 50L", "expected_N": "605-615", "run": "full comparison, verdict on all 4 predictions"}
+  ],
+
+  "iso_connections": ["ISO-5 (emergence from interaction density)", "ISO-16 (phase transition threshold)"],
+  "cites": ["L-538", "L-552", "L-598", "L-510", "L-492"],
+  "created_by": "S356 DOMEX-NK expert session"
+}

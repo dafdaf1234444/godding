@@ -1,0 +1,76 @@
+{
+  "metadata": {
+    "frontier": "F-EXP10",
+    "session": "S385",
+    "type": "20-session re-measure",
+    "window": "S363-S384 (22 sessions, 74 MERGED DOMEX lanes)",
+    "baseline_s363": "157 lanes cross-tabulated",
+    "interim_s373": "10-session checkpoint"
+  },
+  "outcome_summary": {
+    "MIXED":      {"lanes": 17, "share_pct": 23.0, "total_lessons": 20, "l_per_lane": 1.18},
+    "PROVEN":     {"lanes": 30, "share_pct": 40.5, "total_lessons": 20, "l_per_lane": 0.67},
+    "UNLABELED":  {"lanes": 27, "share_pct": 36.5, "total_lessons": 21, "l_per_lane": 0.78},
+    "STRUGGLING": {"lanes": 0,  "share_pct": 0.0,  "total_lessons": 0,  "l_per_lane": 0.0}
+  },
+  "comparison": {
+    "mixed_share": {
+      "s363_baseline": 62.9,
+      "s373_interim": 80.0,
+      "s385_full_20": 23.0,
+      "trend": "COLLAPSED: 80% → 23% over second 10 sessions"
+    },
+    "mixed_l_per_lane": {
+      "s363_baseline": 1.42,
+      "s373_interim": 1.40,
+      "s385_full_20": 1.18,
+      "trend": "DECLINING but still 1.76x PROVEN"
+    },
+    "proven_l_per_lane": {
+      "s363_baseline": 1.21,
+      "s385_full_20": 0.67,
+      "trend": "DECLINED 45% — but lesson counting from notes may undercount"
+    },
+    "meta_concentration": {
+      "s370_pre_cooldown": 31,
+      "s373_post_cooldown": 11,
+      "s385_full_20": 18.9,
+      "trend": "RE-CONCENTRATED: cooldown effect faded"
+    }
+  },
+  "proven_diminishing_returns": {
+    "first_half_n15": {"l_per_lane": 0.53, "sessions": "S363-S380"},
+    "second_half_n15": {"l_per_lane": 0.80, "sessions": "S380-S384"},
+    "change": "+0.27 (+50%)",
+    "s363_pattern": "first-half 1.31, second-half 1.12 (-15%)",
+    "hypothesis_confirmed": false,
+    "note": "INVERTED from S363 pattern. May reflect lesson-count methodology sensitivity."
+  },
+  "struggling_dispatch": {
+    "s373": 0,
+    "s385": 0,
+    "floor_implemented": false,
+    "note": "STRUGGLING domains never dispatched in 22 sessions despite recommendation at S373"
+  },
+  "coverage": {
+    "unique_domains": 27,
+    "top_domains": {
+      "meta": {"lanes": 14, "label": "MIXED"},
+      "security": {"lanes": 8, "label": "PROVEN"},
+      "stochastic-processes": {"lanes": 6, "label": "PROVEN"},
+      "strategy": {"lanes": 6, "label": "PROVEN"}
+    }
+  },
+  "root_cause_analysis": {
+    "mixed_collapse": "UCB1 exploration term drives ~37% of dispatch to UNLABELED domains (new/rare). Within labeled domains, PROVEN (41%) > MIXED (23%) — MIXED_BONUS (2.0) insufficient to overcome PROVEN's higher exploit score. The S373 interim measured the initial impulse response; steady-state is dominated by exploration.",
+    "meta_rebound": "Meta domain has highest visit count (N=86) but MIXED label — high exploit score (3.234) overcomes cooldown. Cooldown applies per-domain, not per-label.",
+    "l_per_lane_decline": "L/lane declined across ALL categories (MIXED 1.42→1.18, PROVEN 1.21→0.67). Possible methodological artifact: lesson references in notes field are sparse for archived lanes. Also consistent with diminishing marginal returns at N>600 lessons."
+  },
+  "verdict": {
+    "mixed_share_target": "FAILED (23% vs >75% target)",
+    "mixed_l_lane_maintenance": "PARTIAL (1.18 vs ≥1.3 target, declined from 1.40)",
+    "proven_diminishing": "FALSIFIED (inverted: second-half > first-half)",
+    "meta_concentration": "FAILED (18.9% vs <15% target)",
+    "overall": "F-EXP10 scoring changes (MIXED_BONUS, reduced PROVEN_BONUS) produced transient effect (S373 interim) that did NOT sustain at 20-session mark. UCB1 exploration dominates steady-state dispatch."
+  }
+}

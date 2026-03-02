@@ -1,0 +1,70 @@
+{
+  "session": "S373",
+  "frontier": "F-EXP10",
+  "domain": "expert-swarm",
+  "experiment": "MIXED_BONUS interim 10-session re-measurement",
+  "method": "Parse DOMEX MERGED lanes S363-S373 from SWARM-LANES.md + archive. Cross-tabulate by outcome label and sub-era (pre/post cooldown at S370). Compare L/lane and dispatch share.",
+  "data": {
+    "total_domex_merged": 147,
+    "pre_s363_lanes": 122,
+    "s363_s373_lanes": 25,
+    "by_outcome_label": {
+      "mixed": {
+        "pre_s363": {"lanes": 44, "lessons": 60, "l_per_lane": 1.36},
+        "s363_s373": {"lanes": 20, "lessons": 28, "l_per_lane": 1.40}
+      },
+      "proven": {
+        "pre_s363": {"lanes": 24, "lessons": 26, "l_per_lane": 1.08},
+        "s363_s373": {"lanes": 3, "lessons": 3, "l_per_lane": 1.00}
+      },
+      "struggling": {
+        "pre_s363": {"lanes": 2, "lessons": 2, "l_per_lane": 1.00},
+        "s363_s373": {"lanes": 0, "lessons": 0, "l_per_lane": 0}
+      },
+      "new_unvisited": {
+        "s363_s373": {"lanes": 2, "lessons": 3, "l_per_lane": 1.50}
+      }
+    },
+    "mixed_dispatch_share": {
+      "pre_s363_labeled": "62.9%",
+      "s363_s373": "80.0%",
+      "delta": "+17.1pp"
+    },
+    "meta_concentration": {
+      "pre_s363": "13.1%",
+      "s363_s369_pre_cooldown": "31.2%",
+      "s370_s373_post_cooldown": "11.1%",
+      "cooldown_effect": "31.2% -> 11.1% (-20.1pp)"
+    },
+    "domain_diversity": {
+      "pre_s363": 44,
+      "s363_s369": {"n_lanes": 16, "n_domains": 11, "domains_per_lane": 0.69},
+      "s370_s373": {"n_lanes": 9, "n_domains": 8, "domains_per_lane": 0.89}
+    }
+  },
+  "baseline_s363": {
+    "mixed_l_per_lane": 1.42,
+    "proven_l_per_lane": 1.21,
+    "struggling_l_per_lane": 0.88,
+    "note": "From experiments/expert-swarm/f-exp10-yield-by-outcome-s363.json"
+  },
+  "verdict": "MIXED_BONUS_WORKING + COOLDOWN_COMPLEMENTARY",
+  "key_findings": [
+    "MIXED dispatch share rose 62.9% -> 80.0% (+17.1pp) — MIXED_BONUS steering confirmed",
+    "MIXED L/lane maintained at 1.40 (vs 1.36 pre-S363, 1.42 at S363) — no degradation",
+    "Meta concentration: cooldown crushed 31.2% -> 11.1% — L-676 fix effective",
+    "Domain diversity per lane improved post-cooldown (0.89 vs 0.69 domains/lane)",
+    "STRUGGLING domains zero-dispatched (0/25) — effectively frozen out by scoring",
+    "PROVEN domains under-dispatched (12%) — nk-complexity only domain maintaining presence",
+    "Abbreviation map coverage still incomplete — 52/122 pre-S363 lanes have UNKNOWN labels"
+  ],
+  "unexpected": "The MIXED_BONUS and cooldown are COMPLEMENTARY mechanisms that solve different problems (MIXED_BONUS: what to prioritize; cooldown: what to rotate away from). Neither alone is sufficient. Also: meta spiked to 31% in S363-S369 BETWEEN the MIXED_BONUS addition and cooldown implementation — the temporal gap between scoring fixes creates concentration windows.",
+  "prescriptions": [
+    "Keep MIXED_BONUS at +2.0 — yield maintained, dispatch steering confirmed",
+    "Add STRUGGLING floor: minimum 5% dispatch share to prevent domain starvation",
+    "Full measurement at S383 (20 sessions post-S363) for statistical power",
+    "Continue cooldown at current parameters — meta suppression working"
+  ],
+  "cites": ["L-654", "L-671", "L-676", "L-601"],
+  "confidence": "Measured (n=25 lanes S363-S373, n=147 total, 2 sub-eras analyzed)"
+}

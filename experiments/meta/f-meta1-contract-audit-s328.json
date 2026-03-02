@@ -1,0 +1,64 @@
+{
+  "session": "S328",
+  "date": "2026-02-28",
+  "experiment": "F-META1 self-model contract audit",
+  "check_mode": "verification",
+  "expectation": "S249 found 99.3% non-compliant (276/278). Predict: check_mode 70-85%, intent/progress near-universal. expect/actual/diff sparse (10-25%). ~1-3 fully compliant lanes. Artifact coverage ~30-50%.",
+  "method": "Sampled all non-ABANDONED lanes from tasks/SWARM-LANES.md. Checked Etc column for key=value pairs matching 9 required fields: intent, progress, blocked, next_step, check_mode, artifact, expect, actual, diff.",
+  "population_note": "S325 ABANDONED sweep collapsed active lane count from 278 (S249 baseline) to 9 non-ABANDONED lanes. Comparison is structurally different: S249 measured 278 legacy lanes (mostly schema-less); S328 measures 9 post-sweep lanes (recently touched, schema-aware).",
+  "n_lanes": 9,
+  "lanes_sampled": [
+    {"lane_id": "L-S324-REACHABILITY-EXPERT", "status": "MERGED"},
+    {"lane_id": "COUNCIL-REPAIR-S323", "status": "CLAIMED"},
+    {"lane_id": "COUNCIL-REPAIR-S323", "status": "MERGED"},
+    {"lane_id": "DOMEX-LNG-S325", "status": "MERGED"},
+    {"lane_id": "DOMEX-META-S322", "status": "MERGED"},
+    {"lane_id": "DOMEX-LNG-S327", "status": "MERGED"},
+    {"lane_id": "DOMEX-GT-S324", "status": "MERGED"},
+    {"lane_id": "COORD-S326", "status": "MERGED"},
+    {"lane_id": "DOMEX-NK-S328", "status": "ACTIVE"}
+  ],
+  "fields_checked": ["intent", "progress", "blocked", "next_step", "check_mode", "artifact", "expect", "actual", "diff"],
+  "compliance_rates": {
+    "intent":     {"count": 9, "pct": 100.0},
+    "progress":   {"count": 9, "pct": 100.0},
+    "blocked":    {"count": 9, "pct": 100.0},
+    "next_step":  {"count": 8, "pct": 88.9},
+    "check_mode": {"count": 7, "pct": 77.8},
+    "artifact":   {"count": 2, "pct": 22.2},
+    "expect":     {"count": 4, "pct": 44.4},
+    "actual":     {"count": 3, "pct": 33.3},
+    "diff":       {"count": 3, "pct": 33.3}
+  },
+  "fully_compliant_6core_fields": {
+    "count": 2,
+    "pct": 22.2,
+    "lanes": ["COUNCIL-REPAIR-S323 (MERGED)", "DOMEX-LNG-S325 (MERGED)"]
+  },
+  "expect_actual_diff_all_present": {
+    "count": 2,
+    "pct": 22.2,
+    "lanes": ["L-S324-REACHABILITY-EXPERT (MERGED)", "DOMEX-LNG-S325 (MERGED)"]
+  },
+  "s249_baseline": {
+    "n_lanes": 278,
+    "non_compliant": 276,
+    "compliance_pct": 0.7,
+    "top_missing": ["diff (273)", "actual (273)", "expect (271)", "artifact (260)", "check_mode (242)"]
+  },
+  "delta_from_s249": {
+    "full_compliance_delta_pp": "+21.5",
+    "check_mode_delta_pp": "+77.8 (242/278=13.0% → 77.8%)",
+    "artifact_delta_pp": "+22.2 (6.5% → 22.2%)",
+    "expect_delta_pp": "+44.4 (2.5% → 44.4%)",
+    "actual_delta_pp": "+33.3 (1.8% → 33.3%)",
+    "diff_delta_pp": "+33.3 (1.8% → 33.3%)"
+  },
+  "interpretation": "Large apparent improvement vs S249 is partially a survivor bias artifact: the S325 ABANDONED sweep removed 269 stale schema-less lanes, leaving only 9 recently-touched lanes that were written after schema awareness increased. The surviving population is NOT representative of the pre-sweep state. True signal: post-sweep lanes still have two persistent gaps. (1) artifact= compliance is only 22.2% — lanes close without recording experiment file references. (2) expect/actual/diff triple compliance is only 22.2% — the expect-act-diff primitive is still not consistently embedded at lane creation, only sometimes added at closure. intent/progress/blocked are now near-universal (100%). The enforcement gap is in the post-hoc evidence fields, not the status fields.",
+  "key_finding": "Post-sweep lanes show 100% compliance on identity fields (intent/progress/blocked) but only 22% compliance on evidence fields (artifact, expect+actual+diff). The self-model contract is half-adopted: agents declare intent but rarely record evidence inline.",
+  "next_actions": [
+    "Embed artifact= and expect= in lane-creation template (not just at closure)",
+    "Add actual= and diff= to close_lane.py auto-prompt",
+    "F-META1 remains open: schema drift risk returns when new bulk lanes are created"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "experiment_id": "council-science-rigor-s341",
+  "session": "S341",
+  "domain": ["evaluation", "meta", "statistics", "nk-complexity", "information-science"],
+  "type": "council",
+  "question": "How can the swarm science itself much better?",
+  "human_signal": "swarm can science swarm much better council swarm the swarm",
+  "council_domains": 5,
+  "convergence_findings": 4,
+  "convergence_themes": [
+    "Pre-registration / temporal separation (4/5)",
+    "External / independent validation (4/5)",
+    "Quantitative rigor for experiments (3/5)",
+    "Protocol-practice gap enforcement (3/5)"
+  ],
+  "implementation_priorities": [
+    {"rank": 1, "name": "Evidence-link enforcement", "score": 81, "status": "queued"},
+    {"rank": 2, "name": "Pre-registration protocol", "score": 63, "status": "queued"},
+    {"rank": 3, "name": "PCI in orient.py", "score": 63, "status": "DONE"},
+    {"rank": 4, "name": "NK null model", "score": 56, "status": "DONE"},
+    {"rank": 5, "name": "Primary-outcome requirement", "score": 42, "status": "queued"}
+  ],
+  "pci_baseline": {
+    "pci": 0.000,
+    "ead_compliance": 0.0,
+    "belief_freshness": 0.15,
+    "frontier_testability": 0.86
+  },
+  "nk_null_model_results": {
+    "N": 434,
+    "edges": 732,
+    "hub_z_score": 4.91,
+    "gini_z_score": 2.61,
+    "verdict": "GENUINELY_NON_RANDOM"
+  },
+  "council_verdict": "The swarm has built the lab but hasn't run the experiments.",
+  "artifact": "workspace/COUNCIL-SCIENCE-S341.md",
+  "lesson": "L-498"
+}

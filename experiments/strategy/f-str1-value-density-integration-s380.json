@@ -1,0 +1,65 @@
+{
+  "experiment": "F-STR1 value_density UCB1 integration",
+  "session": "S380",
+  "predecessor": "experiments/strategy/f-str1-policy-backtest-s379.json",
+  "method": "Replace UCB1 exploit term (lessons/n) with value_density (merge_rate * (1 + log1p(lessons))). Compare top-10 dispatch quality before vs after.",
+  "change": {
+    "file": "tools/dispatch_optimizer.py",
+    "old_exploit": "lessons / n",
+    "new_exploit": "merge_rate * (1 + math.log1p(lessons))",
+    "rationale": "F-STR1 S379: value_density had rho=0.792 with domain productivity. lessons/n was neutral (rho=-0.14 in UCB1 policy backtest)."
+  },
+  "results": {
+    "avg_quality_old": 1.169,
+    "avg_quality_new": 2.103,
+    "quality_improvement_pct": 79.9,
+    "avg_merge_rate_old": 0.577,
+    "avg_merge_rate_new": 0.853,
+    "merge_rate_improvement_pct": 47.8,
+    "avg_l_per_lane_old": 0.444,
+    "avg_l_per_lane_new": 0.598,
+    "l_per_lane_improvement_pct": 34.7,
+    "zero_quality_old": 2,
+    "zero_quality_new": 0,
+    "top10_overlap": 6,
+    "ucb1_coverage_preserved": true,
+    "visit_gini": 0.524,
+    "floor_protected_domains": 1
+  },
+  "tautology_check": {
+    "rho_test_was_tautological": true,
+    "reason": "exploit term IS quality_score formula \u2014 rho=1.0 is definitional, not empirical",
+    "valid_comparison": "avg quality/merge_rate/L-per-lane of top-10 dispatches",
+    "prospective_test_needed": "Track L/lane rate under new regime over next 10 sessions"
+  },
+  "old_top10": [
+    "strategy",
+    "fluid-dynamics",
+    "security",
+    "catastrophic-risks",
+    "stochastic-processes",
+    "human-systems",
+    "evaluation",
+    "competitions",
+    "guesstimates",
+    "protocol-engineering"
+  ],
+  "new_top10": [
+    "strategy",
+    "security",
+    "stochastic-processes",
+    "nk-complexity",
+    "quality",
+    "fluid-dynamics",
+    "meta",
+    "expert-swarm",
+    "catastrophic-risks",
+    "evaluation"
+  ],
+  "conclusions": [
+    "Value-density exploit replaces 3 zero/low-quality domains in top-10 with historically productive ones",
+    "UCB1 exploration coverage preserved (Gini 0.524, all 36 domains visited)",
+    "Merge-rate signal was missing from old exploit \u2014 domains with 100% abandon rate scored same as unvisited",
+    "True validation requires prospective tracking (next 10+ sessions)"
+  ]
+}

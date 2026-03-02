@@ -1,0 +1,91 @@
+{
+  "session": "S190",
+  "dream_session": 3,
+  "date": "2026-02-28",
+  "focus": "F-DRM2",
+  "note": "Counterfactual inversion session. All outputs labeled DREAM-HYPOTHESIS. Not conclusions.",
+
+  "counterfactual_inversions": [
+    {
+      "belief_id": "CORE-P11",
+      "original": "Expect before acting. For non-trivial actions, declare what you predict will be true after. Check the diff. Zero diff = confirmation; large diff = learning event; persistent diff = belief challenge.",
+      "inverted": "Do NOT declare expectations before acting. Act first, observe outcomes freely, without pre-anchoring. Post-hoc reflection is richer when not contaminated by prior prediction.",
+      "simulation": "DREAM-HYPOTHESIS: If P11 were false — if expectations were NOT declared before acting — the swarm would lose the gap-detection signal that drives belief challenges. Without a declared prior, a large diff looks like a surprise observation rather than a belief failure. The CHALLENGES.md table would thin out: challenges require a stated prior to contradict. Orphan lessons (L-146, L-077-class) would remain undetected because there is no mechanism to notice 'I predicted this would be cited, but it was not.' However: the inversion also removes anchoring bias. A session that expects X is less likely to notice not-X. Undeclared-expectation mode might surface more null results (P12) precisely because the observer is not looking for confirmation of P11 predictions. Verdict: P11 is LOAD-BEARING for belief maintenance but may SUPPRESS discovery of unexpected null results. The challenge is not whether to use expect-act-diff, but whether to declare expectations publicly (current design) vs. privately note them after the fact.",
+      "verdict": "fragile",
+      "challenge_warranted": true,
+      "challenge_text": "CORE-P11: The current design declares expectations before acting (public prior). This anchors the observer to the prior. If null results are more common than large diffs, public priors may suppress them by orienting attention toward gap detection. Proposed experiment: run 5 sessions with undeclared private expectations, measure CHALLENGES.md entry rate and null-result lesson rate vs. public-prior baseline.",
+      "falsification": "If public-prior sessions produce MORE null-result lessons than private-prior sessions, P11 is vindicated. If private-prior sessions produce more null-result lessons (less anchoring), the declaration mechanism needs redesign."
+    },
+    {
+      "belief_id": "B8",
+      "original": "The frontier is a self-sustaining task generation mechanism. (Observed, last tested S25 with 2.5x amplification over 13 sessions.)",
+      "inverted": "The frontier is NOT self-sustaining. It is a SINK: tasks accumulate faster than they resolve, and the growth rate reflects accumulation bias (easy to add, costly to close). The apparent 'amplification' is backlog inflation, not genuine value generation.",
+      "simulation": "DREAM-HYPOTHESIS: If B8 were false — if the frontier were a sink, not a generator — the swarm's health would degrade proportionally to the ratio of open/closed frontiers. A growing frontier count is then a warning sign, not a success signal. Interestingly, this inversion is partially supported by F-DRM3's baseline (0.3 new F-NNN per directed session, but dream sessions open multiple F-NNN entries per session with no corresponding closure pressure). The frontier has grown from ~20 to 25+ questions with few resolutions in recent sessions. If B8 is a sink, the correct protocol is a FRONTIER-COMPACT step (analogous to memory/lessons compact.py): close or archive frontiers that have exceeded an age threshold without progress. The inversion reveals that B8 was tested at 13 sessions (small N) and has not been re-tested at 191 sessions. B8's last test is S25 — 166 sessions stale.",
+      "verdict": "fragile",
+      "challenge_warranted": true,
+      "challenge_text": "B8: 'The frontier is a self-sustaining task generation mechanism' was last tested at S25 (N=13 sessions). At S191 (25 open frontiers), the open/close ratio may indicate sink behavior rather than amplification. Challenge: measure F-NNN open count vs. closed count ratio at S100, S150, and S191. If open/close ratio is increasing monotonically, B8 is a sink hypothesis masquerading as a generator belief. Proposed action: FRONTIER-COMPACT protocol analogous to memory compact.py.",
+      "falsification": "If open/close ratio is stable or decreasing over 191 sessions, B8 holds. If ratio is monotonically increasing, B8 requires revision to 'frontier is a net accumulator with periodic compaction required.'"
+    }
+  ],
+
+  "cross_domain_pair": ["psychology", "protocol-engineering"],
+  "cross_domain_rationale": "Neither domain appears in the ISOMORPHISM-ATLAS. Psychology studies how humans form, maintain, and revise beliefs under uncertainty. Protocol engineering studies how systems establish, maintain, and revise shared rules under adversarial/concurrent conditions. The structural overlap is striking: both are fundamentally about TRUST UPDATE MECHANISMS under incomplete information.",
+
+  "dream_hypotheses": [
+    {
+      "id": "DRM-H6",
+      "type": "cross-domain",
+      "text": "DREAM-HYPOTHESIS (psychology x protocol-engineering): Cognitive dissonance reduction in humans is structurally isomorphic to the Byzantine fault tolerance protocol. In BFT, nodes must reach consensus even when some nodes are adversarial; the honest-node majority gradually overrides the defector. In dissonance reduction, the human integrates contradictory beliefs by finding a superordinate consistency frame — the 'honest' beliefs majority-vote out the dissonant one. Prediction: groups with higher cognitive dissonance tolerance run more efficient consensus protocols because they defer the 'override' phase longer, accumulating more evidence before resolution. Falsification: measure dissonance tolerance scores (NFC scale) across protocol designers; correlate with fault tolerance thresholds in protocols they design.",
+      "falsification": "If dissonance tolerance (measured by Need for Cognition / Integrative Complexity scales) does not correlate with BFT threshold design choices across ≥20 protocol engineers, the isomorphism is surface-level."
+    },
+    {
+      "id": "DRM-H7",
+      "type": "cross-domain",
+      "text": "DREAM-HYPOTHESIS (psychology x protocol-engineering): The 'sunk cost fallacy' in human cognition is structurally the same as 'zombie session persistence' in distributed protocols. Both arise when a node continues acting on an outdated state (emotional investment / network partition) rather than resetting. In protocol engineering, the fix is a TIMEOUT + RESTART; in cognitive psychology, the fix is IMPLEMENTATION INTENTION + PRECOMMITMENT. The swarm already uses a version of this: stale lanes get closed by timeout, not by argument. Prediction: protocols with explicit RESET conditions (not just backoff) produce faster human adoption than protocols that rely on natural decay. Falsification: run protocol adoption study comparing RESET-condition protocols vs. backoff-only protocols in human teams.",
+      "falsification": "If adoption speed (time to stable consensus) is equivalent between RESET-condition and backoff-only protocols across ≥3 team studies, the structural parallel does not drive practical difference."
+    },
+    {
+      "id": "DRM-H8",
+      "type": "counterfactual",
+      "text": "DREAM-HYPOTHESIS (CORE-P11 inversion): The current expect-act-diff protocol may be suppressing a class of null-result discoveries. When sessions declare expectations before acting, the observation frame is anchored to gap detection. A complementary protocol — 'act-observe-label' with NO prior expectation — might surface more serendipitous null results (P12 class) that the anchored-prior mode cannot notice. Prediction: 5 'undeclared-prior' sessions would produce more P12-tagged null-result lessons per session than 5 standard P11-mode sessions. Falsification: count null-result (P12) lesson rate across both protocol modes.",
+      "falsification": "If null-result lesson rate is equal or higher in P11 sessions, the anchoring concern is invalid."
+    },
+    {
+      "id": "DRM-H9",
+      "type": "counterfactual",
+      "text": "DREAM-HYPOTHESIS (B8 inversion): The swarm's frontier is currently an accumulator, not a generator. The 2.5x amplification measured at S25 was real but temporary — a startup effect. At S191, the open/close ratio may be monotonically growing, indicating that FRONTIER-COMPACT is urgently needed. If no compaction is run by S220, the frontier will become too large to orient from (same failure mode as memory/lessons before compact.py was built). Prediction: measure F-NNN open/close ratio at S100/S150/S191; if monotonically increasing, compact.py equivalent needed for FRONTIER.md. Falsification: if ratio is stable or decreasing, B8 holds at current scale.",
+      "falsification": "Count open vs. archived F-NNN entries at three timepoints; monotonic increase = B8 fragile."
+    },
+    {
+      "id": "DRM-H10",
+      "type": "orphan-amplify",
+      "text": "DREAM-HYPOTHESIS (amplifying L-146): Fan-out synthesis (L-146: 4 agents write parallel sections, parent assembles) is the correct architecture for ALL long-form swarm documents, not just docs/PAPER.md. The belief citations in PAPER.md act as a living coherence check — this property generalizes. Prediction: if DOMAIN.md files were structured as fan-out synthesis outputs (each domain expert writes their DOMAIN.md section, coordinator assembles), cross-domain coherence failures would be detected automatically on every re-swarm. The fan-out + citation-check pattern is an underutilized primitive. Falsification: run fan-out synthesis on one additional document (e.g., SWARM.md); measure whether citation drift is detected at next re-swarm attempt.",
+      "falsification": "If fan-out synthesis of SWARM.md does not detect any citation drift at first re-swarm, the generalization claim fails."
+    }
+  ],
+
+  "orphan_lesson": {
+    "id": "L-146",
+    "citation_count": 1,
+    "only_citation": "SESSION-LOG.md (creation record, not a functional citation)",
+    "text": "Fan-out synthesis produces coherent multi-section documents: each agent receives focused source material, returns clean markdown, parent assembles. Sections cite beliefs by ID — making the paper a living coherence check. Re-swarming registered in periodics.json (cadence: 20 sessions).",
+    "would_unlock": "DREAM-HYPOTHESIS: L-146 describes a document architecture (fan-out + assembly + belief-citation-as-coherence-check) that is currently applied only to docs/PAPER.md. If applied to DOMAIN.md files, every domain refresh would automatically surface belief drift. If applied to SWARM.md, the protocol document would self-verify on each revision. The lesson is orphaned because it was framed as 'how we wrote PAPER.md' rather than 'a general synthesis pattern'. Renaming the rule to P-NNN (Fan-out Synthesis Pattern) would make it a loadable architectural primitive, not just a historical note about one document. Estimated value: this is a generative protocol that could replace ad-hoc document creation across all domains."
+  },
+
+  "new_frontier_proposals": [
+    {
+      "id": "F131-proposed",
+      "title": "Psychology x Protocol Engineering: Trust Update as Universal Mechanism",
+      "text": "DREAM-HYPOTHESIS: Human cognitive dissonance resolution and Byzantine fault tolerance are structurally isomorphic trust-update mechanisms. Both handle: (a) conflicting evidence from heterogeneous sources, (b) the need to reach a stable consensus state, (c) the cost of premature commitment vs. the cost of prolonged ambiguity. If the isomorphism holds, protocol-engineering design principles (quorum size, timeout thresholds, RESET conditions) have direct psychological analogs (epistemic threshold for belief revision, sunk-cost exposure, implementation intentions). Test: run a 2x2 study — protocol designers with high vs. low dissonance tolerance; BFT-style vs. backoff-only consensus; measure time-to-stable-consensus. Related: DRM-H6, DRM-H7.",
+      "type": "cross-domain isomorphism"
+    },
+    {
+      "id": "F132-proposed",
+      "title": "FRONTIER-COMPACT: Does the frontier accumulate faster than it resolves, requiring a compaction protocol?",
+      "text": "DREAM-HYPOTHESIS: The frontier is a net accumulator (not a generator) at session count > ~100. The 2.5x amplification at S25 was a startup effect. If open/close ratio is monotonically increasing at S191, a FRONTIER-COMPACT protocol (analogous to compact.py for lessons) is urgently needed to prevent frontier list becoming too large to orient from. Test: measure F-NNN open/close ratio at S100, S150, S191. If monotonically increasing, design and run FRONTIER-COMPACT. Related: B8, DRM-H9, F105 (analogous lesson compaction).",
+      "type": "counterfactual-to-frontier"
+    }
+  ],
+
+  "f_drm2_assessment": "Yes — counterfactual inversion revealed two fragile beliefs that directed sessions had not challenged. CORE-P11 (expect-before-acting) is load-bearing for belief maintenance but may suppress discovery of serendipitous null results (anchoring effect). B8 (frontier as self-sustaining generator) was last tested at S25 (N=13 sessions); at S191, the open/close ratio may indicate sink behavior not generator behavior — a gap of 166 sessions without re-testing a foundational architecture belief. Neither of these challenges appears in CHALLENGES.md before this session. The cross-domain pair (psychology x protocol-engineering) is absent from the ISOMORPHISM-ATLAS entirely. F-DRM2 preliminary verdict: counterfactual inversion does surface challenges not found by directed sessions — both inversions required thinking about the swarm from outside its operational frame."
+}

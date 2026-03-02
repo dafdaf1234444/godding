@@ -1,0 +1,74 @@
+{
+  "experiment": "F-EVO2",
+  "title": "variation-selection-retention extraction from lane artifacts",
+  "session": "S186",
+  "source": "tasks/SWARM-LANES.md",
+  "metrics": {
+    "total_s186_lanes": 21,
+    "merged_s186_lanes": 21,
+    "active_s186_lanes": 0,
+    "selection_rate_merged": 1.0,
+    "variation_unique_scopes": 17,
+    "retention_scope_reuse_count": 3,
+    "retention_prefix_reuse_count": 2
+  },
+  "top_scope_channels": [
+    [
+      "tools/f_ai1_evidence_surfacing.py",
+      3
+    ],
+    [
+      "tools/wiki_swarm.py",
+      2
+    ],
+    [
+      "tasks/NEXT.md",
+      2
+    ],
+    [
+      "tools/check.ps1",
+      1
+    ],
+    [
+      "experiments/ai/f-ai2-live-partial-sync-*-s186.json",
+      1
+    ],
+    [
+      "experiments/information-science/f-is3-cost-threshold-s186.json",
+      1
+    ],
+    [
+      "experiments/children/architecture-test-minimal/memory/INDEX.md",
+      1
+    ],
+    [
+      "experiments/ai/f-ai2-live-partial-sync-threshold-s186.json",
+      1
+    ]
+  ],
+  "retained_scope_channels": [
+    [
+      "tools/f_ai1_evidence_surfacing.py",
+      3
+    ],
+    [
+      "tasks/NEXT.md",
+      2
+    ],
+    [
+      "tools/wiki_swarm.py",
+      2
+    ]
+  ],
+  "retained_lane_prefixes": [
+    [
+      "FAI1",
+      4
+    ],
+    [
+      "AI2",
+      2
+    ]
+  ],
+  "interpretation": "This is a first automated V-S-R baseline: merged ratio proxies selection, scope/prefix reuse proxies retention channels, and unique scopes proxy variation breadth."
+}

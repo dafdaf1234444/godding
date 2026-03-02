@@ -1,0 +1,38 @@
+{
+  "experiment_id": "f-gov4-meta-idea-conversion-s358",
+  "frontier": "F-GOV4",
+  "domain": "governance",
+  "session": "S358",
+  "date": "2026-03-01",
+  "hypothesis": "Meta-swarm reflections have <30% conversion rate to concrete swarm work; structural enforcement needed per L-601",
+  "method": "Scanned 105 meta-swarm reflections from S350-S358 session notes. Classified each as CONVERTED (became frontier/experiment/lane/tool/lesson), NOTED (filed, no follow-up), or REDUNDANT (restated existing work). Traced conversion via git log, FRONTIER.md, SWARM-LANES.md, and tools/ directory.",
+  "results": {
+    "total_reflections": 105,
+    "converted": 48,
+    "noted": 35,
+    "redundant": 22,
+    "conversion_rate_all": 0.457,
+    "conversion_rate_excluding_redundant": 0.578,
+    "per_session": {
+      "S350": {"total": 11, "converted": 7, "rate": 0.636},
+      "S351": {"total": 40, "converted": 10, "rate": 0.250},
+      "S352": {"total": 14, "converted": 9, "rate": 0.643},
+      "S353": {"total": 12, "converted": 8, "rate": 0.667},
+      "S354": {"total": 4, "converted": 2, "rate": 0.500},
+      "S355": {"total": 6, "converted": 2, "rate": 0.333},
+      "S356": {"total": 9, "converted": 5, "rate": 0.556},
+      "S357": {"total": 4, "converted": 2, "rate": 0.500},
+      "S358": {"total": 5, "converted": 3, "rate": 0.600}
+    },
+    "key_predictor": "specificity — proposals naming a tool/file convert ~65%, abstract suggestions ~15%",
+    "volume_quality_correlation": -0.6,
+    "noted_pattern": "Abstract protocol suggestions without specific file target",
+    "high_conversion_examples": ["claim.py", "drift_scanner.py", "lesson_quality_fixer.py", "dispatch_optimizer.py coverage fix"],
+    "low_conversion_examples": ["tools MUST include coverage audit", "metric glossary", "session-log automation", "graduated action board bins"]
+  },
+  "prediction_outcome": "FALSIFIED — predicted <30%, measured 45.7%. Meta-swarm reflections convert better than expected for specific proposals. The 33% NOTED gap is real but narrower than predicted.",
+  "lesson": "L-635",
+  "human_directive": "S358: further ideas on the swarm should have swarm",
+  "structural_recommendation": "Enforce specificity at reflection creation: meta-swarm lines must name a target file/tool or be filed as F-question with test criteria. Per L-601, voluntary compliance decays — enforcement at creation is the only sustainable fix.",
+  "successor": "Re-measure at S368 (10 sessions). Test whether enforcing specificity improves conversion rate. Track whether NOTED count decreases."
+}

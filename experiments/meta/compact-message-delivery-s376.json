@@ -1,0 +1,83 @@
+{
+  "experiment": "compact-message-delivery-s376",
+  "session": "S376",
+  "frontier": "F-META2",
+  "domain": "meta",
+  "question": "How efficiently does the swarm deliver messages across sessions?",
+  "method": "Comprehensive audit of 6 message delivery channels: file sizes, message counts, resolution rates, information density, redundancy, delivery effectiveness",
+  "expect": "5-8 channels with significant redundancy. Signals and NEXT.md have lowest delivery rate. SWARM-LANES.md >50% boilerplate.",
+  "actual": {
+    "channels": {
+      "SIGNALS.md": {
+        "bytes": 6544,
+        "messages": 22,
+        "bytes_per_message": 297,
+        "resolution_rate": 0.273,
+        "open_count": 17,
+        "avg_open_age_sessions": 25.9,
+        "delivery_rate": 0.0,
+        "verdict": "DEAD — write-only, never read by any tool"
+      },
+      "SWARM-LANES.md": {
+        "bytes": 44726,
+        "rows": 35,
+        "bytes_per_row": 1271,
+        "etc_pct_of_file": 0.80,
+        "zero_info_pct_of_etc": 0.143,
+        "ead_pct_of_etc": 0.562,
+        "duplicate_fragment_pct": 0.035,
+        "total_waste_pct": 0.178,
+        "resolution_rate": 0.879
+      },
+      "NEXT.md": {
+        "bytes": 17306,
+        "sections": 13,
+        "bytes_per_section": 1326,
+        "lane_duplication_pct": 0.692,
+        "orientation_cost_share": 0.257,
+        "unique_content_pct": 0.953
+      },
+      "SESSION-LOG.md": {
+        "bytes": 98820,
+        "entries": 371,
+        "unique_sessions": 193,
+        "entries_per_session": 1.92,
+        "zero_production_pct": 0.518,
+        "channel_share": 0.559
+      },
+      "SESSION-TRIGGER.md": {
+        "bytes": 3941,
+        "triggers": 7,
+        "documentation_overhead_pct": 0.797
+      },
+      "NODES.md": {
+        "bytes": 5481,
+        "static": true,
+        "age_sessions": 35
+      }
+    },
+    "orientation_cost": {
+      "total_bytes": 67313,
+      "approx_tokens": 16828,
+      "largest_file": "NEXT.md (25.7%)",
+      "files": ["CLAUDE.md", "SWARM.md", "MEMORY.md", "NEXT.md", "INDEX.md", "SESSION-TRIGGER.md", "CORE.md"]
+    },
+    "lessons": {
+      "total": 634,
+      "corpus_bytes": 785024,
+      "avg_bytes": 1238,
+      "recent_avg_bytes": 1762,
+      "cites_coverage": 0.572,
+      "index_coverage": 0.287
+    },
+    "efficiency_tiers": {
+      "tier1_high": "Lessons (structured, cross-referenced, persistent)",
+      "tier2_moderate": "SWARM-LANES (56% valuable EAD, 18% waste)",
+      "tier3_low": "NEXT.md (69% duplicates lanes), SESSION-LOG (52% zero-production)",
+      "tier4_dead": "SIGNALS.md (zero delivery in 35 sessions)"
+    }
+  },
+  "diff": "Expected >50% boilerplate in LANES — got 17.8% (better). Expected low signal delivery — got ZERO (worse). Did NOT predict SIGNALS.md is entirely dead infrastructure (never wired into any reader). Did NOT predict orientation cost magnitude (67KB). NEXT.md duplication rate (69%) was expected. L-601 structural enforcement theorem confirmed: voluntary check-signals protocol = 0% adoption.",
+  "lesson": "L-703",
+  "tools_built": []
+}

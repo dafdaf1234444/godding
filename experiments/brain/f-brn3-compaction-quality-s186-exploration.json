@@ -1,0 +1,265 @@
+{
+  "frontier_id": "F-BRN3",
+  "check_mode": "verification",
+  "current_session": 186,
+  "lesson_count": 267,
+  "citation_source_count": 211,
+  "analysis": {
+    "budget_fraction": 0.2,
+    "budget_tokens": 14204,
+    "total_tokens": 71021,
+    "size_policy": {
+      "selected_count": 42,
+      "selected_tokens": 14464,
+      "selected_token_share": 0.203658,
+      "citation_loss": 106,
+      "citation_loss_rate": 0.149296,
+      "absorbed_count": 13,
+      "absorbed_share": 0.309524,
+      "orphan_risk_count": 14,
+      "mean_age_norm_sharpe": 0.524841,
+      "top_selected": [
+        {
+          "lesson_id": "L-129",
+          "session": 62,
+          "age_sessions": 124,
+          "lines": 13,
+          "tokens": 495,
+          "citations": 1,
+          "in_principles": true,
+          "sharpe": 0.076923,
+          "age_norm_sharpe": 0.008065
+        },
+        {
+          "lesson_id": "L-267",
+          "session": 184,
+          "age_sessions": 2,
+          "lines": 16,
+          "tokens": 426,
+          "citations": 1,
+          "in_principles": false,
+          "sharpe": 0.0625,
+          "age_norm_sharpe": 0.5
+        },
+        {
+          "lesson_id": "L-094",
+          "session": null,
+          "age_sessions": 175,
+          "lines": 17,
+          "tokens": 424,
+          "citations": 1,
+          "in_principles": false,
+          "sharpe": 0.058824,
+          "age_norm_sharpe": 0.005714
+        },
+        {
+          "lesson_id": "L-268",
+          "session": 186,
+          "age_sessions": 1,
+          "lines": 19,
+          "tokens": 406,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-257",
+          "session": 184,
+          "age_sessions": 2,
+          "lines": 17,
+          "tokens": 399,
+          "citations": 25,
+          "in_principles": true,
+          "sharpe": 1.470588,
+          "age_norm_sharpe": 12.5
+        },
+        {
+          "lesson_id": "L-112",
+          "session": null,
+          "age_sessions": 157,
+          "lines": 13,
+          "tokens": 396,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-246",
+          "session": 182,
+          "age_sessions": 4,
+          "lines": 18,
+          "tokens": 392,
+          "citations": 6,
+          "in_principles": true,
+          "sharpe": 0.333333,
+          "age_norm_sharpe": 1.5
+        },
+        {
+          "lesson_id": "L-254",
+          "session": 182,
+          "age_sessions": 4,
+          "lines": 20,
+          "tokens": 388,
+          "citations": 1,
+          "in_principles": false,
+          "sharpe": 0.05,
+          "age_norm_sharpe": 0.25
+        },
+        {
+          "lesson_id": "L-116",
+          "session": null,
+          "age_sessions": 153,
+          "lines": 18,
+          "tokens": 388,
+          "citations": 3,
+          "in_principles": false,
+          "sharpe": 0.166667,
+          "age_norm_sharpe": 0.019608
+        },
+        {
+          "lesson_id": "L-093",
+          "session": null,
+          "age_sessions": 176,
+          "lines": 16,
+          "tokens": 366,
+          "citations": 1,
+          "in_principles": false,
+          "sharpe": 0.0625,
+          "age_norm_sharpe": 0.005682
+        }
+      ]
+    },
+    "sharpe_policy": {
+      "selected_count": 50,
+      "selected_tokens": 14349,
+      "selected_token_share": 0.202039,
+      "citation_loss": 0,
+      "citation_loss_rate": 0.0,
+      "absorbed_count": 0,
+      "absorbed_share": 0.0,
+      "orphan_risk_count": 50,
+      "mean_age_norm_sharpe": 0.0,
+      "top_selected": [
+        {
+          "lesson_id": "L-268",
+          "session": 186,
+          "age_sessions": 1,
+          "lines": 19,
+          "tokens": 406,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-112",
+          "session": null,
+          "age_sessions": 157,
+          "lines": 13,
+          "tokens": 396,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-127",
+          "session": null,
+          "age_sessions": 142,
+          "lines": 13,
+          "tokens": 348,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-102",
+          "session": null,
+          "age_sessions": 167,
+          "lines": 14,
+          "tokens": 339,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-101",
+          "session": null,
+          "age_sessions": 168,
+          "lines": 13,
+          "tokens": 333,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-103",
+          "session": null,
+          "age_sessions": 166,
+          "lines": 16,
+          "tokens": 333,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-111",
+          "session": null,
+          "age_sessions": 158,
+          "lines": 11,
+          "tokens": 329,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-189",
+          "session": 95,
+          "age_sessions": 91,
+          "lines": 15,
+          "tokens": 327,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-110",
+          "session": null,
+          "age_sessions": 159,
+          "lines": 13,
+          "tokens": 324,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        },
+        {
+          "lesson_id": "L-107",
+          "session": null,
+          "age_sessions": 162,
+          "lines": 13,
+          "tokens": 319,
+          "citations": 0,
+          "in_principles": false,
+          "sharpe": 0.0,
+          "age_norm_sharpe": 0.0
+        }
+      ]
+    },
+    "comparison": {
+      "citation_loss_rate_delta": -0.149296,
+      "absorbed_share_delta": -0.309524,
+      "orphan_risk_delta": 36,
+      "quality_policy_better_on_citation_loss": true,
+      "quality_policy_better_on_absorbed_share": false
+    }
+  }
+}

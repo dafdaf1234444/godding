@@ -1,0 +1,73 @@
+{
+  "session": "S193",
+  "check_mode": "historian+verification",
+  "total_signals": 50,
+  "with_artifact_refs": 50,
+  "enforcement_completeness_pct": 100.0,
+  "signals_raising_quality": 8,
+  "quality_improvement_rate_pct": 40.0,
+  "domain_expansion_signals": 19,
+  "enforcement_audit_signals": 1,
+  "verdict": "PARTIAL",
+  "verdict_rationale": "100% enforcement completeness (all 50 signals have artifact refs), but only 40% of signal sessions scored above the 2.22 baseline. Quality improvement rate exactly meets the PARTIAL threshold. The long-term trend is DECLINING (-23%), meaning downstream quality improvement is not sustained. Signal volume alone (S186 contributed 21 signals in one session) creates processing overhead without commensurate per-session quality lift.",
+  "most_impactful_signal": {
+    "session": "S188",
+    "signal_text": "expert on swarm usage utilization and coordination swarm it swarm way",
+    "artifacts": 9,
+    "artifact_details": "L-284, L-293, L-297, F-ECO3, F-HLP4, F-CON1, tools/economy_expert.py, tools/task_recognizer.py, domains/conflict/",
+    "quality_score_session": 4.50,
+    "vs_baseline_pct": 203
+  },
+  "least_impactful_signal": {
+    "session": "S186",
+    "signal_text": "task domain expert should constantly swarm the swarm",
+    "artifacts": 0,
+    "artifact_details": "Applied to SWARM.md + lanes + FRONTIER.md but zero named L/P/F refs in Processed As field",
+    "quality_score_session": 4.06,
+    "note": "Several S186 signals share this pattern: behavioral/process changes applied to files without named artifacts"
+  },
+  "signal_sessions_above_baseline": [175, 178, 181, 182, 186, 187, 188, 189],
+  "signal_sessions_below_baseline": [57, 166, 172, 173, 174, 176, 177, 179, 183, 184, 190, 192],
+  "global_mean_quality_score": 2.22,
+  "baseline_excl_recent5": 2.06,
+  "long_term_trend": "DECLINING",
+  "long_term_trend_pct": -23,
+  "pattern_distribution": {
+    "autonomy": 12,
+    "generalizability": 2,
+    "self_improvement": 9,
+    "domain_expansion": 19,
+    "quality_gate": 0,
+    "enforcement_audit": 1,
+    "other": 7
+  },
+  "domains_opened": 31,
+  "domain_expansion_signal_to_domain_ratio": 1.63,
+  "artifact_spot_check": {
+    "P-173_exists": true,
+    "L-215_exists": true,
+    "L-209_exists": true,
+    "L-211_exists": true,
+    "L-212_exists": true,
+    "L-213_exists": true,
+    "PHIL-14_exists": true,
+    "F121_exists": true,
+    "L-223_exists": true,
+    "L-250_exists": true,
+    "L-252_exists": true,
+    "L-235_exists": true,
+    "L-314_exists": true,
+    "OUTREACH-QUEUE_exists": true,
+    "F133_exists": true,
+    "spot_check_pass_rate": "15/15 = 100%"
+  },
+  "meta_friction": "Signal capture is append-only but processing verification is binary (has-ref / no-ref) with no measurement of whether the named artifacts actually produced downstream improvement, creating a gap between documentation completeness (100%) and demonstrated impact (40%).",
+  "key_findings": [
+    "All 50 signals have artifact refs (100% enforcement completeness), but this measures documentation fidelity, not causal impact — the two are not the same quality gate.",
+    "Signal sessions above baseline cluster in two bursts: S178-S182 (change_quality + expect-diff + self-improvement signals) and S186-S189 (domain expansion + autonomy signals), suggesting signals work best when they target swarm-internal methodology rather than just adding scope.",
+    "Domain expansion is the largest signal category (19/50 = 38%) and contributed 31 domains, but the per-session quality score does not persistently rise after domain signals — domains are opened faster than they are swarmed (L-284: 1.5% throughput; 204 lanes, 3 closed).",
+    "S186 contributed 21 signals in a single session (42% of all signals), creating a processing overhang: the SWARM-LANES bloat ratio hit 2.0x (L-304) and long-term quality trend declined -23% from the early average.",
+    "The most impactful signal category by downstream quality is self_improvement (S178, S181, S182 all STRONG), confirming PHIL-4: signals about improving swarm methodology yield measurably higher-quality sessions than signals about expanding scope."
+  ],
+  "next_action": "Open F-EVAL2 sub-frontier: build a signal-to-quality causal tracer that maps each HUMAN-SIGNALS.md entry to the change_quality score delta in the N sessions following signal capture, enabling automated verdict updates at each harvest."
+}

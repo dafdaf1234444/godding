@@ -1,0 +1,45 @@
+{
+  "frontier": "F-STR3",
+  "session": "S395",
+  "lane": "DOMEX-STR-S395b",
+  "domain": "strategy",
+  "check_mode": "objective",
+  "mode": "hardening",
+  "hypothesis": "Format regex fix makes invisible domains visible to dispatch scoring. COMMIT floor injects danger-zone domains into top-half of UCB1 rankings.",
+  "method": {
+    "bug_identification": "score_domain() regex r'^- \\*\\*F' does not match heading-format frontiers (### F-). Additionally, r'## Active' does not match ## Open section headers. social-media domain uses both non-standard formats.",
+    "fix_1_format_regex": "Broadened active section regex to ## (?:Active|Open) and frontier count regex to (?:^- \\*\\*F|^### F) in dispatch_optimizer.py:549-551",
+    "fix_2_commit_floor": "Added median-score floor for danger-phase (2-wave) domains after campaign scoring, before exploration floor. If danger-zone domain score < median, elevate to median.",
+    "domains_affected_scan": "42 domain frontier files scanned. Only social-media uses heading format (4 entries) and ## Open header."
+  },
+  "before": {
+    "total_scored_domains": 35,
+    "social_media_visible": false,
+    "social_media_score": null,
+    "social_media_rank": null,
+    "commit_advisories_unfollowed": ["F-SOC1", "F-SOC4"],
+    "cold_domain_commit_followthrough": "0%"
+  },
+  "after": {
+    "total_scored_domains": 36,
+    "social_media_visible": true,
+    "social_media_score": 3.1,
+    "social_media_rank": 10,
+    "social_media_exploit": 0.0,
+    "social_media_explore": 1.605,
+    "social_media_heat": "COLD",
+    "social_media_n": 5,
+    "median_score": 2.7,
+    "commit_floor_needed": false,
+    "reason_floor_unnecessary": "Danger boost (+1.5) alone elevates social-media from 1.6 to 3.1, already above median 2.7"
+  },
+  "root_cause": "Domain format heterogeneity — social-media was bootstrapped with non-standard frontier format (headings vs lists, ## Open vs ## Active). The domain existed and had lanes tracked by campaign_waves, but score_domain() returned None. Wave planner and domain scorer used different data sources (SWARM-LANES.md vs domain FRONTIER.md), creating an advisory-without-dispatch gap.",
+  "finding": "L-794 diagnosed the gap as 'UCB1 exploit=0 overrides boost' — the real cause was format mismatch making the domain invisible to scoring entirely. The domain never entered scoring, so neither exploit nor boost were computed. This is a reliability class error (SIG-35): domain format divergence accumulates silently until a tool breaks.",
+  "implications": [
+    "Format standardization enforcement should be in maintenance.py (check all domain FRONTIER.md files use ## Active and - **F- format)",
+    "COMMIT floor is insurance — danger boost alone was sufficient here, but future cold domains with lower explore terms may need it",
+    "The advisory-without-dispatch gap pattern may exist elsewhere (other tools that scan FRONTIER.md with rigid regexes)"
+  ],
+  "changes_loc": 15,
+  "files_modified": ["tools/dispatch_optimizer.py"]
+}

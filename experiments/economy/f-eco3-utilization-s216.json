@@ -1,0 +1,17 @@
+{
+  "generated_at_utc": "2026-02-28T02:03:07.4721760Z",
+  "lane_count": 76,
+  "active_working": 6,
+  "ready": 7,
+  "blocked": 0,
+  "active_total": 13,
+  "utilization_active_rate": 0.4615,
+  "ready_rate": 0.5385,
+  "blocked_rate": 0.0,
+  "status_counts": {
+    "ACTIVE": 6,
+    "READY": 7,
+    "ABANDONED": 25,
+    "MERGED": 38
+  }
+}

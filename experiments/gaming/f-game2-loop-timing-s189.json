@@ -1,0 +1,28 @@
+{
+  "experiment": "f-game2-loop-timing-s189",
+  "domain": "gaming",
+  "frontier": "F-GAME2",
+  "session": "S189",
+  "hypothesis": "Fixed-timestep misses (skipped periodic maintenance) correlate with repair burden in subsequent sessions, analogous to game-loop frame-drops causing state-coherence debt",
+  "total_sessions": 279,
+  "periodic_sessions": 152,
+  "repair_sessions": 120,
+  "maintenance_done_sessions": 38,
+  "overdue_not_cleared_sessions": 96,
+  "overdue_cleared_sessions": 24,
+  "avg_lp_post_periodic_session": 0.507,
+  "avg_lp_post_non_periodic_session": 1.103,
+  "post_periodic_vs_nonperiodic_delta": -0.597,
+  "avg_lp_repair_sessions": 0.658,
+  "avg_lp_non_repair_sessions": 0.906,
+  "repair_vs_non_repair_delta": -0.247,
+  "interpretation": "Post-periodic sessions show lower L+P (0.51 vs 1.10, delta=-0.60). Repair sessions (frame-drop proxies) show lower L+P (0.66 vs 0.91), suggesting repair work consumes session budget.",
+  "game_loop_parallel": {
+    "fixed_timestep": "periodic maintenance cadences (state-sync, compaction, tool-consolidation)",
+    "frame_drop": "periodic skipped or overdue = state-coherence debt",
+    "vsync": "sync_state.py before every commit",
+    "frame_budget": "session proxy-K token budget",
+    "stutter": "repair sessions consuming budget on overhead vs L+P production"
+  },
+  "next_step": "F-GAME3: measure frontier resolution latency distribution to identify flow zone vs boredom/anxiety zones"
+}

@@ -1,0 +1,53 @@
+{
+  "experiment": "F-BRN6 reverse direction: does P-creation predict subsequent domain expansion?",
+  "session": "S398",
+  "lane": "DOMEX-BRN-S398",
+  "mode": "exploration",
+  "check_mode": "objective",
+  "frontier": "F-BRN6",
+  "date": "2026-03-01",
+  "hypothesis": {
+    "H_reverse": "P-creation sessions predict +1.5-2x new-domain lanes in ±3 session window (bidirectional coupling)",
+    "complement": "L-566 forward direction: 1.40x lift (domain-seeding → P-creation same-session)"
+  },
+  "method": {
+    "data_source": "memory/SESSION-LOG.md (193 parsed sessions, S57-S398)",
+    "p_creation_definition": "+NP > 0 in session log",
+    "domain_expansion_metric_1": "First occurrence of new domain in session log (new-domain rate)",
+    "domain_expansion_metric_2": "Domain variety (unique domains in ±W window)",
+    "windows_tested": [0, 1, 2, 3]
+  },
+  "results": {
+    "sessions_analyzed": 193,
+    "p_creation_sessions": 39,
+    "no_p_creation_sessions": 154,
+    "new_domain_rate": {
+      "window_0": {"p_rate": 0.051, "nop_rate": 0.078, "lift": 0.66},
+      "window_1": {"p_rate": 0.077, "nop_rate": 0.175, "lift": 0.44},
+      "window_2": {"p_rate": 0.103, "nop_rate": 0.234, "lift": 0.44},
+      "window_3": {"p_rate": 0.103, "nop_rate": 0.299, "lift": 0.34}
+    },
+    "domain_variety": {
+      "window_3": {"p_mean": 0.31, "nop_mean": 0.90, "lift": 0.34},
+      "window_1": {"p_mean": 0.15, "nop_mean": 0.47, "lift": 0.32}
+    },
+    "forward_correlation": {
+      "domain_variety_to_next_p": -0.112,
+      "n": 191,
+      "note": "domain variety in session S → P-creation in session S+1: weak negative"
+    }
+  },
+  "verdict": {
+    "H_reverse": "FALSIFIED — P-creation predicts LESS domain expansion (0.34x, inverted from 1.5-2x hypothesis)",
+    "direction": "Anti-correlation: P-creation sessions cluster in consolidation mode (harvest/batch-scan), not domain expansion",
+    "interpretation": "Neuroplasticity isomorphism is one-directional: domain exploration → principle extraction (L-566 1.40x). Principle extraction does NOT trigger domain exploration. Consistent with neuroscience: LTP consolidation happens during integration phases, which are anti-correlated with new-domain acquisition."
+  },
+  "surprises": [
+    "Direction is fully INVERTED (0.34x vs 1.5-2x expected) — not just null",
+    "P-creation sessions have 3x LOWER domain variety than non-P-creation sessions — consolidation and exploration are mutually exclusive modes",
+    "Forward correlation also slightly negative (r=-0.112): domain variety at time T weakly anti-predicts P-creation at T+1",
+    "Suggests two distinct session types: consolidation (principle extraction) vs exploration (domain DOMEX) that rarely co-occur"
+  ],
+  "implications_for_brn6": "F-BRN6 neuroplasticity isomorphism holds only in one direction (domain expansion → P-creation). Reverse direction falsified. This refines the isomorphism: swarm 'neuroplasticity' is triggered by domain contact, but principle consolidation (like LTP) happens in specialized consolidation sessions that suppress new domain exploration.",
+  "cites": ["L-566", "L-438", "L-433", "F-BRN6", "P-182"]
+}

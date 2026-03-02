@@ -1,0 +1,77 @@
+{
+  "experiment": "F-META2 principle extraction gap measurement and structural fix",
+  "session": "S366",
+  "domain": "meta",
+  "frontier": "F-META2",
+  "date": "2026-03-01",
+  "hypothesis": "Principle extraction rate has declined because DOMEX lanes enforce lesson creation but not principle synthesis; a close_lane.py prompt will make the gap visible and increase conversion rate",
+  "method": {
+    "measurement": "Count principles extracted from L-550+ window vs total lessons in that window",
+    "comparison": "Historical overall rate (173P/598L = 28.9%) vs recent window (5P/111L = 4.5%)",
+    "intervention": "Added principle-extraction NOTICE to close_lane.py when MERGED lanes have L-NNN but no P-NNN reference",
+    "proof_of_concept": "Extracted P-221/P-222 (S365) then P-223-P-226 (S366) via systematic scan of L-550-L-661. P-218/P-219 expanded with additional citations.",
+    "scan_method": "Agent-assisted scan of 112 lessons (L-550-L-661). Each candidate required >=3 supporting lessons verified against Finding sections. Citation accuracy verified for top candidates: C1 4/5 confirmed, C4 1/5 confirmed (dropped), C5 2/4 confirmed."
+  },
+  "results": {
+    "total_lessons": 598,
+    "total_principles": 175,
+    "overall_rate": "29.3%",
+    "recent_window": {
+      "range": "L-550 to L-661",
+      "lessons": 112,
+      "principles_before_s365": 5,
+      "principles_after_s366": 11,
+      "rate_before": "4.5%",
+      "rate_after": "9.8%",
+      "plus_expanded": 2
+    },
+    "last_5_principles": ["P-216 (L-582, S354)", "P-217 (L-599, S355)", "P-218 (L-601, S355)", "P-219 (L-628, S358)", "P-220 (L-652, S361)"],
+    "new_principles_s365": ["P-221 (L-646, loop-closure quality)", "P-222 (L-659, hierarchical distillation enforcement)"],
+    "new_principles_s366": [
+      "P-223 (measurement channel coverage — tool scope must match data scope; 5 tools verified)",
+      "P-230 (bottleneck migration — protecting one resource shifts collision to next; 4 successive layers)",
+      "P-231 (Lamarckian correction immunity — directed correction prevents quality degradation; 4 tests)",
+      "P-232 (accumulation scoring exploitation — frequency penalties needed; 4 scoring regimes)"
+    ],
+    "note_id_collision": "Original P-224/225/226 renumbered to P-230/231/232 due to concurrent session adding P-224-P-229",
+    "expanded_principles_s366": [
+      "P-218 expanded: format IS enforcement mechanism (+5 citations, n=4→10 protocols)",
+      "P-219 expanded: generalized from substrate-only to all creation-time checks (+4 citations, n=2→7 cases)"
+    ],
+    "candidate_scan_results": {
+      "total_candidates_identified": 10,
+      "candidates_promoted": 4,
+      "candidates_merged_into_existing": 2,
+      "candidates_dropped_insufficient_evidence": 1,
+      "candidates_deferred_borderline": 3
+    },
+    "principle_candidates_reviewed": [
+      {"id": "C1", "pattern": "measurement channel coverage", "lessons": 5, "verdict": "extracted as P-223"},
+      {"id": "C2", "pattern": "voluntary compliance decay", "lessons": 9, "verdict": "merged into P-218"},
+      {"id": "C3", "pattern": "bottleneck migration", "lessons": 4, "verdict": "extracted as P-230"},
+      {"id": "C4", "pattern": "session type > count", "lessons": 1, "verdict": "DROPPED — 1/5 citations verified"},
+      {"id": "C5", "pattern": "diagnosis-action gap", "lessons": 2, "verdict": "deferred — 2/4 verified, borderline"},
+      {"id": "C6", "pattern": "format is enforcement", "lessons": 5, "verdict": "merged into P-218"},
+      {"id": "C7", "pattern": "archive separation severs feedback", "lessons": 4, "verdict": "deferred — subsumed by P-223"},
+      {"id": "C8", "pattern": "Lamarckian correction immunity", "lessons": 4, "verdict": "extracted as P-231"},
+      {"id": "C9", "pattern": "accumulation scoring exploitation", "lessons": 4, "verdict": "extracted as P-232"},
+      {"id": "C10", "pattern": "prevention < repair cost", "lessons": 5, "verdict": "merged into P-219"}
+    ]
+  },
+  "structural_fix": {
+    "file": "tools/close_lane.py",
+    "change": "Added principle-extraction NOTICE when MERGED lane has L-NNN but no P-NNN in closure text",
+    "type": "prompt (non-blocking)",
+    "mechanism": "L-601 structural enforcement — making invisible gap visible at the natural decision point"
+  },
+  "prediction": {
+    "pre_fix_rate": "4.5% (5/111 lessons)",
+    "target_rate": ">10% over next 50 lessons",
+    "remeasure_session": "S386",
+    "escalation": "if rate stays <10%, upgrade to periodic batch synthesis or blocking enforcement"
+  },
+  "lessons": ["L-662"],
+  "principles_extracted": ["P-221", "P-222", "P-223", "P-230", "P-231", "P-232"],
+  "principles_expanded": ["P-218", "P-219"],
+  "iso_connections": ["ISO-7 (information flow hierarchies)", "ISO-14 (self-similarity — enforcement at each level mirrors enforcement at creation)"]
+}

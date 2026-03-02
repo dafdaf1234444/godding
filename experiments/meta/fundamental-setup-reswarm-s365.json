@@ -1,0 +1,41 @@
+{
+  "experiment": "fundamental-setup-reswarm-s365",
+  "session": "S365",
+  "date": "2026-03-01",
+  "periodic": "fundamental-setup-reswarm",
+  "last_run": "S355",
+  "overdue_sessions": 10,
+  "check_mode": "coordination",
+  "expect": "1-2 concrete friction fixes in swarm fundamentals",
+  "actual": "2 friction fixes applied: (1) orient.py stale compaction checkpoint suppression, (2) conflict FRONTIER resolved-but-active layout fix",
+  "diff": "Both expected fixes delivered. orient.py checkpoint noise was a known irritant for 5+ sessions (S359→S365). Conflict FRONTIER mismatch was causing persistent maintenance NOTICE.",
+  "fixes": [
+    {
+      "target": "tools/orient.py",
+      "issue": "COMPACTION RESUME DETECTED fires for stale checkpoints — all listed uncommitted files already committed",
+      "root_cause": "orient.py checks for precompact-checkpoint-*.json existence but not whether listed files are still actually uncommitted",
+      "fix": "Added git status staleness check: if <20% of checkpoint files are still uncommitted, suppress the warning",
+      "evidence": "precompact-checkpoint-aafda598.json: 1/20 files still uncommitted (5%), all others committed or archived in S363 tool consolidation",
+      "impact": "Eliminates false COMPACTION RESUME signal every session since S360"
+    },
+    {
+      "target": "domains/conflict/tasks/FRONTIER.md",
+      "issue": "Active header says 0 but 3 resolved F-CON entries still under ## Active section, causing maintenance NOTICE every session",
+      "root_cause": "Frontier entries not moved out of Active section when resolved — detailed evidence kept inline",
+      "fix": "Moved resolved entries to compact Evidence Archive section; Active section now explicitly empty; key artifact/lesson references preserved",
+      "evidence": "maintenance.py check_domain_frontier_consistency reported conflict(header=0, parsed=3)",
+      "impact": "Clears persistent maintenance NOTICE for conflict domain"
+    }
+  ],
+  "additional_maintenance": {
+    "readme_snapshot": "S360→S365: domain count 45→44, personality 53→54, session 364→365",
+    "sync_state": "INDEX/FRONTIER/NEXT headers synced to S365"
+  },
+  "meta_swarm_reflection": "orient.py stale checkpoint issue persisted for 5 sessions because no session prioritized the fundamental-setup-reswarm periodic. The periodic itself fires at cadence 5 but was 10 overdue — cadence may need enforcement (like EAD) or higher priority scoring. Target: tools/dispatch_optimizer.py could weight overdue periodics higher.",
+  "lesson_candidate": false,
+  "next": [
+    "Monitor orient.py checkpoint behavior — verify no false suppression",
+    "Run fundamental-setup-reswarm at S370 (5 session cadence)",
+    "Consider dispatch_optimizer periodic-overdue scoring boost"
+  ]
+}

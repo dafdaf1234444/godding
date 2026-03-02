@@ -1,0 +1,20 @@
+{
+  "id": "health-check-s365",
+  "domain": "meta",
+  "session": "S365",
+  "frontier": "periodic-health-check",
+  "hypothesis": "Growth rate remains STRONG (~8 L/s). Compactness stable. Belief freshness ≥75%.",
+  "method": "5-indicator health assessment: knowledge growth, accuracy, compactness, belief evolution, task throughput. Metrics collected via git, orient.py, compact.py --dry-run, and direct file counts.",
+  "result": {
+    "score": "4.0/5 (up from 3.8/5 at S360)",
+    "growth": "2.2 L/s (ADEQUATE, down from 8.0 — post-burst stabilization)",
+    "accuracy": "STRONG (confidence coverage 30.5%→99.8%, PCI 0.643)",
+    "compactness": "HEALTHY (proxy-K 5.9%, avg 18.7 lines)",
+    "belief_evolution": "WATCH (17B, no new challenges, B1 unremediated)",
+    "throughput": "STRONG (5 DOMEX MERGED, 93.5% merge rate, F-META1 + F-CON2 RESOLVED)"
+  },
+  "expect_diff": "Growth prediction WRONG (predicted STRONG ~8 L/s, got ADEQUATE 2.2). Compactness prediction CORRECT (stable). Freshness prediction CORRECT (75%). Surprise: accuracy upgrade was the headline, not growth.",
+  "lesson_candidate": false,
+  "meta_reflection": "Health check structure adequate. S360 priority fix (confidence tags) was addressed within 1 session. Priority fix mechanism works when specific enough. 27 anxiety-zone frontiers flagged but not actionable from health check alone — need triage lane.",
+  "date": "2026-03-01"
+}

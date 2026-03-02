@@ -1,0 +1,33 @@
+{
+  "experiment": "prescription citation gap audit + wiring",
+  "session": "S401",
+  "domain": "meta",
+  "lane": "DOMEX-META-S401",
+  "frontier": "F-META2",
+  "date": "2026-03-01",
+  "summary": {
+    "initial_enforcement_rate": 0.105,
+    "final_enforcement_rate": 0.150,
+    "rule_bearing_lessons": 107,
+    "structural_before": 11,
+    "structural_after": 16,
+    "aspirational_before": 93,
+    "aspirational_after": 89,
+    "citations_added": 5,
+    "periodic_added": true
+  },
+  "citations_added": [
+    {"lesson": "L-527", "file": "tools/close_lane.py", "context": "merge-on-close docstring"},
+    {"lesson": "L-555", "file": "tools/maintenance.py", "context": "stale floor comment"},
+    {"lesson": "L-597", "file": "tools/check.sh", "context": "contract_check comment"},
+    {"lesson": "L-543", "file": "tools/dispatch_optimizer.py", "context": "UCB1 docstring"},
+    {"lesson": "L-572", "file": "tools/dispatch_optimizer.py", "context": "archive-read comment"}
+  ],
+  "periodic_added": {
+    "id": "enforcement-audit",
+    "cadence_sessions": 10,
+    "file": "tools/periodics.json"
+  },
+  "verdict": "CONFIRMED — 5 citation additions raised enforcement 10.5%→15.0%. Target met. Two types of ASPIRATIONAL prescriptions identified: citation-gap (implemented uncited) vs true-gap (unimplemented). L-847 written.",
+  "key_finding": "Prescription citation gap: many ASPIRATIONAL lessons are already implemented but lack L-ID citations. Type-1 fix (add comment) costs 1 line. Type-2 fix (new check) costs 10-50 lines. Audit citation gaps first."
+}

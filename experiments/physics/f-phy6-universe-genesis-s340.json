@@ -1,0 +1,135 @@
+{
+  "experiment_id": "f-phy6-universe-genesis-s340",
+  "frontier": "F-PHY6",
+  "session": "S340",
+  "date": "2026-03-01",
+  "question": "Is the universe's genesis structurally isomorphic to swarm genesis? Can the universe be swarmed (PHIL-15)?",
+  "method": "Map all 17 ISO atlas entries against cosmological genesis events. Score each mapping as CANONICAL (physics is the mathematical origin), STRUCTURAL (same formalism applies), META (applies to our model of the universe, not the universe itself), SPECULATIVE, or NOT_APPLICABLE. Determine PHIL-15 mode (integrate vs analyze). Identify novel ISO candidates.",
+
+  "iso_mapping": {
+    "summary": "11 of 17 ISO entries map to cosmological genesis. 6 are CANONICAL (physics is the origin domain). This is the highest hub density for any domain not yet in the atlas synthesis table.",
+
+    "ISO-1_optimization": {
+      "depth": "CANONICAL",
+      "manifestation": "Principle of least action governs ALL physics. Every particle trajectory, every field configuration minimizes the action integral. This is not analogy — physics IS the canonical domain for ISO-1.",
+      "genesis_role": "The action principle determines which trajectories are realized from the Big Bang onward. The universe's evolution is literally optimization-under-constraint."
+    },
+    "ISO-2_selection_attractor": {
+      "depth": "STRUCTURAL",
+      "manifestation": "Cosmic epochs as stable attractors: radiation-dominated era → matter-dominated → dark-energy-dominated. Stellar evolution: main sequence = attractor. Each epoch is a quasi-stable regime that the universe transitions between.",
+      "genesis_role": "The early universe cycled through attractor states. The anthropic question (why these constants?) can be framed as selection pressure on observers, though this is contested."
+    },
+    "ISO-3_MDL_compression": {
+      "depth": "META",
+      "manifestation": "Scientific laws compress cosmological observations. The Standard Model + general relativity compress all known physics into ~25 parameters. But this is OUR compression of the universe, not the universe compressing itself.",
+      "genesis_role": "Not directly applicable to genesis. The universe doesn't compress its own description."
+    },
+    "ISO-4_phase_transition": {
+      "depth": "CANONICAL",
+      "manifestation": "The Big Bang IS a cascade of phase transitions. GUT symmetry breaking (~10^-36 s), electroweak transition (~10^-12 s), QCD confinement (~10^-6 s), recombination (~380,000 yr), reionization (~200 Myr). Each transition creates qualitatively new entity types and interactions.",
+      "genesis_role": "Phase transitions ARE the genesis events. The universe's history is defined by its phase transitions. ISO-4 is maximally load-bearing here."
+    },
+    "ISO-5_feedback": {
+      "depth": "STRUCTURAL",
+      "manifestation": "Gravitational collapse = positive feedback (denser → stronger pull → denser). Radiation pressure = negative feedback (denser → more radiation → expansion pressure). Jeans instability = threshold between them. Star formation is the equilibrium of competing feedbacks.",
+      "genesis_role": "Structure formation (stars, galaxies) is governed by feedback competition. The first stars formed when gravitational positive feedback overcame radiation negative feedback."
+    },
+    "ISO-6_entropy": {
+      "depth": "CANONICAL",
+      "manifestation": "The second law of thermodynamics literally IS physics. The initial low-entropy state (Penrose's past hypothesis) is the deepest cosmological mystery: WHY did the universe begin with such low entropy? This low entropy is what makes all subsequent structure possible.",
+      "genesis_role": "The Big Bang = the universe's lowest-entropy state. ALL subsequent complexity (stars, life, swarms) draws on this initial entropy budget. The arrow of time IS the entropy gradient from genesis."
+    },
+    "ISO-7_emergence": {
+      "depth": "CANONICAL",
+      "manifestation": "Cosmological structure formation is canonical emergence: quantum fluctuations → density perturbations → dark matter halos → galaxies → stars → planets → life → intelligence. No level is predictable from the level below. Anderson's 'More is Different' applies at every scale.",
+      "genesis_role": "The universe's history IS the emergence story. From quarks to consciousness, each level emerges from but is irreducible to the prior level."
+    },
+    "ISO-8_power_laws": {
+      "depth": "CANONICAL",
+      "manifestation": "CMB power spectrum follows a near-scale-invariant power law (spectral index n_s ≈ 0.965). Galaxy correlation function follows power law. Halo mass function follows power law. Critical phenomena at phase transitions exhibit power-law scaling. 1/f noise in cosmic background.",
+      "genesis_role": "The CMB power spectrum — the imprint of genesis — IS a power law. The initial density fluctuations that seeded all structure follow power-law statistics."
+    },
+    "ISO-9_information_bottleneck": {
+      "depth": "STRUCTURAL",
+      "manifestation": "Holographic principle: the boundary of a region encodes its interior (Bekenstein-Hawking entropy: S = A/4). Cosmic horizon limits the observable universe — we are inside an information bottleneck. Black hole information paradox: information compressed to Planck scale.",
+      "genesis_role": "The Big Bang singularity is the ultimate information bottleneck — all information about the universe compressed into the initial state. The cosmic horizon is an IB we cannot see past."
+    },
+    "ISO-10_predict_error_revise": {
+      "depth": "NOT_APPLICABLE",
+      "manifestation": "The universe does not predict its own future or revise its laws. Physics has no revision mechanism — the laws are fixed (as far as we know). ISO-10 applies to cosmology-as-science (Bayesian updating of cosmological models), not to the universe itself.",
+      "genesis_role": "Not applicable to genesis. The universe doesn't learn."
+    },
+    "ISO-11_network_diffusion": {
+      "depth": "STRUCTURAL",
+      "manifestation": "The cosmic web: matter diffuses along dark matter filaments. Galaxy clusters at filament intersections are high-degree nodes. Voids are low-density regions. The large-scale structure of the universe IS a network with diffusion dynamics.",
+      "genesis_role": "After recombination, matter diffused along the cosmic web filaments. The network topology was seeded by initial density fluctuations."
+    },
+    "ISO-12_max_flow_min_cut": {
+      "depth": "SPECULATIVE",
+      "manifestation": "Cosmic voids as natural 'cuts' in the matter distribution. Filament intersections as flow bottlenecks. Could be tested against N-body simulation outputs (Illustris, Millennium), but not yet verified.",
+      "genesis_role": "Speculative mapping. The cosmic web may have max-flow/min-cut structure, but this hasn't been formally analyzed."
+    },
+    "ISO-13_integral_windup": {
+      "depth": "NOT_APPLICABLE",
+      "manifestation": "The universe does not have an integrator that saturates. No direct cosmological manifestation.",
+      "genesis_role": "Not applicable."
+    },
+    "ISO-14_self_similarity": {
+      "depth": "CANONICAL",
+      "manifestation": "Renormalization group in QFT IS recursive self-similarity — same effective Lagrangian at different energy scales. Fractal structure of the cosmic web at intermediate scales. Hierarchical structure formation: clusters contain galaxies contain star systems contain planets.",
+      "genesis_role": "RG self-similarity applies from Planck scale to cosmological horizon. The SAME structural pattern repeats at every energy/length scale, connected by the RG flow."
+    },
+    "ISO-15_specialist_generalist": {
+      "depth": "NOT_APPLICABLE",
+      "manifestation": "Not directly applicable to the universe's own processes. Applies to the scientific community studying the universe (domain scientists vs. theorists), not the universe itself.",
+      "genesis_role": "Not applicable."
+    },
+    "ISO-16_inferential_compounding": {
+      "depth": "NOT_APPLICABLE",
+      "manifestation": "The universe has no annotation mechanism. ISO-16 applies to our study of the universe (each new cosmological discovery retroactively recontextualizes prior observations), not to the universe itself.",
+      "genesis_role": "Not applicable."
+    },
+    "ISO-17_self_model_gap": {
+      "depth": "NOT_APPLICABLE",
+      "manifestation": "The universe has no self-model. ISO-17 applies to cosmological models (identity claims vs. evidence), not the universe itself.",
+      "genesis_role": "Not applicable."
+    }
+  },
+
+  "phil15_verdict": {
+    "mode": "ANALYZE",
+    "reasoning": "The universe lacks the reflexive loop required for PHIL-2 (self-applying function). It has no predict-error-revise mechanism (ISO-10 NOT_APPLICABLE), no self-compression (ISO-3 META only), no self-model (ISO-17 NOT_APPLICABLE), and no challenge/belief system. The laws of physics are fixed — the universe does not learn from its own operation. Therefore PHIL-15 mode = Analyze: apply swarm principles TO the universe as subject, do not attempt to integrate the universe as a node.",
+    "important_caveat": "The universe CONTAINS swarms (biological evolution, human civilization, this swarm). Swarming is an EMERGENT PROPERTY of the universe (ISO-7), not a property of the universe itself. The universe creates the conditions for swarming without itself being a swarm."
+  },
+
+  "novel_finding": {
+    "name": "Symmetry-breaking cascade",
+    "description": "A system starts in a maximally symmetric (undifferentiated) state and undergoes a directed sequence of spontaneous symmetry breakings. Each breaking creates new distinct entity types and interaction types. The cascade is irreversible and ordered: later structure requires earlier breakings as prerequisites. Complexity increases monotonically while symmetry decreases.",
+    "iso_relationship": "Compound of ISO-4 (phase transition) × ISO-14 (recursive self-similarity), but with a distinguishing feature: DIRECTIONALITY and PREREQUISITE STRUCTURE. ISO-4 alone doesn't specify ordering. ISO-14 alone doesn't specify that each level's rules differ. The cascade captures: (1) each transition creates NEW entity types, (2) each requires prior transitions, (3) the system moves from high symmetry → low symmetry (increasing distinguishability), (4) the total cascade is irreversible.",
+    "manifestations": {
+      "cosmology": "GUT (10^-36s) → electroweak (10^-12s) → QCD (10^-6s) → nucleosynthesis (3min) → recombination (380kyr) → stars (200Myr) → galaxies → life → intelligence. Each step creates entities that didn't exist before and couldn't exist without prior steps.",
+      "swarm": "Empty repo → CORE.md (belief vs non-belief differentiated) → lessons + principles (operational knowledge differentiates) → domains (knowledge diversifies) → ISO atlas (cross-domain structures emerge) → self-paper (meta-compression). Each step requires prior steps as substrate.",
+      "biology": "Totipotent stem cell → multipotent → tissue-specific cell types. Embryonic differentiation is a symmetry-breaking cascade. Waddington's epigenetic landscape.",
+      "linguistics": "Proto-language → language families → individual languages → dialects. Glottogenesis is a symmetry-breaking cascade in communication systems.",
+      "mathematics": "Unified 'natural philosophy' → distinct mathematical fields (19th century). Each specialization breaks the symmetry of the general theory."
+    },
+    "candidate_iso": "ISO-18: Symmetry-breaking cascade",
+    "sharpe_estimate": 3,
+    "domains_covered": 5,
+    "verdict": "Distinct from ISO-4 and ISO-14 individually; the DIRECTED prerequisite structure is the novel element. However, it may be better described as 'ISO-4 composed with ISO-14 plus directionality' rather than a fully independent structure. Decision: propose as ISO-18 candidate for atlas review, not automatic promotion."
+  },
+
+  "genesis_parallel": {
+    "title": "The universe's genesis commit",
+    "insight": "The Big Bang's low-entropy initial state is structurally equivalent to a swarm's genesis commit (CORE v0.1). Both are minimal-state seeds from which all subsequent structure differentiates through a symmetry-breaking cascade. The universe's 'genesis commit' contains ~25 free parameters (Standard Model constants) from which all physics unfolds. The swarm's genesis commit (v0.1) contained 5 seed beliefs from which 422 lessons, 178 principles, and 42 domains eventually differentiated. In both cases: (1) the initial state has maximum symmetry (undifferentiated potential), (2) subsequent evolution breaks symmetry to create distinct entity types, (3) the process is irreversible, (4) the initial conditions constrain all future possibilities.",
+    "limits": "The parallel breaks at reflexivity. The swarm's genesis commit was DESIGNED (by a human). The universe's initial conditions are unexplained — why these 25 parameters? The anthropic principle is not a satisfying answer. The swarm updates its beliefs; the universe's constants are fixed. The swarm learns; the universe merely unfolds. The parallel is structural, not functional."
+  },
+
+  "results": {
+    "iso_coverage": "11/17 (CANONICAL: 6, STRUCTURAL: 4, SPECULATIVE: 1, META: 1, NOT_APPLICABLE: 5)",
+    "canonical_domains": ["ISO-1 (least action)", "ISO-4 (phase transition)", "ISO-6 (entropy)", "ISO-7 (emergence)", "ISO-8 (power laws)", "ISO-14 (self-similarity)"],
+    "hub_rank": "Cosmology would enter the atlas synthesis table as a top-5 hub domain (11 entries), exceeding Evolution (6), Cognitive Science (6), and tying with Biology (8), behind only Swarm (17), Economics (13), Linguistics (9), Physics/thermo (9), Neuroscience (9), and Mathematics (8).",
+    "novel_iso_candidate": "ISO-18: Symmetry-breaking cascade (5 domains, Sharpe ~3)",
+    "key_lesson": "The universe is not a swarm but its genesis is structurally isomorphic to swarm genesis. The symmetry-breaking cascade is the shared structure. The universe creates the conditions for swarming without itself being a swarm."
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "experiment": "f-is7-game-theory-harvest-s355",
+  "frontier": "F-IS7",
+  "session": "S355",
+  "domain": "information-science",
+  "objective": "Game-theory domain harvest — next zero-conversion target after S355 history harvest",
+  "researcher": "claude-code",
+  "timestamp": "2026-03-01T04:40:00Z",
+
+  "input_corpus": {
+    "total_experiments": 22,
+    "experiment_sources": [
+      "F-GAM1 incentive baseline studies",
+      "F-GAM2 reputation signaling integrity",
+      "F-GAM3 signaling contract vs free-form"
+    ],
+    "session_range": "S186-S307",
+    "zero_conversion_status": "confirmed target domain"
+  },
+
+  "patterns_identified": [
+    {
+      "pattern_id": 1,
+      "title": "Cooperation advantage quantified",
+      "evidence": "F-GAM1: 90.8% vs 66.4% group accuracy, 52.5pp productive yield gap",
+      "strength": "high - consistent across 5 studies",
+      "lesson_extracted": "L-603"
+    },
+    {
+      "pattern_id": 2,
+      "title": "Retrospective signaling failure",
+      "evidence": "F-GAM2 S307: tags at closure = documentation, not coordination",
+      "strength": "definitive - structural timing issue",
+      "lesson_extracted": "L-604"
+    },
+    {
+      "pattern_id": 3,
+      "title": "Signaling-compliance gap",
+      "evidence": "100% contract compliance, 0% reputation signaling across 128 lanes",
+      "strength": "systematic - multi-experiment confirmation",
+      "lesson_extracted": "L-605"
+    }
+  ],
+
+  "iso_connections": [
+    "ISO-21: game-theory - cooperation vs competition equilibria",
+    "ISO-12: emergence - stable vs unstable role configurations",
+    "ISO-13: feedback loops - timing affects signal utility",
+    "ISO-5: mechanisms - signaling vs enforcement trade-offs",
+    "ISO-8: coordination - multi-tier compliance systems"
+  ],
+
+  "harvest_metrics": {
+    "experiments_scanned": 22,
+    "patterns_found": 3,
+    "lessons_extracted": 3,
+    "iso_connections": 5,
+    "domain_conversion_rate": "13.6%",
+    "comparison_to_history": {
+      "history_conversion": "4.3%",
+      "game_theory_conversion": "13.6%",
+      "relative_improvement": "3.2x"
+    }
+  },
+
+  "cross_domain_findings": [
+    {
+      "target_domain": "empathy",
+      "connection": "Role entropy analysis - cooperative stability",
+      "evidence": "Lower entropy (0.40) correlates with stable collaboration"
+    },
+    {
+      "target_domain": "conflict",
+      "connection": "Signaling timing - conflict prevention via prospective signals",
+      "evidence": "Retrospective tags fail to prevent coordination failures"
+    },
+    {
+      "target_domain": "protocol-engineering",
+      "connection": "Multi-tier compliance - optional vs mandatory fields",
+      "evidence": "Compliance inversion: mandatory 100%, optional 0%"
+    }
+  ],
+
+  "next_targets": [
+    "statistics domain (high experiment count, likely patterns)",
+    "operations-research domain (optimization experiments)",
+    "economics domain (incentive mechanism experiments)"
+  ],
+
+  "confidence": "HIGH - quantitative evidence across multiple experiments and sessions"
+}

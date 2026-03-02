@@ -1,0 +1,39 @@
+{
+  "experiment": "F-STR3 prescriptive wave planner — tool built in dispatch_optimizer.py",
+  "session": "S390",
+  "domain": "strategy",
+  "lane": "DOMEX-STR-S390",
+  "method": "Built _wave_prescriptions() and _print_wave_plan() in dispatch_optimizer.py. Per-frontier mode transition recommendations based on L-755 optimal sequence (explore->harden->resolve). Added --wave-plan CLI flag. Enhanced Campaign Advisory with COMMIT/CLOSE counts and next-mode prescriptions.",
+  "hypothesis": "Prescriptive wave planner will reduce 2-wave valley-of-death stalls by recommending mode transitions",
+  "expect": "Wave-aware advisory section added to dispatch output, recommending next-wave mode based on campaign history",
+  "actual": "Implemented. 12 unresolved campaigns classified: 7 COMMIT (2-wave danger), 1 CLOSE (3-wave), 4 CONTINUE (1-wave). All 7 COMMIT + 1 CLOSE have mode stalls (100% exploration->exploration). No frontier has ever reached explore->harden->resolve optimal path.",
+  "diff": "Expected simple advisory enhancement. Found: 0/12 unresolved campaigns have ever used the optimal mode-shift sequence. Every multi-wave campaign is stuck in exploration->exploration. The mode detection relies on intent= field which may underclassify hardening work.",
+  "results": {
+    "total_unresolved_campaigns": 12,
+    "action_distribution": {
+      "COMMIT": 7,
+      "CLOSE": 1,
+      "CONTINUE": 4,
+      "SUSTAIN": 0,
+      "NEW": 0
+    },
+    "mode_stall_rate": "8/12 (67%)",
+    "mode_shift_ever_occurred": false,
+    "dominant_pattern": "exploration->exploration (100% of multi-wave campaigns)",
+    "features_added": [
+      "_wave_prescriptions() function — per-frontier action plans",
+      "_print_wave_plan() function — formatted table output",
+      "--wave-plan CLI flag",
+      "Enhanced Campaign Advisory with COMMIT/CLOSE counts",
+      "OPTIMAL_NEXT_MODE constant — mode transition matrix",
+      "WAVE_RESOLUTION_PROB constant — L-755 probability lookup"
+    ],
+    "constants_added": {
+      "OPTIMAL_NEXT_MODE": {"exploration": "hardening", "hardening": "resolution", "resolution": "resolution"},
+      "WAVE_RESOLUTION_PROB": {"1": 0.28, "2": 0.11, "3": 0.31}
+    }
+  },
+  "key_finding": "The wave planner reveals a structural problem: mode detection from intent= field classifies everything as exploration. The L-755 optimal path (explore->harden->resolve) has 0% adoption because the mode is inferred from intent keywords, and most intent= values don't match hardening/resolution patterns. Fix: improve mode detection OR explicitly set mode in open_lane.py.",
+  "prospective_test": "Over next 10 sessions, track whether wave-plan recommendations influence dispatch decisions. Success = at least 2 COMMIT frontiers receive 3rd wave with mode shift to hardening.",
+  "verdict": "TOOL BUILT — prescriptive wave planner functional. Unexpected finding: 0% mode-shift adoption reveals mode-detection gap, not dispatch gap."
+}

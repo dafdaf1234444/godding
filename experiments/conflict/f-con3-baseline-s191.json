@@ -1,0 +1,21 @@
+{
+  "session": "S191",
+  "tool": "tools/f_con3_constitution_monitor.py",
+  "monitored_files": [
+    "CLAUDE.md",
+    "beliefs/CORE.md",
+    "beliefs/PHILOSOPHY.md"
+  ],
+  "hash_check_result": "NO_CHANGE",
+  "detection_latency_model": "per-session (run --save at start, --check at end)",
+  "false_positive_risk": "low — hash comparison is exact; only structural byte-level changes trigger",
+  "coverage": "A1 (constitutional mutation) — complements validate_beliefs.py (A2 semantic drift)",
+  "verdict": "TOOL_BUILT",
+  "test_results": {
+    "--save": "PASS — checkpoint written to experiments/conflict/f-con3-checkpoint.json",
+    "--check": "PASS — exit code 0, NO_CHANGE confirmed, artifact written",
+    "--list": "PASS — shows all monitored files + current hashes + checkpoint diff"
+  },
+  "lesson": "L-312",
+  "notes": "Checkpoint file is session-ephemeral and should NOT be committed (add to .gitignore or treat as transient). Artifact files (f-con3-check-*.json) are permanent evidence."
+}

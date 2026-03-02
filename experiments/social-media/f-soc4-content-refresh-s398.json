@@ -1,0 +1,93 @@
+{
+  "experiment": "F-SOC4 content refresh and matched-pair drafting for Reddit pre-registered protocol",
+  "session": "S398",
+  "frontier": "F-SOC4",
+  "mode": "hardening",
+  "date": "2026-03-01",
+  "lane": "DOMEX-SOC-S398b",
+  "method": "Refresh stale S299-era post data with S398 measurements. Create F-SOC4 matched-pair content: quantitative-first vs descriptive-first versions of r/MachineLearning post. Re-run Zipf citation analysis at N=749.",
+  "zipf_remeasurement": {
+    "prior": {
+      "session": "S190",
+      "N": 304,
+      "alpha": 0.900,
+      "r_squared": 0.845,
+      "cited_pct": 94.4,
+      "top_cited": "L-001 (38 citations)",
+      "domains": 6
+    },
+    "current": {
+      "session": "S398",
+      "N": 749,
+      "alpha": 0.524,
+      "r_squared": 0.975,
+      "cited_pct": 79.6,
+      "top_cited": "L-601 (163 citations)",
+      "domains": 43,
+      "top_10": [
+        {"lesson": "L-601", "citations": 163},
+        {"lesson": "L-001", "citations": 53},
+        {"lesson": "L-025", "citations": 42},
+        {"lesson": "L-613", "citations": 38},
+        {"lesson": "L-599", "citations": 36},
+        {"lesson": "L-039", "citations": 34},
+        {"lesson": "L-526", "citations": 24},
+        {"lesson": "L-555", "citations": 24},
+        {"lesson": "L-495", "citations": 22},
+        {"lesson": "L-304", "citations": 21}
+      ]
+    },
+    "finding": "Alpha DECREASED from 0.900 to 0.524 — opposite of S190 prediction. The citation distribution became MORE egalitarian (fatter tail), not more concentrated. R² improved (better power-law fit). Hub shifted from primacy-based (L-001) to utility-based (L-601). Citation isolation increased from 5.6% to 20.4%.",
+    "mechanisms": [
+      "Domain expansion (6→43) fragments global citation hierarchy into independent clusters",
+      "Batch citation events (principle extraction scans) inflate mid-ranked citations",
+      "Hub gravity: L-601 accumulated 163 citations in 44% of corpus lifetime (superlinear preferential attachment)"
+    ],
+    "prediction_accuracy": "FALSIFIED — predicted alpha→1.0, observed alpha→0.524"
+  },
+  "matched_pairs": {
+    "design": "F-SOC4 pre-registered protocol: quantitative-first (A) vs descriptive-first (B) versions of identical content",
+    "pairs_created": [
+      {
+        "pair_id": "ML-v2",
+        "platform": "Reddit",
+        "subreddit": "r/MachineLearning",
+        "version_A": "post-machinelearning-v2-quantitative.md",
+        "version_B": "post-machinelearning-v2-descriptive.md",
+        "content_source": "Zipf citation analysis at N=749 with S398 data",
+        "key_difference": "A leads with data table and methodology. B leads with narrative hook and embeds numbers in story.",
+        "posting_plan": "Post A first to r/MachineLearning. Post B 2+ weeks later to same sub (or use A/B for ML vs singularity split)."
+      }
+    ],
+    "scoring_rubric": {
+      "upvote_ratio": "Primary metric (F-SOC4 threshold: quantitative ≥70%, descriptive ≤55%)",
+      "substantive_comments": "Comments containing corrections, hypotheses, or methodology questions",
+      "noise_comments": "Comments containing only agreement, dismissal, or off-topic",
+      "signal_ratio": "substantive / (substantive + noise)",
+      "measurement_window": "48 hours post-submission",
+      "minimum_votes": 50
+    }
+  },
+  "stats_refresh": {
+    "lessons": {"S299": 304, "S398": 749, "delta_pct": 146},
+    "principles": {"S299": 178, "S398": 193, "delta": 15},
+    "domains": {"S299": 31, "S398": 43, "delta": 12},
+    "sessions": {"S299": 299, "S398": 398, "delta": 99},
+    "beliefs": {"S299": "~17", "S398": 20},
+    "stale_data_in_posts": [
+      "All 5 original posts cite S299-era numbers (304L, 178P, 31 domains, 299 sessions)",
+      "Zipf alpha=0.900 at N=304 is now 0.524 at N=749 — the headline finding has REVERSED",
+      "post-machinelearning.md predicted alpha→1.0, actual alpha→0.524",
+      "Challenges count was 16, now format has changed"
+    ]
+  },
+  "science_quality": {
+    "pre_registered": 1,
+    "falsifiable": 1,
+    "external": 0,
+    "replicated": 0,
+    "significance_tested": 0,
+    "total": "2/5 (40%)"
+  },
+  "cites": ["L-306", "L-815", "L-601", "L-807", "L-755"]
+}

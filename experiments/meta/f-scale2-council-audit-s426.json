@@ -1,0 +1,147 @@
+{
+  "frontier": "F-SCALE2",
+  "session": "S426",
+  "question": "Does formal per-domain council increase expert utilization above 15%?",
+  "method": "Count all DOMEX lanes from SWARM-LANES.md + SWARM-LANES-ARCHIVE.md + git log. Compute DOMEX-session utilization (sessions with >=1 DOMEX lane / total sessions) per window. Cross-validate with gather_council.py for live seat status.",
+  "data_sources": {
+    "swarm_lanes_archive": "1081 rows (481 DOMEX)",
+    "swarm_lanes_current": "56 rows (56 DOMEX)",
+    "git_log_domex_mentions": "212 unique lane IDs",
+    "combined_unique_domex_lanes": 454,
+    "total_unique_sessions": 222
+  },
+  "baseline": {
+    "value": 4.6,
+    "unit": "%",
+    "session": "S335",
+    "note": "Original F-EXP3 baseline (L-376, S306): 75 long-lived lanes / 1628 slots = 4.6%. Methodology later corrected (L-889): per-session domain coverage 14.8% -> 10.8% (L-902). The 4.6% represents pre-council accumulated utilization."
+  },
+  "target": 15.0,
+  "windows": [
+    {
+      "range": "S335-S360",
+      "domex_sessions": 24,
+      "total_sessions": 26,
+      "utilization_pct": 92.3,
+      "unique_domains": 40,
+      "total_domex_lanes": 95,
+      "lanes_per_domex_session": 4.0
+    },
+    {
+      "range": "S361-S390",
+      "domex_sessions": 29,
+      "total_sessions": 30,
+      "utilization_pct": 96.7,
+      "unique_domains": 36,
+      "total_domex_lanes": 105,
+      "lanes_per_domex_session": 3.6
+    },
+    {
+      "range": "S391-S420",
+      "domex_sessions": 30,
+      "total_sessions": 30,
+      "utilization_pct": 100.0,
+      "unique_domains": 28,
+      "total_domex_lanes": 157,
+      "lanes_per_domex_session": 5.2
+    },
+    {
+      "range": "S421-S426",
+      "domex_sessions": 6,
+      "total_sessions": 6,
+      "utilization_pct": 100.0,
+      "unique_domains": 8,
+      "total_domex_lanes": 19,
+      "lanes_per_domex_session": 3.2
+    }
+  ],
+  "ten_session_windows_fscale2_metric": {
+    "definition": "DOMEX sessions per 10-session window (target >= 3 = 30%)",
+    "windows": [
+      {
+        "range": "S335-S344",
+        "total": 10,
+        "domex": 8,
+        "meets_target": true
+      },
+      {
+        "range": "S345-S354",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S355-S364",
+        "total": 10,
+        "domex": 9,
+        "meets_target": true
+      },
+      {
+        "range": "S365-S374",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S375-S384",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S385-S394",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S395-S404",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S405-S414",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S415-S424",
+        "total": 10,
+        "domex": 10,
+        "meets_target": true
+      },
+      {
+        "range": "S425-S426",
+        "total": 2,
+        "domex": 2,
+        "meets_target": true,
+        "note": "Incomplete window (2/10 sessions). Rate 100% but absolute count 2 < 3. Meets target by rate, not absolute count."
+      }
+    ],
+    "all_meet_target": true,
+    "note": "All complete 10-session windows meet >= 3 DOMEX sessions. Final window is incomplete (2 sessions, both DOMEX)."
+  },
+  "current": {
+    "overall_utilization_pct": 97.8,
+    "total_sessions_post_council": 92,
+    "domex_sessions_post_council": 90,
+    "total_domex_lanes_post_council": 378,
+    "seats_occupied": "9/10",
+    "council_health": "HEALTHY",
+    "council_health_trajectory": "S408: CRITICAL (2/10) -> S426: HEALTHY (9/10)"
+  },
+  "verdict": "CONFIRMED",
+  "effect_size": "4.6% -> 97.8% (+93.2pp, 21.3x)",
+  "notes": [
+    "Expert utilization 97.8% massively exceeds 15% target (6.5x).",
+    "Post-council DOMEX adoption was near-immediate: S335-S360 already 92.3%.",
+    "S391+ shows 100% utilization \u2014 every session runs at least one DOMEX lane.",
+    "Council health recovered from CRITICAL (2/10 at S408) to HEALTHY (9/10 at S426).",
+    "F-SCALE2 10-session window target (>=3 DOMEX sessions) met in all 9 complete windows. Range: 8-10 DOMEX sessions per window.",
+    "Domain diversity peaked at 40 domains (S335-S360), stabilized at 26-28 (S391-S420).",
+    "The 4.6% baseline used a different methodology (accumulated active lanes / capacity slots). Per-session coverage metric (L-889, L-902) gives 10.8% solo, 14.8% bundled. Both are below 15%, confirming the council mechanism is what pushed utilization above target.",
+    "Caveat: utilization measures session-DOMEX co-occurrence, not expert depth. F-EXP3 (RESOLVED) measured per-session domain coverage at 10.8% solo ceiling \u2014 the 15% target requires bundled sessions."
+  ]
+}

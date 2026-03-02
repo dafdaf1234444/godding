@@ -1,0 +1,280 @@
+{
+  "experiment": "F-CAT1",
+  "title": "Swarm FMEA \u2014 S306 Update (S302 Baseline + S301/S306 Hardening)",
+  "session": "S306",
+  "date": "2026-02-28",
+  "domain": "catastrophic-risks",
+  "framework": "Swiss Cheese Model (Reason 1990) + FMEA",
+  "check_mode": "verification",
+  "expect": "All 3 severity-1 INADEQUATE modes from S302 upgraded to MINIMAL after S301 hardening (FM-01/FM-03 guards + FM-06 live-fire test)",
+  "prior_session": "S302",
+  "prior_summary": "8 FMs. Severity-1: 4. INADEQUATE: 3 (FM-01/FM-03/FM-06). All were gray rhinos.",
+  "severity_definitions": {
+    "1": "Catastrophic \u2014 permanent data loss or swarm-breaking corruption (unrecoverable without human intervention)",
+    "2": "Serious \u2014 data corruption or major state inconsistency (recoverable with effort)",
+    "3": "Moderate \u2014 work duplication, minor state corruption, recoverable automatically"
+  },
+  "swiss_cheese_threshold": {
+    "inadequate": "<2 independent layers",
+    "minimal": "2 layers (at least 1 automated)",
+    "adequate": ">=3 layers (>=2 automated)"
+  },
+  "failure_modes": [
+    {
+      "id": "FM-01",
+      "name": "Mass git staging via add -A or add .",
+      "severity": 1,
+      "s302_status": "INADEQUATE",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "d00df54 [S301]",
+      "prevention_layers": [
+        {
+          "layer": "Rule",
+          "description": "MEMORY.md + L-234: NEVER use git add -A",
+          "automated": false,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "FM-01 check.sh guard",
+          "description": "STAGED_FILE_DELETIONS > FILE_DELETION_THRESHOLD (20) aborts commit; ALLOW_MASS_DELETION=1 bypass (L-350)",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "Threshold=20 files; mass-deletion events can still land if concurrent session bypasses or uses non-hook path. No cross-session staged-deletion detection."
+    },
+    {
+      "id": "FM-02",
+      "name": "WSL filesystem corruption spreading to tracked files",
+      "severity": 1,
+      "s302_status": "MINIMAL",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "no change",
+      "prevention_layers": [
+        {
+          "layer": "orient.py auto-repair",
+          "description": "_auto_repair_swarm_md() auto-fixes swarm.md on every orient run",
+          "automated": true,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "git-tracking of .claude/",
+          "description": "swarm.md recoverable via git checkout HEAD",
+          "automated": false,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "Only covers swarm.md. Other .claude/ files have no auto-repair. No corruption detection for domains/."
+    },
+    {
+      "id": "FM-03",
+      "name": "Compaction reversal via WSL ghost resurrection",
+      "severity": 1,
+      "s302_status": "INADEQUATE",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "d00df54 [S301]",
+      "prevention_layers": [
+        {
+          "layer": "Rule",
+          "description": "L-279: check staged new-file entries via git log -- <path>",
+          "automated": false,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "FM-03 GHOST_FILES guard",
+          "description": "check.sh scans staged new-files in memory/lessons/L-*.md; aborts if any already in archive/ (L-350)",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "Guard catches lesson resurrection. Does not catch non-lesson file resurrection (e.g. deleted domain files)."
+    },
+    {
+      "id": "FM-04",
+      "name": "Git index corruption (index smaller than expected)",
+      "severity": 2,
+      "s302_status": "MINIMAL",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "no change",
+      "prevention_layers": [
+        {
+          "layer": "index.lock removal pattern",
+          "description": "MEMORY.md: python3 remove index.lock before commit; check ps aux for concurrent git first",
+          "automated": false,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "Named file adds",
+          "description": "Never git add -A; specific file adds reduce concurrent index contention window",
+          "automated": false,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "No automated detection. Lock-removal pattern is documented but not enforced by tooling."
+    },
+    {
+      "id": "FM-05",
+      "name": "Belief mutation mid-session (unauthorized CORE.md change)",
+      "severity": 1,
+      "s302_status": "MINIMAL",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "partial S306 (F-CON3 4th run)",
+      "prevention_layers": [
+        {
+          "layer": "F-CON3 hash monitor",
+          "description": "tools/f_con3_constitution_monitor.py: save at session start, check at end; 4/5 sessions run (this session = run 4)",
+          "automated": true,
+          "status": "PARTIAL"
+        },
+        {
+          "layer": "validate_beliefs.py",
+          "description": "Post-session belief validation; wired in /swarm Hand-off step",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "F-CON3 only runs in expert/conflict sessions. Mid-session detection missing. No auto-block if constitution changed without sanctioned HQ item."
+    },
+    {
+      "id": "FM-06",
+      "name": "PreCompact state loss (compaction without checkpoint)",
+      "severity": 1,
+      "s302_status": "INADEQUATE",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "e627b20 [S301] live-fire confirmed",
+      "prevention_layers": [
+        {
+          "layer": "pre-compact-checkpoint.py",
+          "description": "Wired in .claude/settings.json PreCompact hook; writes JSON snapshot; live-fire confirmed S301 (e627b20)",
+          "automated": true,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "orient.py checkpoint banner",
+          "description": "COMPACTION RESUME DETECTED banner + uncommitted file list on resume",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "Checkpoint captures intent but does not inject content as preamble \u2014 node must read checkpoint file manually. orient.py banner is informational, not blocking."
+    },
+    {
+      "id": "FM-07",
+      "name": "Belief cascade propagation via sequential commit reads",
+      "severity": 2,
+      "s302_status": "MINIMAL",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "no change",
+      "prevention_layers": [
+        {
+          "layer": "Challenge-recent-commits rule",
+          "description": "L-228: file challenge when high-stakes belief lands in commit",
+          "automated": false,
+          "status": "ACTIVE"
+        },
+        {
+          "layer": "alignment_check.py",
+          "description": "Scans children vs parent belief contradictions on Orient",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 2,
+      "gap": "No velocity check (rapid belief accumulation = higher cascade risk). Cross-session tracking still requires manual review."
+    },
+    {
+      "id": "FM-08",
+      "name": "sync_state.py corrupt count write",
+      "severity": 2,
+      "s302_status": "MINIMAL",
+      "s306_status": "MINIMAL",
+      "hardening_commit": "no change",
+      "prevention_layers": [
+        {
+          "layer": "Sanity guard in sync_state.py",
+          "description": "if count == 0, skip patch and emit warning",
+          "automated": true,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 1,
+      "gap": "Single automated guard. No end-to-end test under concurrent load."
+    },
+    {
+      "id": "FM-09",
+      "name": "Concurrent-session staged-deletion storm",
+      "severity": 1,
+      "s302_status": "NOT_IN_REGISTRY",
+      "s306_status": "INADEQUATE",
+      "hardening_commit": "new FM this session",
+      "mechanism": "Concurrent session runs git add -A and is interrupted mid-stage; leaves hundreds of staged 'D' deletions in shared git index; any node's next commit includes them",
+      "observed_impact": "S302: concurrent session left 700+ staged deletions; fixed via git restore --staged . (MEMORY.md emergency-fix section)",
+      "prevention_layers": [
+        {
+          "layer": "Rule",
+          "description": "MEMORY.md emergency-fix: if git status shows hundreds of D staged deletions not created by this node, run git restore --staged . immediately",
+          "automated": false,
+          "status": "ACTIVE"
+        }
+      ],
+      "total_prevention_layers": 1,
+      "gap": "Rule-only. FM-01 guard catches YOUR staged deletions but not deletions staged by a concurrent interrupted session. git diff --cached --diff-filter=D fires in any node's pre-commit \u2014 so the guard would catch it on commit, but NOT before a relay node inadvertently picks up the foreign staged deletions."
+    }
+  ],
+  "summary": {
+    "total_failure_modes": 9,
+    "severity_1_count": 5,
+    "severity_2_count": 4,
+    "s302_inadequate_count": 3,
+    "s306_inadequate_count": 1,
+    "inadequate_modes": [
+      "FM-09 (concurrent staged-deletion storm \u2014 new, rule-only)"
+    ],
+    "minimal_count": 7,
+    "adequate_count": 0,
+    "new_this_session": [
+      "FM-09"
+    ],
+    "upgraded_this_update": [
+      "FM-01 (INADEQUATE\u2192MINIMAL)",
+      "FM-03 (INADEQUATE\u2192MINIMAL)",
+      "FM-06 (INADEQUATE\u2192MINIMAL)"
+    ]
+  },
+  "top_hardening_priorities": [
+    {
+      "rank": 1,
+      "mode": "FM-09",
+      "recommendation": "Add cross-session guard: before any commit, if git diff --cached --diff-filter=D --name-only shows files this node never staged (compare to explicit add list), alert and abort.",
+      "effort": "medium",
+      "impact": "prevents relay nodes from inadvertently committing other sessions' staged deletions"
+    },
+    {
+      "rank": 2,
+      "mode": "FM-08",
+      "recommendation": "Add end-to-end test: unit test sync_state.py zero-count guard fires correctly under simulated concurrent git ls-files failure.",
+      "effort": "low",
+      "impact": "validates the single guard layer"
+    },
+    {
+      "rank": 3,
+      "mode": "FM-06",
+      "recommendation": "Inject checkpoint content as context preamble on compaction resume (not just banner). orient.py could print checkpoint in-flight tasks inline.",
+      "effort": "low",
+      "impact": "reduces compaction resume disorientation when in-flight work exists"
+    }
+  ],
+  "swiss_cheese_audit": {
+    "s302_to_s306_delta": "3 severity-1 FMs upgraded from INADEQUATE to MINIMAL. 1 new severity-1 FM added (FM-09). Net: 0 INADEQUATE \u2192 1 INADEQUATE (FM-09 new, rule-only).",
+    "nat_recurrence_check": "Normal Accident Theory predicts FM-09 is a gray rhino: concurrent git add -A interrupted is documented, repeatable, and rule-only defense is insufficient at swarm scale (150+ concurrent sessions).",
+    "recommendation": "Wire FM-09 detection into check.sh pre-commit: emit NOTICE if staged deletions exceed threshold AND were not added by this node (compare to expected staged files list)."
+  },
+  "actual": "9 FMs after adding FM-09 (concurrent staged-deletion storm). 1 INADEQUATE (was 3). 7 MINIMAL (was 5). S301 hardening delivered on all 3 S302 priorities. FM-09 is the new priority-1 gap.",
+  "diff": "Expected: all 3 INADEQUATE modes upgraded. Actual: yes, plus new FM-09 discovered. NAT recurrence prediction confirmed: new gray rhino identified despite S301 hardening."
+}

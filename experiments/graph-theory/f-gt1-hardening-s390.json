@@ -1,0 +1,246 @@
+{
+  "experiment": "F-GT1",
+  "title": "F-GT1 hardening: scale-free re-measurement at S390",
+  "session": "S390",
+  "date": "2026-03-01",
+  "domain": "graph-theory",
+  "check_mode": "objective",
+  "mode": "hardening",
+  "prior_waves": [
+    "S306 (exploration)",
+    "S331 (exploration)"
+  ],
+  "expect": "alpha still <2.0, orphan rate <10%, hub set stable",
+  "metrics": {
+    "N": 695,
+    "total_edges": 1735,
+    "K_avg": 2.4964,
+    "orphan_count": 181,
+    "orphan_pct": 26.0,
+    "gini": 0.6013,
+    "giant_component_size": 680,
+    "giant_component_pct": 97.8,
+    "n_components": 15,
+    "n_isolates": 13,
+    "degree_distribution": {
+      "0": 181,
+      "1": 172,
+      "2": 116,
+      "3": 73,
+      "4": 41,
+      "5": 39,
+      "6": 22,
+      "7": 10,
+      "8": 10,
+      "9": 8,
+      "10": 3,
+      "11": 4,
+      "12": 3,
+      "13": 1,
+      "15": 3,
+      "16": 2,
+      "18": 1,
+      "21": 2,
+      "22": 1,
+      "25": 1,
+      "32": 1,
+      "60": 1
+    }
+  },
+  "power_law": {
+    "scale_free": false,
+    "alpha": 1.6451,
+    "alpha_k2": 2.1331,
+    "n_fitted_k1": 514,
+    "n_fitted_k2": 342,
+    "alpha_trend": "diverging_from_scale_free",
+    "threshold": "[2.0, 3.0]",
+    "conclusion": "NOT SCALE-FREE: alpha=1.645 < 2.0. Hub-spoke topology confirmed (hubs dominate more than classical scale-free). Trend: diverging_from_scale_free."
+  },
+  "top_15_hubs_in": [
+    [
+      "L-601",
+      60
+    ],
+    [
+      "L-001",
+      32
+    ],
+    [
+      "L-039",
+      25
+    ],
+    [
+      "L-599",
+      22
+    ],
+    [
+      "L-025",
+      21
+    ],
+    [
+      "L-613",
+      21
+    ],
+    [
+      "L-042",
+      18
+    ],
+    [
+      "L-495",
+      16
+    ],
+    [
+      "L-555",
+      16
+    ],
+    [
+      "L-044",
+      15
+    ],
+    [
+      "L-526",
+      15
+    ],
+    [
+      "L-671",
+      15
+    ],
+    [
+      "L-019",
+      13
+    ],
+    [
+      "L-022",
+      12
+    ],
+    [
+      "L-457",
+      12
+    ]
+  ],
+  "top_10_hubs_out": [
+    [
+      "L-664",
+      17
+    ],
+    [
+      "L-245",
+      16
+    ],
+    [
+      "L-381",
+      15
+    ],
+    [
+      "L-662",
+      15
+    ],
+    [
+      "L-754",
+      14
+    ],
+    [
+      "L-501",
+      13
+    ],
+    [
+      "L-396",
+      11
+    ],
+    [
+      "L-552",
+      11
+    ],
+    [
+      "L-699",
+      11
+    ],
+    [
+      "L-554",
+      10
+    ]
+  ],
+  "hub_stability_vs_prior": {
+    "L-601": {
+      "s390_in_degree": 60,
+      "in_s306_top5": false,
+      "in_s331_top5": false
+    },
+    "L-001": {
+      "s390_in_degree": 32,
+      "in_s306_top5": true,
+      "in_s331_top5": true
+    },
+    "L-039": {
+      "s390_in_degree": 25,
+      "in_s306_top5": false,
+      "in_s331_top5": true
+    },
+    "L-599": {
+      "s390_in_degree": 22,
+      "in_s306_top5": false,
+      "in_s331_top5": false
+    },
+    "L-025": {
+      "s390_in_degree": 21,
+      "in_s306_top5": false,
+      "in_s331_top5": true
+    }
+  },
+  "trajectory": {
+    "S306": {
+      "N": 329,
+      "alpha": 1.903,
+      "orphan_pct": 57.8,
+      "K_avg": 0.809,
+      "top_hub_indeg": 10
+    },
+    "S331": {
+      "N": 397,
+      "alpha": 1.751,
+      "orphan_pct": 5.3,
+      "K_avg": 1.76,
+      "giant_pct": 92.9,
+      "top_hub_indeg": 23
+    },
+    "S390": {
+      "N": 695,
+      "alpha": 1.6451,
+      "orphan_pct": 26.0,
+      "K_avg": 2.4964,
+      "giant_pct": 97.8,
+      "top_hub_indeg": 60
+    }
+  },
+  "actual": "N=695, alpha=1.645 (k_min=1), alpha=2.133 (k_min=2). Orphan 26.0% (rebound from S331 sprint). Giant 97.8%. K_avg=2.496. Hub regime shift: L-601 (60 in-degree, created S355) displaced L-001 (32) as dominant hub. All 60 L-601 citers are post-L-500. Orphan rate stable ~25% across all eras — S331 5.3% was citation-sprint anomaly. Tail (k>=2) IS scale-free at alpha=2.133; bulk k=0/1 inflation breaks overall fit.",
+  "diff": "Expected alpha<2.0 — CONFIRMED (1.645). Expected orphan<10% — WRONG (26.0%), S331 5.3% was sprint artifact not structural. Expected hub stability — WRONG: L-601 displaced L-001 as top hub (did not exist at S331). New finding: k_min=2 alpha=2.133 IS scale-free — zero-inflated power law mixture model. New finding: L-601 accumulated 60 citations in ~200 lessons (30% citation rate) — structural enforcement theorem became the swarm's dominant attractor.",
+  "analysis": {
+    "alpha_trajectory": {
+      "S306": 1.903,
+      "S331": 1.751,
+      "S390": 1.645,
+      "trend": "monotonic_decrease",
+      "interpretation": "Diverging from scale-free. Hub concentration increasing faster than tail thickening. The more the swarm cites, the more it cites the same hubs."
+    },
+    "dual_regime": {
+      "k_min_1": {"alpha": 1.645, "scale_free": false, "n": 514},
+      "k_min_2": {"alpha": 2.133, "scale_free": true, "n": 342},
+      "interpretation": "Zero-inflated power law. Bulk: ~25% lessons never cited (structural orphans). Tail: genuine scale-free preferential attachment. The graph is a mixture of an inert mass (uncited) and an active citation network (scale-free)."
+    },
+    "hub_regime_shift": {
+      "L-601_created": "S355",
+      "L-601_in_degree": 60,
+      "L-601_growth_rate": "60 citations in ~200 lessons = 0.30 cites/lesson",
+      "L-001_in_degree": 32,
+      "interpretation": "Structural enforcement theorem (L-601, Sharpe 9) became the swarm's most-cited lesson, displacing the founding lesson L-001. L-601 attracted citations 2x faster than L-001. Content determines hub formation more than age — pure fitness-driven preferential attachment."
+    },
+    "orphan_rebound": {
+      "early_orphan_rate": 21.7,
+      "mid_orphan_rate": 24.0,
+      "late_orphan_rate": 26.0,
+      "interpretation": "Natural orphan rate is ~25% across all eras. The S331 5.3% was artificial (lesson_quality_fixer.py sprint enriched Cites: headers). Without active enrichment, ~1/4 of lessons never get cited. This is a baseline structural property, not a failure."
+    },
+    "hardening_verdict": "CONFIRMED (3 waves). Alpha steadily diverges from scale-free range. Hub-spoke topology is the STABLE structural form. New insight: dual-regime (inert mass + scale-free tail) resolves the apparent contradiction between sub-scale-free alpha and power-law-like hubs."
+  }
+}

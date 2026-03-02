@@ -1,0 +1,235 @@
+{
+  "experiment": "F-GEN1: Generalization compression baseline",
+  "session": "S303",
+  "date": "2026-02-28",
+  "description": "Measure compression gap: lessons with ISO-mappable content vs lessons that cite the atlas",
+  "metrics": {
+    "total_lessons": 322,
+    "lessons_citing_iso": 10,
+    "lessons_iso_citable_rate": 0.031,
+    "lessons_iso_mappable_no_cite": 145,
+    "lessons_iso_mappable_rate": 0.45,
+    "compression_gap_ratio": 14.5,
+    "cross_domain_f_prefix_rate": 0.022,
+    "iso_density_compression_opportunity": 0.45
+  },
+  "iso_lesson_counts": {
+    "ISO-1": 22,
+    "ISO-2": 4,
+    "ISO-3": 40,
+    "ISO-4": 33,
+    "ISO-5": 4,
+    "ISO-6": 52,
+    "ISO-7": 3,
+    "ISO-8": 22,
+    "ISO-9": 43,
+    "ISO-10": 2,
+    "ISO-11": 1,
+    "ISO-12": 13,
+    "ISO-13": 15
+  },
+  "iso_lessons_sample": {
+    "ISO-1": [
+      "L-003",
+      "L-012",
+      "L-047"
+    ],
+    "ISO-2": [
+      "L-206",
+      "L-274",
+      "L-312"
+    ],
+    "ISO-3": [
+      "L-005",
+      "L-011",
+      "L-020"
+    ],
+    "ISO-4": [
+      "L-050",
+      "L-066",
+      "L-092"
+    ],
+    "ISO-5": [
+      "L-101",
+      "L-144",
+      "L-286"
+    ],
+    "ISO-6": [
+      "L-013",
+      "L-028",
+      "L-031"
+    ],
+    "ISO-7": [
+      "L-282",
+      "L-299",
+      "L-346"
+    ],
+    "ISO-8": [
+      "L-023",
+      "L-029",
+      "L-082"
+    ],
+    "ISO-9": [
+      "L-010",
+      "L-020",
+      "L-035"
+    ],
+    "ISO-10": [
+      "L-299",
+      "L-303"
+    ],
+    "ISO-11": [
+      "L-331"
+    ],
+    "ISO-12": [
+      "L-003",
+      "L-095",
+      "L-203"
+    ],
+    "ISO-13": [
+      "L-015",
+      "L-040",
+      "L-044"
+    ]
+  },
+  "lessons_already_citing": [
+    "L-282",
+    "L-288",
+    "L-299",
+    "L-303",
+    "L-306",
+    "L-331",
+    "L-336",
+    "L-346",
+    "L-347",
+    "L-356"
+  ],
+  "top_iso_mappable_no_cite": [
+    {
+      "lesson": "L-003",
+      "matched_isos": [
+        "ISO-1",
+        "ISO-12"
+      ]
+    },
+    {
+      "lesson": "L-005",
+      "matched_isos": [
+        "ISO-3"
+      ]
+    },
+    {
+      "lesson": "L-010",
+      "matched_isos": [
+        "ISO-9"
+      ]
+    },
+    {
+      "lesson": "L-011",
+      "matched_isos": [
+        "ISO-3"
+      ]
+    },
+    {
+      "lesson": "L-012",
+      "matched_isos": [
+        "ISO-1"
+      ]
+    },
+    {
+      "lesson": "L-013",
+      "matched_isos": [
+        "ISO-6"
+      ]
+    },
+    {
+      "lesson": "L-015",
+      "matched_isos": [
+        "ISO-13"
+      ]
+    },
+    {
+      "lesson": "L-020",
+      "matched_isos": [
+        "ISO-3",
+        "ISO-9"
+      ]
+    },
+    {
+      "lesson": "L-023",
+      "matched_isos": [
+        "ISO-8"
+      ]
+    },
+    {
+      "lesson": "L-028",
+      "matched_isos": [
+        "ISO-6"
+      ]
+    },
+    {
+      "lesson": "L-029",
+      "matched_isos": [
+        "ISO-8"
+      ]
+    },
+    {
+      "lesson": "L-031",
+      "matched_isos": [
+        "ISO-6"
+      ]
+    },
+    {
+      "lesson": "L-035",
+      "matched_isos": [
+        "ISO-9"
+      ]
+    },
+    {
+      "lesson": "L-036",
+      "matched_isos": [
+        "ISO-9"
+      ]
+    },
+    {
+      "lesson": "L-040",
+      "matched_isos": [
+        "ISO-6",
+        "ISO-13"
+      ]
+    },
+    {
+      "lesson": "L-044",
+      "matched_isos": [
+        "ISO-13"
+      ]
+    },
+    {
+      "lesson": "L-047",
+      "matched_isos": [
+        "ISO-1"
+      ]
+    },
+    {
+      "lesson": "L-050",
+      "matched_isos": [
+        "ISO-3",
+        "ISO-4"
+      ]
+    },
+    {
+      "lesson": "L-051",
+      "matched_isos": [
+        "ISO-3"
+      ]
+    },
+    {
+      "lesson": "L-052",
+      "matched_isos": [
+        "ISO-3"
+      ]
+    }
+  ],
+  "finding": "generalizer_expert.py underestimates compression opportunity by 22x: F-prefix cross-domain rate=2%, ISO-keyword density=45%",
+  "next_action": "Add ISO-density metric to generalizer_expert.py; run retroactive atlas annotation pass"
+}

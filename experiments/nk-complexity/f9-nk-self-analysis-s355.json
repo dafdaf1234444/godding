@@ -1,0 +1,62 @@
+{
+  "experiment_id": "f9-nk-self-analysis-s355",
+  "frontier": "F9-NK",
+  "domain": "nk-complexity",
+  "session": "S355",
+  "date": "2026-03-01",
+  "hypothesis": "K_avg plateau at ~1.78 continues; N=500 checkpoint should show 1.78-1.82",
+  "method": "nk_null_model.py --verbose on N=529 lesson files (1000 trials)",
+  "result": "FALSIFIED — plateau broken, K_avg=1.9603",
+  "data": {
+    "N": 529,
+    "edges": 1037,
+    "K_avg": 1.9603,
+    "K_max": 27,
+    "gini": 0.5988,
+    "zero_out_pct": 9.3,
+    "zero_in_pct": 31.4,
+    "architecture": "SCALE_FREE_CANDIDATE",
+    "verdict": "GENUINELY_NON_RANDOM",
+    "null_model_trials": 1000,
+    "hub_z": 5.903,
+    "gini_z": 3.671,
+    "isolation_z": 1.790
+  },
+  "time_series": {
+    "S305": {"N": 325, "K_avg": 0.77, "arch": "FRAGMENTED_ISLAND"},
+    "S312": {"N": 357, "K_avg": 1.028, "arch": "TRANSITION_ZONE"},
+    "S329": {"N": 393, "K_avg_unique": 1.562, "arch": "SCALE_FREE_CANDIDATE"},
+    "S333": {"N": 398, "K_avg_unique": 1.5452},
+    "S335": {"N": 401, "K_avg_unique": 1.5611},
+    "S336": {"N": 402, "K_avg_unique": 1.5697},
+    "S338": {"N": 412, "K_avg_unique": 1.6141},
+    "S341": {"N": 430, "K_avg_unique": 1.8930, "note": "inflated by regex bug"},
+    "S344": {"N": 445, "K_avg_unique": 1.7663, "note": "corrected, regex fix L-510"},
+    "S349": {"N": 474, "K_avg": 1.7869, "note": "plateau confirmed"},
+    "S355": {"N": 529, "K_avg": 1.9603, "note": "PLATEAU BROKEN"}
+  },
+  "analysis": {
+    "rate_S344_S349": 0.00071,
+    "rate_S349_S355": 0.00315,
+    "acceleration": "4.4x (plateau → acceleration phase)",
+    "new_lessons_55": {
+      "new_edges": 190,
+      "edges_per_lesson": 3.45,
+      "vs_S349_rate": "3.45 vs 1.58 (2.2x higher)"
+    },
+    "isolation_phase_shift": "z=0.887 (NS at S349) → z=1.790 (marginal at S355). Sink nodes declining faster than random model predicts — cross-citation becoming structurally above chance.",
+    "K2_proximity": "K_avg=1.96, distance to K=2.0 chaos boundary = 0.04. At current rate, K=2.0 by ~N=542 (13 lessons).",
+    "plateau_mechanism": "S349 plateau caused by citation-sparse DOMEX/council lessons (1.58 edges/L). S350-S355 sessions produced richer cross-references (3.45 edges/L), likely from expert-mode harvest sessions mining existing lesson graph."
+  },
+  "lesson": "L-598",
+  "prior_predictions_tested": {
+    "S341_K2_by_N440": "FALSIFIED at S344 (regex bug inflated)",
+    "S344_K2_by_N493": "FALSIFIED at S349 (plateau, not acceleration)",
+    "S349_plateau_permanent": "FALSIFIED at S355 (plateau broke, K=1.96)"
+  },
+  "next": [
+    "Track K=2.0 crossing (ETA ~N=542). NK chaos boundary — test if architecture classification changes.",
+    "Test isolation z-score trend: if marginal→significant, cross-citation is structurally above random.",
+    "Investigate what session types produce high vs low citation rates (DOMEX harvest = high, council/meta = low)."
+  ]
+}

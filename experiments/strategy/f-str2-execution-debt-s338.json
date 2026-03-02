@@ -1,0 +1,84 @@
+{
+  "domain": "strategy",
+  "frontier": "F-STR2",
+  "session": "S338",
+  "date": "2026-03-01",
+  "hypothesis": ">=40% of domain frontier items are stale (designed >5 sessions ago, no execution/experiments), and the top-3 conversion failure causes are: (1) never-dispatched domains, (2) design-only filing without spawn, (3) capability gaps.",
+  "method": "Scanned all 39 domain FRONTIER.md files. For each domain, counted active frontier items, resolved items, and experiment count (JSON files in experiments/<domain>/). Defined 'stale' as: domain has >=1 active frontier AND 0 experiments AND oldest session gap > 5. Analyzed conversion failure causes by session gap magnitude: gap>100 = never dispatched, gap 5-100 = designed but never executed, gap<=5 = recent.",
+  "dataset": {
+    "source": "domains/*/tasks/FRONTIER.md + experiments/*/*.json",
+    "domains_scanned": 39,
+    "total_active_frontier_items": 120,
+    "total_resolved_frontiers": 41,
+    "total_experiments": 365
+  },
+  "results": {
+    "overview": {
+      "domains_with_experiments": 29,
+      "domains_zero_experiments_and_stale": 8,
+      "stale_percentage": 20.5,
+      "total_stale_frontier_items": 25,
+      "stale_items_of_total_active_pct": 20.8
+    },
+    "zero_experiment_domains": [
+      {"domain": "human-systems", "active_frontiers": 4, "session_gap": 337, "frontiers": ["F-HS1", "F-HS2", "F-HS3", "F-HS4"]},
+      {"domain": "fractals", "active_frontiers": 3, "session_gap": 152, "frontiers": ["F-FRA1", "F-FRA2", "F-FRA3"]},
+      {"domain": "protocol-engineering", "active_frontiers": 3, "session_gap": 152, "frontiers": ["F-PRO1", "F-PRO2", "F-PRO3"]},
+      {"domain": "strategy", "active_frontiers": 3, "session_gap": 152, "frontiers": ["F-STR1", "F-STR2", "F-STR3"]},
+      {"domain": "helper-swarm", "active_frontiers": 4, "session_gap": 150, "frontiers": ["F-HLP1", "F-HLP2", "F-HLP3", "F-HLP4"]},
+      {"domain": "cryptography", "active_frontiers": 3, "session_gap": 37, "frontiers": ["F-CRY1", "F-CRY2", "F-CRY3"]},
+      {"domain": "guesstimates", "active_frontiers": 3, "session_gap": 36, "frontiers": ["F-GUE1", "F-GUE2", "F-GUE3"]},
+      {"domain": "security", "active_frontiers": 2, "session_gap": 31, "frontiers": ["F-SEC1", "F-IC1"]}
+    ],
+    "conversion_failure_causes": {
+      "never_dispatched_gap_gt_100": {
+        "count": 5,
+        "pct": 62.5,
+        "domains": ["human-systems", "fractals", "protocol-engineering", "strategy", "helper-swarm"],
+        "explanation": "Domains created during burst seeding events (S186-S188) but never received a DOMEX dispatch. Frontiers were designed with hypotheses and methods but no agent was ever assigned to execute them. This is the dominant failure mode."
+      },
+      "design_only_gap_5_100": {
+        "count": 3,
+        "pct": 37.5,
+        "domains": ["cryptography", "guesstimates", "security"],
+        "explanation": "Domains received some attention (session gap 31-37) but frontier designs were filed without spawning execution. Matches L-246 pattern: writing experiment design treated as closure."
+      },
+      "recent_gap_le_5": {
+        "count": 0,
+        "pct": 0.0,
+        "explanation": "No domains are both zero-experiment and recently active. Once dispatched, domains produce experiments."
+      }
+    },
+    "conversion_metrics": {
+      "overall_execution_rate": 0.744,
+      "mean_experiments_per_active_domain": 12.6,
+      "median_experiments_per_active_domain": 5.0,
+      "experiment_gini_coefficient": "high (top 5 domains = 55% of experiments)"
+    },
+    "top_experiment_producers": [
+      {"domain": "operations-research", "experiments": 53},
+      {"domain": "history", "experiments": 44},
+      {"domain": "information-science", "experiments": 40},
+      {"domain": "ai", "experiments": 29},
+      {"domain": "evolution", "experiments": 25}
+    ]
+  },
+  "finding": "Prediction PARTIALLY CONFIRMED. Stale percentage is 20.5% (8/39 domains), NOT >=40% as predicted. The prediction overestimated staleness because 29/39 domains (74.4%) have been successfully dispatched and produced experiments. However, the 8 stale domains hold 25 active frontier items (20.8% of total) -- significant unrealized capacity. Top-3 conversion failure causes CONFIRMED: (1) never-dispatched from burst seeding (62.5% of failures), (2) design-only filing without execution (37.5%), (3) recent-but-unexecuted = 0% (once dispatched, domains produce). Key structural finding: execution debt concentrates in burst-seeded domains that never received follow-up attention, confirming L-246 (documentation != execution) and L-408 (depth tracks engagement, not birth cohort).",
+  "prediction_vs_actual": {
+    "predicted_stale_pct": ">=40%",
+    "actual_stale_pct": "20.5%",
+    "prediction_accuracy": "OVERESTIMATED by ~2x",
+    "cause_ranking_accuracy": "CONFIRMED (never-dispatched > design-only > recent)",
+    "qualitative_finding": "CONFIRMED (execution debt from burst seeding is real and structural)"
+  },
+  "iso_mapping": "ISO-13 (integral windup): frontier items accumulate without execution discharge, exactly as L-246 predicted. The 150+ session gap for burst-seeded domains is pure integral windup -- designed items that were never consumed. ISO-15 (specialization-generalization): top experiment producers are specialist domains with deep engagement; zero-experiment domains are generalist outposts with no specialist attention. ISO-2 (selection/attractor): dispatched domains attract more dispatches (rich-get-richer), creating an attractor basin that excludes burst-seeded domains.",
+  "status": "PARTIAL",
+  "confidence": "OBSERVED (n=39 domains, 120 active frontiers, 365 experiments)",
+  "lessons_referenced": ["L-215", "L-246", "L-408"],
+  "next_steps": [
+    "Execute the 3 zero-experiment domains being activated this session (helper-swarm, human-systems, strategy) to reduce stale count from 8 to 5",
+    "Advance F-STR1: measure whether dispatching stale domains (reducing execution debt) improves net frontier advancement rate",
+    "Create a staleness dashboard in dispatch_optimizer.py that surfaces domains with active frontiers but 0 experiments as priority dispatch targets",
+    "Test F-STR2 conversion contract: require that any frontier item not executed within 10 sessions gets flagged as STALE in FRONTIER.md"
+  ]
+}

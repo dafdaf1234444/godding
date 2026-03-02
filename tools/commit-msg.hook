@@ -1,0 +1,24 @@
+#!/bin/bash
+# Enforce swarm commit message format.
+set -euo pipefail
+
+MSG_FILE="${1:-}"
+if [ -z "$MSG_FILE" ] || [ ! -f "$MSG_FILE" ]; then
+    echo "COMMIT BLOCKED: commit message file not found."
+    exit 1
+fi
+
+FIRST_LINE="$(sed -n '1p' "$MSG_FILE" | tr -d '\r')"
+
+# Allow git-generated/system commit messages.
+if echo "$FIRST_LINE" | grep -Eq '^(Merge|Revert|fixup!|squash!)'; then
+    exit 0
+fi
+
+if ! echo "$FIRST_LINE" | grep -Eq '^\[S[0-9]+\] [^:]+: .+'; then
+    echo ""
+    echo "COMMIT BLOCKED: message must match [S<N>] what: why"
+    echo "Example: [S153] hooks: enforce quick checks on every commit"
+    echo "Got: $FIRST_LINE"
+    exit 1
+fi

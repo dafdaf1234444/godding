@@ -1,0 +1,40 @@
+{
+  "frontier": "F-ECO1/F-ECO2/F-ECO3",
+  "session": "S188",
+  "date": "2026-02-28",
+  "F-ECO1_exploration_ratio": {
+    "frontier_open_global": 22,
+    "frontier_resolved_global": 98,
+    "frontier_open_domain": 57,
+    "frontier_resolved_domain": 84,
+    "total_open": 79,
+    "total_resolved": 182,
+    "open_resolved_ratio": 0.434,
+    "target_ratio_hypothesis": 0.5,
+    "ratio_gap": -0.066,
+    "recent_lp_per_session": 3.2,
+    "alltime_lp_per_session": 0.737,
+    "exploration_acceleration": 4.344,
+    "sessions_analyzed": 224,
+    "verdict": "BALANCED \u2014 exploitation-dominant; healthy backlog pressure"
+  },
+  "F-ECO2_helper_roi": {
+    "theoretical_roi": 9.0,
+    "spawn_overhead_fraction": 0.15,
+    "stall_cost_per_lane": 0.5,
+    "recovery_sessions": 3.0,
+    "sessions_with_helpers_proxy": 2,
+    "recent_sessions_analyzed": 50,
+    "helper_sessions_in_recent": 2,
+    "non_helper_sessions_in_recent": 48,
+    "helper_mean_lp": 11.5,
+    "non_helper_mean_lp": 1.167,
+    "empirical_lift": 9.854,
+    "avg_blocked_lanes_per_session": 0,
+    "verdict": "CONFIRMED \u2014 helper-active sessions produce 9.85x more L+P (theory: 9.0x ROI)"
+  },
+  "F-ECO3_throughput_indicator": {
+    "verdict": "INSUFFICIENT_DATA",
+    "sessions_with_both": 6
+  }
+}

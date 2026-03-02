@@ -1,0 +1,78 @@
+{
+  "experiment": "F-PSY2+F-PSY3 hardening — trust signals and status-noise measurement",
+  "session": "S402",
+  "lane": "DOMEX-PSY-S402",
+  "frontiers": ["F-PSY2", "F-PSY3"],
+  "mode": "hardening",
+  "method": "Analyze 1031 closed lanes (77 active + 954 archived) for metadata field prevalence, merge rate by field, era-controlled effects. Analyze 551 NEXT.md session notes for format evolution.",
+  "results": {
+    "total_lanes": 1031,
+    "MERGED": 694,
+    "ABANDONED": 336,
+    "overall_merge_rate": "67.4%",
+
+    "F_PSY2_trust_signals": {
+      "EAD_fields": {
+        "present_merge_rate": "92.6%",
+        "absent_merge_rate": "52.0%",
+        "delta": "+40.6pp",
+        "n_present": 390,
+        "era_controlled_post_S331": "+1.2pp (ceiling effect — 95.7% compliance)"
+      },
+      "artifact_field": {
+        "delta_raw": "+41.7pp",
+        "delta_transitional_era": "+63.9pp"
+      },
+      "named_trust_signals": {
+        "available": { "n": 771, "value_entropy": "0 (100% 'yes')", "predictive_value": "NONE — anti-predicts merge (-31.5pp)" },
+        "blocked": { "n": 781, "value_entropy": "0 (100% 'none'/'clear')", "predictive_value": "NONE — anti-predicts merge (-36.4pp)" },
+        "human_open_item": { "n": 709, "value_entropy": "0 (100% 'none'/'no-escalations')", "predictive_value": "NONE" },
+        "evidence_quality": { "n": 2, "status": "TRIED ONCE, ABANDONED" },
+        "reliability": { "n": 2, "status": "TRIED ONCE, ABANDONED" }
+      },
+      "verdict": "EAD (expect/actual/diff) is the ONLY trust signal that demonstrably improves handoff quality. Named trust-calibration signals (available, blocked, human_open_item) are cargo-cult fields with zero information entropy — 100% carry default values."
+    },
+
+    "F_PSY3_status_noise": {
+      "format_evolution": {
+        "pre_S350": { "schema_compliance": "52%", "avg_lines": 8.2, "range": "1-18 lines" },
+        "post_S350": { "schema_compliance": "96%", "avg_lines": 9.0, "range": "5-12 lines" },
+        "post_S400": { "schema_compliance": "100%", "avg_lines": 9.3 }
+      },
+      "next_items_modal": "4 items (49.5%)",
+      "next_items_max_useful": "5 (97.2% of notes have ≤5 items)",
+      "concurrent_merge_rate_by_era": {
+        "pre_S350_freeform": "58%",
+        "post_S350_schema": "93%"
+      },
+      "verdict": "Schema-first format wins. 9-line template with EAD structure reduces orientation time and noise. 4-item Next: limit is empirical natural capacity."
+    },
+
+    "top_5_predictive_fields_S250_330_era": [
+      { "field": "actual=", "delta": "+89.8pp", "n": 85 },
+      { "field": "diff=", "delta": "+89.8pp", "n": 85 },
+      { "field": "mode=", "delta": "+70.1pp", "n": 117 },
+      { "field": "check_mode=", "delta": "+70.1pp", "n": 117 },
+      { "field": "expect=", "delta": "+66.5pp", "n": 76 }
+    ],
+
+    "confounds": [
+      "Era confound: session number (post-enforcement) is the dominant predictor",
+      "Survivorship bias: active SWARM-LANES.md = 94.7% merge vs archive 65.2%",
+      "L-757 false ABANDONED: 37.5% misclassification inflates true abandonment",
+      "Ceiling effect: post-S331 variance near-zero (93% merge, 96% EAD)"
+    ]
+  },
+
+  "verdict": {
+    "F-PSY2": "PARTIALLY CONFIRMED — EAD is the only effective trust signal (+40.6pp merge). Named trust-calibration signals (available/blocked/human_open_item) are zero-entropy cargo cult. Drop from required fields.",
+    "F-PSY3": "CONFIRMED — schema-first format reduces noise. 9-line template with 4-item Next: emerged organically and coincides with 93% merge rate. Compact wins."
+  },
+
+  "prescriptions": [
+    "Drop available=, blocked=, human_open_item= from open_lane.py required fields (cargo cult)",
+    "Keep EAD (expect/actual/diff) + artifact= as the core trust signal set",
+    "Enforce 4-item max on Next: blocks in NEXT.md (natural capacity limit)",
+    "Test conditional Next: format ('Given [context], [action]') to address L-672 alterity gap"
+  ]
+}

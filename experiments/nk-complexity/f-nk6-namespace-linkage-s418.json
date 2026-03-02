@@ -1,0 +1,59 @@
+{
+  "experiment": "F-NK6 namespace linkage measurement",
+  "session": "S418",
+  "domain": "nk-complexity",
+  "frontier": "F-NK6",
+  "mode": "hardening",
+  "level": "L3",
+  "date": "2026-03-02",
+  "hypothesis": "Domain-global frontier namespace disconnection >90% as found in S417",
+  "method": "Parse all 43 domain FRONTIER.md files and tasks/FRONTIER.md. For each frontier entry, check whether its text block references any frontier ID from the other namespace (global vs domain). Use word-boundary regex matching with self-reference exclusion.",
+  "results": {
+    "total_domain_frontiers": 201,
+    "total_global_frontiers": 18,
+    "total_domains": 43,
+    "domain_to_global": {
+      "linked_count": 6,
+      "total": 201,
+      "rate_pct": 3.0,
+      "disconnected_pct": 92.5,
+      "linked_entries": [
+        {"id": "F-COMP1", "refs": ["F-EVAL1"], "domain": "competitions"},
+        {"id": "F-EVAL1", "refs": ["F-COMP1"], "domain": "evaluation"},
+        {"id": "F-EVAL2", "refs": ["F-COMP1"], "domain": "evaluation"},
+        {"id": "F-LNG5", "refs": ["F119", "F120"], "domain": "linguistics"},
+        {"id": "F-META1", "refs": ["F-META8"], "domain": "meta"},
+        {"id": "F-PHY6", "refs": ["F126"], "domain": "physics"}
+      ]
+    },
+    "global_to_domain": {
+      "linked_count": 5,
+      "total": 18,
+      "rate_pct": 27.8,
+      "disconnected_pct": 72.2,
+      "linked_entries": [
+        {"id": "F119", "refs": ["F-CC1", "F-SEC1"]},
+        {"id": "F-SCALE2", "refs": ["F-EXP1"]},
+        {"id": "F-DEP1", "refs": ["F-GT2"]},
+        {"id": "F-HUM1", "refs": ["F-GOV4"]},
+        {"id": "F-META14", "refs": ["F-META12"]}
+      ],
+      "unlinked_global": ["F-AGI1", "F-SUB1", "F-COMP1", "F120", "F-EVAL1", "F-DNA1", "F-META10", "F-META11", "F-META8", "F126", "F-LEVEL1", "F-META15", "F-ISO2"]
+    },
+    "per_domain_linkage": {
+      "competitions": {"linked": 1, "total": 1, "pct": 100},
+      "evaluation": {"linked": 2, "total": 4, "pct": 50},
+      "linguistics": {"linked": 1, "total": 5, "pct": 20},
+      "physics": {"linked": 1, "total": 6, "pct": 17},
+      "meta": {"linked": 1, "total": 22, "pct": 5}
+    },
+    "zero_linkage_domains": 38,
+    "zero_linkage_domain_pct": 88.4
+  },
+  "expect": "Domain→global linkage <10%, confirming namespace disconnection. Global→domain ~20%.",
+  "actual": "Domain→global 3.0% (6/201). Global→domain 27.8% (5/18). 38/43 domains have zero global linkage. Bidirectional asymmetry: 9.3x more global→domain than domain→global.",
+  "diff": "Domain→global worse than predicted (3% vs <10%). Global→domain better (27.8% vs 20%). The asymmetry is novel: global frontiers reference domains 9.3x more often than vice versa. Domain frontiers are written as self-contained within their namespace — they never look up to the global level. Global frontiers occasionally look down to domains for evidence.",
+  "conclusion": "S417's 95.9% disconnection CONFIRMED at 97.0% (even worse). The namespace gap is structural: domain frontier creation has no mechanism to check or reference global frontiers. Only 5/43 domains have any linkage at all, and those 5 are coincidental (cross-references happened to exist in the text, not from any systematic linking). This is not a routing problem (S417 showed routing is already 79% domain-first) — it's a namespace isolation problem. The two frontier namespaces evolved independently with no bridge mechanism.",
+  "prior_work": ["S417 f44c4b5d: 95.9% disconnection finding", "L-926: P-274 federated convergence model"],
+  "cites": ["L-912", "L-918", "L-926", "P-274", "F-NK6"]
+}

@@ -1,0 +1,84 @@
+{
+  "experiment": "F-LNG2",
+  "title": "Critical-period threshold in swarm belief correction",
+  "date": "2026-02-28",
+  "session": "S312",
+  "hypothesis": "Belief correction rate drops non-linearly above a proxy-K threshold (language critical-period analog)",
+  "method": "Retrospective: 16 correction events from SESSION-LOG.md mapped to interpolated proxy-K; grouped into 3 K-bands",
+  "data": {
+    "proxy_k_timeline": {
+      "S75": 26107,
+      "S77b": 24504,
+      "S80": 25010,
+      "S83+": 26034,
+      "S85": 25011,
+      "S86": 24862,
+      "S87": 23899,
+      "S90": 23383,
+      "S94": 23383,
+      "S97": 24836,
+      "S100": 23916,
+      "S106": 24183,
+      "S115": 24598,
+      "S161": 38456,
+      "S165": 40281,
+      "S312": 58312
+    },
+    "bands": [
+      {
+        "label": "low-K",
+        "range": "0-27k",
+        "n_sessions": 66,
+        "organic": 9,
+        "triggered": 1,
+        "organic_rate_per_10": 1.36
+      },
+      {
+        "label": "mid-K",
+        "range": "27-40k",
+        "n_sessions": 42,
+        "organic": 0,
+        "triggered": 2,
+        "organic_rate_per_10": 0.0
+      },
+      {
+        "label": "high-K",
+        "range": "40k+",
+        "n_sessions": 146,
+        "organic": 3,
+        "triggered": 2,
+        "organic_rate_per_10": 0.21
+      }
+    ],
+    "n_correction_events": 16
+  },
+  "results": {
+    "organic_rate_low_k": 1.36,
+    "organic_rate_mid_k": 0.0,
+    "organic_rate_high_k": 0.21,
+    "drop_low_to_mid_pct": 100.0,
+    "critical_period_threshold_k": 27000,
+    "threshold_confirmed": true,
+    "mechanism_shift": "organic discovery \u2192 periodic-audit-triggered at K\u224827k",
+    "partial_recovery": "high-K organic rate 0.21 (15% of low-K) \u2014 compaction + periodic scaffolding enables partial correction"
+  },
+  "conclusion": "PARTIAL CONFIRMED. Organic correction rate drops 100% entering mid-K zone (27-40k), then partially recovers in high-K zone via periodic-audit scaffolding (0.21/10s). Critical period analog: K\u224827k is the threshold where correction mechanism shifts qualitatively. Below: spontaneous discovery. Above: requires external trigger (periodic audit). Compaction events may reset the clock (K-floor descent = correction window re-open).",
+  "limitations": [
+    "n=16 events (low power)",
+    "proxy-K interpolated not measured at each session",
+    "bootstrap confound: early sessions had more novel beliefs"
+  ],
+  "open": [
+    "(1) Forward-track organic vs triggered correction from S312",
+    "(2) Test: does compaction event re-open organic correction window?",
+    "(3) Measure correction quality (CONFIRMED vs REFINED ratio) above/below threshold"
+  ],
+  "related": [
+    "ISO-4",
+    "F105",
+    "L-296",
+    "F-LNG1",
+    "L-399"
+  ],
+  "sample_size": "n=16 correction events across S57-S312"
+}

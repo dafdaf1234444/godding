@@ -1,0 +1,41 @@
+{
+  "experiment": "B1 re-test at N=572",
+  "session": "S359",
+  "domain": "quality",
+  "frontier": "B1",
+  "hypothesis": "B1 holds at N=572 with tight margin (<3pp from falsification threshold)",
+  "method": "Three-criterion test: (1) git storage recovery on sample lessons, (2) INDEX.md theme bucket coverage vs 20% miss threshold, (3) semantic retrieval gap by L-number findability",
+  "results": {
+    "storage": {
+      "verdict": "CONFIRMED",
+      "total_lessons": 572,
+      "sampled": [1, 50, 100, 200, 300, 400, 500, 569],
+      "all_recoverable": true,
+      "lesson_touching_commits": 672
+    },
+    "theme_retrieval": {
+      "verdict": "FALSIFIED",
+      "total_lessons": 572,
+      "themed_lessons": 444,
+      "coverage_pct": 77.6,
+      "miss_rate_pct": 22.4,
+      "threshold_pct": 20.0,
+      "margin_pp": 2.4,
+      "s307_baseline_miss_pct": 14.0,
+      "s307_lesson_count": 352,
+      "degradation_pp": 8.4,
+      "degradation_rate_pp_per_lesson": 0.038,
+      "projected_25pct_at_lessons": 586
+    },
+    "semantic_retrieval": {
+      "verdict": "GAP_WIDENING",
+      "lessons_findable_by_number": 142,
+      "findability_pct": 24.8,
+      "gap_pct": 75.2
+    }
+  },
+  "overall_verdict": "PARTIALLY_FALSIFIED",
+  "lesson": "L-636",
+  "conclusion": "Storage scales indefinitely. Retrieval degrades linearly at 0.038pp/lesson. B1 needs splitting: B1a (storage, confirmed) vs B1b (retrieval, falsified). Immediate fix: INDEX.md theme backfill of ~15 lessons. Structural fix: F-QC4 theme-at-write-time enforcement.",
+  "diff_from_expect": "Expected B1 to hold with tight margin. It didn't — 2.4pp past threshold. Prediction correct on storage, wrong on retrieval. Degradation rate (0.038pp/L) was not predicted."
+}

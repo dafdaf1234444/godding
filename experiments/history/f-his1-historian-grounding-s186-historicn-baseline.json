@@ -1,0 +1,666 @@
+{
+  "frontier_id": "F-HIS1",
+  "title": "Historian-grounding coverage in active lane rows",
+  "input": "tasks/SWARM-LANES.md",
+  "analysis": {
+    "active_row_count": 71,
+    "active_lane_count": 25,
+    "historian_check_coverage": 0.0,
+    "artifact_ref_coverage": 0.1268,
+    "session_anchor_coverage": 0.0141,
+    "mean_grounding_score": 0.0469,
+    "high_grounding_rate": 0.0,
+    "low_grounding_threshold": 0.67,
+    "low_grounding_rows": [
+      {
+        "lane": "L-S184-F-AI2-HLT2-VERIFY",
+        "session": "S184",
+        "status": "READY",
+        "focus": "global",
+        "scope_key": "tools/wiki_swarm.py",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S184-P155-TEST-HARDEN",
+        "session": "S184",
+        "status": "READY",
+        "focus": "tools/p155",
+        "scope_key": "tools/test_p155_live_trace.py",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S184-UNDERSTAND-SWARM",
+        "session": "S184",
+        "status": "ACTIVE",
+        "focus": "global",
+        "scope_key": "tasks/NEXT.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-CTL2-STRUCTURED-TAGGING",
+        "session": "S186",
+        "status": "ACTIVE",
+        "focus": "domains/control-theory",
+        "scope_key": "tools/f_ctl2_diff_latency.py",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-AI",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/ai",
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-BRN",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/brain",
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-CTL",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/control-theory",
+        "scope_key": "domains/control-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-EVO",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/evolution",
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-GAM",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/game-theory",
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-IS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/information-science",
+        "scope_key": "domains/information-science/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-IS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/information-science",
+        "scope_key": "domains/information-science/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-OPS",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/operations-research",
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      },
+      {
+        "lane": "L-S186-DOMEX-STAT",
+        "session": "S186",
+        "status": "READY",
+        "focus": "domains/statistics",
+        "scope_key": "domains/statistics/tasks/FRONTIER.md",
+        "score": 0.0,
+        "missing": [
+          "historian_check",
+          "artifact_ref",
+          "session_anchor"
+        ]
+      }
+    ],
+    "focus_breakdown": {
+      "domains/ai": {
+        "row_count": 7,
+        "mean_score": 0.0
+      },
+      "domains/brain": {
+        "row_count": 7,
+        "mean_score": 0.0
+      },
+      "domains/control-theory": {
+        "row_count": 2,
+        "mean_score": 0.0
+      },
+      "domains/evolution": {
+        "row_count": 7,
+        "mean_score": 0.0
+      },
+      "domains/game-theory": {
+        "row_count": 11,
+        "mean_score": 0.0
+      },
+      "domains/history": {
+        "row_count": 2,
+        "mean_score": 0.0
+      },
+      "domains/information-science": {
+        "row_count": 4,
+        "mean_score": 0.0
+      },
+      "domains/operations-research": {
+        "row_count": 8,
+        "mean_score": 0.0
+      },
+      "domains/statistics": {
+        "row_count": 11,
+        "mean_score": 0.0
+      },
+      "global": {
+        "row_count": 11,
+        "mean_score": 0.303
+      },
+      "tools/p155": {
+        "row_count": 1,
+        "mean_score": 0.0
+      }
+    },
+    "scope_hotspots": [
+      {
+        "scope_key": "domains/ai/tasks/FRONTIER.md",
+        "low_grounding_rows": 7
+      },
+      {
+        "scope_key": "domains/brain/tasks/FRONTIER.md",
+        "low_grounding_rows": 7
+      },
+      {
+        "scope_key": "domains/evolution/tasks/FRONTIER.md",
+        "low_grounding_rows": 7
+      },
+      {
+        "scope_key": "domains/game-theory/tasks/FRONTIER.md",
+        "low_grounding_rows": 7
+      },
+      {
+        "scope_key": "domains/operations-research/tasks/FRONTIER.md",
+        "low_grounding_rows": 6
+      },
+      {
+        "scope_key": "tasks/NEXT.md",
+        "low_grounding_rows": 5
+      },
+      {
+        "scope_key": "domains/statistics/tasks/FRONTIER.md",
+        "low_grounding_rows": 4
+      },
+      {
+        "scope_key": "tasks/SWARM-LANES.md",
+        "low_grounding_rows": 4
+      },
+      {
+        "scope_key": "domains/information-science/tasks/FRONTIER.md",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "experiments/statistics/f-stat2-meta-analysis-s186.json",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_gam3_signal_contract.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_his1_historian_grounding.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_is5_lane_distill.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_ops1_wip_limit.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_stat2_meta_analysis.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/f_stat3_multiplicity.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "tools/wiki_swarm.py",
+        "low_grounding_rows": 2
+      },
+      {
+        "scope_key": "domains/control-theory/tasks/FRONTIER.md",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "experiments/game-theory/f-gam3-signaling-contract-s186-rerun2.json",
+        "low_grounding_rows": 1
+      },
+      {
+        "scope_key": "tools/f_ctl2_diff_latency.py",
+        "low_grounding_rows": 1
+      }
+    ]
+  },
+  "generated_at_utc": "2026-02-27T21:40:46Z"
+}

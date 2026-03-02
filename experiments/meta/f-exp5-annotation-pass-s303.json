@@ -1,0 +1,25 @@
+{
+  "experiment": "F-EXP5: Generalizer annotation pass \u2014 post-session measurement",
+  "session": "S303",
+  "date": "2026-02-28",
+  "baseline": {
+    "lessons_citing_iso": 10,
+    "total_lessons": 322,
+    "cite_rate": 0.031,
+    "compression_gap": 14.5
+  },
+  "post_session": {
+    "lessons_citing_iso": 28,
+    "total_lessons": 330,
+    "cite_rate": 0.085,
+    "compression_gap": 5.0,
+    "iso_mappable_uncited": 141
+  },
+  "delta": {
+    "cite_rate_multiplier": 2.7,
+    "gap_reduction": 2.9,
+    "new_citations_added": 18
+  },
+  "actions": "ISO-14 added to atlas; recursion-generalizer-expert.md created; 18 lessons annotated; ISO-14 keyword added to generalizer_expert.py",
+  "finding": "F-EXP5 RESOLVED: YES \u2014 dedicated generalizer session raises ISO cite rate 2.5x and halves compression gap"
+}

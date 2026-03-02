@@ -1,0 +1,263 @@
+{
+  "experiment": "f-meta-principle-gap-s366",
+  "session": 366,
+  "frontier": "F-META3",
+  "question": "What is the lesson\u2192principle promotion rate over time, and can structural enforcement fix the decline?",
+  "method": "Count principles sourced from each lesson window; compare rates across windows",
+  "windows": {
+    "L-000..L-099": {
+      "lessons": 71,
+      "principles": 21,
+      "rate_pct": 29.6,
+      "p_nums": [
+        53,
+        67,
+        70,
+        73,
+        74,
+        76,
+        77,
+        78,
+        84,
+        85,
+        90,
+        91,
+        99,
+        111,
+        112,
+        114,
+        171,
+        172,
+        173,
+        190,
+        193
+      ]
+    },
+    "L-100..L-199": {
+      "lessons": 79,
+      "principles": 74,
+      "rate_pct": 93.7,
+      "p_nums": [
+        1,
+        10,
+        16,
+        17,
+        22,
+        25,
+        26,
+        34,
+        39,
+        46,
+        59,
+        63,
+        80,
+        81,
+        82,
+        83,
+        89,
+        95,
+        96,
+        97,
+        98,
+        100,
+        101,
+        104,
+        105,
+        109,
+        115,
+        118,
+        119,
+        120,
+        121,
+        124,
+        125,
+        128,
+        129,
+        130,
+        131,
+        132,
+        133,
+        134,
+        135,
+        136,
+        137,
+        138,
+        139,
+        140,
+        141,
+        142,
+        143,
+        144,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161,
+        163,
+        164,
+        165,
+        166,
+        167,
+        168,
+        169,
+        170,
+        192
+      ]
+    },
+    "L-200..L-299": {
+      "lessons": 91,
+      "principles": 21,
+      "rate_pct": 23.1,
+      "p_nums": [
+        4,
+        15,
+        23,
+        108,
+        174,
+        175,
+        177,
+        178,
+        180,
+        181,
+        183,
+        184,
+        188,
+        189,
+        191,
+        194,
+        196,
+        197,
+        198,
+        199,
+        202
+      ]
+    },
+    "L-300..L-399": {
+      "lessons": 97,
+      "principles": 4,
+      "rate_pct": 4.1,
+      "p_nums": [
+        201,
+        203,
+        204,
+        207
+      ]
+    },
+    "L-400..L-499": {
+      "lessons": 98,
+      "principles": 7,
+      "rate_pct": 7.1,
+      "p_nums": [
+        205,
+        206,
+        209,
+        210,
+        211,
+        212,
+        213
+      ]
+    },
+    "L-500..L-599": {
+      "lessons": 100,
+      "principles": 4,
+      "rate_pct": 4.0,
+      "p_nums": [
+        214,
+        215,
+        216,
+        217
+      ]
+    },
+    "L-600..L-699": {
+      "lessons": 62,
+      "principles": 3,
+      "rate_pct": 4.8,
+      "p_nums": [
+        218,
+        219,
+        220
+      ]
+    }
+  },
+  "trend_summary": {
+    "L-000..L-199": {
+      "lessons": 150,
+      "principles": 95,
+      "rate_pct": 63.3
+    },
+    "L-200..L-399": {
+      "lessons": 188,
+      "principles": 25,
+      "rate_pct": 13.3
+    },
+    "L-400..L-499": {
+      "lessons": 98,
+      "principles": 7,
+      "rate_pct": 7.1
+    },
+    "L-500..L-599": {
+      "lessons": 100,
+      "principles": 4,
+      "rate_pct": 4.0
+    },
+    "L-600..L-661": {
+      "lessons": 62,
+      "principles": 3,
+      "rate_pct": 4.8
+    }
+  },
+  "finding": "Principle extraction rate collapsed from 63.3% (L-0..L-199) to 4.0-4.8% (L-500+). Three eras: batch (63%), organic (13%), DOMEX (4-7%). L-601 prediction CONFIRMED: voluntary extraction decays to structural floor. Concurrent session (S365/S366) built close_lane.py prompt + extracted P-221/P-222/P-223. This session extracted P-224..P-229 (6 more). Scan found 29 candidates in L-600+. L-600..L-661 rate: 4.8% pre \u2192 14.5% post-intervention. P-230/P-231 also added by concurrent session. Total: 12 new principles from L-600+ gap.",
+  "lesson": "L-662",
+  "interventions": {
+    "close_lane_enforcement": "Already built by S365 concurrent (lines 177-187). Fires NOTICE when MERGED lane has L- but no P- reference.",
+    "batch_extraction_s366": "P-224 (self-exciting production, L-608), P-225 (absorption-bounded throughput, L-629), P-226 (mechanism-first decay, L-633), P-227 (target-specificity leverage, L-635), P-228 (cooperative yield advantage, L-603), P-229 (type-over-N, L-624)",
+    "candidates_remaining": "~23 additional candidates identified by scan of L-600..L-661"
+  },
+  "measurement": {
+    "rate_by_window": {
+      "L-000..L-199": {
+        "lessons": 150,
+        "principles": 95,
+        "rate": "63.3%"
+      },
+      "L-200..L-399": {
+        "lessons": 188,
+        "principles": 25,
+        "rate": "13.3%"
+      },
+      "L-400..L-499": {
+        "lessons": 98,
+        "principles": 7,
+        "rate": "7.1%"
+      },
+      "L-500..L-599": {
+        "lessons": 100,
+        "principles": 4,
+        "rate": "4.0%"
+      },
+      "L-600..L-661_pre": {
+        "lessons": 62,
+        "principles": 3,
+        "rate": "4.8%"
+      },
+      "L-600..L-661_post": {
+        "lessons": 62,
+        "principles": 9,
+        "rate": "14.5%"
+      }
+    },
+    "l601_prediction": "CONFIRMED \u2014 voluntary extraction decays to structural floor; batch extraction restores rate temporarily but does not prevent future decay",
+    "enforcement_mechanism": "close_lane.py principle-prompt at MERGED closure",
+    "coverage_scan": "29 candidates identified from L-600..L-661; 6 extracted this session"
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "experiment": "F-CAT1 FMEA refresh — S377 (26 sessions post-S351)",
+  "session": "S377",
+  "lane": "DOMEX-CAT-S377",
+  "domain": "catastrophic-risks",
+  "frontier": "F-CAT1",
+  "date": "2026-03-01",
+  "check_mode": "verification",
+  "expect": "2-3 new FMs since S351. NAT predicts >=1 INADEQUATE. New FMs from concurrent staging, knowledge state gaps, or tool archival races.",
+  "actual": "5 new FMs (FM-10 through FM-14). 3 INADEQUATE (FM-11 genesis replay, FM-12 fork bomb, FM-14 WSL loose object corruption). NAT recurrence prediction CONFIRMED: predicted FM-10 in ~50 sessions, FM-14 emerged at S364 (13 sessions). L-712 factual error discovered: swarm_colony.py NOT archived — FM-12 defense claim incorrect.",
+  "diff": "Expected 2-3 new FMs — got 5 (4 from S307 security council now formalized + 1 from S364 incident). Expected >=1 INADEQUATE — got 3. Did NOT predict L-712 factual error or FM-07 operational inertness. NAT timing better than predicted (13s vs 50s prediction).",
+  "severity_definitions": {
+    "1": "Catastrophic — permanent data loss or swarm-breaking corruption",
+    "2": "Serious — data corruption or major state inconsistency (recoverable)",
+    "3": "Moderate — work duplication, minor corruption, auto-recoverable"
+  },
+  "swiss_cheese_threshold": {
+    "inadequate": "<2 independent layers or 0 automated",
+    "minimal": "2+ layers with at least 1 automated",
+    "adequate": "3+ layers with 2+ automated"
+  },
+  "registry_summary": {
+    "total_failure_modes": 14,
+    "severity_1_count": 7,
+    "severity_2_count": 5,
+    "severity_3_count": 0,
+    "inadequate_count": 3,
+    "minimal_count": 9,
+    "adequate_count": 1,
+    "degraded_count": 1,
+    "new_since_s351": ["FM-10", "FM-11", "FM-12", "FM-13", "FM-14"],
+    "inadequate_fms": ["FM-11", "FM-12", "FM-14"],
+    "nat_prediction_status": "CONFIRMED — FM-14 emerged at S364 (13 sessions post S351 prediction of 50)",
+    "factual_errors_found": ["L-712: claims swarm_colony.py archived — incorrect, tool is at tools/swarm_colony.py"]
+  },
+  "failure_modes": [
+    {
+      "id": "FM-01", "name": "Mass git staging via add -A", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 1, "total_layers": 2,
+      "gap": "Threshold=20; partial mass-stagings slip through"
+    },
+    {
+      "id": "FM-02", "name": "WSL filesystem corruption (swarm.md)", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 1, "total_layers": 2,
+      "gap": "Only covers swarm.md; no detection for domains/ or other paths"
+    },
+    {
+      "id": "FM-03", "name": "Ghost lesson resurrection", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 1, "total_layers": 2,
+      "gap": "Lessons only; non-lesson file resurrection unguarded"
+    },
+    {
+      "id": "FM-04", "name": "Git index corruption", "severity": 2,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 0, "total_layers": 2,
+      "gap": "Both layers rule-only. Marginal MINIMAL classification."
+    },
+    {
+      "id": "FM-05", "name": "Belief mutation (CORE.md)", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "ADEQUATE",
+      "automated_layers": 2, "total_layers": 3,
+      "change": "contract_check.py added S355. 2 automated + 1 rule = ADEQUATE"
+    },
+    {
+      "id": "FM-06", "name": "PreCompact state loss", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 2, "total_layers": 2,
+      "gap": "Both automated layers informational (no blocking)"
+    },
+    {
+      "id": "FM-07", "name": "Belief cascade propagation", "severity": 2,
+      "s351_status": "MINIMAL", "s377_status": "DEGRADED",
+      "automated_layers": 1, "total_layers": 2,
+      "gap": "alignment_check.py operationally inert — no active children. Silent false-PASS."
+    },
+    {
+      "id": "FM-08", "name": "sync_state corrupt count", "severity": 2,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 2, "total_layers": 2,
+      "change": "contract_check.py added strict-mode header verification. Still no unit test."
+    },
+    {
+      "id": "FM-09", "name": "Concurrent deletion storm", "severity": 1,
+      "s351_status": "MINIMAL", "s377_status": "MINIMAL",
+      "automated_layers": 2, "total_layers": 3,
+      "gap": "Stable — 3 layers (1 rule + 2 automated)"
+    },
+    {
+      "id": "FM-10", "name": "Belief injection via bulletin", "severity": 2,
+      "s351_status": "NOT_REGISTERED", "s377_status": "MINIMAL",
+      "automated_layers": 1, "total_layers": 3,
+      "source": "S307 security council, L-401, L-710",
+      "gap": "MINIMAL only while merge_back.py absent (dead channel). If rebuilt, immediately INADEQUATE."
+    },
+    {
+      "id": "FM-11", "name": "Genesis replay (stale genesis to child)", "severity": 1,
+      "s351_status": "NOT_REGISTERED", "s377_status": "INADEQUATE",
+      "automated_layers": 0, "total_layers": 3,
+      "source": "S307 security council, L-401, L-710",
+      "gap": "Hash generated but NEVER verified. check.sh emits DRIFT warning not FAIL. One-line fix: exit 1 on genesis hash mismatch."
+    },
+    {
+      "id": "FM-12", "name": "Fork bomb (uncontrolled colony spawning)", "severity": 2,
+      "s351_status": "NOT_REGISTERED", "s377_status": "INADEQUATE",
+      "automated_layers": 0, "total_layers": 2,
+      "source": "S307 security council, L-401, L-710",
+      "gap": "swarm_colony.py has NO max_depth param. L-712 incorrectly claims it was archived — FACTUAL ERROR. FM-12 unmitigated.",
+      "factual_correction": "L-712 states swarm_colony.py archived in S363. FALSE: tools/swarm_colony.py exists at active path."
+    },
+    {
+      "id": "FM-13", "name": "Lesson poisoning via auto-promotion", "severity": 2,
+      "s351_status": "NOT_REGISTERED", "s377_status": "MINIMAL",
+      "automated_layers": 1, "total_layers": 3,
+      "source": "S307 security council, L-401, L-669",
+      "gap": "MINIMAL while evolve.py archived. genesis_evolve.py fitness proxy confounded (L-669)."
+    },
+    {
+      "id": "FM-14", "name": "WSL loose object corruption", "severity": 1,
+      "s351_status": "NOT_REGISTERED", "s377_status": "INADEQUATE",
+      "automated_layers": 0, "total_layers": 2,
+      "source": "S364, L-658",
+      "gap": "0 automated detection. Both layers rule-only. Recovery requires manual reflog manipulation. NAT gray rhino: high probability, known mechanism, zero automated defense."
+    }
+  ],
+  "nat_analysis": {
+    "s351_prediction": "New gray rhino (FM-10) within ~50 sessions of S351",
+    "actual": "FM-14 emerged at S364 (13 sessions post-prediction)",
+    "accuracy": "Timing accurate (within prediction window). ID different (FM-14 not FM-10).",
+    "next_prediction": "NAT predicts next gray rhino by ~S427. Most likely vector: FM-10 activation (if merge_back.py rebuilt) or new concurrency mode at N>10.",
+    "pattern": "Gray rhinos emerge from infrastructure/substrate layer (WSL, git), not application layer (lessons, frontiers)"
+  },
+  "hardening_priorities": [
+    {"rank": 1, "target": "FM-11", "action": "Change check.sh genesis hash mismatch from DRIFT warning to exit 1", "effort": "low", "impact": "INADEQUATE->MINIMAL"},
+    {"rank": 2, "target": "FM-14", "action": "Add git fsck --no-dangling to orient.py startup; warn on loose object errors", "effort": "low", "impact": "INADEQUATE->MINIMAL"},
+    {"rank": 3, "target": "FM-12", "action": "Add max_depth=3 parameter to swarm_colony.py; exit if exceeded", "effort": "low", "impact": "INADEQUATE->MINIMAL"},
+    {"rank": 4, "target": "FM-07", "action": "Replace alignment_check.py children scan with belief-diff-between-commits check", "effort": "medium"},
+    {"rank": 5, "target": "L-712", "action": "Correct factual error: swarm_colony.py is active, not archived", "effort": "trivial"}
+  ],
+  "cites": ["L-350", "L-401", "L-658", "L-669", "L-710", "L-712", "L-644", "L-648"]
+}

@@ -1,0 +1,64 @@
+{
+  "internal_economy": {
+    "production": {
+      "total_lessons": 110,
+      "total_principles": 50,
+      "sessions_sampled": 220,
+      "avg_lessons_per_session": 0.5,
+      "avg_principles_per_session": 0.227,
+      "recent_lessons_per_session": 4.0,
+      "recent_principles_per_session": 0.5,
+      "productivity_rate": 0.314,
+      "acceleration": 8.0
+    },
+    "resource": {
+      "floor_tokens": 51224,
+      "current_tokens": 51446,
+      "drift_pct": 0.43,
+      "status": "HEALTHY"
+    },
+    "knowledge_quality": {
+      "lessons_analyzed": 270,
+      "zero_sharpe_count": 5,
+      "zero_sharpe_rate": 0.019,
+      "mean_sharpe": 0.862595,
+      "compaction_candidates": 5,
+      "capital_rot_warning": false
+    }
+  },
+  "task_economy": {
+    "lanes": {
+      "active": 58,
+      "ready": 141,
+      "done": 3,
+      "blocked": 2,
+      "total": 204,
+      "throughput_rate": 0.015,
+      "blockage_rate": 0.01
+    },
+    "frontiers": {
+      "open": 22,
+      "resolved": 98,
+      "resolution_rate": 0.817,
+      "backlog_pressure": 0.224
+    }
+  },
+  "helper_economy": {
+    "blocked_lanes": 2,
+    "recovery_value_per_helper": 1.5,
+    "spawn_overhead_fraction": 0.15,
+    "helper_roi": 9.0,
+    "recommended_helpers": 2,
+    "delegation_triggered": true,
+    "trigger_threshold": 2,
+    "max_helper_slots": 3,
+    "capacity_note": "Spawn 2 helper(s) to recover 6 sessions of stall",
+    "roi_status": "POSITIVE"
+  },
+  "recommendations": [
+    "INFO: production accelerating (8.00x above historical average)",
+    "WARN: only 31% of sessions generate L or P \u2014 low productive yield",
+    "WARN: task throughput rate 2% \u2014 low delivery; audit ACTIVE lanes",
+    "TRIGGER: 2 helper spawn(s) recommended (ROI=9.0x, Spawn 2 helper(s) to recover 6 sessions of stall)"
+  ]
+}

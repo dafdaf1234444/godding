@@ -1,0 +1,50 @@
+{
+  "experiment": "F-HLP4: Task recognizer routing accuracy benchmark",
+  "session": "S359",
+  "date": "2026-03-01",
+  "frontier": "F-HLP4",
+  "domain": "helper-swarm",
+  "hypothesis": "task_recognizer.py achieves >50% top-1 accuracy on real swarm tasks",
+  "methodology": {
+    "data_source": "40 real session tasks extracted from tasks/NEXT.md session notes S351-S358",
+    "ground_truth": "Actual domain worked in each session (from lane IDs and dispatch notes)",
+    "tool": "python3 tools/orient.py --classify '<task>'",
+    "sample_size": 40
+  },
+  "results": {
+    "top_1_accuracy": 0.35,
+    "top_3_accuracy": 0.575,
+    "mean_confidence_correct": 1.0,
+    "mean_confidence_incorrect": 0.916,
+    "confidence_gap": 0.084,
+    "per_domain": {
+      "meta": {"n": 20, "top1": 0.50, "top3": 0.75},
+      "stochastic-processes": {"n": 4, "top1": 0.50, "top3": 0.50},
+      "nk-complexity": {"n": 5, "top1": 0.00, "top3": 0.20},
+      "information-science": {"n": 3, "top1": 0.00, "top3": 0.00},
+      "conflict": {"n": 3, "top1": 0.33, "top3": 1.00},
+      "empathy": {"n": 1, "top1": 0.00, "top3": 0.00},
+      "operations-research": {"n": 1, "top1": 0.00, "top3": 0.00},
+      "helper-swarm": {"n": 1, "top1": 0.00, "top3": 0.00},
+      "governance": {"n": 1, "top1": 0.00, "top3": 1.00},
+      "economy": {"n": 1, "top1": 1.00, "top3": 1.00}
+    },
+    "failure_modes": [
+      "nk-complexity misrouted to expert-swarm (x2): NK tasks use K_avg/hub/Gini not in seeds",
+      "meta misrouted to evolution (x2): 'harvest'/'generation' trigger evolution seeds",
+      "meta misrouted to ai (x2): 'agent'/'coordination' trigger ai seeds",
+      "meta misrouted to governance (x2): 'audit'/'compliance' trigger governance seeds",
+      "information-science misrouted to evolution (x2): 'harvest'/'experiments' trigger evolution"
+    ],
+    "root_causes": [
+      "Confidence saturated: min(1.0, raw/sqrt(query_size)) caps at 1.0 for any task >8 tokens",
+      "Swarm vocabulary false cognates: harvest/frontier/dispatch/claim mean different things per domain",
+      "Domain seeds are textbook definitions, not operational vocabulary",
+      "F-ID prefixes (F-SP1, F-NK) contain domain signal but are ignored by recognizer",
+      "Meta domain has largest keyword set — attracts AND repels simultaneously"
+    ]
+  },
+  "status": "PARTIAL",
+  "conclusion": "35% top-1 accuracy is insufficient for automated routing. The recognizer works as a seed — it was built at S188 and never updated with operational vocabulary. Four fixes identified: operational seeds, F-ID boosting, relative confidence, swarm-term deprioritization. Hypothesis falsified (50% target not met).",
+  "lesson": "L-641"
+}

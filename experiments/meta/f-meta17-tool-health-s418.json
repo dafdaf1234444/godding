@@ -1,0 +1,77 @@
+{
+  "experiment": "F-META17 tool health audit baseline",
+  "session": "S418",
+  "domain": "meta",
+  "frontier": "F-META17",
+  "mode": "exploration",
+  "level": "L3",
+  "date": "2026-03-02",
+  "hypothesis": "Unreferenced tools >20, periodic fulfillment >70%, orient wiring <60%",
+  "method": "Enumerate all tools/*.py files. Check each against 6 wiring files (orient.py, maintenance.py, periodics.json, check.sh, CLAUDE.md, SWARM.md). Categorize as wired/referenced/unreferenced. Compute periodic fulfillment rate from periodics.json cadence vs last-run dates.",
+  "results": {
+    "total_production_tools": 77,
+    "total_test_files": 9,
+    "tool_categories": {
+      "wired": {"count": 51, "pct": 66.2},
+      "referenced_only": {"count": 1, "pct": 1.3, "tools": ["task_order"]},
+      "unreferenced": {"count": 25, "pct": 32.5}
+    },
+    "unreferenced_tools": [
+      "agent_time_profile", "anxiety_trigger", "citation_retrieval",
+      "contamination_detector", "domain_map", "drift_scanner",
+      "eval_sufficiency", "farming_expert", "frontier_triage",
+      "genesis_evolve", "genesis_selector", "genesis_subtask",
+      "lane_history", "lesson_quality_fixer", "next_compact",
+      "nk_null_model", "paper_extractor", "problem_router",
+      "scaling_model", "swarm_council", "swarm_cycle",
+      "swarm_dependency_map", "swarm_profiler", "swarm_state",
+      "sync_bridges"
+    ],
+    "indirectly_wired": ["domain_map", "genesis_evolve"],
+    "periodic_fulfillment": {
+      "total": 24,
+      "on_time": 17,
+      "overdue": 7,
+      "rate_pct": 70.8
+    },
+    "overdue_periodics": [
+      {"id": "health-check", "cadence": 5, "last": "S408", "sessions_since": 10, "over_pct": 100},
+      {"id": "fundamental-setup-reswarm", "cadence": 5, "last": "S407", "sessions_since": 11, "over_pct": 120},
+      {"id": "human-signal-harvest", "cadence": 5, "last": "S407", "sessions_since": 11, "over_pct": 120},
+      {"id": "signal-audit", "cadence": 10, "last": "S397", "sessions_since": 21, "over_pct": 110},
+      {"id": "change-quality-check", "cadence": 5, "last": "S409", "sessions_since": 9, "over_pct": 80},
+      {"id": "enforcement-audit", "cadence": 10, "last": "S400", "sessions_since": 18, "over_pct": 80},
+      {"id": "principles-dedup", "cadence": 15, "last": "S392", "sessions_since": 26, "over_pct": 73}
+    ],
+    "top_wired_tools": [
+      {"tool": "maintenance", "density": 6},
+      {"tool": "orient", "density": 6},
+      {"tool": "bulletin", "density": 5},
+      {"tool": "claim", "density": 5},
+      {"tool": "compact", "density": 5},
+      {"tool": "sync_state", "density": 5},
+      {"tool": "validate_beliefs", "density": 5}
+    ],
+    "mean_wiring_density": 1.71,
+    "test_coverage_pct": 11.7
+  },
+  "expect": "Unreferenced tools >20 (L-899 baseline 24). Periodic fulfillment >70%. Orient wiring <60%.",
+  "actual": "Unreferenced 25 (32.5%). Periodic fulfillment 70.8%. Wired 66.2% (orient+maintenance are the two hub tools at 6/6 density).",
+  "diff": "Unreferenced count matched (25 vs >20 expected). Periodic fulfillment barely met threshold (70.8% vs >70%). Wiring coverage WRONG — 66.2% not <60% (more tools wired than expected). Novel: wiring density is bimodal — tools are either deeply wired (4-6/6) or completely unwired (0/6). Mean 1.71 hides this distribution.",
+  "conclusion": "F-META17 baseline established. Three actionable findings: (1) 25 unreferenced tools (32.5%) — some are genuinely dead (genesis_selector, swarm_profiler), others are actively useful but unwired (citation_retrieval, frontier_triage, eval_sufficiency). Triage needed. (2) 7 overdue periodics — signal-audit (21s) and fundamental-setup-reswarm (11s) are worst. (3) Bimodal wiring: tools either get deeply integrated or remain islands. The 2 indirectly-wired tools (domain_map, genesis_evolve) show that import chains create shadow wiring not captured by string search.",
+  "science_quality_audit_s418": {
+    "n_experiments": 810,
+    "mean_quality": 0.284,
+    "criteria_means": {
+      "pre_registration": 0.235,
+      "control": 0.725,
+      "significance": 0.106,
+      "external_validation": 0.232,
+      "falsification": 0.110
+    },
+    "confirm_discover_ratio": "145:86 (1.69:1)",
+    "falsification_lanes": "6/1104 (0.54%)",
+    "delta_from_s397": "+2.4pp mean quality (26% -> 28.4%)"
+  },
+  "cites": ["L-899", "L-601", "L-843", "SIG-39", "F-META17"]
+}

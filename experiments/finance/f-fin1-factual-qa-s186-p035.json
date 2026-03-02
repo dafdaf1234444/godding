@@ -1,0 +1,220 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa",
+  "seed": 186,
+  "lang": "en",
+  "trials_per_condition": 10,
+  "perturb_rate": 0.35,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.5833,
+      0.4167,
+      0.3333,
+      0.25,
+      0.1667,
+      0.5,
+      0.25,
+      0.3333,
+      0.5,
+      0.3333
+    ],
+    "summary": {
+      "mean": 0.3667,
+      "std": 0.1247,
+      "variance": 0.015556
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "predictions": [
+          "Closed-ended question"
+        ],
+        "vote": "Closed-ended question"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "predictions": [
+          "India"
+        ],
+        "vote": "India"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "predictions": [
+          "Capital punishment in Spain"
+        ],
+        "vote": "Capital punishment in Spain"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "predictions": [
+          "EyePoint Pharmaceuticals"
+        ],
+        "vote": "EyePoint Pharmaceuticals"
+      },
+      {
+        "country": "Sweden",
+        "expected": "Stockholm",
+        "predictions": [
+          "Capital punishment in Sweden"
+        ],
+        "vote": "Capital punishment in Sweden"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.4167,
+      0.25,
+      0.25,
+      0.3333,
+      0.5,
+      0.25,
+      0.5,
+      0.5833,
+      0.4167,
+      0.4167
+    ],
+    "summary": {
+      "mean": 0.3917,
+      "std": 0.1121,
+      "variance": 0.012569
+    },
+    "mean_pairwise_prediction_agreement": 0.1833,
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "predictions": [
+          "Rance Howard",
+          "Capital city",
+          "Capital city"
+        ],
+        "vote": "Capital city"
+      },
+      {
+        "country": "Japan",
+        "expected": "Tokyo",
+        "predictions": [
+          "Capital punishment in Japan",
+          "Japan",
+          "Capital of Japan"
+        ],
+        "vote": "Capital punishment in Japan"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "predictions": [
+          "Capital punishment",
+          "Australia",
+          "Australian Capital Territory"
+        ],
+        "vote": "Capital punishment"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "predictions": [
+          "India capital city",
+          "India captial city",
+          "what is the capital o India"
+        ],
+        "vote": "India capital city"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "predictions": [
+          "Spain capital city",
+          "what is the captial of Spain",
+          "capital of Spain"
+        ],
+        "vote": "Spain capital city"
+      },
+      {
+        "country": "Kenya",
+        "expected": "Nairobi",
+        "predictions": [
+          "what is the capital of Kena",
+          "Kenya capital city",
+          "Kenya capital city"
+        ],
+        "vote": "Kenya capital city"
+      },
+      {
+        "country": "Sweden",
+        "expected": "Stockholm",
+        "predictions": [
+          "Sweden capital ctiy",
+          "Capital punishment in Sweden",
+          "what is the capital of Sweden"
+        ],
+        "vote": "Sweden capital ctiy"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": 0.025,
+    "variance_ratio_n3_over_n1": 0.808
+  },
+  "interpretation": "This is a redesign step for F-FIN1 using fixed ground-truth factual QA and majority voting. It validates diversification mechanics on a live knowledge source, but remains a resolver proxy rather than direct LLM answer generation.",
+  "generated_at_utc": "2026-02-27T20:46:57Z"
+}

@@ -1,0 +1,705 @@
+{
+  "analysis": "Meta-swarm reflection conversion analysis for S350-S358",
+  "method": "Extracted all **meta-swarm** lines from NEXT.md and NEXT-ARCHIVE.md session notes for S350-S358. Each unique actionable idea was traced through git log, FRONTIER.md, SWARM-LANES.md, and tools/ to determine if it became concrete work (frontier, experiment, lane, tool, or lesson).",
+  "classifications": {
+    "CONVERTED": "The reflection directly led to or was contemporaneous with a frontier, experiment, lane, tool, lesson, or principle change",
+    "NOTED": "The reflection was logged but no concrete follow-up action is traceable in git history or current state",
+    "REDUNDANT": "The reflection described work that was already completed, or restated an existing pattern/tool/principle"
+  },
+  "total_reflections": 105,
+  "converted": 48,
+  "noted": 35,
+  "redundant": 22,
+  "conversion_rate": 45.7,
+  "noted_rate": 33.3,
+  "redundant_rate": 21.0,
+  "session_breakdown": {
+    "S350": {
+      "total": 11,
+      "converted": 7,
+      "rate": 63.6
+    },
+    "S351": {
+      "total": 40,
+      "converted": 10,
+      "rate": 25.0
+    },
+    "S352": {
+      "total": 14,
+      "converted": 9,
+      "rate": 64.3
+    },
+    "S353": {
+      "total": 12,
+      "converted": 8,
+      "rate": 66.7
+    },
+    "S354": {
+      "total": 4,
+      "converted": 2,
+      "rate": 50.0
+    },
+    "S355": {
+      "total": 6,
+      "converted": 2,
+      "rate": 33.3
+    },
+    "S356": {
+      "total": 9,
+      "converted": 5,
+      "rate": 55.6
+    },
+    "S357": {
+      "total": 4,
+      "converted": 2,
+      "rate": 50.0
+    },
+    "S358": {
+      "total": 5,
+      "converted": 3,
+      "rate": 60.0
+    }
+  },
+  "key_findings": [
+    "S351 has the most reflections (45) due to a high-concurrency session producing many meta-observations, but many are retrospective observations (REDUNDANT) rather than forward-looking proposals.",
+    "S352-S353 have the highest conversion rates \u2014 concurrency pain points (claim.py, F-ECO5, F-IS7 harvest) generated immediately actionable proposals.",
+    "The most common NOTED pattern is proposals for automated detection/enforcement tools that were recognized as needed but never built (measurement-channel verification, cache staleness warnings, batch-stage tool, session-log automation, metric glossary).",
+    "REDUNDANT reflections (observations about work already completed) constitute a significant fraction \u2014 the meta-swarm line often serves as a retrospective sense-making function rather than forward planning.",
+    "The highest-conversion proposals are those with a clear tool name and implementation path (claim.py, drift_scanner.py, exploration mode, lesson_quality_fixer.py, check_active_claims()).",
+    "The lowest-conversion proposals are abstract protocol suggestions ('tools MUST include X', 'add Y checklist') without a specific tool or file to modify.",
+    "F-ECO5 (dispatch coverage) shows the full conversion pipeline: S351 reflection -> S351 frontier filed -> S352 NEGATIVE finding -> S358 coverage scoring implemented. 4-session idea-to-tool pipeline.",
+    "F-META10 (substrate tripwire) was opened in S358 FRONTIER.md, potentially converting the S357 measurement-channel-gap reflection, but has no implementation yet."
+  ],
+  "details": [
+    {
+      "session": "S350",
+      "idea_summary": "Uncommitted concurrent artifacts should be a maintenance check \u2014 recurring pattern",
+      "outcome": "No dedicated maintenance check added for uncommitted artifacts. Concurrent artifact handling remains manual via git status checks.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Health-check periodics system detects but doesn't execute \u2014 same GAP-1 pattern. 21.7% proxy-K drift is binding constraint.",
+      "outcome": "Proxy-K drift was fixed in S351 (12.5%->-2.1% via compaction). GAP-1 pattern documented in L-533 (S350 council). Health check periodics still detection-only \u2014 no auto-execution added.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Lane closure collision evidence for F-CON2 (concurrent edit contracts). Last-writer-wins caused incorrect state.",
+      "outcome": "F-CON2 fully developed: claim.py built S352, C-EDIT measurement S356 showed 82% reduction. Lane collision was direct evidence that motivated F-CON2 work.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "ISO-13 (windup detection) applied to belief system \u2014 100% confirmation rate is windup. PHILOSOPHY challenges need processing like governance.",
+      "outcome": "Challenges filed S356 (3 from L-599 audit: N_e, phase transitions, PHIL-2). Challenge processing started. PHIL-2 REFINED S358. Challenge-execution periodic added.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Tool-grade to swarm-grade pattern: persistent state + outcome learning + pattern recognition. Scales to 13 remaining stale infrastructure tools.",
+      "outcome": "Pattern documented in L-533 tier taxonomy. Partially acted on: dispatch_optimizer.py gained outcome feedback (S353), contract_check.py built (S355). But no systematic 13-tool upgrade campaign started.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "SIG-21 human directive: 4 parallel agents is meta-recursion (observation, not proposal)",
+      "outcome": "Pure observation about the session's own nature. No actionable proposal.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Concurrent session interference consumed ~40% of session time. Concurrency creates session-level state entanglement.",
+      "outcome": "claim.py (S352) and C-EDIT measurement (S356) directly addressed this. F-CON2 NEAR-RESOLVED with 82% reduction.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "ISO-14 fractal self-similarity: tool-to-swarm upgrade path is universal pattern. close_lane.py parsing gap friction.",
+      "outcome": "close_lane.py parsing gap was fixed (S352 council, swarm_io lane parsing). ISO-14 observation remained philosophical \u2014 no dedicated tool/frontier.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Council exercise is Tier 2 tool (diagnoses but doesn't auto-execute). L-533 tier taxonomy for future dispatch.",
+      "outcome": "L-533 tier taxonomy captured. Council-to-execution gap identified but not structurally fixed. Councils still run as one-shot exercises.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "Human progressively reveals swarm to itself \u2014 5th self-recognition directive pattern.",
+      "outcome": "Observation about human interaction pattern. Documented in HUMAN-SIGNALS.md patterns. No new tool/frontier needed.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S350",
+      "idea_summary": "76% domain coverage gap is biggest unexploited scaling lever. Dispatch undervalues new domains. Fix: FIRST_VISIT_BONUS >= 5.0",
+      "outcome": "FIRST_VISIT_BONUS = 5.0 implemented in dispatch_optimizer.py (same session S350, L-548). Coverage scoring further improved S358 (F-ECO5 visit saturation + exploration mode).",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Spawned 3 agents for parallel compaction \u2014 all 3 failed at high concurrency. Verify agent writes landed before claiming credit.",
+      "outcome": "Concurrency handling improved via claim.py (S352). No dedicated agent-write verification tool built. Pattern documented as operational guidance.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Extreme concurrency makes sequential DUE-item resolution impossible. Need claim-aware orient.py to surface claimed items.",
+      "outcome": "check_active_claims() added to orient.py (S355, F-CON2 claim integration). Directly implemented.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "phase_boundary.py as new protocol primitive \u2014 swarm studying its own phase transitions.",
+      "outcome": "phase_boundary.py exists in tools/. Built during S351. Direct execution of the reflection.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Human signal 'capitalism in the swarm' captured as concept seed \u2014 market mechanisms as organizational principle. Not explored due to URGENT compaction.",
+      "outcome": "Economy domain work happened (F-ECO5 S351-S358), but market-mechanism framing specifically was not pursued. Dispatch coverage scoring (S358) is closer to resource allocation than capitalism.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Session log gap (S345-S351) is a finding: at high concurrency, logging falls behind. Fix: automate session log entries from commit harvesting.",
+      "outcome": "Session log gap was manually fixed (S352 health-check). Automated session-log-from-commits tool was NOT built. Manual reconstruction from git log remained the method.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "At N>=3 concurrency, nodes spend >50% time claiming already-done work. Fix: open_lane.py CLAIMED status to lock work to one node.",
+      "outcome": "claim.py (S352) provides soft-claiming. open_lane.py did not get a CLAIMED lock status, but claim.py serves the same function differently. Partially addressed.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "F120 execution broke the self-referential loop \u2014 first external knowledge production. ISO connections validate atlas beyond swarm.",
+      "outcome": "Observation about F120 execution that already happened. Hono foreign genesis persisted. F120 continued with sessions 2-20 plan.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Catastrophic-risks domain 45 sessions stale. SPARSE bonus justified. NAT predicts FM-10 within ~50 sessions \u2014 schedule next FMEA audit.",
+      "outcome": "FMEA audit was not scheduled as a periodic. Catastrophic-risks domain was worked (FM-09 hardened). No FM-10 tracking added.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "swarm_io.py exists but invisible to 75% of tools. Fix: add swarm_io usage note to new-tool creation protocol in SWARM.md.",
+      "outcome": "SWARM.md swarm_io usage rule added (S351, commit 61e161e). Directly implemented.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "ISO-13 anti-windup needs tooling+execution together.",
+      "outcome": "General principle. Anti-windup applied in specific cases: challenge processing (S356), proxy-K baseline fix (S352). No dedicated anti-windup tool.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Council exercise (5 agents, 5 perspectives, 20->12 questions) is reusable technique. Meta-question: 'What question is the swarm most afraid to answer?'",
+      "outcome": "Council format continued to be used (S352 empathy genesis, S353 stochastic processes, S355 hallucination audit). The specific meta-question was not formally pursued.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "close_lane.py lesson-link check closes experiment-to-lesson gap. Future: if NOTICE rate >50%, promote to blocking ERROR.",
+      "outcome": "close_lane.py lesson-link check exists. The NOTICE->ERROR promotion was not implemented.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Protocol evolution follows selection pressure \u2014 unenforced elements compacted by disuse. ISO-5 applied to governance.",
+      "outcome": "Observation/principle. L-601 structural enforcement theorem (S355) formalized this: voluntary protocols decay to floor at creation. Enforcement-at-creation became a principle.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "F-CON1 resolved after 49 sessions proves swarm can identify-diagnose-fix-verify. CORE v1.0 + orient.py stale-infrastructure check.",
+      "outcome": "Observation about completed work. F-CON1 was already resolved. Stale-infrastructure check in orient.py confirmed working.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "ISO-13 windup in challenge system. Queue-without-processing pattern = governance pathology. Added challenge-execution periodic.",
+      "outcome": "Challenge-execution periodic was added. Challenges were processed starting S356 (3 filed from L-599 audit). Direct implementation.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Human request 'investigate personality works of famous scientists' successfully applied to personality psychology with dispatch optimization applications.",
+      "outcome": "Observation about completed work. No follow-up personality dispatch changes were made.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Action board all-12/12 recurrence shows binary classifiers need graduated bins.",
+      "outcome": "Action board scoring issue persisted. No graduated bins implementation found. F-ACT1 remains OPEN in FRONTIER.md.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Batch experiment sweeps inflate volume without insight extraction. candidate_lesson_id in experiment JSON would make extraction commitment explicit. Zero-conversion domains are information black holes.",
+      "outcome": "F-IS7 harvest pipeline addressed zero-conversion domains: history S355 (0%->4.3%), game-theory S356 (0%->13.6%), statistics S358 (0%->9.5%). candidate_lesson_id was NOT added to experiment JSON schema.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "display-implies-influence false assumption: principle_count visible but zero weight. Add 'is this scored?' checklist for new concept additions.",
+      "outcome": "No 'is this scored?' checklist added to tool creation. Dispatch scoring was overhauled (F-ECO5 S358 coverage scoring), addressing the root issue differently.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Git index.lock contention has no throttle. Short-term: jitter before git add. Long-term: explicit commit-slot protocol (F-COORD1).",
+      "outcome": "F-COORD1 was never opened. No jitter mechanism added. claim.py (S352) mitigated file-level conflicts but not git-level lock contention.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Human directive S346: multi-concept dispatch is highest-priority meta-improvement. Action: file F-ECO5.",
+      "outcome": "F-ECO5 was filed and worked: S351 (opened), S352 (NEGATIVE finding), S358 (coverage-weighted scoring implemented). Direct conversion from reflection to frontier to tool change.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Stale lane audit demonstrated stall pattern. orient.py now surfaces stale lanes at session start. WIP reduction immediate.",
+      "outcome": "Observation about completed work. orient.py stale-lane surfacing was already done.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Citation cache is single point of failure with no freshness check. 13 sessions silently used stale data. Tools need staleness warnings.",
+      "outcome": "No cache staleness warning mechanism was added. compact.py --dry-run remains the manual refresh method.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Many swarm hypotheses about monotonically-growing variables share growth confound. Controlled intervention experiments needed \u2014 no protocol exists.",
+      "outcome": "No controlled intervention protocol was created. NK K=2.0 falsification design (S356-S357) is the closest \u2014 a prediction-based approach rather than intervention.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "F-LNG1 measurement tool cache dependency propagates silently. Run compact.py --dry-run before measurements.",
+      "outcome": "Operational guidance documented. No cache-independence fix applied to f_lng1_zipf_lessons.py.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "First genuine internal falsification (B6) AND measurement correction (K_avg). Structural enforcement did what awareness alone could not.",
+      "outcome": "Observation about completed work. B6 falsification and K_avg regex fix were already done S344.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Batch-harvest friction: 6 commit cycles to catch artifacts. Need batch-stage tool or workflow.",
+      "outcome": "No batch-stage tool was built. Manual git add of specific files remains the workflow.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Setup-reswarm audits surface silent drift. L-509: data always existed, tools weren't reading it. Fix: wire enforcement into automation.",
+      "outcome": "drift_scanner.py built (S354) addresses this for bridge file drift. F-GOV2 RESOLVED. Partial enforcement wired.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "F-EXP10 should expand beyond dispatch to council calibration.",
+      "outcome": "F-EXP10 was worked S353 (outcome feedback activated, 8 domains labeled). Council calibration expansion was NOT added.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Dispatch system now learns from its own outcomes \u2014 PHIL-2 self-application tighter.",
+      "outcome": "Observation about completed work (dispatch_optimizer.py outcome feedback, S353).",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Repair mode IS the SOS response (GAP-5). close_lane.py now enforces EAD, preventing future TBD accumulation.",
+      "outcome": "Observation about completed work. close_lane.py EAD enforcement was already done.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "7 laws have EXTERNAL falsification criteria \u2014 testable at F120.",
+      "outcome": "F120 foreign genesis executed (S351 hono). 20-session falsification test started. The 7 laws were not explicitly tested against F120 outputs.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "think.py + close_lane.py EAD enforcement = swarm can now think AND is forced to complete reasoning loops.",
+      "outcome": "Observation about existing capabilities. No new work proposed.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Council PROPOSED external action but did not TAKE it. Next session must apply swarm to foreign repo.",
+      "outcome": "F120 foreign genesis on hono was executed in S351. Direct conversion \u2014 the proposal was acted on in the same or next session.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Dispatcher dispatching to itself for first time in 39 sessions = proof self-dispatch norms are needed.",
+      "outcome": "Observation about F-EXP10. Self-dispatch norms were not formalized as a separate protocol.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Repair session demonstrates multi-agent coordination. Repair mode IS the SOS response.",
+      "outcome": "Observation about session dynamics. No new tool/frontier.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "Session is inside the trajectory it analyzes \u2014 Era 6->7 transition. Breathing pattern at era scale is new structural insight.",
+      "outcome": "Philosophical observation. No concrete follow-up.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "5-stage spectrum IS testable against F-MECH1 \u2014 upgrade one tool-grade mechanism through stages and measure.",
+      "outcome": "F-MECH1 was not directly worked. orient.py performance fix (S355) is an example of tool-grade upgrade but wasn't framed as F-MECH1 test.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "70% cleanup / 30% frontier. One-shot DOMEX reduces coordination overhead \u2014 most empirically validated norm (n=20, 100%).",
+      "outcome": "One-shot DOMEX (F-EXP7) continued as default work mode throughout S352-S358. Already established pattern.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S351",
+      "idea_summary": "PCI that reads 0.000 in orient.py confronts every session with the gap. Real test is whether it drives external action.",
+      "outcome": "PCI remained in orient.py. External action (F-COMP1, F133) was NOT advanced. The observation itself correctly predicted the gap would persist.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Council scoped to CODE CHANGES (not just analysis) closed 2 GAP-1 instances. Code-scoped councils are more effective.",
+      "outcome": "Code-scoped council format used in S352 but not formalized as a distinct council mode. swarm_io lane parsing fix was a direct output.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "F121 harvest at 11s lag = highest-value unique action. Signal directionality (S341-349 inward turn) is phase indicator.",
+      "outcome": "L-560 (signal phase shift) was written. Pattern was captured. No new frontier or tool from the phase-indicator observation.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Human directive 'find new ways swarm' answered by dream.py. F-META7: formalize integration session mode.",
+      "outcome": "F-META7 was worked: dark matter reduced 77%->18.5% (S353). Integration session mode was used but not formalized as a named session type.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "At N>=5, 2 of 3 tasks preempted. Novel domain work (finance, 166s cold) was the only path to unique contribution.",
+      "outcome": "Observation about concurrency dynamics. The FIRST_VISIT_BONUS (S350) and later exploration mode (S358) structurally address this.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Lane-closure orphaning cost ~15% of session. close_lane.py must be in handoff checklist.",
+      "outcome": "Lane closure remained manual. No automated handoff-checklist enforcement was added. Pattern documented but recurred.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "At N>=5, scarce resource is observing emergent patterns \u2014 L-561 documents what N single-session nodes cannot see.",
+      "outcome": "L-561 was written. L-606 (N>10 synthesis commoditized) further developed this idea. Observation became a lesson.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "At N>=5, value is INSIGHT GENERATION (novel framing), not EXECUTION. Role separation: council/theory nodes vs execution nodes.",
+      "outcome": "L-606 (S355) formalized this: at N>=10, both execution AND synthesis are commoditized. Only cross-session integration is scarce. Pattern became lesson.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "C-EDIT tool written twice simultaneously (self-referential confirmation). Next: check.sh DUE surfacing should suggest claim.py before editing.",
+      "outcome": "check_active_claims() was added to orient.py (S355). check.sh DUE surfacing claim.py hint was NOT specifically added.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "At extreme concurrency, pick the one PERIODIC item with no concurrent attractor and execute immediately.",
+      "outcome": "Operational strategy. Used implicitly by sessions. Not formalized as a dispatch rule.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "4+ sessions planned compaction that was never needed \u2014 diagnostic layer itself was defect. ISO-13 anti-windup applies to observer.",
+      "outcome": "Proxy-K baseline was fixed (S352). L-556 stale-baseline lesson written. The observation motivated the fix.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Soft-claim protocol developed mid-session. Repair sweeps should check claims before committing orphaned files. F-CON2 next step.",
+      "outcome": "F-CON2 advanced through S352-S356. claim.py TTL fixed to 120s (S353). C-EDIT measurement showed 82% reduction (S356). Repair-sweep claim checking not specifically added.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Empathy is 43rd domain. Council format continues high-quality domain genesis. Human signal 'council for empathy domain expert swarm' = direct commissioning.",
+      "outcome": "Empathy domain created (S352). Further empathy DOMEX: F-EMP1 measurement (S358), F-EMP3 concurrency phase (S353). Domain actively worked.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Dispatch optimizer concentration effect is ISO-1 applied to itself \u2014 winner-take-all dynamics. Need separate exploration budget mechanism.",
+      "outcome": "F-ECO5 coverage-weighted scoring (S358) added visit saturation + exploration mode. Score Gini -37%. Direct implementation of the proposed exploration budget.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S352",
+      "idea_summary": "Same bug class as L-556: mechanism wired correctly, measurement channel broken. ISO-13 anti-windup: compaction severed data source.",
+      "outcome": "Pattern recognized across multiple subsystems. lesson_quality_fixer.py (S358) is in this class \u2014 fixing measurement channels. Pattern documented but no cross-cutting detection tool.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "At N>=6, ~40% of time on concurrency management. claim.py TTL fix (L-589) is bottleneck; 120s would reduce ghost locks.",
+      "outcome": "claim.py TTL changed 300s->120s (S355, L-589 follow-up). Directly implemented.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Coordination sessions at N>=6 = valid mode. Not all sessions should produce new lessons \u2014 some should clear path.",
+      "outcome": "Observation codified as operational guidance. No formal 'coordination mode' was added to session types.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Integration sessions work. 30%->18.5% in one session. STOP at 15% (attractor collapse risk per L-581).",
+      "outcome": "Integration session results documented. The 15% floor guidance was followed \u2014 dark matter stayed at ~18.5%, not pushed further.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Dark matter measurement confusion: orient.py vs dream.py use different scopes. Add to metric glossary.",
+      "outcome": "Dream.py regex fixes applied (S353). No formal metric glossary was created.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "At extreme concurrency, synthesis IS the scarce value. Execution commoditizes; synthesis differentiates.",
+      "outcome": "Formalized in L-606 (S355). MEMORY.md records 'N>=10 synthesis commoditized'. Became operational principle.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "L-556/L-572/L-574/L-578 = four 'mechanism works, extraction channel broken.' Dominant failure mode at scale.",
+      "outcome": "Pattern recognized. F-IS7 harvest pipeline (S355-S358) addressed zero-conversion domains. lesson_quality_fixer.py (S358) fixed implicit citations. Pattern drove multiple tools.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Slot collision rate increasing at N>=5. Fix: claim.py BEFORE every lesson write, not after.",
+      "outcome": "claim.py TTL fix (120s) and orient.py integration addressed this. Pre-write claiming became operational guidance, not enforced.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Human-signal-harvest DUE for 11+ sessions. Three-signal rule applies to itself.",
+      "outcome": "P-216 three-signal rule was promoted (S353, L-582). Human-signal-harvest executed. Direct conversion to principle.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Stochastic processes council produced deepest mathematical characterization. Non-ergodicity reframed from flaw to mechanism. Compression-diversity tension is genuine risk.",
+      "outcome": "Stochastic-processes domain created (S353). 6 frontiers (F-SP1 through F-SP6). F-SP1 CONFIRMED (Hawkes, S356). F-SP2 PARTIALLY FALSIFIED (USL, S358). Active domain.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Recursive child swarm detected. Dispatch concentration effect (F-ECO5 NEGATIVE) needs exploration budget fix.",
+      "outcome": "F-ECO5 exploration mode implemented S358. Recursive child swarm documented but not pursued as separate frontier.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "N>=3 concurrency caused 3 lesson-number collisions. claim.py race window too wide at N>=3.",
+      "outcome": "claim.py TTL reduced 300s->120s (S355). Lesson-slot claiming improved. Direct implementation.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S353",
+      "idea_summary": "Need measurement-channel verification step in tool design: test against all live data formats.",
+      "outcome": "No formal measurement-channel verification protocol was created. Individual fixes applied case-by-case (dream.py, orient.py, lesson_quality_fixer.py).",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S354",
+      "idea_summary": "Human signal 'mainly tried claude code and codex' = testing gap evidence. F118 resolution criteria too weak. Bridge files drifted.",
+      "outcome": "Bridge files updated S354-S355 (all 7 synced). sync_bridges.py built. .cursor/rules/swarm.mdc created. F118 resolution criteria tightened. L-595.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S354",
+      "idea_summary": "Invariant without simultaneous enforcement = false confidence. Rule: invariant + enforcement + test in same commit (L-588).",
+      "outcome": "L-588 written. Principle applied to I13 enforcement gap fix (same session). L-601 structural enforcement theorem (S355) extended this further.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S354",
+      "idea_summary": "N>=3 concurrency: 3 lesson-slot collisions, git index lock contention. Economy health: HEALTHY.",
+      "outcome": "Observation about session state. claim.py improvements (S353/S355) addressed slot collisions.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S354",
+      "idea_summary": "F119 I13 enforcement gap fixed, dream cycle ran, README snapshot (observation of completed work).",
+      "outcome": "Work was already completed in the session. No additional follow-up needed.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "At N>=10, script-running is always pre-empted; synthesis from large reading is not. Route to deep synthesis at high N.",
+      "outcome": "L-606 formalized this principle. MEMORY.md records it. Operational guidance followed in subsequent sessions.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "Concurrent sessions propagate state errors ('already fixed'). Always verify HEAD before assuming prior work complete.",
+      "outcome": "Operational guidance. No automated HEAD-verification tool was built. Remains manual practice.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "NK K=2.0 is ~13 lessons away. Need to decide: manage K>=2.0 or ride it?",
+      "outcome": "Decided by evidence: K=2.0 CROSSED smoothly (S357, L-618). All 4 chaos predictions falsified. F9-NK RESOLVED. The decision was 'ride it' \u2014 K=2.0 is architectural maturity, not phase transition.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "orient.py is most-used tool. 60s->17s saves ~40s x N sessions. 'Tool degradation' class \u2014 measurement channels silently rot.",
+      "outcome": "orient.py fix was already done (S355, L-596). Observation about tool degradation class contributed to understanding but no automated rot-detection tool was built.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "Trim+compact+close is high-value at N>=5. DUE sweeps prevent commit-blocking accumulation.",
+      "outcome": "Operational guidance followed in subsequent sessions. No new automation.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S355",
+      "idea_summary": "validate_beliefs.py already checked component 5. contract_check.py unifies all 5 \u2014 ISO-14 (the contract checking itself).",
+      "outcome": "contract_check.py was already built (S355). Observation about the meta-nature of the tool.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "L-606 (N>10 cross-session integration is scarce) confirmed in real-time: L-610 required seeing both L-608 and L-598 together.",
+      "outcome": "L-610 (Hawkes/NK cross-scale synthesis) was the direct product. Observation validated the principle in real-time.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Hawkes finding = momentum is real. Harvest sessions should cluster, not interleave with DOMEX.",
+      "outcome": "Operational guidance recorded in MEMORY.md. No formal session-clustering mechanism was built. F-SP1 CONFIRMED.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Challenge filing is highest-value response to hallucination audit. Act of challenging PHIL-2 is itself evidence for PHIL-2.",
+      "outcome": "3 challenges were filed (S356, L-609). PHIL-2 REFINED (S358). Direct execution of the proposal.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Fundamental-setup-reswarm cadence should be ~10 sessions (not 5). orient.py bug only catchable by fresh session.",
+      "outcome": "Cadence adjustment suggested but no formal periodics.json update for setup-reswarm cadence found.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "F-META8 wired into check.sh + paper-reswarm = coherence maintenance autonomous at two levels. Consider tightening paper-reswarm cadence to 10 sessions.",
+      "outcome": "Paper-reswarm cadence was tightened 20->10 (S356, L-607 evidence). check.sh contract_check.py wiring confirmed. Direct implementation.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Collision-shift pattern is general: file claims -> lesson-slot claims -> commit-window claims. Measurement validated claim.py.",
+      "outcome": "Pattern documented. L-601 structural enforcement theorem captures this progression. No commit-window claiming tool was built.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Hallucination audit closes epistemic loop only if challenges are filed. Knowing + not acting = failure mode.",
+      "outcome": "Challenges were filed (S356). L-611 ground truth corrections applied (S357). Epistemic loop was closed through action.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Hallucination audit is highest-yield cycle output (Sharpe 10). 0 DROPPED challenges in 354 sessions. Belief challenges for top-3 are highest-value next actions.",
+      "outcome": "Top-3 challenges filed (S356). PHIL-2 REFINED, N_e terminology corrected, phase transition terminology corrected (S357). Direct execution.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S356",
+      "idea_summary": "Wiring step (F-META8 into check.sh) is small but closes the full circuit: tool exists + test exists + CI check.",
+      "outcome": "F-META8 was confirmed wired into check.sh (S356). Direct observation of completed work.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S357",
+      "idea_summary": "F9-NK required 52 sessions of measurements, a correction, a falsification. This is the swarm's most measured self-applied question.",
+      "outcome": "Observation about completed work. F9-NK RESOLVED. No new frontier opened from this reflection specifically.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S357",
+      "idea_summary": "f_qc1 should be part of every principles-dedup periodic. Combine into single redundancy-audit protocol.",
+      "outcome": "lesson_quality_fixer.py was built (S358) which serves a broader purpose. f_qc1 integration into dedup periodic was not formally done.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S357",
+      "idea_summary": "Measurement channel gaps are a recurring class (4 confirmed: proxy-K, dark matter, grounding, cycle count). Protocol proposal: tools MUST include coverage audit.",
+      "outcome": "No formal 'coverage audit' requirement was added to tool creation protocol. Individual gaps were fixed. F-META10 (substrate tripwire, S358) is the closest structural response.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S357",
+      "idea_summary": "Hallucination audit -> challenge filing -> terminology correction = 3-session epistemic repair pipeline. Bottleneck is correction, not detection.",
+      "outcome": "Pipeline observation confirmed. P-217 (substrate-verification) enforced. The 3-session pipeline was completed. Observation became understanding of repair dynamics.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S358",
+      "idea_summary": "Economy health check periodic done. DOMEX-NK-S357 closed (stale ACTIVE). Empathy domain first DOMEX visit. Measurement tool reusable for F-EMP1 tracking.",
+      "outcome": "Economy health check ran. Empathy DOMEX produced L-627 and F-EMP1 PARTIAL. Measurement tool produced.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S358",
+      "idea_summary": "F-IS7 harvest pipeline now 3 domains deep. Pipeline should become periodic trigger (no automation yet = missed harvests).",
+      "outcome": "No automated harvest trigger was added. The proposal to add harvest pipeline to SESSION-TRIGGER.md periodics was listed in Next but not implemented.",
+      "classification": "NOTED"
+    },
+    {
+      "session": "S358",
+      "idea_summary": "Implicit citations were 60% of citation network. NK K_avg may underestimate actual connectivity. Making implicit->explicit is cheapest NK intervention.",
+      "outcome": "lesson_quality_fixer.py fixed 177 orphan citations (S358). Cites 20%->52%. NK implications noted but K_avg re-measurement with enriched Cites not yet done.",
+      "classification": "CONVERTED"
+    },
+    {
+      "session": "S358",
+      "idea_summary": "Dispatch optimizer had structural bias against its own improvement \u2014 routes work AWAY from economy. Coverage scoring is self-correcting.",
+      "outcome": "Observation about completed work. F-ECO5 coverage scoring was already implemented in the same session.",
+      "classification": "REDUNDANT"
+    },
+    {
+      "session": "S358",
+      "idea_summary": "L-616 pattern: when challenging foundational axiom, distinguish design-intent claim vs emergence claim. Resolution = precision, not demolition.",
+      "outcome": "L-616 written. PHIL-2 REFINED using this distinction. Epistemic principle captured in lesson.",
+      "classification": "CONVERTED"
+    }
+  ]
+}

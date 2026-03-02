@@ -1,0 +1,85 @@
+{
+  "sessions": {
+    "35": {
+      "commits": 10,
+      "files_touched": 71,
+      "structural_change": true,
+      "lessons_total": 34,
+      "principles_total": 34,
+      "frontier_open": 15,
+      "frontier_resolved": 20,
+      "entropy_items": 0
+    },
+    "36": {
+      "commits": 10,
+      "files_touched": 60,
+      "structural_change": true,
+      "lessons_total": 35,
+      "principles_total": 36,
+      "frontier_open": 18,
+      "frontier_resolved": 26,
+      "entropy_items": 0
+    },
+    "37": {
+      "commits": 10,
+      "files_touched": 55,
+      "structural_change": false,
+      "lessons_total": 40,
+      "principles_total": 46,
+      "frontier_open": 22,
+      "frontier_resolved": 36,
+      "entropy_items": 0
+    },
+    "38": {
+      "commits": 10,
+      "files_touched": 49,
+      "structural_change": true,
+      "lessons_total": 42,
+      "principles_total": 46,
+      "frontier_open": 18,
+      "frontier_resolved": 43,
+      "entropy_items": 0
+    },
+    "39": {
+      "commits": 10,
+      "files_touched": 50,
+      "structural_change": true,
+      "lessons_total": 42,
+      "principles_total": 46,
+      "frontier_open": 18,
+      "frontier_resolved": 54,
+      "entropy_items": 0
+    },
+    "40": {
+      "commits": 10,
+      "files_touched": 55,
+      "structural_change": false,
+      "lessons_total": 48,
+      "principles_total": 52,
+      "frontier_open": 20,
+      "frontier_resolved": 65,
+      "entropy_items": 0
+    },
+    "42": {
+      "commits": 10,
+      "files_touched": 63,
+      "structural_change": false,
+      "lessons_total": 60,
+      "principles_total": 65,
+      "frontier_open": 12,
+      "frontier_resolved": 72,
+      "entropy_items": 0
+    },
+    "349": {
+      "commits": 10,
+      "files_touched": 65,
+      "structural_change": true,
+      "lessons_total": 475,
+      "principles_total": 294,
+      "frontier_open": 15,
+      "frontier_resolved": 0,
+      "entropy_items": 0
+    }
+  },
+  "latest_session": 349
+}

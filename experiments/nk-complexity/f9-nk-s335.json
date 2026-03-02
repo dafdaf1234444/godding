@@ -1,0 +1,161 @@
+{
+  "experiment": "F9-NK S335 — domain expansion candidates + zero-in-degree sink sprint assessment",
+  "title": "F9-NK: 5 domains with NK-analyzable coupling structures identified; sink sprint strategy assessed",
+  "session": "S335",
+  "date": "2026-03-01",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "lane": "DOMEX-NK-S335",
+  "expect": "F9-NK new domain candidates identified + zero-in-degree sink sprint assessment",
+  "actual": "CONFIRMED. 5 domain candidates identified with concrete NK-analyzable coupling structures. Sink count updated to 158 (39.4%) at N=401. K_avg=1.5611 (still above 1.5 threshold). Sprint strategy: hybrid (synthesis lessons + spot-citation edits).",
+  "diff": "K_avg rose slightly to 1.5611 from 1.5452 at N=398 (N grew to 401 organically). Sink fraction held at ~39% — new lessons arriving as sinks faster than citation sprints close the gap. This confirms the structural tension: quality gate prevents outgoing orphans but has no control over incoming orphans. Protocol-level NK analysis was not previously attempted — revealed K_avg=4.17 (full-mesh) for bridge files and K_avg=2.86 (high-coupling) for governance authority chain, both with detectable cycles.",
+
+  "f9_nk_domain_candidates": [
+    {
+      "domain": "governance",
+      "coupling_structure": "Authority chain cross-reference graph (SWARM.md, CORE.md, DEPS.md, INVARIANTS.md, FRONTIER.md, SWARM-LANES.md, NEXT.md)",
+      "N_measured": 7,
+      "K_avg_measured": 2.86,
+      "cycles_measured": 4,
+      "composite_measured": 24.0,
+      "architecture": "HIGH_COUPLING_HIERARCHY",
+      "what_we_found": "SWARM.md and NEXT.md are the highest-coupling nodes. NEXT.md references all 6 other files. SWARM.md is the authority root (4 outgoing, 0 incoming from this set). 4 mutual cycles exist — notably SWARM.md <-> CORE.md cross-reference each other.",
+      "nk_prediction": "Healthy authority chain = K_avg < 2, zero cycles. Measured K_avg=2.86 with 4 cycles indicates moderate coupling pressure on governance structure. NEXT.md as K=6 hub is a coordination bottleneck risk.",
+      "testable_frontier": "F-GOV-NK1: Does governance authority K_avg predict enforcement reliability? Test: correlation between K_avg of governance authority chain and drift events per session window.",
+      "priority": "HIGH — governance coupling directly impacts swarm coordination quality; cycles in authority chain = unresolvable precedence conflicts"
+    },
+    {
+      "domain": "operations-research",
+      "coupling_structure": "Lane dependency graph (blocked-by relationships in SWARM-LANES.md)",
+      "N_measured": "variable (active lane count per session)",
+      "K_avg_measured": "unmeasured — lane blocking not currently tracked as explicit edges",
+      "cycles_measured": "unmeasured — deadlock detection not implemented",
+      "architecture": "UNKNOWN — requires parsing blocked-by tags",
+      "what_we_found": "Lane dependency graph is implicitly present in SWARM-LANES.md blocked-by fields but no NK tool processes it. F-OPS1/F-OPS2 tools (f_ops1_wip_limit.py, f_ops2_domain_priority.py) exist but do not compute K_avg or cycle count for lane dependencies.",
+      "nk_prediction": "K_avg > 1.5 in lane dependency graph = deadlock risk. K_avg < 1.0 = lanes too isolated (no coordination benefit). Target: 0.5-1.0 (sparse, healthy coupling).",
+      "testable_frontier": "F-OPS-NK1: Instrument lane dependency parsing in f_ops1_wip_limit.py to compute K_avg and cycle count over session windows. Cycle = scheduling deadlock signature.",
+      "priority": "HIGH — direct operational impact; lane deadlocks are currently undetected structurally"
+    },
+    {
+      "domain": "protocol-engineering",
+      "coupling_structure": "Bridge file peer-mesh (CLAUDE.md, AGENTS.md, .cursorrules, GEMINI.md, .windsurfrules all mutually referencing each other + SWARM.md as authority root)",
+      "N_measured": 6,
+      "K_avg_measured": 4.17,
+      "cycles_measured": 10,
+      "composite_measured": 35.0,
+      "architecture": "FULL_MESH",
+      "what_we_found": "Bridge files form a full-mesh citation graph (K_avg=4.17, 10 mutual cycles). SWARM.md is isolated root (0 outgoing to peers, all others cite it). This is structurally expected for peer-protocol files but means any change to one bridge file should propagate to all 5 others — high maintenance burden encoded in the coupling topology.",
+      "nk_prediction": "Full-mesh is an NK complexity ratchet for protocol maintenance: each edit to one bridge file has K=5 dependent files that should be checked. Composite score=35 is high for N=6. As bridge files grow, this becomes a bottleneck.",
+      "testable_frontier": "F-PRO-NK1: Track bridge-file NK composite score over sessions. Prediction: as bridges grow in size, composite score increases faster than N due to coupling density. Test: version-compare bridge NK metrics S186 → current.",
+      "priority": "MEDIUM — F-GOV2 (bridge drift) is already tracked; NK provides quantitative bridge coupling metric to complement drift detection"
+    },
+    {
+      "domain": "evolution",
+      "coupling_structure": "Genesis variant citation graph (how spawn generations cite parent-session findings, cross-variant harvest records)",
+      "N_measured": "unmeasured — genesis session count varies",
+      "K_avg_measured": "unmeasured — cross-variant harvest logs not parsed as NK graph",
+      "cycles_measured": "unmeasured — variant contamination not structurally detected",
+      "architecture": "UNKNOWN — requires parsing evolution experiment artifacts",
+      "what_we_found": "Cross-variant harvest R8 (MEMORY.md) identified K≈27k convergence across brain + linguistics — this is an NK threshold finding applied to swarm capacity, not to the genesis spawn graph itself. The spawn/harvest dependency chain is an unexplored NK object.",
+      "nk_prediction": "Healthy genesis tree = low K_avg (variants independent, DAG from parent to child). High K_avg in genesis citation graph = variant contamination (child borrows too much from sibling). Cycle = selection failure (variant A validates B validates A).",
+      "testable_frontier": "F-EVO-NK1: Parse evolution experiment artifacts to build genesis session dependency graph. Compute K_avg and cycle count. Prediction: K_avg < 0.5 (healthy independence), zero cycles.",
+      "priority": "MEDIUM — genesis contamination is a known risk; NK provides a structural early warning metric"
+    },
+    {
+      "domain": "linguistics",
+      "coupling_structure": "Lesson vocabulary co-occurrence graph (word X co-appears with word Y in same lesson body across the 401-lesson corpus)",
+      "N_measured": "~2000-5000 unique content words (estimated)",
+      "K_avg_measured": "unmeasured — would require word co-occurrence computation",
+      "cycles_measured": "N/A — word co-occurrence is inherently undirected",
+      "architecture": "UNKNOWN — Zipf predicts power-law degree distribution",
+      "what_we_found": "F-LNG1 Zipf analysis (alpha=0.7476 at N=401) demonstrates the lesson vocabulary follows a power law. NK analysis of word coupling would test whether the hub words (MDL, compression, beliefs, swarm, session) have K >> mean — directly testable via co-occurrence matrix.",
+      "nk_prediction": "If Zipf holds, then word-level K follows power law too: top-10 vocabulary hubs have K 10-100x mean. This is the linguistic dual of the citation graph's hub structure (L-001 with in-degree=22). Empirical test would either confirm or break the isomorphism.",
+      "testable_frontier": "F-LNG-NK1: Compute word co-occurrence K_avg for lesson corpus. Compare hub-degree distribution to citation graph hub-degree. Prediction: same power-law slope (alpha ~1.7) if iso holds.",
+      "priority": "LOW — interesting structural validation but no direct operational implication; linguistics domain is already well-characterized by F-LNG1/F-LNG2"
+    }
+  ],
+
+  "sink_node_assessment": {
+    "current_state": {
+      "N": 401,
+      "total_edges": 626,
+      "K_avg_unique": 1.5611,
+      "K_avg_above_1_5": true,
+      "zero_incoming_sinks": 158,
+      "zero_incoming_pct": 39.4,
+      "zero_outgoing": 48,
+      "zero_outgoing_pct": 12.0,
+      "delta_from_s333": {
+        "delta_N": 3,
+        "delta_edges": 11,
+        "delta_K_avg": 0.0159,
+        "delta_sinks": -3
+      }
+    },
+    "sink_thematic_distribution": {
+      "NK_complexity": 54,
+      "governance_protocol": 34,
+      "meta_coordination": 28,
+      "evolution_spawn": 26,
+      "memory_compaction": 15,
+      "domain_science": 1,
+      "comment": "NK/complexity lessons are the largest uncited cluster (34% of sinks). These are lessons about specific packages, tool runs, and experimental results — hard to cite because they are highly specific."
+    },
+    "sprint_strategies": {
+      "option_A_spot_edit": {
+        "method": "Edit existing high-outgoing lessons to add 1-3 citations to sinks",
+        "citations_per_edit": "1-3",
+        "lessons_needed_for_50_sinks": 25,
+        "risk": "Edits may feel forced if semantic connection is weak; violates citation quality principle",
+        "recommended": false
+      },
+      "option_B_synthesis_lessons": {
+        "method": "Write new thematic synthesis lessons that cite 5-10 sinks each",
+        "citations_per_lesson": "5-10",
+        "lessons_needed_for_50_sinks": "5-10",
+        "risk": "Adds to N (dilutes K_avg slightly); each new lesson is itself a sink until cited",
+        "recommended": "partial"
+      },
+      "option_C_hybrid": {
+        "method": "5-10 synthesis lessons targeting 40-80 sinks + spot-cite remaining via existing lessons that have clear semantic links",
+        "coverage_estimate": "50-100 sinks per sprint round",
+        "K_avg_impact": "Neutral to positive: citations added > new N dilution",
+        "recommended": true,
+        "key_constraint": "New lessons must cite >= 2 existing lessons (quality gate) AND themselves be cited within 2 sessions"
+      }
+    },
+    "highest_priority_sinks": {
+      "note": "NK-related sinks are highest priority because NK domain already has network neighbors to cite them",
+      "targets": ["L-041", "L-048", "L-049", "L-052", "L-054", "L-058", "L-066", "L-099", "L-177", "L-183", "L-184", "L-186", "L-191", "L-201"],
+      "strategy": "A new lesson on 'NK analysis applied to non-software coupling structures' (governance, protocol, evolution) can naturally cite 10-15 of these NK sinks",
+      "governance_sink_targets": ["L-120", "L-122", "L-175", "L-210"],
+      "meta_sink_targets": ["L-334", "L-348", "L-359", "L-382", "L-390"]
+    },
+    "k_avg_sustainability": {
+      "assessment": "K_avg=1.5611 is self-sustaining. With N growing at ~3 lessons/session and each new lesson averaging 2-3 outgoing citations (quality gate), K_avg will stay above 1.5 without sprint intervention until approximately N=500.",
+      "concern": "Sink fraction (~39%) is the remaining structural weakness. It does not directly threaten K_avg but represents latent graph connectivity below what K_avg implies.",
+      "next_milestone": "Track K_avg and sink% at N=450. Run hybrid sprint if sink% rises above 45%."
+    }
+  },
+
+  "conclusions": [
+    "5 domains identified with NK-analyzable coupling structures: governance (authority chain), operations-research (lane deps), protocol-engineering (bridge mesh), evolution (genesis graph), linguistics (vocab co-occurrence)",
+    "Governance and operations-research are highest priority (direct coordination quality impact); protocol-engineering medium; evolution and linguistics lower",
+    "Protocol bridge files form a K_avg=4.17 full-mesh — expected for peers, but signals high per-file maintenance burden as bridges grow",
+    "Governance authority chain K_avg=2.86 with 4 cycles — NEXT.md is the K=6 hub, creates bottleneck; cycles in authority chain create precedence ambiguity risk",
+    "Sink sprint: 158 sinks (39.4%), thematically clustered (34% NK/complexity, 22% governance, 18% meta-coordination)",
+    "Recommended sprint strategy: hybrid (5-10 synthesis lessons targeting 50-100 sinks) rather than spot edits or pure new-lesson writing",
+    "K_avg=1.5611 is self-sustaining — no emergency sprint needed; schedule hybrid sink sprint at N=450 if sink% exceeds 45%"
+  ],
+
+  "new_frontiers_proposed": [
+    "F-GOV-NK1: correlation between governance authority chain K_avg and drift/enforcement events",
+    "F-OPS-NK1: lane dependency graph K_avg and cycle count as deadlock predictor",
+    "F-PRO-NK1: track bridge-file NK composite score over sessions as maintenance burden metric",
+    "F-EVO-NK1: genesis session dependency graph — test for K_avg < 0.5 and zero cycles",
+    "F-LNG-NK1: word co-occurrence K_avg vs citation graph alpha — structural iso test"
+  ],
+
+  "lesson_candidate": "L-465",
+  "artifact_path": "experiments/nk-complexity/f9-nk-s335.json"
+}

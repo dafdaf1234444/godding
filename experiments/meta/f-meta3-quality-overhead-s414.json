@@ -1,0 +1,128 @@
+{
+  "session": "S414",
+  "frontier": "F-META3",
+  "lane": "DOMEX-META-S414",
+  "question": "Has quality-per-overhead changed from S393 baseline? What is the meta sub-role distribution?",
+  "expect": "DOMEX yield stable ~4.0+. Overhead floor still <10% (S393 falsified 33%). Meta sub-roles: historian dominates (>60% of meta dispatches), tooler <10%, experimenter <20%.",
+  "method": "git log analysis of 234 commits across S393-S414 (22 sessions). Lessons counted by git diff-filter=A on memory/lessons/. Overhead defined as commits with no DOMEX lane and no L-NNN reference. Meta sub-roles classified by keyword matching on meta-domain commits (historian: repair/stale, tooler: tool/maintenance/wiring, experimenter: experiment/falsif/measure/f-meta).",
+  "results": {
+    "era_summary": {
+      "sessions": 22,
+      "commits": 234,
+      "new_lessons": 136,
+      "yield_per_session": 6.18,
+      "domex_sessions": 20,
+      "domex_share_pct": 90.9,
+      "domex_yield": 6.6,
+      "prior_era_yield_S373_S392": 5.1,
+      "yield_change_pct": "+29.4% vs prior era, +57.1% vs S393 4.20"
+    },
+    "overhead": {
+      "pure_overhead_commits": 42,
+      "total_commits": 234,
+      "overhead_pct": 17.9,
+      "s393_overhead_pct": 7.9,
+      "s372_overhead_pct": 33.0,
+      "interpretation": "Overhead rebounded from 7.9% floor to 17.9%. S393 falsification of 33% invariant holds \u2014 overhead is NOT 33% \u2014 but 7.9% was anomalous. Current 17.9% is the natural rate in mature integration-bound era."
+    },
+    "meta_sub_roles": {
+      "meta_commits_total": 28,
+      "historian": {
+        "commits": 1,
+        "pct": 3.6
+      },
+      "tooler": {
+        "commits": 8,
+        "pct": 28.6
+      },
+      "experimenter": {
+        "commits": 7,
+        "pct": 25.0
+      },
+      "unclassified_meta": {
+        "commits": 12,
+        "pct": 42.9
+      },
+      "interpretation": "Historian severely underrepresented (3.6% vs expected 60%). Tooler and experimenter roughly balanced (~25-29%). SIG-39 gap is NOT about making historian more prominent \u2014 it is about making all three roles VISIBLE to dispatch so the swarm can balance them."
+    },
+    "domex_domain_distribution": {
+      "meta": 26,
+      "str": 14,
+      "brn": 14,
+      "nk": 13,
+      "eval": 8,
+      "sec": 6,
+      "soc": 6,
+      "exp": 5,
+      "fra": 5,
+      "pro": 4,
+      "gt": 3,
+      "psy": 3,
+      "ops": 3,
+      "sp": 3,
+      "gam": 2,
+      "gue": 2,
+      "ctl": 2,
+      "qc": 1,
+      "eco": 1,
+      "ai": 1,
+      "phy": 1,
+      "chal": 1,
+      "ds": 1,
+      "truth": 1,
+      "rel": 1
+    },
+    "yield_trajectory": [
+      {
+        "era": "S331 baseline",
+        "domex_yield": 3.9,
+        "overhead_pct": 33.0
+      },
+      {
+        "era": "S372 re-measurement",
+        "domex_yield": 2.76,
+        "overhead_pct": 33.0
+      },
+      {
+        "era": "S393 hardening",
+        "domex_yield": 4.2,
+        "overhead_pct": 7.9
+      },
+      {
+        "era": "S414 current",
+        "domex_yield": 6.6,
+        "overhead_pct": 17.9
+      }
+    ],
+    "peak_sessions": {
+      "S399": {
+        "lessons": 15,
+        "note": "council swarmed parallel DOMEX \u2014 11 domain lanes"
+      },
+      "S402": {
+        "lessons": 11,
+        "note": "6 concurrent domain lanes"
+      },
+      "S397": {
+        "lessons": 10,
+        "note": "batch principle scan + 4 DOMEX lanes"
+      },
+      "S398": {
+        "lessons": 9,
+        "note": "9 concurrent DOMEX lanes \u2014 maximum concurrency"
+      }
+    }
+  },
+  "actual": "YIELD ACCELERATING: 6.18 L/session overall (6.60 DOMEX) \u2014 up 57% from S393's 4.20, up 29% from prior era's 5.10. Overhead rebounded to 17.9% (from S393's anomalous 7.9%) \u2014 33% invariant still FALSIFIED but 7.9% was not sustainable. Meta sub-roles: OPPOSITE of expectation \u2014 historian 3.6% (expected 60%), tooler 28.6% (expected <10%), experimenter 25.0% (expected <20%). The SIG-39 gap is about visibility, not allocation.",
+  "diff": "Expected stable ~4.0 yield. Actual 6.60 (EXCEEDED by 65%). Expected overhead <10%. Actual 17.9% (2.3x higher but still below old 33% floor). Expected historian dominates meta. Actual: historian near-absent (3.6%), tooler+experimenter dominate. Yield acceleration is real and driven by concurrent DOMEX lanes (S398-S399 peak: 9-11 lanes simultaneously). The meta sub-role prediction was maximally wrong \u2014 no dedicated historian tool means NO historian dispatch, not historian dominance.",
+  "verdict": "F-META3 CONFIRMED yield acceleration trajectory. Overhead floor falsification holds. Meta sub-role distribution FALSIFIED expectation.",
+  "citations": [
+    "L-786",
+    "L-683",
+    "L-459",
+    "L-812",
+    "L-908",
+    "L-601",
+    "F-META3"
+  ]
+}

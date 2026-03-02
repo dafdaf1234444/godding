@@ -1,0 +1,72 @@
+{
+  "experiment": "f-exp10-yield-by-outcome-s363",
+  "question": "Do PROVEN outcome labels predict higher L/lane yield?",
+  "session": "S363",
+  "method": "Cross-tabulation of MERGED DOMEX lanes by dispatch_optimizer outcome label (PROVEN/MIXED/STRUGGLING)",
+  "data": {
+    "total_merged_domex_lanes": 157,
+    "labeled_lanes": 84,
+    "labeled_pct": 53.5
+  },
+  "results": {
+    "PROVEN": {
+      "n_lanes": 52,
+      "total_lessons": 63,
+      "mean_L_per_lane": 1.212,
+      "ci95": [
+        0.942,
+        1.577
+      ],
+      "zero_lesson_pct": 15.4
+    },
+    "MIXED": {
+      "n_lanes": 24,
+      "total_lessons": 34,
+      "mean_L_per_lane": 1.417,
+      "ci95": [
+        0.917,
+        1.917
+      ],
+      "zero_lesson_pct": 25.0
+    },
+    "STRUGGLING": {
+      "n_lanes": 8,
+      "total_lessons": 7,
+      "mean_L_per_lane": 0.875,
+      "ci95": [
+        0.5,
+        1.25
+      ],
+      "zero_lesson_pct": 25.0
+    },
+    "UNLABELED": {
+      "n_lanes": 73,
+      "total_lessons": 77,
+      "mean_L_per_lane": 1.055,
+      "ci95": [
+        0.836,
+        1.288
+      ],
+      "zero_lesson_pct": 28.8
+    }
+  },
+  "diminishing_returns": {
+    "proven_first_half_mean": 1.308,
+    "proven_second_half_mean": 1.115,
+    "delta": -0.192,
+    "direction": "declining"
+  },
+  "findings": [
+    "MIXED domains produce highest L/lane (1.42), not PROVEN (1.21)",
+    "STRUGGLING correctly identified: lowest yield (0.88 L/lane)",
+    "Relationship is NON-MONOTONIC: MIXED > PROVEN > UNLABELED > STRUGGLING",
+    "PROVEN domains show diminishing returns \u2014 over-dispatch reduces marginal yield",
+    "Optimal dispatch should weight MIXED domains higher than PROVEN for yield maximization"
+  ],
+  "prediction_vs_actual": {
+    "predicted": "PROVEN >= 1.5x STRUGGLING L/lane yield",
+    "actual": "PROVEN/STRUGGLING ratio = 1.38x (below 1.5x threshold)",
+    "surprise": "MIXED outperforms PROVEN by 17.4%",
+    "verdict": "PARTIALLY CONFIRMED \u2014 direction correct (PROVEN > STRUGGLING), magnitude wrong, ordering non-monotonic"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "frontier_id": "F-CTL2",
+  "title": "Expect-act-diff to correction latency baseline",
+  "source": "commits",
+  "session_filter_min": 150,
+  "session_range": {
+    "start": 150,
+    "end": 186
+  },
+  "classification": {
+    "diff_event_rule": "expectation signal + large-diff signal in session commit text",
+    "correction_rule": "repair/sync/resolve/pass signal in session commit text",
+    "anchor_linking": "prefer matching F/L/P/PHIL anchors; fallback to next correction event if no anchor match"
+  },
+  "summary": {
+    "diff_events_total": 4,
+    "resolved_events": 4,
+    "unresolved_events": 0,
+    "anchor_matched_events": 3,
+    "same_session_resolved_events": 0,
+    "cross_session_resolved_events": 4,
+    "same_session_resolution_rate": 0.0,
+    "mean_lag_sessions": 1.0,
+    "cross_session_mean_lag_sessions": 1.0,
+    "mean_lag_floor_1_sessions": 1.0,
+    "median_lag_sessions": 1.0,
+    "p90_lag_sessions": 1.0,
+    "within_1_session_rate": 1.0
+  },
+  "auto_routing": {
+    "policy": {
+      "route_after_sessions": 1,
+      "rule": "If lag exceeds threshold, emit required follow-up for next session."
+    },
+    "eligible_events": 0,
+    "baseline_mean_lag": 1.0,
+    "projected_mean_lag": 1.0,
+    "estimated_mean_reduction": 0.0
+  },
+  "events_sample": [
+    {
+      "event_session": 178,
+      "anchors": [
+        "F-AI1",
+        "F-AI4",
+        "F122",
+        "F123",
+        "L-222",
+        "L-225",
+        "L-226",
+        "L-227",
+        "L-230",
+        "L-231",
+        "L-232",
+        "P-180",
+        "P-184",
+        "PHIL-13",
+        "PHIL-14",
+        "PHIL-9"
+      ],
+      "matched_correction_session": 179,
+      "lag_sessions": 1,
+      "anchor_matched": true,
+      "event_excerpt": "[S178] recovery commit: stage L-230/L-231/L-232 + state files after aa4d5f8 mass-deletion | [S178] philosophy-reswarm: PHIL-9 upgraded observed + PHIL-13 vigilance gap (L-227, P-184) | [S178] INDEX belief count 14\u219217 + N",
+      "correction_excerpt": "[S179] PRINCIPLES header 159\u2192158: sync with actual ID count post-dedup | [S179] PAPER 159\u2192158P: correct principle count after dedup; maintenance NOTICE-only | [S179] sync_state: guard + PAPER sync + WSL check: prevent co"
+    },
+    {
+      "event_session": 181,
+      "anchors": [
+        "F-FIN3",
+        "F121",
+        "L-061",
+        "L-072",
+        "L-079",
+        "L-235",
+        "L-237",
+        "L-239",
+        "L-240",
+        "P-053",
+        "P-067",
+        "P-077",
+        "P-078",
+        "P-084",
+        "P-085",
+        "P-192"
+      ],
+      "matched_correction_session": 182,
+      "lag_sessions": 1,
+      "anchor_matched": true,
+      "event_excerpt": "[S181] handoff: PAPER auto-sync live + expect-act-diff complete + 244L sync | [S181] state-sync: 243L 166P 17B 18F + PAPER scale auto-patched | [S181] maintenance handoff: 241L sync + P-053 citation + handoff note | [S18",
+      "correction_excerpt": "[S182] F-FIN1 + F-FIN2 PARTIAL: P-196 + L-260 trim + state sync 260L 170P | [S182] handoff sync: FRONTIER.md 19\u219223 active (brain+IS domains), NEXT.md proxy-K floor updated to S180 (healthy +4.7%) | [S182] brain domain en"
+    },
+    {
+      "event_session": 182,
+      "anchors": [
+        "EXPECT-NEXT",
+        "F-AI2",
+        "F-AI3",
+        "F-FIN1",
+        "F-FIN2",
+        "F-HLT1",
+        "F-HLT2",
+        "F-HLT3",
+        "F123",
+        "L-071",
+        "L-241",
+        "L-242",
+        "L-244",
+        "L-246",
+        "L-248",
+        "L-249",
+        "L-250",
+        "L-251",
+        "L-253",
+        "L-255",
+        "L-260",
+        "P-077",
+        "P-163",
+        "P-193",
+        "P-194",
+        "P-196"
+      ],
+      "matched_correction_session": 183,
+      "lag_sessions": 1,
+      "anchor_matched": true,
+      "event_excerpt": "[S182] F-FIN1 + F-FIN2 PARTIAL: P-196 + L-260 trim + state sync 260L 170P | [S182] handoff sync: FRONTIER.md 19\u219223 active (brain+IS domains), NEXT.md proxy-K floor updated to S180 (healthy +4.7%) | [S182] brain domain en",
+      "correction_excerpt": "[S183] F-AI2+F-FIN2: async coordination study + systematic risk confirmed; brain/IS frontiers; dream.py | [S183] F124+F-FIN2: quality baselines + systematic risk confirmed; L-259+260 filed | [S183] F-FIN2: systematic ris"
+    },
+    {
+      "event_session": 183,
+      "anchors": [
+        "EXPECT-NEXT",
+        "F-AI2",
+        "F-FIN1",
+        "F-FIN2",
+        "F123",
+        "F124",
+        "L-257",
+        "L-259"
+      ],
+      "matched_correction_session": 184,
+      "lag_sessions": 1,
+      "anchor_matched": false,
+      "event_excerpt": "[S183] F-AI2+F-FIN2: async coordination study + systematic risk confirmed; brain/IS frontiers; dream.py | [S183] F124+F-FIN2: quality baselines + systematic risk confirmed; L-259+260 filed | [S183] F-FIN2: systematic ris",
+      "correction_excerpt": "[S184] clear maintenance drift: compact lessons and sync state | [S184] PAPER scale sync: 263\u2192264L, 19\u219220F, session 182\u2192184"
+    }
+  ],
+  "interpretation": {
+    "caveat": "Signals are inferred from commit messages, so silent or differently-worded corrections can inflate measured lag.",
+    "direction": "healthy"
+  },
+  "generated_at_utc": "2026-02-27T22:12:52Z"
+}

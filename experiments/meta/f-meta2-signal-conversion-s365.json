@@ -1,0 +1,67 @@
+{
+  "experiment": "F-META2 signal conversion re-measurement",
+  "session": "S365",
+  "date": "2026-03-01",
+  "question": "Has signal-to-knowledge conversion improved since S313 baseline?",
+  "method": "Programmatic 3-layer audit: table rows (S57-S304 format), pattern bullets (curated synthesis), session sections (S302+ rich format). Classification: canonical (L/P/F/B/ISO/HQ ref) vs file-ref-only vs minimal.",
+  "baseline": {
+    "session": "S313",
+    "total_signals": 111,
+    "table_canonical_rate_pct": 36,
+    "para_canonical_rate_pct": 67,
+    "overall_canonical_rate_pct": 39
+  },
+  "measurement": {
+    "total_signals": 193,
+    "table": {
+      "count": 105,
+      "canonical": 41,
+      "canonical_rate_pct": 39.0,
+      "file_only": 62,
+      "minimal": 2
+    },
+    "patterns": {
+      "count": 59,
+      "canonical": 28,
+      "canonical_rate_pct": 47.5
+    },
+    "session_sections": {
+      "count": 29,
+      "canonical": 26,
+      "canonical_rate_pct": 89.7,
+      "file_only": 3,
+      "minimal": 0
+    },
+    "s313_comparable": {
+      "total": 164,
+      "canonical": 69,
+      "rate_pct": 42.1
+    },
+    "overall_canonical_rate_pct": 49.2,
+    "post_s313": {
+      "new_signals": 22,
+      "new_canonical": 19,
+      "rate_pct": 86.4
+    },
+    "intake_rate": {
+      "s57_s313": 0.41,
+      "s314_s365": 0.42
+    }
+  },
+  "findings": [
+    "Overall canonical encoding STAGNANT: 42.1% vs 39% baseline (+3.1pp)",
+    "Table row canonical encoding 38.1% (+2.1pp from 36%) \u2014 within measurement noise",
+    "File format shifted: session sections (n=29) added since S302, with 89.7% canonical rate",
+    "Signal intake dramatically slowed: 0.42/session (S314-S365) vs 0.41/session (S57-S313)",
+    "Pattern bullets grew from 9 to 59 but canonical rate fell from 67% to 47.5%",
+    "S313 recommendation 'per-signal L/P prompt' was NOT implemented \u2014 no enforcement at signal-write time",
+    "Same 2 unresolved signals from S313 still unresolved (S182, S208)"
+  ],
+  "gap_analysis": {
+    "primary": "No enforcement mechanism built: S313 recommended per-signal L/P prompting but this was never wired into any tool",
+    "secondary": "Format proliferation without quality: session sections expand signal surface area without increasing canonical encoding",
+    "tertiary": "Signal intake slowed 75%: fewer new signals logged per session, suggesting the file is becoming legacy rather than active"
+  },
+  "structural_diagnosis": "L-601 predicts this: voluntary protocol (S313 recommendations) decays to structural floor at creation. Signal conversion needs creation-time enforcement to improve.",
+  "verdict": "STAGNANT: 42.1% vs 39% baseline. S313 recommendations produced no measurable improvement in 52 sessions. Root cause: no enforcement mechanism built."
+}

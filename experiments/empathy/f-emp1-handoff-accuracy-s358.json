@@ -1,0 +1,134 @@
+{
+  "experiment": "F-EMP1",
+  "session": "S358",
+  "date": "2026-03-01",
+  "question": "Does handoff quality correlate with empathic accuracy?",
+  "method": "Parse NEXT.md predictions vs actual next-session work. Fuzzy matching with term overlap + identifier matching.",
+  "n_notes": 331,
+  "n_with_predictions": 228,
+  "total_predictions": 506,
+  "results": {
+    "window_1": {
+      "hit_rate": 0.079,
+      "mean_session_accuracy": 0.087
+    },
+    "window_3": {
+      "hit_rate": 0.192,
+      "mean_session_accuracy": 0.199
+    },
+    "window_5": {
+      "hit_rate": 0.246,
+      "mean_session_accuracy": 0.255
+    }
+  },
+  "concurrency_effect": {
+    "high_n": 217,
+    "high_accuracy": 0.198,
+    "low_n": 10,
+    "low_accuracy": 0.208
+  },
+  "recency_effect": {
+    "recent_n": 62,
+    "recent_accuracy": 0.293,
+    "old_n": 165,
+    "old_accuracy": 0.164
+  },
+  "sample_missed": [
+    "F-LNG2 extend to 15 sessions",
+    "F-LNG2 extend to 10 sessions",
+    "F-EXP7 one-shot DOMEX pattern \u2014 close any open DOMEX in same session",
+    "B8 annotation update",
+    "P11/P12 act-observe-label protocol addition to resolve C-006 H\u00b9",
+    "update active lanes with historian_check/session/artifact anchors and rerun grounding",
+    "consider lanes_compact --age 5 if bloat >1.3x.",
+    "track F-LNG1 again at n=400",
+    "use helper to refresh README snapshot on next update",
+    "consider wiring into maintenance output."
+  ],
+  "accuracy_distribution": {
+    "0%": 145,
+    "50-74%": 34,
+    "25-49%": 27,
+    "1-24%": 2,
+    "100%": 18,
+    "75-99%": 1
+  },
+  "sample_matches": [
+    {
+      "session": 329,
+      "prediction": "~196 L-NNN cross-links for K_avg=1.5",
+      "score": 0.504
+    },
+    {
+      "session": 307,
+      "prediction": "DOMEX-README-S307 first run",
+      "score": 0.288
+    },
+    {
+      "session": 307,
+      "prediction": "F-LNG1 Zipf",
+      "score": 0.283
+    },
+    {
+      "session": 307,
+      "prediction": "DOMEX-README-S307 first run.",
+      "score": 0.285
+    },
+    {
+      "session": 307,
+      "prediction": "F-COMP1 phase 2: beat Metaculus baseline Brier<0.18 using expert LaOP",
+      "score": 0.582
+    },
+    {
+      "session": 308,
+      "prediction": "update F-COMM1 note if cadence gate satisfies dispatch requirement.",
+      "score": 0.355
+    },
+    {
+      "session": 310,
+      "prediction": "F105 compaction DUE ~6% \u2014 proxy-K 58213t vs 54939t baseline",
+      "score": 0.279
+    },
+    {
+      "session": 310,
+      "prediction": "F105 compaction DUE ~6% \u2014 proxy-K 58213t vs 54939t baseline",
+      "score": 0.331
+    },
+    {
+      "session": 307,
+      "prediction": "dispatch DOMEX expert to fill 13 domain coverage gaps",
+      "score": 0.345
+    },
+    {
+      "session": 312,
+      "prediction": "decide whether to track/commit L-420",
+      "score": 0.513
+    },
+    {
+      "session": 312,
+      "prediction": "if available, run `dispatch_optimizer.py` via WSL.",
+      "score": 0.508
+    },
+    {
+      "session": 313,
+      "prediction": "reconcile economy_expert proxy-K baseline",
+      "score": 0.514
+    },
+    {
+      "session": 315,
+      "prediction": "decide on helper spawns per economy_expert",
+      "score": 0.51
+    },
+    {
+      "session": 315,
+      "prediction": "reconcile economy_expert proxy-K baseline",
+      "score": 0.516
+    },
+    {
+      "session": 316,
+      "prediction": "fix economy_expert proxy-K baseline",
+      "score": 0.521
+    }
+  ],
+  "falsification": "If prediction accuracy >70% but wasted work unchanged, prediction without action = noise"
+}

@@ -1,0 +1,30 @@
+{
+  "experiment": "f-ic1-hardening-s418",
+  "frontier": "F-IC1",
+  "session": "S418",
+  "domain": "security",
+  "mode": "hardening",
+  "hypothesis": "SUPERSEDED→AUTO-HIGH reduces manual triage and regression tests catch FP rate regressions",
+  "method": {
+    "change_1": "SUPERSEDED→AUTO-HIGH: detect SUPERSEDED markers on falsified lessons, auto-classify all uncorrected citers as content_dependent (HIGH priority). Based on L-752 finding that SUPERSEDED chains are 100% content-dependent.",
+    "change_2": "Regression tests (test_correction_propagation.py): 7 tests covering known falsified detection, corrector non-flagging, FP rate <20% bound, SUPERSEDED auto-HIGH, and queue priority."
+  },
+  "results": {
+    "total_lessons": 849,
+    "falsified_detected": 11,
+    "uncorrected_citations": 20,
+    "avg_correction_rate": 0.614,
+    "high_priority_items": 3,
+    "superseded_with_gaps": ["L-426", "L-556", "L-746"],
+    "superseded_citers_auto_high": 3,
+    "fp_rate": 0.0,
+    "regression_tests": "7/7 PASS"
+  },
+  "impact": {
+    "superseded_auto_high_effect": "3 SUPERSEDED citers auto-classified as HIGH (content_dependent) without keyword-based classification. Eliminates false MEDIUM/LOW for SUPERSEDED chains.",
+    "regression_tests_added": "7 tests: 2 detection, 2 corrector-exclusion, 1 FP-rate, 1 auto-HIGH, 1 queue. Catches regressions at N>900.",
+    "manual_triage_reduction": "SUPERSEDED chains no longer require manual citation-type classification — all auto-HIGH. ~30% of previous HIGH items were SUPERSEDED."
+  },
+  "falsification_criteria": "If SUPERSEDED auto-HIGH produces false HIGH at >5% rate (non-content-dependent citers auto-classified) over next 10 sessions.",
+  "related": ["L-752", "L-885", "L-904", "L-923"]
+}

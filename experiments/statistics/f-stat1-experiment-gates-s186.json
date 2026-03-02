@@ -1,0 +1,195 @@
+{
+  "frontier_id": "F-STAT1",
+  "title": "Class-specific experiment promotion gates",
+  "class_summaries": [
+    {
+      "class_name": "live_query",
+      "run_count": 13,
+      "effect_metric": "mean_accuracy_n3_minus_n1",
+      "observed": {
+        "mean_effect": 0.0043,
+        "median_effect": 0.0208,
+        "std_effect": 0.0953,
+        "ci95_mean_effect": [
+          -0.0497,
+          0.0538
+        ],
+        "sign_stability": 0.5385,
+        "median_sample_size": 5
+      },
+      "recommended_gate": {
+        "min_runs": 15,
+        "min_per_run_sample": 8,
+        "min_abs_effect": 0.0477,
+        "promotion_rule": "Promote class claim only if >= 15 independent runs, per-run sample >= 8, and |effect| >= 0.0477."
+      },
+      "runs": [
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-direct-rerun-s186.json",
+          "effect": -0.0104,
+          "sample_size": 8
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-direct-s186.json",
+          "effect": 0.1666,
+          "sample_size": 1
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-bootstrap.json",
+          "effect": 0.0833,
+          "sample_size": 5
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-p005.json",
+          "effect": -0.0584,
+          "sample_size": 10
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-p015.json",
+          "effect": -0.1334,
+          "sample_size": 5
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-p025.json",
+          "effect": -0.0166,
+          "sample_size": 5
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-p035.json",
+          "effect": 0.025,
+          "sample_size": 10
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-rerun.json",
+          "effect": 0.1,
+          "sample_size": 5
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-rerun20-p0.json",
+          "effect": -0.0166,
+          "sample_size": 20
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-rerun20.json",
+          "effect": 0.0208,
+          "sample_size": 20
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-rerun8.json",
+          "effect": 0.0208,
+          "sample_size": 8
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+          "effect": -0.2083,
+          "sample_size": 2
+        },
+        {
+          "artifact": "experiments/finance/f-fin1-factual-qa-s186.json",
+          "effect": 0.0833,
+          "sample_size": 5
+        }
+      ]
+    },
+    {
+      "class_name": "lane_log_extraction",
+      "run_count": 6,
+      "effect_metric": "transfer_acceptance_rate_minus_collision_frequency",
+      "observed": {
+        "mean_effect": -0.1337,
+        "median_effect": 0.014,
+        "std_effect": 0.2483,
+        "ci95_mean_effect": [
+          -0.3521,
+          0.0319
+        ],
+        "sign_stability": 0.5,
+        "median_sample_size": 28
+      },
+      "recommended_gate": {
+        "min_runs": 8,
+        "min_per_run_sample": 28,
+        "min_abs_effect": 0.1241,
+        "promotion_rule": "Promote class claim only if >= 8 independent runs, per-run sample >= 28, and |effect| >= 0.1241."
+      },
+      "runs": [
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-s186-pass-a.json",
+          "effect": 0.0491,
+          "sample_size": 28
+        },
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-s186-pass-b.json",
+          "effect": 0.028,
+          "sample_size": 28
+        },
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-s186-selected-vs-backlog.json",
+          "effect": 0.0,
+          "sample_size": 12
+        },
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-s186.json",
+          "effect": 0.0326,
+          "sample_size": 28
+        },
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-tags-s186-rerun2.json",
+          "effect": -0.2867,
+          "sample_size": 28
+        },
+        {
+          "artifact": "experiments/information-science/f-is5-lane-distill-tags-s186.json",
+          "effect": -0.625,
+          "sample_size": 28
+        }
+      ]
+    },
+    {
+      "class_name": "simulation_control",
+      "run_count": 4,
+      "effect_metric": "current_alert_burden_minus_best_alert_burden",
+      "observed": {
+        "mean_effect": 0.0777,
+        "median_effect": 0.0814,
+        "std_effect": 0.058,
+        "ci95_mean_effect": [
+          0.0232,
+          0.1322
+        ],
+        "sign_stability": 0.75,
+        "median_sample_size": 43
+      },
+      "recommended_gate": {
+        "min_runs": 4,
+        "min_per_run_sample": 43,
+        "min_abs_effect": 0.0389,
+        "promotion_rule": "Promote class claim only if >= 4 independent runs, per-run sample >= 43, and |effect| >= 0.0389."
+      },
+      "runs": [
+        {
+          "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d03.json",
+          "effect": 0.0,
+          "sample_size": 43
+        },
+        {
+          "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all-d05.json",
+          "effect": 0.0465,
+          "sample_size": 43
+        },
+        {
+          "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186-all.json",
+          "effect": 0.1163,
+          "sample_size": 43
+        },
+        {
+          "artifact": "experiments/control-theory/f-ctl1-threshold-sweep-s186.json",
+          "effect": 0.1481,
+          "sample_size": 27
+        }
+      ]
+    }
+  ],
+  "generated_at_utc": "2026-02-27T21:13:26Z",
+  "notes": "Gates are first-pass calibration from S186 artifacts; update as more independent runs arrive and as scoring contracts become stricter."
+}

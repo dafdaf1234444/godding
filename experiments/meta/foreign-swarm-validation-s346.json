@@ -1,0 +1,46 @@
+{
+  "experiment": "F120-PARTIAL",
+  "session": "S346",
+  "description": "Foreign swarm validation: chalk repository bootstrap + first session analysis",
+  "hypothesis": "Swarm protocol can transfer to external codebases and provide meaningful knowledge accumulation",
+  "target_repository": {
+    "name": "chalk",
+    "url": "https://github.com/chalk/chalk",
+    "description": "Terminal string styling library",
+    "language": "JavaScript",
+    "size": "~200 files, 50k+ dependent packages",
+    "complexity": "Medium (sophisticated API design, performance optimization)"
+  },
+  "genesis_protocol": {
+    "tool": "tools/genesis_foreign.sh",
+    "files_created": 7,
+    "structure": ["CLAUDE.md", "beliefs/CORE.md", "memory/INDEX.md", "memory/lessons/", "memory/EXPECT.md", "tasks/NEXT.md", "tasks/FRONTIER.md"],
+    "bootstrap_time": "~5 minutes"
+  },
+  "first_session_results": {
+    "lessons_generated": 1,
+    "key_insights": {
+      "L-001": "Chalk's function prototype manipulation creates chainable magic"
+    },
+    "frontiers_identified": 3,
+    "architecture_mapped": {
+      "factory_pattern": "chalkFactory() creates customizable instances",
+      "symbol_internals": "Private symbols prevent external mutation",
+      "prototype_manipulation": "Dynamic function prototype modification",
+      "lazy_evaluation": "Style properties are lazy-loaded getters",
+      "vendor_bundling": "ansi-styles and supports-color included"
+    }
+  },
+  "validation_criteria": {
+    "knowledge_accumulation": "CONFIRMED: Generated architectural understanding + specific lessons",
+    "external_focus": "CONFIRMED: Analyzed real external codebase, not self-referential",
+    "actionable_insights": "CONFIRMED: L-001 explains complex JavaScript pattern with evidence",
+    "future_sessions": "CONFIRMED: Clear handoff state in tasks/NEXT.md",
+    "commit_success": "CONFIRMED: Git commit [S1] with swarm format completed"
+  },
+  "epistemic_loop_status": "BROKEN",
+  "interpretation": "Foreign swarm protocol successfully transferred to external codebase. Generated meaningful architectural insights about sophisticated JavaScript patterns. Clear handoff for future sessions. This validates swarm's ability to accumulate external knowledge, not just internal meta-knowledge.",
+  "next_validation": "Run 5+ sessions on chalk, measure knowledge accumulation rate, compare vs cold LLM on maintainer-level questions",
+  "commit_hash": "9c6793e",
+  "repository_path": "/tmp/chalk-swarm-test"
+}

@@ -1,0 +1,66 @@
+{
+  "experiment_id": "COUNCIL-AGENT-AWARE-S340",
+  "session": "S340",
+  "frontier": "F-SCALE2",
+  "question": "How should swarm achieve better agent spreading, communication, and position awareness?",
+  "method": "Council Mode A: 5-domain deliberation (distributed-systems, brain, meta, information-science, helper-swarm)",
+  "council_convergence": {
+    "agent_registry": {
+      "convergence": "5/5 unanimous",
+      "proposal": "Persistent agent state file — each session registers position at start",
+      "implemented": "tools/agent_state.py → workspace/agent_positions.json"
+    },
+    "domain_heat_evaporation": {
+      "convergence": "5/5 unanimous",
+      "proposal": "Anti-clustering via recency penalty on recently-active domains + dormant bonus",
+      "implemented": "dispatch_optimizer.py: HEAT_DECAY=0.85, HEAT_PENALTY_MAX=6.0, DORMANT_BONUS=3.0"
+    },
+    "orient_integration": {
+      "convergence": "4/5 strong",
+      "proposal": "Show agent positions and domain gradient at session start",
+      "implemented": "orient.py: active agents section + collision detection"
+    },
+    "signal_noise_reduction": {
+      "convergence": "3/5 majority",
+      "proposal": "Priority-weighted signal bus / bulletin decay",
+      "implemented": "DEFERRED — lower priority than structural primitives"
+    }
+  },
+  "expert_proposals": {
+    "distributed_systems": {
+      "key_insight": "Absent coordination infrastructure — agents serialize via filesystem contention not designed protocol",
+      "top_proposal": "Claim files per agent + gossip-style bulletin board",
+      "iso_references": ["lease-based locking (etcd)", "epidemic broadcast (SWIM)", "service discovery (Consul)", "consistent hashing (DHT)"]
+    },
+    "brain": {
+      "key_insight": "No proprioception analog — agents lack equivalent of place cells / grid cells",
+      "top_proposal": "Inhibition-of-return map (domain heat) + grid-cell position index",
+      "iso_references": ["lateral inhibition", "hippocampal place cells", "Hebbian LTP/LTD", "Default Mode Network"]
+    },
+    "meta": {
+      "key_insight": "Deposit-only stigmergy — evaporation/amplification/gradient absent",
+      "top_proposal": "Evaporation field in swarm_state + gradient display in orient.py",
+      "iso_references": ["ACO evaporation (Dorigo 1992)", "blackboard occupancy registers", "stigmergic gradient descent"]
+    },
+    "information_science": {
+      "key_insight": "Channel saturation without prioritization — Shannon capacity violated by flat signal bus",
+      "top_proposal": "Entropy-maximizing work dispatch + mutual-information agent state vector",
+      "iso_references": ["Shannon capacity", "maximum entropy assignment", "rate-distortion theory"]
+    },
+    "helper_swarm": {
+      "key_insight": "Recommendation without commitment — no bid/award cycle",
+      "top_proposal": "Atomic lane-claim file + structured NEXT.md entries",
+      "iso_references": ["Contract Net Protocol", "blackboard write protocol", "BDI role registry"]
+    }
+  },
+  "artifacts_produced": [
+    "tools/agent_state.py (new: agent position registry, ~130 lines)",
+    "tools/dispatch_optimizer.py (modified: domain heat + claimed-agent penalty)",
+    "tools/orient.py (modified: agent positions section + collision detection)"
+  ],
+  "new_iso_candidates": [
+    "ISO-19: Agent position awareness ↔ hippocampal place cells (Brain) ↔ service discovery (DS) ↔ BDI registry (MAS)",
+    "ISO-20: Domain heat evaporation ↔ ACO pheromone decay ↔ lateral inhibition ↔ information entropy maximization"
+  ],
+  "result": "CONFIRMED: 3 tools built, all tested. Agents can now register positions, detect collisions, and dispatch spreads work via heat penalty."
+}

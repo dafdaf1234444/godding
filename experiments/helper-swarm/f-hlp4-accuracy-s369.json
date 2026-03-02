@@ -1,0 +1,606 @@
+{
+  "timestamp": "2026-03-01T06:42:28.303655+00:00",
+  "session": "S369",
+  "sample_size": 40,
+  "top1_accuracy": 0.725,
+  "top3_accuracy": 0.825,
+  "baseline_top1": 0.35,
+  "baseline_top3": 0.575,
+  "improvement_top1": 0.375,
+  "improvement_top3": 0.25,
+  "mean_confidence_correct": 0.6854,
+  "mean_confidence_incorrect": 0.5505,
+  "fixes_applied": [
+    "operational-seeds: domain-specific operational vocabulary",
+    "fid-boosting: F-SP1/F-NK5/etc -> domain boost +3.0",
+    "relative-confidence: top1/(top1+top2) replaces min(1.0)",
+    "infra-deprioritization: generic swarm terms weighted 0.3x (meta exempt)"
+  ],
+  "per_domain": {
+    "meta": {
+      "n": 20,
+      "top1_acc": 0.85,
+      "top3_acc": 0.9
+    },
+    "stochastic-processes": {
+      "n": 4,
+      "top1_acc": 0.5,
+      "top3_acc": 0.5
+    },
+    "empathy": {
+      "n": 1,
+      "top1_acc": 1.0,
+      "top3_acc": 1.0
+    },
+    "information-science": {
+      "n": 3,
+      "top1_acc": 0.6667,
+      "top3_acc": 0.6667
+    },
+    "economy": {
+      "n": 1,
+      "top1_acc": 1.0,
+      "top3_acc": 1.0
+    },
+    "nk-complexity": {
+      "n": 5,
+      "top1_acc": 0.6,
+      "top3_acc": 0.8
+    },
+    "conflict": {
+      "n": 3,
+      "top1_acc": 1.0,
+      "top3_acc": 1.0
+    },
+    "operations-research": {
+      "n": 1,
+      "top1_acc": 0.0,
+      "top3_acc": 0.0
+    },
+    "governance": {
+      "n": 1,
+      "top1_acc": 0.0,
+      "top3_acc": 1.0
+    },
+    "helper-swarm": {
+      "n": 1,
+      "top1_acc": 0.0,
+      "top3_acc": 1.0
+    }
+  },
+  "misroutes": {
+    "meta -> evolution": 1,
+    "stochastic-processes -> brain": 1,
+    "meta -> information-science": 1,
+    "nk-complexity -> meta": 1,
+    "meta -> empathy": 1,
+    "information-science -> history": 1,
+    "operations-research -> meta": 1,
+    "governance -> meta": 1,
+    "nk-complexity -> brain": 1,
+    "stochastic-processes -> information-science": 1,
+    "helper-swarm -> meta": 1
+  },
+  "detailed_results": [
+    {
+      "task": "coordination and concurrent harvest, DUE items cleared, economy health check, pr...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "control-theory",
+        "economy"
+      ],
+      "confidence": 0.6849,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "challenge resolution, CORE-P11 DROPPED, EAD contrast generator analysis, n=365 a...",
+      "actual": "meta",
+      "predicted_top1": "evolution",
+      "predicted_top3": [
+        "evolution",
+        "economy",
+        "meta"
+      ],
+      "confidence": 0.5714,
+      "top1_hit": false,
+      "top3_hit": true
+    },
+    {
+      "task": "F-META9 opened, autonomous invocation gap, P-219 substrate-tripwire at frontier-...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "economy",
+        "catastrophic-risks"
+      ],
+      "confidence": 0.813,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "USL concurrency model fit, alpha beta estimates, N* prediction, Universal Scalab...",
+      "actual": "stochastic-processes",
+      "predicted_top1": "brain",
+      "predicted_top3": [
+        "brain",
+        "empathy",
+        "statistics"
+      ],
+      "confidence": 0.5,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "F-SP2 RESOLVED constant throughput model wins AIC, 4-model comparison, USL vs li...",
+      "actual": "stochastic-processes",
+      "predicted_top1": "stochastic-processes",
+      "predicted_top3": [
+        "stochastic-processes",
+        "evolution",
+        "economy"
+      ],
+      "confidence": 0.7895,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "F-EMP1 handoff accuracy measurement, prediction hit rate across 20+ sessions, bi...",
+      "actual": "empathy",
+      "predicted_top1": "empathy",
+      "predicted_top3": [
+        "empathy",
+        "meta",
+        "brain"
+      ],
+      "confidence": 0.6023,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "F-IS7 statistics harvest, 21 experiments scanned, 6 patterns found, domain conve...",
+      "actual": "information-science",
+      "predicted_top1": "information-science",
+      "predicted_top3": [
+        "information-science",
+        "meta",
+        "gaming"
+      ],
+      "confidence": 0.6117,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "multi-lesson quality fixer, orphan citations fixed, Cites headers enriched, 177 ...",
+      "actual": "meta",
+      "predicted_top1": "information-science",
+      "predicted_top3": [
+        "information-science",
+        "stochastic-processes",
+        "gaming"
+      ],
+      "confidence": 0.5,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "economy DOMEX F-ECO5 coverage-weighted dispatch scoring, visit saturation penalt...",
+      "actual": "economy",
+      "predicted_top1": "economy",
+      "predicted_top3": [
+        "economy",
+        "expert-swarm",
+        "meta"
+      ],
+      "confidence": 0.803,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "PHIL-2 challenge REFINED, human-mediated recursion, stochastic-processes domain ...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "ai",
+        "brain"
+      ],
+      "confidence": 0.8219,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "NK K=2.0 CROSSED, K_avg measurement at N=554, hub z-score, Gini z-score, isolati...",
+      "actual": "nk-complexity",
+      "predicted_top1": "nk-complexity",
+      "predicted_top3": [
+        "nk-complexity",
+        "stochastic-processes",
+        "economy"
+      ],
+      "confidence": 0.6667,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "redundancy audit, principles-dedup, lesson dedup, near-duplicate pairs supersede...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "quality",
+        "finance"
+      ],
+      "confidence": 0.5479,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "NK falsification, chaos predictions 3/3 FALSIFIED, cycle tracking, Gini declinin...",
+      "actual": "nk-complexity",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "nk-complexity",
+        "stochastic-processes"
+      ],
+      "confidence": 0.5,
+      "top1_hit": false,
+      "top3_hit": true
+    },
+    {
+      "task": "epistemic repair, N_e and phase transition terminology correction, 6 lessons cor...",
+      "actual": "meta",
+      "predicted_top1": "empathy",
+      "predicted_top3": [
+        "empathy",
+        "human-systems",
+        "governance"
+      ],
+      "confidence": 0.5385,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "hallucination challenge filing, 3 belief challenges from L-599 audit, N_e and ph...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "information-science",
+        "dream"
+      ],
+      "confidence": 0.6452,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "NK S356 tracking, K_avg checkpoint, cross-session Hawkes/NK synthesis, cross-sca...",
+      "actual": "nk-complexity",
+      "predicted_top1": "nk-complexity",
+      "predicted_top3": [
+        "nk-complexity",
+        "stochastic-processes",
+        "control-theory"
+      ],
+      "confidence": 0.5556,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "F-SP1 CONFIRMED Hawkes self-excitation, IoD=3.54, \u0394AIC=186, lag-1 autocorrelatio...",
+      "actual": "stochastic-processes",
+      "predicted_top1": "stochastic-processes",
+      "predicted_top3": [
+        "stochastic-processes",
+        "brain",
+        "control-theory"
+      ],
+      "confidence": 0.9091,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "setup-reswarm, orient.py stale lane detection fix, bridge sync, INDEX.md bucket ...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "empathy",
+        "conflict"
+      ],
+      "confidence": 0.5914,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "paper-reswarm, docs/PAPER.md v0.18 to v0.19, S332-S355 narrative update, living ...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "information-science",
+        "expert-swarm"
+      ],
+      "confidence": 0.7,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "conflict DOMEX F-CON2 C-EDIT measurement, 82% reduction CONFIRMED, claim.py coll...",
+      "actual": "conflict",
+      "predicted_top1": "conflict",
+      "predicted_top3": [
+        "conflict",
+        "meta",
+        "empathy"
+      ],
+      "confidence": 0.6078,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "hallucination audit, belief challenges filed, epistemic repair, substrate verifi...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "cryptography",
+        "dream"
+      ],
+      "confidence": 0.6452,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "meta pattern mining F-META8, session-boundary compliance theorem, 167+ meta less...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "governance",
+        "cryptocurrency"
+      ],
+      "confidence": 0.75,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "claim.py TTL 300s to 120s, ghost lock reduction, F-CON2 follow-up",
+      "actual": "conflict",
+      "predicted_top1": "conflict",
+      "predicted_top3": [
+        "conflict",
+        "meta",
+        "dream"
+      ],
+      "confidence": 0.7561,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "NK plateau BROKEN, K_avg 1.79 to 1.96, K=2.0 approaching, harvest session citati...",
+      "actual": "nk-complexity",
+      "predicted_top1": "nk-complexity",
+      "predicted_top3": [
+        "nk-complexity",
+        "stochastic-processes",
+        "graph-theory"
+      ],
+      "confidence": 0.6102,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "orient.py performance fix, 60s to 17s, 4 root causes profiled, F-CON2 claim inte...",
+      "actual": "conflict",
+      "predicted_top1": "conflict",
+      "predicted_top3": [
+        "conflict",
+        "meta",
+        "ai"
+      ],
+      "confidence": 0.5122,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "deep history harvest, 47 experiments analyzed, grounding floor theorem, chronolo...",
+      "actual": "information-science",
+      "predicted_top1": "history",
+      "predicted_top3": [
+        "history",
+        "meta",
+        "farming"
+      ],
+      "confidence": 0.5,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "contract_check.py built, F-META8 self-verifying contract, 5 binary validators, 7...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "expert-swarm",
+        "evolution"
+      ],
+      "confidence": 0.7368,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "F119 reswarm, I13 MC-XSUB enforcement gap, ops-research harvest, 54 experiments ...",
+      "actual": "operations-research",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "brain",
+        "catastrophic-risks"
+      ],
+      "confidence": 0.6667,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "multi-tool bridge audit, 4 untested tools researched, .cursorrules deprecated, b...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "finance",
+        "game-theory"
+      ],
+      "confidence": 0.6,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "governance DOMEX drift_scanner.py built, F-GOV2 RESOLVED, requirement gaps betwe...",
+      "actual": "governance",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "governance",
+        "helper-swarm"
+      ],
+      "confidence": 0.5594,
+      "top1_hit": false,
+      "top3_hit": true
+    },
+    {
+      "task": "F-META7 integration session, dark matter 30% to 18.5%, dream.py batch theming, o...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "graph-theory",
+        "quality"
+      ],
+      "confidence": 0.8197,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "NK DOMEX plus brain DOMEX F-BRN4, INDEX coverage 76.4% to 83.4%, new theme Phase...",
+      "actual": "nk-complexity",
+      "predicted_top1": "brain",
+      "predicted_top3": [
+        "brain",
+        "expert-swarm",
+        "meta"
+      ],
+      "confidence": 0.6195,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "stochastic-processes dark matter PID policy, N_e approximately 15, optimal orpha...",
+      "actual": "stochastic-processes",
+      "predicted_top1": "information-science",
+      "predicted_top3": [
+        "information-science",
+        "meta",
+        "graph-theory"
+      ],
+      "confidence": 0.5,
+      "top1_hit": false,
+      "top3_hit": false
+    },
+    {
+      "task": "human-signal-harvest P-216 three-signal rule, 3 patterns promoted, mechanism-nam...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "fractals",
+        "human-systems"
+      ],
+      "confidence": 0.6061,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "info-science DOMEX F-IS7 volume-conversion paradox harvested, Simpson's Paradox,...",
+      "actual": "information-science",
+      "predicted_top1": "information-science",
+      "predicted_top3": [
+        "information-science",
+        "governance",
+        "meta"
+      ],
+      "confidence": 0.8571,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "Hono S3 F1 resolved, RegExpRouter vs TrieRouter benchmark, ISO-23 regime-crossov...",
+      "actual": "helper-swarm",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "helper-swarm",
+        "stochastic-processes"
+      ],
+      "confidence": 0.6,
+      "top1_hit": false,
+      "top3_hit": true
+    },
+    {
+      "task": "council swarming the swarm's code, 3 GAP-1 closures, swarm_io lane parsing, code...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "economy",
+        "empathy"
+      ],
+      "confidence": 0.6849,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "dark matter fixed, dream.py Domain format gap, 77% to 30%, measurement-channel b...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "empathy",
+        "information-science"
+      ],
+      "confidence": 0.6993,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "F-META1 minimal contract, ISO-24 ergodic decomposition, stochastic-processes gen...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "stochastic-processes",
+        "protocol-engineering"
+      ],
+      "confidence": 0.5833,
+      "top1_hit": true,
+      "top3_hit": true
+    },
+    {
+      "task": "mission-constraint-reswarm, MC-LEARN test fix, F119 hardened, MC-SAFE MC-CONN MC...",
+      "actual": "meta",
+      "predicted_top1": "meta",
+      "predicted_top3": [
+        "meta",
+        "cryptocurrency",
+        "control-theory"
+      ],
+      "confidence": 0.6667,
+      "top1_hit": true,
+      "top3_hit": true
+    }
+  ]
+}

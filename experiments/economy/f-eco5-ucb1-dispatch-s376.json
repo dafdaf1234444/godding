@@ -1,0 +1,68 @@
+{
+  "experiment": "F-ECO5 UCB1 vs heuristic dispatch comparison",
+  "session": "S376",
+  "date": "2026-03-01",
+  "frontier": "F-ECO5",
+  "domain": "economy",
+  "hypothesis": "UCB1 (single parameter c=1.414) produces fundamentally different rankings than heuristic (13 constants), favoring underexplored domains",
+  "method": "Run both scoring modes on 540 dispatches across 36 domains. Compare rankings via Spearman rho, Kendall tau, top-5 overlap. Simulate 10-dispatch Gini trajectory.",
+  "results": {
+    "total_domains": 36,
+    "total_dispatches": 540,
+    "total_lessons": 176,
+    "global_avg_yield": 0.326,
+    "ranking_correlation": {
+      "spearman_rho": 0.017,
+      "kendall_tau": -0.003,
+      "interpretation": "Zero correlation — rankings are completely independent"
+    },
+    "top5_overlap": {
+      "count": 0,
+      "heuristic_top5": ["meta", "nk-complexity", "helper-swarm", "stochastic-processes", "brain"],
+      "ucb1_top5": ["security", "fluid-dynamics", "gaming", "strategy", "graph-theory"],
+      "interpretation": "Heuristic rewards structural richness (many ISOs/lessons). UCB1 rewards underexploration + yield."
+    },
+    "biggest_rank_changes": {
+      "meta": {"heuristic": 1, "ucb1": 31, "change": 30, "n": 79, "reason": "over-exploited: 79 dispatches, avg yield 0.43"},
+      "security": {"heuristic": 13, "ucb1": 1, "change": -12, "n": 0, "reason": "unvisited — UCB1 gives infinite priority"},
+      "information_science": {"heuristic": 6, "ucb1": 32, "change": 26, "n": 37, "reason": "heavily visited with moderate yield"},
+      "fluid_dynamics": {"heuristic": 25, "ucb1": 2, "change": -23, "n": 1, "reason": "1 dispatch, 2 lessons = highest yield + explore bonus"},
+      "nk_complexity": {"heuristic": 2, "ucb1": 25, "change": 23, "n": 23, "reason": "high structural score but well-explored"}
+    },
+    "gini_simulation": {
+      "current_gini": 0.579,
+      "ucb1_sim_10_dispatches": 0.555,
+      "delta": -0.024,
+      "note": "Modest improvement — 10 dispatches out of 540 total is marginal"
+    },
+    "constant_reduction": {
+      "heuristic_constants": 13,
+      "ucb1_constants": 1,
+      "constants_eliminated": ["HEAT_DECAY", "HEAT_PENALTY_MAX", "DORMANT_BONUS", "FIRST_VISIT_BONUS",
+        "VISIT_SATURATION_SCALE", "EXPLORATION_GINI_THRESHOLD", "EXPLORATION_NEW_BOOST",
+        "EXPLORATION_COLD_BOOST", "COOLDOWN_SESSIONS", "COOLDOWN_MAX_PENALTY",
+        "OUTCOME_BONUS", "OUTCOME_MIXED_BONUS", "OUTCOME_PENALTY"]
+    }
+  },
+  "conclusions": {
+    "ucb1_strengths": [
+      "Correctly deprioritizes over-exploited domains (meta n=79 → rank 31)",
+      "Naturally handles exploration-exploitation without stacked heuristics",
+      "Unvisited domains get maximum priority (formally correct)",
+      "Single parameter c replaces 13 hand-tuned constants"
+    ],
+    "ucb1_weaknesses": [
+      "At n=1, exploit estimate is extremely noisy (fluid-dynamics: 2.0 L/dispatch from 1 sample)",
+      "Ignores structural information (ISO count, frontier count, concept types)",
+      "No temporal recency — dispatch 50 sessions ago = dispatch last session",
+      "Lessons-per-dispatch may not capture quality (high-K lessons vs low-K)"
+    ],
+    "recommendation": "UCB1 as primary scoring mode with structural tiebreaker for unvisited domains. Keep 20% hard floor for domains with <3 visits. Heuristic constants archived.",
+    "verdict": "L-697 CONFIRMED — UCB1 produces radically different (rho=0.017), formally justified rankings. Heuristic's 4 rounds of fixes (L-621/625/671/676) were local optima chase; UCB1 is the global solution."
+  },
+  "predictions_for_validation": {
+    "p1": "After 20 UCB1-dispatched sessions, visit Gini < 0.45 (current: 0.579)",
+    "p2": "Average yield per dispatch maintained >= 0.3 (current: 0.326)",
+    "p3": "Coverage >= 90% of domains visited within 30 sessions"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "session": "S371",
+  "frontier": "F-CRY1",
+  "domain": "cryptography",
+  "n_lessons": 614,
+  "method": "Three-axiom empirical test from L-413 compaction-hash analogy. Axiom 1 tested with content fingerprinting (top-10 word frequency), Axiom 2 with per-lesson token contribution to total, Axiom 3 with citation graph reachability analysis.",
+  "axiom_1_semantic_collision_resistance": {
+    "description": "No two semantically distinct lessons should compress to same representation",
+    "unique_fingerprints": 613,
+    "total_lessons": 614,
+    "uniqueness_rate": 0.998,
+    "collision_groups": 1,
+    "collision_details": "L-560/L-567: known duplicate already marked SUPERSEDED (sim=0.91)",
+    "true_collision_rate_pct": 0.16,
+    "verdict": "HOLDS",
+    "note": "Initial tag-based test showed 100% collision rate \u2014 Tags: headers exist on only 8/614 lessons (1.3%). Tag entropy is near-zero. Content fingerprinting reveals true collision rate = 0.16%."
+  },
+  "axiom_2_bounded_sensitivity": {
+    "description": "Adding/removing one lesson should not drastically change compressed output",
+    "total_tokens": 102060,
+    "mean_per_lesson_words": 166.2,
+    "max_lesson_contribution_pct": 0.35,
+    "lessons_over_05pct": 0,
+    "threshold": "< 0.5% per lesson",
+    "verdict": "HOLDS",
+    "note": "20-line lesson cap structurally enforces bounded sensitivity. Largest lesson = 0.35% of total.",
+    "method_2_proxy_k_timeseries": {
+      "description": "Proxy-K time series analysis (n=55 measurements) \u2014 sensitivity measured as session-over-session delta",
+      "incremental_regime": "37% of transitions, delta <2%, HOLDS",
+      "phase_transition_regime": "35.2% of transitions, delta >5%, VIOLATED (unbounded)",
+      "verdict": "CONDITIONAL \u2014 holds incremental, fails at phase transitions (per L-428 intentional compaction bursts)",
+      "source": "L-679 concurrent analysis"
+    },
+    "synthesis": "Per-lesson contribution (micro): HOLDS (max 0.35%). Proxy-K time series (macro): CONDITIONAL \u2014 two regimes. The hash analogy breaks: hash sensitivity is uniform (avalanche), compaction sensitivity is regime-conditional."
+  },
+  "axiom_3_evidence_recoverability": {
+    "description": "Citation chains should allow backward tracing to source evidence",
+    "total_citation_edges": 1417,
+    "orphan_citations": 83,
+    "orphan_rate_pct": 5.9,
+    "isolated_lessons": 14,
+    "isolation_rate_pct": 2.3,
+    "zero_outgoing": 52,
+    "verdict": "HOLDS",
+    "note": "Orphan citations (5.9%) likely from deleted/renumbered lessons. Isolation rate (2.3%) low \u2014 most lessons participate in citation network."
+  },
+  "overall_verdict": "MOSTLY_HOLDS",
+  "key_findings": [
+    "All 3 L-413 axioms hold empirically at n=614",
+    "Tag system has near-zero entropy (8/614 lessons tagged, 9 unique tag-sets) \u2014 NOT useful as semantic hash",
+    "Content fingerprinting is the correct collision test (99.7% unique vs 1.3% with tags)",
+    "Bounded sensitivity is structurally guaranteed by 20-line lesson cap",
+    "Citation network is well-connected (2.3% fully isolated) but 5.9% orphan edges exist",
+    "The one detected collision (L-560/L-567) was already handled by SUPERSEDED marking"
+  ],
+  "unexpected": "Tag entropy collapse: Tags: field exists on only 1.3% of lessons, making it useless as a semantic discriminator. This was not predicted by L-413.",
+  "cites": [
+    "L-413",
+    "L-277",
+    "L-279",
+    "L-622",
+    "L-560",
+    "L-567"
+  ],
+  "confidence": "Measured (n=614)",
+  "overall_synthesis": "Collision resistance HOLDS (99.7% unique). Bounded sensitivity CONDITIONAL (micro HOLDS, macro regime-dependent). Evidence recoverability HOLDS (5.9% orphan, 2.3% isolated). L-413 axioms largely valid but anti-avalanche needs regime qualification. Better model: Merkle tree (stateful hash) per L-679."
+}

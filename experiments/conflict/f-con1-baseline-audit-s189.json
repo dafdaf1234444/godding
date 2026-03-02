@@ -1,0 +1,31 @@
+{
+  "session": "S189",
+  "date": "2026-02-28",
+  "frontier": "F-CON1",
+  "audit": {
+    "lanes_checked": 51,
+    "methodology": "Parse ACTIVE rows from SWARM-LANES.md. Check C1 (focus overlap), C3 (stale session), A1 (CORE/CLAUDE recent edits).",
+    "conflicts_found_raw": 6,
+    "conflicts_found_adjusted": 1,
+    "note_on_adjustment": "C1 hits (5) are false positives: same lane ID 'L-S186-MSW2-S4-HIS' appears 6 times in append-only log — normal deduplication needed. A1 hit (1) is historical CORE/CLAUDE edits, not a live mid-session mutation.",
+    "true_conflicts": [],
+    "null_result_adjusted": true
+  },
+  "calibration_findings": {
+    "C1_false_positive_cause": "Append-only log stores multiple rows per lane ID. Dedup by lane ID before overlap check.",
+    "C3_stale_note": "All ACTIVE S184-S186 lanes from prior sessions appear ALREADY CLOSED in later rows — audit tool scanned without dedup. True orphan count: 0 confirmed.",
+    "A1_note": "CORE.md/CLAUDE.md edits are frequent and expected. A1 detection needs session-start hash vs session-end hash, not git log historical count."
+  },
+  "signals_emitted": [],
+  "conflict_taxonomy_hits": {
+    "C1_raw": 5,
+    "C1_adjusted": 0,
+    "C3": 0,
+    "A1_historical": 1,
+    "A1_live": 0,
+    "A2": 0,
+    "A3": 0
+  },
+  "lessons_generated": ["L-296 candidate: conflict expert baseline — F110 audit tool needs dedup + live-vs-historical distinction"],
+  "next_focus": "build-deduped-audit-tool-with-lane-id-dedup-and-session-hash-A1-detection"
+}

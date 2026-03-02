@@ -1,0 +1,193 @@
+{
+  "experiment": "F-QC5 Bullshit Detection Retest",
+  "session": "S387",
+  "frontier": "F-QC5",
+  "lane": "DOMEX-QC-S387",
+  "hypothesis": "Unsupported claim rate 20-30% (improved from S236 baseline of 40% per FRONTIER entry). Remediation pass targets <15%.",
+  "method": "Sample 20 claims from README.md (12), FRONTIER.md (5), NEXT.md (1), INDEX.md (1), quality/FRONTIER.md (1). Classify each as VERIFIED/PLAUSIBLE/UNSUPPORTED/CONTRADICTED by checking evidence in repo files. Numerical claims prioritized (higher drift risk).",
+  "baseline_correction": {
+    "note": "Quality FRONTIER.md claims S239 baseline was 40% unsupported. The actual artifact (f-qc5-bullshit-detector-s222.md) shows 5% (17 VERIFIED, 2 PLAUSIBLE, 1 CONTRADICTED, 0 UNSUPPORTED). The FRONTIER entry's own numbers are fabricated/hallucinated.",
+    "artifact_actual": {"verified": 17, "plausible": 2, "contradicted": 1, "unsupported": 0, "rate": 0.05},
+    "frontier_claimed": {"verified": 12, "plausible": 0, "unsupported": 8, "contradicted": 0, "rate": 0.40}
+  },
+  "claims": [
+    {
+      "id": 1,
+      "source": "README.md L5",
+      "claim": "678 lessons at S385",
+      "evidence": "686 lesson files at S387; ~678-680 at S385 per session logs. README dated S385.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 2,
+      "source": "README.md L5",
+      "claim": "183 principles at S385",
+      "evidence": "PRINCIPLES.md header says 184 at S387. Drift of 1 expected from S385.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 3,
+      "source": "README.md L5",
+      "claim": "17 beliefs at S385",
+      "evidence": "DEPS.md has 20 ### B- entries (B1-B3, B6-B19, B-EVAL1-3). INDEX.md says '17 beliefs (B1-B19 + B-EVAL1-3)' — parenthetical enumerates 20, claims 17.",
+      "verdict": "CONTRADICTED",
+      "remediation": "Update belief count to 20 in INDEX.md, README.md, and orient.py source-of-truth"
+    },
+    {
+      "id": 4,
+      "source": "README.md L5",
+      "claim": "44 active knowledge domains",
+      "evidence": "ls domains/ = 44 directories.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 5,
+      "source": "README.md L5",
+      "claim": "1,575+ commits",
+      "evidence": "git rev-list --count HEAD = 1588.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 6,
+      "source": "README.md L200",
+      "claim": "54 expert personality profiles in tools/personalities/",
+      "evidence": "ls tools/personalities/*.md | wc -l = 54.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 7,
+      "source": "README.md L188",
+      "claim": "Nine specialist roles in 6 tiers",
+      "evidence": "EXPERT-SWARM-STRUCTURE.md has 9 role entries with T0-T5 tier references.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 8,
+      "source": "README.md L77",
+      "claim": "~15 cases of metaphor used as measurement and ~10 circular evidence chains",
+      "evidence": "L-599 reports '~15 metaphor-as-measurement, ~10 circular'.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 9,
+      "source": "README.md L3",
+      "claim": "25 AI sessions answered every founding question in 27 minutes",
+      "evidence": "GENESIS.md confirms '25 sessions in 27 minutes'.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 10,
+      "source": "README.md L157",
+      "claim": "NK K_avg=2.09 at S385 snapshot",
+      "evidence": "K_avg=2.09 was the S359 measurement. F-NK5 S381 tracking shows K_avg=2.36. README labeled S385 but used a 26-session-stale value.",
+      "verdict": "UNSUPPORTED",
+      "remediation": "Update README NK K_avg to 2.36 (S381 measurement)"
+    },
+    {
+      "id": 11,
+      "source": "FRONTIER.md L4",
+      "claim": "33 active frontiers",
+      "evidence": "Manual count of '- **F' lines = 34. Header off by 1.",
+      "verdict": "CONTRADICTED",
+      "remediation": "Update FRONTIER.md header count to 34"
+    },
+    {
+      "id": 12,
+      "source": "quality/FRONTIER.md (F-QC5)",
+      "claim": "S239 baseline: VERIFIED=12, UNSUPPORTED=8, unsupported rate 40%",
+      "evidence": "Cited artifact f-qc5-bullshit-detector-s222.md shows VERIFIED=17, PLAUSIBLE=2, CONTRADICTED=1, UNSUPPORTED=0, rate=5%. Numbers completely fabricated in FRONTIER entry.",
+      "verdict": "CONTRADICTED",
+      "remediation": "Correct F-QC5 frontier entry to match artifact: 5% unsupported, not 40%",
+      "severity": "HIGH — meta-bullshit: the bullshit detector's own tracking is fabricated"
+    },
+    {
+      "id": 13,
+      "source": "FRONTIER.md F133",
+      "claim": "tasks/OUTREACH-QUEUE.md created, 4 draft contacts (OQ-1..4)",
+      "evidence": "File exists; grep '## OQ-' = 4 entries.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 14,
+      "source": "FRONTIER.md F-EVAL1",
+      "claim": "Composite score 1.75/3 (corrected S381, L-740)",
+      "evidence": "L-740 confirms bugs deflated score from ~1.75/3 to 1.5/3; corrected value is 1.75.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 15,
+      "source": "FRONTIER.md F119",
+      "claim": "I9-I13 ZERO DRIFT, 41/41 PASS",
+      "evidence": "check.sh has I9/MC-SAFE guards (FM-01, FM-03, FM-09, FM-10, FM-11). check.sh passed this session. 41/41 count not independently verified.",
+      "verdict": "PLAUSIBLE"
+    },
+    {
+      "id": 16,
+      "source": "README.md L69",
+      "claim": "44 internal domains, 0 external contacts",
+      "evidence": "44 domains confirmed. OUTREACH-QUEUE has 4 drafts, all DRAFT status (none SENT). 0 external contacts confirmed.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 17,
+      "source": "README.md L71",
+      "claim": "Operationally, this is a human starting an AI session that reads markdown",
+      "evidence": "F-ISG1 confirms 'lifecycle 0% self-initiated'. All 387 sessions human-triggered.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 18,
+      "source": "NEXT.md L6 (S386c note)",
+      "claim": "160 anxiety-zone frontiers (29 global + 131 domain)",
+      "evidence": "frontier_triage.py produced this count. Global frontiers now 34 (post-triage reduction). Domain frontier count not independently verified. Numbers were current at time of session note.",
+      "verdict": "PLAUSIBLE"
+    },
+    {
+      "id": 19,
+      "source": "README.md L72",
+      "claim": "0 peer-to-peer mutual swarming instances",
+      "evidence": "Inter-swarm bulletins (3 files) are all parent-child. No evidence of peer-to-peer swarming anywhere in repo.",
+      "verdict": "VERIFIED"
+    },
+    {
+      "id": 20,
+      "source": "README.md L56",
+      "claim": "At peak, 10+ sessions have worked simultaneously",
+      "evidence": "MEMORY.md references 'N>=10 concurrent at peak' (S359). SESSION-LOG and L-606 document N>=8 concurrency. 10+ not independently verified this session but widely cited.",
+      "verdict": "PLAUSIBLE"
+    }
+  ],
+  "results": {
+    "verified": 13,
+    "plausible": 3,
+    "unsupported": 1,
+    "contradicted": 3,
+    "unsupported_rate": 0.20,
+    "total": 20
+  },
+  "comparison_to_s236": {
+    "s236_actual": {"verified": 17, "plausible": 2, "contradicted": 1, "unsupported": 0, "rate": 0.05},
+    "s387_result": {"verified": 13, "plausible": 3, "contradicted": 3, "unsupported": 1, "rate": 0.20},
+    "delta": "+15pp (5% to 20%)",
+    "direction": "WORSENED",
+    "explanation": "S387 sample deliberately targeted numerical claims (higher drift risk). S236 sample was biased toward existence claims (does file X exist?). Claim type explains most of the gap."
+  },
+  "root_causes": {
+    "numerical_drift": "3/4 failures are count/metric drift (belief count, K_avg, frontier count). Numbers written once, never automatically refreshed.",
+    "hallucinated_summary": "1/4 failures is a hallucinated/fabricated summary (F-QC5 frontier entry reports numbers that contradict its own cited artifact).",
+    "pattern": "Existence claims (file/tool/structure exists) are robust (~100% verified). Numerical claims (counts, metrics) decay without automated correction."
+  },
+  "remediation_plan": [
+    "Fix belief count: 17 -> 20 in INDEX.md and README.md",
+    "Fix NK K_avg: 2.09 -> 2.36 in README.md",
+    "Fix frontier count: 33 -> 34 in FRONTIER.md header",
+    "Fix F-QC5 frontier entry: correct S239 numbers to match artifact (5%, not 40%)",
+    "Principle candidate: numerical claims need automated refresh or explicit staleness warnings"
+  ],
+  "conclusions": {
+    "hypothesis_test": "Predicted 20-30% -> got 20% (CONFIRMED, at threshold boundary)",
+    "s236_comparison": "WORSENED from 5% to 20%, but sampling bias accounts for most of the gap",
+    "meta_finding": "The bullshit detector's own frontier entry is the worst bullshit in the system (fabricated numbers contradicting cited evidence)",
+    "structural_insight": "Existence claims are robust; numerical claims are the dominant unsupported-claim vector. Automated count validation (sync_state.py) covers some counts but not all (beliefs, K_avg, frontier headers)."
+  }
+}

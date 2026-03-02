@@ -1,0 +1,34 @@
+{
+  "frontier": "F-NK5",
+  "session": "S397",
+  "mode": "hardening",
+  "timestamp": "2026-03-01",
+  "tool": "nk_null_model.py",
+  "n_lessons": 744,
+  "k_avg": 2.6599,
+  "k_max": 91,
+  "hub_z": 35.398,
+  "gini_z": 13.416,
+  "isolation_z": 5.032,
+  "orphan_pct": 25.0,
+  "verdict": "GENUINELY_NON_RANDOM",
+  "tracking_history": {
+    "S367_N480": {"k_avg": 2.09, "hub_z": null, "k_max": null},
+    "S381_N662": {"k_avg": 2.36, "hub_z": 14.2, "k_max": null},
+    "S387_N686": {"k_avg": 2.47, "hub_z": 20.9, "k_max": null},
+    "S393_N713": {"k_avg": 2.56, "hub_z": 24.6, "k_max": 67},
+    "S396_N724": {"k_avg": 2.587, "hub_z": 26.8, "k_max": 75},
+    "S397_N744": {"k_avg": 2.66, "hub_z": 35.4, "k_max": 91}
+  },
+  "rate_per_lesson": 0.00365,
+  "rate_change": "accelerated (was 0.0024/L at S396, now 0.00365/L)",
+  "findings": [
+    "K_avg rate acceleration: 0.0024→0.00365/L (52% increase). 20 new lessons added 72.9 edges → 3.65 edges/lesson (above equilibrium 4.52).",
+    "Hub z jump: 26.8→35.4 (+32%) in 20 lessons. K_max 75→91 (+16 edges). L-601 PARTIALLY FALSIFIED amendment likely attracted cross-citations.",
+    "Isolation z flat: 5.0 vs 5.3 (within noise). Orphan rate 25% stable.",
+    "Equilibrium K_avg ~4.5 (S396) still holds: current 2.66 is 59% of asymptote."
+  ],
+  "expect": "K_avg ~2.62, hub z >27, isolation z >5.3",
+  "actual": "K_avg 2.66 (EXCEEDED), hub z 35.4 (EXCEEDED by 31%), isolation z 5.0 (slightly below)",
+  "diff": "Hub z acceleration is the main surprise: L-601 falsification created a citation attractor effect. K_max grew from 75 to 91 in 20 lessons — that's 0.8 new incoming edges per lesson to the hub alone."
+}

@@ -1,0 +1,5845 @@
+{
+  "frontier_id": "F-IS3",
+  "title": "Spawn math analytic-vs-simulation validation",
+  "generated_at": "2026-02-28T11:58:21.423608+00:00",
+  "inputs": {
+    "grid_error_rates": [
+      0.15,
+      0.25,
+      0.35
+    ],
+    "grid_rhos": [
+      0.0,
+      0.1,
+      0.2,
+      0.35,
+      0.5
+    ],
+    "grid_coordination_costs": [
+      0.01,
+      0.03,
+      0.05,
+      0.08,
+      0.12
+    ],
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "trials": 3000,
+    "seed": 307,
+    "calibrated_model": "/mnt/c/Users/canac/REPOSITORIES/swarm/experiments/information-science/f-is3-spawn-math-s186-cost-calibrated.json",
+    "model": "exchangeable",
+    "agent_sd": 0.0,
+    "difficulty_sd": 0.0
+  },
+  "summary": {
+    "grid": {
+      "scenario_count": 75,
+      "recommendation_match_rate": 0.693333,
+      "recommendation_within_one_n_rate": 0.986667,
+      "mismatch_low_margin_rate": 0.826087,
+      "mean_abs_utility_error": 0.007079,
+      "max_abs_utility_error": 0.033111
+    },
+    "calibrated_model_check": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.295713,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    }
+  },
+  "grid": {
+    "scenario_count": 75,
+    "recommendation_match_count": 52,
+    "recommendation_match_rate": 0.693333,
+    "recommendation_within_one_n_rate": 0.986667,
+    "mismatch_low_margin_rate": 0.826087,
+    "mean_abs_utility_error": 0.007079,
+    "max_abs_utility_error": 0.033111,
+    "mismatch_examples": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 313,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.564168,
+          "simulated_best_utility": 0.55906,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00773
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 317,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.595757,
+          "simulated_best_utility": 0.602491,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.001589
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 320,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.49425,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 328,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.510767,
+          "simulated_best_utility": 0.500137,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.012315
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 333,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.443494,
+          "simulated_best_utility": 0.441103,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.003494
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 334,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.4,
+          "simulated_best_utility": 0.393479,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006186
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 336,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.323814,
+          "simulated_best_utility": 0.320148,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006826
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 339,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.378869,
+          "simulated_best_utility": 0.375651,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00273
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 342,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 6,
+          "match": false,
+          "analytic_best_utility": 0.450192,
+          "simulated_best_utility": 0.45212,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000192
+        }
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 345,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.33459,
+          "simulated_best_utility": 0.328105,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.017603
+        }
+      }
+    ],
+    "scenarios": [
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 307,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.654226,
+          "simulated_best_utility": 0.660046,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003913
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.485704,
+            "abs_utility_error": 0.007225,
+            "simulated_mean_quality": 0.846333,
+            "simulated_std_quality": 0.360629
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.587512,
+            "simulated_utility": 0.587099,
+            "abs_utility_error": 0.000413,
+            "simulated_mean_quality": 0.851,
+            "simulated_std_quality": 0.253901
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.623845,
+            "simulated_utility": 0.62175,
+            "abs_utility_error": 0.002095,
+            "simulated_mean_quality": 0.851111,
+            "simulated_std_quality": 0.209361
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.641464,
+            "simulated_utility": 0.642411,
+            "abs_utility_error": 0.000947,
+            "simulated_mean_quality": 0.8515,
+            "simulated_std_quality": 0.179089
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.650313,
+            "simulated_utility": 0.650347,
+            "abs_utility_error": 3.4e-05,
+            "simulated_mean_quality": 0.850533,
+            "simulated_std_quality": 0.160187
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.654226,
+            "simulated_utility": 0.660046,
+            "abs_utility_error": 0.00582,
+            "simulated_mean_quality": 0.854556,
+            "simulated_std_quality": 0.144509
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 308,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.583845,
+          "simulated_best_utility": 0.595187,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00238
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.4969,
+            "abs_utility_error": 0.003971,
+            "simulated_mean_quality": 0.852,
+            "simulated_std_quality": 0.3551
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.567512,
+            "simulated_utility": 0.578386,
+            "abs_utility_error": 0.010874,
+            "simulated_mean_quality": 0.856167,
+            "simulated_std_quality": 0.247781
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.583845,
+            "simulated_utility": 0.595187,
+            "abs_utility_error": 0.011342,
+            "simulated_mean_quality": 0.854778,
+            "simulated_std_quality": 0.199591
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.581464,
+            "simulated_utility": 0.579707,
+            "abs_utility_error": 0.001757,
+            "simulated_mean_quality": 0.847667,
+            "simulated_std_quality": 0.177959
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.570313,
+            "simulated_utility": 0.56386,
+            "abs_utility_error": 0.006453,
+            "simulated_mean_quality": 0.8446,
+            "simulated_std_quality": 0.16074
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.554226,
+            "simulated_utility": 0.547248,
+            "abs_utility_error": 0.006978,
+            "simulated_mean_quality": 0.847222,
+            "simulated_std_quality": 0.149974
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 309,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.547512,
+          "simulated_best_utility": 0.553258,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003668
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.482445,
+            "abs_utility_error": 0.010484,
+            "simulated_mean_quality": 0.844667,
+            "simulated_std_quality": 0.362222
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.547512,
+            "simulated_utility": 0.553258,
+            "abs_utility_error": 0.005746,
+            "simulated_mean_quality": 0.8535,
+            "simulated_std_quality": 0.250242
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.543845,
+            "simulated_utility": 0.544775,
+            "abs_utility_error": 0.00093,
+            "simulated_mean_quality": 0.850444,
+            "simulated_std_quality": 0.205669
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.518283,
+            "abs_utility_error": 0.003181,
+            "simulated_mean_quality": 0.8475,
+            "simulated_std_quality": 0.179217
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.490313,
+            "simulated_utility": 0.489363,
+            "abs_utility_error": 0.00095,
+            "simulated_mean_quality": 0.849467,
+            "simulated_std_quality": 0.160103
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.454226,
+            "simulated_utility": 0.448518,
+            "abs_utility_error": 0.005708,
+            "simulated_mean_quality": 0.846333,
+            "simulated_std_quality": 0.147816
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 310,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.517512,
+          "simulated_best_utility": 0.513376,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.024584
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.482445,
+            "abs_utility_error": 0.010484,
+            "simulated_mean_quality": 0.844667,
+            "simulated_std_quality": 0.362222
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.517512,
+            "simulated_utility": 0.513376,
+            "abs_utility_error": 0.004136,
+            "simulated_mean_quality": 0.8495,
+            "simulated_std_quality": 0.256124
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.483845,
+            "simulated_utility": 0.489309,
+            "abs_utility_error": 0.005464,
+            "simulated_mean_quality": 0.852111,
+            "simulated_std_quality": 0.202803
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.431464,
+            "simulated_utility": 0.429938,
+            "abs_utility_error": 0.001526,
+            "simulated_mean_quality": 0.850917,
+            "simulated_std_quality": 0.180979
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370313,
+            "simulated_utility": 0.372681,
+            "abs_utility_error": 0.002368,
+            "simulated_mean_quality": 0.850267,
+            "simulated_std_quality": 0.157586
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.304226,
+            "simulated_utility": 0.301589,
+            "abs_utility_error": 0.002637,
+            "simulated_mean_quality": 0.8495,
+            "simulated_std_quality": 0.147911
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 311,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.484399,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.015416
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.484399,
+            "abs_utility_error": 0.00853,
+            "simulated_mean_quality": 0.845667,
+            "simulated_std_quality": 0.361268
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.477512,
+            "simulated_utility": 0.47546,
+            "abs_utility_error": 0.002052,
+            "simulated_mean_quality": 0.8465,
+            "simulated_std_quality": 0.25104
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.403845,
+            "simulated_utility": 0.398878,
+            "abs_utility_error": 0.004967,
+            "simulated_mean_quality": 0.848778,
+            "simulated_std_quality": 0.209899
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.311464,
+            "simulated_utility": 0.313434,
+            "abs_utility_error": 0.00197,
+            "simulated_mean_quality": 0.849833,
+            "simulated_std_quality": 0.176399
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.210313,
+            "simulated_utility": 0.212695,
+            "abs_utility_error": 0.002382,
+            "simulated_mean_quality": 0.850533,
+            "simulated_std_quality": 0.157839
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.104226,
+            "simulated_utility": 0.109122,
+            "abs_utility_error": 0.004896,
+            "simulated_mean_quality": 0.854056,
+            "simulated_std_quality": 0.144934
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 312,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.621464,
+          "simulated_best_utility": 0.628283,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000409
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.52604,
+            "abs_utility_error": 0.033111,
+            "simulated_mean_quality": 0.866333,
+            "simulated_std_quality": 0.340294
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.575189,
+            "simulated_utility": 0.571064,
+            "abs_utility_error": 0.004125,
+            "simulated_mean_quality": 0.845667,
+            "simulated_std_quality": 0.264603
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.604168,
+            "simulated_utility": 0.612052,
+            "abs_utility_error": 0.007884,
+            "simulated_mean_quality": 0.856,
+            "simulated_std_quality": 0.223948
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.616438,
+            "simulated_utility": 0.612822,
+            "abs_utility_error": 0.003616,
+            "simulated_mean_quality": 0.847667,
+            "simulated_std_quality": 0.204844
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.621056,
+            "simulated_utility": 0.624046,
+            "abs_utility_error": 0.00299,
+            "simulated_mean_quality": 0.853867,
+            "simulated_std_quality": 0.18982
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.621464,
+            "simulated_utility": 0.628283,
+            "abs_utility_error": 0.006819,
+            "simulated_mean_quality": 0.852389,
+            "simulated_std_quality": 0.174106
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 313,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.564168,
+          "simulated_best_utility": 0.55906,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00773
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.507601,
+            "abs_utility_error": 0.014672,
+            "simulated_mean_quality": 0.857333,
+            "simulated_std_quality": 0.349733
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.555189,
+            "simulated_utility": 0.543419,
+            "abs_utility_error": 0.01177,
+            "simulated_mean_quality": 0.841167,
+            "simulated_std_quality": 0.267747
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.564168,
+            "simulated_utility": 0.558489,
+            "abs_utility_error": 0.005679,
+            "simulated_mean_quality": 0.846778,
+            "simulated_std_quality": 0.228288
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.556438,
+            "simulated_utility": 0.55906,
+            "abs_utility_error": 0.002622,
+            "simulated_mean_quality": 0.85325,
+            "simulated_std_quality": 0.20419
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.541056,
+            "simulated_utility": 0.555694,
+            "abs_utility_error": 0.014638,
+            "simulated_mean_quality": 0.853333,
+            "simulated_std_quality": 0.177639
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.521464,
+            "simulated_utility": 0.527546,
+            "abs_utility_error": 0.006082,
+            "simulated_mean_quality": 0.850611,
+            "simulated_std_quality": 0.173065
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 314,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.535189,
+          "simulated_best_utility": 0.53586,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.011021
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.492929,
+            "abs_utility_error": 0.0,
+            "simulated_mean_quality": 0.85,
+            "simulated_std_quality": 0.357071
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.535189,
+            "simulated_utility": 0.53586,
+            "abs_utility_error": 0.000671,
+            "simulated_mean_quality": 0.851,
+            "simulated_std_quality": 0.26514
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.524168,
+            "simulated_utility": 0.518897,
+            "abs_utility_error": 0.005271,
+            "simulated_mean_quality": 0.845778,
+            "simulated_std_quality": 0.226881
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.496438,
+            "simulated_utility": 0.512296,
+            "abs_utility_error": 0.015858,
+            "simulated_mean_quality": 0.858333,
+            "simulated_std_quality": 0.196037
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.461056,
+            "simulated_utility": 0.461776,
+            "abs_utility_error": 0.00072,
+            "simulated_mean_quality": 0.850067,
+            "simulated_std_quality": 0.188291
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.421464,
+            "simulated_utility": 0.434464,
+            "abs_utility_error": 0.013,
+            "simulated_mean_quality": 0.856111,
+            "simulated_std_quality": 0.171647
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 315,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.505189,
+          "simulated_best_utility": 0.508508,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01226
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.500227,
+            "abs_utility_error": 0.007298,
+            "simulated_mean_quality": 0.853667,
+            "simulated_std_quality": 0.35344
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.505189,
+            "simulated_utility": 0.508508,
+            "abs_utility_error": 0.003319,
+            "simulated_mean_quality": 0.855167,
+            "simulated_std_quality": 0.266658
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.464168,
+            "simulated_utility": 0.46546,
+            "abs_utility_error": 0.001292,
+            "simulated_mean_quality": 0.852222,
+            "simulated_std_quality": 0.226762
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.406438,
+            "simulated_utility": 0.38546,
+            "abs_utility_error": 0.020978,
+            "simulated_mean_quality": 0.840917,
+            "simulated_std_quality": 0.215457
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.341056,
+            "simulated_utility": 0.336855,
+            "abs_utility_error": 0.004201,
+            "simulated_mean_quality": 0.848333,
+            "simulated_std_quality": 0.191478
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.271464,
+            "simulated_utility": 0.259818,
+            "abs_utility_error": 0.011646,
+            "simulated_mean_quality": 0.844167,
+            "simulated_std_quality": 0.184349
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 316,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.49425,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.02774
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.49425,
+            "abs_utility_error": 0.001321,
+            "simulated_mean_quality": 0.850667,
+            "simulated_std_quality": 0.356417
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.465189,
+            "simulated_utility": 0.450804,
+            "abs_utility_error": 0.014385,
+            "simulated_mean_quality": 0.840833,
+            "simulated_std_quality": 0.27003
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.38528,
+            "abs_utility_error": 0.001112,
+            "simulated_mean_quality": 0.853556,
+            "simulated_std_quality": 0.228275
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.286438,
+            "simulated_utility": 0.282856,
+            "abs_utility_error": 0.003582,
+            "simulated_mean_quality": 0.849333,
+            "simulated_std_quality": 0.206477
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.181056,
+            "simulated_utility": 0.191106,
+            "abs_utility_error": 0.01005,
+            "simulated_mean_quality": 0.853733,
+            "simulated_std_quality": 0.182627
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.071464,
+            "simulated_utility": 0.073551,
+            "abs_utility_error": 0.002087,
+            "simulated_mean_quality": 0.849556,
+            "simulated_std_quality": 0.176004
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 317,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.595757,
+          "simulated_best_utility": 0.602491,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.001589
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.501562,
+            "abs_utility_error": 0.008633,
+            "simulated_mean_quality": 0.854333,
+            "simulated_std_quality": 0.352772
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.563414,
+            "simulated_utility": 0.565012,
+            "abs_utility_error": 0.001598,
+            "simulated_mean_quality": 0.851833,
+            "simulated_std_quality": 0.276821
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.586074,
+            "simulated_utility": 0.586989,
+            "abs_utility_error": 0.000915,
+            "simulated_mean_quality": 0.849,
+            "simulated_std_quality": 0.242011
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.594168,
+            "simulated_utility": 0.602491,
+            "abs_utility_error": 0.008323,
+            "simulated_mean_quality": 0.85675,
+            "simulated_std_quality": 0.224259
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.595757,
+            "simulated_utility": 0.598497,
+            "abs_utility_error": 0.00274,
+            "simulated_mean_quality": 0.8508,
+            "simulated_std_quality": 0.212303
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.593845,
+            "simulated_utility": 0.592548,
+            "abs_utility_error": 0.001297,
+            "simulated_mean_quality": 0.850722,
+            "simulated_std_quality": 0.208174
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 318,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.546074,
+          "simulated_best_utility": 0.540772,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00266
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.494912,
+            "abs_utility_error": 0.001983,
+            "simulated_mean_quality": 0.851,
+            "simulated_std_quality": 0.356088
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.543414,
+            "simulated_utility": 0.538074,
+            "abs_utility_error": 0.00534,
+            "simulated_mean_quality": 0.8465,
+            "simulated_std_quality": 0.278426
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.546074,
+            "simulated_utility": 0.540772,
+            "abs_utility_error": 0.005302,
+            "simulated_mean_quality": 0.847,
+            "simulated_std_quality": 0.246228
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.534168,
+            "simulated_utility": 0.534004,
+            "abs_utility_error": 0.000164,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.226329
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.515757,
+            "simulated_utility": 0.518936,
+            "abs_utility_error": 0.003179,
+            "simulated_mean_quality": 0.851533,
+            "simulated_std_quality": 0.212597
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.493845,
+            "simulated_utility": 0.48663,
+            "abs_utility_error": 0.007215,
+            "simulated_mean_quality": 0.846611,
+            "simulated_std_quality": 0.209981
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 319,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.523414,
+          "simulated_best_utility": 0.531946,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01734
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.497564,
+            "abs_utility_error": 0.004635,
+            "simulated_mean_quality": 0.852333,
+            "simulated_std_quality": 0.354769
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.523414,
+            "simulated_utility": 0.531946,
+            "abs_utility_error": 0.008532,
+            "simulated_mean_quality": 0.852,
+            "simulated_std_quality": 0.270054
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.506074,
+            "simulated_utility": 0.502172,
+            "abs_utility_error": 0.003902,
+            "simulated_mean_quality": 0.848889,
+            "simulated_std_quality": 0.246717
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.474168,
+            "simulated_utility": 0.450327,
+            "abs_utility_error": 0.023841,
+            "simulated_mean_quality": 0.837,
+            "simulated_std_quality": 0.236673
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.435757,
+            "simulated_utility": 0.451295,
+            "abs_utility_error": 0.015538,
+            "simulated_mean_quality": 0.856,
+            "simulated_std_quality": 0.204705
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.393845,
+            "simulated_utility": 0.38663,
+            "abs_utility_error": 0.007215,
+            "simulated_mean_quality": 0.846611,
+            "simulated_std_quality": 0.209981
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 320,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.493414,
+          "simulated_best_utility": 0.49425,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000485
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.49425,
+            "abs_utility_error": 0.001321,
+            "simulated_mean_quality": 0.850667,
+            "simulated_std_quality": 0.356417
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.493414,
+            "simulated_utility": 0.488075,
+            "abs_utility_error": 0.005339,
+            "simulated_mean_quality": 0.847167,
+            "simulated_std_quality": 0.279091
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.446074,
+            "simulated_utility": 0.442807,
+            "abs_utility_error": 0.003267,
+            "simulated_mean_quality": 0.845333,
+            "simulated_std_quality": 0.242526
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.384168,
+            "simulated_utility": 0.38943,
+            "abs_utility_error": 0.005262,
+            "simulated_mean_quality": 0.851833,
+            "simulated_std_quality": 0.222403
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.315757,
+            "simulated_utility": 0.313925,
+            "abs_utility_error": 0.001832,
+            "simulated_mean_quality": 0.849067,
+            "simulated_std_quality": 0.215141
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.243845,
+            "simulated_utility": 0.240763,
+            "abs_utility_error": 0.003082,
+            "simulated_mean_quality": 0.848944,
+            "simulated_std_quality": 0.208182
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 321,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.500227,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.039515
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.500227,
+            "abs_utility_error": 0.007298,
+            "simulated_mean_quality": 0.853667,
+            "simulated_std_quality": 0.35344
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.457454,
+            "abs_utility_error": 0.00404,
+            "simulated_mean_quality": 0.853833,
+            "simulated_std_quality": 0.276379
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.366074,
+            "simulated_utility": 0.375851,
+            "abs_utility_error": 0.009777,
+            "simulated_mean_quality": 0.855222,
+            "simulated_std_quality": 0.239371
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.261813,
+            "abs_utility_error": 0.002355,
+            "simulated_mean_quality": 0.85075,
+            "simulated_std_quality": 0.228937
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.155757,
+            "simulated_utility": 0.159604,
+            "abs_utility_error": 0.003847,
+            "simulated_mean_quality": 0.8532,
+            "simulated_std_quality": 0.213596
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.043845,
+            "simulated_utility": 0.038292,
+            "abs_utility_error": 0.005553,
+            "simulated_mean_quality": 0.846111,
+            "simulated_std_quality": 0.207819
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 322,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.564376,
+          "simulated_best_utility": 0.576685,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001762
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.470829,
+            "abs_utility_error": 0.0221,
+            "simulated_mean_quality": 0.838667,
+            "simulated_std_quality": 0.367838
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.546636,
+            "simulated_utility": 0.542684,
+            "abs_utility_error": 0.003952,
+            "simulated_mean_quality": 0.8495,
+            "simulated_std_quality": 0.296816
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.561206,
+            "simulated_utility": 0.562128,
+            "abs_utility_error": 0.000922,
+            "simulated_mean_quality": 0.852778,
+            "simulated_std_quality": 0.27065
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.564376,
+            "simulated_utility": 0.576685,
+            "abs_utility_error": 0.012309,
+            "simulated_mean_quality": 0.8565,
+            "simulated_std_quality": 0.249815
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.562614,
+            "simulated_utility": 0.559284,
+            "abs_utility_error": 0.00333,
+            "simulated_mean_quality": 0.845867,
+            "simulated_std_quality": 0.246582
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.558262,
+            "simulated_utility": 0.553606,
+            "abs_utility_error": 0.004656,
+            "simulated_mean_quality": 0.848056,
+            "simulated_std_quality": 0.244449
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 323,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.526636,
+          "simulated_best_utility": 0.524924,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005429
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.50223,
+            "abs_utility_error": 0.009301,
+            "simulated_mean_quality": 0.854667,
+            "simulated_std_quality": 0.352437
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.526636,
+            "simulated_utility": 0.524924,
+            "abs_utility_error": 0.001712,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.295409
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.521206,
+            "simulated_utility": 0.521558,
+            "abs_utility_error": 0.000352,
+            "simulated_mean_quality": 0.850444,
+            "simulated_std_quality": 0.268886
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.504376,
+            "simulated_utility": 0.499754,
+            "abs_utility_error": 0.004622,
+            "simulated_mean_quality": 0.848083,
+            "simulated_std_quality": 0.258329
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.482614,
+            "simulated_utility": 0.484722,
+            "abs_utility_error": 0.002108,
+            "simulated_mean_quality": 0.849467,
+            "simulated_std_quality": 0.244744
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.458262,
+            "simulated_utility": 0.443027,
+            "abs_utility_error": 0.015235,
+            "simulated_mean_quality": 0.843611,
+            "simulated_std_quality": 0.250584
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 324,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.506636,
+          "simulated_best_utility": 0.486242,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.013707
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.484399,
+            "abs_utility_error": 0.00853,
+            "simulated_mean_quality": 0.845667,
+            "simulated_std_quality": 0.361268
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.506636,
+            "simulated_utility": 0.486242,
+            "abs_utility_error": 0.020394,
+            "simulated_mean_quality": 0.840167,
+            "simulated_std_quality": 0.303924
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.481206,
+            "simulated_utility": 0.479868,
+            "abs_utility_error": 0.001338,
+            "simulated_mean_quality": 0.849111,
+            "simulated_std_quality": 0.269243
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.444376,
+            "simulated_utility": 0.439615,
+            "abs_utility_error": 0.004761,
+            "simulated_mean_quality": 0.84675,
+            "simulated_std_quality": 0.257135
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.402614,
+            "simulated_utility": 0.407356,
+            "abs_utility_error": 0.004742,
+            "simulated_mean_quality": 0.851333,
+            "simulated_std_quality": 0.243977
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.358262,
+            "simulated_utility": 0.358931,
+            "abs_utility_error": 0.000669,
+            "simulated_mean_quality": 0.850889,
+            "simulated_std_quality": 0.241958
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 325,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.502899,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.016293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.502899,
+            "abs_utility_error": 0.00997,
+            "simulated_mean_quality": 0.855,
+            "simulated_std_quality": 0.352101
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.476636,
+            "simulated_utility": 0.478534,
+            "abs_utility_error": 0.001898,
+            "simulated_mean_quality": 0.851333,
+            "simulated_std_quality": 0.2928
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.421206,
+            "simulated_utility": 0.403895,
+            "abs_utility_error": 0.017311,
+            "simulated_mean_quality": 0.842111,
+            "simulated_std_quality": 0.278217
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.354376,
+            "simulated_utility": 0.3533,
+            "abs_utility_error": 0.001076,
+            "simulated_mean_quality": 0.849417,
+            "simulated_std_quality": 0.256116
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.282614,
+            "simulated_utility": 0.28485,
+            "abs_utility_error": 0.002236,
+            "simulated_mean_quality": 0.852267,
+            "simulated_std_quality": 0.247416
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.208262,
+            "simulated_utility": 0.218181,
+            "abs_utility_error": 0.009919,
+            "simulated_mean_quality": 0.856111,
+            "simulated_std_quality": 0.23793
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 326,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.494912,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056293
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.494912,
+            "abs_utility_error": 0.001983,
+            "simulated_mean_quality": 0.851,
+            "simulated_std_quality": 0.356088
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.436636,
+            "simulated_utility": 0.427418,
+            "abs_utility_error": 0.009218,
+            "simulated_mean_quality": 0.843833,
+            "simulated_std_quality": 0.296415
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.341206,
+            "simulated_utility": 0.343586,
+            "abs_utility_error": 0.00238,
+            "simulated_mean_quality": 0.849222,
+            "simulated_std_quality": 0.265636
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.234376,
+            "simulated_utility": 0.239976,
+            "abs_utility_error": 0.0056,
+            "simulated_mean_quality": 0.852083,
+            "simulated_std_quality": 0.252107
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.122614,
+            "simulated_utility": 0.124754,
+            "abs_utility_error": 0.00214,
+            "simulated_mean_quality": 0.850667,
+            "simulated_std_quality": 0.245912
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.008262,
+            "simulated_utility": -0.002223,
+            "abs_utility_error": 0.010485,
+            "simulated_mean_quality": 0.845222,
+            "simulated_std_quality": 0.247445
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 327,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.538452,
+          "simulated_best_utility": 0.551792,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.000742
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.474037,
+            "abs_utility_error": 0.018892,
+            "simulated_mean_quality": 0.840333,
+            "simulated_std_quality": 0.366297
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.530767,
+            "simulated_utility": 0.541507,
+            "abs_utility_error": 0.01074,
+            "simulated_mean_quality": 0.856667,
+            "simulated_std_quality": 0.305159
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.538452,
+            "simulated_utility": 0.551792,
+            "abs_utility_error": 0.01334,
+            "simulated_mean_quality": 0.856556,
+            "simulated_std_quality": 0.284764
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.53771,
+            "simulated_utility": 0.548315,
+            "abs_utility_error": 0.010605,
+            "simulated_mean_quality": 0.85525,
+            "simulated_std_quality": 0.276935
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.533414,
+            "simulated_utility": 0.521977,
+            "abs_utility_error": 0.011437,
+            "simulated_mean_quality": 0.8458,
+            "simulated_std_quality": 0.283823
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.527282,
+            "simulated_utility": 0.530118,
+            "abs_utility_error": 0.002836,
+            "simulated_mean_quality": 0.851889,
+            "simulated_std_quality": 0.271771
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 328,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.510767,
+          "simulated_best_utility": 0.500137,
+          "best_n_gap": -2,
+          "analytic_top2_margin": 0.012315
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.485704,
+            "abs_utility_error": 0.007225,
+            "simulated_mean_quality": 0.846333,
+            "simulated_std_quality": 0.360629
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.510767,
+            "simulated_utility": 0.496481,
+            "abs_utility_error": 0.014286,
+            "simulated_mean_quality": 0.843,
+            "simulated_std_quality": 0.316519
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.498452,
+            "simulated_utility": 0.482212,
+            "abs_utility_error": 0.01624,
+            "simulated_mean_quality": 0.841,
+            "simulated_std_quality": 0.298788
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.47771,
+            "simulated_utility": 0.500137,
+            "abs_utility_error": 0.022427,
+            "simulated_mean_quality": 0.8565,
+            "simulated_std_quality": 0.266363
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.453414,
+            "simulated_utility": 0.483391,
+            "abs_utility_error": 0.029977,
+            "simulated_mean_quality": 0.860533,
+            "simulated_std_quality": 0.257143
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.427282,
+            "simulated_utility": 0.439394,
+            "abs_utility_error": 0.012112,
+            "simulated_mean_quality": 0.854278,
+            "simulated_std_quality": 0.264883
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 329,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.50223,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.50223,
+            "abs_utility_error": 0.009301,
+            "simulated_mean_quality": 0.854667,
+            "simulated_std_quality": 0.352437
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.490767,
+            "simulated_utility": 0.492762,
+            "abs_utility_error": 0.001995,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.307571
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.458452,
+            "simulated_utility": 0.468677,
+            "abs_utility_error": 0.010225,
+            "simulated_mean_quality": 0.855111,
+            "simulated_std_quality": 0.286434
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41771,
+            "simulated_utility": 0.419926,
+            "abs_utility_error": 0.002216,
+            "simulated_mean_quality": 0.851333,
+            "simulated_std_quality": 0.281407
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.373414,
+            "simulated_utility": 0.380641,
+            "abs_utility_error": 0.007227,
+            "simulated_mean_quality": 0.853733,
+            "simulated_std_quality": 0.273092
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.327282,
+            "simulated_utility": 0.330895,
+            "abs_utility_error": 0.003613,
+            "simulated_mean_quality": 0.8485,
+            "simulated_std_quality": 0.267605
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 330,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.488323,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.032162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.488323,
+            "abs_utility_error": 0.004606,
+            "simulated_mean_quality": 0.847667,
+            "simulated_std_quality": 0.359344
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.460767,
+            "simulated_utility": 0.443494,
+            "abs_utility_error": 0.017273,
+            "simulated_mean_quality": 0.8415,
+            "simulated_std_quality": 0.318006
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.398452,
+            "simulated_utility": 0.388972,
+            "abs_utility_error": 0.00948,
+            "simulated_mean_quality": 0.846333,
+            "simulated_std_quality": 0.297361
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.32771,
+            "simulated_utility": 0.323221,
+            "abs_utility_error": 0.004489,
+            "simulated_mean_quality": 0.850333,
+            "simulated_std_quality": 0.287112
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.253414,
+            "simulated_utility": 0.248325,
+            "abs_utility_error": 0.005089,
+            "simulated_mean_quality": 0.8482,
+            "simulated_std_quality": 0.279875
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.177282,
+            "simulated_utility": 0.1887,
+            "abs_utility_error": 0.011418,
+            "simulated_mean_quality": 0.854556,
+            "simulated_std_quality": 0.265856
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.15,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 331,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.492929,
+          "simulated_best_utility": 0.483747,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.072162
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.492929,
+            "simulated_utility": 0.483747,
+            "abs_utility_error": 0.009182,
+            "simulated_mean_quality": 0.845333,
+            "simulated_std_quality": 0.361587
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.420767,
+            "simulated_utility": 0.396813,
+            "abs_utility_error": 0.023954,
+            "simulated_mean_quality": 0.839333,
+            "simulated_std_quality": 0.322521
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.318452,
+            "simulated_utility": 0.294951,
+            "abs_utility_error": 0.023501,
+            "simulated_mean_quality": 0.836778,
+            "simulated_std_quality": 0.301827
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20771,
+            "simulated_utility": 0.215955,
+            "abs_utility_error": 0.008245,
+            "simulated_mean_quality": 0.85625,
+            "simulated_std_quality": 0.280295
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.093414,
+            "simulated_utility": 0.099898,
+            "abs_utility_error": 0.006484,
+            "simulated_mean_quality": 0.8526,
+            "simulated_std_quality": 0.272702
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.022718,
+            "simulated_utility": -0.032266,
+            "abs_utility_error": 0.009548,
+            "simulated_mean_quality": 0.846667,
+            "simulated_std_quality": 0.278933
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 332,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.523223,
+          "simulated_best_utility": 0.521051,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.006872
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.33024,
+            "abs_utility_error": 0.013253,
+            "simulated_mean_quality": 0.758333,
+            "simulated_std_quality": 0.428093
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.433814,
+            "simulated_utility": 0.443612,
+            "abs_utility_error": 0.009798,
+            "simulated_mean_quality": 0.7555,
+            "simulated_std_quality": 0.301888
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.48,
+            "simulated_utility": 0.482377,
+            "abs_utility_error": 0.002377,
+            "simulated_mean_quality": 0.751667,
+            "simulated_std_quality": 0.24929
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.503494,
+            "simulated_utility": 0.495706,
+            "abs_utility_error": 0.007788,
+            "simulated_mean_quality": 0.741917,
+            "simulated_std_quality": 0.216211
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.516351,
+            "simulated_utility": 0.509818,
+            "abs_utility_error": 0.006533,
+            "simulated_mean_quality": 0.7458,
+            "simulated_std_quality": 0.195982
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.523223,
+            "simulated_utility": 0.521051,
+            "abs_utility_error": 0.002172,
+            "simulated_mean_quality": 0.746667,
+            "simulated_std_quality": 0.175615
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 333,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.443494,
+          "simulated_best_utility": 0.441103,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.003494
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.306539,
+            "abs_utility_error": 0.010448,
+            "simulated_mean_quality": 0.743333,
+            "simulated_std_quality": 0.436794
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.413814,
+            "simulated_utility": 0.418771,
+            "abs_utility_error": 0.004957,
+            "simulated_mean_quality": 0.753167,
+            "simulated_std_quality": 0.304396
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.44,
+            "simulated_utility": 0.427996,
+            "abs_utility_error": 0.012004,
+            "simulated_mean_quality": 0.743667,
+            "simulated_std_quality": 0.25567
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.443494,
+            "simulated_utility": 0.440605,
+            "abs_utility_error": 0.002889,
+            "simulated_mean_quality": 0.748833,
+            "simulated_std_quality": 0.218228
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.436351,
+            "simulated_utility": 0.441103,
+            "abs_utility_error": 0.004752,
+            "simulated_mean_quality": 0.7538,
+            "simulated_std_quality": 0.192697
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.423223,
+            "simulated_utility": 0.421867,
+            "abs_utility_error": 0.001356,
+            "simulated_mean_quality": 0.751111,
+            "simulated_std_quality": 0.179244
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 334,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.4,
+          "simulated_best_utility": 0.393479,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006186
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.320676,
+            "abs_utility_error": 0.003689,
+            "simulated_mean_quality": 0.752333,
+            "simulated_std_quality": 0.431657
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.393814,
+            "simulated_utility": 0.393479,
+            "abs_utility_error": 0.000335,
+            "simulated_mean_quality": 0.7525,
+            "simulated_std_quality": 0.309021
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.4,
+            "simulated_utility": 0.392722,
+            "abs_utility_error": 0.007278,
+            "simulated_mean_quality": 0.747111,
+            "simulated_std_quality": 0.254389
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.382479,
+            "abs_utility_error": 0.001015,
+            "simulated_mean_quality": 0.749417,
+            "simulated_std_quality": 0.216938
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.356351,
+            "simulated_utility": 0.359424,
+            "abs_utility_error": 0.003073,
+            "simulated_mean_quality": 0.751667,
+            "simulated_std_quality": 0.192243
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.323223,
+            "simulated_utility": 0.32014,
+            "abs_utility_error": 0.003083,
+            "simulated_mean_quality": 0.7475,
+            "simulated_std_quality": 0.17736
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 335,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.363814,
+          "simulated_best_utility": 0.368115,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.023814
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.325444,
+            "abs_utility_error": 0.008457,
+            "simulated_mean_quality": 0.755333,
+            "simulated_std_quality": 0.429889
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.363814,
+            "simulated_utility": 0.368115,
+            "abs_utility_error": 0.004301,
+            "simulated_mean_quality": 0.748667,
+            "simulated_std_quality": 0.300552
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.34,
+            "simulated_utility": 0.343793,
+            "abs_utility_error": 0.003793,
+            "simulated_mean_quality": 0.752222,
+            "simulated_std_quality": 0.24843
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.293494,
+            "simulated_utility": 0.291188,
+            "abs_utility_error": 0.002306,
+            "simulated_mean_quality": 0.749083,
+            "simulated_std_quality": 0.217895
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236351,
+            "simulated_utility": 0.240194,
+            "abs_utility_error": 0.003843,
+            "simulated_mean_quality": 0.7526,
+            "simulated_std_quality": 0.192406
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.173223,
+            "simulated_utility": 0.176372,
+            "abs_utility_error": 0.003149,
+            "simulated_mean_quality": 0.752889,
+            "simulated_std_quality": 0.176517
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 336,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.323814,
+          "simulated_best_utility": 0.320148,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.006826
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.320148,
+            "abs_utility_error": 0.003161,
+            "simulated_mean_quality": 0.752,
+            "simulated_std_quality": 0.431852
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.323814,
+            "simulated_utility": 0.316617,
+            "abs_utility_error": 0.007197,
+            "simulated_mean_quality": 0.749667,
+            "simulated_std_quality": 0.313049
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26,
+            "simulated_utility": 0.261123,
+            "abs_utility_error": 0.001123,
+            "simulated_mean_quality": 0.752222,
+            "simulated_std_quality": 0.251099
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.173494,
+            "simulated_utility": 0.182068,
+            "abs_utility_error": 0.008574,
+            "simulated_mean_quality": 0.757667,
+            "simulated_std_quality": 0.215599
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.076351,
+            "simulated_utility": 0.078204,
+            "abs_utility_error": 0.001853,
+            "simulated_mean_quality": 0.749933,
+            "simulated_std_quality": 0.191729
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.026777,
+            "simulated_utility": -0.02234,
+            "abs_utility_error": 0.004437,
+            "simulated_mean_quality": 0.752444,
+            "simulated_std_quality": 0.174784
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 337,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.483494,
+          "simulated_best_utility": 0.494015,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002622
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.327039,
+            "abs_utility_error": 0.010052,
+            "simulated_mean_quality": 0.756333,
+            "simulated_std_quality": 0.429294
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.418869,
+            "simulated_utility": 0.410704,
+            "abs_utility_error": 0.008165,
+            "simulated_mean_quality": 0.746,
+            "simulated_std_quality": 0.325296
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.456139,
+            "simulated_utility": 0.460793,
+            "abs_utility_error": 0.004654,
+            "simulated_mean_quality": 0.751556,
+            "simulated_std_quality": 0.270763
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.473145,
+            "simulated_utility": 0.487689,
+            "abs_utility_error": 0.014544,
+            "simulated_mean_quality": 0.758417,
+            "simulated_std_quality": 0.240728
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.480871,
+            "simulated_utility": 0.483068,
+            "abs_utility_error": 0.002197,
+            "simulated_mean_quality": 0.753333,
+            "simulated_std_quality": 0.230266
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.483494,
+            "simulated_utility": 0.494015,
+            "abs_utility_error": 0.010521,
+            "simulated_mean_quality": 0.756611,
+            "simulated_std_quality": 0.212596
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 338,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.416139,
+          "simulated_best_utility": 0.423867,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.002994
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.331845,
+            "abs_utility_error": 0.014858,
+            "simulated_mean_quality": 0.759333,
+            "simulated_std_quality": 0.427488
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.398869,
+            "simulated_utility": 0.397142,
+            "abs_utility_error": 0.001727,
+            "simulated_mean_quality": 0.748333,
+            "simulated_std_quality": 0.321191
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.416139,
+            "simulated_utility": 0.423867,
+            "abs_utility_error": 0.007728,
+            "simulated_mean_quality": 0.755333,
+            "simulated_std_quality": 0.271466
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.413145,
+            "simulated_utility": 0.402208,
+            "abs_utility_error": 0.010937,
+            "simulated_mean_quality": 0.74375,
+            "simulated_std_quality": 0.251542
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.400871,
+            "simulated_utility": 0.391449,
+            "abs_utility_error": 0.009422,
+            "simulated_mean_quality": 0.746267,
+            "simulated_std_quality": 0.234818
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.383494,
+            "simulated_utility": 0.387162,
+            "abs_utility_error": 0.003668,
+            "simulated_mean_quality": 0.751889,
+            "simulated_std_quality": 0.214727
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 339,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.378869,
+          "simulated_best_utility": 0.375651,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.00273
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.306021,
+            "abs_utility_error": 0.010966,
+            "simulated_mean_quality": 0.743,
+            "simulated_std_quality": 0.436979
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.378869,
+            "simulated_utility": 0.369255,
+            "abs_utility_error": 0.009614,
+            "simulated_mean_quality": 0.742167,
+            "simulated_std_quality": 0.322912
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376139,
+            "simulated_utility": 0.375651,
+            "abs_utility_error": 0.000488,
+            "simulated_mean_quality": 0.749444,
+            "simulated_std_quality": 0.273793
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.353145,
+            "simulated_utility": 0.348848,
+            "abs_utility_error": 0.004297,
+            "simulated_mean_quality": 0.7445,
+            "simulated_std_quality": 0.245652
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.320871,
+            "simulated_utility": 0.319786,
+            "abs_utility_error": 0.001085,
+            "simulated_mean_quality": 0.749467,
+            "simulated_std_quality": 0.22968
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.283494,
+            "simulated_utility": 0.278671,
+            "abs_utility_error": 0.004823,
+            "simulated_mean_quality": 0.745111,
+            "simulated_std_quality": 0.21644
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 340,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.348869,
+          "simulated_best_utility": 0.358717,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.031882
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.325975,
+            "abs_utility_error": 0.008988,
+            "simulated_mean_quality": 0.755667,
+            "simulated_std_quality": 0.429691
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.348869,
+            "simulated_utility": 0.358717,
+            "abs_utility_error": 0.009848,
+            "simulated_mean_quality": 0.7585,
+            "simulated_std_quality": 0.319783
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.316139,
+            "simulated_utility": 0.308074,
+            "abs_utility_error": 0.008065,
+            "simulated_mean_quality": 0.743889,
+            "simulated_std_quality": 0.275815
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.263145,
+            "simulated_utility": 0.271723,
+            "abs_utility_error": 0.008578,
+            "simulated_mean_quality": 0.755167,
+            "simulated_std_quality": 0.243444
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.200871,
+            "simulated_utility": 0.209118,
+            "abs_utility_error": 0.008247,
+            "simulated_mean_quality": 0.7552,
+            "simulated_std_quality": 0.226082
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.133494,
+            "simulated_utility": 0.138636,
+            "abs_utility_error": 0.005142,
+            "simulated_mean_quality": 0.752278,
+            "simulated_std_quality": 0.213642
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 341,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.330775,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008118
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.330775,
+            "abs_utility_error": 0.013788,
+            "simulated_mean_quality": 0.758667,
+            "simulated_std_quality": 0.427892
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.308869,
+            "simulated_utility": 0.300223,
+            "abs_utility_error": 0.008646,
+            "simulated_mean_quality": 0.741833,
+            "simulated_std_quality": 0.32161
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.225373,
+            "abs_utility_error": 0.010766,
+            "simulated_mean_quality": 0.741667,
+            "simulated_std_quality": 0.276293
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.143145,
+            "simulated_utility": 0.145152,
+            "abs_utility_error": 0.002007,
+            "simulated_mean_quality": 0.752583,
+            "simulated_std_quality": 0.247432
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.040871,
+            "simulated_utility": 0.044251,
+            "abs_utility_error": 0.00338,
+            "simulated_mean_quality": 0.747667,
+            "simulated_std_quality": 0.223416
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.066506,
+            "simulated_utility": -0.069251,
+            "abs_utility_error": 0.002745,
+            "simulated_mean_quality": 0.745611,
+            "simulated_std_quality": 0.214863
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 342,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 6,
+          "match": false,
+          "analytic_best_utility": 0.450192,
+          "simulated_best_utility": 0.45212,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000192
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.320148,
+            "abs_utility_error": 0.003161,
+            "simulated_mean_quality": 0.752,
+            "simulated_std_quality": 0.431852
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.40459,
+            "simulated_utility": 0.403845,
+            "abs_utility_error": 0.000745,
+            "simulated_mean_quality": 0.75,
+            "simulated_std_quality": 0.336155
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.434196,
+            "simulated_utility": 0.42302,
+            "abs_utility_error": 0.011176,
+            "simulated_mean_quality": 0.747667,
+            "simulated_std_quality": 0.304646
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.446139,
+            "simulated_utility": 0.443843,
+            "abs_utility_error": 0.002296,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.278824
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.450192,
+            "simulated_utility": 0.44887,
+            "abs_utility_error": 0.001322,
+            "simulated_mean_quality": 0.748067,
+            "simulated_std_quality": 0.259197
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.45,
+            "simulated_utility": 0.45212,
+            "abs_utility_error": 0.00212,
+            "simulated_mean_quality": 0.752111,
+            "simulated_std_quality": 0.249991
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 343,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.394196,
+          "simulated_best_utility": 0.398437,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008057
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.312792,
+            "abs_utility_error": 0.004195,
+            "simulated_mean_quality": 0.747333,
+            "simulated_std_quality": 0.434541
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.38459,
+            "simulated_utility": 0.385939,
+            "abs_utility_error": 0.001349,
+            "simulated_mean_quality": 0.752333,
+            "simulated_std_quality": 0.336394
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.394196,
+            "simulated_utility": 0.398437,
+            "abs_utility_error": 0.004241,
+            "simulated_mean_quality": 0.752222,
+            "simulated_std_quality": 0.293785
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.386139,
+            "simulated_utility": 0.386351,
+            "abs_utility_error": 0.000212,
+            "simulated_mean_quality": 0.75025,
+            "simulated_std_quality": 0.273899
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.370192,
+            "simulated_utility": 0.377037,
+            "abs_utility_error": 0.006845,
+            "simulated_mean_quality": 0.751733,
+            "simulated_std_quality": 0.254697
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.35,
+            "simulated_utility": 0.340524,
+            "abs_utility_error": 0.009476,
+            "simulated_mean_quality": 0.743833,
+            "simulated_std_quality": 0.253309
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 344,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.36459,
+          "simulated_best_utility": 0.364389,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.010394
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.294689,
+            "abs_utility_error": 0.022298,
+            "simulated_mean_quality": 0.735667,
+            "simulated_std_quality": 0.440978
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.36459,
+            "simulated_utility": 0.364389,
+            "abs_utility_error": 0.000201,
+            "simulated_mean_quality": 0.753,
+            "simulated_std_quality": 0.338611
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354196,
+            "simulated_utility": 0.347762,
+            "abs_utility_error": 0.006434,
+            "simulated_mean_quality": 0.746222,
+            "simulated_std_quality": 0.29846
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.326139,
+            "simulated_utility": 0.324252,
+            "abs_utility_error": 0.001887,
+            "simulated_mean_quality": 0.746333,
+            "simulated_std_quality": 0.272081
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.290192,
+            "simulated_utility": 0.287173,
+            "abs_utility_error": 0.003019,
+            "simulated_mean_quality": 0.747933,
+            "simulated_std_quality": 0.26076
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.236075,
+            "abs_utility_error": 0.013925,
+            "simulated_mean_quality": 0.741389,
+            "simulated_std_quality": 0.255314
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 345,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.33459,
+          "simulated_best_utility": 0.328105,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.017603
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.328105,
+            "abs_utility_error": 0.011118,
+            "simulated_mean_quality": 0.757,
+            "simulated_std_quality": 0.428895
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.33459,
+            "simulated_utility": 0.325441,
+            "abs_utility_error": 0.009149,
+            "simulated_mean_quality": 0.7465,
+            "simulated_std_quality": 0.341059
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.294196,
+            "simulated_utility": 0.298462,
+            "abs_utility_error": 0.004266,
+            "simulated_mean_quality": 0.754667,
+            "simulated_std_quality": 0.296205
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.236139,
+            "simulated_utility": 0.228295,
+            "abs_utility_error": 0.007844,
+            "simulated_mean_quality": 0.742667,
+            "simulated_std_quality": 0.274371
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.170192,
+            "simulated_utility": 0.16953,
+            "abs_utility_error": 0.000662,
+            "simulated_mean_quality": 0.746133,
+            "simulated_std_quality": 0.256603
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.1,
+            "simulated_utility": 0.115282,
+            "abs_utility_error": 0.015282,
+            "simulated_mean_quality": 0.761722,
+            "simulated_std_quality": 0.246441
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 346,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.321205,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.022397
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.321205,
+            "abs_utility_error": 0.004218,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.431462
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.303407,
+            "abs_utility_error": 0.008817,
+            "simulated_mean_quality": 0.757,
+            "simulated_std_quality": 0.333593
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214196,
+            "simulated_utility": 0.2251,
+            "abs_utility_error": 0.010904,
+            "simulated_mean_quality": 0.756667,
+            "simulated_std_quality": 0.291567
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.116139,
+            "simulated_utility": 0.136876,
+            "abs_utility_error": 0.020737,
+            "simulated_mean_quality": 0.758,
+            "simulated_std_quality": 0.261124
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.010192,
+            "simulated_utility": 0.003421,
+            "abs_utility_error": 0.006771,
+            "simulated_mean_quality": 0.748533,
+            "simulated_std_quality": 0.265112
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.1,
+            "simulated_utility": -0.100455,
+            "abs_utility_error": 0.000455,
+            "simulated_mean_quality": 0.751167,
+            "simulated_std_quality": 0.251622
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 347,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.41001,
+          "simulated_best_utility": 0.41659,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 1e-05
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.327572,
+            "abs_utility_error": 0.010585,
+            "simulated_mean_quality": 0.756667,
+            "simulated_std_quality": 0.429095
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.384244,
+            "simulated_utility": 0.3755,
+            "abs_utility_error": 0.008744,
+            "simulated_mean_quality": 0.7465,
+            "simulated_std_quality": 0.361
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.40404,
+            "simulated_utility": 0.411941,
+            "abs_utility_error": 0.007901,
+            "simulated_mean_quality": 0.755333,
+            "simulated_std_quality": 0.323392
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.41001,
+            "simulated_utility": 0.390089,
+            "abs_utility_error": 0.019921,
+            "simulated_mean_quality": 0.73925,
+            "simulated_std_quality": 0.319161
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.41,
+            "simulated_utility": 0.41659,
+            "abs_utility_error": 0.00659,
+            "simulated_mean_quality": 0.754933,
+            "simulated_std_quality": 0.298344
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.406849,
+            "simulated_utility": 0.399126,
+            "abs_utility_error": 0.007723,
+            "simulated_mean_quality": 0.746722,
+            "simulated_std_quality": 0.297596
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 348,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.364244,
+          "simulated_best_utility": 0.371373,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.308618,
+            "abs_utility_error": 0.008369,
+            "simulated_mean_quality": 0.744667,
+            "simulated_std_quality": 0.436048
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.364244,
+            "simulated_utility": 0.362379,
+            "abs_utility_error": 0.001865,
+            "simulated_mean_quality": 0.747333,
+            "simulated_std_quality": 0.354955
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.36404,
+            "simulated_utility": 0.371373,
+            "abs_utility_error": 0.007333,
+            "simulated_mean_quality": 0.752444,
+            "simulated_std_quality": 0.321071
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.35001,
+            "simulated_utility": 0.339338,
+            "abs_utility_error": 0.010672,
+            "simulated_mean_quality": 0.741917,
+            "simulated_std_quality": 0.312579
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.33,
+            "simulated_utility": 0.32357,
+            "abs_utility_error": 0.00643,
+            "simulated_mean_quality": 0.746067,
+            "simulated_std_quality": 0.302497
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.306849,
+            "simulated_utility": 0.309052,
+            "abs_utility_error": 0.002203,
+            "simulated_mean_quality": 0.751389,
+            "simulated_std_quality": 0.292337
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 349,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.344244,
+          "simulated_best_utility": 0.329133,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.020204
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.322792,
+            "abs_utility_error": 0.005805,
+            "simulated_mean_quality": 0.753667,
+            "simulated_std_quality": 0.430875
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.344244,
+            "simulated_utility": 0.329133,
+            "abs_utility_error": 0.015111,
+            "simulated_mean_quality": 0.741667,
+            "simulated_std_quality": 0.362534
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.32404,
+            "simulated_utility": 0.324302,
+            "abs_utility_error": 0.000262,
+            "simulated_mean_quality": 0.750333,
+            "simulated_std_quality": 0.326031
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.29001,
+            "simulated_utility": 0.29004,
+            "abs_utility_error": 3e-05,
+            "simulated_mean_quality": 0.750583,
+            "simulated_std_quality": 0.310543
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.25,
+            "simulated_utility": 0.248971,
+            "abs_utility_error": 0.001029,
+            "simulated_mean_quality": 0.7484,
+            "simulated_std_quality": 0.299429
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.206849,
+            "simulated_utility": 0.206032,
+            "abs_utility_error": 0.000817,
+            "simulated_mean_quality": 0.747889,
+            "simulated_std_quality": 0.291857
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 350,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.318796,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.002744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.312269,
+            "abs_utility_error": 0.004718,
+            "simulated_mean_quality": 0.747,
+            "simulated_std_quality": 0.434731
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.314244,
+            "simulated_utility": 0.318796,
+            "abs_utility_error": 0.004552,
+            "simulated_mean_quality": 0.751167,
+            "simulated_std_quality": 0.352371
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.26404,
+            "simulated_utility": 0.255184,
+            "abs_utility_error": 0.008856,
+            "simulated_mean_quality": 0.747,
+            "simulated_std_quality": 0.331816
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.20001,
+            "simulated_utility": 0.201384,
+            "abs_utility_error": 0.001374,
+            "simulated_mean_quality": 0.749333,
+            "simulated_std_quality": 0.307949
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.13,
+            "simulated_utility": 0.11842,
+            "abs_utility_error": 0.01158,
+            "simulated_mean_quality": 0.7418,
+            "simulated_std_quality": 0.30338
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.056849,
+            "simulated_utility": 0.049724,
+            "abs_utility_error": 0.007125,
+            "simulated_mean_quality": 0.743444,
+            "simulated_std_quality": 0.293721
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 351,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.314363,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.042744
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.314363,
+            "abs_utility_error": 0.002624,
+            "simulated_mean_quality": 0.748333,
+            "simulated_std_quality": 0.433971
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.274244,
+            "simulated_utility": 0.277849,
+            "abs_utility_error": 0.003605,
+            "simulated_mean_quality": 0.7535,
+            "simulated_std_quality": 0.355651
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.18404,
+            "simulated_utility": 0.185611,
+            "abs_utility_error": 0.001571,
+            "simulated_mean_quality": 0.749333,
+            "simulated_std_quality": 0.323722
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.08001,
+            "simulated_utility": 0.064922,
+            "abs_utility_error": 0.015088,
+            "simulated_mean_quality": 0.73825,
+            "simulated_std_quality": 0.313328
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.03,
+            "simulated_utility": -0.028765,
+            "abs_utility_error": 0.001235,
+            "simulated_mean_quality": 0.7508,
+            "simulated_std_quality": 0.299565
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.143151,
+            "simulated_utility": -0.163358,
+            "abs_utility_error": 0.020207,
+            "simulated_mean_quality": 0.737556,
+            "simulated_std_quality": 0.300913
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 352,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.377673,
+          "simulated_best_utility": 0.396526,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001227
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.337218,
+            "abs_utility_error": 0.020231,
+            "simulated_mean_quality": 0.762667,
+            "simulated_std_quality": 0.425448
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.365,
+            "simulated_utility": 0.381686,
+            "abs_utility_error": 0.016686,
+            "simulated_mean_quality": 0.758333,
+            "simulated_std_quality": 0.366648
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.376447,
+            "simulated_utility": 0.362063,
+            "abs_utility_error": 0.014384,
+            "simulated_mean_quality": 0.740111,
+            "simulated_std_quality": 0.358048
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.377673,
+            "simulated_utility": 0.396526,
+            "abs_utility_error": 0.018853,
+            "simulated_mean_quality": 0.763167,
+            "simulated_std_quality": 0.33664
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.37459,
+            "simulated_utility": 0.365105,
+            "abs_utility_error": 0.009485,
+            "simulated_mean_quality": 0.7436,
+            "simulated_std_quality": 0.338495
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.369281,
+            "simulated_utility": 0.368838,
+            "abs_utility_error": 0.000443,
+            "simulated_mean_quality": 0.750444,
+            "simulated_std_quality": 0.331606
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 353,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.345,
+          "simulated_best_utility": 0.351426,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008553
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.302914,
+            "abs_utility_error": 0.014073,
+            "simulated_mean_quality": 0.741,
+            "simulated_std_quality": 0.438086
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.345,
+            "simulated_utility": 0.351426,
+            "abs_utility_error": 0.006426,
+            "simulated_mean_quality": 0.751333,
+            "simulated_std_quality": 0.369907
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.336447,
+            "simulated_utility": 0.339189,
+            "abs_utility_error": 0.002742,
+            "simulated_mean_quality": 0.750667,
+            "simulated_std_quality": 0.351478
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.317673,
+            "simulated_utility": 0.31768,
+            "abs_utility_error": 7e-06,
+            "simulated_mean_quality": 0.750917,
+            "simulated_std_quality": 0.343237
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.29459,
+            "simulated_utility": 0.301914,
+            "abs_utility_error": 0.007324,
+            "simulated_mean_quality": 0.753,
+            "simulated_std_quality": 0.331086
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.269281,
+            "simulated_utility": 0.277313,
+            "abs_utility_error": 0.008032,
+            "simulated_mean_quality": 0.753944,
+            "simulated_std_quality": 0.326632
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 354,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.325,
+          "simulated_best_utility": 0.328966,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008013
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.290099,
+            "abs_utility_error": 0.026888,
+            "simulated_mean_quality": 0.732667,
+            "simulated_std_quality": 0.442568
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.325,
+            "simulated_utility": 0.328966,
+            "abs_utility_error": 0.003966,
+            "simulated_mean_quality": 0.754,
+            "simulated_std_quality": 0.375034
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.296447,
+            "simulated_utility": 0.303469,
+            "abs_utility_error": 0.007022,
+            "simulated_mean_quality": 0.754444,
+            "simulated_std_quality": 0.350976
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.257673,
+            "simulated_utility": 0.264429,
+            "abs_utility_error": 0.006756,
+            "simulated_mean_quality": 0.752,
+            "simulated_std_quality": 0.337571
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.21459,
+            "simulated_utility": 0.200296,
+            "abs_utility_error": 0.014294,
+            "simulated_mean_quality": 0.741,
+            "simulated_std_quality": 0.340704
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.169281,
+            "simulated_utility": 0.174069,
+            "abs_utility_error": 0.004788,
+            "simulated_mean_quality": 0.754111,
+            "simulated_std_quality": 0.330042
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 355,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.324913,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.021987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.324913,
+            "abs_utility_error": 0.007926,
+            "simulated_mean_quality": 0.755,
+            "simulated_std_quality": 0.430087
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.295,
+            "simulated_utility": 0.302768,
+            "abs_utility_error": 0.007768,
+            "simulated_mean_quality": 0.755333,
+            "simulated_std_quality": 0.372565
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.236447,
+            "simulated_utility": 0.227579,
+            "abs_utility_error": 0.008868,
+            "simulated_mean_quality": 0.745556,
+            "simulated_std_quality": 0.357976
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.167673,
+            "simulated_utility": 0.158914,
+            "abs_utility_error": 0.008759,
+            "simulated_mean_quality": 0.746417,
+            "simulated_std_quality": 0.347503
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.09459,
+            "simulated_utility": 0.08485,
+            "abs_utility_error": 0.00974,
+            "simulated_mean_quality": 0.7432,
+            "simulated_std_quality": 0.33835
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.019281,
+            "simulated_utility": 0.01487,
+            "abs_utility_error": 0.004411,
+            "simulated_mean_quality": 0.747667,
+            "simulated_std_quality": 0.332797
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.25,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 356,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.316987,
+          "simulated_best_utility": 0.329706,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.061987
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.316987,
+            "simulated_utility": 0.329706,
+            "abs_utility_error": 0.012719,
+            "simulated_mean_quality": 0.758,
+            "simulated_std_quality": 0.428294
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.255,
+            "simulated_utility": 0.240969,
+            "abs_utility_error": 0.014031,
+            "simulated_mean_quality": 0.741667,
+            "simulated_std_quality": 0.380697
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.156447,
+            "simulated_utility": 0.165066,
+            "abs_utility_error": 0.008619,
+            "simulated_mean_quality": 0.752667,
+            "simulated_std_quality": 0.347601
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.047673,
+            "simulated_utility": 0.05709,
+            "abs_utility_error": 0.009417,
+            "simulated_mean_quality": 0.75375,
+            "simulated_std_quality": 0.33666
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.06541,
+            "simulated_utility": -0.077844,
+            "abs_utility_error": 0.012434,
+            "simulated_mean_quality": 0.742133,
+            "simulated_std_quality": 0.339978
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.180719,
+            "simulated_utility": -0.180041,
+            "abs_utility_error": 0.000678,
+            "simulated_mean_quality": 0.750167,
+            "simulated_std_quality": 0.330208
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 357,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.405278,
+          "simulated_best_utility": 0.401839,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.008585
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.177866,
+            "abs_utility_error": 0.004836,
+            "simulated_mean_quality": 0.653667,
+            "simulated_std_quality": 0.475801
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.302732,
+            "simulated_utility": 0.295632,
+            "abs_utility_error": 0.0071,
+            "simulated_mean_quality": 0.646,
+            "simulated_std_quality": 0.340368
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.354621,
+            "simulated_utility": 0.360807,
+            "abs_utility_error": 0.006186,
+            "simulated_mean_quality": 0.649556,
+            "simulated_std_quality": 0.268748
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.381515,
+            "simulated_utility": 0.385688,
+            "abs_utility_error": 0.004173,
+            "simulated_mean_quality": 0.65375,
+            "simulated_std_quality": 0.238062
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.396693,
+            "simulated_utility": 0.395071,
+            "abs_utility_error": 0.001622,
+            "simulated_mean_quality": 0.6504,
+            "simulated_std_quality": 0.215329
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.405278,
+            "simulated_utility": 0.401839,
+            "abs_utility_error": 0.003439,
+            "simulated_mean_quality": 0.651444,
+            "simulated_std_quality": 0.199606
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 358,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 4,
+          "match": true,
+          "analytic_best_utility": 0.321515,
+          "simulated_best_utility": 0.321516,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.004822
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.175664,
+            "abs_utility_error": 0.002634,
+            "simulated_mean_quality": 0.652,
+            "simulated_std_quality": 0.476336
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.282732,
+            "simulated_utility": 0.286733,
+            "abs_utility_error": 0.004001,
+            "simulated_mean_quality": 0.652333,
+            "simulated_std_quality": 0.335601
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.314621,
+            "simulated_utility": 0.309557,
+            "abs_utility_error": 0.005064,
+            "simulated_mean_quality": 0.644111,
+            "simulated_std_quality": 0.274554
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.321515,
+            "simulated_utility": 0.321516,
+            "abs_utility_error": 1e-06,
+            "simulated_mean_quality": 0.6555,
+            "simulated_std_quality": 0.243984
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.316693,
+            "simulated_utility": 0.319378,
+            "abs_utility_error": 0.002685,
+            "simulated_mean_quality": 0.652267,
+            "simulated_std_quality": 0.212889
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.305278,
+            "simulated_utility": 0.299396,
+            "abs_utility_error": 0.005882,
+            "simulated_mean_quality": 0.6435,
+            "simulated_std_quality": 0.194104
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 359,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.274621,
+          "simulated_best_utility": 0.278246,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01189
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.177425,
+            "abs_utility_error": 0.004395,
+            "simulated_mean_quality": 0.653333,
+            "simulated_std_quality": 0.475908
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.262732,
+            "simulated_utility": 0.275346,
+            "abs_utility_error": 0.012614,
+            "simulated_mean_quality": 0.661167,
+            "simulated_std_quality": 0.33582
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.274621,
+            "simulated_utility": 0.278246,
+            "abs_utility_error": 0.003625,
+            "simulated_mean_quality": 0.654111,
+            "simulated_std_quality": 0.275865
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.256456,
+            "abs_utility_error": 0.005059,
+            "simulated_mean_quality": 0.6465,
+            "simulated_std_quality": 0.240044
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.236693,
+            "simulated_utility": 0.234646,
+            "abs_utility_error": 0.002047,
+            "simulated_mean_quality": 0.652,
+            "simulated_std_quality": 0.217354
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.205278,
+            "simulated_utility": 0.205861,
+            "abs_utility_error": 0.000583,
+            "simulated_mean_quality": 0.651333,
+            "simulated_std_quality": 0.195472
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 360,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.232732,
+          "simulated_best_utility": 0.241563,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.01811
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.164751,
+            "abs_utility_error": 0.008279,
+            "simulated_mean_quality": 0.643667,
+            "simulated_std_quality": 0.478915
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.232732,
+            "simulated_utility": 0.241563,
+            "abs_utility_error": 0.008831,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.335437
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.214621,
+            "simulated_utility": 0.211207,
+            "abs_utility_error": 0.003414,
+            "simulated_mean_quality": 0.648,
+            "simulated_std_quality": 0.276793
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.171515,
+            "simulated_utility": 0.156615,
+            "abs_utility_error": 0.0149,
+            "simulated_mean_quality": 0.639833,
+            "simulated_std_quality": 0.243218
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.116693,
+            "simulated_utility": 0.113568,
+            "abs_utility_error": 0.003125,
+            "simulated_mean_quality": 0.6472,
+            "simulated_std_quality": 0.213632
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.055278,
+            "simulated_utility": 0.062119,
+            "abs_utility_error": 0.006841,
+            "simulated_mean_quality": 0.655722,
+            "simulated_std_quality": 0.193603
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.0,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 361,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.192732,
+          "simulated_best_utility": 0.201241,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.019701
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.180959,
+            "abs_utility_error": 0.007929,
+            "simulated_mean_quality": 0.656,
+            "simulated_std_quality": 0.475041
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.192732,
+            "simulated_utility": 0.201241,
+            "abs_utility_error": 0.008509,
+            "simulated_mean_quality": 0.655167,
+            "simulated_std_quality": 0.333926
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.134621,
+            "simulated_utility": 0.135294,
+            "abs_utility_error": 0.000673,
+            "simulated_mean_quality": 0.648556,
+            "simulated_std_quality": 0.273262
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.051515,
+            "simulated_utility": 0.047877,
+            "abs_utility_error": 0.003638,
+            "simulated_mean_quality": 0.644833,
+            "simulated_std_quality": 0.236956
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.043307,
+            "simulated_utility": -0.0389,
+            "abs_utility_error": 0.004407,
+            "simulated_mean_quality": 0.650733,
+            "simulated_std_quality": 0.209633
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.144722,
+            "simulated_utility": -0.146659,
+            "abs_utility_error": 0.001937,
+            "simulated_mean_quality": 0.646889,
+            "simulated_std_quality": 0.193548
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 362,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 6,
+          "match": true,
+          "analytic_best_utility": 0.361515,
+          "simulated_best_utility": 0.362387,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.003904
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.15957,
+            "abs_utility_error": 0.01346,
+            "simulated_mean_quality": 0.639667,
+            "simulated_std_quality": 0.480097
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.28627,
+            "simulated_utility": 0.298181,
+            "abs_utility_error": 0.011911,
+            "simulated_mean_quality": 0.6615,
+            "simulated_std_quality": 0.353319
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.328338,
+            "simulated_utility": 0.321994,
+            "abs_utility_error": 0.006344,
+            "simulated_mean_quality": 0.645222,
+            "simulated_std_quality": 0.303229
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.348085,
+            "simulated_utility": 0.3462,
+            "abs_utility_error": 0.001885,
+            "simulated_mean_quality": 0.645167,
+            "simulated_std_quality": 0.268967
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.357611,
+            "simulated_utility": 0.352676,
+            "abs_utility_error": 0.004935,
+            "simulated_mean_quality": 0.6424,
+            "simulated_std_quality": 0.249724
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.361515,
+            "simulated_utility": 0.362387,
+            "abs_utility_error": 0.000872,
+            "simulated_mean_quality": 0.649944,
+            "simulated_std_quality": 0.237557
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 363,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 4,
+          "match": false,
+          "analytic_best_utility": 0.288338,
+          "simulated_best_utility": 0.302506,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.000252
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.19391,
+            "abs_utility_error": 0.02088,
+            "simulated_mean_quality": 0.665667,
+            "simulated_std_quality": 0.471757
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.26627,
+            "simulated_utility": 0.277781,
+            "abs_utility_error": 0.011511,
+            "simulated_mean_quality": 0.660333,
+            "simulated_std_quality": 0.352552
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.288338,
+            "simulated_utility": 0.292017,
+            "abs_utility_error": 0.003679,
+            "simulated_mean_quality": 0.653,
+            "simulated_std_quality": 0.300983
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.288085,
+            "simulated_utility": 0.302506,
+            "abs_utility_error": 0.014421,
+            "simulated_mean_quality": 0.6585,
+            "simulated_std_quality": 0.265994
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.277611,
+            "simulated_utility": 0.280994,
+            "abs_utility_error": 0.003383,
+            "simulated_mean_quality": 0.6518,
+            "simulated_std_quality": 0.250806
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.261515,
+            "simulated_utility": 0.269357,
+            "abs_utility_error": 0.007842,
+            "simulated_mean_quality": 0.656444,
+            "simulated_std_quality": 0.237087
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 364,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.248338,
+          "simulated_best_utility": 0.253753,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002068
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.182289,
+            "abs_utility_error": 0.009259,
+            "simulated_mean_quality": 0.657,
+            "simulated_std_quality": 0.474711
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.24627,
+            "simulated_utility": 0.253753,
+            "abs_utility_error": 0.007483,
+            "simulated_mean_quality": 0.656167,
+            "simulated_std_quality": 0.352414
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.248338,
+            "simulated_utility": 0.241899,
+            "abs_utility_error": 0.006439,
+            "simulated_mean_quality": 0.643,
+            "simulated_std_quality": 0.301101
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.228085,
+            "simulated_utility": 0.235656,
+            "abs_utility_error": 0.007571,
+            "simulated_mean_quality": 0.65675,
+            "simulated_std_quality": 0.271094
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.197611,
+            "simulated_utility": 0.206058,
+            "abs_utility_error": 0.008447,
+            "simulated_mean_quality": 0.655333,
+            "simulated_std_quality": 0.249275
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.161515,
+            "simulated_utility": 0.153987,
+            "abs_utility_error": 0.007528,
+            "simulated_mean_quality": 0.644722,
+            "simulated_std_quality": 0.240736
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 365,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.21627,
+          "simulated_best_utility": 0.208784,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.027932
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.191661,
+            "abs_utility_error": 0.018631,
+            "simulated_mean_quality": 0.664,
+            "simulated_std_quality": 0.472339
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.21627,
+            "simulated_utility": 0.208784,
+            "abs_utility_error": 0.007486,
+            "simulated_mean_quality": 0.6455,
+            "simulated_std_quality": 0.356716
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.188338,
+            "simulated_utility": 0.181834,
+            "abs_utility_error": 0.006504,
+            "simulated_mean_quality": 0.645444,
+            "simulated_std_quality": 0.30361
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.138085,
+            "simulated_utility": 0.139605,
+            "abs_utility_error": 0.00152,
+            "simulated_mean_quality": 0.653917,
+            "simulated_std_quality": 0.274312
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.077611,
+            "simulated_utility": 0.081802,
+            "abs_utility_error": 0.004191,
+            "simulated_mean_quality": 0.652667,
+            "simulated_std_quality": 0.250864
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.011515,
+            "simulated_utility": 0.004338,
+            "abs_utility_error": 0.007177,
+            "simulated_mean_quality": 0.643556,
+            "simulated_std_quality": 0.239218
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.1,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 366,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.17627,
+          "simulated_best_utility": 0.180074,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.003239
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.180074,
+            "abs_utility_error": 0.007044,
+            "simulated_mean_quality": 0.655333,
+            "simulated_std_quality": 0.475259
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.17627,
+            "simulated_utility": 0.165787,
+            "abs_utility_error": 0.010483,
+            "simulated_mean_quality": 0.638833,
+            "simulated_std_quality": 0.353047
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.121595,
+            "abs_utility_error": 0.013257,
+            "simulated_mean_quality": 0.658889,
+            "simulated_std_quality": 0.297294
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.018085,
+            "simulated_utility": 0.006137,
+            "abs_utility_error": 0.011948,
+            "simulated_mean_quality": 0.641833,
+            "simulated_std_quality": 0.275696
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.082389,
+            "simulated_utility": -0.080419,
+            "abs_utility_error": 0.00197,
+            "simulated_mean_quality": 0.652733,
+            "simulated_std_quality": 0.253152
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.188485,
+            "simulated_utility": -0.181741,
+            "abs_utility_error": 0.006744,
+            "simulated_mean_quality": 0.654222,
+            "simulated_std_quality": 0.235963
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 367,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 6,
+          "simulated_best_n": 5,
+          "match": false,
+          "analytic_best_utility": 0.324621,
+          "simulated_best_utility": 0.329581,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.000803
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.180959,
+            "abs_utility_error": 0.007929,
+            "simulated_mean_quality": 0.656,
+            "simulated_std_quality": 0.475041
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.270541,
+            "simulated_utility": 0.287371,
+            "abs_utility_error": 0.01683,
+            "simulated_mean_quality": 0.664333,
+            "simulated_std_quality": 0.366962
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.304168,
+            "simulated_utility": 0.31623,
+            "abs_utility_error": 0.012062,
+            "simulated_mean_quality": 0.657556,
+            "simulated_std_quality": 0.321326
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.318338,
+            "simulated_utility": 0.318356,
+            "abs_utility_error": 1.8e-05,
+            "simulated_mean_quality": 0.651667,
+            "simulated_std_quality": 0.30331
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.323818,
+            "simulated_utility": 0.329581,
+            "abs_utility_error": 0.005763,
+            "simulated_mean_quality": 0.657533,
+            "simulated_std_quality": 0.287952
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.324621,
+            "simulated_utility": 0.328961,
+            "abs_utility_error": 0.00434,
+            "simulated_mean_quality": 0.653556,
+            "simulated_std_quality": 0.274595
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 368,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 3,
+          "match": true,
+          "analytic_best_utility": 0.264168,
+          "simulated_best_utility": 0.268415,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.00583
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.173907,
+            "abs_utility_error": 0.000877,
+            "simulated_mean_quality": 0.650667,
+            "simulated_std_quality": 0.476759
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.250541,
+            "simulated_utility": 0.251759,
+            "abs_utility_error": 0.001218,
+            "simulated_mean_quality": 0.6495,
+            "simulated_std_quality": 0.367741
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.264168,
+            "simulated_utility": 0.268415,
+            "abs_utility_error": 0.004247,
+            "simulated_mean_quality": 0.655444,
+            "simulated_std_quality": 0.327029
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.258338,
+            "simulated_utility": 0.256245,
+            "abs_utility_error": 0.002093,
+            "simulated_mean_quality": 0.650417,
+            "simulated_std_quality": 0.304172
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.243818,
+            "simulated_utility": 0.242249,
+            "abs_utility_error": 0.001569,
+            "simulated_mean_quality": 0.6524,
+            "simulated_std_quality": 0.290151
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.224621,
+            "simulated_utility": 0.231536,
+            "abs_utility_error": 0.006915,
+            "simulated_mean_quality": 0.6545,
+            "simulated_std_quality": 0.272964
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 369,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.230541,
+          "simulated_best_utility": 0.239096,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.006373
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.19391,
+            "abs_utility_error": 0.02088,
+            "simulated_mean_quality": 0.665667,
+            "simulated_std_quality": 0.471757
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.230541,
+            "simulated_utility": 0.23283,
+            "abs_utility_error": 0.002289,
+            "simulated_mean_quality": 0.654333,
+            "simulated_std_quality": 0.371503
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.224168,
+            "simulated_utility": 0.239096,
+            "abs_utility_error": 0.014928,
+            "simulated_mean_quality": 0.656444,
+            "simulated_std_quality": 0.317349
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.198338,
+            "simulated_utility": 0.204752,
+            "abs_utility_error": 0.006414,
+            "simulated_mean_quality": 0.654167,
+            "simulated_std_quality": 0.299415
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.163818,
+            "simulated_utility": 0.153312,
+            "abs_utility_error": 0.010506,
+            "simulated_mean_quality": 0.646733,
+            "simulated_std_quality": 0.293421
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.124621,
+            "simulated_utility": 0.123395,
+            "abs_utility_error": 0.001226,
+            "simulated_mean_quality": 0.648222,
+            "simulated_std_quality": 0.274828
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 370,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 1,
+          "match": false,
+          "analytic_best_utility": 0.200541,
+          "simulated_best_utility": 0.195713,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.027511
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.195713,
+            "abs_utility_error": 0.022683,
+            "simulated_mean_quality": 0.667,
+            "simulated_std_quality": 0.471287
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.200541,
+            "simulated_utility": 0.192537,
+            "abs_utility_error": 0.008004,
+            "simulated_mean_quality": 0.642,
+            "simulated_std_quality": 0.369463
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.164168,
+            "simulated_utility": 0.167233,
+            "abs_utility_error": 0.003065,
+            "simulated_mean_quality": 0.650222,
+            "simulated_std_quality": 0.322989
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.108338,
+            "simulated_utility": 0.112369,
+            "abs_utility_error": 0.004031,
+            "simulated_mean_quality": 0.649417,
+            "simulated_std_quality": 0.297047
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.043818,
+            "simulated_utility": 0.038978,
+            "abs_utility_error": 0.00484,
+            "simulated_mean_quality": 0.646533,
+            "simulated_std_quality": 0.287555
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.025379,
+            "simulated_utility": -0.033642,
+            "abs_utility_error": 0.008263,
+            "simulated_mean_quality": 0.647833,
+            "simulated_std_quality": 0.281476
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.2,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 371,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.162156,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.012489
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.162156,
+            "abs_utility_error": 0.010874,
+            "simulated_mean_quality": 0.641667,
+            "simulated_std_quality": 0.479511
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.15697,
+            "abs_utility_error": 0.003571,
+            "simulated_mean_quality": 0.650333,
+            "simulated_std_quality": 0.373363
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.084168,
+            "simulated_utility": 0.090195,
+            "abs_utility_error": 0.006027,
+            "simulated_mean_quality": 0.655111,
+            "simulated_std_quality": 0.324916
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.011662,
+            "simulated_utility": -0.011989,
+            "abs_utility_error": 0.000327,
+            "simulated_mean_quality": 0.648417,
+            "simulated_std_quality": 0.300405
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.116182,
+            "simulated_utility": -0.112264,
+            "abs_utility_error": 0.003918,
+            "simulated_mean_quality": 0.6532,
+            "simulated_std_quality": 0.285464
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.225379,
+            "simulated_utility": -0.222896,
+            "abs_utility_error": 0.002483,
+            "simulated_mean_quality": 0.649111,
+            "simulated_std_quality": 0.272008
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 372,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 5,
+          "simulated_best_n": 5,
+          "match": true,
+          "analytic_best_utility": 0.279546,
+          "simulated_best_utility": 0.287391,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.001004
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.163452,
+            "abs_utility_error": 0.009578,
+            "simulated_mean_quality": 0.642667,
+            "simulated_std_quality": 0.479214
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.248129,
+            "simulated_utility": 0.258806,
+            "abs_utility_error": 0.010677,
+            "simulated_mean_quality": 0.658667,
+            "simulated_std_quality": 0.389861
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.27095,
+            "simulated_utility": 0.271345,
+            "abs_utility_error": 0.000395,
+            "simulated_mean_quality": 0.650778,
+            "simulated_std_quality": 0.359433
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.278542,
+            "simulated_utility": 0.28199,
+            "abs_utility_error": 0.003448,
+            "simulated_mean_quality": 0.653917,
+            "simulated_std_quality": 0.341927
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.279546,
+            "simulated_utility": 0.287391,
+            "abs_utility_error": 0.007845,
+            "simulated_mean_quality": 0.6534,
+            "simulated_std_quality": 0.326009
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.27709,
+            "simulated_utility": 0.286108,
+            "abs_utility_error": 0.009018,
+            "simulated_mean_quality": 0.653889,
+            "simulated_std_quality": 0.317781
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 373,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 3,
+          "simulated_best_n": 2,
+          "match": false,
+          "analytic_best_utility": 0.23095,
+          "simulated_best_utility": 0.231934,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002821
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.160431,
+            "abs_utility_error": 0.012599,
+            "simulated_mean_quality": 0.640333,
+            "simulated_std_quality": 0.479903
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.228129,
+            "simulated_utility": 0.231934,
+            "abs_utility_error": 0.003805,
+            "simulated_mean_quality": 0.653833,
+            "simulated_std_quality": 0.3919
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.23095,
+            "simulated_utility": 0.228724,
+            "abs_utility_error": 0.002226,
+            "simulated_mean_quality": 0.649,
+            "simulated_std_quality": 0.360276
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.218542,
+            "simulated_utility": 0.204178,
+            "abs_utility_error": 0.014364,
+            "simulated_mean_quality": 0.641917,
+            "simulated_std_quality": 0.347739
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.199546,
+            "simulated_utility": 0.181056,
+            "abs_utility_error": 0.01849,
+            "simulated_mean_quality": 0.634533,
+            "simulated_std_quality": 0.333478
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.17709,
+            "simulated_utility": 0.173712,
+            "abs_utility_error": 0.003378,
+            "simulated_mean_quality": 0.652667,
+            "simulated_std_quality": 0.328955
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 374,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.208129,
+          "simulated_best_utility": 0.206885,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.017179
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.181402,
+            "abs_utility_error": 0.008372,
+            "simulated_mean_quality": 0.656333,
+            "simulated_std_quality": 0.474931
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.208129,
+            "simulated_utility": 0.204867,
+            "abs_utility_error": 0.003262,
+            "simulated_mean_quality": 0.6475,
+            "simulated_std_quality": 0.392633
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.19095,
+            "simulated_utility": 0.206885,
+            "abs_utility_error": 0.015935,
+            "simulated_mean_quality": 0.660222,
+            "simulated_std_quality": 0.353337
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.158542,
+            "simulated_utility": 0.152266,
+            "abs_utility_error": 0.006276,
+            "simulated_mean_quality": 0.643917,
+            "simulated_std_quality": 0.341651
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.119546,
+            "simulated_utility": 0.112325,
+            "abs_utility_error": 0.007221,
+            "simulated_mean_quality": 0.6454,
+            "simulated_std_quality": 0.333075
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.07709,
+            "simulated_utility": 0.071415,
+            "abs_utility_error": 0.005675,
+            "simulated_mean_quality": 0.647944,
+            "simulated_std_quality": 0.32653
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 375,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.178129,
+          "simulated_best_utility": 0.177649,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.005099
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.161724,
+            "abs_utility_error": 0.011306,
+            "simulated_mean_quality": 0.641333,
+            "simulated_std_quality": 0.479609
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.178129,
+            "simulated_utility": 0.177649,
+            "abs_utility_error": 0.00048,
+            "simulated_mean_quality": 0.6425,
+            "simulated_std_quality": 0.384851
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.13095,
+            "simulated_utility": 0.119558,
+            "abs_utility_error": 0.011392,
+            "simulated_mean_quality": 0.639889,
+            "simulated_std_quality": 0.360331
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.068542,
+            "simulated_utility": 0.061679,
+            "abs_utility_error": 0.006863,
+            "simulated_mean_quality": 0.647083,
+            "simulated_std_quality": 0.345404
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.000454,
+            "simulated_utility": -0.003231,
+            "abs_utility_error": 0.002777,
+            "simulated_mean_quality": 0.645267,
+            "simulated_std_quality": 0.328498
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.07291,
+            "simulated_utility": -0.075371,
+            "abs_utility_error": 0.002461,
+            "simulated_mean_quality": 0.649556,
+            "simulated_std_quality": 0.324927
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.35,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 376,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.198427,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.034901
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.198427,
+            "abs_utility_error": 0.025397,
+            "simulated_mean_quality": 0.669,
+            "simulated_std_quality": 0.470573
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.138129,
+            "simulated_utility": 0.127855,
+            "abs_utility_error": 0.010274,
+            "simulated_mean_quality": 0.644,
+            "simulated_std_quality": 0.396145
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.05095,
+            "simulated_utility": 0.052682,
+            "abs_utility_error": 0.001732,
+            "simulated_mean_quality": 0.650556,
+            "simulated_std_quality": 0.357874
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.051458,
+            "simulated_utility": -0.029214,
+            "abs_utility_error": 0.022244,
+            "simulated_mean_quality": 0.66275,
+            "simulated_std_quality": 0.331964
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.160454,
+            "simulated_utility": -0.161873,
+            "abs_utility_error": 0.001419,
+            "simulated_mean_quality": 0.648,
+            "simulated_std_quality": 0.329873
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.27291,
+            "simulated_utility": -0.269294,
+            "abs_utility_error": 0.003616,
+            "simulated_mean_quality": 0.6545,
+            "simulated_std_quality": 0.323794
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.01,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 377,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 4,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.242922,
+          "simulated_best_utility": 0.252086,
+          "best_n_gap": 1,
+          "analytic_top2_margin": 0.002366
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.160431,
+            "abs_utility_error": 0.012599,
+            "simulated_mean_quality": 0.640333,
+            "simulated_std_quality": 0.479903
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.226932,
+            "simulated_utility": 0.23441,
+            "abs_utility_error": 0.007478,
+            "simulated_mean_quality": 0.656667,
+            "simulated_std_quality": 0.412257
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.240556,
+            "simulated_utility": 0.252086,
+            "abs_utility_error": 0.01153,
+            "simulated_mean_quality": 0.658778,
+            "simulated_std_quality": 0.386692
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.242922,
+            "simulated_utility": 0.252039,
+            "abs_utility_error": 0.009117,
+            "simulated_mean_quality": 0.656083,
+            "simulated_std_quality": 0.374044
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.240541,
+            "simulated_utility": 0.237532,
+            "abs_utility_error": 0.003009,
+            "simulated_mean_quality": 0.646733,
+            "simulated_std_quality": 0.369201
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.235708,
+            "simulated_utility": 0.246643,
+            "abs_utility_error": 0.010935,
+            "simulated_mean_quality": 0.657611,
+            "simulated_std_quality": 0.360968
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.03,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 378,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 3,
+          "match": false,
+          "analytic_best_utility": 0.206932,
+          "simulated_best_utility": 0.199935,
+          "best_n_gap": -1,
+          "analytic_top2_margin": 0.006376
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.177866,
+            "abs_utility_error": 0.004836,
+            "simulated_mean_quality": 0.653667,
+            "simulated_std_quality": 0.475801
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.206932,
+            "simulated_utility": 0.196435,
+            "abs_utility_error": 0.010497,
+            "simulated_mean_quality": 0.6425,
+            "simulated_std_quality": 0.416065
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.200556,
+            "simulated_utility": 0.199935,
+            "abs_utility_error": 0.000621,
+            "simulated_mean_quality": 0.648778,
+            "simulated_std_quality": 0.388843
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.182922,
+            "simulated_utility": 0.17614,
+            "abs_utility_error": 0.006782,
+            "simulated_mean_quality": 0.643667,
+            "simulated_std_quality": 0.377527
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.160541,
+            "simulated_utility": 0.152799,
+            "abs_utility_error": 0.007742,
+            "simulated_mean_quality": 0.643333,
+            "simulated_std_quality": 0.370534
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.135708,
+            "simulated_utility": 0.125733,
+            "abs_utility_error": 0.009975,
+            "simulated_mean_quality": 0.643389,
+            "simulated_std_quality": 0.367656
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.05,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 379,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 2,
+          "simulated_best_n": 2,
+          "match": true,
+          "analytic_best_utility": 0.186932,
+          "simulated_best_utility": 0.180982,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.013902
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.169097,
+            "abs_utility_error": 0.003933,
+            "simulated_mean_quality": 0.647,
+            "simulated_std_quality": 0.477903
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.186932,
+            "simulated_utility": 0.180982,
+            "abs_utility_error": 0.00595,
+            "simulated_mean_quality": 0.644833,
+            "simulated_std_quality": 0.413852
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.160556,
+            "simulated_utility": 0.166543,
+            "abs_utility_error": 0.005987,
+            "simulated_mean_quality": 0.655444,
+            "simulated_std_quality": 0.388902
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.122922,
+            "simulated_utility": 0.11918,
+            "abs_utility_error": 0.003742,
+            "simulated_mean_quality": 0.65125,
+            "simulated_std_quality": 0.38207
+          },
+          {
+            "n": 5,
+            "analytic_utility": 0.080541,
+            "simulated_utility": 0.087434,
+            "abs_utility_error": 0.006893,
+            "simulated_mean_quality": 0.656467,
+            "simulated_std_quality": 0.369032
+          },
+          {
+            "n": 6,
+            "analytic_utility": 0.035708,
+            "simulated_utility": 0.037962,
+            "abs_utility_error": 0.002254,
+            "simulated_mean_quality": 0.649722,
+            "simulated_std_quality": 0.36176
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.08,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 380,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.161293,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.016098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.161293,
+            "abs_utility_error": 0.011737,
+            "simulated_mean_quality": 0.641,
+            "simulated_std_quality": 0.479707
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.156932,
+            "simulated_utility": 0.154342,
+            "abs_utility_error": 0.00259,
+            "simulated_mean_quality": 0.649833,
+            "simulated_std_quality": 0.415492
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.100556,
+            "simulated_utility": 0.078018,
+            "abs_utility_error": 0.022538,
+            "simulated_mean_quality": 0.634333,
+            "simulated_std_quality": 0.396315
+          },
+          {
+            "n": 4,
+            "analytic_utility": 0.032922,
+            "simulated_utility": 0.044234,
+            "abs_utility_error": 0.011312,
+            "simulated_mean_quality": 0.659583,
+            "simulated_std_quality": 0.37535
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.039459,
+            "simulated_utility": -0.049626,
+            "abs_utility_error": 0.010167,
+            "simulated_mean_quality": 0.6408,
+            "simulated_std_quality": 0.370426
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.114292,
+            "simulated_utility": -0.114313,
+            "abs_utility_error": 2.1e-05,
+            "simulated_mean_quality": 0.650556,
+            "simulated_std_quality": 0.364869
+          }
+        ]
+      },
+      {
+        "inputs": {
+          "error_rate": 0.35,
+          "rho": 0.5,
+          "coordination_cost": 0.12,
+          "risk_aversion": 1.0,
+          "n_max": 6,
+          "trials": 3000,
+          "seed": 381,
+          "model": "exchangeable",
+          "agent_sd": 0.0,
+          "difficulty_sd": 0.0
+        },
+        "recommendation": {
+          "analytic_best_n": 1,
+          "simulated_best_n": 1,
+          "match": true,
+          "analytic_best_utility": 0.17303,
+          "simulated_best_utility": 0.178307,
+          "best_n_gap": 0,
+          "analytic_top2_margin": 0.056098
+        },
+        "rows": [
+          {
+            "n": 1,
+            "analytic_utility": 0.17303,
+            "simulated_utility": 0.178307,
+            "abs_utility_error": 0.005277,
+            "simulated_mean_quality": 0.654,
+            "simulated_std_quality": 0.475693
+          },
+          {
+            "n": 2,
+            "analytic_utility": 0.116932,
+            "simulated_utility": 0.106351,
+            "abs_utility_error": 0.010581,
+            "simulated_mean_quality": 0.644,
+            "simulated_std_quality": 0.417649
+          },
+          {
+            "n": 3,
+            "analytic_utility": 0.020556,
+            "simulated_utility": 0.011769,
+            "abs_utility_error": 0.008787,
+            "simulated_mean_quality": 0.643111,
+            "simulated_std_quality": 0.391342
+          },
+          {
+            "n": 4,
+            "analytic_utility": -0.087078,
+            "simulated_utility": -0.092187,
+            "abs_utility_error": 0.005109,
+            "simulated_mean_quality": 0.645833,
+            "simulated_std_quality": 0.37802
+          },
+          {
+            "n": 5,
+            "analytic_utility": -0.199459,
+            "simulated_utility": -0.202328,
+            "abs_utility_error": 0.002869,
+            "simulated_mean_quality": 0.648867,
+            "simulated_std_quality": 0.371195
+          },
+          {
+            "n": 6,
+            "analytic_utility": -0.314292,
+            "simulated_utility": -0.331682,
+            "abs_utility_error": 0.01739,
+            "simulated_mean_quality": 0.639278,
+            "simulated_std_quality": 0.37096
+          }
+        ]
+      }
+    ]
+  },
+  "calibrated_model_check": {
+    "inputs": {
+      "error_rate": 0.25817756653992396,
+      "rho": 0.03201330798479087,
+      "coordination_cost": 0.5666666666666667,
+      "risk_aversion": 1.0,
+      "n_max": 6,
+      "trials": 3000,
+      "seed": 10307,
+      "model": "exchangeable",
+      "agent_sd": 0.0,
+      "difficulty_sd": 0.0
+    },
+    "recommendation": {
+      "analytic_best_n": 1,
+      "simulated_best_n": 1,
+      "match": true,
+      "analytic_best_utility": 0.30419,
+      "simulated_best_utility": 0.295713,
+      "best_n_gap": 0,
+      "analytic_top2_margin": 0.443401
+    },
+    "rows": [
+      {
+        "n": 1,
+        "analytic_utility": 0.30419,
+        "simulated_utility": 0.295713,
+        "abs_utility_error": 0.008477,
+        "simulated_mean_quality": 0.736333,
+        "simulated_std_quality": 0.440621
+      },
+      {
+        "n": 2,
+        "analytic_utility": -0.139211,
+        "simulated_utility": -0.152953,
+        "abs_utility_error": 0.013742,
+        "simulated_mean_quality": 0.733167,
+        "simulated_std_quality": 0.319453
+      },
+      {
+        "n": 3,
+        "analytic_utility": -0.652141,
+        "simulated_utility": -0.656849,
+        "abs_utility_error": 0.004708,
+        "simulated_mean_quality": 0.737111,
+        "simulated_std_quality": 0.260627
+      },
+      {
+        "n": 4,
+        "analytic_utility": -1.18726,
+        "simulated_utility": -1.183292,
+        "abs_utility_error": 0.003968,
+        "simulated_mean_quality": 0.746583,
+        "simulated_std_quality": 0.229875
+      },
+      {
+        "n": 5,
+        "analytic_utility": -1.732713,
+        "simulated_utility": -1.740325,
+        "abs_utility_error": 0.007612,
+        "simulated_mean_quality": 0.736867,
+        "simulated_std_quality": 0.210525
+      },
+      {
+        "n": 6,
+        "analytic_utility": -2.283942,
+        "simulated_utility": -2.287879,
+        "abs_utility_error": 0.003937,
+        "simulated_mean_quality": 0.738778,
+        "simulated_std_quality": 0.193324
+      }
+    ]
+  },
+  "interpretation": "If match rate is high and utility error is low, the closed-form spawn_math utility is a reliable decision proxy under the chosen error model."
+}

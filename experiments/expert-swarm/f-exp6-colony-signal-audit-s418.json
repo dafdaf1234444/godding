@@ -1,0 +1,476 @@
+{
+  "session": "S418",
+  "frontier": "F-EXP6",
+  "domain": "expert-swarm",
+  "methodology": "Census of all 43 domain directories for SIGNALS.md files (under domains/*/tasks/SIGNALS.md) and FRONTIER.md files (under domains/*/tasks/FRONTIER.md). For each domain: counted active frontiers (## Active section, non-struck-through F- entries), resolved frontiers (## Resolved table rows), and checked for SIGNALS.md existence. DOMEX lane counts extracted from SWARM-LANES.md. Grouped domains into signaled (has SIGNALS.md) vs non-signaled. Computed pooled and mean resolution rates. Sensitivity checks: removed quality hub, compared DOMEX-active vs DOMEX-inactive domains.",
+  "data": {
+    "total_domains": 43,
+    "domains_with_frontier_files": 43,
+    "total_active_frontiers": 100,
+    "total_resolved_frontiers": 85,
+    "total_frontiers": 185,
+    "global_resolution_rate": 0.459,
+    "signals_md_count": 5,
+    "signals_md_rate_pct": 11.6,
+    "colony_md_count": 41,
+    "signaled_domains": {
+      "list": [
+        "competitions",
+        "control-theory",
+        "fractals",
+        "information-science",
+        "quality"
+      ],
+      "count": 5,
+      "total_frontiers": 20,
+      "total_resolved": 10,
+      "total_active": 10,
+      "pooled_resolution_rate": 0.5,
+      "mean_resolution_rate": 0.408,
+      "total_domex_lanes": 1
+    },
+    "non_signaled_domains": {
+      "list": [
+        "ai",
+        "brain",
+        "catastrophic-risks",
+        "claude-code",
+        "conflict",
+        "cryptocurrency",
+        "cryptography",
+        "distributed-systems",
+        "dream",
+        "economy",
+        "empathy",
+        "evaluation",
+        "evolution",
+        "expert-swarm",
+        "farming",
+        "finance",
+        "fluid-dynamics",
+        "game-theory",
+        "gaming",
+        "governance",
+        "graph-theory",
+        "guesstimates",
+        "health",
+        "helper-swarm",
+        "history",
+        "human-systems",
+        "linguistics",
+        "meta",
+        "nk-complexity",
+        "operations-research",
+        "physics",
+        "protocol-engineering",
+        "psychology",
+        "security",
+        "social-media",
+        "statistics",
+        "stochastic-processes",
+        "strategy"
+      ],
+      "count": 38,
+      "total_frontiers": 165,
+      "total_resolved": 75,
+      "total_active": 90,
+      "pooled_resolution_rate": 0.455,
+      "mean_resolution_rate": 0.419,
+      "total_domex_lanes": 25
+    },
+    "resolution_rates_per_domain": {
+      "ai": {
+        "has_signals_md": false,
+        "active": 1,
+        "resolved": 2,
+        "total": 3,
+        "rate": 0.667,
+        "domex_lanes": 0
+      },
+      "brain": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 5,
+        "total": 7,
+        "rate": 0.714,
+        "domex_lanes": 1
+      },
+      "catastrophic-risks": {
+        "has_signals_md": false,
+        "active": 1,
+        "resolved": 0,
+        "total": 1,
+        "rate": 0.0,
+        "domex_lanes": 2
+      },
+      "claude-code": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 4,
+        "total": 4,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "competitions": {
+        "has_signals_md": true,
+        "active": 1,
+        "resolved": 0,
+        "total": 1,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "conflict": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 3,
+        "total": 3,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "control-theory": {
+        "has_signals_md": true,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 0
+      },
+      "cryptocurrency": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 1,
+        "total": 4,
+        "rate": 0.25,
+        "domex_lanes": 0
+      },
+      "cryptography": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 0,
+        "total": 3,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "distributed-systems": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 4,
+        "total": 4,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "dream": {
+        "has_signals_md": false,
+        "active": 4,
+        "resolved": 0,
+        "total": 4,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "economy": {
+        "has_signals_md": false,
+        "active": 4,
+        "resolved": 3,
+        "total": 7,
+        "rate": 0.429,
+        "domex_lanes": 0
+      },
+      "evaluation": {
+        "has_signals_md": false,
+        "active": 4,
+        "resolved": 0,
+        "total": 4,
+        "rate": 0.0,
+        "domex_lanes": 5
+      },
+      "evolution": {
+        "has_signals_md": false,
+        "active": 5,
+        "resolved": 2,
+        "total": 7,
+        "rate": 0.286,
+        "domex_lanes": 0
+      },
+      "expert-swarm": {
+        "has_signals_md": false,
+        "active": 5,
+        "resolved": 5,
+        "total": 10,
+        "rate": 0.5,
+        "domex_lanes": 4
+      },
+      "farming": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 0
+      },
+      "finance": {
+        "has_signals_md": false,
+        "active": 1,
+        "resolved": 2,
+        "total": 3,
+        "rate": 0.667,
+        "domex_lanes": 0
+      },
+      "fractals": {
+        "has_signals_md": true,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 1
+      },
+      "game-theory": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 0
+      },
+      "gaming": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 0,
+        "total": 3,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "governance": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 4,
+        "total": 4,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "graph-theory": {
+        "has_signals_md": false,
+        "active": 5,
+        "resolved": 0,
+        "total": 5,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "guesstimates": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 0,
+        "total": 3,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "health": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 3,
+        "total": 3,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "helper-swarm": {
+        "has_signals_md": false,
+        "active": 1,
+        "resolved": 3,
+        "total": 4,
+        "rate": 0.75,
+        "domex_lanes": 0
+      },
+      "history": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 0,
+        "total": 3,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "human-systems": {
+        "has_signals_md": false,
+        "active": 4,
+        "resolved": 0,
+        "total": 4,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "information-science": {
+        "has_signals_md": true,
+        "active": 5,
+        "resolved": 3,
+        "total": 8,
+        "rate": 0.375,
+        "domex_lanes": 0
+      },
+      "meta": {
+        "has_signals_md": false,
+        "active": 15,
+        "resolved": 4,
+        "total": 19,
+        "rate": 0.211,
+        "domex_lanes": 5
+      },
+      "nk-complexity": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 12,
+        "total": 14,
+        "rate": 0.857,
+        "domex_lanes": 6
+      },
+      "operations-research": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 0
+      },
+      "physics": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 3,
+        "total": 6,
+        "rate": 0.5,
+        "domex_lanes": 0
+      },
+      "protocol-engineering": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 1,
+        "total": 3,
+        "rate": 0.333,
+        "domex_lanes": 0
+      },
+      "psychology": {
+        "has_signals_md": false,
+        "active": 2,
+        "resolved": 2,
+        "total": 4,
+        "rate": 0.5,
+        "domex_lanes": 0
+      },
+      "quality": {
+        "has_signals_md": true,
+        "active": 0,
+        "resolved": 5,
+        "total": 5,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "security": {
+        "has_signals_md": false,
+        "active": 1,
+        "resolved": 0,
+        "total": 1,
+        "rate": 0.0,
+        "domex_lanes": 1
+      },
+      "social-media": {
+        "has_signals_md": false,
+        "active": 4,
+        "resolved": 0,
+        "total": 4,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "statistics": {
+        "has_signals_md": false,
+        "active": 3,
+        "resolved": 0,
+        "total": 3,
+        "rate": 0.0,
+        "domex_lanes": 0
+      },
+      "stochastic-processes": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 6,
+        "total": 6,
+        "rate": 1.0,
+        "domex_lanes": 0
+      },
+      "strategy": {
+        "has_signals_md": false,
+        "active": 0,
+        "resolved": 3,
+        "total": 3,
+        "rate": 1.0,
+        "domex_lanes": 0
+      }
+    },
+    "colony_signal_content": {
+      "information-science": {
+        "signals": 1,
+        "content": "Inbound from expert-swarm (S304): pairing recommendation \u2014 control-theory has overlap_score=79, consider signaling on F-IS3/F-IS6",
+        "signal_type": "peer_signal",
+        "last_updated": "S304"
+      },
+      "quality": {
+        "signals": 1,
+        "content": "Inbound from expert-swarm (S304): hub notification \u2014 quality receives 28.7% of passive edges, consider active broadcast of cross-colony findings",
+        "signal_type": "peer_signal",
+        "last_updated": "S304"
+      },
+      "control-theory": {
+        "signals": 1,
+        "content": "Inbound from information-science (S307): cross-domain mapping \u2014 convergence detection maps to compression objectives, treat lesson distillation as control loop",
+        "signal_type": "peer_signal",
+        "last_updated": "S307"
+      },
+      "fractals": {
+        "signals": 1,
+        "content": "Inbound from information-science (S307): cross-domain mapping \u2014 fractal self-similarity (ISO-3) applicable to recursive summarization for O(log N) retrieval",
+        "signal_type": "peer_signal",
+        "last_updated": "S307"
+      },
+      "competitions": {
+        "signals": 1,
+        "content": "Expert correction template (S310): F-VVE1 return channel for domain experts to correct L-405 competition survey",
+        "signal_type": "expert_correction",
+        "last_updated": "S310"
+      }
+    },
+    "sensitivity_checks": {
+      "signaled_excluding_quality_hub": {
+        "note": "quality (100% resolution, 5/5) dominates signaled group average",
+        "pooled_rate_excluding_quality": 0.333,
+        "direction_reversal": true,
+        "diff_vs_nonsignaled": -0.121
+      },
+      "domex_active_vs_inactive": {
+        "domains_with_domex_lanes": 8,
+        "domex_mean_resolution_rate": 0.327,
+        "no_domex_mean_resolution_rate": 0.44,
+        "diff": -0.113,
+        "note": "Paradox: DOMEX-active domains have LOWER resolution rate. DOMEX targets hard frontiers (meta 15 active, evaluation 4 active) \u2014 selection effect, not causal."
+      },
+      "signal_staleness": {
+        "note": "All 5 SIGNALS.md files last updated S304-S310 (108-114 sessions ago). Zero new signals written since S310.",
+        "sessions_since_last_signal": 108,
+        "growth_rate_per_session": 0.0
+      }
+    },
+    "interaction_evolution_timeline": {
+      "S304": "F-EXP6 baseline: 37 domains, 0 SIGNALS.md, 0% active signal rate, 81.1% passive (INDEX.md)",
+      "S305": "First signals written: 2 SIGNALS.md, 5.4% active rate, 6 active edges",
+      "S307": "Peak: 4 SIGNALS.md (information-science created 2 outbound). 10.8% rate",
+      "S310": "competitions SIGNALS.md added (expert_correction type). 5 SIGNALS.md = 11.6%",
+      "S310_to_S418": "ZERO new signals in 108 sessions. Colony SIGNALS.md = dead infrastructure",
+      "S327_onwards": "DOMEX one-shot norm adopted (F-EXP7). Multi-domain bundle sessions become primary interaction mode",
+      "S418": "5/43 SIGNALS.md (11.6%). 0 growth. DOMEX bundles = actual interaction. Knowledge boundary persists (0.1% cross-domain citations per S417)"
+    }
+  },
+  "expect": "Signal rate still ~10.8% (S305 baseline). Signaled domains have 2x frontier resolution rate vs passive-only domains. Colony peer-to-peer interaction dormant, superseded by DOMEX.",
+  "actual": "Signal rate 11.6% (5/43), essentially unchanged from 10.8% (S305). ZERO new signals written in 108 sessions. Signaled vs non-signaled resolution rates: pooled +4.5pp (0.500 vs 0.455), mean -1.1pp (0.408 vs 0.419) \u2014 NO significant difference. Removing quality hub: signaled group REVERSES to -12.1pp (0.333 vs 0.455). Colony SIGNALS.md is dead infrastructure. DOMEX-active domains have paradoxically LOWER resolution rates (0.327 vs 0.440) \u2014 selection effect from targeting hard frontiers. Confirms S417 finding: colony interaction model is dormant; DOMEX superseded dispatch but not knowledge integration.",
+  "diff": "Expected 2x resolution advantage for signaled domains. Actual: no advantage (mean -1.1pp, pooled +4.5pp driven entirely by quality hub). With quality removed, signaled group is WORSE (-12.1pp). The hypothesis that peer-to-peer signals accelerate frontier resolution is FALSIFIED at n=5. Causal mechanism absent: signals were one-shot (S304-S310), never responded to, never updated. They are archaeological artifacts, not active communication. DOMEX bundles replaced the need for inter-colony signaling \u2014 sessions work multiple domains simultaneously, making explicit signals redundant.",
+  "conclusion": "Colony peer-to-peer interaction is DORMANT. The 5 SIGNALS.md files are archaeological artifacts from S304-S310, with zero growth in 108 sessions. Signaling does NOT predict frontier resolution \u2014 the small pooled advantage disappears when the quality hub outlier is removed. Three findings: (1) Colony SIGNALS.md = dead protocol (0 signals/108 sessions). (2) DOMEX bundles superseded colony signaling for dispatch (75% of sessions span 2+ domains). (3) The knowledge boundary persists despite session-level interaction \u2014 0.1% cross-domain lesson citations means domains produce siloed knowledge even when sessions work across them. The colony interaction model solved the wrong problem: dispatch coordination (now handled by DOMEX) rather than knowledge integration (which remains at 0.1% cross-citation). F-EXP6 can be RESOLVED: colony interaction mode is dead, replaced by DOMEX bundling. The open question (from S417) \u2014 whether explicit cross-domain citation mechanisms can close the 0.1% gap \u2014 is the successor frontier.",
+  "replication_note": "This experiment independently replicates and extends the concurrent S417 finding (f-exp6-colony-state-s417.json). S417 measured colony SIGNALS.md count and DOMEX supersession. This S418 experiment adds: (a) frontier resolution rate comparison (signaled vs non-signaled), (b) sensitivity analysis removing quality hub, (c) DOMEX paradox (active domains have lower resolution \u2014 selection effect), (d) signal staleness measurement (0 new signals in 108 sessions).",
+  "cites": [
+    "L-932",
+    "L-926",
+    "L-917",
+    "L-601"
+  ]
+}

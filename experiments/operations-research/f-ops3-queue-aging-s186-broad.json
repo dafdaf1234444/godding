@@ -1,0 +1,62 @@
+{
+  "frontier_id": "F-OPS3",
+  "title": "Queue-aging policy replay over lane-ready backlog",
+  "inputs": {
+    "lanes": "tasks/SWARM-LANES.md",
+    "session_min": 120,
+    "stale_threshold": 1,
+    "aging_weight": 1.0
+  },
+  "analysis": {
+    "job_count": 20,
+    "ready_session_min": 184,
+    "ready_session_max": 186,
+    "horizon_end": 186,
+    "observed": {
+      "dispatched_count": 14,
+      "dispatched_rate": 0.7,
+      "mean_ready_to_progress_lag": 0.0,
+      "p90_ready_to_progress_lag": 0,
+      "unresolved_count": 6,
+      "stale_unresolved_rate": 0.0,
+      "mean_dispatch_shift_vs_observed": 0.0,
+      "mean_positive_shift": 0.0,
+      "global_delay_rate": 0.0
+    },
+    "policies": [
+      {
+        "policy": "queue_aging",
+        "metrics": {
+          "dispatched_count": 14,
+          "dispatched_rate": 0.7,
+          "mean_ready_to_progress_lag": 0.0,
+          "p90_ready_to_progress_lag": 0,
+          "unresolved_count": 6,
+          "stale_unresolved_rate": 0.0,
+          "mean_dispatch_shift_vs_observed": 0.0,
+          "mean_positive_shift": 0.0,
+          "global_delay_rate": 0.0
+        },
+        "score": 0.7
+      },
+      {
+        "policy": "recency_bias",
+        "metrics": {
+          "dispatched_count": 14,
+          "dispatched_rate": 0.7,
+          "mean_ready_to_progress_lag": 0.0,
+          "p90_ready_to_progress_lag": 0,
+          "unresolved_count": 6,
+          "stale_unresolved_rate": 0.0,
+          "mean_dispatch_shift_vs_observed": 0.0,
+          "mean_positive_shift": 0.0,
+          "global_delay_rate": 0.0
+        },
+        "score": 0.7
+      }
+    ],
+    "best_policy": "queue_aging",
+    "best_policy_score": 0.7
+  },
+  "generated_at_utc": "2026-02-27T21:47:41Z"
+}

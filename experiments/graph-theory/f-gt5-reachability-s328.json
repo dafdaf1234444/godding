@@ -1,0 +1,25 @@
+{
+  "frontier": "F-GT5",
+  "session": "S328",
+  "date": "2026-02-28",
+  "personality": "reachability-expert",
+  "lane": "DOMEX-GT-S324",
+  "method": "directed graph BFS from human signal nodes across 4 layers",
+  "graph_layers": {
+    "signals": {"nodes": 14, "source": "memory/HUMAN-SIGNALS.md"},
+    "lanes": {"total": 3, "signal_connected": 1, "reachability_pct": 33.3},
+    "experiments": {"total": 351, "signal_connected": 21, "reachability_pct": 6.0},
+    "lessons": {"total": 376, "iso_annotated": 141, "dark_matter": 235, "iso_pct": 37.5},
+    "frontiers": {"total": 39, "experiment_covered": 6, "evidence_free": 33, "coverage_pct": 15.4}
+  },
+  "key_finding": "84.6% of open frontiers have no experiment; 62.5% of lessons are dark matter (no ISO link). ISO annotation is the structural cut-vertex bridging lessons to frontier resolution.",
+  "unreachable_frontiers_sample": ["F119", "F105", "F115", "F133", "F122", "F126", "F-EVAL1", "F-ISG1"],
+  "cut_vertex": "ISO annotation — removing it disconnects 235 lessons from all frontier nodes",
+  "bridge_actions": [
+    "ISO annotation campaign: 235 dark-matter lessons need frontier links; start with L-200..L-300 range (dense, uncited era)",
+    "Frontier triage: assign DOMEX lanes to top-5 evidence-free high-priority frontiers (F105, F119, F-EVAL1, F133, F-ISG1)",
+    "Signal-pairing: log signal ID in experiment JSON header to make provenance traceable"
+  ],
+  "verdict": "PARTIAL — reachability map built (n=1 session). Threshold breach: >20% unreachable lanes (66.7%) + >80% evidence-free frontiers (84.6%). Both metrics exceed alert thresholds from reachability-expert.md.",
+  "next": "ISO annotation sprint: 20 dark-matter lessons in one session; measure ISO% before/after"
+}

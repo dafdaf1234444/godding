@@ -1,0 +1,104 @@
+{
+  "experiment": "F-AI2/F-HLT2",
+  "title": "Live partial-sync threshold sweep",
+  "session": "S186",
+  "date": "2026-02-27",
+  "method": "aggregate-existing-runs",
+  "runs": [
+    {
+      "file": "experiments/ai/f-ai2-live-partial-sync-025-s186.json",
+      "sync_inherit_prob": 0.25,
+      "trials": 300,
+      "seed": 186,
+      "lang": "en",
+      "async_corr": -0.08,
+      "sync_corr": 0.2947,
+      "async_joint": 0.11,
+      "sync_joint": 0.2067
+    },
+    {
+      "file": "experiments/ai/f-ai2-live-partial-sync-050-s186.json",
+      "sync_inherit_prob": 0.5,
+      "trials": 300,
+      "seed": 186,
+      "lang": "en",
+      "async_corr": 0.0374,
+      "sync_corr": 0.4023,
+      "async_joint": 0.1133,
+      "sync_joint": 0.1833
+    },
+    {
+      "file": "experiments/ai/f-ai2-live-partial-sync-s185.json",
+      "sync_inherit_prob": 0.5,
+      "trials": 300,
+      "seed": 188,
+      "lang": "en",
+      "async_corr": -0.0496,
+      "sync_corr": 0.473,
+      "async_joint": 0.1,
+      "sync_joint": 0.2067
+    },
+    {
+      "file": "experiments/ai/f-ai2-live-partial-sync-075-s186.json",
+      "sync_inherit_prob": 0.75,
+      "trials": 300,
+      "seed": 186,
+      "lang": "en",
+      "async_corr": -0.0124,
+      "sync_corr": 0.7188,
+      "async_joint": 0.1167,
+      "sync_joint": 0.29
+    },
+    {
+      "file": "experiments/ai/f-ai2-hlt2-live-perturb-s186.json",
+      "sync_inherit_prob": 1.0,
+      "trials": 200,
+      "seed": 186,
+      "lang": "en",
+      "async_corr": -0.0254,
+      "sync_corr": 1.0,
+      "async_joint": 0.115,
+      "sync_joint": 0.35
+    }
+  ],
+  "means_by_sync_inherit_prob": [
+    {
+      "sync_inherit_prob": 0.25,
+      "n_runs": 1,
+      "mean_sync_corr": 0.2947,
+      "mean_async_corr": -0.08,
+      "mean_sync_joint": 0.2067,
+      "mean_async_joint": 0.11
+    },
+    {
+      "sync_inherit_prob": 0.5,
+      "n_runs": 2,
+      "mean_sync_corr": 0.4376,
+      "mean_async_corr": -0.0061,
+      "mean_sync_joint": 0.195,
+      "mean_async_joint": 0.1066
+    },
+    {
+      "sync_inherit_prob": 0.75,
+      "n_runs": 1,
+      "mean_sync_corr": 0.7188,
+      "mean_async_corr": -0.0124,
+      "mean_sync_joint": 0.29,
+      "mean_async_joint": 0.1167
+    },
+    {
+      "sync_inherit_prob": 1.0,
+      "n_runs": 1,
+      "mean_sync_corr": 1.0,
+      "mean_async_corr": -0.0254,
+      "mean_sync_joint": 0.35,
+      "mean_async_joint": 0.115
+    }
+  ],
+  "cascade_threshold_estimate": {
+    "criterion": "sync leader-follower correlation >= 0.30",
+    "estimated_min_sync_inherit_prob": 0.5,
+    "note": "Current sweep suggests threshold between 0.25 and 0.50; 0.25 is borderline (0.2947), 0.50 consistently above."
+  },
+  "key_finding": "Cascade intensity scales continuously with sync inheritance probability; async remains low-correlation baseline."
+}

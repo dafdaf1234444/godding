@@ -1,0 +1,64 @@
+{
+  "session": "S111",
+  "date": "2026-02-27",
+  "workload": {
+    "name": "real-shared-file-updates",
+    "description": "4 worker processes perform read-modify-write updates on one shared markdown file using lock-file coordination",
+    "shared_file_kind": "swarm-style markdown handoff file",
+    "tasks": 4,
+    "updates_per_task": 120,
+    "hash_loops_per_update": 250,
+    "lock_strategy": "lockfile (create-exclusive + spin)"
+  },
+  "repeats": 5,
+  "results": {
+    "1": {
+      "times_s": [
+        0.271,
+        0.275,
+        0.286,
+        0.348,
+        0.29
+      ],
+      "median_s": 0.286,
+      "speedup_vs_n1": 1.0,
+      "efficiency": 1.0
+    },
+    "2": {
+      "times_s": [
+        0.281,
+        0.281,
+        0.497,
+        0.28,
+        0.288
+      ],
+      "median_s": 0.281,
+      "speedup_vs_n1": 1.018,
+      "efficiency": 0.509
+    },
+    "3": {
+      "times_s": [
+        0.295,
+        0.298,
+        0.29,
+        0.304,
+        0.307
+      ],
+      "median_s": 0.298,
+      "speedup_vs_n1": 0.96,
+      "efficiency": 0.32
+    },
+    "4": {
+      "times_s": [
+        0.334,
+        0.415,
+        0.326,
+        0.332,
+        0.419
+      ],
+      "median_s": 0.334,
+      "speedup_vs_n1": 0.856,
+      "efficiency": 0.214
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "frontier_id": "F-HIS2",
+  "title": "Chronology conflict detection across NEXT, SWARM-LANES, and artifacts",
+  "inputs": {
+    "next": "tasks/NEXT.md",
+    "lanes": "tasks/SWARM-LANES.md"
+  },
+  "analysis": {
+    "next_events_total": 209,
+    "next_events_with_refs": 146,
+    "matched_next_events": 133,
+    "missing_link_events": [
+      {
+        "session": 186,
+        "refs": [
+          "experiments/evolution/f-evo2-contamination-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo2-retention-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo3-protocol-cadence-s186-swarm-the-swarm.json",
+          "experiments/evolution/f-evo4-multibranch-s186-swarm-the-swarm.json"
+        ],
+        "next_event_text": "S186: user-directed \"swarm the swarm\" evolution replay executed across F-EVO2/F-EVO3/F-EVO4 (`experiments/evolution/f-evo2-contamination-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo2-retention-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo3-protocol-cadence-s186-swarm-the-swarm.json`, `experiments/evolution/f-evo4-multibranch-s186-swarm-the-swarm.json`). Check mode `assumption+verification+coordination`; expectation was contamination would stay MEDIUM while queue-pressure improves and multibranch pass remains intact. Actual: contamination improved from `0.5184` to `0.4784` (MEDIUM, ready/running `1.0`), cadence couplings stayed directionally stable (mutation-overhead `+0.3033`, mutation-destabilization `+0.4554`), and multibranch verdict remained full pass (`verdict_strength=1.0`, overall score `0.6989`). Diff: expectation confirmed on contamination and multibranch stability; retention bottleneck persists (`338` rows, only one retained base lane, READY residue `107`) so next action is quality-linkage for retained mutations plus continued READY-lane conversion."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/orient.py",
+          "tools/test_orient.py"
+        ],
+        "next_event_text": "S186: unused-surface swarming pass landed via `tools/orient.py` (`coordination` check mode): orientation now emits an `Underused core tools` section from recent session-log evidence (last 20 sessions) alongside unrun domain experiments, so dormant swarm capabilities are visible at startup without a manual audit. Regression coverage added in `tools/test_orient.py` (4/4). Diff: unused-part activation is now first-class in the default orientation loop."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "experiments/operations-research/f-ops3-queue-aging-s186-fullhistory-rerun.json",
+          "experiments/operations-research/f-ops3-queue-aging-s186-synthetic-rerun.json",
+          "experiments/operations-research/f-ops3-queue-aging-s186-synthetic-lanes.md"
+        ],
+        "next_event_text": "S186: floor-`0.3333` coordinator slot-1 operations execution completed via F-OPS3 queue-aging replays (`coordination+verification` check modes) with artifacts `experiments/operations-research/f-ops3-queue-aging-s186-fullhistory-rerun.json` and `experiments/operations-research/f-ops3-queue-aging-s186-synthetic-rerun.json` (using synthetic backlog slice file `experiments/operations-research/f-ops3-queue-aging-s186-synthetic-lanes.md`). Expectation: explicit backlog-slice injection should separate queue-aging from recency-bias so slot policy can progress beyond tie/null. Actual: live replay remains narrow (`ready_session_min=184`, `job_count=20`) and effectively tie (`score=0.9` both), while synthetic backlog replay separates policies (`job_count=26`, ready window `180..186`) but favors `recency_bias` (`0.4038` vs `-0.5077`) because naive queue-aging induces high `global_delay_rate=1.0` and `mean_positive_shift=2.0` despite stale-unresolved improvement (`0.0` vs `0.2308`). Diff: slot-1 produced actionable F-OPS3 signal (aging policy needs guardrails for global-delay/shift, not just stale reduction); coordinator can advance to slot-2 information-science."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "experiments/history/f-his2-chronology-conflicts-s186.json"
+        ],
+        "next_event_text": "S186: swarm-the-swarm concreteness pass landed in domain frontiers: `domains/information-science/tasks/FRONTIER.md` now includes a copy/paste F-IS4 runbook (slot fan-out, blocker reassignment, overlap-tuning command), and `domains/history/tasks/FRONTIER.md` now includes executable F-HIS2/F-HIS3 examples grounded in chronology metrics from `experiments/history/f-his2-chronology-conflicts-s186.json`."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/test_structure_layout.py"
+        ],
+        "next_event_text": "S186: repository-structure pass added `references/` + `recordings/` as first-class folders with canonical policy in `docs/SWARM-STRUCTURE.md`, map updates in README/INDEX, and maintenance enforcement (`check_structure_layout`) with regression coverage (`tools/test_structure_layout.py`) so disallowed file types in those folders are automatically flagged."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/test_swarm_lanes.py"
+        ],
+        "next_event_text": "S186: lane contract enforcement hardened in maintenance/tests for F121/F-GAM3 continuity: active-lane structural checks now require explicit `available` + `next_step` tags (alongside `setup/focus/blocked/human_open_item`) and `tools/test_swarm_lanes.py` enforces the same contract. Appended contract-refresh rows for active domain-expert lanes so quick-check returned to NOTICE-only."
+      },
+      {
+        "session": 186,
+        "refs": [
+          "tools/change_quality.py"
+        ],
+        "next_event_text": "S186: scheduling-quality audit via `python3 tools/change_quality.py` shows no current improvement trend: S184-S186 rated WEAK (scores 0.00) with 50/50/0% overhead and no L/P/frontier advancement; long-term trend remains DECLINING (-38%). Action: scheduling-quality elevated to top next-session priority."
+      },
+      {
+        "session": 185,
+        "refs": [
+          "tools/compact.py"
+        ],
+        "next_event_text": "S185: compactness swarm pass executed on highest-growth knowledge tier: compacted `tasks/FRONTIER.md` exploratory narratives to status+open+pointer form; `python3 tools/compact.py` moved proxy-K drift from +7.5% DUE (43,795t) to +5.9% healthy (43,134t), cutting ~661 tokens and clearing compaction urgency without semantic loss."
+      },
+      {
+        "session": 184,
+        "refs": [
+          "tools/change_quality.py"
+        ],
+        "next_event_text": "S184: quality periodic rerun (`python3 tools/change_quality.py`) still shows long-term DECLINING (-37%); latest committed session S184 scores WEAK (0.00) due low commit/knowledge density, so next correction remains execution-heavy frontier work (F-HLT2/F-AI2) over bookkeeping."
+      },
+      {
+        "session": 184,
+        "refs": [
+          "tools/orient.py"
+        ],
+        "next_event_text": "S184: orient stale-experiment detection hardened \u2014 `tools/orient.py` now parses Active frontiers line-by-line and ignores struck-through IDs (e.g., `~~F-FIN2~~`) so resolved items are not re-suggested as unrun; NEXT priorities updated to unresolved items (F-HLT2/F-AI2, F-IS3/F-FIN1)."
+      },
+      {
+        "session": 184,
+        "refs": [
+          "tools/sync_state.py"
+        ],
+        "next_event_text": "S184: maintenance DUE cleared \u2014 compacted L-261 (22\u219216 lines) and L-266 (21\u219216 lines) to pass lesson-length policy while preserving rules/findings; promoted L-267 from draft and ran `python3 tools/sync_state.py` (state now 266L 171P 17B 20F, session headers advanced to S184) plus `tools/check.ps1 --quick` (NOTICE-only)."
+      },
+      {
+        "session": 176,
+        "refs": [
+          "tools/sync_state.py"
+        ],
+        "next_event_text": "S176: usage audit (git churn by file+type): blackboard IS the most-used subsystem (INDEX 195 commits, FRONTIER 163, PRINCIPLES 136, NEXT 131 = 625 total); 16/415 commits (~4%) were pure state-sync overhead; built tools/sync_state.py (auto-patch counts \u2014 lesson/principle/belief/frontier + session headers); caught real drift on first run; L-216 filed."
+      },
+      {
+        "session": 173,
+        "refs": [
+          "tools/substrate_detect.py"
+        ],
+        "next_event_text": "S173: tools/substrate_detect.py committed \u2014 F120 implementation: detect swarm vs foreign repo, language/framework/tooling; orient_text() returns protocol guidance; tested on this repo (swarm-repo, all 7 tools detected) and foreign path (behavioral-norms-only path). Advances F120 from OPEN to first concrete implementation."
+      }
+    ],
+    "missing_link_rate": 0.089,
+    "inversion_events": [
+      {
+        "session": 184,
+        "ref": "experiments/ai/f-ai2-hlt2-sync-correlation-s184.json",
+        "next_event_text": "S184: F-AI2/F-HLT2 controlled sync-correlation replicated at larger N (`tools/wiki_swarm.py --coord-experiment --trials 2000 --error-rate 0.2 --seed 184`): async leader-follower error correlation stayed near zero (-0.0162) while forced sync remained perfectly correlated (1.0), and joint error rate stayed ~5.4x higher under sync (0.2025 vs 0.0375). Artifact: `experiments/ai/f-ai2-hlt2-sync-correlation-s184.json`.",
+        "earliest_lane_session": 185
+      }
+    ],
+    "inversion_rate": 0.0068,
+    "missing_artifacts": [],
+    "lane_only_artifacts_not_in_next": [
+      {
+        "ref": "experiments/ai/f-ai2-live-partial-sync-*-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/children/architecture-test-minimal/memory/INDEX.md",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/control-theory/f-ctl1-threshold-sensitivity-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo1-lane-diversity-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo2-lane-retention-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo2-vsr-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/evolution/f-evo3-protocol-cadence-s186.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/finance/f-fin1-factual-qa-s186-smoke.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/game-theory/f-gam2-reputation-signals-s186-rerun2.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/game-theory/f-gam3-signaling-contract-s186-msw2-s1.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/history/f-his1-historian-grounding-s186-rerun2.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/history/f-his1-historian-grounding-s186-slot4-rerun.json",
+        "first_lane_session": 186,
+        "last_lane_session": 186
+      },
+      {
+        "ref": "experiments/ai/f-ai2-hlt2-live-perturb-s186-es.json",
+        "first_lane_session": 185,
+        "last_lane_session": 185
+      },
+      {
+        "ref": "experiments/colony-analysis/harvest-r6.md",
+        "first_lane_session": 185,
+        "last_lane_session": 185
+      },
+      {
+        "ref": "experiments/colonies/p155-*.json",
+        "first_lane_session": 184,
+        "last_lane_session": 184
+      }
+    ]
+  },
+  "generated_at_utc": "2026-02-27T22:11:31Z"
+}

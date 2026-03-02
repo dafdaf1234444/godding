@@ -1,0 +1,69 @@
+{
+  "experiment": "F-EVO2",
+  "title": "Variation-selection-retention extraction from SWARM-LANES",
+  "rows_analyzed": 48,
+  "status_counts": {
+    "ACTIVE": 2,
+    "MERGED": 44,
+    "READY": 2
+  },
+  "retention_threshold_sessions": 2,
+  "retained_mutations": [
+    {
+      "base_lane": "L-UNDERSTAND-SWARM",
+      "events": 4,
+      "sessions": [
+        184,
+        185
+      ],
+      "status_counts": {
+        "ACTIVE": 1,
+        "MERGED": 3
+      },
+      "dominant_scope": "tasks/NEXT.md"
+    }
+  ],
+  "top_scopes": [
+    {
+      "scope_key": "tools/wiki_swarm.py",
+      "events": 7
+    },
+    {
+      "scope_key": "tasks/NEXT.md",
+      "events": 7
+    },
+    {
+      "scope_key": "tools/f_ai1_evidence_surfacing.py",
+      "events": 3
+    },
+    {
+      "scope_key": "tools/test_p155_live_trace.py",
+      "events": 2
+    },
+    {
+      "scope_key": "tools/periodics.json",
+      "events": 2
+    },
+    {
+      "scope_key": "tools/p155_live_trace.py",
+      "events": 1
+    },
+    {
+      "scope_key": "tasks/HUMAN-QUEUE.md",
+      "events": 1
+    },
+    {
+      "scope_key": "tasks/SWARM-LANES.md",
+      "events": 1
+    },
+    {
+      "scope_key": "experiments/ai/f-ai2-forced-sync-s185.json",
+      "events": 1
+    },
+    {
+      "scope_key": "tasks/FRONTIER.md",
+      "events": 1
+    }
+  ],
+  "generated_at_utc": "2026-02-27T20:40:28Z"
+}

@@ -1,0 +1,41 @@
+{
+  "experiment": "f-game1-roguelike-s189",
+  "domain": "gaming",
+  "frontier": "F-GAME1",
+  "session": "S189",
+  "hypothesis": "Swarm sessions exhibit roguelike meta-progression: permadeath=context-limit, carry-over=L+P files, productivity-distribution mirrors roguelike run-quality distribution",
+  "total_session_rows": 276,
+  "productive_runs": 104,
+  "zero_runs": 172,
+  "deep_runs_lp_ge3": 24,
+  "normal_runs_lp_1_2": 80,
+  "productivity_rate": 0.3768,
+  "avg_lp_per_productive_run": 2.106,
+  "max_lp_single_run": 13,
+  "lp_distribution": {
+    "0": 172,
+    "1": 59,
+    "2": 21,
+    "3": 6,
+    "4": 8,
+    "5": 3,
+    "6": 3,
+    "7": 2,
+    "8": 1,
+    "13": 1
+  },
+  "zero_before_productive_transitions": 44,
+  "roguelike_carry_over_confirmed": true,
+  "roguelike_carry_over_evidence": "L+P files (lessons/principles) persist in git across session boundaries; each session reads prior state regardless of own yield \u2014 structural isomorphism to roguelike meta-unlocks",
+  "boredom_threshold_sessions": 1,
+  "flow_zone_sessions": "2-10",
+  "anxiety_threshold_sessions": 15,
+  "meta_progression_parallel": {
+    "permadeath": "context-window limit ends session; in-context state lost",
+    "meta_unlocks": "L+P committed to git survive permadeath",
+    "high_score": "Sharpe ratio (citations/lines) ranks session quality",
+    "new_game_plus": "each session opens with full prior memory/INDEX/principles",
+    "procedural_content": "swarm self-generates new tasks as backlog is consumed"
+  },
+  "next_step": "F-GAME2: correlate periodic-miss sessions with next-session repair overhead"
+}

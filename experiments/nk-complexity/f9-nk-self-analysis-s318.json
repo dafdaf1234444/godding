@@ -1,0 +1,98 @@
+{
+  "experiment": "F9-NK self-analysis S318",
+  "title": "NK Lesson Citation Graph \u2014 K_avg Temporal Tracking",
+  "session": "S318",
+  "date": "2026-02-28",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "expect": "K_avg modestly above S312 (1.028) with uncited pct slightly down as citations accumulate.",
+  "method": "Scan all memory/lessons/L-*.md for L-NNN citations; build directed graph; compute NK metrics with multi-edge and unique-pair counts.",
+  "metrics": {
+    "N_lessons": 359,
+    "K_total_citations": 360,
+    "K_avg": 1.003,
+    "K_total_unique": 298,
+    "K_avg_unique": 0.83,
+    "K_max": 16,
+    "K_max_lesson": "L-001",
+    "cycles": 0,
+    "uncited_lessons": 200,
+    "uncited_pct": 55.7,
+    "zero_outgoing_lessons": 205,
+    "zero_outgoing_pct": 57.1,
+    "top_10_cited": [
+      [
+        "L-001",
+        16
+      ],
+      [
+        "L-304",
+        12
+      ],
+      [
+        "L-251",
+        10
+      ],
+      [
+        "L-218",
+        7
+      ],
+      [
+        "L-219",
+        7
+      ],
+      [
+        "L-276",
+        7
+      ],
+      [
+        "L-231",
+        6
+      ],
+      [
+        "L-253",
+        6
+      ],
+      [
+        "L-150",
+        5
+      ],
+      [
+        "L-216",
+        5
+      ]
+    ]
+  },
+  "temporal_comparison": {
+    "S305": {
+      "N": 325,
+      "K_avg": 0.766,
+      "uncited_pct": 61.5,
+      "cycles": 0
+    },
+    "S312": {
+      "N": 357,
+      "K_avg": 1.028,
+      "uncited_pct": 54.3,
+      "cycles": 0
+    },
+    "S318": {
+      "N": 359,
+      "K_avg": 1.003,
+      "uncited_pct": 55.7,
+      "cycles": 0
+    }
+  },
+  "actual": "K_avg=1.003 (multi-edge), K_avg_unique=0.830. 200/359 uncited (55.7%). 0 cycle SCCs. Total citations: 360.",
+  "diff": "Expectation was slight increase from S312; actual K_avg slipped toward 1.0 and uncited pct ticked up. Knowledge coupling stalled; orphan rate worsened slightly.",
+  "interpretation": {
+    "NK_diagnosis": "TRANSITION_ZONE",
+    "architecture": "emerging_hub_and_spoke",
+    "K_avg_delta": "-0.025 vs S312",
+    "orphan_change": "+1.4pp (54.3% \u2192 55.7%)",
+    "hub_emergence": "L-001 remains top hub (16 in-degree)",
+    "swarm_implication": "Coupling plateaued; retroactive citation annotation remains highest-ROI action to lift K_avg toward 1.5."
+  },
+  "f75_connection": "K_avg=1.003 < 1.5 threshold \u2014 data-parallel still wins; method decomposition not yet favored.",
+  "next": "Track K_avg at N=400; prioritize retroactive citations to reduce orphan rate and push K_avg toward 1.5."
+}

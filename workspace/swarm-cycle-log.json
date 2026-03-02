@@ -1,0 +1,218 @@
+{
+  "cycles": [
+    {
+      "session": "S377",
+      "timestamp": "2026-03-01T15:17:13",
+      "primary": {
+        "priority": 2,
+        "type": "trigger",
+        "id": "T3-MAINTENANCE-DUE",
+        "action": "run DUE maintenance task",
+        "reason": "MEDIUM trigger: orient.py DUE items present (>0)"
+      },
+      "alternatives": [
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T4-ANXIETY-ZONE",
+          "action": "open DOMEX or CLOSE",
+          "reason": "MEDIUM trigger: Frontier open >15 sessions without update"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T5-DISPATCH-GAP",
+          "action": "open DOMEX for top domain",
+          "reason": "MEDIUM trigger: Top-3 dispatch domain has no active DOMEX lane"
+        },
+        {
+          "priority": 3,
+          "type": "dispatch",
+          "domain": "fluid-dynamics",
+          "score": 5.548297505260605,
+          "frontier": "**F-FLD1**: Reynolds regime predictor for swarm sessions",
+          "reason": "UCB1 top domain: fluid-dynamics (score=5.548297505260605)"
+        },
+        {
+          "priority": 3,
+          "type": "dispatch",
+          "domain": "gaming",
+          "score": 5.548297505260605,
+          "frontier": "**F-GAME1**: Does the swarm's session architecture exhibit roguelike meta-progression structure? Hypothesis: sessions wi",
+          "reason": "UCB1 top domain: gaming (score=5.548297505260605)"
+        }
+      ],
+      "active_lanes": [
+        "DOMEX-META-S377",
+        "DOMEX-SEC-S376"
+      ],
+      "trigger_count": 4,
+      "signal_count": 20,
+      "dispatch_top3": [
+        "security",
+        "fluid-dynamics",
+        "gaming"
+      ]
+    },
+    {
+      "session": "S377",
+      "timestamp": "2026-03-01T15:17:14",
+      "primary": {
+        "priority": 2,
+        "type": "trigger",
+        "id": "T3-MAINTENANCE-DUE",
+        "action": "run DUE maintenance task",
+        "reason": "MEDIUM trigger: orient.py DUE items present (>0)"
+      },
+      "alternatives": [
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T4-ANXIETY-ZONE",
+          "action": "open DOMEX or CLOSE",
+          "reason": "MEDIUM trigger: Frontier open >15 sessions without update"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T5-DISPATCH-GAP",
+          "action": "open DOMEX for top domain",
+          "reason": "MEDIUM trigger: Top-3 dispatch domain has no active DOMEX lane"
+        },
+        {
+          "priority": 3,
+          "type": "dispatch",
+          "domain": "fluid-dynamics",
+          "score": 5.548297505260605,
+          "frontier": "**F-FLD1**: Reynolds regime predictor for swarm sessions",
+          "reason": "UCB1 top domain: fluid-dynamics (score=5.548297505260605)"
+        },
+        {
+          "priority": 3,
+          "type": "dispatch",
+          "domain": "gaming",
+          "score": 5.548297505260605,
+          "frontier": "**F-GAME1**: Does the swarm's session architecture exhibit roguelike meta-progression structure? Hypothesis: sessions wi",
+          "reason": "UCB1 top domain: gaming (score=5.548297505260605)"
+        }
+      ],
+      "active_lanes": [
+        "DOMEX-META-S377",
+        "DOMEX-SEC-S376"
+      ],
+      "trigger_count": 4,
+      "signal_count": 20,
+      "dispatch_top3": [
+        "security",
+        "fluid-dynamics",
+        "gaming"
+      ]
+    },
+    {
+      "session": "S377",
+      "timestamp": "2026-03-01T15:17:20",
+      "primary": {
+        "priority": 1,
+        "type": "trigger",
+        "id": "T1-STALE-LANE",
+        "action": "close or execute lane",
+        "reason": "HIGH urgency trigger FIRING: ACTIVE lane opened >3 sessions ago, no update"
+      },
+      "alternatives": [
+        {
+          "priority": 1,
+          "type": "trigger",
+          "id": "T2-ARTIFACT-MISSING",
+          "action": "execute lane or ABANDON",
+          "reason": "HIGH urgency trigger FIRING: ACTIVE lane has artifact= path but file missing on disk"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T3-MAINTENANCE-DUE",
+          "action": "run DUE maintenance task",
+          "reason": "MEDIUM trigger: orient.py DUE items present (>0)"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T4-ANXIETY-ZONE",
+          "action": "open DOMEX or CLOSE",
+          "reason": "MEDIUM trigger: Frontier open >15 sessions without update"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T5-DISPATCH-GAP",
+          "action": "open DOMEX for top domain",
+          "reason": "MEDIUM trigger: Top-3 dispatch domain has no active DOMEX lane"
+        }
+      ],
+      "active_lanes": [
+        "DOMEX-GT-S377",
+        "DOMEX-META-S377",
+        "DOMEX-SEC-S376"
+      ],
+      "trigger_count": 7,
+      "signal_count": 20,
+      "dispatch_top3": [
+        "security",
+        "fluid-dynamics",
+        "gaming"
+      ]
+    },
+    {
+      "session": "S377",
+      "timestamp": "2026-03-01T15:18:50",
+      "primary": {
+        "priority": 1,
+        "type": "trigger",
+        "id": "T1-STALE-LANE",
+        "action": "close or execute lane",
+        "reason": "HIGH urgency trigger FIRING: ACTIVE lane opened >3 sessions ago, no update"
+      },
+      "alternatives": [
+        {
+          "priority": 1,
+          "type": "trigger",
+          "id": "T2-ARTIFACT-MISSING",
+          "action": "execute lane or ABANDON",
+          "reason": "HIGH urgency trigger FIRING: ACTIVE lane has artifact= path but file missing on disk"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T3-MAINTENANCE-DUE",
+          "action": "run DUE maintenance task",
+          "reason": "MEDIUM trigger: orient.py DUE items present (>0)"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T4-ANXIETY-ZONE",
+          "action": "open DOMEX or CLOSE",
+          "reason": "MEDIUM trigger: Frontier open >15 sessions without update"
+        },
+        {
+          "priority": 2,
+          "type": "trigger",
+          "id": "T5-DISPATCH-GAP",
+          "action": "open DOMEX for top domain",
+          "reason": "MEDIUM trigger: Top-3 dispatch domain has no active DOMEX lane"
+        }
+      ],
+      "active_lanes": [
+        "DOMEX-FLD-S376",
+        "DOMEX-GT-S377",
+        "DOMEX-META-S377"
+      ],
+      "trigger_count": 7,
+      "signal_count": 21,
+      "dispatch_top3": [
+        "security",
+        "fluid-dynamics",
+        "gaming"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "experiment": "F-CON2 soft-claim protocol — tools/claim.py implementation S352",
+  "session": "S352",
+  "domain": "conflict",
+  "frontier": "F-CON2",
+  "date": "2026-03-01",
+  "lane": "DOMEX-CONFLICT-S352",
+  "expect": "claim.py working: claim/check/release/list/gc subcommands; workspace/claims/ dir; tested on DUE scenarios",
+  "tool": "tools/claim.py",
+  "claims_dir": "workspace/claims/",
+  "ttl_seconds": 300,
+  "subcommands": ["claim", "check", "release", "list", "gc"],
+  "tests_run": [
+    {"test": "claim file by session A", "result": "PASS", "output": "CLAIMED: memory/lessons/L-557.md by S352-mine"},
+    {"test": "conflict: session B tries to claim same file", "result": "PASS", "output": "exit 1, CLAIMED message with holder"},
+    {"test": "release by correct session", "result": "PASS", "output": "RELEASED"},
+    {"test": "check after release", "result": "PASS", "output": "FREE, exit 0"},
+    {"test": "release by wrong session", "result": "PASS", "output": "WARN, exit 1, not released"}
+  ],
+  "actual": "5/5 tests pass. Conflict detection works. TTL auto-expiry prevents deadlock from crashed sessions.",
+  "diff": "Expected 67% C-EDIT prevention. Tool covers DUE-convergence (main vector, 50% of collisions). Staged-contamination (file-level) needs caller discipline. Implementation simpler than expected — no database needed.",
+  "c_edit_prevention_rate": 0.50,
+  "note": "Usage pattern: before editing DUE item, call claim.py claim <file>. In check.sh DUE surfacing, add claim hint. Auto-GC via gc subcommand prevents stale lockout.",
+  "integration_hint": "Add to check.sh: when surfacing DUE items, suggest: python3 tools/claim.py claim <file> before editing"
+}

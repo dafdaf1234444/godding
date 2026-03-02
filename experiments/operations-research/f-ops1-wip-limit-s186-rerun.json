@@ -1,0 +1,227 @@
+{
+  "frontier_id": "F-OPS1",
+  "title": "Active-lane WIP cap replay",
+  "session": 186,
+  "inputs": {
+    "lanes_path": "tasks/SWARM-LANES.md",
+    "next_path": "tasks/NEXT.md",
+    "min_cap": 1,
+    "max_cap": 6,
+    "conflict_weight": 0.8,
+    "overhead_weight": 0.27,
+    "heuristic_note": "Replay score is heuristic for lane-cap decisions. Treat as scheduling aid, not causal estimate."
+  },
+  "observed_profile": {
+    "job_count": 106,
+    "horizon_start": 0,
+    "horizon_end": 145,
+    "horizon_ticks": 146,
+    "observed_peak_wip": 9,
+    "observed_mean_wip": 2.6986
+  },
+  "cap_results": [
+    {
+      "cap": 1,
+      "knowledge_yield": {
+        "merged_completed": 72,
+        "merged_completion_rate": 0.6792,
+        "merged_per_100_ticks": 49.3151
+      },
+      "conflict_rate": 0.4611,
+      "overhead_ratio": 0.0,
+      "net_score": 0.3103,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 72,
+        "jobs_spillover": 34,
+        "spillover_rate": 0.3208,
+        "contention_ticks": 145,
+        "contention_rate": 0.9932,
+        "mean_running_wip": 1.0,
+        "coordination_pressure": 0.0,
+        "blocked_events_completed": 6,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.1667,
+        "start_count": 73,
+        "run_lane_ticks": 146,
+        "queue_lane_ticks": 1835,
+        "extra_concurrency_ticks": 0
+      }
+    },
+    {
+      "cap": 2,
+      "knowledge_yield": {
+        "merged_completed": 72,
+        "merged_completion_rate": 0.6792,
+        "merged_per_100_ticks": 49.3151
+      },
+      "conflict_rate": 0.288,
+      "overhead_ratio": 0.5205,
+      "net_score": 0.3083,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 73,
+        "jobs_spillover": 33,
+        "spillover_rate": 0.3113,
+        "contention_ticks": 64,
+        "contention_rate": 0.4384,
+        "mean_running_wip": 1.4932,
+        "coordination_pressure": 0.0616,
+        "blocked_events_completed": 10,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.2222,
+        "start_count": 75,
+        "run_lane_ticks": 218,
+        "queue_lane_ticks": 1169,
+        "extra_concurrency_ticks": 76
+      }
+    },
+    {
+      "cap": 3,
+      "knowledge_yield": {
+        "merged_completed": 74,
+        "merged_completion_rate": 0.6981,
+        "merged_per_100_ticks": 50.6849
+      },
+      "conflict_rate": 0.3126,
+      "overhead_ratio": 0.9589,
+      "net_score": 0.1891,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 76,
+        "jobs_spillover": 30,
+        "spillover_rate": 0.283,
+        "contention_ticks": 63,
+        "contention_rate": 0.4315,
+        "mean_running_wip": 1.9315,
+        "coordination_pressure": 0.1164,
+        "blocked_events_completed": 19,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.3378,
+        "start_count": 79,
+        "run_lane_ticks": 282,
+        "queue_lane_ticks": 1077,
+        "extra_concurrency_ticks": 140
+      }
+    },
+    {
+      "cap": 4,
+      "knowledge_yield": {
+        "merged_completed": 91,
+        "merged_completion_rate": 0.8585,
+        "merged_per_100_ticks": 62.3288
+      },
+      "conflict_rate": 0.2771,
+      "overhead_ratio": 1.3904,
+      "net_score": 0.2614,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 93,
+        "jobs_spillover": 13,
+        "spillover_rate": 0.1226,
+        "contention_ticks": 62,
+        "contention_rate": 0.4247,
+        "mean_running_wip": 2.363,
+        "coordination_pressure": 0.1704,
+        "blocked_events_completed": 23,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.3187,
+        "start_count": 95,
+        "run_lane_ticks": 345,
+        "queue_lane_ticks": 896,
+        "extra_concurrency_ticks": 203
+      }
+    },
+    {
+      "cap": 5,
+      "knowledge_yield": {
+        "merged_completed": 102,
+        "merged_completion_rate": 0.9623,
+        "merged_per_100_ticks": 69.863
+      },
+      "conflict_rate": 0.2517,
+      "overhead_ratio": 1.6438,
+      "net_score": 0.317,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 105,
+        "jobs_spillover": 1,
+        "spillover_rate": 0.0094,
+        "contention_ticks": 52,
+        "contention_rate": 0.3562,
+        "mean_running_wip": 2.6164,
+        "coordination_pressure": 0.2021,
+        "blocked_events_completed": 37,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.4216,
+        "start_count": 106,
+        "run_lane_ticks": 382,
+        "queue_lane_ticks": 551,
+        "extra_concurrency_ticks": 240
+      }
+    },
+    {
+      "cap": 6,
+      "knowledge_yield": {
+        "merged_completed": 102,
+        "merged_completion_rate": 0.9623,
+        "merged_per_100_ticks": 69.863
+      },
+      "conflict_rate": 0.1993,
+      "overhead_ratio": 1.726,
+      "net_score": 0.3368,
+      "simulation": {
+        "horizon_ticks": 146,
+        "jobs_total": 106,
+        "jobs_completed": 106,
+        "jobs_spillover": 0,
+        "spillover_rate": 0.0,
+        "contention_ticks": 27,
+        "contention_rate": 0.1849,
+        "mean_running_wip": 2.6986,
+        "coordination_pressure": 0.2123,
+        "blocked_events_completed": 41,
+        "collision_events_completed": 6,
+        "blocked_per_merged": 0.4608,
+        "start_count": 106,
+        "run_lane_ticks": 394,
+        "queue_lane_ticks": 141,
+        "extra_concurrency_ticks": 252
+      }
+    }
+  ],
+  "recommended": {
+    "cap": 6,
+    "knowledge_yield": {
+      "merged_completed": 102,
+      "merged_completion_rate": 0.9623,
+      "merged_per_100_ticks": 69.863
+    },
+    "conflict_rate": 0.1993,
+    "overhead_ratio": 1.726,
+    "net_score": 0.3368,
+    "simulation": {
+      "horizon_ticks": 146,
+      "jobs_total": 106,
+      "jobs_completed": 106,
+      "jobs_spillover": 0,
+      "spillover_rate": 0.0,
+      "contention_ticks": 27,
+      "contention_rate": 0.1849,
+      "mean_running_wip": 2.6986,
+      "coordination_pressure": 0.2123,
+      "blocked_events_completed": 41,
+      "collision_events_completed": 6,
+      "blocked_per_merged": 0.4608,
+      "start_count": 106,
+      "run_lane_ticks": 394,
+      "queue_lane_ticks": 141,
+      "extra_concurrency_ticks": 252
+    }
+  }
+}

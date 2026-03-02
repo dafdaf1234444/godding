@@ -1,0 +1,1111 @@
+{
+  "experiment": "F-GAME3",
+  "domain": "gaming",
+  "frontier": "F-GAME3",
+  "title": "Flow zone in frontier resolution latency",
+  "session": "S189",
+  "date": "2026-02-28",
+  "current_session": 189,
+  "methodology": "Resolution latency = resolved_session - open_session for resolved frontiers. For active frontiers: latency = CURRENT_SESSION - open_session. Open session inferred from: (a) hardcoded map from FRONTIER.md text analysis, (b) earliest S<N> in answer text for archived frontiers (constrained < resolved_session). Zones: boredom (<=1), flow (2-10), stalled (11-15), anxiety (>15).",
+  "total_frontiers": 118,
+  "resolved_count": 95,
+  "active_count": 23,
+  "resolved_latency_stats": {
+    "count": 95,
+    "mean": 1.8,
+    "median": 1,
+    "min": 0,
+    "max": 23,
+    "stdev": 3.62
+  },
+  "zone_distribution": {
+    "resolved": {
+      "boredom": 89,
+      "flow": 2,
+      "stalled": 2,
+      "anxiety": 2
+    },
+    "active": {
+      "boredom": 2,
+      "flow": 3,
+      "stalled": 2,
+      "anxiety": 16
+    },
+    "combined": {
+      "boredom": 91,
+      "flow": 5,
+      "stalled": 4,
+      "anxiety": 18
+    }
+  },
+  "bimodal_evidence": {
+    "low_cluster_count": 91,
+    "high_cluster_count": 4,
+    "low_mean": 1.09,
+    "high_mean": 18,
+    "split_ratio": 0.958
+  },
+  "flow_zone_resolution_rate": 0.021,
+  "anxiety_zone_active": [
+    "F110",
+    "F111",
+    "F112",
+    "F119",
+    "F105",
+    "F101",
+    "F115",
+    "F117",
+    "F114",
+    "F104",
+    "F106",
+    "F88",
+    "F89",
+    "F69",
+    "F121",
+    "F120"
+  ],
+  "boredom_zone_resolved": [
+    "F93",
+    "F9",
+    "F103",
+    "F25",
+    "F87",
+    "F94",
+    "F99",
+    "F97",
+    "F96",
+    "F85",
+    "F86",
+    "F82",
+    "F83",
+    "F78",
+    "F74",
+    "F65",
+    "F79",
+    "F80",
+    "F81",
+    "F61",
+    "F73",
+    "F72",
+    "F53",
+    "F60",
+    "F44",
+    "F36",
+    "F50",
+    "F62",
+    "F63",
+    "F67",
+    "F59",
+    "F68",
+    "F70",
+    "F49",
+    "F55",
+    "F43",
+    "F64",
+    "F58",
+    "F1",
+    "F2",
+    "F3",
+    "F4",
+    "F5",
+    "F6",
+    "F7",
+    "F8",
+    "F10",
+    "F11",
+    "F12",
+    "F13",
+    "F15",
+    "F16",
+    "F17",
+    "F18",
+    "F19",
+    "F20",
+    "F22",
+    "F24",
+    "F27",
+    "F28",
+    "F31",
+    "F29",
+    "F30",
+    "F33",
+    "F34",
+    "F35",
+    "F14",
+    "F21",
+    "F23",
+    "F38",
+    "F37",
+    "F39",
+    "F45",
+    "F48",
+    "F26",
+    "F40",
+    "F41",
+    "F42",
+    "F46",
+    "F47",
+    "F51",
+    "F52",
+    "F54",
+    "F56",
+    "F57",
+    "F75",
+    "F77",
+    "F109",
+    "F91"
+  ],
+  "thresholds": {
+    "boredom": "latency <= 1",
+    "flow": "2 <= latency <= 10",
+    "stalled": "11 <= latency <= 15",
+    "anxiety": "latency > 15"
+  },
+  "frontier_detail": [
+    {
+      "id": "F7",
+      "status": "resolved",
+      "open_session": 3,
+      "resolved_session": 4,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F3",
+      "status": "resolved",
+      "open_session": 4,
+      "resolved_session": 5,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F6",
+      "status": "resolved",
+      "open_session": 5,
+      "resolved_session": 6,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F5",
+      "status": "resolved",
+      "open_session": 6,
+      "resolved_session": 7,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F2",
+      "status": "resolved",
+      "open_session": 7,
+      "resolved_session": 8,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F8",
+      "status": "resolved",
+      "open_session": 7,
+      "resolved_session": 8,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F11",
+      "status": "resolved",
+      "open_session": 7,
+      "resolved_session": 8,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F10",
+      "status": "resolved",
+      "open_session": 8,
+      "resolved_session": 9,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F13",
+      "status": "resolved",
+      "open_session": 9,
+      "resolved_session": 10,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F12",
+      "status": "resolved",
+      "open_session": 10,
+      "resolved_session": 11,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F17",
+      "status": "resolved",
+      "open_session": 11,
+      "resolved_session": 12,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F15",
+      "status": "resolved",
+      "open_session": 12,
+      "resolved_session": 13,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F16",
+      "status": "resolved",
+      "open_session": 12,
+      "resolved_session": 13,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F18",
+      "status": "resolved",
+      "open_session": 13,
+      "resolved_session": 14,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F19",
+      "status": "resolved",
+      "open_session": 15,
+      "resolved_session": 16,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F20",
+      "status": "resolved",
+      "open_session": 16,
+      "resolved_session": 17,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F22",
+      "status": "resolved",
+      "open_session": 18,
+      "resolved_session": 19,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F1",
+      "status": "resolved",
+      "open_session": 19,
+      "resolved_session": 20,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F4",
+      "status": "resolved",
+      "open_session": 19,
+      "resolved_session": 20,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F27",
+      "status": "resolved",
+      "open_session": 19,
+      "resolved_session": 20,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F28",
+      "status": "resolved",
+      "open_session": 20,
+      "resolved_session": 21,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F24",
+      "status": "resolved",
+      "open_session": 23,
+      "resolved_session": 24,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F31",
+      "status": "resolved",
+      "open_session": 31,
+      "resolved_session": 32,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F34",
+      "status": "resolved",
+      "open_session": 31,
+      "resolved_session": 32,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F29",
+      "status": "resolved",
+      "open_session": 34,
+      "resolved_session": 35,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F30",
+      "status": "resolved",
+      "open_session": 34,
+      "resolved_session": 35,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F33",
+      "status": "resolved",
+      "open_session": 34,
+      "resolved_session": 35,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F35",
+      "status": "resolved",
+      "open_session": 34,
+      "resolved_session": 35,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F14",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F21",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F23",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F38",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F39",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F45",
+      "status": "resolved",
+      "open_session": 35,
+      "resolved_session": 36,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F37",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F48",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F26",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F40",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F41",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F42",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F46",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F47",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F51",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F52",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F54",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F56",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F57",
+      "status": "resolved",
+      "open_session": 36,
+      "resolved_session": 37,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F49",
+      "status": "resolved",
+      "open_session": 37,
+      "resolved_session": 38,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F55",
+      "status": "resolved",
+      "open_session": 37,
+      "resolved_session": 38,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F43",
+      "status": "resolved",
+      "open_session": 37,
+      "resolved_session": 38,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F64",
+      "status": "resolved",
+      "open_session": 37,
+      "resolved_session": 38,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F58",
+      "status": "resolved",
+      "open_session": 37,
+      "resolved_session": 38,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F36",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F50",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F62",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F63",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F67",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F59",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F68",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F70",
+      "status": "resolved",
+      "open_session": 38,
+      "resolved_session": 39,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F61",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F73",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F72",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F53",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F60",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F44",
+      "status": "resolved",
+      "open_session": 39,
+      "resolved_session": 40,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F78",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F74",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F65",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F79",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F80",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F81",
+      "status": "resolved",
+      "open_session": 40,
+      "resolved_session": 41,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F85",
+      "status": "resolved",
+      "open_session": 41,
+      "resolved_session": 42,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F86",
+      "status": "resolved",
+      "open_session": 41,
+      "resolved_session": 42,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F82",
+      "status": "resolved",
+      "open_session": 41,
+      "resolved_session": 42,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F83",
+      "status": "resolved",
+      "open_session": 41,
+      "resolved_session": 42,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F87",
+      "status": "resolved",
+      "open_session": 43,
+      "resolved_session": 44,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F96",
+      "status": "resolved",
+      "open_session": 44,
+      "resolved_session": 45,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F88",
+      "status": "active",
+      "open_session": 44,
+      "resolved_session": null,
+      "latency": 145,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F97",
+      "status": "resolved",
+      "open_session": 45,
+      "resolved_session": 46,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F94",
+      "status": "resolved",
+      "open_session": 46,
+      "resolved_session": 47,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F99",
+      "status": "resolved",
+      "open_session": 46,
+      "resolved_session": 47,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F25",
+      "status": "resolved",
+      "open_session": 48,
+      "resolved_session": 49,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F102",
+      "status": "resolved",
+      "open_session": 52,
+      "resolved_session": 55,
+      "latency": 3,
+      "zone": "flow"
+    },
+    {
+      "id": "F103",
+      "status": "resolved",
+      "open_session": 53,
+      "resolved_session": 54,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F9",
+      "status": "resolved",
+      "open_session": 54,
+      "resolved_session": 55,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F93",
+      "status": "resolved",
+      "open_session": 56,
+      "resolved_session": 57,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F75",
+      "status": "resolved",
+      "open_session": 56,
+      "resolved_session": 57,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F77",
+      "status": "resolved",
+      "open_session": 56,
+      "resolved_session": 57,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F110",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F111",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F101",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F104",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F106",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F89",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F69",
+      "status": "active",
+      "open_session": 57,
+      "resolved_session": null,
+      "latency": 132,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F107",
+      "status": "resolved",
+      "open_session": 59,
+      "resolved_session": 68,
+      "latency": 9,
+      "zone": "flow"
+    },
+    {
+      "id": "F112",
+      "status": "active",
+      "open_session": 62,
+      "resolved_session": null,
+      "latency": 127,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F113",
+      "status": "resolved",
+      "open_session": 65,
+      "resolved_session": 79,
+      "latency": 14,
+      "zone": "stalled"
+    },
+    {
+      "id": "F71",
+      "status": "resolved",
+      "open_session": 71,
+      "resolved_session": 94,
+      "latency": 23,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F115",
+      "status": "active",
+      "open_session": 73,
+      "resolved_session": null,
+      "latency": 116,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F114",
+      "status": "active",
+      "open_session": 75,
+      "resolved_session": null,
+      "latency": 114,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F76",
+      "status": "resolved",
+      "open_session": 76,
+      "resolved_session": 97,
+      "latency": 21,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F109",
+      "status": "resolved",
+      "open_session": 79,
+      "resolved_session": 79,
+      "latency": 0,
+      "zone": "boredom"
+    },
+    {
+      "id": "F91",
+      "status": "resolved",
+      "open_session": 79,
+      "resolved_session": 79,
+      "latency": 0,
+      "zone": "boredom"
+    },
+    {
+      "id": "F105",
+      "status": "active",
+      "open_session": 80,
+      "resolved_session": null,
+      "latency": 109,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F117",
+      "status": "active",
+      "open_session": 83,
+      "resolved_session": null,
+      "latency": 106,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F118",
+      "status": "resolved",
+      "open_session": 91,
+      "resolved_session": 105,
+      "latency": 14,
+      "zone": "stalled"
+    },
+    {
+      "id": "F119",
+      "status": "active",
+      "open_session": 153,
+      "resolved_session": null,
+      "latency": 36,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F120",
+      "status": "active",
+      "open_session": 166,
+      "resolved_session": null,
+      "latency": 23,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F121",
+      "status": "active",
+      "open_session": 173,
+      "resolved_session": null,
+      "latency": 16,
+      "zone": "anxiety"
+    },
+    {
+      "id": "F122",
+      "status": "active",
+      "open_session": 178,
+      "resolved_session": null,
+      "latency": 11,
+      "zone": "stalled"
+    },
+    {
+      "id": "F123",
+      "status": "active",
+      "open_session": 178,
+      "resolved_session": null,
+      "latency": 11,
+      "zone": "stalled"
+    },
+    {
+      "id": "F124",
+      "status": "active",
+      "open_session": 183,
+      "resolved_session": null,
+      "latency": 6,
+      "zone": "flow"
+    },
+    {
+      "id": "F125",
+      "status": "active",
+      "open_session": 183,
+      "resolved_session": null,
+      "latency": 6,
+      "zone": "flow"
+    },
+    {
+      "id": "F126",
+      "status": "active",
+      "open_session": 187,
+      "resolved_session": null,
+      "latency": 2,
+      "zone": "flow"
+    },
+    {
+      "id": "F127",
+      "status": "active",
+      "open_session": 188,
+      "resolved_session": null,
+      "latency": 1,
+      "zone": "boredom"
+    },
+    {
+      "id": "F128",
+      "status": "active",
+      "open_session": 189,
+      "resolved_session": null,
+      "latency": 0,
+      "zone": "boredom"
+    }
+  ],
+  "interpretation": "Flow zone baseline (S189): 118 frontiers analyzed (95 resolved, 23 active). Resolved latency distribution: mean=1.8 sessions, median=1, range=[0, 23]. Zone distribution (combined): boredom=91, flow=5, stalled=4, anxiety=18. Flow-zone resolution rate: 2.1% of resolved frontiers closed within 2-10 sessions. Active anxiety-zone frontiers (>15 sessions open, no resolution): 16, of which 13 open >50 sessions. Key finding: BIMODAL BOREDOM-ANXIETY pattern \u2014 the predicted flow zone (2-10 sessions) is nearly empty (5 frontiers, 2.1% of resolved). Resolved frontiers cluster in boredom zone (quick 1-session closes, 91/95 resolved); active frontiers cluster in anxiety zone (structural hard problems open 16-132 sessions). Implication: swarm design splits into disposable micro-questions (F1-F70 era) and permanent structural questions that resist closure. Flow zone is the gap between these regimes. Cross-domain citation rate test next: do flow-zone frontiers (F102, F107, F113, F118) have higher citation rates than boredom/anxiety extremes?"
+}

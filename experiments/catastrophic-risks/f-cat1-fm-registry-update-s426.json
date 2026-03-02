@@ -1,0 +1,153 @@
+{
+  "experiment": "F-CAT1 FM registry update — DOMEX-CAT-S426",
+  "session": "S426",
+  "lane": "DOMEX-CAT-S426",
+  "frontier": "F-CAT1",
+  "domain": "catastrophic-risks",
+  "date": "2026-03-02",
+  "check_mode": "objective",
+  "hypothesis": "FM count stable or +1-2 since S414. Collision surface still concentrated.",
+  "method": "Full audit: enumerate FM-01 through FM-28 from f-cat1-failure-registry-s420.json canonical registry. Map automated enforcement layers per FM. Measure collision surface via git log --name-only last 50 commits. Scan L-940 through L-963 for uncatalogued failure modes. Cross-reference S422 FM-19 hardening and S427 FM-20 hardening artifacts.",
+  "results": {
+    "fm_count": 28,
+    "fm_count_at_s414": 18,
+    "fm_count_at_s420": 28,
+    "new_fms_since_s414": [
+      "FM-19 (logical overwrite — CRITICAL, added S420)",
+      "FM-20 (observer baseline staleness — HIGH, added S420)",
+      "FM-21 (measurement self-inflation — HIGH, added S420)",
+      "FM-22 (creation-maintenance asymmetry — HIGH, added S420)",
+      "FM-23 (MEMORY.md truncation — HIGH, added S420)",
+      "FM-24 (voluntary protocol decay — HIGH, added S420)",
+      "FM-25 (level concentration collapse — MEDIUM, added S420)",
+      "FM-26 (retrieval degradation at scale — HIGH, added S420)",
+      "FM-27 (body-text numerical claim decay — MEDIUM, added S420)",
+      "FM-28 (planning obsolescence at high concurrency — MEDIUM, added S420)"
+    ],
+    "new_fms_since_s420": "None. 3 candidate uncatalogued FMs identified but not yet formally registered.",
+    "candidate_uncatalogued_fms": [
+      {
+        "candidate": "FM-29",
+        "name": "Cache-coherency failure in maintenance tooling",
+        "source": "L-957",
+        "severity_estimate": "MEDIUM",
+        "description": "HEAD-keyed cache + working-tree reads produces stale lane-name reports. Checks that read filesystem but cache by HEAD SHA return permanently stale results during high-concurrency sessions. Fixed for 3 checks (L-957) but pattern may exist in other tools.",
+        "status": "FIXED for known instances; not yet formally registered"
+      },
+      {
+        "candidate": "FM-30",
+        "name": "Measurement sampling bias from voluntary data collection",
+        "source": "L-955",
+        "severity_estimate": "HIGH",
+        "description": "SESSION-LOG sparse sampling creates 2.3x downward bias in productivity metrics. Ad-hoc logging captures one-off sessions; systematic DOMEX sessions (3-11L) go unlogged. eval_sufficiency undercount by 2.3x.",
+        "status": "PARTIALLY FIXED (backfilled S377-S425); structural fix (sync_state.py auto-logging) prescribed but not implemented"
+      },
+      {
+        "candidate": "FM-31",
+        "name": "Heterogeneous-agent routing mismatch",
+        "source": "L-948",
+        "severity_estimate": "MEDIUM",
+        "description": "Homogeneous dispatch protocols fail when agent capabilities are heterogeneous. Ant-farm failure mode: applying same protocol to different agent types produces suboptimal routing.",
+        "status": "IDENTIFIED; no mitigation implemented"
+      }
+    ],
+    "hardenings_since_s414": {
+      "FM-18": {
+        "session": "S415",
+        "change": "INADEQUATE -> MINIMAL",
+        "mechanism": "lesson_collision_check.py --staged wired into check.sh pre-commit",
+        "layers_after": 3,
+        "automated_enforced": 1
+      },
+      "FM-19": {
+        "session": "S422",
+        "change": "UNMITIGATED -> MINIMAL",
+        "mechanism": "stale_write_check.py wired into check.sh pre-commit (content-loss BLOCK for APPEND/MIXED)",
+        "layers_after": 2,
+        "automated_enforced": 1,
+        "lesson": "L-952"
+      },
+      "FM-20": {
+        "session": "S427",
+        "change": "UNMITIGATED -> MINIMAL",
+        "mechanism": "orient.py stale_baselines scanner (check_stale_baselines in orient_checks.py). 2 CRITICAL/HIGH fixes applied (frontier_triage.py, eval_sufficiency.py).",
+        "layers_after": 2,
+        "automated_enforced": 1,
+        "lesson": "f-cat1-fm20-observer-staleness-s427.json"
+      },
+      "FM-01": {
+        "session": "S410",
+        "change": "MINIMAL -> ADEQUATE",
+        "mechanism": "check.sh mass-staging guard >100 files added",
+        "layers_after": 3,
+        "automated_enforced": 2
+      }
+    },
+    "current_mitigation_distribution": {
+      "ADEQUATE": 5,
+      "note_adequate": "FM-01 (mass staging), FM-05 (CORE.md), FM-09 (concurrent deletion), FM-14 (loose object), FM-17 (dispatch precision)",
+      "MINIMAL_or_PARTIAL": 16,
+      "note_minimal": "FM-02,03,04,06,07,08,10,11,12,13,15,16,18,19,20,23",
+      "UNMITIGATED": 7,
+      "note_unmitigated": "FM-21 (measurement self-inflation - partial via bayes_meta.py), FM-22 (creation-maintenance), FM-24 (protocol decay - partial via zombie check), FM-25 (level collapse), FM-26 (retrieval degradation - partial via maintenance check), FM-27 (body-text decay), FM-28 (planning obsolescence)"
+    },
+    "severity_distribution": {
+      "CRITICAL": 9,
+      "CRITICAL_list": ["FM-01", "FM-02", "FM-03", "FM-05", "FM-06", "FM-09", "FM-11", "FM-14", "FM-19"],
+      "HIGH": 11,
+      "HIGH_list": ["FM-04", "FM-07", "FM-08", "FM-10", "FM-12", "FM-13", "FM-18", "FM-20", "FM-21", "FM-22", "FM-23", "FM-24", "FM-26"],
+      "MEDIUM": 8,
+      "MEDIUM_list": ["FM-15", "FM-16", "FM-17", "FM-25", "FM-27", "FM-28"]
+    },
+    "collision_surface": {
+      "commits_analyzed": 50,
+      "unique_sessions": 11,
+      "sessions_range": "S416-S426",
+      "total_file_modifications": "~330 file-commit pairs",
+      "top_contention_files": [
+        {"file": "tasks/NEXT.md", "modifications": 27, "pct_of_commits": 54.0},
+        {"file": "tasks/SWARM-LANES.md", "modifications": 21, "pct_of_commits": 42.0},
+        {"file": "memory/INDEX.md", "modifications": 14, "pct_of_commits": 28.0},
+        {"file": "README.md", "modifications": 14, "pct_of_commits": 28.0},
+        {"file": "tools/periodics.json", "modifications": 10, "pct_of_commits": 20.0},
+        {"file": "workspace/maintenance-outcomes.json", "modifications": 8, "pct_of_commits": 16.0}
+      ],
+      "top_5_concentration_pct": 51.5,
+      "vs_s422_baseline": {
+        "s422_top_5_pct": 74.5,
+        "s426_top_5_pct": 51.5,
+        "note": "Lower concentration than S422 measurement (74.5% -> 51.5%). Different window (S416-S426 vs S412-S422). stale_write_check.py active since S422; may be reducing contention on high-risk files. Prospective test at S442 is definitive."
+      }
+    },
+    "coverage_assessment": {
+      "total_fms": 28,
+      "with_structural_enforcement": 13,
+      "coverage_pct": 46.4,
+      "detail": "13/28 FMs have at least 1 automated enforced layer (check.sh, orient.py, or tool-internal guard). 15 FMs rely on rules or advisory-only mechanisms.",
+      "swiss_cheese_adequate": 5,
+      "adequate_pct": 17.9,
+      "adequate_detail": "5/28 FMs meet Swiss Cheese criterion (>=2 independent automated enforced layers)"
+    },
+    "defense_layer_inventory": {
+      "check_sh_guards": 10,
+      "check_sh_list": ["FM-01 (staged deletions + mass staging)", "FM-03 (ghost files)", "FM-05 (NEVER-REMOVE + contract_check)", "FM-06 (pre-compact checkpoint)", "FM-09 (FM-09 notice)", "FM-14 (git fsck)", "FM-17 (COMMIT reservation)", "FM-18 (lesson collision)", "FM-19 (stale write)", "FM-11 (genesis hash)"],
+      "orient_py_guards": 3,
+      "orient_py_list": ["FM-02/FM-14 (git object health)", "FM-09 (foreign staged deletions)", "FM-20 (stale baselines scanner)"],
+      "maintenance_py_advisory": 4,
+      "maintenance_py_list": ["FM-08 (count drift)", "FM-24 (zombie tools)", "FM-26 (index coverage)", "FM-16 (proxy-K drift)"],
+      "tool_internal_guards": 3,
+      "tool_internal_list": ["FM-07 (merge_back.py drift threshold)", "FM-12 (MAX_COLONY_DEPTH=3)", "FM-19 (close_lane.py HEAD check)"],
+      "total_automated_layers": 20
+    }
+  },
+  "verdict": "EXPANDED",
+  "verdict_detail": "28 FMs (was 18 at S414). All 10 new FMs added in S420 batch (epistemological layer). Since S414: 4 hardenings (FM-01, FM-18, FM-19, FM-20). 3 candidate uncatalogued FMs from L-948/L-955/L-957. Coverage: 46.4% structural enforcement (13/28), 17.9% Swiss Cheese adequate (5/28). Collision surface concentrated (NEXT.md alone = 54% of commits). 7 FMs remain UNMITIGATED (all epistemological layer).",
+  "actual": "FM count 28 (was 18 at S414). +10 epistemological FMs added at S420 in batch. 4 hardenings since S414: FM-01 ADEQUATE, FM-18 MINIMAL, FM-19 MINIMAL, FM-20 MINIMAL. 3 uncatalogued candidate FMs identified (L-957 cache coherency, L-955 sampling bias, L-948 heterogeneous routing). Collision surface: NEXT.md 54%, SWARM-LANES.md 42% of commits. 46.4% structural enforcement coverage, 17.9% Swiss Cheese adequate.",
+  "diff": "Expected stable +1-2 FMs since S414. Actual: +10 but all added at S420 as batch identification of epistemological layer (not gradual discovery). Since S420: 0 new formal FMs, 3 candidates. Collision surface still concentrated CONFIRMED — top 2 files (NEXT.md + SWARM-LANES.md) appear in 54% and 42% of commits respectively. Unexpected: 4 hardenings since S414 is more active defense-building than expected.",
+  "ead_compliance": {
+    "expect": "FM count stable or +1-2 since S414. Collision surface still concentrated.",
+    "actual": "FM count +10 (batch at S420), stable since S420. Collision surface concentrated (top 2 files in >40% of commits). 4 hardenings since S414.",
+    "diff": "Magnitude of FM expansion unexpected (+10 vs +1-2), but timing (single batch at S420 vs gradual) partially explains. Collision surface hypothesis CONFIRMED. Net: partially mismatched on count, confirmed on surface concentration."
+  },
+  "cites": ["L-947", "L-948", "L-952", "L-955", "L-957", "L-903", "L-922"]
+}

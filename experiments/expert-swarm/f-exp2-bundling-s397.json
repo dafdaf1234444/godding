@@ -1,0 +1,63 @@
+{
+  "frontier": "F-EXP2",
+  "session": "S397",
+  "question": "Does companion expert bundling reduce per-finding coordination overhead vs solo dispatch?",
+  "design": {
+    "source": "tasks/SWARM-LANES.md + tasks/SWARM-LANES-ARCHIVE.md",
+    "n_sessions": 141,
+    "n_lanes": 989,
+    "method": "Compare rows-per-lesson and lessons-per-session for solo (1 MERGED lane) vs bundle (2+ MERGED lanes) sessions. Lesson detection: L-NNN in Notes field. Outlier filter: n_merged > 20.",
+    "confounds": ["session quality", "lesson detection via notes only (partial coverage)", "solo sessions may be simpler tasks"]
+  },
+  "results": {
+    "solo_sessions": {
+      "n": 55,
+      "with_lessons": 10,
+      "lessons_per_session_mean": 0.182,
+      "rows_per_lesson_mean": 1.000,
+      "rows_per_lesson_stdev": 0.000,
+      "artifacts_per_lane": 0.782
+    },
+    "bundle_sessions": {
+      "n": 86,
+      "with_lessons": 58,
+      "lessons_per_session_mean": 1.849,
+      "rows_per_lesson_mean": 1.917,
+      "rows_per_lesson_stdev": 1.476,
+      "artifacts_per_lane": 0.797
+    },
+    "comparison": {
+      "throughput_ratio": 10.16,
+      "overhead_ratio": 1.92,
+      "cohen_d_throughput": 1.15,
+      "t_stat_overhead": -5.174,
+      "net_judgment": "BUNDLE_DOMINATES"
+    },
+    "top_bundle_sessions": [
+      {"session": "S392", "n_merged": 10, "n_lessons": 9, "n_artifacts": 10},
+      {"session": "S375", "n_merged": 9, "n_lessons": 8, "n_artifacts": 9},
+      {"session": "S189", "n_merged": 12, "n_lessons": 7, "n_artifacts": 1},
+      {"session": "S341", "n_merged": 7, "n_lessons": 7, "n_artifacts": 7},
+      {"session": "S381", "n_merged": 8, "n_lessons": 7, "n_artifacts": 7}
+    ]
+  },
+  "prediction_vs_actual": {
+    "expected_solo_rpl": "1.0-1.5",
+    "actual_solo_rpl": 1.0,
+    "expected_bundle_rpl": "0.5-0.9 (LOWER = less overhead)",
+    "actual_bundle_rpl": 1.917,
+    "expected_overhead_reduction": "30-50%",
+    "actual_overhead_direction": "INVERTED: bundles have 2x MORE overhead per lesson",
+    "prediction_status": "WRONG on efficiency direction, WRONG on magnitude",
+    "throughput_prediction": "not pre-registered",
+    "actual_throughput_advantage": "10x (bundle >> solo)"
+  },
+  "interpretation": {
+    "primary": "Bundling does NOT reduce coordination overhead per lesson — it increases it 2x. But it dramatically increases absolute lesson output per session (10x). The tradeoff is: more lanes per lesson, but far more lessons per session.",
+    "mechanism": "Bundle sessions tackle broader/harder problems requiring multiple expert perspectives. Each sub-problem gets a lane. More lanes = more overhead per lesson, but the session produces more lessons in total.",
+    "verdict": "F-EXP2 hypothesis FALSIFIED: bundling does not reduce per-finding coordination overhead. But bundles dominate solos on net session output (Cohen d=1.15). Bundling is the right default mode for throughput, not for efficiency.",
+    "implication": "Dispatch should target multi-domain bundle sessions for high-throughput periods. Solo dispatch preserves efficiency when only 1 lane is needed. The 'companion bundling reduces overhead' frame was wrong — bundling IS overhead, but overhead that pays off."
+  },
+  "frontier_advance": "PARTIAL — F-EXP2 hypothesis falsified (overhead NOT reduced), but bundling net-positive confirmed. Next: test whether specific personality pairings (idea-investigator + skeptic) yield different results than arbitrary bundling.",
+  "timestamp": "2026-03-01T19:00:00Z"
+}

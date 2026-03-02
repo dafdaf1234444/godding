@@ -1,0 +1,56 @@
+{
+  "experiment": "F-CON1",
+  "description": "Baseline C1/C3 conflict rates across full SWARM-LANES history",
+  "session": "S189",
+  "date": "2026-02-28",
+  "method": "Parse SWARM-LANES.md final-state per lane; classify C3 (stale open) and C1 (abandoned with similar-scope merged lane or explicit 'superseded' note)",
+  "data": {
+    "total_unique_lanes": 223,
+    "merged_or_done": 211,
+    "abandoned": 10,
+    "open_total": 2,
+    "open_stale_c3": 1,
+    "open_currently_active": 1
+  },
+  "c3_orphaning": {
+    "rate": 0.004,
+    "count": 1,
+    "stale_lanes": ["L-S187-COORD"],
+    "note": "L-S187-COORD left ACTIVE after S187 coordinator session ended; expected to be closed MERGED by next coordinator. S189 DOMEX-CONFLICT-1 is currently active (not C3)."
+  },
+  "c1_duplicate_work": {
+    "rate_estimate": 0.013,
+    "count_confirmed": 3,
+    "confirmed_c1_lanes": [
+      "L-S186-DOMEX-GAM (superseded by L-S186-MSW2-S2-GAM)",
+      "L-S186-MSW-COORD (superseded by L-S186-MSW2-COORD)",
+      "L-S186-MSW-S4-GAM (superseded by L-S186-MSW2-S1-GAM)"
+    ],
+    "administrative_closures": 6,
+    "admin_closure_note": "6/10 abandoned lanes are stale dispatch/coordinator lanes closed at session end ('S186 cycle complete; no active coordinator'), not duplicate work",
+    "borderline_c1": ["L-S186-DOMEX-EVO (artifacts ran but publish step incomplete; partial C3)"]
+  },
+  "analysis": {
+    "dominant_abandonment_type": "administrative (dispatch lane expiry)",
+    "true_c1_fraction_of_abandoned": 0.3,
+    "l_s237_anti_repeat_working": true,
+    "l_265_concurrent_convergence_working": true,
+    "c3_rate_below_threshold": true,
+    "c1_rate_below_threshold": true
+  },
+  "expect_vs_actual": {
+    "c3_expected": "1-2%",
+    "c3_actual": "0.4%",
+    "c1_expected": "5-10%",
+    "c1_actual": "1.3%",
+    "diff": "Both lower than expected. Swarm lane hygiene better than prior estimate."
+  },
+  "interpretations": [
+    "Swarm has strong lane hygiene: 94.6% lanes close cleanly (MERGED/DONE).",
+    "C1 is managed by the 'superseded by' protocol: nodes detect duplicates and explicitly abandon the inferior lane.",
+    "C3 risk is very low at small lane counts; may increase at scale as coordinator tracking complexity grows.",
+    "Administrative closures inflate ABANDONED count — true duplicate-work C1 is ~30% of abandoned lanes."
+  ],
+  "f_con1_status": "PARTIAL — baseline established. Next: run for 5 sessions with conflict expert active, compare C1/C3 rates to this baseline. Success: ≥20% reduction.",
+  "next_step": "Enforce lane-close log (append MERGED row for stale coordinators). Measure C1/C3 over next 5 sessions."
+}

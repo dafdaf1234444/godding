@@ -1,0 +1,55 @@
+{
+  "experiment": "F-ECO5 coverage-weighted dispatch scoring",
+  "session": "S358",
+  "date": "2026-03-01",
+  "frontier": "F-ECO5",
+  "hypothesis": "Visit-saturation penalty + exploration mode in dispatch_optimizer.py reduces score concentration and promotes undervisited domains",
+  "method": "Added two mechanisms to dispatch_optimizer.py: (1) visit saturation penalty = 1.5 * ln(1 + visit_count) that applies diminishing returns for repeatedly visiting same domains, (2) exploration mode triggered when visit Gini > 0.45 that boosts unvisited (+8.0) and dormant (+4.0) domains",
+  "baseline": {
+    "score_gini": 0.084,
+    "score_range": 21.6,
+    "score_std": 6.99,
+    "unvisited_in_top3": 0,
+    "top3": ["meta", "nk-complexity", "information-science"],
+    "visit_gini": 0.550,
+    "coverage_pct": 80.0,
+    "meta_lead_margin": 8.4
+  },
+  "result": {
+    "score_gini": 0.053,
+    "score_range": 14.6,
+    "score_std": 4.50,
+    "unvisited_in_top3": 1,
+    "top3": ["meta", "information-science", "empathy"],
+    "visit_gini": 0.571,
+    "coverage_pct": 90.0,
+    "meta_lead_margin": 0.9
+  },
+  "deltas": {
+    "score_gini_change_pct": -36.6,
+    "score_range_change_pct": -32.4,
+    "score_std_change_pct": -35.6,
+    "meta_lead_narrowed_pct": -89.3
+  },
+  "mechanisms": {
+    "visit_saturation": {
+      "formula": "1.5 * ln(1 + visit_count)",
+      "examples": {"meta_24_visits": -4.83, "nk_19_visits": -4.50, "economy_4_visits": -2.41, "unvisited_0": 0}
+    },
+    "exploration_mode": {
+      "trigger": "visit_gini > 0.45",
+      "new_boost": 8.0,
+      "cold_boost": 4.0,
+      "currently_active": true
+    }
+  },
+  "key_rank_changes": {
+    "empathy": {"before": 7, "after": 3, "change": "+4 (unvisited → top-3)"},
+    "stochastic-processes": {"before": "not in top 10", "after": 5, "change": "NEW → top-5"},
+    "distributed-systems": {"before": 9, "after": 7, "change": "+2"},
+    "nk-complexity": {"before": 2, "after": 4, "change": "-2 (visit saturation)"},
+    "meta": {"before": 1, "after": 1, "change": "0 (margin 8.4→0.9)"}
+  },
+  "verdict": "CONFIRMED: visit saturation + exploration mode reduce score concentration 36% and promote unvisited domains to top-3. F-ECO5 coverage-weighted scoring mechanism working.",
+  "next": "Measure domain coverage after 10 dispatch sessions with new scoring. If coverage rises from 69% toward 88% baseline, RESOLVE F-ECO5. If Gini continues >0.45, tune saturation scale."
+}

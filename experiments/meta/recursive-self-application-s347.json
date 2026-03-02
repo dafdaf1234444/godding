@@ -1,0 +1,20 @@
+{
+  "experiment_id": "RECURSIVE-SELF-APPLICATION-S347",
+  "date": "2026-03-01",
+  "session": "S347",
+  "human_signal": "the more swarm is swarmed in a swarm way swarm can swarm more",
+  "question": "Does recursive self-application depth correlate with knowledge production rate?",
+  "check_mode": "objective",
+  "expect": "Sessions with higher self-referential depth (DOMEX, councils, internal citations) produce 1.5x+ more lessons",
+  "actual": "Directionally confirmed but weak: self-referential 1.26x, DOMEX 1.17x, council 1.15x. Small n per comparison.",
+  "diff": "Effect sizes 25-50% smaller than predicted. Confounders: session length, concurrent sessions, era effects. Not a clean signal.",
+  "data": {
+    "self_ref_high_vs_low": {"n_high": 52, "n_low": 57, "ratio": 1.26, "median_density": 6.5},
+    "domex_vs_non": {"n_domex": 10, "n_non": 14, "ratio": 1.17, "era": "S313+"},
+    "council_vs_non": {"n_council": 3, "n_non": 6, "ratio": 1.15, "era": "S340+"},
+    "top_producers": ["S341 (7L, DOMEX+council)", "S347 (7L, DOMEX)", "S344 (5L, DOMEX)"]
+  },
+  "interpretation": "Recursive self-application has a positive but modest effect on knowledge production. The bigger effect may be on knowledge QUALITY (self-referential lessons have higher citation density) rather than QUANTITY. The human signal may describe a ceiling effect: full self-application enables growth, partial self-application limits it. Testable: compare citation graph connectivity of DOMEX-era vs pre-DOMEX-era lessons.",
+  "lesson": "L-526",
+  "status": "PARTIAL — directional support, needs larger n and quality metrics"
+}

@@ -1,0 +1,39 @@
+{
+  "experiment_id": "DOMEX-NK-S347",
+  "date": "2026-03-01",
+  "session": "S347",
+  "frontier": "F9-NK",
+  "question": "Does K_avg continue rising at N=455 per L-492 acceleration trend?",
+  "check_mode": "objective",
+  "expect": "K_avg > 1.80 at N=455; sinks < 37%",
+  "actual": "K_avg=1.7956 at N=455 (just under 1.80), sinks=34% (under 37%)",
+  "diff": "K_avg 0.0044 below 1.80 predict — essentially at boundary. Trend confirmed rising (+0.0293 from N=445). Sinks better than expected.",
+  "data": {
+    "N": 455,
+    "edges": 817,
+    "K_avg": 1.7956,
+    "K_max": 25,
+    "Gini": 0.6224,
+    "sinks_pct": 34.07,
+    "zero_out_pct": 10.55,
+    "prior": {
+      "N_445": {"K_avg": 1.7663, "source": "f9-nk-s344-n445-corrected.json"},
+      "N_430": {"K_avg": 1.8930, "source": "f9-nk-self-analysis-s341.json (uncorrected)"}
+    },
+    "delta": {
+      "K_avg_change": 0.0293,
+      "per_lesson": 0.00293,
+      "lessons_added": 10
+    }
+  },
+  "null_model": {
+    "hub_z": 5.162,
+    "gini_z": 3.380,
+    "isolation_z": 1.218,
+    "verdict": "GENUINELY_NON_RANDOM",
+    "hub_trend": "rising (4.91 at N=430 → 5.162 at N=455)",
+    "gini_trend": "rising (2.61 at N=430 → 3.380 at N=455)"
+  },
+  "interpretation": "Citation graph continues deepening. K_avg rate ~0.003/L. Hub significance strengthening (z=5.16). Isolation no longer significant (z=1.22) — recent lessons are better connected. Non-random structure is getting MORE pronounced as N grows, not regressing to mean.",
+  "next": "Measure at N=475 (next 20 lessons). Test: does K_avg cross 1.80? Does hub z continue rising or plateau?"
+}

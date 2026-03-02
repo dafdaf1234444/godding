@@ -1,0 +1,253 @@
+{
+  "experiment": "F-IS3-sensitivity",
+  "baseline": {
+    "baseline_quality": 0.65,
+    "baseline_std": 0.2,
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "p119_threshold_fraction": 0.45
+  },
+  "grid": {
+    "rho_values": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5
+    ],
+    "coordination_cost_values": [
+      0.01,
+      0.02,
+      0.03,
+      0.04,
+      0.05
+    ],
+    "cases": 30
+  },
+  "best_n_distribution": {
+    "1": 8,
+    "2": 15,
+    "3": 4,
+    "4": 2,
+    "5": 1
+  },
+  "rows": [
+    {
+      "rho": 0.0,
+      "coordination_cost": 0.01,
+      "best_n": 5,
+      "spawn": true,
+      "best_utility": 0.520557
+    },
+    {
+      "rho": 0.0,
+      "coordination_cost": 0.02,
+      "best_n": 3,
+      "spawn": true,
+      "best_utility": 0.49453
+    },
+    {
+      "rho": 0.0,
+      "coordination_cost": 0.03,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.478579
+    },
+    {
+      "rho": 0.0,
+      "coordination_cost": 0.04,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.468579
+    },
+    {
+      "rho": 0.0,
+      "coordination_cost": 0.05,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.458579
+    },
+    {
+      "rho": 0.1,
+      "coordination_cost": 0.01,
+      "best_n": 4,
+      "spawn": true,
+      "best_utility": 0.505982
+    },
+    {
+      "rho": 0.1,
+      "coordination_cost": 0.02,
+      "best_n": 3,
+      "spawn": true,
+      "best_utility": 0.483509
+    },
+    {
+      "rho": 0.1,
+      "coordination_cost": 0.03,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.471676
+    },
+    {
+      "rho": 0.1,
+      "coordination_cost": 0.04,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.461676
+    },
+    {
+      "rho": 0.1,
+      "coordination_cost": 0.05,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.451676
+    },
+    {
+      "rho": 0.2,
+      "coordination_cost": 0.01,
+      "best_n": 4,
+      "spawn": true,
+      "best_utility": 0.493509
+    },
+    {
+      "rho": 0.2,
+      "coordination_cost": 0.02,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.475081
+    },
+    {
+      "rho": 0.2,
+      "coordination_cost": 0.03,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.465081
+    },
+    {
+      "rho": 0.2,
+      "coordination_cost": 0.04,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.455081
+    },
+    {
+      "rho": 0.2,
+      "coordination_cost": 0.05,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.3,
+      "coordination_cost": 0.01,
+      "best_n": 3,
+      "spawn": true,
+      "best_utility": 0.483941
+    },
+    {
+      "rho": 0.3,
+      "coordination_cost": 0.02,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.468755
+    },
+    {
+      "rho": 0.3,
+      "coordination_cost": 0.03,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.458755
+    },
+    {
+      "rho": 0.3,
+      "coordination_cost": 0.04,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.3,
+      "coordination_cost": 0.05,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.4,
+      "coordination_cost": 0.01,
+      "best_n": 3,
+      "spawn": true,
+      "best_utility": 0.475081
+    },
+    {
+      "rho": 0.4,
+      "coordination_cost": 0.02,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.462668
+    },
+    {
+      "rho": 0.4,
+      "coordination_cost": 0.03,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.452668
+    },
+    {
+      "rho": 0.4,
+      "coordination_cost": 0.04,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.4,
+      "coordination_cost": 0.05,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.5,
+      "coordination_cost": 0.01,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.466795
+    },
+    {
+      "rho": 0.5,
+      "coordination_cost": 0.02,
+      "best_n": 2,
+      "spawn": true,
+      "best_utility": 0.456795
+    },
+    {
+      "rho": 0.5,
+      "coordination_cost": 0.03,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.5,
+      "coordination_cost": 0.04,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    },
+    {
+      "rho": 0.5,
+      "coordination_cost": 0.05,
+      "best_n": 1,
+      "spawn": false,
+      "best_utility": 0.45
+    }
+  ],
+  "summary": {
+    "spawn_true_cases": 22,
+    "spawn_false_cases": 8,
+    "n2_cases": 15,
+    "n3plus_cases": 7
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "experiment": "f9-nk-enriched-citations-s359",
+  "frontier": "F9-NK",
+  "session": "S359",
+  "date": "2026-03-01",
+  "domain": "nk-complexity",
+  "hypothesis": "L-622 enrichment (177 lessons gained explicit Cites: headers) raised NK K_avg above 2.04 pre-enrichment value",
+  "method": "Edge source decomposition: classify each citation edge as header-exclusive (Cites: only), body-exclusive (body only), or overlap (both). Compare K_avg by counting method. Analyze temporal trajectory at N=50,100,...,574.",
+  "results": {
+    "N": 574,
+    "total_edges": 1199,
+    "K_avg_fulltext": 2.0909,
+    "K_avg_header_only": 1.5997,
+    "K_avg_body_only": 1.4493,
+    "edge_sources": {
+      "header_exclusive": {"count": 369, "pct": 30.8},
+      "body_exclusive": {"count": 282, "pct": 23.5},
+      "overlap": {"count": 548, "pct": 45.7}
+    },
+    "lessons_with_cites_header": {"count": 305, "pct": 53.1},
+    "header_contribution_ucurve": {
+      "N50": 46.0,
+      "N100": 37.9,
+      "N200": 27.8,
+      "N400": 16.6,
+      "N500": 24.8,
+      "N574": 30.8,
+      "pattern": "U-curve: curated-early → organic-mid → enriched-late"
+    },
+    "recent_100_edge_rate": 3.45,
+    "older_474_edge_rate": 1.80,
+    "recent_older_ratio": 1.91,
+    "nk_null_model": {
+      "hub_z": 6.332,
+      "gini_z": 6.726,
+      "isolation_z": 3.602,
+      "verdict": "HIGHLY SIGNIFICANT non-random structure"
+    },
+    "L622_enrichment_effect_on_K_avg": "ZERO — nk_null_model.py counts full text, not Cites: headers only. Adding headers for existing body refs changes no edges.",
+    "top_header_exclusive_lessons": ["L-501 (13)", "L-510 (8)", "L-505 (6)", "L-577 (6)", "L-614 (6)"]
+  },
+  "conclusion": "L-622 enrichment prediction FALSIFIED for K_avg measurement — tool already counted body refs. But Cites: headers are structurally meaningful: 30.8% of edges exist ONLY in headers, adding curated connections body text never mentions. K_avg=2.09 confirms smooth post-K=2.0 continuation. F9-NK remains RESOLVED for chaos question.",
+  "lesson": "L-639",
+  "prior_K_avg": [
+    {"session": "S355", "N": 529, "K_avg": 1.9603},
+    {"session": "S356", "N": 545, "K_avg": 1.9725},
+    {"session": "S357", "N": 554, "K_avg": 2.0397}
+  ]
+}

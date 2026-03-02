@@ -1,0 +1,120 @@
+{
+  "experiment": "F-AI2",
+  "title": "Async vs Sync coordination: observational study",
+  "session": "S183",
+  "date": "2026-02-27",
+  "method": "observational",
+  "data_source": "memory/SESSION-LOG.md + tasks/NEXT.md (S134-S183)",
+  "window": {
+    "start": "S134",
+    "end": "S183",
+    "N_sessions": 50
+  },
+  "baseline_reference": {
+    "lesson": "L-248",
+    "session": "S182",
+    "window": "S01-S182",
+    "N_sessions": 121,
+    "mode_a_failures": 14,
+    "mode_b_failures": 0,
+    "note": "All 14 baseline failures were async overhead; zero sequential cascades"
+  },
+  "mode_definitions": {
+    "mode_a": "Async overhead: concurrent-session naming conflicts, git lock contention, CRDT merge, WSL filesystem corruption under concurrent access. Cost = O(concurrent_sessions x shared_files).",
+    "mode_b": "Sync cascade: sequential belief/count inheritance where prior session error propagates. Cost = O(commit_chain_length x error_magnitude). In async swarm this manifests as scalar count drift, not knowledge cascade."
+  },
+  "mode_a_events": {
+    "count": 6,
+    "rate_per_session": 0.12,
+    "instances": [
+      {
+        "session": "S166",
+        "type": "greedy convergence",
+        "evidence": "L-208: 4 concurrent nodes ran identical wiki-swarm topic (state-score=28 Swarm intelligence) within 5 min"
+      },
+      {
+        "session": "S174",
+        "type": "WSL filesystem corruption",
+        "evidence": "swarm.md WSL ?-permissions corruption (3rd occurrence: S165/S166/S174); restored via rm+git checkout"
+      },
+      {
+        "session": "S178",
+        "type": "ID collision + WSL corruption",
+        "evidence": "F122->F123 frontier ID collision (two concurrent S178 nodes claimed F122); swarm.md WSL corruption (5th occurrence)"
+      },
+      {
+        "session": "S179",
+        "type": "mass-deletion disaster",
+        "evidence": "git add -A mass-deletion (commit aa4d5f8) — WSL filesystem corruption staged 729 file deletions; L-234 filed"
+      },
+      {
+        "session": "S180",
+        "type": "git lock contention",
+        "evidence": "S180 SESSION-LOG: git lock contention noted as F110 data point during concurrent session work"
+      },
+      {
+        "session": "S182",
+        "type": "git lock contention (cluster)",
+        "evidence": "S182 SESSION-LOG: git lock contention 3+ events — stale-experiment detector already wired by concurrent session"
+      }
+    ]
+  },
+  "mode_b_events": {
+    "count": 5,
+    "rate_per_session": 0.1,
+    "note": "All Mode B events are SCALAR COUNT drift (lesson/principle count propagated wrong), NOT knowledge/belief cascade. This is the attenuated form Mode B takes in async swarm.",
+    "instances": [
+      {
+        "session": "S170",
+        "type": "principle count cascade",
+        "evidence": "Principle count drift 151->147 propagated wrong; PAPER/INDEX/FRONTIER all held stale count across S169-S170"
+      },
+      {
+        "session": "S174",
+        "type": "PAPER scale drift",
+        "evidence": "PAPER scale drift fixed; INDEX counts corrected 212->213; stale session headers inherited from prior concurrent sessions"
+      },
+      {
+        "session": "S176",
+        "type": "session header drift",
+        "evidence": "sync_state.py first run caught real drift — session headers had propagated stale counts from S170-S176 window (6 sessions)"
+      },
+      {
+        "session": "S178",
+        "type": "PAPER count drift + non-monotonic SESSION-LOG",
+        "evidence": "PAPER count 154->155P; SESSION-LOG non-monotonic order (S174->S176, S175->S176) inherited from concurrent session writes"
+      },
+      {
+        "session": "S181",
+        "type": "PAPER scale drift",
+        "evidence": "PAPER scale drift cleared 235L/162P — inherited wrong count from concurrent S180 context-resumed session"
+      }
+    ]
+  },
+  "correlation_analysis": {
+    "mode_a_lag1_autocorrelation": 0.24,
+    "mode_b_lag1_autocorrelation": -0.114,
+    "mode_a_vs_mode_b_concurrent": 0.287,
+    "mode_a_leads_mode_b_lag1": 0.08,
+    "mode_b_leads_mode_a_lag1": 0.285,
+    "threshold": 0.3,
+    "mode_a_correlated": false,
+    "mode_b_correlated": false,
+    "notes": [
+      "Mode A r=0.240 (below threshold 0.3): async failures do NOT cascade to adjacent sessions",
+      "Mode B r=-0.114 (negative): corrections actively prevent chaining; no self-propagation",
+      "Mode A cluster S178-S182 (4/6 events in 5-session window) shows bursty not persistent pattern",
+      "Mode B events are all SCALAR not belief-level: the async design degrades cascade type not just frequency"
+    ]
+  },
+  "key_findings": [
+    "Mode A rate (0.120/session) is stable vs L-248 baseline (0.116/session) — no degradation",
+    "Mode B appears in this window (0.100/session) but is SCALAR ONLY — no knowledge cascade detected",
+    "Neither mode is auto-correlated above r=0.3: failures are session-independent",
+    "Mode A bursty cluster (S178-S182) resolved by new protocols (named-file adds, sync_state.py)",
+    "Counter-factual sync architecture would show Mode B clustering (r>>0.3) because sequential reads inherit errors directly",
+    "Async architecture converts potential knowledge cascade into recoverable scalar drift"
+  ],
+  "f_ai2_verdict": "PARTIAL — observational evidence supports async advantage: Mode B is attenuated to scalar drift (not knowledge cascade) in async swarm. Controlled experiment with forced sync still needed to measure Mode B cascade rate directly.",
+  "next_step": "Adapt wiki_swarm.py to test forced sync (one agent waits for another) to measure belief cascade rate; compare error correlation between sync and async runs"
+}

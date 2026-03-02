@@ -1,0 +1,116 @@
+{
+  "frontier_id": "F-EVO1",
+  "session": 186,
+  "created_on": "2026-02-27",
+  "source_file": "tasks/SWARM-LANES.md",
+  "filter": {
+    "session": "S186",
+    "status": "MERGED"
+  },
+  "summary": {
+    "rows": 21,
+    "unique_lane_ids": 21,
+    "unique_scope_keys": 17,
+    "unique_scope_ratio": 0.8095,
+    "scope_collision_excess_rows": 4,
+    "lane_reopen_excess_rows": 0,
+    "platform_diversity": {
+      "codex-cli": 9,
+      "codex-cli+WSL": 12
+    },
+    "focus_distribution": {
+      "global": 19,
+      "domains/ai": 1,
+      "domains/finance": 1
+    },
+    "frontier_distribution": {
+      "unspecified": 9,
+      "F-AI1": 3,
+      "F-AI2/F-HLT2": 2,
+      "F-IS3": 2,
+      "F119": 1,
+      "F-AI1/F-AI2": 1,
+      "F-IS4": 1,
+      "F122": 1,
+      "F-FIN1": 1
+    },
+    "setup_distribution": {
+      "codex-windows+wsl": 19,
+      "codex-windows": 1,
+      "codex-cli+wsl": 1
+    }
+  },
+  "top_scope_keys": [
+    {
+      "scope_key": "tools/f_ai1_evidence_surfacing.py",
+      "count": 3
+    },
+    {
+      "scope_key": "tools/wiki_swarm.py",
+      "count": 2
+    },
+    {
+      "scope_key": "tasks/NEXT.md",
+      "count": 2
+    },
+    {
+      "scope_key": "tools/check.ps1",
+      "count": 1
+    },
+    {
+      "scope_key": "experiments/ai/f-ai2-live-partial-sync-*-s186.json",
+      "count": 1
+    },
+    {
+      "scope_key": "experiments/information-science/f-is3-cost-threshold-s186.json",
+      "count": 1
+    },
+    {
+      "scope_key": "experiments/children/architecture-test-minimal/memory/INDEX.md",
+      "count": 1
+    },
+    {
+      "scope_key": "experiments/ai/f-ai2-live-partial-sync-threshold-s186.json",
+      "count": 1
+    }
+  ],
+  "top_lane_ids": [
+    {
+      "lane": "L-S186-F-AI2-LIVE-REPL",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-FAI1-INTERVENTION-VALIDATE",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-SWARMN-CHECKPOINT",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-AI1-EVIDENCE",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-INTEGRITY-AUDIT",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-AI2-INHERIT-SWEEP",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-IS3-COST-BANDS",
+      "count": 1
+    },
+    {
+      "lane": "L-S186-CHILD-ARCH-CONTINUITY",
+      "count": 1
+    }
+  ],
+  "interpretation": {
+    "diversity_signal": "High scope diversity with low scope-collision excess indicates lane variation is currently broad enough for parallel execution at S186 scale.",
+    "selection_signal": "No lane reopen activity detected in this slice.",
+    "next_measurement": "Repeat this metric on a later session slice and compare scope-collision excess against novelty yield (new artifacts with merged status)."
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "experiment": "F-STR1 EAD regression root cause analysis",
+  "session": "S384",
+  "frontier": "F-STR1",
+  "method": "Per-session EAD decomposition of -32.7pp regression (L-741). Tested pace hypothesis vs initialization hypothesis. Checked close_lane.py enforcement mechanism.",
+  "expect": "EAD regression driven by session pace (lanes/session overloading compliance)",
+  "actual": "Pace hypothesis FALSIFIED. Root cause: initialization effect (S380) + diff-as-warning enforcement gap",
+  "diff": "Expected pace-driven, found tool-enforcement-driven. S381 (11 lanes) had 90% EAD; S380 (3 lanes) had 33%.",
+  "findings": {
+    "initialization_effect": {
+      "description": "S380 (3 lanes, 33% EAD) is the primary driver. First session after value_density integration focused on code change, not compliance. Old close_lane.py only enforced EAD if lane had expect= field set.",
+      "S380_EAD": "1/3 merged = 33.3%",
+      "contribution": "~50% of total -32.7pp gap"
+    },
+    "diff_warning_gap": {
+      "description": "close_lane.py requires --actual (ERROR) but --diff is WARNING only. 3/6 non-compliant lanes had actual but no diff. These pass the error gate but fail EAD.",
+      "lanes_affected": [
+        "DOMEX-QC-S381",
+        "DOMEX-QC-S382",
+        "DOMEX-FAR-S374"
+      ],
+      "fix": "Upgrade --diff from WARNING to ERROR for MERGED lanes"
+    },
+    "pace_hypothesis_falsified": {
+      "description": "S381 (11 lanes) achieved 90% EAD (merged-only). S374 baseline (9 lanes) had 89% EAD. High lane volume does NOT cause EAD failure.",
+      "high_volume_sessions": {
+        "S381_11_lanes": "9/10 merged = 90.0%",
+        "S374_9_lanes": "8/9 merged = 88.9%",
+        "S377_5_lanes": "5/5 = 100%",
+        "S379_5_lanes": "5/5 = 100%"
+      }
+    },
+    "corrected_gap": {
+      "baseline_merged": "38/39 = 97.4%",
+      "treatment_merged": "14/18 = 77.8%",
+      "excluding_S380": "13/15 = 86.7%",
+      "total_gap": "-19.7pp (merged-only)",
+      "gap_excluding_S380": "-10.7pp"
+    }
+  },
+  "remediation": [
+    "Upgrade --diff to ERROR in close_lane.py for MERGED lanes",
+    "S380 initialization effect is one-time \u2014 no recurring fix needed",
+    "Value_density dispatch itself is NOT the cause of EAD regression"
+  ]
+}

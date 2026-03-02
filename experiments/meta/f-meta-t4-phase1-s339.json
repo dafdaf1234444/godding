@@ -1,0 +1,32 @@
+{
+  "experiment": "F-META1",
+  "session": "S339",
+  "date": "2026-03-01",
+  "lane": "DOMEX-META-S339",
+  "question": "What is the state of maintenance.py after S338/S339 Phase 1 compaction?",
+  "baseline": {
+    "maintenance_py_lines_pre_s338": 1924,
+    "maintenance_py_lines_after_phase1": 1825,
+    "lines_removed": 99,
+    "parse_active_principle_ids_fallback": "13L inline regex fallback → 1L lambda stub (concurrent S339 compact)"
+  },
+  "s339_contribution": {
+    "lanes_compact": {"rows_archived": 9, "bloat_ratio_before": "75%", "bloat_ratio_after": "0%"},
+    "action_board_refreshed": true,
+    "parse_active_principle_ids_verified": "concurrent session applied identical change — confirmed in HEAD"
+  },
+  "phase1_summary": {
+    "total_removed_lines": 99,
+    "removed_items": [
+      "3 F119 transition constants",
+      "_reason_action_evidence_sessions (22L)",
+      "degraded evidence block simplified (40L→12L)",
+      "self-referential block (14L)",
+      "runtime re-probe (8L)",
+      "parse_active_principle_ids fallback (13L→1L)"
+    ],
+    "token_savings_est": 1768,
+    "regressions": 0
+  },
+  "conclusion": "Phase 1 complete. maintenance.py 1,924→1,825L. Phase 2 (shared helper extraction ~1,239t) is next target."
+}

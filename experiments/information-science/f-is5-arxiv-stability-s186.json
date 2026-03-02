@@ -1,0 +1,38 @@
+{
+  "experiment": "F-IS5",
+  "title": "arXiv lane-pack stability check (run vs rerun)",
+  "session": "S186",
+  "inputs": [
+    "f-is5-arxiv-swarmable-s186.json",
+    "f-is5-arxiv-swarmable-s186-rerun.json"
+  ],
+  "metrics": {
+    "paper_count_run": 24,
+    "paper_count_rerun": 24,
+    "paper_overlap_jaccard": 1.0,
+    "paper_overlap_count": 24,
+    "lane_assignment_agreement": 1.0,
+    "lane_assignment_drift_count": 0,
+    "selected_count_run": null,
+    "selected_count_rerun": 20,
+    "backlog_count_run": null,
+    "backlog_count_rerun": 4
+  },
+  "lane_plan_sizes_run": {},
+  "lane_plan_sizes_rerun": {},
+  "theme_distribution_run": {
+    "safety-reliability": 2,
+    "protocol-orchestration": 9,
+    "memory-knowledge": 5,
+    "tool-use-execution": 3,
+    "evaluation-scaling": 5
+  },
+  "theme_distribution_rerun": {
+    "safety-reliability": 2,
+    "protocol-orchestration": 9,
+    "memory-knowledge": 5,
+    "tool-use-execution": 3,
+    "evaluation-scaling": 5
+  },
+  "interpretation": "High overlap/agreement indicates the intake pack is stable enough for lane-owner distillation; coverage/backlog metrics mark where ownership should focus first."
+}

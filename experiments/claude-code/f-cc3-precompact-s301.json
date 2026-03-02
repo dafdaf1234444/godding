@@ -1,0 +1,35 @@
+{
+  "experiment": "F-CC3",
+  "session": "S301",
+  "date": "2026-02-28",
+  "domain": "claude-code",
+  "question": "Does a PreCompact hook fire in time to checkpoint critical in-flight state?",
+  "method": "Documentation audit via claude-code-guide agent (WebSearch + official docs); hook implementation and wiring in settings.json; orient.py integration",
+  "expect": "PreCompact hook exists, fires with useful context (transcript path), allows checkpoint write",
+  "actual": {
+    "hook_confirmed": true,
+    "source": "Official Claude Code Hooks Reference — hooks.md",
+    "trigger_types": ["manual", "auto"],
+    "input_fields": ["session_id", "transcript_path", "cwd", "trigger", "custom_instructions", "permission_mode", "hook_event_name"],
+    "can_block": false,
+    "supports_prompt_hooks": false,
+    "supports_command_hooks": true,
+    "checkpoint_written": true,
+    "checkpoint_path_pattern": "workspace/precompact-checkpoint-<session_id[:8]>.json",
+    "orient_integration": true,
+    "live_fire_tested": false
+  },
+  "diff": "Confirmed: PreCompact is real and wired. Gap: checkpoint not yet live-tested (requires actual compaction event to confirm firing). orient.py now surfaces checkpoint on resume.",
+  "artifacts": [
+    "tools/hooks/pre-compact-checkpoint.py",
+    ".claude/settings.json (PreCompact added)",
+    "tools/orient.py (checkpoint surfacing added)",
+    "memory/lessons/L-342.md"
+  ],
+  "f_cc3_status": "PARTIAL — hook confirmed + wired; live fire test pending",
+  "swarm_extraction": {
+    "isomorphism": "PreCompact:SubagentStop = compaction boundary:spawn boundary — both are state discontinuities where critical in-flight work can be lost. Same checkpoint pattern applies to both.",
+    "principle_candidate": "At every state discontinuity (compaction, sub-agent end, session stop), write a checkpoint. The minimal viable checkpoint is: current intent + uncommitted files + last 5 commits.",
+    "next_step": "Wire SubagentStop to same checkpoint pattern. Add orient.py --resume flag that reads checkpoint JSON and injects it as preamble."
+  }
+}

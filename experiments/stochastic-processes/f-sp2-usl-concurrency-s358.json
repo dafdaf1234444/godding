@@ -1,0 +1,166 @@
+{
+  "frontier": "F-SP2",
+  "session": "S358",
+  "domain": "stochastic-processes",
+  "method": "SESSION-LOG session-number clustering for concurrency estimation",
+  "total_sessions_parsed": 355,
+  "total_base_groups": 184,
+  "data_by_N": [
+    {
+      "N": 1,
+      "mean_lessons": 1.779,
+      "n_sessions": 113,
+      "median": 1,
+      "std": 2.734,
+      "total": 201,
+      "nonzero_pct": 51.3
+    },
+    {
+      "N": 2,
+      "mean_lessons": 0.862,
+      "n_sessions": 58,
+      "median": 1.0,
+      "std": 1.099,
+      "total": 50,
+      "nonzero_pct": 58.6
+    },
+    {
+      "N": 3,
+      "mean_lessons": 0.583,
+      "n_sessions": 48,
+      "median": 0.0,
+      "std": 1.145,
+      "total": 28,
+      "nonzero_pct": 33.3
+    },
+    {
+      "N": 4,
+      "mean_lessons": 0.583,
+      "n_sessions": 48,
+      "median": 0.5,
+      "std": 0.647,
+      "total": 28,
+      "nonzero_pct": 50.0
+    },
+    {
+      "N": 5,
+      "mean_lessons": 0.175,
+      "n_sessions": 40,
+      "median": 0.0,
+      "std": 0.446,
+      "total": 7,
+      "nonzero_pct": 15.0
+    },
+    {
+      "N": 6,
+      "mean_lessons": 0.583,
+      "n_sessions": 12,
+      "median": 0.5,
+      "std": 0.669,
+      "total": 7,
+      "nonzero_pct": 50.0
+    },
+    {
+      "N": 7,
+      "mean_lessons": 0,
+      "n_sessions": 7,
+      "median": 0,
+      "std": 0.0,
+      "total": 0,
+      "nonzero_pct": 0.0
+    },
+    {
+      "N": 9,
+      "mean_lessons": 0.278,
+      "n_sessions": 18,
+      "median": 0.0,
+      "std": 0.461,
+      "total": 5,
+      "nonzero_pct": 27.8
+    },
+    {
+      "N": 11,
+      "mean_lessons": 0.818,
+      "n_sessions": 11,
+      "median": 1,
+      "std": 0.603,
+      "total": 9,
+      "nonzero_pct": 72.7
+    }
+  ],
+  "usl_alpha": 2.0,
+  "usl_beta": 0.61810341,
+  "verdict": "USL FALSIFIED \u2014 constant throughput model wins",
+  "models_compared": {
+    "constant": {
+      "AIC": 342.9,
+      "R2": 0.0,
+      "params": 1,
+      "winner": true
+    },
+    "linear": {
+      "AIC": 343.2,
+      "R2": 0.009,
+      "params": 2,
+      "slope": 0.148
+    },
+    "USL": {
+      "AIC": 346.6,
+      "R2": 0.001,
+      "params": 3,
+      "alpha": 0.84,
+      "beta": 0.0
+    },
+    "sqrt": {
+      "AIC": 347.4,
+      "R2": -0.025,
+      "params": 1
+    }
+  },
+  "n_session_groups": 184,
+  "N_range": [
+    1,
+    11
+  ],
+  "constant_throughput": 1.75,
+  "per_agent_scaling": "1/N dilution (ratio 0.97-1.31 at N=1-4)",
+  "N5_collapse": true,
+  "hypothesis_falsified": {
+    "alpha": {
+      "hypothesized": 0.08,
+      "measured": 0.84,
+      "ratio": "10x"
+    },
+    "beta": {
+      "hypothesized": 0.015,
+      "measured": 0.0,
+      "absent": true
+    },
+    "N_star": {
+      "hypothesized": "4-5",
+      "measured": "undefined (alpha>=1)"
+    }
+  },
+  "lesson": "L-629",
+  "connections": [
+    "L-269 WIP cap=4 SUPPORTED",
+    "L-526 planning obsolescence EXPLAINED",
+    "L-570 empathic accuracy measures different axis (accuracy not throughput)",
+    "L-608 Hawkes clustering explains burst sessions but not N-scaling"
+  ],
+  "era_analysis": {
+    "S57-S100": {
+      "mean_N": 2.1,
+      "L_per_group": 1.83
+    },
+    "S100-S200": {
+      "mean_N": 2.3,
+      "L_per_group": 1.03
+    },
+    "S300-S358": {
+      "mean_N": 1.1,
+      "L_per_group": 3.15
+    }
+  },
+  "interpretation": "Knowledge-structure absorption rate is the binding constraint, not agent count. Concurrency value is redundancy/coverage, not throughput multiplication."
+}

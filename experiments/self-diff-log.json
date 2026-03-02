@@ -1,0 +1,44 @@
+[
+  {
+    "timestamp": "2026-03-01T00:53:06",
+    "session": 338,
+    "counts": {
+      "lessons": 415,
+      "principles": 194,
+      "frontiers": 36,
+      "domains": 40,
+      "tools": 161,
+      "experiments": 432,
+      "isos": 17
+    },
+    "hashes": {
+      "beliefs/CORE.md": "78f26557ff190fbe",
+      "beliefs/PHILOSOPHY.md": "a9230ed65b3ace42",
+      "beliefs/DEPS.md": "76293fb37d7aec22",
+      "beliefs/INVARIANTS.md": "b200d5a14e379125",
+      "beliefs/CONFLICTS.md": "ea0ec2ce1f125a4e",
+      "memory/INDEX.md": "f168a91821f6bb1d",
+      "memory/PRINCIPLES.md": "83a2dd48c4a96e99",
+      "memory/DISTILL.md": "5981591c45435265",
+      "tasks/NEXT.md": "3f3852c30787daaa",
+      "tasks/FRONTIER.md": "61d9cae77db15c64",
+      "tasks/SWARM-LANES.md": "5120bf3b25da0630",
+      "SWARM.md": "c168bd602172d4d3",
+      "CLAUDE.md": "6b7d6abc3922510f"
+    },
+    "belief_status": {
+      "observed": 82,
+      "partially_observed": 6,
+      "theorized": 4,
+      "other": 0
+    },
+    "lane_health": {
+      "ACTIVE": 4,
+      "MERGED": 3,
+      "ABANDONED": 2,
+      "OPEN": 0
+    },
+    "proxy_k": 58240,
+    "ead_compliance": 0.0
+  }
+]

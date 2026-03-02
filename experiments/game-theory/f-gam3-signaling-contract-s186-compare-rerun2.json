@@ -1,0 +1,107 @@
+{
+  "experiment": "F-GAM3",
+  "title": "signaling-contract rerun delta",
+  "baseline_artifact": "experiments/game-theory/f-gam3-signaling-contract-s186-rerun.json",
+  "rerun_artifact": "experiments/game-theory/f-gam3-signaling-contract-s186-rerun2.json",
+  "baseline": {
+    "lane_count_total": 117,
+    "contract_adoption": {
+      "strict_contract_lanes": 11,
+      "legacy_contract_lanes": null,
+      "strict_contract_rate": 0.094,
+      "legacy_contract_rate": null
+    },
+    "contract_group": {
+      "lane_count": 11,
+      "closed_lane_count": 2,
+      "mean_closure_lag_sessions": 0.0,
+      "median_closure_lag_sessions": 0.0,
+      "same_session_close_rate": 1.0,
+      "mean_ready_to_close_lag_sessions": 0.0,
+      "median_ready_to_close_lag_sessions": 0.0,
+      "mean_updates_per_lane": 3.4545,
+      "stale_active_rate": 0.0
+    },
+    "free_form_group": {
+      "lane_count": 106,
+      "closed_lane_count": 7,
+      "mean_closure_lag_sessions": 0.0,
+      "median_closure_lag_sessions": 0.0,
+      "same_session_close_rate": 1.0,
+      "mean_ready_to_close_lag_sessions": 0.0,
+      "median_ready_to_close_lag_sessions": 0.0,
+      "mean_updates_per_lane": 1.1698,
+      "stale_active_rate": 0.0
+    }
+  },
+  "rerun": {
+    "lane_count_total": 125,
+    "contract_adoption": {
+      "strict_contract_lanes": 11,
+      "legacy_contract_lanes": 11,
+      "strict_contract_rate": 0.088,
+      "legacy_contract_rate": 0.088,
+      "matured_lanes": 0,
+      "matured_strict_contract_lanes": 0,
+      "matured_strict_contract_rate": 0.0
+    },
+    "contract_group": {
+      "lane_count": 11,
+      "closed_lane_count": 2,
+      "mean_closure_lag_sessions": 0.0,
+      "median_closure_lag_sessions": 0.0,
+      "same_session_close_rate": 1.0,
+      "mean_ready_to_progress_lag_sessions": 0.0,
+      "median_ready_to_progress_lag_sessions": 0.0,
+      "mean_ready_to_close_lag_sessions": 0.0,
+      "median_ready_to_close_lag_sessions": 0.0,
+      "ready_to_progress_count": 1,
+      "mature_ready_window_sessions": 1,
+      "mature_ready_eligible_count": 0,
+      "mature_ready_unresolved_count": 0,
+      "mature_ready_unresolved_rate": 0.0,
+      "mature_mean_ready_to_progress_lag_sessions": 0.0,
+      "mean_updates_per_lane": 3.4545,
+      "mean_updates_per_lifecycle_session": 3.4545,
+      "median_updates_per_lifecycle_session": 2.0,
+      "stale_active_rate": 0.0
+    },
+    "free_form_group": {
+      "lane_count": 114,
+      "closed_lane_count": 7,
+      "mean_closure_lag_sessions": 0.0,
+      "median_closure_lag_sessions": 0.0,
+      "same_session_close_rate": 1.0,
+      "mean_ready_to_progress_lag_sessions": 0.0,
+      "median_ready_to_progress_lag_sessions": 0.0,
+      "mean_ready_to_close_lag_sessions": 0.0,
+      "median_ready_to_close_lag_sessions": 0.0,
+      "ready_to_progress_count": 5,
+      "mature_ready_window_sessions": 1,
+      "mature_ready_eligible_count": 2,
+      "mature_ready_unresolved_count": 0,
+      "mature_ready_unresolved_rate": 0.0,
+      "mature_mean_ready_to_progress_lag_sessions": 0.0,
+      "mean_updates_per_lane": 1.1579,
+      "mean_updates_per_lifecycle_session": 3.2857,
+      "median_updates_per_lifecycle_session": 3.0,
+      "stale_active_rate": 0.0
+    }
+  },
+  "delta": {
+    "strict_contract_lanes": 0,
+    "strict_contract_rate": -0.006,
+    "contract_mean_updates_per_lane": 0.0,
+    "free_form_mean_updates_per_lane": -0.0119,
+    "contract_mean_updates_per_lifecycle_session": 3.4545,
+    "free_form_mean_updates_per_lifecycle_session": 3.2857,
+    "contract_stale_active_rate": 0.0,
+    "free_form_stale_active_rate": 0.0,
+    "contract_mean_closure_lag_sessions": 0.0,
+    "free_form_mean_closure_lag_sessions": 0.0
+  },
+  "interpretation": {
+    "signal": "strict adoption has not yet expanded beyond the existing cohort and lag metrics remain near-saturated at zero in this sample",
+    "note": "compare update-density alongside update-count to reduce cohort-lifecycle confounding while strict adoption remains concentrated in coordinator-heavy lanes."
+  }
+}

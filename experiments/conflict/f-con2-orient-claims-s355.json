@@ -1,0 +1,22 @@
+{
+  "frontier": "F-CON2",
+  "session": "S355",
+  "date": "2026-03-01",
+  "hypothesis": "Integrating claim.py into orient.py provides collision-aware orientation",
+  "method": "Add check_active_claims() to orient.py main() — reads workspace/claims/, skips expired (>5min TTL), skips own PID, warns about other sessions' locks",
+  "results": {
+    "claims_check_added": true,
+    "performance_impact": "negligible (file reads only, no subprocess)",
+    "bonus_fixes": {
+      "maintenance_timeout": "15s (was unbounded, caused >60s hang)",
+      "cached_maint_out": "eliminated 2 redundant run_maintenance() calls",
+      "batched_git_log": "31 subprocess calls → 1 batched call",
+      "reach_map_removed": "22880 file reads removed from orient path"
+    },
+    "orient_before_fix_seconds": ">60 (infinite hang on WSL)",
+    "orient_after_fix_seconds": "17-19",
+    "lesson": "L-596"
+  },
+  "status": "CONFIRMED",
+  "next": "Monitor claims visibility over 3+ sessions with N>=2 concurrent. Measure whether C-EDIT rate drops."
+}

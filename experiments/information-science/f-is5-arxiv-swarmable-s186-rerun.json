@@ -1,0 +1,635 @@
+{
+  "experiment": "F-IS5",
+  "title": "arXiv swarmable intake pack",
+  "query": "all:\"multi-agent\" AND all:\"LLM\" AND all:\"coordination\"",
+  "max_results": 24,
+  "retrieved_count": 24,
+  "date_window": {
+    "newest_published": "2026-02-26T13:49:16Z",
+    "oldest_published": "2026-02-08T15:56:22Z"
+  },
+  "papers": [
+    {
+      "arxiv_id": "2602.23005v1",
+      "title": "Managing Uncertainty in LLM-based Multi-Agent System Operation",
+      "published": "2026-02-26T13:49:16Z",
+      "updated": "2026-02-26T13:49:16Z",
+      "authors": [
+        "Man Zhang",
+        "Tao Yue",
+        "Yihua He"
+      ],
+      "categories": [
+        "cs.SE"
+      ],
+      "theme": "safety-reliability",
+      "summary_preview": "Applying LLM-based multi-agent software systems in safety-critical domains such as lifespan echocardiography introduces system-level risks that cannot be addressed by improving model accuracy alone. During system operation, beyond individual LLM behavior, uncertainty propagates through agent coordin...",
+      "abs_url": "http://arxiv.org/abs/2602.23005v1"
+    },
+    {
+      "arxiv_id": "2602.21806v2",
+      "title": "An Empirical Study of Bugs in Modern LLM Agent Frameworks",
+      "published": "2026-02-25T11:34:17Z",
+      "updated": "2026-02-26T04:30:22Z",
+      "authors": [
+        "Xinxue Zhu",
+        "Jiacong Wu",
+        "Xiaoyu Zhang",
+        "Tianlin Li",
+        "Yanzhou Mu",
+        "Juan Zhai",
+        "Chao Shen",
+        "Chunrong Fang",
+        "Yang Liu"
+      ],
+      "categories": [
+        "cs.SE"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "LLM agents have been widely adopted in real-world applications, relying on agent frameworks for workflow execution and multi-agent coordination. As these systems scale, understanding bugs in the underlying agent frameworks becomes critical. However, existing work mainly focuses on agent-level failur...",
+      "abs_url": "http://arxiv.org/abs/2602.21806v2"
+    },
+    {
+      "arxiv_id": "2602.21477v1",
+      "title": "Pancake: Hierarchical Memory System for Multi-Agent LLM Serving",
+      "published": "2026-02-25T01:09:04Z",
+      "updated": "2026-02-25T01:09:04Z",
+      "authors": [
+        "Zhengding Hu",
+        "Zaifeng Pan",
+        "Prabhleen Kaur",
+        "Vibha Murthy",
+        "Zhongkai Yu",
+        "Yue Guan",
+        "Zhen Wang",
+        "Steven Swanson",
+        "Yufei Ding"
+      ],
+      "categories": [
+        "cs.MA"
+      ],
+      "theme": "memory-knowledge",
+      "summary_preview": "In this work, we identify and address the core challenges of agentic memory management in LLM serving, where large-scale storage, frequent updates, and multiple coexisting agents jointly introduce complex and high-cost approximate nearest neighbor (ANN) searching problems. We present Pancake, a mult...",
+      "abs_url": "http://arxiv.org/abs/2602.21477v1"
+    },
+    {
+      "arxiv_id": "2602.21351v1",
+      "title": "A Hierarchical Multi-Agent System for Autonomous Discovery in Geoscientific Data Archives",
+      "published": "2026-02-24T20:37:38Z",
+      "updated": "2026-02-24T20:37:38Z",
+      "authors": [
+        "Dmitrii Pantiukhin",
+        "Ivan Kuznetsov",
+        "Boris Shapkin",
+        "Antonia Anna Jost",
+        "Thomas Jung",
+        "Nikolay Koldunov"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.IR",
+        "cs.MA"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "The rapid accumulation of Earth science data has created a significant scalability challenge; while repositories like PANGAEA host vast collections of datasets, citation metrics indicate that a substantial portion remains underutilized, limiting data reusability. Here we present PANGAEA-GPT, a hiera...",
+      "abs_url": "http://arxiv.org/abs/2602.21351v1"
+    },
+    {
+      "arxiv_id": "2602.20934v1",
+      "title": "Architecting AgentOS: From Token-Level Context to Emergent System-Level Intelligence",
+      "published": "2026-02-24T14:12:21Z",
+      "updated": "2026-02-24T14:12:21Z",
+      "authors": [
+        "ChengYou Li",
+        "XiaoDong Liu",
+        "XiangBao Meng",
+        "XinYu Zhao"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "memory-knowledge",
+      "summary_preview": "The paradigm of Large Language Models is undergoing a fundamental transition from static inference engines to dynamic autonomous cognitive systems.While current research primarily focuses on scaling context windows or optimizing prompt engineering the theoretical bridge between micro scale token pro...",
+      "abs_url": "http://arxiv.org/abs/2602.20934v1"
+    },
+    {
+      "arxiv_id": "2602.20059v1",
+      "title": "Interaction Theater: A case of LLM Agents Interacting at Scale",
+      "published": "2026-02-23T17:14:29Z",
+      "updated": "2026-02-23T17:14:29Z",
+      "authors": [
+        "Sarath Shekkizhar",
+        "Adam Earle"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "As multi-agent architectures and agent-to-agent protocols proliferate, a fundamental question arises: what actually happens when autonomous LLM agents interact at scale? We study this question empirically using data from Moltbook, an AI-agent-only social platform, with 800K posts, 3.5M comments, and...",
+      "abs_url": "http://arxiv.org/abs/2602.20059v1"
+    },
+    {
+      "arxiv_id": "2602.19843v1",
+      "title": "MAS-FIRE: Fault Injection and Reliability Evaluation for LLM-Based Multi-Agent Systems",
+      "published": "2026-02-23T13:47:43Z",
+      "updated": "2026-02-23T13:47:43Z",
+      "authors": [
+        "Jin Jia",
+        "Zhiling Deng",
+        "Zhuangbin Chen",
+        "Yingqi Wang",
+        "Zibin Zheng"
+      ],
+      "categories": [
+        "cs.SE",
+        "cs.AI"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "As LLM-based Multi-Agent Systems (MAS) are increasingly deployed for complex tasks, ensuring their reliability has become a pressing challenge. Since MAS coordinate through unstructured natural language rather than rigid protocols, they are prone to semantic failures (e.g., hallucinations, misinterp...",
+      "abs_url": "http://arxiv.org/abs/2602.19843v1"
+    },
+    {
+      "arxiv_id": "2602.17902v1",
+      "title": "El Agente Gr\u00e1fico: Structured Execution Graphs for Scientific Agents",
+      "published": "2026-02-19T23:47:05Z",
+      "updated": "2026-02-19T23:47:05Z",
+      "authors": [
+        "Jiaru Bai",
+        "Abdulrahman Aldossary",
+        "Thomas Swanick",
+        "Marcel M\u00fcller",
+        "Yeonghun Kang",
+        "Zijian Zhang",
+        "Jin Won Lee",
+        "Tsz Wai Ko",
+        "Mohammad Ghazi Vakili",
+        "Varinia Bernales",
+        "Al\u00e1n Aspuru-Guzik"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.MA",
+        "cs.SE",
+        "physics.chem-ph"
+      ],
+      "theme": "memory-knowledge",
+      "summary_preview": "Large language models (LLMs) are increasingly used to automate scientific workflows, yet their integration with heterogeneous computational tools remains ad hoc and fragile. Current agentic approaches often rely on unstructured text to manage context and coordinate execution, generating often overwh...",
+      "abs_url": "http://arxiv.org/abs/2602.17902v1"
+    },
+    {
+      "arxiv_id": "2602.17100v1",
+      "title": "AgentConductor: Topology Evolution for Multi-Agent Competition-Level Code Generation",
+      "published": "2026-02-19T05:51:55Z",
+      "updated": "2026-02-19T05:51:55Z",
+      "authors": [
+        "Siyu Wang",
+        "Ruotian Lu",
+        "Zhihao Yang",
+        "Yuchao Wang",
+        "Yanzhou Zhang",
+        "Lei Xu",
+        "Qimin Xu",
+        "Guojun Yin",
+        "Cailian Chen",
+        "Xinping Guan"
+      ],
+      "categories": [
+        "cs.MA"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "Large language model(LLM)-driven multi-agent systems(MAS) coordinate specialized agents through predefined interaction topologies and have shown promise for complex tasks such as competition-level code generation. Recent studies demonstrate that carefully designed multi-agent workflows and communica...",
+      "abs_url": "http://arxiv.org/abs/2602.17100v1"
+    },
+    {
+      "arxiv_id": "2602.16898v3",
+      "title": "MALLVI: A Multi-Agent Framework for Integrated Generalized Robotics Manipulation",
+      "published": "2026-02-18T21:28:56Z",
+      "updated": "2026-02-25T11:49:07Z",
+      "authors": [
+        "Iman Ahmadi",
+        "Mehrshad Taji",
+        "Arad Mahdinezhad Kashani",
+        "AmirHossein Jadidi",
+        "Saina Kashani",
+        "Babak Khalaj"
+      ],
+      "categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.CV",
+        "cs.LG"
+      ],
+      "theme": "tool-use-execution",
+      "summary_preview": "Task planning for robotic manipulation with large language models (LLMs) is an emerging area. Prior approaches rely on specialized models, fine tuning, or prompt tuning, and often operate in an open loop manner without robust environmental feedback, making them fragile in dynamic settings. MALLVI pr...",
+      "abs_url": "http://arxiv.org/abs/2602.16898v3"
+    },
+    {
+      "arxiv_id": "2602.16873v1",
+      "title": "AdaptOrch: Task-Adaptive Multi-Agent Orchestration in the Era of LLM Performance Convergence",
+      "published": "2026-02-18T21:00:05Z",
+      "updated": "2026-02-18T21:00:05Z",
+      "authors": [
+        "Geunbin Yu"
+      ],
+      "categories": [
+        "cs.MA",
+        "cs.AI"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "As large language models from diverse providers converge toward comparable benchmark performance, the traditional paradigm of selecting a single best model per task yields diminishing returns. We argue that orchestration topology -- the structural composition of how multiple agents are coordinated, ...",
+      "abs_url": "http://arxiv.org/abs/2602.16873v1"
+    },
+    {
+      "arxiv_id": "2602.16738v1",
+      "title": "Self-Evolving Multi-Agent Network for Industrial IoT Predictive Maintenance",
+      "published": "2026-02-17T22:45:43Z",
+      "updated": "2026-02-17T22:45:43Z",
+      "authors": [
+        "Rebin Saleh",
+        "Khanh Pham Dinh",
+        "Bal\u00e1zs Vill\u00e1nyi",
+        "Truong-Son Hy"
+      ],
+      "categories": [
+        "cs.MA",
+        "cs.LG"
+      ],
+      "theme": "memory-knowledge",
+      "summary_preview": "Industrial IoT predictive maintenance requires systems capable of real-time anomaly detection without sacrificing interpretability or demanding excessive computational resources. Traditional approaches rely on static, offline-trained models that cannot adapt to evolving operational conditions, while...",
+      "abs_url": "http://arxiv.org/abs/2602.16738v1"
+    },
+    {
+      "arxiv_id": "2602.15198v1",
+      "title": "Colosseum: Auditing Collusion in Cooperative Multi-Agent Systems",
+      "published": "2026-02-16T21:27:38Z",
+      "updated": "2026-02-16T21:27:38Z",
+      "authors": [
+        "Mason Nakamura",
+        "Abhinav Kumar",
+        "Saswat Das",
+        "Sahar Abdelnabi",
+        "Saaduddin Mahmud",
+        "Ferdinando Fioretto",
+        "Shlomo Zilberstein",
+        "Eugene Bagdasarian"
+      ],
+      "categories": [
+        "cs.MA",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "Multi-agent systems, where LLM agents communicate through free-form language, enable sophisticated coordination for solving complex cooperative tasks. This surfaces a unique safety problem when individual agents form a coalition and \\emph{collude} to pursue secondary goals and degrade the joint obje...",
+      "abs_url": "http://arxiv.org/abs/2602.15198v1"
+    },
+    {
+      "arxiv_id": "2602.14251v1",
+      "title": "Multi-Agent Debate: A Unified Agentic Framework for Tabular Anomaly Detection",
+      "published": "2026-02-15T17:44:32Z",
+      "updated": "2026-02-15T17:44:32Z",
+      "authors": [
+        "Pinqiao Wang",
+        "Sheng Li"
+      ],
+      "categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "Tabular anomaly detection is often handled by single detectors or static ensembles, even though strong performance on tabular data typically comes from heterogeneous model families (e.g., tree ensembles, deep tabular networks, and tabular foundation models) that frequently disagree under distributio...",
+      "abs_url": "http://arxiv.org/abs/2602.14251v1"
+    },
+    {
+      "arxiv_id": "2602.14160v1",
+      "title": "Process-Supervised Multi-Agent Reinforcement Learning for Reliable Clinical Reasoning",
+      "published": "2026-02-15T14:21:21Z",
+      "updated": "2026-02-15T14:21:21Z",
+      "authors": [
+        "Chaeeun Lee",
+        "T. Michael Yates",
+        "Pasquale Minervini",
+        "T. Ian Simpson"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "evaluation-scaling",
+      "summary_preview": "Clinical decision-making requires nuanced reasoning over heterogeneous evidence and traceable justifications. While recent LLM multi-agent systems (MAS) show promise, they largely optimise for outcome accuracy while overlooking process-grounded reasoning aligned with clinical standards. One critical...",
+      "abs_url": "http://arxiv.org/abs/2602.14160v1"
+    },
+    {
+      "arxiv_id": "2602.13477v2",
+      "title": "OMNI-LEAK: Orchestrator Multi-Agent Network Induced Data Leakage",
+      "published": "2026-02-13T21:32:32Z",
+      "updated": "2026-02-25T16:43:53Z",
+      "authors": [
+        "Akshat Naik",
+        "Jay Culligan",
+        "Yarin Gal",
+        "Philip Torr",
+        "Rahaf Aljundi",
+        "Alasdair Paren",
+        "Adel Bibi"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "safety-reliability",
+      "summary_preview": "As Large Language Model (LLM) agents become more capable, their coordinated use in the form of multi-agent systems is anticipated to emerge as a practical paradigm. Prior work has examined the safety and misuse risks associated with agents. However, much of this has focused on the single-agent case ...",
+      "abs_url": "http://arxiv.org/abs/2602.13477v2"
+    },
+    {
+      "arxiv_id": "2602.11790v1",
+      "title": "Beyond End-to-End Video Models: An LLM-Based Multi-Agent System for Educational Video Generation",
+      "published": "2026-02-12T10:14:36Z",
+      "updated": "2026-02-12T10:14:36Z",
+      "authors": [
+        "Lingyong Yan",
+        "Jiulong Wu",
+        "Dong Xie",
+        "Weixian Shi",
+        "Deguo Xia",
+        "Jizhou Huang"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "theme": "tool-use-execution",
+      "summary_preview": "Although recent end-to-end video generation models demonstrate impressive performance in visually oriented content creation, they remain limited in scenarios that require strict logical rigor and precise knowledge representation, such as instructional and educational media. To address this problem, ...",
+      "abs_url": "http://arxiv.org/abs/2602.11790v1"
+    },
+    {
+      "arxiv_id": "2602.11754v1",
+      "title": "Cooperation Breakdown in LLM Agents Under Communication Delays",
+      "published": "2026-02-12T09:31:47Z",
+      "updated": "2026-02-12T09:31:47Z",
+      "authors": [
+        "Keita Nishimoto",
+        "Kimitaka Asatani",
+        "Ichiro Sakata"
+      ],
+      "categories": [
+        "cs.MA",
+        "cs.AI",
+        "cs.GT"
+      ],
+      "theme": "protocol-orchestration",
+      "summary_preview": "LLM-based multi-agent systems (LLM-MAS), in which autonomous AI agents cooperate to solve tasks, are gaining increasing attention. For such systems to be deployed in society, agents must be able to establish cooperation and coordination under real-world computational and communication constraints. W...",
+      "abs_url": "http://arxiv.org/abs/2602.11754v1"
+    },
+    {
+      "arxiv_id": "2602.11510v1",
+      "title": "AgentLeak: A Full-Stack Benchmark for Privacy Leakage in Multi-Agent LLM Systems",
+      "published": "2026-02-12T03:10:44Z",
+      "updated": "2026-02-12T03:10:44Z",
+      "authors": [
+        "Faouzi El Yagoubi",
+        "Ranwa Al Mallah",
+        "Godwin Badu-Marfo"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "memory-knowledge",
+      "summary_preview": "Multi-agent Large Language Model (LLM) systems create privacy risks that current benchmarks cannot measure. When agents coordinate on tasks, sensitive data passes through inter-agent messages, shared memory, and tool arguments; pathways that output-only audits never inspect. We introduce AgentLeak, ...",
+      "abs_url": "http://arxiv.org/abs/2602.11510v1"
+    },
+    {
+      "arxiv_id": "2602.10479v1",
+      "title": "From Prompt-Response to Goal-Directed Systems: The Evolution of Agentic AI Software Architecture",
+      "published": "2026-02-11T03:34:48Z",
+      "updated": "2026-02-11T03:34:48Z",
+      "authors": [
+        "Mamdouh Alenezi"
+      ],
+      "categories": [
+        "cs.SE"
+      ],
+      "theme": "tool-use-execution",
+      "summary_preview": "Agentic AI denotes an architectural transition from stateless, prompt-driven generative models toward goal-directed systems capable of autonomous perception, planning, action, and adaptation through iterative control loops. This paper examines this transition by connecting foundational intelligent a...",
+      "abs_url": "http://arxiv.org/abs/2602.10479v1"
+    },
+    {
+      "arxiv_id": "2602.09892v1",
+      "title": "Immersion in the GitHub Universe: Scaling Coding Agents to Mastery",
+      "published": "2026-02-10T15:30:19Z",
+      "updated": "2026-02-10T15:30:19Z",
+      "authors": [
+        "Jiale Zhao",
+        "Guoxin Chen",
+        "Fanzhe Meng",
+        "Minghao Li",
+        "Jie Chen",
+        "Hui Xu",
+        "Yongshuai Sun",
+        "Xin Zhao",
+        "Ruihua Song",
+        "Yuan Zhang",
+        "Peng Wang",
+        "Cheng Chen",
+        "Jirong Wen",
+        "Kai Jia"
+      ],
+      "categories": [
+        "cs.SE"
+      ],
+      "theme": "evaluation-scaling",
+      "summary_preview": "Achieving mastery in real world software engineering tasks is fundamentally bottlenecked by the scarcity of large scale, high quality training data. Scaling such data has been limited by the complexity of environment setup, unit test generation, and problem statement curation. In this paper, we prop...",
+      "abs_url": "http://arxiv.org/abs/2602.09892v1"
+    },
+    {
+      "arxiv_id": "2602.09159v1",
+      "title": "CoMMa: Contribution-Aware Medical Multi-Agents From A Game-Theoretic Perspective",
+      "published": "2026-02-09T20:04:58Z",
+      "updated": "2026-02-09T20:04:58Z",
+      "authors": [
+        "Yichen Wu",
+        "Yujin Oh",
+        "Sangjoon Park",
+        "Kailong Fan",
+        "Dania Daye",
+        "Hana Farzaneh",
+        "Xiang Li",
+        "Raul Uppot",
+        "Quanzheng Li"
+      ],
+      "categories": [
+        "cs.AI",
+        "cs.MA"
+      ],
+      "theme": "evaluation-scaling",
+      "summary_preview": "Recent multi-agent frameworks have broadened the ability to tackle oncology decision support tasks that require reasoning over dynamic, heterogeneous patient data. We propose Contribution-Aware Medical Multi-Agents (CoMMa), a decentralized LLM-agent framework in which specialists operate on partitio...",
+      "abs_url": "http://arxiv.org/abs/2602.09159v1"
+    },
+    {
+      "arxiv_id": "2602.13292v1",
+      "title": "Mirror: A Multi-Agent System for AI-Assisted Ethics Review",
+      "published": "2026-02-09T03:38:55Z",
+      "updated": "2026-02-09T03:38:55Z",
+      "authors": [
+        "Yifan Ding",
+        "Yuhui Shi",
+        "Zhiyan Li",
+        "Zilong Wang",
+        "Yifeng Gao",
+        "Yajun Yang",
+        "Mengjie Yang",
+        "Yixiu Liang",
+        "Xipeng Qiu",
+        "Xuanjing Huang",
+        "Xingjun Ma",
+        "Yu-Gang Jiang",
+        "Guoyu Wang"
+      ],
+      "categories": [
+        "cs.AI"
+      ],
+      "theme": "evaluation-scaling",
+      "summary_preview": "Ethics review is a foundational mechanism of modern research governance, yet contemporary systems face increasing strain as ethical risks arise as structural consequences of large-scale, interdisciplinary scientific practice. The demand for consistent and defensible decisions under heterogeneous ris...",
+      "abs_url": "http://arxiv.org/abs/2602.13292v1"
+    },
+    {
+      "arxiv_id": "2602.08023v2",
+      "title": "CyberExplorer: Benchmarking LLM Offensive Security Capabilities in a Real-World Attacking Simulation Environment",
+      "published": "2026-02-08T15:56:22Z",
+      "updated": "2026-02-10T18:48:10Z",
+      "authors": [
+        "Nanda Rani",
+        "Kimberly Milner",
+        "Minghao Shao",
+        "Meet Udeshi",
+        "Haoran Xi",
+        "Venkata Sai Charan Putrevu",
+        "Saksham Aggarwal",
+        "Sandeep K. Shukla",
+        "Prashanth Krishnamurthy",
+        "Farshad Khorrami",
+        "Muhammad Shafique",
+        "Ramesh Karri"
+      ],
+      "categories": [
+        "cs.CR",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "theme": "evaluation-scaling",
+      "summary_preview": "Real-world offensive security operations are inherently open-ended: attackers explore unknown attack surfaces, revise hypotheses under uncertainty, and operate without guaranteed success. Existing LLM-based offensive agent evaluations rely on closed-world settings with predefined goals and binary su...",
+      "abs_url": "http://arxiv.org/abs/2602.08023v2"
+    }
+  ],
+  "lane_plan": [
+    {
+      "lane_id": "ARX-01",
+      "theme": "protocol-orchestration",
+      "rationale": "Coordination mechanics and topology design claims.",
+      "paper_ids": [
+        "2602.19843v1",
+        "2602.16873v1",
+        "2602.21351v1",
+        "2602.17100v1",
+        "2602.20059v1"
+      ],
+      "backlog_paper_ids": [
+        "2602.21806v2",
+        "2602.11754v1",
+        "2602.14251v1",
+        "2602.15198v1"
+      ],
+      "selected_count": 5,
+      "backlog_count": 4,
+      "theme_total_count": 9,
+      "task_template": [
+        "Extract 3 falsifiable claims with evidence location.",
+        "Map each claim to existing frontier/principle IDs.",
+        "Propose one experiment or challenge artifact for merge."
+      ]
+    },
+    {
+      "lane_id": "ARX-02",
+      "theme": "evaluation-scaling",
+      "rationale": "Quantitative tests, benchmarks, and scaling behavior.",
+      "paper_ids": [
+        "2602.08023v2",
+        "2602.13292v1",
+        "2602.09159v1",
+        "2602.09892v1",
+        "2602.14160v1"
+      ],
+      "backlog_paper_ids": [],
+      "selected_count": 5,
+      "backlog_count": 0,
+      "theme_total_count": 5,
+      "task_template": [
+        "Extract 3 falsifiable claims with evidence location.",
+        "Map each claim to existing frontier/principle IDs.",
+        "Propose one experiment or challenge artifact for merge."
+      ]
+    },
+    {
+      "lane_id": "ARX-03",
+      "theme": "memory-knowledge",
+      "rationale": "State persistence, context control, and memory abstractions.",
+      "paper_ids": [
+        "2602.17902v1",
+        "2602.11510v1",
+        "2602.16738v1",
+        "2602.20934v1",
+        "2602.21477v1"
+      ],
+      "backlog_paper_ids": [],
+      "selected_count": 5,
+      "backlog_count": 0,
+      "theme_total_count": 5,
+      "task_template": [
+        "Extract 3 falsifiable claims with evidence location.",
+        "Map each claim to existing frontier/principle IDs.",
+        "Propose one experiment or challenge artifact for merge."
+      ]
+    },
+    {
+      "lane_id": "ARX-04",
+      "theme": "tool-use-execution",
+      "rationale": "Executable agent workflows and integration with tools.",
+      "paper_ids": [
+        "2602.10479v1",
+        "2602.16898v3",
+        "2602.11790v1"
+      ],
+      "backlog_paper_ids": [],
+      "selected_count": 3,
+      "backlog_count": 0,
+      "theme_total_count": 3,
+      "task_template": [
+        "Extract 3 falsifiable claims with evidence location.",
+        "Map each claim to existing frontier/principle IDs.",
+        "Propose one experiment or challenge artifact for merge."
+      ]
+    },
+    {
+      "lane_id": "ARX-05",
+      "theme": "safety-reliability",
+      "rationale": "Failure modes, trust boundaries, and robustness checks.",
+      "paper_ids": [
+        "2602.13477v2",
+        "2602.23005v1"
+      ],
+      "backlog_paper_ids": [],
+      "selected_count": 2,
+      "backlog_count": 0,
+      "theme_total_count": 2,
+      "task_template": [
+        "Extract 3 falsifiable claims with evidence location.",
+        "Map each claim to existing frontier/principle IDs.",
+        "Propose one experiment or challenge artifact for merge."
+      ]
+    }
+  ],
+  "lane_coverage": {
+    "selected_count": 20,
+    "backlog_count": 4,
+    "selected_ratio": 0.8333333333333334
+  },
+  "interpretation": "This artifact turns ad-hoc paper drops into lane-ready swarm work: papers are grouped by theme with a fixed task template for parallel distill-and-merge.",
+  "generated_at_utc": "2026-02-27T20:46:21Z"
+}

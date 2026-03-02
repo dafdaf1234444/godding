@@ -1,0 +1,101 @@
+{
+  "id": "f-meta8-fp-rate-s362",
+  "frontier": "F-META8",
+  "session": "S362",
+  "date": "2026-03-01",
+  "domain": "meta",
+  "hypothesis": "contract_check.py deployed in S355 has <5% false-positive and <5% false-negative rate over 7+ sessions",
+  "method": {
+    "description": "Retrospective analysis of all commits since S355 deployment. False positives = contract FAIL on coherent state. False negatives = contract PASS on incoherent state (detected by sync_state.py drift fixes).",
+    "sample_size": 71,
+    "session_range": "S355-S362",
+    "session_count": 8
+  },
+  "results": {
+    "total_commits": 71,
+    "sessions": [
+      355,
+      356,
+      357,
+      358,
+      359,
+      360,
+      361,
+      362
+    ],
+    "false_positives": {
+      "count": 0,
+      "rate": 0.0,
+      "evidence": "No commits rejected by contract_check.py for non-issues"
+    },
+    "false_negatives": {
+      "count": 1,
+      "rate": 0.0141,
+      "evidence": [
+        "9b14212 [S360] state-sync: fix 587L count drift in INDEX/NEXT/PAPER headers"
+      ],
+      "classification": "design_gap_not_runtime_failure",
+      "explanation": "Component 2 (monotonic_state_vector) checks that counts EXIST in INDEX.md header but does not verify them against actual file system counts. Count drift (e.g., header says 587L but 589L exist) passes the check. This is by design (minimal contract) not a bug."
+    },
+    "true_positives": {
+      "count": 0,
+      "note": "No contract violations detected in any pre-commit run S355-S362. The contract has never fired FAIL in production."
+    },
+    "true_negatives": {
+      "count": 70,
+      "note": "All other commits: contract PASS and coherence intact"
+    }
+  },
+  "current_check": {
+    "contract_version": "1.0",
+    "session": "S362",
+    "all_pass": true,
+    "components": {
+      "identity_invariant": {
+        "pass": true,
+        "detail": "all 4 invariants present"
+      },
+      "monotonic_state_vector": {
+        "pass": true,
+        "detail": "state vector {'L': 589, 'P': 173, 'B': 17}"
+      },
+      "active_work_pointer": {
+        "pass": true,
+        "detail": "active work pointer found"
+      },
+      "write_obligation": {
+        "pass": true,
+        "detail": "2 commits for S362"
+      },
+      "protocol_handshake": {
+        "pass": true,
+        "detail": "CORE.md hash verified"
+      }
+    },
+    "pass_count": 5,
+    "total": 5
+  },
+  "findings": [
+    {
+      "id": 1,
+      "finding": "Contract is structurally sound but accuracy-blind",
+      "detail": "0% FP, 1.4% FN. The false-negative class is a design choice: minimal contract checks structure (files exist, sessions monotonic, hash match) not accuracy (header counts match reality)."
+    },
+    {
+      "id": 2,
+      "finding": "Contract has never fired FAIL in production",
+      "detail": "71 commits across 8 sessions, 0 FAIL outcomes. This could mean: (a) the contract is well-calibrated and swarm is coherent, or (b) the contract is too permissive. Evidence leans toward (a) since sync_state.py catches the accuracy gap."
+    },
+    {
+      "id": 3,
+      "finding": "Two-tool coverage: contract_check + sync_state = complementary",
+      "detail": "contract_check.py covers structural coherence (5 components). sync_state.py covers accuracy coherence (count drift). Together they catch all observed coherence issues. Neither alone is sufficient."
+    }
+  ],
+  "recommendations": [
+    "Add optional --strict mode to Component 2 that counts actual lessons/principles and compares to header",
+    "Track contract_check outcomes in workspace/maintenance-outcomes.json for longitudinal analysis",
+    "Target: 20 sessions (12 more) for robust FP/FN rate estimate"
+  ],
+  "verdict": "HYPOTHESIS CONFIRMED: 0% FP, 1.4% FN (within <5% target). Contract is sound but not complete \u2014 complementary sync_state.py coverage needed."
+}

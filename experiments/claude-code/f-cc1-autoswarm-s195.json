@@ -1,0 +1,28 @@
+{
+  "session": "S195",
+  "frontier": "F-CC1",
+  "date": "2026-02-28",
+  "built": [
+    "tools/autoswarm.sh",
+    "workspace/autoswarm-logs/"
+  ],
+  "stop_hook_wired": true,
+  "stop_hook_command": "mkdir -p workspace/autoswarm-logs && touch workspace/autoswarm-trigger",
+  "invocation_tested": true,
+  "invocation_test": "bash tools/autoswarm.sh --dry-run — exited 0, logged correct claude invocation path",
+  "cron_example": "*/30 * * * * cd /path/to/swarm && bash tools/autoswarm.sh >> workspace/autoswarm-logs/cron.log 2>&1",
+  "filesystem_watcher_example": "inotifywait -m -e create workspace/autoswarm-trigger | while read; do bash tools/autoswarm.sh; done",
+  "invocation_syntax": "claude --print \"$(cat .claude/commands/swarm.md)\" --dangerously-skip-permissions --max-budget-usd 2",
+  "lockfile_guard": "workspace/autoswarm.lock — prevents concurrent autoswarm runs",
+  "trigger_file": "workspace/autoswarm-trigger — written by Stop hook; consumed and re-written by autoswarm.sh each cycle",
+  "log_format": "workspace/autoswarm-logs/YYYY-MM-DD-HH-MM.log",
+  "result": "IMPLEMENTED",
+  "blockers": [],
+  "notes": [
+    "Stop hook wired as second entry in settings.json Stop array (session-end-check.py runs first)",
+    "autoswarm.sh includes stale lockfile detection to handle crashes",
+    "Trigger file is both consumed (at start) and re-written (at end) to enable continuous chaining",
+    "F-CC4 (min budget floor) still open — $2 is a conservative placeholder pending empirical measurement"
+  ],
+  "next_step": "Run F-CC4: 5 sessions at $0.25/$0.50/$1.00/$2.00/$5.00 to find minimum viable budget; measure L+P output per dollar"
+}

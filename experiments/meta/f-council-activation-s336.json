@@ -1,0 +1,97 @@
+{
+  "health": "CRITICAL",
+  "occupied": 0,
+  "total": 10,
+  "seats": [
+    {
+      "seat": "C-01",
+      "domain": "meta",
+      "abbrev": "META",
+      "score": 38.5,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-META1: What minimal self-model contract keeps swarm state coherent across `tasks/NEXT.m"
+    },
+    {
+      "seat": "C-02",
+      "domain": "nk-complexity",
+      "abbrev": "NK",
+      "score": 36.5,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F9-NK: What additional knowledge domains should follow complexity theory?"
+    },
+    {
+      "seat": "C-03",
+      "domain": "linguistics",
+      "abbrev": "LNG",
+      "score": 34.5,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-LNG1: Can Zipf's law exponent variation across languages predict swarm lesson distribu"
+    },
+    {
+      "seat": "C-04",
+      "domain": "expert-swarm",
+      "abbrev": "EXP",
+      "score": 33.0,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-EXP1: Does dispatch_optimizer.py score-ranked selection increase domain experiment thr"
+    },
+    {
+      "seat": "C-05",
+      "domain": "brain",
+      "abbrev": "BRN",
+      "score": 32.0,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-BRN2: Is predictive coding fully operational in the expect-act-diff protocol, or does"
+    },
+    {
+      "seat": "C-06",
+      "domain": "information-science",
+      "abbrev": "IS",
+      "score": 30.5,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-IS3: Can information-theoretic derivation of the F1-score maximum give an analyticall"
+    },
+    {
+      "seat": "C-07",
+      "domain": "helper-swarm",
+      "abbrev": "HLP",
+      "score": 27.0,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-HLP1: Which helper-trigger policy best identifies stalled work without creating false"
+    },
+    {
+      "seat": "C-08",
+      "domain": "human-systems",
+      "abbrev": "HS",
+      "score": 27.0,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-HS1: Where does bureaucracy lose the ability to compress, and what structural mechani"
+    },
+    {
+      "seat": "C-09",
+      "domain": "quality",
+      "abbrev": "QC",
+      "score": 27.0,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-QC2: Do high-citation lessons decay in accuracy over time as the swarm's beliefs evol"
+    },
+    {
+      "seat": "C-10",
+      "domain": "claude-code",
+      "abbrev": "CC",
+      "score": 26.5,
+      "active_lane": null,
+      "status": "VACANT",
+      "frontier": "F-CC4: What is the minimum `--max-budget-usd` floor that allows a full swarm session to"
+    }
+  ]
+}

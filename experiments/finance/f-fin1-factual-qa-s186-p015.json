@@ -1,0 +1,228 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa",
+  "seed": 186,
+  "lang": "en",
+  "trials_per_condition": 5,
+  "perturb_rate": 0.15,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.5,
+      0.25,
+      0.25,
+      0.4167,
+      0.4167
+    ],
+    "summary": {
+      "mean": 0.3667,
+      "std": 0.1,
+      "variance": 0.01
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "predictions": [
+          "Closed-ended question"
+        ],
+        "vote": "Closed-ended question"
+      },
+      {
+        "country": "Canada",
+        "expected": "Ottawa",
+        "predictions": [
+          "capital of Canada"
+        ],
+        "vote": "capital of Canada"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "predictions": [
+          "Idnia capital city"
+        ],
+        "vote": "Idnia capital city"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "predictions": [
+          "what is the capital of Spain"
+        ],
+        "vote": "what is the capital of Spain"
+      },
+      {
+        "country": "Germany",
+        "expected": "Berlin",
+        "predictions": [
+          "Germany capital city"
+        ],
+        "vote": "Germany capital city"
+      },
+      {
+        "country": "Argentina",
+        "expected": "Buenos Aires",
+        "predictions": [
+          "Argentina capital ciyt"
+        ],
+        "vote": "Argentina capital ciyt"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.25,
+      0.5833,
+      0.0833,
+      0.1667,
+      0.0833
+    ],
+    "summary": {
+      "mean": 0.2333,
+      "std": 0.1856,
+      "variance": 0.034444
+    },
+    "mean_pairwise_prediction_agreement": 0.2056,
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "predictions": [
+          "France capital city",
+          "Francecapital city",
+          "capital of France"
+        ],
+        "vote": "France capital city"
+      },
+      {
+        "country": "Japan",
+        "expected": "Tokyo",
+        "predictions": [
+          "what is the capital of Japan",
+          "capiatl of Japan",
+          "capital of Japan"
+        ],
+        "vote": "what is the capital of Japan"
+      },
+      {
+        "country": "Italy",
+        "expected": "Rome",
+        "predictions": [
+          "Italy capital city",
+          "what is the capital of Italy",
+          "capital of Italy"
+        ],
+        "vote": "Italy capital city"
+      },
+      {
+        "country": "Canada",
+        "expected": "Ottawa",
+        "predictions": [
+          "what is the capital of Canada",
+          "Canada capital city",
+          "capitalof Canada"
+        ],
+        "vote": "what is the capital of Canada"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "predictions": [
+          "Australia capital city",
+          "what is the capital of Australia",
+          "capital of Australai"
+        ],
+        "vote": "Australia capital city"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "predictions": [
+          "what is the capital of India",
+          "India capital city",
+          "India captial city"
+        ],
+        "vote": "what is the capital of India"
+      },
+      {
+        "country": "Germany",
+        "expected": "Berlin",
+        "predictions": [
+          "Germany capital city",
+          "capital of Germany",
+          "Germany capital city"
+        ],
+        "vote": "Germany capital city"
+      },
+      {
+        "country": "Kenya",
+        "expected": "Nairobi",
+        "predictions": [
+          "Kenya capital city",
+          "capital of Kenya",
+          "what is the capital of Kena"
+        ],
+        "vote": "Kenya capital city"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": -0.1334,
+    "variance_ratio_n3_over_n1": 3.4444
+  },
+  "interpretation": "This is a redesign step for F-FIN1 using fixed ground-truth factual QA and majority voting. It validates diversification mechanics on a live knowledge source, but remains a resolver proxy rather than direct LLM answer generation.",
+  "generated_at_utc": "2026-02-27T20:46:04Z"
+}

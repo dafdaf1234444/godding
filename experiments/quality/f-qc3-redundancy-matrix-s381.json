@@ -1,0 +1,181 @@
+{
+  "frontier": "F-QC3",
+  "session": "S381",
+  "method": "Jaccard word-set similarity, threshold=0.25, keyword domain classification",
+  "total_lessons": 665,
+  "classified_lessons": 382,
+  "classification_rate": 0.574,
+  "domains_with_lessons": 20,
+  "threshold": 0.25,
+  "total_cross_dupes": 11,
+  "total_cross_pairs": 16299,
+  "overall_redundancy_rate": 0.0007,
+  "redundant_domain_pairs": 7,
+  "atlas_pairs_tested": 3,
+  "atlas_avg_rate": 0.0016,
+  "non_atlas_avg_rate": 0.0016,
+  "atlas_ratio": 1.03,
+  "top_15_pairs": [
+    {
+      "domains": "graph-theory|linguistics",
+      "count": 1,
+      "rate": 0.0041,
+      "max_sim": 0.27,
+      "in_atlas": false,
+      "examples": [
+        [
+          "L-399",
+          "L-439",
+          0.27
+        ]
+      ]
+    },
+    {
+      "domains": "nk-complexity|stochastic-processes",
+      "count": 1,
+      "rate": 0.0038,
+      "max_sim": 0.324,
+      "in_atlas": true,
+      "examples": [
+        [
+          "L-641",
+          "L-674",
+          0.324
+        ]
+      ]
+    },
+    {
+      "domains": "economy|graph-theory",
+      "count": 3,
+      "rate": 0.0015,
+      "max_sim": 0.286,
+      "in_atlas": false,
+      "examples": [
+        [
+          "L-594",
+          "L-531",
+          0.286
+        ],
+        [
+          "L-520",
+          "L-659",
+          0.264
+        ]
+      ]
+    },
+    {
+      "domains": "ai|nk-complexity",
+      "count": 2,
+      "rate": 0.0006,
+      "max_sim": 0.333,
+      "in_atlas": true,
+      "examples": [
+        [
+          "L-613",
+          "L-618",
+          0.333
+        ],
+        [
+          "L-630",
+          "L-628",
+          0.303
+        ]
+      ]
+    },
+    {
+      "domains": "graph-theory|nk-complexity",
+      "count": 1,
+      "rate": 0.0005,
+      "max_sim": 0.333,
+      "in_atlas": false,
+      "examples": [
+        [
+          "L-613",
+          "L-618",
+          0.333
+        ]
+      ]
+    },
+    {
+      "domains": "ai|economy",
+      "count": 2,
+      "rate": 0.0005,
+      "max_sim": 0.295,
+      "in_atlas": true,
+      "examples": [
+        [
+          "L-623",
+          "L-629",
+          0.295
+        ],
+        [
+          "L-629",
+          "L-623",
+          0.295
+        ]
+      ]
+    },
+    {
+      "domains": "ai|graph-theory",
+      "count": 1,
+      "rate": 0.0002,
+      "max_sim": 0.303,
+      "in_atlas": false,
+      "examples": [
+        [
+          "L-630",
+          "L-628",
+          0.303
+        ]
+      ]
+    }
+  ],
+  "sensitivity_analysis": {
+    "threshold_0.15": {
+      "cross_dupes": 347,
+      "overall_rate": 0.0213,
+      "atlas_ratio": 1.02,
+      "atlas_n": 31,
+      "non_atlas_n": 31
+    },
+    "threshold_0.20": {
+      "cross_dupes": 36,
+      "overall_rate": 0.0022,
+      "atlas_ratio": 2.27,
+      "atlas_n": 7,
+      "non_atlas_n": 8,
+      "note": "Peak atlas signal at this threshold — but small n (7 atlas pairs)"
+    },
+    "threshold_0.25": {
+      "cross_dupes": 11,
+      "overall_rate": 0.0007,
+      "atlas_ratio": 1.03,
+      "atlas_n": 3,
+      "non_atlas_n": 4
+    },
+    "conclusion": "Atlas ratio is threshold-sensitive: peaks at 0.20 (2.27x, n=7) but collapses at both extremes. Small n makes all comparisons fragile. Overall cross-domain redundancy stable at <2.5% across all thresholds."
+  },
+  "verdict": "PARTIALLY CONFIRMED: cross-domain redundancy extremely low (0.07-2.1%). Atlas ratio threshold-sensitive (1.03-2.27x). Domain-specific vocabulary prevents duplication; ISOMORPHISM-ATLAS compresses shared structure separately from lessons.",
+  "domain_lesson_counts": {
+    "ai": 92,
+    "brain": 4,
+    "catastrophic-risks": 3,
+    "control-theory": 4,
+    "economy": 42,
+    "evolution": 14,
+    "expert-swarm": 51,
+    "fluid-dynamics": 3,
+    "game-theory": 2,
+    "gaming": 2,
+    "governance": 15,
+    "graph-theory": 49,
+    "information-science": 55,
+    "linguistics": 5,
+    "meta": 36,
+    "nk-complexity": 38,
+    "quality": 15,
+    "security": 3,
+    "statistics": 2,
+    "stochastic-processes": 7
+  }
+}

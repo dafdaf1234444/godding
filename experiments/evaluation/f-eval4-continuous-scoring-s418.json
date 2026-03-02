@@ -1,0 +1,51 @@
+{
+  "experiment": "F-EVAL4 hardening: continuous scoring + session-type stratification",
+  "session": "S418",
+  "frontier": "F-EVAL4",
+  "mode": "hardening",
+  "level": "L3",
+  "hypothesis": "Continuous scoring (replacing cliff-edge thresholds) produces 2+ different rating changes vs baseline. DOMEX sessions show higher avg_lp than non-DOMEX.",
+  "method": {
+    "intervention_1": "Added _continuous_score() interpolation function mapping metrics to 0.0-3.0 continuous range across all 4 goal scorers",
+    "intervention_2": "Added session-type stratification in _load_session_log() tagging sessions as DOMEX/non-DOMEX from SESSION-LOG descriptions",
+    "intervention_3": "Changed next_improvement_target selection from discrete to continuous scores for precision",
+    "baseline": "eval_sufficiency.py at S417 (window=min(50,available), session-count floor n<5)",
+    "artifact": "experiments/evaluation/eval-sufficiency-s418.json"
+  },
+  "results": {
+    "discrete_verdicts_changed": 0,
+    "next_target_changed": true,
+    "next_target_before": "Increase (discrete=1, alphabetical tiebreak)",
+    "next_target_after": "Protect (continuous=1.71 < Increase continuous=1.84)",
+    "continuous_composite": 0.74,
+    "discrete_composite": 0.58,
+    "continuous_scores": {
+      "Collaborate": 2.35,
+      "Increase": 1.84,
+      "Protect": 1.71,
+      "Truthful": 3.0
+    },
+    "session_stratification": {
+      "domex_avg_lp": 1.9,
+      "domex_n": 18,
+      "non_domex_avg_lp": 1.0,
+      "non_domex_n": 1,
+      "finding": "avg_lp is DOMEX-dominated (18/19 sessions). Non-DOMEX barely represented in window."
+    },
+    "binding_constraint": "Protect (proxy_k_drift=8.3%, above 6% healthy threshold)",
+    "margin_analysis": {
+      "Increase_to_SUFFICIENT": "0.16 avg_lp (8%)",
+      "Protect_to_SUFFICIENT": "drift must drop from 8.3% to <6.0% AND maintain drop_rate>0",
+      "Collaborate_to_EXCELLENT": "needs merge_rate>50% and external evidence"
+    }
+  },
+  "verdict": "PARTIALLY CONFIRMED",
+  "verdict_rationale": "Discrete verdicts unchanged (0 rating changes, expected 2+). But continuous scoring correctly differentiates previously-tied goals (Protect 1.71 < Increase 1.84), changing the improvement target. Session stratification confirms DOMEX dominance (94.7% of sessions). Hardening value is in precision, not verdict change.",
+  "diff_from_expectation": "Expected 2+ discrete rating changes — actual 0. Continuous scoring adds diagnostic precision without changing discrete outcomes at current metric values. The cliff-edge problem manifests only when metrics are near thresholds; current values are well within their discrete bands.",
+  "prescriptions": [
+    "Protect is the true binding constraint (proxy_k_drift 8.3% > 6% target). Compaction should be prioritized over production.",
+    "Non-DOMEX session representation too low (n=1 in 50-session window) for meaningful stratification. Need more maintenance-only session data.",
+    "Continuous composite (74%) is a more honest overall metric than discrete (58%) — consider using it in orient.py."
+  ],
+  "related": ["L-928", "L-919", "L-792", "F-EVAL4"]
+}

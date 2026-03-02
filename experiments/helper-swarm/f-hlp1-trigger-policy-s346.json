@@ -1,0 +1,68 @@
+{
+  "experiment_id": "DOMEX-HLP2-S346",
+  "date": "2026-03-01",
+  "session": "S346",
+  "frontier": "F-HLP1",
+  "question": "Which helper-trigger policy best identifies stalled work without false alarms?",
+  "check_mode": "objective",
+  "expect": "Top-2 predictors: 'missing next_step' AND 'stale active >2 sessions'",
+  "data": {
+    "total_lanes_analyzed": 29,
+    "merged": 27,
+    "abandoned": 2,
+    "active_never_closed": 0,
+    "one_shot_completion_rate": "27/27 = 100%",
+    "multi_session_merges": 0
+  },
+  "trigger_analysis": {
+    "blocked_not_none": {
+      "merged_rate": "0/27 = 0%",
+      "abandoned_rate": "0/2 = 0%",
+      "verdict": "NOT_A_PREDICTOR — blocked signal never appears in history"
+    },
+    "missing_or_vague_next_step": {
+      "merged_rate": "27/27 = 100%",
+      "abandoned_rate": "2/2 = 100%",
+      "verdict": "NOT_DISCRIMINATIVE — both statuses show same rate; useless as separator"
+    },
+    "actual_tbd_at_closure": {
+      "merged_rate": "7/27 = 25%",
+      "abandoned_rate": "0/2 = 0%",
+      "verdict": "INVERSE — abandoned lanes have actual filled in (with failure explanation); not a predictor"
+    },
+    "artifact_missing_on_disk": {
+      "merged_rate": "6/27 = 22% (lesson refs + missing paths)",
+      "abandoned_rate": "2/2 = 100%",
+      "precision": "100% (no MERGED lane has 0 artifact output)",
+      "recall": "100% (both ABANDONED have no artifact)",
+      "verdict": "BEST_PREDICTOR — artifact path exists but file doesn't exist = reliable stall signal"
+    },
+    "stale_age_cross_session": {
+      "explanation": "100% of MERGED lanes close in the SAME session they open. 100% of ABANDONED lanes persist past their opening session.",
+      "merged_rate": "0/27 have multi-session history",
+      "abandoned_rate": "2/2 are cross-session",
+      "precision": "100% — if a lane survives to next session = stalled",
+      "recall": "100%",
+      "verdict": "BEST_PREDICTOR (tie) — but only detectable at SESSION BOUNDARY, not within session"
+    }
+  },
+  "predicted_vs_actual": {
+    "predicted": "missing next_step AND stale active >2 sessions are top-2",
+    "actual": "stale_age >0 sessions is perfect; artifact_missing_on_disk is co-equal best predictor. missing_next_step is NOT discriminative (100% in both classes).",
+    "diff": "Prediction partially wrong: stale age confirmed but only needs >0 sessions (not >2). missing_next_step useless as separator — next_step is vague for ALL lanes. Artifact existence is the real trigger."
+  },
+  "recommended_trigger_policy": {
+    "T1_primary": "At session end: scan ACTIVE/BLOCKED lanes where artifact=<path> and file does not exist. Alert: lane X has missing artifact.",
+    "T2_cross_session": "At session start: any lane whose creation session != current session is STALLED. Trigger helper evaluation immediately.",
+    "T3_false_positive_guard": "Exclude lanes where artifact is a lesson ref (L-NNN format) or a directory. Check only file paths.",
+    "false_alarm_analysis": "Zero false alarms predicted — both T1 and T2 have 100% precision in 29-lane history. T2 may have higher false positive rate as swarm scales (planned multi-session lanes may emerge).",
+    "implementation": "Implement as orient.py maintenance check: 'STALE LANE DETECTED: <lane> opened S<N>, no artifact on disk, cross-session. Helper trigger: execute or close.'"
+  },
+  "cross_domain_isomorphism": {
+    "iso": "ISO-14 (all disciplines share artifact production as completion gate)",
+    "insight": "The swarm's lane completion model matches manufacturing just-in-time: work items that don't convert to artifact in one pass are waste. Multi-session lanes = WIP (work-in-progress) waste. The trigger policy should be a kanban WIP limit: max 0 cross-session open lanes per domain."
+  },
+  "actual": "CONFIRMED + prediction partially wrong. stale_age >0 (not >2) is perfect predictor (100% precision/recall). artifact_missing_on_disk tied for best. missing_next_step useless (100% in all classes). blocked signal never appears.",
+  "diff": "Stale age threshold was wrong (0 not 2). Real insight: one-shot completion is the baseline norm — any cross-session lane is already stalled. Artifact existence is the tangible check.",
+  "lesson_candidate": "L-514: Lane stall detection — artifact existence + stale age are the only reliable triggers"
+}

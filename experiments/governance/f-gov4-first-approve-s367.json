@@ -1,0 +1,173 @@
+{
+  "session": "S367",
+  "tool": "genesis_selector.py",
+  "frontier": "F-GOV4 + F-DNA1",
+  "council_decision": "APPROVE (4/4, first F-GOV4 approval)",
+  "lesson": "L-666",
+  "principle": "P-233",
+  "confound_warning": "Simpson's paradox: minimal children received more experimental attention. ABLATE-CANDIDATE recommendations are hypotheses, not prescriptions.",
+  "children_scanned": 33,
+  "unique_atom_configs": 7,
+  "fitness_proxy": "0.6*lessons/session + 0.3*beliefs/session + 0.1*resolved/session",
+  "top_5": [
+    {
+      "name": "belief-minimal-nofalsif-principles-first",
+      "fitness": 4.529,
+      "lessons": 37,
+      "sessions": 7,
+      "beliefs": 29
+    },
+    {
+      "name": "belief-minimal-nofalsif",
+      "fitness": 3.98,
+      "lessons": 43,
+      "sessions": 10,
+      "beliefs": 43
+    },
+    {
+      "name": "belief-test-first",
+      "fitness": 3.789,
+      "lessons": 36,
+      "sessions": 9,
+      "beliefs": 37
+    },
+    {
+      "name": "belief-principles-first",
+      "fitness": 3.65,
+      "lessons": 22,
+      "sessions": 6,
+      "beliefs": 26
+    },
+    {
+      "name": "belief-no-falsification",
+      "fitness": 3.5,
+      "lessons": 51,
+      "sessions": 12,
+      "beliefs": 36
+    }
+  ],
+  "atom_correlations": {
+    "session-protocol": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "core-beliefs": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "belief-tracking": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "conflict-protocol": {
+      "with_mean": 1.844,
+      "without_mean": 3.081,
+      "n_with": 27,
+      "n_without": 6,
+      "lift": -0.401
+    },
+    "memory-index": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "distill-protocol": {
+      "with_mean": 1.834,
+      "without_mean": 3.125,
+      "n_with": 27,
+      "n_without": 6,
+      "lift": -0.413
+    },
+    "verify-protocol": {
+      "with_mean": 1.821,
+      "without_mean": 3.457,
+      "n_with": 28,
+      "n_without": 5,
+      "lift": -0.473
+    },
+    "lesson-template": {
+      "with_mean": 2.088,
+      "without_mean": 1.467,
+      "n_with": 32,
+      "n_without": 1,
+      "lift": 0.423
+    },
+    "session-modes": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "validator": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "pre-commit-hook": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "frontier": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "first-task": {
+      "with_mean": 2.069,
+      "without_mean": null,
+      "n_with": 33,
+      "n_without": 0,
+      "lift": null,
+      "note": "no variance (all children have or lack this atom)"
+    },
+    "next-handoff": {
+      "with_mean": 2.189,
+      "without_mean": 1.2,
+      "n_with": 29,
+      "n_without": 4,
+      "lift": 0.824
+    },
+    "principles-inherit": {
+      "with_mean": 2.221,
+      "without_mean": 1.594,
+      "n_with": 25,
+      "n_without": 8,
+      "lift": 0.394
+    }
+  },
+  "recommendations": [
+    "KEEP next-handoff: +82% fitness lift (n_with=29, n_without=4)",
+    "NEUTRAL lesson-template: +42% lift (n_with=32, n_without=1)",
+    "KEEP principles-inherit: +39% fitness lift (n_with=25, n_without=8)",
+    "ABLATE-CANDIDATE conflict-protocol: -40% fitness drag (n_with=27, n_without=6)",
+    "ABLATE-CANDIDATE distill-protocol: -41% fitness drag (n_with=27, n_without=6)",
+    "ABLATE-CANDIDATE verify-protocol: -47% fitness drag (n_with=28, n_without=5)"
+  ]
+}

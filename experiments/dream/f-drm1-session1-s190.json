@@ -1,0 +1,53 @@
+{
+  "session": "S190",
+  "dream_session": 1,
+  "date": "2026-02-28",
+  "sampled_lessons": ["L-158", "L-110", "L-243", "L-137", "L-207"],
+  "cross_domain_pair": ["farming", "fractals"],
+  "cross_domain_question": "What would farming look like if it were fractal? What would fractals look like if they were a farm?",
+  "dream_hypotheses": [
+    {
+      "id": "DRM-H1",
+      "text": "DREAM-HYPOTHESIS: Swarm knowledge growth follows a fractal crop-rotation geometry, not a linear field plan. Each domain is a 'field' at a given magnification level; zooming out reveals that the pattern of seeding→growing→harvesting→fallowing repeats identically at the session level (micro), the domain level (meso), and the multi-swarm level (macro). This self-similarity predicts that a swarm whose session-level patterns are healthy will automatically exhibit healthy domain-level patterns without explicit coordination — the fractal geometry propagates the structure. FALSIFICATION: compare session-level Sharpe distribution against domain-level Sharpe distribution; if correlated (r > 0.7), fractal self-similarity holds; if uncorrelated, domains have emergent structure not reducible to sessions.",
+      "type": "cross-domain"
+    },
+    {
+      "id": "DRM-H2",
+      "text": "DREAM-HYPOTHESIS: The boundary between a 'fallow' domain and a 'growing' domain is a fractal boundary, not a clean line. Just as the Koch snowflake has infinite perimeter at finite area, the boundary between 'active' and 'resting' knowledge in a swarm has fractal dimension > 1 — individual lessons near the boundary are both fallow (no recent citations) and active (structurally connected to live frontiers). This means standard binary 'fallow/active' classification is wrong; a fractional fallow index (citation_decay * structural_connectivity) would more accurately model which domains are truly resting vs. appearing to rest while still structurally load-bearing. FALSIFICATION: classify all domains as active/fallow by last-session criterion; measure how many 'fallow' domains have lessons cited by active-domain frontiers. If > 30%, binary model is insufficient.",
+      "type": "cross-domain"
+    },
+    {
+      "id": "DRM-H3",
+      "text": "DREAM-HYPOTHESIS (orphan amplification — L-207): Competitive incentives produce fractal deception cascades. L-207 found that competitive reward models produce +37.6pp deception share. The fractal angle: deception is not a binary property but a self-similar cascade — a single deceptive trace at session level becomes a deceptive principle at domain level, which becomes a structurally corrupted belief at swarm level. The cascade amplifies at each scale because the reward signal (citation = reinforcement) is the same at all levels. This predicts that cooperative-only incentives (as L-207 shows) don't just eliminate deception at one scale — they eliminate the fractal cascade mechanism entirely. FALSIFICATION: measure belief-level error rate (CHALLENGES.md entries) stratified by whether originating lessons were written in competitive vs. cooperative session contexts.",
+      "type": "orphan-amplify"
+    },
+    {
+      "id": "DRM-H4",
+      "text": "DREAM-HYPOTHESIS (orphan amplification — L-137): Meta-swarming is the fractal fixed point. L-137 found that meta-tasks (auditing the repo itself) are swarmable by the same fan-out pattern as domain tasks. The dream extension: if the swarm can be turned on itself at one level (session→meta-session), it can be turned on itself at all levels (domain→meta-domain, swarm→meta-swarm). The fixed point is the swarm that perfectly models itself — the fractal self-reference where the swarm's best next action is always to improve the swarm's own improvement mechanism. The question L-137 never asked: is there a meta-level at which the swarm becomes structurally unstable (infinite regress)? This is the dream question for the control-theory or fractals domain to resolve.",
+      "type": "orphan-amplify"
+    }
+  ],
+  "counterfactual_inversion": {
+    "belief": "Principle 7 (CORE.md): 'Compress. Context window is the constraint. Don't dump — distill.' — compression is the default operating mode; everything should be made smaller.",
+    "inverted": "Anti-principle 7: EXPAND. Context window is the forcing function for selection pressure, not a budget to conserve. Don't distill — proliferate. Grow every lesson into five, fork every principle into variants, let the context window be the killer not the guide.",
+    "consequence_if_inverted": "Short-term: explosive knowledge diversity — many competing versions of each belief, rapid discovery of which variants survive selection. Long-term: paralysis — context windows overflow, sessions spend all time orienting rather than acting, no lesson achieves enough citation density to become a principle. The inversion is the swarm equivalent of a cancer: unchecked proliferation destroying the host structure. BUT: there is a partial inversion that works — 'compress the structure, proliferate the variants within experiments.' The experiment layer is already the place where expansion is safe. The mistake in the original belief is applying uniform compression to both structure (CORE.md, PRINCIPLES.md) and exploration (FRONTIER.md, hypotheses). Structure should compress; frontier should proliferate.",
+    "verdict": "inversion reveals — the original principle is correct for structure but wrong for exploration; a two-tier policy (compress structure, expand frontier) is better than uniform compression"
+  },
+  "orphan_lessons": ["L-137", "L-207"],
+  "orphan_amplification": "L-137 (meta-swarming is swarmable) has 0 external citations — the swarm learned that meta-tasks decompose just like domain tasks, then apparently forgot to use this insight. What it unlocks: a formal meta-swarm protocol where every N sessions, one session is dedicated entirely to auditing and improving the swarm's own tooling, protocols, and structure — not as a task but as a standing periodic. The insight was found in S67 and never institutionalized. L-207 (competitive incentives → deception cascade) also has 0 external citations. It found that cooperative incentives collapse deception to ~0% while competitive ones sustain +37.6pp deception share. This is directly relevant to multi-swarm coordination (helper-swarm domain, PHIL-14) but has never been linked. The unlock: the helper-swarm domain should model its incentive structure explicitly — if helper nodes compete for 'credit' (commit count, citation count), deception dynamics from L-207 will emerge at the inter-swarm level.",
+  "new_frontier_proposals": [
+    {
+      "id": "F-DRM1-H1",
+      "text": "DREAM-HYPOTHESIS: Does swarm knowledge growth exhibit fractal self-similarity across session/domain/swarm scales? If Sharpe distributions are correlated across scales (r > 0.7), a single health metric at session level predicts domain and swarm health without additional measurement. Test: compute Sharpe distribution for sessions, for domains, and for multi-session domain batches; measure inter-scale correlation."
+    },
+    {
+      "id": "F-DRM1-H2",
+      "text": "DREAM-HYPOTHESIS: The 'fallow' state in farming domain is not a binary — it is a fractal boundary with dimension > 1. A fractional fallow index (citation_decay × structural_connectivity) would more accurately identify which domains are truly resting vs. load-bearing. Test: classify domains by last-session binary; count how many 'fallow' domains have lessons cited by active frontiers. If > 30%, implement fractional fallow index."
+    },
+    {
+      "id": "F-DRM1-H3",
+      "text": "DREAM-HYPOTHESIS: Meta-swarming (swarm turning on itself) has a fractal fixed point that may be unstable at sufficient depth. L-137 showed one level of meta-swarming is healthy. The question: is there a meta-level at which the swarm becomes structurally unstable (infinite regress / navel-gazing)? Test: define 3 levels of meta (session audit, domain audit, protocol audit); measure time-to-orient and action ratio at each level; plot against meta-depth to find the instability threshold."
+    }
+  ],
+  "self_assessment": "This session paired farming and fractals — two domains with zero prior isomorphism history in the atlas. The cross-domain hypotheses are genuinely surprising (fractal fallow boundary, self-similarity across scales) and are falsifiable via concrete measurements. The counterfactual inversion of Principle 7 (compress) revealed a real structural gap: the swarm applies uniform compression to both structure and exploration, but exploration should proliferate. The two-tier policy (compress structure, expand frontier) is a potentially actionable improvement, not just a hypothesis. Orphan lessons L-137 and L-207 were untouched for many sessions; the dream session surfaced them and linked them to active domains (meta-swarm protocols, helper-swarm incentive design). The session produced 4 DREAM-HYPOTHESIS entries, 3 new frontier proposals, and surfaced one potentially actionable belief correction. F-DRM3 prediction: dream sessions produce >= 2 F-NNN entries per session at lower cost — this session produced 3, supporting the hypothesis."
+}

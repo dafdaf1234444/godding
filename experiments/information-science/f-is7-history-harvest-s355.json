@@ -1,0 +1,49 @@
+{
+  "experiment": "f-is7-history-harvest-s355",
+  "frontier": "F-IS7",
+  "session": "S355",
+  "date": "2026-03-01",
+  "domain": "information-science",
+  "type": "harvest",
+  "description": "Systematic harvest of history domain (47 experiments, 0 lessons) to reduce F-IS7 edge-loss rate",
+  "method": "Two parallel expert agents scanned F-HIS1 (34 experiments) and F-HIS2 (13 experiments). Identified 6 novel patterns across the two frontiers. Distilled into 2 lessons.",
+  "target_domain": "history",
+  "experiments_scanned": 47,
+  "experiments_with_harvestable_insight": 13,
+  "patterns_found": [
+    "Grounding floor theorem: automatic fields produce 1/3 compliance floor",
+    "Session-boundary tagging decay: voluntary compliance evaporates within 1-2 sessions",
+    "Lane churn masquerades as grounding improvement (active-row-count confound)",
+    "Chronology repair sawtooth: 0% → 72.1% over 117 sessions",
+    "Inversions vs missing-links are distinct failure modes",
+    "Lane-only artifacts are upstream indicator of zero-conversion burial"
+  ],
+  "lessons_produced": ["L-590", "L-591"],
+  "lessons_produced_count": 2,
+  "prior_history_lessons": 0,
+  "conversion_rate_before": 0.0,
+  "conversion_rate_after": 0.0426,
+  "iso_connections": ["ISO-16 (inferential compounding)", "ISO-13 (anti-windup)", "ISO-10 (predict-error-revise)", "ISO-5 (feedback loop)"],
+  "cross_domain_connections": [
+    "empathy (F-EMP3): accuracy degrades with concurrency — same shape as grounding decay",
+    "dark matter (L-574, L-583): unthemed lessons and ungrounded lanes are both 'encoded but unretrievable'",
+    "game-theory (F-GAM3): strict contract tags don't persist across sessions — same Nash equilibrium"
+  ],
+  "key_measurements": {
+    "f_his1_grounding_floor": 0.3333,
+    "f_his1_floor_sessions": "S326-S344 (18+ sessions stable)",
+    "f_his1_voluntary_compliance": 0.0,
+    "f_his2_repair_to_regression": "0.0% → 72.1% over 117 sessions",
+    "f_his2_gap_generation_rate": "~0.6% per session at N>=3",
+    "f_his2_inversion_rate": "0.01% (stable, rare)",
+    "f_his2_lane_only_artifacts": 25,
+    "f_his2_lane_only_age_range": "S194-S300"
+  },
+  "edge_loss_impact": {
+    "history_exp_to_lesson_before": "0/47 = 0%",
+    "history_exp_to_lesson_after": "2/47 = 4.3%",
+    "global_edge_loss_s347": "89% (F-IS7 S347 measurement)",
+    "note": "History domain was 100% loss; now 95.7%. Global rate needs re-measurement at S360."
+  },
+  "verdict": "CONFIRMED: history harvest gap closed partially. 2 lessons from 47 experiments (4.3% conversion). The 0% floor was caused by the irony that the historian domain itself had the worst provenance tracking."
+}

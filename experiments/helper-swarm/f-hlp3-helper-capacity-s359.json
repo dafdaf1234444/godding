@@ -1,0 +1,85 @@
+{
+  "experiment": "F-HLP3: Helper capacity reservation under multi-lane load",
+  "session": "S359",
+  "date": "2026-03-01",
+  "frontier": "F-HLP3",
+  "domain": "helper-swarm",
+  "hypothesis": "At N>=5 concurrent lanes per session, reserving 1 helper slot for stale-lane rescue reduces ABANDONED rate from 11% to <5% without reducing MERGED throughput by more than 10%",
+  "methodology": {
+    "data_source": "tasks/SWARM-LANES.md historical lanes S313-S359",
+    "sample_size": 38,
+    "approach": "Empirical lane lifecycle analysis + counterfactual simulation"
+  },
+  "measurements": {
+    "total_lanes": 38,
+    "merged": 32,
+    "abandoned": 4,
+    "active": 2,
+    "merge_rate": 0.842,
+    "abandon_rate": 0.105,
+    "block_rate": 0.0,
+    "lanes_per_session": {
+      "S313": 1, "S322": 1, "S351": 2, "S352": 5,
+      "S353": 7, "S354": 3, "S355": 5, "S356": 4,
+      "S357": 1, "S358": 6, "S359": 3
+    },
+    "domain_visits": {
+      "META": 7, "NK": 4, "IS": 4, "GOV": 3, "CONFLICT": 2,
+      "CON": 2, "LNG": 1, "CTL": 1, "EVO": 1, "BRN": 1,
+      "FIN": 1, "EMPATHY": 1, "EXP": 1, "BRAIN": 1,
+      "ECO": 1, "EMP": 1, "SP": 1, "HLP": 1, "QC": 1
+    },
+    "abandoned_analysis": {
+      "DOMEX-LNG-S313": {
+        "cause": "stale_no_execution",
+        "sessions_idle": 4,
+        "note": "F-LNG1 already confirmed, F-LNG2 deferred"
+      },
+      "DOMEX-BRN-S351": {
+        "cause": "preempted_by_concurrency",
+        "sessions_idle": 1,
+        "note": "Brain DOMEX preempted by concurrent concurrency work"
+      },
+      "DOMEX-META-S353": {
+        "cause": "preempted_stale",
+        "sessions_idle": 1,
+        "note": "F-META7 deferred, brain INDEX covered by concurrent session"
+      },
+      "DOMEX-GOV-S358-META-IDEAS": {
+        "cause": "stale_no_execution",
+        "sessions_idle": 1,
+        "note": "Meta-idea conversion not executed, re-open as F-GOV4"
+      }
+    }
+  },
+  "findings": {
+    "primary": "All 4 abandoned lanes share a common cause: preemption/starvation, NOT technical blocking. Zero lanes were ever BLOCKED. Helper capacity in the traditional rescue sense is unnecessary.",
+    "abandonment_taxonomy": {
+      "preemption_by_concurrent": 2,
+      "stale_deferred": 2,
+      "technical_blocking": 0
+    },
+    "helper_capacity_model": {
+      "current_policy": "0 reserved helper slots — all slots are delivery",
+      "current_merge_rate": 0.842,
+      "current_abandon_rate": 0.105,
+      "simulated_1_helper": {
+        "recoverable_lanes": 2,
+        "note": "Only the 2 preemption abandonments were recoverable by a helper. The 2 stale-deferred lanes (LNG, GOV) were abandoned by design (work already done or deferred).",
+        "projected_merge_rate": 0.895,
+        "delivery_cost": "1/N slots diverted from delivery (at N=5, 20% reduction)"
+      },
+      "simulated_0_helper_with_better_triage": {
+        "recoverable_lanes": 2,
+        "note": "Pre-commit stale check + priority rebalancing could recover same 2 lanes without reserving a helper slot",
+        "projected_merge_rate": 0.895,
+        "delivery_cost": "0% — triage overhead only (~5s per lane check)"
+      }
+    },
+    "key_insight": "The helper-capacity question is mis-framed. At high concurrency (N>=5), the scarce resource is not rescue capacity but EXECUTION priority. Abandoned lanes died from starvation, not blocking. The intervention is priority scheduling (execute opened lanes before opening new ones), not helper reservation.",
+    "connection_to_F-SP2": "USL FALSIFIED (L-624/L-629) — constant throughput model wins. Concurrency does not scale throughput, so reserved helper slots would reduce per-agent output without increasing total. The correct intervention is triage, not parallelism.",
+    "recommendation": "F-HLP3 answer: reserve 0 helper slots. Instead implement: (1) pre-dispatch stale-lane check in orient.py (execute stale ACTIVE lanes before opening new ones); (2) lane-opening gate: don't open lane if session already has 2+ ACTIVE lanes. These prevent starvation without throughput cost."
+  },
+  "status": "CONFIRMED_NULL",
+  "conclusion": "Helper capacity reservation is unnecessary. Abandonment is caused by preemption/starvation (not blocking). The correct intervention is execution priority (finish before starting) and lane-opening gates (limit concurrent ACTIVE lanes per session). Reserve 0 helper slots; implement triage instead."
+}

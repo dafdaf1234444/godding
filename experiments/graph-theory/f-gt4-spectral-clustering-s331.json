@@ -1,0 +1,42 @@
+{
+  "session": "S331",
+  "date": "2026-02-28",
+  "frontiers": [
+    "F-GT4",
+    "F-GT5"
+  ],
+  "n_lessons": 397,
+  "n_directed_edges": 700,
+  "giant_component_size": 369,
+  "giant_component_pct": 92.9,
+  "n_orphans": 21,
+  "orphan_pct": 5.3,
+  "n_micro_components": 3,
+  "n_components": 25,
+  "n_zero_outgoing": 39,
+  "zero_outgoing_pct": 9.8,
+  "top_hubs_out": {
+    "L-245": 16,
+    "L-381": 15,
+    "L-396": 11,
+    "L-432": 7,
+    "L-170": 6
+  },
+  "top_hubs_in": {
+    "L-1": 23,
+    "L-39": 20,
+    "L-42": 15,
+    "L-44": 14,
+    "L-25": 13
+  },
+  "baseline_s314": {
+    "giant": 193,
+    "orphans": 128,
+    "components": 17
+  },
+  "delta_vs_s314": {
+    "giant_delta": 176,
+    "orphan_delta": -107,
+    "component_delta": 8
+  }
+}

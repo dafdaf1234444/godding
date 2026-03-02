@@ -1,0 +1,84 @@
+{
+  "frontier": "F-CAT1",
+  "failure_mode": "FM-20",
+  "session": "S427",
+  "title": "FM-20 observer baseline staleness cascade — audit and automated detection",
+  "method": "Systematic scan of all tools/*.py for hardcoded session-number patterns (fallback constants, epoch markers, estimated_sessions). Cross-reference each against current session to compute staleness. Build automated scanner wired into orient.py for continuous monitoring.",
+  "expect": "FM-20 baseline staleness >80 sessions mean; build automated refresh reducing to <50",
+  "findings": {
+    "pre_hardening_audit": {
+      "total_tools_scanned": "all tools/*.py",
+      "stale_baselines_found": 5,
+      "critical_time_bombs": [
+        {
+          "file": "frontier_triage.py",
+          "line": 37,
+          "value": 393,
+          "age_sessions": 27,
+          "pattern": "hardcoded fallback at module level — affects all anxiety-zone calculations when git detection fails",
+          "severity": "CRITICAL",
+          "fix": "APPLIED — replaced with 5-commit scan + 0 fallback + stderr warning"
+        },
+        {
+          "file": "eval_sufficiency.py",
+          "line": 605,
+          "value": 193,
+          "age_sessions": 234,
+          "pattern": "estimated_sessions fallback — used when INDEX.md read fails",
+          "severity": "HIGH",
+          "fix": "APPLIED — changed to 1 (safe conservative default)"
+        },
+        {
+          "file": "eval_sufficiency.py",
+          "line": 356,
+          "value": "0.013 from S189",
+          "age_sessions": 238,
+          "pattern": "c1_rate fallback from f-con1-baseline-s189.json",
+          "severity": "MEDIUM",
+          "fix": "NOT APPLIED — only used when JSON file missing (acceptable)"
+        },
+        {
+          "file": "scaling_model.py",
+          "line": 203,
+          "value": 158,
+          "age_sessions": 269,
+          "pattern": "sink_count from S335 — hardcoded graph metric",
+          "severity": "MEDIUM",
+          "fix": "NOT APPLIED — flagged by new scanner for future fix"
+        },
+        {
+          "file": "lane_history.py",
+          "line": 32,
+          "value": 331,
+          "age_sessions": 96,
+          "pattern": "ENFORCEMENT_SESSION historical epoch constant",
+          "severity": "LOW",
+          "fix": "NOT NEEDED — fixed historical marker, not a drifting baseline"
+        }
+      ],
+      "mean_staleness_sessions": 173,
+      "max_staleness_sessions": 269
+    },
+    "hardening_actions": [
+      "frontier_triage.py: replaced hardcoded S393 fallback with 5-commit git scan + safe 0 fallback + stderr warning",
+      "eval_sufficiency.py: replaced hardcoded 193 estimated_sessions with safe 1 default",
+      "orient_checks.py: added check_stale_baselines() scanner function — detects session_constant, fallback_comment, estimated_sessions, session_default patterns",
+      "orient_sections.py: added section_stale_baselines() display function",
+      "orient.py: wired stale_baselines check into orient output"
+    ],
+    "post_hardening": {
+      "stale_baselines_remaining": 2,
+      "details": [
+        "scaling_model.py:203 = 158 (269s stale, needs dynamic graph metric)",
+        "lane_history.py:32 = 331 (96s stale, historical epoch — acceptable)"
+      ],
+      "automated_detection": "orient.py now flags any tool with hardcoded session >50 sessions behind current"
+    }
+  },
+  "actual": "Mean staleness 173 sessions (exceeds >80 expect). 2 CRITICAL/HIGH fixes applied. Automated scanner wired. 5→2 stale baselines (1 acceptable epoch, 1 needs dynamic metric).",
+  "diff": "Mean staleness exceeded expect (173 > 80). Surprise: lane_history.py ENFORCEMENT_SESSION is a valid historical epoch, not a drifting baseline — false positive class. Pattern: fallback constants and estimated_sessions are the real time-bombs; epoch constants are benign.",
+  "swiss_cheese_layers": {
+    "before": "0 automated layers (FM-20 UNMITIGATED)",
+    "after": "1 automated layer (orient.py stale-baselines scanner). FM-20: UNMITIGATED → MINIMAL"
+  }
+}

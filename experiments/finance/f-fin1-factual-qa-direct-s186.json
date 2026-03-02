@@ -1,0 +1,300 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa-direct-answer",
+  "seed": 186,
+  "lang": "en",
+  "trials_per_condition": 1,
+  "perturb_rate": 0.0,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.1667
+    ],
+    "summary": {
+      "mean": 0.1667,
+      "std": 0.0,
+      "variance": 0.0
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "Capital punishment in France"
+        ],
+        "predictions": [
+          "Capital punishment in France"
+        ],
+        "vote": "Capital punishment in France"
+      },
+      {
+        "country": "Italy",
+        "expected": "Rome",
+        "resolved_titles": [
+          "Italy capital"
+        ],
+        "predictions": [
+          "Italy capital"
+        ],
+        "vote": "Italy capital"
+      },
+      {
+        "country": "Canada",
+        "expected": "Ottawa",
+        "resolved_titles": [
+          "Canada capital"
+        ],
+        "predictions": [
+          "Canada capital"
+        ],
+        "vote": "Canada capital"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "resolved_titles": [
+          "Australian Capital Territory"
+        ],
+        "predictions": [
+          "Australian Capital Territory"
+        ],
+        "vote": "Australian Capital Territory"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "resolved_titles": [
+          "Delhi"
+        ],
+        "predictions": [
+          "Delhi"
+        ],
+        "vote": "Delhi"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "resolved_titles": [
+          "capital Spain"
+        ],
+        "predictions": [
+          "capital Spain"
+        ],
+        "vote": "capital Spain"
+      },
+      {
+        "country": "Germany",
+        "expected": "Berlin",
+        "resolved_titles": [
+          "capital Germany"
+        ],
+        "predictions": [
+          "capital Germany"
+        ],
+        "vote": "capital Germany"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "resolved_titles": [
+          "capital city Egypt"
+        ],
+        "predictions": [
+          "capital city Egypt"
+        ],
+        "vote": "capital city Egypt"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.3333
+    ],
+    "summary": {
+      "mean": 0.3333,
+      "std": 0.0,
+      "variance": 0.0
+    },
+    "mean_pairwise_prediction_agreement": 0.3333,
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "Capital city",
+          "France capital",
+          "Capital city"
+        ],
+        "predictions": [
+          "Capital city",
+          "France capital",
+          "Capital city"
+        ],
+        "vote": "Capital city"
+      },
+      {
+        "country": "Italy",
+        "expected": "Rome",
+        "resolved_titles": [
+          "capital Italy",
+          "Italy capital",
+          "capital Italy"
+        ],
+        "predictions": [
+          "capital Italy",
+          "Italy capital",
+          "capital Italy"
+        ],
+        "vote": "capital Italy"
+      },
+      {
+        "country": "Canada",
+        "expected": "Ottawa",
+        "resolved_titles": [
+          "Canada capital",
+          "Ottawa",
+          "Capital punishment in Canada"
+        ],
+        "predictions": [
+          "Canada capital",
+          "Ottawa",
+          "Capital punishment in Canada"
+        ],
+        "vote": "Canada capital"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "resolved_titles": [
+          "Australian Capital Territory",
+          "capital Australia",
+          "List of Australian capital cities"
+        ],
+        "predictions": [
+          "Australian Capital Territory",
+          "capital Australia",
+          "List of Australian capital cities"
+        ],
+        "vote": "Australian Capital Territory"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "resolved_titles": [
+          "capital Spain",
+          "Capital punishment in Spain",
+          "capital Spain"
+        ],
+        "predictions": [
+          "capital Spain",
+          "Capital punishment in Spain",
+          "capital Spain"
+        ],
+        "vote": "capital Spain"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "resolved_titles": [
+          "Egypt capital",
+          "capital city Egypt",
+          "Egypt capital"
+        ],
+        "predictions": [
+          "Egypt capital",
+          "capital city Egypt",
+          "Egypt capital"
+        ],
+        "vote": "Egypt capital"
+      },
+      {
+        "country": "Kenya",
+        "expected": "Nairobi",
+        "resolved_titles": [
+          "Nairobi",
+          "Capital punishment in Kenya",
+          "Capital punishment in Kenya"
+        ],
+        "predictions": [
+          "Nairobi",
+          "Capital punishment in Kenya",
+          "Capital punishment in Kenya"
+        ],
+        "vote": "Capital punishment in Kenya"
+      },
+      {
+        "country": "Sweden",
+        "expected": "Stockholm",
+        "resolved_titles": [
+          "Capital punishment in Sweden",
+          "capital city Sweden",
+          "Capital punishment in Sweden"
+        ],
+        "predictions": [
+          "Capital punishment in Sweden",
+          "capital city Sweden",
+          "Capital punishment in Sweden"
+        ],
+        "vote": "Capital punishment in Sweden"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": 0.1666,
+    "variance_ratio_n3_over_n1": null
+  },
+  "interpretation": "This run scores direct capital answers extracted from fetched knowledge content (with fallback to resolved title), reducing resolver-proxy bias in the F-FIN1 factual diversification test.",
+  "generated_at_utc": "2026-02-27T20:56:46Z"
+}

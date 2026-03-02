@@ -1,0 +1,40 @@
+{
+  "experiment": "F9-NK self-analysis",
+  "session": "S349",
+  "frontier": "F9-NK",
+  "domain": "nk-complexity",
+  "method": "nk_null_model.py — citation graph randomness test at N=474",
+  "expect": "K_avg continues rising above 1.85 at N≈473 (from 1.7956 at N=455 S347). Hub z>5.2 and Gini z>3.4 continue strengthening. Sinks remain <35%.",
+  "results": {
+    "N": 474,
+    "edges": 847,
+    "K_avg": 1.7869,
+    "K_max": 25,
+    "Gini": 0.6227,
+    "zero_out_pct": 10,
+    "zero_in_pct": 34,
+    "hub_z": 5.127,
+    "gini_z": 3.164,
+    "isolation_z": 0.887,
+    "verdict": "GENUINELY_NON_RANDOM",
+    "new_lessons_since_last": 19,
+    "new_edges_since_last": 30,
+    "mean_citations_per_new_lesson": 1.579
+  },
+  "series": [
+    {"session": "S341", "N": 430, "K_avg": 1.8930, "note": "pre-correction (cache artifact)"},
+    {"session": "S344", "N": 445, "K_avg": 1.7663, "note": "CORRECTED baseline (L-510)"},
+    {"session": "S347", "N": 455, "K_avg": 1.7956, "note": "+0.0293 from corrected baseline"},
+    {"session": "S349", "N": 474, "K_avg": 1.7869, "note": "-0.0087 from S347. Plateau confirmed."}
+  ],
+  "actual": "K_avg=1.7869 at N=474 — DECLINED -0.0087 from S347 (1.7956). Prediction of >1.85 WRONG. Hub z=5.127 (slightly down from 5.162). Gini z=3.164 (down from 3.380). Sinks 34% (stable). GENUINELY_NON_RANDOM still holds. New lessons cite 1.58/lesson avg vs overall 1.79 — recent lessons are citation-sparse.",
+  "diff": "Predicted K_avg>1.85, got 1.7869 (missed by 0.063). Predicted acceleration, got plateau with slight decline. L-492 'acceleration' claim was measured pre-correction — post-correction the trend is plateau at ~1.78 with ±0.02 fluctuations. Hub and Gini z-scores weakened slightly, not strengthened. Sinks matched (34% vs <35%). Key finding: recent DOMEX/council lessons cite fewer peers (1.58 vs 1.79 avg), pulling K_avg down.",
+  "analysis": {
+    "plateau_hypothesis": "K_avg is bounded near 1.78 post-correction. The pre-correction series showed acceleration due to cache staleness inflating edge counts (L-510). True K_avg has been relatively stable since N≈445.",
+    "citation_sparse_recent_lessons": "19 new lessons contributed only 30 edges (1.58/lesson). Hypothesis: meta-focused and council-generated lessons are more self-contained, with fewer cross-domain citations. Expert DOMEX lanes produce domain-specific lessons that cite within their domain, creating fewer inter-domain edges.",
+    "structural_metrics": "Hub z=5.127 remains highly significant — citation hubs (key lessons like L-025, L-061) are real, not random. Gini z=3.164 shows wealth inequality in citations persists. Isolation z=0.887 not significant — uncited lesson fraction (34%) is consistent with random expectation.",
+    "L-492_correction_needed": "L-492 claimed 4.25x acceleration at N=430. Post-correction, the corrected series (N=445: 1.7663, N=455: 1.7956, N=474: 1.7869) shows no acceleration — plateau with noise. L-492 should be annotated as pre-correction artifact."
+  },
+  "lesson": "L-538",
+  "cites": ["L-492", "L-510", "L-512", "L-538"]
+}

@@ -1,0 +1,22 @@
+{
+  "frontier": "F-STR1",
+  "session": "S393",
+  "analysis": "campaign-mode-enforcement-structural-gate",
+  "date": "2026-03-01",
+  "hypothesis": "Converting open_lane.py mode= from WARN to ERROR for 2nd+ wave lanes will enforce campaign mode transitions at creation time",
+  "method": "Code change in open_lane.py: get_frontier_previous_mode() now returns (mode, wave_count). Enforcement block at line 205 exits with ERROR when --mode is omitted for frontiers with prior lanes. Mode-repeat WARN preserved. First-wave lanes unaffected.",
+  "test_results": {
+    "2nd_wave_no_mode": {"input": "F-STR1 without --mode", "expected": "ERROR+exit(1)", "actual": "ERROR+exit(1)", "pass": true},
+    "2nd_wave_mode_repeat": {"input": "F-STR1 --mode hardening (same as prev)", "expected": "WARN but proceed", "actual": "WARN but proceed", "pass": true},
+    "2nd_wave_mode_shift": {"input": "F-STR1 --mode resolution (different)", "expected": "INFO + proceed", "actual": "INFO + proceed", "pass": true},
+    "1st_wave_no_mode": {"input": "F-NONEXISTENT without --mode", "expected": "proceed silently", "actual": "proceed silently", "pass": true}
+  },
+  "context": {
+    "prior_adoption": "0/8 multi-wave campaigns used explicit mode= (S390-S393)",
+    "theoretical_basis": "L-601: voluntary protocols decay to structural floor at creation. L-775: tool-enforced ~90% vs specification-only ~3%",
+    "build_to_enforce_delay": "3 sessions (S390 build → S393 enforcement)",
+    "prescription_source": "f-str1-hardening-s393.json prescriptions[2]"
+  },
+  "lesson": "L-791",
+  "verdict": "Structural enforcement gate implemented and tested. 4/4 test cases pass. Prospective measurement: track mode= adoption in lanes opened S394+ to verify enforcement works in practice."
+}

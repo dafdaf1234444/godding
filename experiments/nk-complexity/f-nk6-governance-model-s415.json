@@ -1,0 +1,900 @@
+{
+  "session": "S415",
+  "frontier": "F-NK6",
+  "lane": "DOMEX-NK-S415-GOV",
+  "question": "Does domain-first dispatch (formalized ~S400) improve global frontier resolution rate?",
+  "expect": "Global frontier resolution rate improves from ~0.16/s baseline (L-912) to >=0.24/s post-S400. Domain resolution stable. Domain-first governance quantifiably improves frontier throughput via structured decomposition.",
+  "method": "Extracted all 1097 lane rows from SWARM-LANES.md + SWARM-LANES-ARCHIVE.md. For each MERGED lane, searched notes + etc fields (including actual= sub-field) for F-XXX RESOLVED, F-XXX PARTIALLY RESOLVED, F-XXX FALSIFIED, and F-XXX FULLY CHARACTERIZED patterns. Split into pre-S400 (S380-S399, n=20 sessions) and post-S400 (S400-S415, n=16 sessions). Computed resolution rate per session, merge rate, DOMEX utilization, domain diversity (Gini), and resolution concentration across sessions.",
+  "results": {
+    "total_lanes_parsed": 1097,
+    "era_range": "S380-S415 (36 sessions)",
+    "pre_s400": {
+      "n_sessions": 20,
+      "total_lanes": 108,
+      "merged": 96,
+      "abandoned": 12,
+      "merge_rate_pct": 88.9,
+      "lanes_per_session": 5.4,
+      "frontier_resolution_events": 11,
+      "unique_frontiers_resolved": 11,
+      "frontiers_list": [
+        "F-EXP1",
+        "F-EXP2",
+        "F-FLD1",
+        "F-FLD2",
+        "F-FLD3",
+        "F-FRA1",
+        "F-PHY1",
+        "F-PSY1",
+        "F-SEC1",
+        "F-STR1",
+        "F-STR2"
+      ],
+      "resolution_rate_per_session": 0.55,
+      "unique_resolution_rate_per_session": 0.55,
+      "resolution_by_type": {
+        "RESOLVED": 6,
+        "PARTIALLY_RESOLVED": 1,
+        "FALSIFIED": 4
+      },
+      "resolution_detail": [
+        {
+          "session": 380,
+          "lane": "DOMEX-SEC-S380",
+          "frontier": "F-SEC1",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 385,
+          "lane": "DOMEX-EXP-S385",
+          "frontier": "F-EXP1",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 385,
+          "lane": "DOMEX-FLD-S385",
+          "frontier": "F-FLD1",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 385,
+          "lane": "DOMEX-FLD-S385",
+          "frontier": "F-FLD3",
+          "type": "FALSIFIED"
+        },
+        {
+          "session": 388,
+          "lane": "DOMEX-FLD-S389",
+          "frontier": "F-FLD2",
+          "type": "FALSIFIED"
+        },
+        {
+          "session": 390,
+          "lane": "DOMEX-PHY-S390",
+          "frontier": "F-PHY1",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 392,
+          "lane": "DOMEX-STR-S392",
+          "frontier": "F-STR2",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 395,
+          "lane": "DOMEX-STR-S395",
+          "frontier": "F-STR1",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 397,
+          "lane": "DOMEX-EXP-S397",
+          "frontier": "F-EXP2",
+          "type": "FALSIFIED"
+        },
+        {
+          "session": 399,
+          "lane": "DOMEX-FRA-S399",
+          "frontier": "F-FRA1",
+          "type": "PARTIALLY_RESOLVED"
+        },
+        {
+          "session": 399,
+          "lane": "DOMEX-PSY-S399",
+          "frontier": "F-PSY1",
+          "type": "FALSIFIED"
+        }
+      ],
+      "sessions_with_resolutions": 8,
+      "resolution_session_coverage": 40.0,
+      "domex_lanes": 105,
+      "domex_utilization_pct": 97.2,
+      "unique_domains": 31,
+      "domain_list": [
+        "AI",
+        "BRN",
+        "CAT",
+        "CHAL",
+        "COMP",
+        "CTL",
+        "DS",
+        "ECO",
+        "EVAL",
+        "EXP",
+        "FLD",
+        "FRA",
+        "GAME",
+        "GT",
+        "GUE",
+        "IC",
+        "IS",
+        "META",
+        "NK",
+        "OPS",
+        "PHY",
+        "PRO",
+        "PSY",
+        "QC",
+        "REL",
+        "SEC",
+        "SIG",
+        "SOC",
+        "SP",
+        "STR",
+        "TRUTH"
+      ],
+      "domain_gini": 0.529,
+      "domain_distribution": {
+        "STR": 20,
+        "META": 19,
+        "SEC": 7,
+        "SP": 7,
+        "NK": 6,
+        "QC": 5,
+        "FLD": 3,
+        "EVAL": 3,
+        "EXP": 3,
+        "GUE": 3,
+        "SOC": 3,
+        "GT": 2,
+        "CAT": 2,
+        "PHY": 2,
+        "PRO": 2,
+        "BRN": 2,
+        "OPS": 2,
+        "GAME": 1,
+        "IC": 1,
+        "COMP": 1,
+        "IS": 1,
+        "ECO": 1,
+        "REL": 1,
+        "SIG": 1,
+        "TRUTH": 1,
+        "DS": 1,
+        "CTL": 1,
+        "CHAL": 1,
+        "AI": 1,
+        "FRA": 1,
+        "PSY": 1
+      }
+    },
+    "post_s400": {
+      "n_sessions": 16,
+      "total_lanes": 76,
+      "merged": 72,
+      "abandoned": 3,
+      "merge_rate_pct": 96.0,
+      "lanes_per_session": 4.75,
+      "frontier_resolution_events": 19,
+      "unique_frontiers_resolved": 17,
+      "frontiers_list": [
+        "F-AI1",
+        "F-BRN2",
+        "F-BRN5",
+        "F-BRN6",
+        "F-EVAL1",
+        "F-EXP3",
+        "F-FRA2",
+        "F-FRA3",
+        "F-GAM2",
+        "F-GT3",
+        "F-PHY2",
+        "F-PHY3",
+        "F-PRO3",
+        "F-QC5",
+        "F-SP4",
+        "F-SP6",
+        "F-STR3"
+      ],
+      "resolution_rate_per_session": 1.188,
+      "unique_resolution_rate_per_session": 1.062,
+      "resolution_by_type": {
+        "RESOLVED": 13,
+        "PARTIALLY_RESOLVED": 4,
+        "FALSIFIED": 3
+      },
+      "resolution_detail": [
+        {
+          "session": 400,
+          "lane": "DOMEX-GT-S399",
+          "frontier": "F-GT3",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 400,
+          "lane": "DOMEX-SP-S399",
+          "frontier": "F-SP4",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 400,
+          "lane": "DOMEX-PHY-S400",
+          "frontier": "F-PHY2",
+          "type": "FALSIFIED"
+        },
+        {
+          "session": 401,
+          "lane": "DOMEX-PHY-S401",
+          "frontier": "F-PHY3",
+          "type": "FALSIFIED"
+        },
+        {
+          "session": 401,
+          "lane": "DOMEX-BRN-S401",
+          "frontier": "F-BRN6",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 402,
+          "lane": "DOMEX-AI-S402",
+          "frontier": "F-AI1",
+          "type": "PARTIALLY_RESOLVED"
+        },
+        {
+          "session": 402,
+          "lane": "DOMEX-PRO-S402",
+          "frontier": "F-PRO3",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 402,
+          "lane": "DOMEX-BRN-S402",
+          "frontier": "F-BRN5",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 402,
+          "lane": "DOMEX-BRN-S402",
+          "frontier": "F-BRN6",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 403,
+          "lane": "DOMEX-FRA-S403",
+          "frontier": "F-FRA2",
+          "type": "PARTIALLY_RESOLVED"
+        },
+        {
+          "session": 403,
+          "lane": "DOMEX-FRA-S403c",
+          "frontier": "F-FRA3",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 403,
+          "lane": "DOMEX-SP-S403",
+          "frontier": "F-SP6",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 403,
+          "lane": "DOMEX-BRN-S403b",
+          "frontier": "F-BRN2",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 403,
+          "lane": "DOMEX-STR-S403b",
+          "frontier": "F-STR3",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 405,
+          "lane": "DOMEX-EVAL-S405",
+          "frontier": "F-EVAL1",
+          "type": "PARTIALLY_RESOLVED"
+        },
+        {
+          "session": 405,
+          "lane": "DOMEX-GAM-S405",
+          "frontier": "F-GAM2",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 405,
+          "lane": "DOMEX-QC-S405",
+          "frontier": "F-QC5",
+          "type": "RESOLVED"
+        },
+        {
+          "session": 409,
+          "lane": "DOMEX-EVAL-S408b",
+          "frontier": "F-EVAL1",
+          "type": "PARTIALLY_RESOLVED"
+        },
+        {
+          "session": 411,
+          "lane": "DOMEX-EXP-S410",
+          "frontier": "F-EXP3",
+          "type": "RESOLVED"
+        }
+      ],
+      "sessions_with_resolutions": 7,
+      "resolution_session_coverage": 43.8,
+      "domex_lanes": 74,
+      "domex_utilization_pct": 97.4,
+      "unique_domains": 22,
+      "domain_list": [
+        "AI",
+        "BRN",
+        "CAT",
+        "CTL",
+        "ECO",
+        "EVAL",
+        "EXP",
+        "FRA",
+        "GAM",
+        "GT",
+        "META",
+        "NK",
+        "OPS",
+        "PHY",
+        "PRO",
+        "PSY",
+        "QC",
+        "SEC",
+        "SOC",
+        "SP",
+        "STAT",
+        "STR"
+      ],
+      "domain_gini": 0.437,
+      "domain_distribution": {
+        "META": 16,
+        "NK": 7,
+        "EVAL": 6,
+        "EXP": 5,
+        "BRN": 5,
+        "STR": 5,
+        "SEC": 4,
+        "FRA": 3,
+        "CAT": 3,
+        "ECO": 3,
+        "GT": 2,
+        "SP": 2,
+        "PHY": 2,
+        "PRO": 2,
+        "SOC": 2,
+        "OPS": 1,
+        "STAT": 1,
+        "AI": 1,
+        "CTL": 1,
+        "PSY": 1,
+        "GAM": 1,
+        "QC": 1
+      }
+    },
+    "windows": {
+      "S380-S389": {
+        "n_sessions": 10,
+        "total_lanes": 42,
+        "merged": 36,
+        "abandoned": 6,
+        "merge_rate_pct": 85.7,
+        "lanes_per_session": 4.2,
+        "frontier_resolution_events": 5,
+        "unique_frontiers_resolved": 5,
+        "frontiers_list": [
+          "F-EXP1",
+          "F-FLD1",
+          "F-FLD2",
+          "F-FLD3",
+          "F-SEC1"
+        ],
+        "resolution_rate_per_session": 0.5,
+        "unique_resolution_rate_per_session": 0.5,
+        "resolution_by_type": {
+          "RESOLVED": 3,
+          "PARTIALLY_RESOLVED": 0,
+          "FALSIFIED": 2
+        },
+        "resolution_detail": [
+          {
+            "session": 380,
+            "lane": "DOMEX-SEC-S380",
+            "frontier": "F-SEC1",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 385,
+            "lane": "DOMEX-EXP-S385",
+            "frontier": "F-EXP1",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 385,
+            "lane": "DOMEX-FLD-S385",
+            "frontier": "F-FLD1",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 385,
+            "lane": "DOMEX-FLD-S385",
+            "frontier": "F-FLD3",
+            "type": "FALSIFIED"
+          },
+          {
+            "session": 388,
+            "lane": "DOMEX-FLD-S389",
+            "frontier": "F-FLD2",
+            "type": "FALSIFIED"
+          }
+        ],
+        "sessions_with_resolutions": 3,
+        "resolution_session_coverage": 30.0,
+        "domex_lanes": 42,
+        "domex_utilization_pct": 100.0,
+        "unique_domains": 14,
+        "domain_list": [
+          "CAT",
+          "COMP",
+          "EVAL",
+          "EXP",
+          "FLD",
+          "GAME",
+          "GT",
+          "IC",
+          "META",
+          "NK",
+          "QC",
+          "SEC",
+          "SP",
+          "STR"
+        ],
+        "domain_gini": 0.422,
+        "domain_distribution": {
+          "STR": 9,
+          "SEC": 7,
+          "QC": 5,
+          "META": 4,
+          "SP": 4,
+          "FLD": 3,
+          "CAT": 2,
+          "NK": 2,
+          "GAME": 1,
+          "GT": 1,
+          "IC": 1,
+          "EVAL": 1,
+          "EXP": 1,
+          "COMP": 1
+        }
+      },
+      "S390-S399": {
+        "n_sessions": 10,
+        "total_lanes": 66,
+        "merged": 60,
+        "abandoned": 6,
+        "merge_rate_pct": 90.9,
+        "lanes_per_session": 6.6,
+        "frontier_resolution_events": 6,
+        "unique_frontiers_resolved": 6,
+        "frontiers_list": [
+          "F-EXP2",
+          "F-FRA1",
+          "F-PHY1",
+          "F-PSY1",
+          "F-STR1",
+          "F-STR2"
+        ],
+        "resolution_rate_per_session": 0.6,
+        "unique_resolution_rate_per_session": 0.6,
+        "resolution_by_type": {
+          "RESOLVED": 3,
+          "PARTIALLY_RESOLVED": 1,
+          "FALSIFIED": 2
+        },
+        "resolution_detail": [
+          {
+            "session": 390,
+            "lane": "DOMEX-PHY-S390",
+            "frontier": "F-PHY1",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 392,
+            "lane": "DOMEX-STR-S392",
+            "frontier": "F-STR2",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 395,
+            "lane": "DOMEX-STR-S395",
+            "frontier": "F-STR1",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 397,
+            "lane": "DOMEX-EXP-S397",
+            "frontier": "F-EXP2",
+            "type": "FALSIFIED"
+          },
+          {
+            "session": 399,
+            "lane": "DOMEX-FRA-S399",
+            "frontier": "F-FRA1",
+            "type": "PARTIALLY_RESOLVED"
+          },
+          {
+            "session": 399,
+            "lane": "DOMEX-PSY-S399",
+            "frontier": "F-PSY1",
+            "type": "FALSIFIED"
+          }
+        ],
+        "sessions_with_resolutions": 5,
+        "resolution_session_coverage": 50.0,
+        "domex_lanes": 63,
+        "domex_utilization_pct": 95.5,
+        "unique_domains": 24,
+        "domain_list": [
+          "AI",
+          "BRN",
+          "CHAL",
+          "CTL",
+          "DS",
+          "ECO",
+          "EVAL",
+          "EXP",
+          "FRA",
+          "GT",
+          "GUE",
+          "IS",
+          "META",
+          "NK",
+          "OPS",
+          "PHY",
+          "PRO",
+          "PSY",
+          "REL",
+          "SIG",
+          "SOC",
+          "SP",
+          "STR",
+          "TRUTH"
+        ],
+        "domain_gini": 0.473,
+        "domain_distribution": {
+          "META": 15,
+          "STR": 11,
+          "NK": 4,
+          "SP": 3,
+          "GUE": 3,
+          "SOC": 3,
+          "PHY": 2,
+          "EXP": 2,
+          "PRO": 2,
+          "EVAL": 2,
+          "BRN": 2,
+          "OPS": 2,
+          "IS": 1,
+          "GT": 1,
+          "ECO": 1,
+          "REL": 1,
+          "SIG": 1,
+          "TRUTH": 1,
+          "DS": 1,
+          "CTL": 1,
+          "CHAL": 1,
+          "AI": 1,
+          "FRA": 1,
+          "PSY": 1
+        }
+      },
+      "S400-S409": {
+        "n_sessions": 10,
+        "total_lanes": 60,
+        "merged": 57,
+        "abandoned": 2,
+        "merge_rate_pct": 96.6,
+        "lanes_per_session": 6.0,
+        "frontier_resolution_events": 18,
+        "unique_frontiers_resolved": 16,
+        "frontiers_list": [
+          "F-AI1",
+          "F-BRN2",
+          "F-BRN5",
+          "F-BRN6",
+          "F-EVAL1",
+          "F-FRA2",
+          "F-FRA3",
+          "F-GAM2",
+          "F-GT3",
+          "F-PHY2",
+          "F-PHY3",
+          "F-PRO3",
+          "F-QC5",
+          "F-SP4",
+          "F-SP6",
+          "F-STR3"
+        ],
+        "resolution_rate_per_session": 1.8,
+        "unique_resolution_rate_per_session": 1.6,
+        "resolution_by_type": {
+          "RESOLVED": 12,
+          "PARTIALLY_RESOLVED": 4,
+          "FALSIFIED": 3
+        },
+        "resolution_detail": [
+          {
+            "session": 400,
+            "lane": "DOMEX-GT-S399",
+            "frontier": "F-GT3",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 400,
+            "lane": "DOMEX-SP-S399",
+            "frontier": "F-SP4",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 400,
+            "lane": "DOMEX-PHY-S400",
+            "frontier": "F-PHY2",
+            "type": "FALSIFIED"
+          },
+          {
+            "session": 401,
+            "lane": "DOMEX-PHY-S401",
+            "frontier": "F-PHY3",
+            "type": "FALSIFIED"
+          },
+          {
+            "session": 401,
+            "lane": "DOMEX-BRN-S401",
+            "frontier": "F-BRN6",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 402,
+            "lane": "DOMEX-AI-S402",
+            "frontier": "F-AI1",
+            "type": "PARTIALLY_RESOLVED"
+          },
+          {
+            "session": 402,
+            "lane": "DOMEX-PRO-S402",
+            "frontier": "F-PRO3",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 402,
+            "lane": "DOMEX-BRN-S402",
+            "frontier": "F-BRN5",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 402,
+            "lane": "DOMEX-BRN-S402",
+            "frontier": "F-BRN6",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 403,
+            "lane": "DOMEX-FRA-S403",
+            "frontier": "F-FRA2",
+            "type": "PARTIALLY_RESOLVED"
+          },
+          {
+            "session": 403,
+            "lane": "DOMEX-FRA-S403c",
+            "frontier": "F-FRA3",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 403,
+            "lane": "DOMEX-SP-S403",
+            "frontier": "F-SP6",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 403,
+            "lane": "DOMEX-BRN-S403b",
+            "frontier": "F-BRN2",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 403,
+            "lane": "DOMEX-STR-S403b",
+            "frontier": "F-STR3",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 405,
+            "lane": "DOMEX-EVAL-S405",
+            "frontier": "F-EVAL1",
+            "type": "PARTIALLY_RESOLVED"
+          },
+          {
+            "session": 405,
+            "lane": "DOMEX-GAM-S405",
+            "frontier": "F-GAM2",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 405,
+            "lane": "DOMEX-QC-S405",
+            "frontier": "F-QC5",
+            "type": "RESOLVED"
+          },
+          {
+            "session": 409,
+            "lane": "DOMEX-EVAL-S408b",
+            "frontier": "F-EVAL1",
+            "type": "PARTIALLY_RESOLVED"
+          }
+        ],
+        "sessions_with_resolutions": 6,
+        "resolution_session_coverage": 60.0,
+        "domex_lanes": 58,
+        "domex_utilization_pct": 96.7,
+        "unique_domains": 22,
+        "domain_list": [
+          "AI",
+          "BRN",
+          "CAT",
+          "CTL",
+          "ECO",
+          "EVAL",
+          "EXP",
+          "FRA",
+          "GAM",
+          "GT",
+          "META",
+          "NK",
+          "OPS",
+          "PHY",
+          "PRO",
+          "PSY",
+          "QC",
+          "SEC",
+          "SOC",
+          "SP",
+          "STAT",
+          "STR"
+        ],
+        "domain_gini": 0.397,
+        "domain_distribution": {
+          "META": 12,
+          "BRN": 5,
+          "STR": 5,
+          "NK": 4,
+          "EVAL": 4,
+          "FRA": 3,
+          "EXP": 3,
+          "GT": 2,
+          "SP": 2,
+          "PHY": 2,
+          "PRO": 2,
+          "SOC": 2,
+          "CAT": 2,
+          "ECO": 2,
+          "OPS": 1,
+          "STAT": 1,
+          "AI": 1,
+          "CTL": 1,
+          "PSY": 1,
+          "GAM": 1,
+          "QC": 1,
+          "SEC": 1
+        }
+      },
+      "S410-S415": {
+        "n_sessions": 6,
+        "total_lanes": 16,
+        "merged": 15,
+        "abandoned": 1,
+        "merge_rate_pct": 93.8,
+        "lanes_per_session": 2.67,
+        "frontier_resolution_events": 1,
+        "unique_frontiers_resolved": 1,
+        "frontiers_list": [
+          "F-EXP3"
+        ],
+        "resolution_rate_per_session": 0.167,
+        "unique_resolution_rate_per_session": 0.167,
+        "resolution_by_type": {
+          "RESOLVED": 1,
+          "PARTIALLY_RESOLVED": 0,
+          "FALSIFIED": 0
+        },
+        "resolution_detail": [
+          {
+            "session": 411,
+            "lane": "DOMEX-EXP-S410",
+            "frontier": "F-EXP3",
+            "type": "RESOLVED"
+          }
+        ],
+        "sessions_with_resolutions": 1,
+        "resolution_session_coverage": 16.7,
+        "domex_lanes": 16,
+        "domex_utilization_pct": 100.0,
+        "unique_domains": 7,
+        "domain_list": [
+          "CAT",
+          "ECO",
+          "EVAL",
+          "EXP",
+          "META",
+          "NK",
+          "SEC"
+        ],
+        "domain_gini": 0.25,
+        "domain_distribution": {
+          "META": 4,
+          "NK": 3,
+          "SEC": 3,
+          "EXP": 2,
+          "EVAL": 2,
+          "CAT": 1,
+          "ECO": 1
+        }
+      }
+    },
+    "delta": {
+      "resolution_rate_delta": 0.638,
+      "resolution_rate_factor": 2.16,
+      "unique_resolution_rate_delta": 0.512,
+      "merge_rate_delta_pp": 7.1,
+      "domain_diversity_delta": -9,
+      "domain_gini_delta": -0.092,
+      "lanes_per_session_delta": -0.65
+    },
+    "confounds": {
+      "note": "Several confounds limit causal attribution",
+      "confound_1_session_gap": "Post-S400 has 4 sessions with no MERGED lanes (S408, S412, S413, S415) vs 0 pre-S400. Denominator is total sessions in range, not active sessions.",
+      "confound_2_burst_concentration": "Post-S400 resolutions concentrate in S400-S405 (16/19 events in 6 sessions). S410-S415 drops to 0.167/session. Burst may be maturation effect from pre-S400 groundwork, not governance improvement.",
+      "confound_3_frontier_stock": "Pre-S400 era inherited more unresolved frontiers from earlier work. Post-S400 may benefit from pre-S400 having already resolved easier frontiers, leaving harder but well-characterized ones.",
+      "confound_4_lane_volume": "Pre-S400 has 5.4 lanes/session vs post-S400 4.75 lanes/session. More lanes does not mean more resolutions; efficiency per lane is what changes.",
+      "confound_5_domex_already_high": "DOMEX utilization was already 97.2% pre-S400. The governance formalization did not change dispatch routing substantially (97.2% -> 97.4%)."
+    },
+    "s417_comparison": {
+      "note": "f-nk6-governance-baseline-s417.json found 0.095 global resolution rate for S397-S417. This used a different counting method (domain vs global frontier distinction). Our method counts all F-XXX resolution events in lane records without distinguishing domain-specific from global frontiers.",
+      "reconciliation": "The S417 baseline distinguishes 'global' frontiers (F-STR, F-META etc) from 'domain' frontiers (F-BRN, F-PHY etc). All 17 unique frontiers resolved post-S400 are domain-specific. Zero global frontiers resolved post-S400 by S417's classification.",
+      "implication": "The 2.16x improvement is in domain-frontier resolution. Global-frontier resolution may have DECREASED. This aligns with S417 finding of namespace disconnection."
+    }
+  },
+  "actual": "Pre-S400: 11 frontier events in 20 sessions (0.55/session). Post-S400: 19 frontier events in 16 sessions (1.188/session). Raw improvement: 2.16x. But: (1) all post-S400 resolutions are domain-specific frontiers, not global ones; (2) 84% of post-S400 resolutions concentrate in S400-S405 burst; (3) DOMEX utilization was already 97%+ pre-S400, so governance formalization changed routing minimally. Merge rate improved +7.1pp (88.9% -> 96.0%). Domain Gini improved from 0.529 to 0.437 (more equal distribution).",
+  "diff": "Expected global frontier resolution rate >=0.24/s: WRONG scope. Actual improvement is domain-level (0.55 -> 1.188/s, 2.16x). By S417 classification, ZERO global frontiers resolved post-S400. Expected governance to be causal: INCONCLUSIVE. DOMEX was 97%+ before formalization. The burst in S400-S405 may be maturation of pre-S400 experimental groundwork, not governance effect. Expected domain resolution stable at 1.55/s: PARTIALLY CONFIRMED but heavily front-loaded (1.6/session S400-S409 vs 0.167/session S410-S415).",
+  "verdict": "PARTIALLY CONFIRMED with major qualifications. Domain-frontier resolution rate doubled (0.55 -> 1.188/s, 2.16x), but three caveats prevent causal attribution to governance: (1) DOMEX utilization was already saturated pre-S400, (2) resolution burst concentrates in 6 sessions (maturation effect), (3) zero global frontier resolutions post-S400 by strict classification. Merge rate improvement (+7.1pp) is the cleanest signal of governance quality. The S417 namespace-disconnection finding (4.1% linkage) explains why domain resolution improves while global resolution stagnates.",
+  "citations": [
+    "L-912 (integration-bound crossover)",
+    "L-926 (namespace disconnection)",
+    "f-nk6-governance-baseline-s417.json (prior measurement)",
+    "f-nk5-integration-falsification-s412.json (PARTIALLY FALSIFIED L-912)"
+  ],
+  "key_insight": "Domain-first governance improves domain-frontier throughput 2.16x and merge rate +7.1pp, but this does NOT propagate to global frontier resolution because domain and global frontier namespaces are disconnected (4.1% linkage). The governance model resolves domain questions faster while leaving the synthesis gap intact. Binding constraint is not dispatch routing (already saturated) but upward namespace linkage.",
+  "sample_sizes": {
+    "total_lanes_analyzed": 1097,
+    "era_lanes": 184,
+    "pre_s400_lanes": 108,
+    "post_s400_lanes": 76,
+    "pre_s400_merged": 96,
+    "post_s400_merged": 72,
+    "pre_s400_frontier_events": 11,
+    "post_s400_frontier_events": 19,
+    "pre_s400_unique_frontiers": 11,
+    "post_s400_unique_frontiers": 17
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "experiment": "DOMEX-STR-S398",
+  "frontier": "F-STR3",
+  "date": "2026-03-01",
+  "session": "S398",
+  "check_mode": "objective",
+  "mode": "hardening",
+  "hypotheses": {
+    "H1_commit_followthrough": {
+      "prediction": ">=50% COMMIT-domain follow-through (baseline 0% pre-S396)",
+      "result": "100% (1/1 COMMIT domains dispatched: DOMEX-SOC-S396 MERGED)",
+      "verdict": "CONFIRMED"
+    },
+    "H2_mode_adoption": {
+      "prediction": "mode= adoption >80% (84% at S393)",
+      "result": "100% (13/13 lanes in S396-S398)",
+      "verdict": "CONFIRMED"
+    },
+    "H3_wave_planner_accuracy": {
+      "prediction": "wave planner accuracy >70% at frontier level",
+      "result": "COMMIT guarantee correctly dispatched social-media (F-SOC4 → DOMEX-SOC-S396 MERGED)",
+      "verdict": "CONFIRMED with caveat: multi-frontier parsing bug found"
+    }
+  },
+  "bug_found": {
+    "type": "multi-frontier parsing",
+    "location": "_get_campaign_waves() in tools/dispatch_optimizer.py",
+    "root_cause": "re.search(r'frontier=(F-[A-Z0-9]+)') captured only first frontier ID from comma/slash-separated multi-frontier lanes. Character class also omitted '-' (dash), causing silent match failures.",
+    "impact": {
+      "pre_fix_commit_count": 4,
+      "post_fix_commit_count": 19,
+      "inflation_factor": "5x",
+      "example_misclassification": "F-SOC4 showed as 2-wave COMMIT (unresolved) — was actually 5-wave RESOLVED"
+    },
+    "fix_applied": "re.findall(r'F-[A-Z0-9]+', frontier_str) with broadened capture r'frontier=(F-[A-Z0-9,/\\s-]+?)(?:;|$)'"
+  },
+  "s396_s398_lanes": {
+    "total": 13,
+    "mode_adopted": 13,
+    "mode_adoption_rate": 1.0,
+    "statuses": {"MERGED": 11, "ACTIVE": 2},
+    "commit_domains_dispatched": ["social-media"],
+    "commit_followthrough": 1.0
+  },
+  "lesson": "L-818"
+}

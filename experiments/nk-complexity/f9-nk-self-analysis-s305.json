@@ -1,0 +1,94 @@
+{
+  "experiment": "F9-NK self-analysis",
+  "title": "NK Analysis of Swarm Lesson Citation Graph",
+  "session": "S305",
+  "date": "2026-02-28",
+  "domain": "nk-complexity",
+  "check_mode": "objective",
+  "expect": "K_avg ~1.5 (moderate coupling), some cycles from contradictory citations",
+  "method": "Scan all lessons for L-NNN citation patterns; build directed citation graph; compute NK metrics",
+  "metrics": {
+    "N_lessons": 325,
+    "K_total_citations": 249,
+    "K_avg": 0.766,
+    "K_max": 17,
+    "K_max_lesson": "L-245",
+    "cycles": 0,
+    "composite": 249.0,
+    "uncited_lessons": 200,
+    "uncited_pct": 61.5,
+    "zero_outgoing_lessons": 191,
+    "zero_outgoing_pct": 58.8,
+    "top_10_cited": [
+      [
+        "L-001",
+        10
+      ],
+      [
+        "L-304",
+        7
+      ],
+      [
+        "L-219",
+        5
+      ],
+      [
+        "L-218",
+        5
+      ],
+      [
+        "L-251",
+        5
+      ],
+      [
+        "L-276",
+        5
+      ],
+      [
+        "L-015",
+        4
+      ],
+      [
+        "L-220",
+        4
+      ],
+      [
+        "L-253",
+        4
+      ],
+      [
+        "L-268",
+        4
+      ]
+    ]
+  },
+  "comparison": {
+    "asyncio_stdlib": {
+      "N": 33,
+      "K_avg": 3.85,
+      "cycles": 1,
+      "architecture": "framework"
+    },
+    "swarm_knowledge_graph": {
+      "N": 325,
+      "K_avg": 0.766,
+      "cycles": 0,
+      "architecture": "fragmented_island"
+    }
+  },
+  "actual": "K_avg=0.77 (lower than expected). 200/325 lessons uncited (61.4%). 0 cycles. Composite=249.",
+  "diff": "Expectation was K_avg~1.5; actual 0.77. No cycles (healthy DAG). Uncited rate 61% far exceeds expectation \u2014 knowledge fragmentation is the dominant structural failure.",
+  "interpretation": {
+    "NK_diagnosis": "LOW_COUPLING_HIGH_FRAGMENTATION",
+    "architecture": "fragmented_island",
+    "swarm_implication": "Lessons do not compound. Each session writes standalone knowledge. Cross-citing is rare.",
+    "top_cited_are_anchors": [
+      "L-001 (10 citations)",
+      "L-304 (7)",
+      "L-218/L-219 (5)",
+      "L-251 (5)"
+    ],
+    "compaction_signal": "Low K_avg predicts low compression yield \u2014 citations are the connective tissue for compaction"
+  },
+  "f75_connection": "When K_avg < 1, decompose-by-data wins by default \u2014 no meaningful method-level dependencies exist to decompose by."
+}

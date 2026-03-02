@@ -1,0 +1,68 @@
+{
+  "experiment_id": "f-sp4-pa-kernel-refinement-s382",
+  "frontier": "F-SP4",
+  "session": "S382",
+  "date": "2026-03-01",
+  "domain": "stochastic-processes",
+  "hypothesis": "Raw gamma=1.65 is a small-sample artifact from sparse high-k tail. Robust gamma (n>=5) remains sublinear ~0.5-0.8. Age-dependent attachment exists: lessons within 30 sessions get cited 2-3x more. Era-dependent gamma confirmed.",
+  "method": "1) Rerun pa_kernel.py on 662 lessons (vs 609 at S369). 2) Robust gamma: filter kernel rates to k where n_attachments>=5, >=3, >=10. Also cap at k<=15. 3) Era split at median session S325: measure gamma early vs late. 4) Age-dependent attachment: compute session-gap distribution and normalize by gap-bucket exposure. 5) Saturation: compare rate bands k=1-5, k=6-12, k=13-19.",
+  "results": {
+    "corpus": {
+      "n_lessons": 662,
+      "n_events": 1190,
+      "n_edges": 1190,
+      "coverage": 0.568
+    },
+    "gamma_estimates": {
+      "raw_all_k": {"gamma": 1.6458, "r2": 0.5963, "note": "ARTIFACT: n=1 at k>=20 with rates 0.1-0.5 inflate slope"},
+      "robust_n5": {"gamma": 0.7085, "r2": 0.6716, "k_range": "1-14", "n_pts": 14},
+      "robust_n3": {"gamma": 0.6228, "r2": 0.5826, "k_range": "1-17", "n_pts": 17},
+      "robust_n10": {"gamma": 0.6368, "r2": 0.5547, "k_range": "1-10", "n_pts": 10},
+      "capped_k15": {"gamma": 0.6885, "r2": 0.6758, "k_range": "1-15", "n_pts": 15},
+      "consensus": "gamma=0.63-0.71 (sublinear) across all robust methods"
+    },
+    "era_dependent": {
+      "median_session": 325,
+      "early_le_S325": {"gamma": -0.005, "r2": 0.0002, "n_events": 184, "note": "FLAT — no PA"},
+      "late_gt_S325": {"gamma": 0.555, "r2": 0.506, "n_events": 684, "note": "mild sublinear PA"},
+      "interpretation": "PA kernel emerged only in late era. Early citations were approximately uniform across available degrees."
+    },
+    "age_dependent_attachment": {
+      "median_session_gap": 5,
+      "mean_session_gap": 28.2,
+      "p25_gap": 1,
+      "p75_gap": 20,
+      "pct_within_5_sessions": 50.4,
+      "rates_by_gap": {
+        "0-5": 0.046125,
+        "6-15": 0.014312,
+        "16-30": 0.006978,
+        "31-60": 0.002383,
+        "61-120": 0.004468,
+        "121+": 0.001709
+      },
+      "proximity_ratio_near_far": 27.0,
+      "close_le30_vs_distant_gt30_ratio": 9.14,
+      "note": "27x proximity effect far exceeds the 2-3x predicted. Session proximity is the DOMINANT citation mechanism."
+    },
+    "saturation": {
+      "mean_rate_k1_5": 0.002871,
+      "mean_rate_k6_12": 0.008960,
+      "mean_rate_k13_19": 0.007179,
+      "mid_low_ratio": 3.12,
+      "high_mid_ratio": 0.80,
+      "peak_degree": 12,
+      "note": "Rates rise to k=12, then decline. Saturation above k~12."
+    },
+    "zero_inflation": {
+      "rate_ratio_k1_k0": 66.23,
+      "pa_ratio": 1.52,
+      "fraction_k0": 0.357,
+      "note": "Still strong zero-inflation. First citation is the hardest to get."
+    }
+  },
+  "expect": "gamma still sublinear 0.5-0.8. BIC inconclusive. Age effect 2-3x within 30 sessions. Era effect: different gamma early vs late.",
+  "actual": "Robust gamma=0.63-0.71 (CONFIRMED sublinear). Raw gamma=1.65 is artifact. BIC DELTA=1.45 (still inconclusive). Age effect 27x (FAR stronger than 2-3x predicted). Era: early gamma=0 (flat), late gamma=0.56 (sublinear). Saturation peak at k=12.",
+  "diff": "gamma CONFIRMED sublinear when measured correctly — S381 recent gamma=1.89 is same artifact (n=1 high-k tail). Age effect 27x vs 2-3x predicted (order of magnitude wrong). Era effect confirmed but early era is FLAT not just different-gamma. Saturation discovered (not predicted).",
+  "verdict": "PARTIALLY CONFIRMED. Three of four predictions correct in direction, one (age 2-3x) was correct in direction but off by 10x in magnitude. The critical methodological finding: raw pa_kernel.py gamma is unreliable due to sparse high-k tail. All prior gamma measurements using raw log-log regression over full k range need reinterpretation."
+}

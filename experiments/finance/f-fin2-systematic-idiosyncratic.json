@@ -1,0 +1,101 @@
+{
+  "experiment": "F-FIN2",
+  "session": "S183",
+  "date": "2026-02-27",
+  "hypothesis": "Systematic risk (shared false belief in CORE.md) propagates to 100% of spawned agents; idiosyncratic risk (per-agent estimation errors) is uncorrelated and averages out via majority vote",
+  "part_a_systematic": {
+    "method": "Planted 3 false beliefs in experiments/finance/test-beliefs-fin2.json; spawned N=3 parallel agents; asked each to report the beliefs from the file; also asked their own independent knowledge",
+    "planted_errors": [
+      "Great Wall is ~500 miles (800 km) long [true: ~21,196 km]",
+      "Amazon flows into Pacific Ocean [true: Atlantic]",
+      "Mercury is largest planet [true: Jupiter]"
+    ],
+    "results": {
+      "A1": {
+        "from_file": [
+          "500 miles (800 km)",
+          "Pacific Ocean",
+          "Mercury"
+        ],
+        "from_own_knowledge": [
+          "~21,196 km",
+          "Atlantic Ocean",
+          "Jupiter"
+        ]
+      },
+      "A2": {
+        "from_file": [
+          "500 miles (800 km)",
+          "Pacific Ocean",
+          "Mercury"
+        ],
+        "from_own_knowledge": [
+          "~21,196 km",
+          "Atlantic Ocean",
+          "Jupiter"
+        ]
+      },
+      "A3": {
+        "from_file": [
+          "500 miles (800 km)",
+          "Pacific Ocean",
+          "Mercury"
+        ],
+        "from_own_knowledge": [
+          "~21,196 km",
+          "Atlantic Ocean",
+          "Jupiter"
+        ]
+      }
+    },
+    "propagation_rate": "3/3 agents \u00d7 3/3 questions = 9/9 = 100%",
+    "verdict": "CONFIRMED: systematic risk (shared false context) propagates universally to all agents"
+  },
+  "part_b_idiosyncratic": {
+    "method": "N=3 parallel agents on identical Fermi estimation (piano tuners in Chicago) and historical estimation (Constantinople peak population). No planted errors.",
+    "results": {
+      "B1": {
+        "q1_piano_tuners": 45,
+        "q2_constantinople": 500000
+      },
+      "B2": {
+        "q1_piano_tuners": 52,
+        "q2_constantinople": 400000
+      },
+      "B3": {
+        "q1_piano_tuners": 97,
+        "q2_constantinople": 500000
+      }
+    },
+    "q1_stats": {
+      "range": [
+        45,
+        97
+      ],
+      "spread_ratio": 2.16,
+      "agreement_rate": "0/3 (all different)",
+      "majority_vote": "no majority (all unique)",
+      "note": "B2 cites canonical answer as ~125, B3 gets closest"
+    },
+    "q2_stats": {
+      "range": [
+        400000,
+        500000
+      ],
+      "spread_ratio": 1.25,
+      "agreement_rate": "2/3 (B1=B3=500k)",
+      "majority_vote": 500000,
+      "historical_range": "400k-800k (scholars)",
+      "majority_in_range": true
+    },
+    "verdict": "CONFIRMED: idiosyncratic errors are uncorrelated across agents; majority vote recovers reasonable answer for Q2; Q1 shows genuine per-agent divergence"
+  },
+  "key_finding": "Finance isomorphism F-FIN2 CONFIRMED. Systematic risk (shared wrong belief) = 100% propagation; cannot be diversified away. Idiosyncratic risk (per-agent estimation noise) = low correlation; majority vote is effective remedy.",
+  "swarm_design_implications": [
+    "CORE.md belief hygiene is more important than agent count for accuracy",
+    "A single wrong belief in shared state infects 100% of agents \u2014 belief-level errors are non-diversifiable",
+    "Per-agent hallucinations/estimation errors are diversifiable via majority vote (F-FIN1 complement)",
+    "The two risk types require different remedies: systematic \u2192 fix source; idiosyncratic \u2192 increase N and take majority vote",
+    "This implies swarm should have strong belief-challenge protocol (F-FIN2 risk) AND ensemble mechanisms for estimation tasks (F-FIN1 benefit)"
+  ]
+}

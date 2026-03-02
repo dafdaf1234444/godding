@@ -1,0 +1,125 @@
+{
+  "experiment": "F-GOV1",
+  "title": "Governance-Contract Coverage Baseline — S302",
+  "session": "S302",
+  "date": "2026-02-28",
+  "domain": "governance",
+  "check_mode": "objective",
+  "expect": "Governance coverage ≥90% for lane fields; bridge file propagation possibly incomplete; enforcement automation gaps exist",
+
+  "method": "Score 4 governance surfaces: (1) SWARM-LANES field coverage, (2) bridge file protocol propagation, (3) enforcement mechanism inventory, (4) challenge system throughput. Apply RAG (Red/Amber/Green) rating per surface.",
+
+  "governance_surfaces": {
+    "lane_field_coverage": {
+      "total_rows": 354,
+      "status_counts": {"ACTIVE": 107, "READY": 225, "MERGED": 17, "ABANDONED": 33},
+      "field_coverage": {
+        "available": {"count": 350, "pct": 98.9},
+        "blocked": {"count": 345, "pct": 97.5},
+        "human_open_item": {"count": 345, "pct": 97.5},
+        "next_step": {"count": 333, "pct": 94.1}
+      },
+      "known_gaps": [
+        "1 coordinator lane missing check_focus (L-S186-SLOT3-COORD)",
+        "8 lanes with legacy available=ready (should be yes)",
+        "5 domain lanes missing domain_sync/memory_target",
+        "1 lane missing intent field (L-S184-F-AI2-HLT2-VERIFY)"
+      ],
+      "staleness": {
+        "stale_gt3_sessions": 50,
+        "stale_gt1_session": 7,
+        "active_lanes": 107,
+        "staleness_rate_pct": 46.7
+      },
+      "rating": "AMBER",
+      "note": "Field presence is high (94-99%) but staleness is alarming: 46.7% of active lanes have not been updated in >3 sessions. Governance contracts exist but are not being maintained."
+    },
+    "bridge_file_protocol_propagation": {
+      "bridge_files": ["CLAUDE.md", "AGENTS.md", "GEMINI.md", ".cursorrules", ".windsurfrules", ".github/copilot-instructions.md"],
+      "protocol_features": {
+        "safety_first_collaboration": {
+          "coverage_count": 5,
+          "coverage_pct": 83.3,
+          "missing": [".windsurfrules"],
+          "note": ".cursorrules has it (capital S). .windsurfrules missing."
+        },
+        "minimum_swarmed_cycle": {
+          "coverage_count": 4,
+          "coverage_pct": 66.7,
+          "missing": [".cursorrules", ".windsurfrules"],
+          "note": "Critical protocol section (check-mode + expect-act-diff + bridge sync) absent in Cursor and Windsurf bridges."
+        },
+        "multi_tool_compat_f118": {
+          "coverage_count": 6,
+          "coverage_pct": 100.0,
+          "missing": []
+        }
+      },
+      "enforcement": "MANUAL — CLAUDE.md instructs 'keep bridge files synchronized' but no automated scanner",
+      "rating": "RED",
+      "note": "Minimum Swarmed Cycle missing from 2/6 bridge files. These tools would start sessions without check_mode, expect-act-diff, or bridge-sync requirements. No automated propagation audit."
+    },
+    "enforcement_mechanisms": {
+      "automated": [
+        {"tool": "tools/maintenance.py", "checks": ["lane field coverage", "stale lanes", "coordinator contracts", "domain_sync tags"], "status": "ACTIVE"},
+        {"tool": "tools/validate_beliefs.py", "checks": ["belief chain integrity", "swarmability score"], "status": "ACTIVE", "score": "90/100"},
+        {"tool": "tools/check.sh", "checks": ["mass-deletion guard (FM-01, new)", "maintenance --quick", "validate_beliefs --quick"], "status": "ACTIVE"},
+        {"tool": "tools/alignment_check.py", "checks": ["child challenge processing", "belief contradictions"], "status": "ACTIVE"},
+        {"tool": "tools/f_con3_constitution_monitor.py", "checks": ["mid-session constitutional mutation"], "status": "PARTIAL (3/5 sessions)"}
+      ],
+      "manual_only": [
+        {"surface": "bridge file sync", "requirement": "CLAUDE.md: mirror protocol-critical guidance across all bridge files", "gap": "no scanner"},
+        {"surface": "stale lane resolution", "requirement": "SWARM-LANES protocol: lanes stale >10 sessions = ABANDONED", "gap": "maintenance flags but no auto-abandon"},
+        {"surface": "legacy field normalization", "requirement": "available=ready should be yes", "gap": "maintenance flags 8 lanes but no auto-fix"}
+      ],
+      "rating": "AMBER",
+      "note": "Core enforcement is automated and working. Bridge sync is the critical manual-only gap. Stale lane cleanup is flagged but requires human/node action."
+    },
+    "challenge_system": {
+      "pending_challenges": 0,
+      "total_beliefs": 17,
+      "theorized_beliefs": 2,
+      "theorized_pct": 11.8,
+      "P164_threshold_pct": 80.0,
+      "challenge_throughput": "unknown — no session-level challenge rate tracked",
+      "rating": "AMBER",
+      "note": "Zero pending challenges could mean healthy alignment OR underchallenging (P-164: >80% confirmation rate is a red flag). F-GOV3 needs throughput measurement to distinguish."
+    }
+  },
+
+  "summary": {
+    "surfaces_green": 0,
+    "surfaces_amber": 3,
+    "surfaces_red": 1,
+    "red_surface": "bridge_file_protocol_propagation",
+    "top_governance_gaps": [
+      {
+        "rank": 1,
+        "gap": "Bridge file protocol propagation — Minimum Swarmed Cycle missing from .cursorrules and .windsurfrules (33% drift)",
+        "effort": "low",
+        "impact": "high — Cursor/Windsurf sessions start without check_mode, expect-act-diff, bridge-sync requirements"
+      },
+      {
+        "rank": 2,
+        "gap": "Active lane staleness — 50/107 ACTIVE lanes not updated in >3 sessions (46.7%)",
+        "effort": "medium",
+        "impact": "medium — stale lanes create coordination confusion and SWARM-LANES bloat (C3)"
+      },
+      {
+        "rank": 3,
+        "gap": "No automated bridge file sync scanner — CLAUDE.md instructs sync but no enforcement tool",
+        "effort": "low",
+        "impact": "medium — protocol drift accumulates silently across tools"
+      }
+    ]
+  },
+
+  "actual": "Lane field coverage is HIGH (94-99% presence). Bridge protocol propagation is RED (33% gap — Minimum Swarmed Cycle missing from Cursor + Windsurf). Enforcement is AMBER (core automated, bridge sync manual). Challenge system is AMBER (0 pending, throughput unknown).",
+  "diff": "Expected ≥90% lane coverage — confirmed. Unexpected: bridge file drift is larger than assumed (2/6 bridges missing a critical protocol section). Staleness rate at 46.7% is higher than expected — active lanes are governance contracts that have expired without resolution.",
+
+  "next_steps": [
+    "Add Minimum Swarmed Cycle to .cursorrules and .windsurfrules (F-GOV2 first action)",
+    "Add automated bridge file scanner to maintenance.py — check for required protocol sections in all 6 bridge files",
+    "F-GOV3: measure challenge-resolution throughput (track open-time per challenge)"
+  ]
+}

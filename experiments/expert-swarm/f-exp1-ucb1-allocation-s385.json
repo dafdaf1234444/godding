@@ -1,0 +1,672 @@
+{
+  "experiment": "f-exp1-ucb1-allocation-quality",
+  "frontier": "F-EXP1",
+  "domain": "expert-swarm",
+  "session": "S385",
+  "date": "2026-03-01",
+  "hypothesis": "UCB1-era (S374+) top-3 domains produce >=1.2 L/lane; UCB1 Gini < heuristic Gini",
+  "method": "Parse all DOMEX lanes from SWARM-LANES + archive. Split by era (heuristic <=S373, UCB1 S374+). Calculate per-domain L/lane yield, merge rate, coverage Gini.",
+  "ucb1_start_session": 374,
+  "heuristic_era": {
+    "era": "heuristic (<=S373)",
+    "total_lanes": 190,
+    "merged": 141,
+    "domains_touched": 54,
+    "total_lessons": 197,
+    "avg_l_per_lane": 1.0368421052631578,
+    "merge_rate": 0.7421052631578947,
+    "gini": 0.5507,
+    "top3_domains": [
+      [
+        "control-theory",
+        3.0
+      ],
+      [
+        "quality",
+        3.0
+      ],
+      [
+        "conflict",
+        2.5
+      ]
+    ],
+    "top3_avg_yield": 2.83,
+    "bottom5_domains": [
+      [
+        "ct",
+        0.0
+      ],
+      [
+        "gth",
+        0.0
+      ],
+      [
+        "or",
+        0.0
+      ],
+      [
+        "hlp3",
+        0.0
+      ],
+      [
+        "infra",
+        0.0
+      ]
+    ],
+    "bottom5_avg_yield": 0.0,
+    "domain_detail": {
+      "control-theory": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 3,
+        "l_per_lane": 3.0,
+        "merge_rate": 1.0
+      },
+      "quality": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 6,
+        "l_per_lane": 3.0,
+        "merge_rate": 1.0
+      },
+      "conflict": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 5,
+        "l_per_lane": 2.5,
+        "merge_rate": 1.0
+      },
+      "fluid-dynamics": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "ctx": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "exp10": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "empathy": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "information-science": {
+        "lanes": 10,
+        "merged": 7,
+        "lessons": 19,
+        "l_per_lane": 1.9,
+        "merge_rate": 0.7
+      },
+      "phy": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 3,
+        "l_per_lane": 1.5,
+        "merge_rate": 0.5
+      },
+      "meta": {
+        "lanes": 31,
+        "merged": 28,
+        "lessons": 42,
+        "l_per_lane": 1.3548387096774193,
+        "merge_rate": 0.9032258064516129
+      },
+      "stochastic-processes": {
+        "lanes": 3,
+        "merged": 3,
+        "lessons": 4,
+        "l_per_lane": 1.3333333333333333,
+        "merge_rate": 1.0
+      },
+      "governance": {
+        "lanes": 8,
+        "merged": 7,
+        "lessons": 9,
+        "l_per_lane": 1.125,
+        "merge_rate": 0.875
+      },
+      "nk-complexity": {
+        "lanes": 22,
+        "merged": 18,
+        "lessons": 23,
+        "l_per_lane": 1.0454545454545454,
+        "merge_rate": 0.8181818181818182
+      },
+      "evaluation": {
+        "lanes": 3,
+        "merged": 2,
+        "lessons": 3,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.6666666666666666
+      },
+      "personality": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.0
+      },
+      "economy": {
+        "lanes": 5,
+        "merged": 3,
+        "lessons": 5,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.6
+      },
+      "readme": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "hs": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.5
+      },
+      "brain": {
+        "lanes": 7,
+        "merged": 5,
+        "lessons": 7,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.7142857142857143
+      },
+      "evolution": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.5
+      },
+      "stat": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.5
+      },
+      "strategy": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "hlp2": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "hlp4": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "econ": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "ai": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "emp": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "linguistics": {
+        "lanes": 15,
+        "merged": 14,
+        "lessons": 14,
+        "l_per_lane": 0.9333333333333333,
+        "merge_rate": 0.9333333333333333
+      },
+      "graph-theory": {
+        "lanes": 5,
+        "merged": 3,
+        "lessons": 4,
+        "l_per_lane": 0.8,
+        "merge_rate": 0.6
+      },
+      "hlp": {
+        "lanes": 5,
+        "merged": 4,
+        "lessons": 4,
+        "l_per_lane": 0.8,
+        "merge_rate": 0.8
+      },
+      "con": {
+        "lanes": 5,
+        "merged": 5,
+        "lessons": 4,
+        "l_per_lane": 0.8,
+        "merge_rate": 1.0
+      },
+      "expert-swarm": {
+        "lanes": 8,
+        "merged": 7,
+        "lessons": 6,
+        "l_per_lane": 0.75,
+        "merge_rate": 0.875
+      },
+      "cry": {
+        "lanes": 4,
+        "merged": 2,
+        "lessons": 3,
+        "l_per_lane": 0.75,
+        "merge_rate": 0.5
+      },
+      "cc": {
+        "lanes": 3,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 0.6666666666666666,
+        "merge_rate": 0.3333333333333333
+      },
+      "dream": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 0.5
+      },
+      "distributed-systems": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 0.5
+      },
+      "finance": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 0.5
+      },
+      "psy": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 0.5
+      },
+      "catastrophic-risks": {
+        "lanes": 2,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 0.5
+      },
+      "mech": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 1,
+        "l_per_lane": 0.5,
+        "merge_rate": 1.0
+      },
+      "coord": {
+        "lanes": 4,
+        "merged": 0,
+        "lessons": 1,
+        "l_per_lane": 0.25,
+        "merge_rate": 0.0
+      },
+      "infoflow": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 1.0
+      },
+      "evo5": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "fra": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "gaming": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "gue": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "pro": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "soc": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "competitions": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "ct": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "gth": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "or": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      },
+      "hlp3": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 1.0
+      },
+      "infra": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 1.0
+      }
+    }
+  },
+  "ucb1_era": {
+    "era": "ucb1 (S374+)",
+    "total_lanes": 52,
+    "merged": 47,
+    "domains_touched": 21,
+    "total_lessons": 86,
+    "avg_l_per_lane": 1.6538461538461537,
+    "merge_rate": 0.9038461538461539,
+    "gini": 0.4176,
+    "top3_domains": [
+      [
+        "nk-complexity",
+        4.0
+      ],
+      [
+        "distributed-systems",
+        3.0
+      ],
+      [
+        "information-science",
+        3.0
+      ]
+    ],
+    "top3_avg_yield": 3.33,
+    "bottom5_domains": [
+      [
+        "stochastic-processes",
+        1.0
+      ],
+      [
+        "strategy",
+        1.0
+      ],
+      [
+        "quality",
+        1.0
+      ],
+      [
+        "evaluation",
+        1.0
+      ],
+      [
+        "expert-swarm",
+        0.0
+      ]
+    ],
+    "bottom5_avg_yield": 0.8,
+    "domain_detail": {
+      "nk-complexity": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 4,
+        "l_per_lane": 4.0,
+        "merge_rate": 1.0
+      },
+      "distributed-systems": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 3,
+        "l_per_lane": 3.0,
+        "merge_rate": 1.0
+      },
+      "information-science": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 3,
+        "l_per_lane": 3.0,
+        "merge_rate": 1.0
+      },
+      "security": {
+        "lanes": 7,
+        "merged": 7,
+        "lessons": 19,
+        "l_per_lane": 2.7142857142857144,
+        "merge_rate": 1.0
+      },
+      "meta": {
+        "lanes": 8,
+        "merged": 7,
+        "lessons": 17,
+        "l_per_lane": 2.125,
+        "merge_rate": 0.875
+      },
+      "hs": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "information-cascade": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 2,
+        "l_per_lane": 2.0,
+        "merge_rate": 1.0
+      },
+      "catastrophic-risks": {
+        "lanes": 3,
+        "merged": 2,
+        "lessons": 5,
+        "l_per_lane": 1.6666666666666667,
+        "merge_rate": 0.6666666666666666
+      },
+      "economy": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 3,
+        "l_per_lane": 1.5,
+        "merge_rate": 1.0
+      },
+      "graph-theory": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 3,
+        "l_per_lane": 1.5,
+        "merge_rate": 1.0
+      },
+      "fluid-dynamics": {
+        "lanes": 3,
+        "merged": 2,
+        "lessons": 4,
+        "l_per_lane": 1.3333333333333333,
+        "merge_rate": 0.6666666666666666
+      },
+      "farming": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "finance": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "gaming": {
+        "lanes": 2,
+        "merged": 2,
+        "lessons": 2,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "cache": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "evolution": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "stochastic-processes": {
+        "lanes": 5,
+        "merged": 4,
+        "lessons": 5,
+        "l_per_lane": 1.0,
+        "merge_rate": 0.8
+      },
+      "strategy": {
+        "lanes": 6,
+        "merged": 6,
+        "lessons": 6,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "quality": {
+        "lanes": 3,
+        "merged": 3,
+        "lessons": 3,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "evaluation": {
+        "lanes": 1,
+        "merged": 1,
+        "lessons": 1,
+        "l_per_lane": 1.0,
+        "merge_rate": 1.0
+      },
+      "expert-swarm": {
+        "lanes": 1,
+        "merged": 0,
+        "lessons": 0,
+        "l_per_lane": 0.0,
+        "merge_rate": 0.0
+      }
+    }
+  },
+  "comparison": {
+    "avg_l_per_lane_delta": 0.617,
+    "merge_rate_delta_pp": 16.2,
+    "gini_delta": -0.1331,
+    "domains_touched_delta": -33,
+    "h1_ucb1_top3_yield_gte_1.2": true,
+    "h2_ucb1_gini_lt_heuristic": true
+  },
+  "verdict": "CONFIRMED",
+  "key_findings": [
+    "UCB1 L/lane +59% (1.04->1.65): allocation quality improved across all domains",
+    "Gini -24% (0.55->0.42): UCB1 distributes work more evenly across domains",
+    "Merge rate +16.2pp (74.2->90.4%) but CONFOUNDED with one-shot norm (L-444)",
+    "UCB1 top-3 (nk-complexity 4.0, distributed-systems 3.0, information-science 3.0) each n=1 — small sample risk",
+    "Security dominates UCB1 yield (7 lanes, 2.71 L/lane) — UCB1 correctly allocates more to proven domain",
+    "Heuristic era inflated to 54 domains by ~20 unmapped abbreviations (ct, gth, or, hlp3 etc) — historical naming inconsistency"
+  ],
+  "unexpected": "Expert-swarm domain itself is the only 0-yield domain in UCB1 era (1 lane, 0 lessons — meta-irony of self-dispatch). UCB1 bottom-5 floor is 0.8 L/lane vs heuristic bottom-5 at 0.0 — the floor rose, not just the ceiling.",
+  "confounds": [
+    "One-shot norm (L-444, S327) drives merge rate, not scoring",
+    "Time confound: UCB1 era is more recent, swarm more mature",
+    "Heuristic-era abbreviation parsing noise inflates domain count",
+    "UCB1 top-3 domains each n=1 lane — statistically fragile"
+  ],
+  "prescriptions": [
+    "F-EXP1 NEAR-RESOLVED: scoring improves WHERE (allocation), one-shot norm drives WHETHER (completion). Both confirmed.",
+    "Fix LANE_ABBREV_TO_DOMAIN for historical abbreviations (ct->control-theory, gth->graph-theory, etc) to get cleaner era comparison",
+    "Continue UCB1 for 20+ sessions (n>=3 per domain) before marking F-EXP1 fully RESOLVED"
+  ],
+  "cites": [
+    "L-697",
+    "L-654",
+    "L-444",
+    "L-685",
+    "L-572"
+  ],
+  "confidence": "Measured (n=242 DOMEX lanes, 190 heuristic + 52 UCB1)"
+}

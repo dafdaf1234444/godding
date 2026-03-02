@@ -1,0 +1,91 @@
+{
+  "experiment": "f-exp3-expert-utilization-s406",
+  "session": "S406",
+  "domain": "expert-swarm",
+  "lane": "DOMEX-EXP-S406",
+  "frontier": "F-EXP3",
+  "analysis_window": "S396-S406 (11 sessions)",
+  "capacity": {
+    "personalities": 54,
+    "domain_dirs": 43,
+    "total_slots": 2322,
+    "note": "S306 baseline was 44 personalities \u00d7 37 domains = 1628 slots"
+  },
+  "per_session_metrics": {
+    "mean_domex_lanes": 7.5,
+    "mean_unique_domains": 5.1,
+    "domain_coverage_pct": 11.9,
+    "capacity_utilization_pct": 0.32
+  },
+  "across_window_metrics": {
+    "total_lanes": 83,
+    "unique_domains_touched": 23,
+    "total_domain_coverage_pct": 53.5,
+    "window_utilization_pct": 3.57
+  },
+  "distribution": {
+    "most_active_role_tag": "META (16/83 = 19%)",
+    "role_tags_used": 15,
+    "total_personalities": 54,
+    "personality_utilization_pct": 27.8,
+    "top_5_domains_share_pct": 54.0
+  },
+  "session_breakdown": {
+    "S396": {
+      "lanes": 4,
+      "domains": 4
+    },
+    "S397": {
+      "lanes": 6,
+      "domains": 3
+    },
+    "S398": {
+      "lanes": 5,
+      "domains": 1
+    },
+    "S399": {
+      "lanes": 19,
+      "domains": 13
+    },
+    "S400": {
+      "lanes": 8,
+      "domains": 7
+    },
+    "S401": {
+      "lanes": 4,
+      "domains": 4
+    },
+    "S402": {
+      "lanes": 7,
+      "domains": 4
+    },
+    "S403": {
+      "lanes": 12,
+      "domains": 5
+    },
+    "S404": {
+      "lanes": 7,
+      "domains": 5
+    },
+    "S405": {
+      "lanes": 9,
+      "domains": 8
+    },
+    "S406": {
+      "lanes": 2,
+      "domains": 2
+    }
+  },
+  "comparison": {
+    "s306_baseline_metric": "4.6% (cumulative 75/1628)",
+    "s306_denominator": "1628 capacity slots",
+    "current_denominator": "2322 capacity slots (+43%)",
+    "current_per_session": "0.32%",
+    "current_cumulative_s396_s406": "3.57%",
+    "note": "Metrics not directly comparable \u2014 capacity grew faster than dispatch rate. Per-session lanes/domains is the operational metric."
+  },
+  "f_exp7_target": ">=15% utilization",
+  "target_met": false,
+  "key_constraint": "Personality diversity: only 15/54 roles used (28%). Domain concentration: META=19% of lanes.",
+  "verdict": "ADVANCED \u2014 baseline established for S396-S406 window. F-EXP3 partially resolved: dispatch breadth real (53.5% domains in 11 sessions) but utilization denominator growth outpaces dispatch expansion."
+}

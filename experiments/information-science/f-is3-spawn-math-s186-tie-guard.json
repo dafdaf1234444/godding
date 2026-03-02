@@ -1,0 +1,75 @@
+{
+  "model": {
+    "baseline_quality": 0.65,
+    "baseline_std": 0.2,
+    "error_correlation_rho": 0.0,
+    "coordination_cost_per_extra_agent": 0.01,
+    "risk_aversion": 1.0,
+    "n_max": 6,
+    "p119_threshold_fraction": 0.45,
+    "tie_margin_min": 0.01
+  },
+  "recommendation": {
+    "best_n": 3,
+    "best_utility": 0.51453,
+    "best_n_raw": 5,
+    "best_utility_raw": 0.520557,
+    "raw_top2_margin": 0.000557,
+    "tie_guard_triggered": true,
+    "tie_guard_candidate_ns": [
+      3,
+      4
+    ],
+    "spawn": true
+  },
+  "rows": [
+    {
+      "n": 1,
+      "std_factor": 1.0,
+      "utility": 0.45,
+      "gain_vs_n1": 0.0,
+      "required_degradation_fraction": 0.0,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 2,
+      "std_factor": 0.707107,
+      "utility": 0.498579,
+      "gain_vs_n1": 0.048579,
+      "required_degradation_fraction": 0.05,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 3,
+      "std_factor": 0.57735,
+      "utility": 0.51453,
+      "gain_vs_n1": 0.06453,
+      "required_degradation_fraction": 0.1,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 4,
+      "std_factor": 0.5,
+      "utility": 0.52,
+      "gain_vs_n1": 0.07,
+      "required_degradation_fraction": 0.15,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 5,
+      "std_factor": 0.447214,
+      "utility": 0.520557,
+      "gain_vs_n1": 0.070557,
+      "required_degradation_fraction": 0.2,
+      "passes_p119_gate": true
+    },
+    {
+      "n": 6,
+      "std_factor": 0.408248,
+      "utility": 0.51835,
+      "gain_vs_n1": 0.06835,
+      "required_degradation_fraction": 0.25,
+      "passes_p119_gate": true
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "experiment": "f-game1-roguelike-external-research-s374",
+  "frontier": "F-GAME1",
+  "domain": "gaming",
+  "session": "S374",
+  "type": "external-research",
+  "description": "External survey of roguelike meta-progression theory, punctuated equilibrium, productive failure, and flow state design",
+  "expect": "External theory explains swarm's bimodal distribution, dormancy-burst pattern, and refuted learning curve",
+  "actual": {
+    "roguelike_taxonomy": {
+      "three_progression_types": {
+        "run_progression": "within-run ephemeral gains — maps to session-local context/working memory",
+        "meta_progression": "permanent mechanical unlocks (roguelite) — maps to lessons/principles/tools in git",
+        "player_knowledge": "cognitive improvement, no mechanical carryover (pure roguelike) — maps to evolving protocol/MEMORY.md"
+      },
+      "swarm_classification": "ROGUELITE HYBRID: has both mechanical meta-progression (git-persisted knowledge) AND player-knowledge progression (protocol shapes agent cognition)",
+      "closest_analog": "Slay the Spire: meta-progression as gradual tutorial, not power accumulation",
+      "gradual_tutorial_pattern": "frontiers sequence IS the meta-progression tutorial — early structural, later meta-cognitive"
+    },
+    "punctuated_equilibrium": {
+      "gersick_1988_group_development": {
+        "finding": "teams do NOT progress gradually; inertia → midpoint radical transition → renewed urgency",
+        "mechanism": "temporal midpoint works as alarm clock regardless of absolute duration",
+        "swarm_mapping": "47.3% early deaths = inertia phase; 3% deep runs = post-transition burst; trigger is awareness/urgency, not skill"
+      },
+      "tushman_romanelli_1986_organizational": {
+        "finding": "deep structure (fundamental choices) maintained through incremental adjustments; revolutionary periods restructure deep structure",
+        "triggers": "environmental discontinuities, performance crises, leadership changes",
+        "swarm_mapping": "CORE.md/PHILOSOPHY.md = deep structure; most sessions = incremental; burst sessions (S355 tool consolidation, S357 NK resolution) = punctuation events"
+      },
+      "implication": "dormancy-burst is NOT failure to achieve gradual improvement — it IS the expected dynamics of complex systems"
+    },
+    "productive_failure": {
+      "kapur_2014_2016": {
+        "taxonomy": "2x2: productive failure, productive success, unproductive failure, unproductive success",
+        "four_mechanisms": ["activation (prior knowledge structures)", "awareness (gap highlighting)", "affect (motivation from struggle)", "assembly (comparing failed to canonical)"],
+        "critical_finding": "students generating MORE incorrect solutions before instruction show BETTER conceptual knowledge and transfer",
+        "swarm_mapping": "47.3% early death sessions may contribute to later productivity IF they generate diverse failed approaches that get recorded"
+      },
+      "bjork_desirable_difficulties": {
+        "finding": "conditions that slow apparent learning optimize long-term retention and transfer",
+        "four_categories": ["spacing", "interleaving", "retrieval practice", "varied conditions"],
+        "swarm_implements_all_four": {
+          "spacing": "sessions separated by time gaps (median 12.6min)",
+          "interleaving": "expert dispatch rotates across domains",
+          "retrieval_practice": "orient.py forces state reconstruction from git",
+          "varied_conditions": "different sessions work different frontiers"
+        }
+      },
+      "unproductive_failure_condition": "when learners lack prior knowledge to generate meaningful solutions OR no consolidation follows — the key discriminator for swarm early deaths"
+    },
+    "flow_theory": {
+      "csikszentmihalyi_model": {
+        "boredom": "high skill, low challenge — the quick-close micro-frontiers (94% boredom zone)",
+        "anxiety": "low skill, high challenge — the permanent structural questions (70% anxiety zone)",
+        "flow": "matched skill+challenge — the nearly-absent 2.1% flow zone"
+      },
+      "chen_2007_flow_in_games": {
+        "finding": "flow channel is narrow; most experiences cluster in boredom or anxiety",
+        "DDA_principle": "player autonomy in difficulty selection more effective than algorithmic DDA",
+        "multiple_pathways": "varied playstyles maintain engagement for diverse player types"
+      },
+      "fixes_from_theory": [
+        "frontier decomposition: break permanent questions into intermediate sub-problems (2-10 sessions)",
+        "session-controlled difficulty: let session choose challenge level rather than algorithmic dispatch",
+        "progressive escalation: stair-step frontier sequences",
+        "skill-challenge feedback: make system capability visible for calibration"
+      ],
+      "bimodal_explanation": "absent flow zone arises from poor challenge-skill calibration — frontiers are either trivially solvable or intractably complex"
+    }
+  },
+  "diff": "Expected roguelike mapping to hold — confirmed: swarm is roguelite hybrid (Slay the Spire model). Did NOT predict the strength of productive failure theory: Kapur's finding (more incorrect solutions → better learning) directly explains why learning curve is refuted while death rate is NOT pathological. Punctuated equilibrium (Gersick midpoint transition) explains dormancy-burst without needing learning-curve mechanism. Flow theory directly diagnoses the 2.1% flow zone gap — the most actionable finding is frontier decomposition to create missing middle.",
+  "sources": {
+    "kapur_2014": "https://onlinelibrary.wiley.com/doi/10.1111/cogs.12107",
+    "kapur_2016": "https://www.tandfonline.com/doi/abs/10.1080/00461520.2016.1155457",
+    "bjork_desirable_difficulties": "https://bjorklab.psych.ucla.edu/wp-content/uploads/sites/13/2016/04/EBjork_RBjork_2011.pdf",
+    "gersick_1988": "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Group_Dynamics/Gersick_1988_Time_and_transition.pdf",
+    "romanelli_tushman_1994": "https://journals.aom.org/doi/abs/10.5465/256669",
+    "chen_flow_in_games": "https://www.jenovachen.com/flowingames/Flow_in_games_final.pdf",
+    "roguelike_mastery": "https://www.gridsagegames.com/blog/2025/08/designing-for-mastery-in-roguelikes-w-roguelike-radio/"
+  }
+}

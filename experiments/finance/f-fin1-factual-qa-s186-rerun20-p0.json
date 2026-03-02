@@ -1,0 +1,338 @@
+{
+  "experiment": "F-FIN1",
+  "title": "Factual-QA diversification: single-agent vs majority vote",
+  "mode": "live-wikipedia-capital-qa-direct-answer",
+  "seed": 187,
+  "lang": "en",
+  "trials_per_condition": 20,
+  "perturb_rate": 0.0,
+  "question_bank": [
+    {
+      "question": "What is the capital of France?",
+      "expected": "Paris"
+    },
+    {
+      "question": "What is the capital of Japan?",
+      "expected": "Tokyo"
+    },
+    {
+      "question": "What is the capital of Italy?",
+      "expected": "Rome"
+    },
+    {
+      "question": "What is the capital of Canada?",
+      "expected": "Ottawa"
+    },
+    {
+      "question": "What is the capital of Australia?",
+      "expected": "Canberra"
+    },
+    {
+      "question": "What is the capital of India?",
+      "expected": "New Delhi"
+    },
+    {
+      "question": "What is the capital of Spain?",
+      "expected": "Madrid"
+    },
+    {
+      "question": "What is the capital of Germany?",
+      "expected": "Berlin"
+    },
+    {
+      "question": "What is the capital of Argentina?",
+      "expected": "Buenos Aires"
+    },
+    {
+      "question": "What is the capital of Egypt?",
+      "expected": "Cairo"
+    },
+    {
+      "question": "What is the capital of Kenya?",
+      "expected": "Nairobi"
+    },
+    {
+      "question": "What is the capital of Sweden?",
+      "expected": "Stockholm"
+    }
+  ],
+  "single_agent": {
+    "agents": 1,
+    "trial_accuracies": [
+      0.25,
+      0.3333,
+      0.3333,
+      0.1667,
+      0.3333,
+      0.1667,
+      0.25,
+      0.25,
+      0.5833,
+      0.0833,
+      0.0833,
+      0.5,
+      0.1667,
+      0.3333,
+      0.25,
+      0.1667,
+      0.25,
+      0.1667,
+      0.4167,
+      0.3333
+    ],
+    "summary": {
+      "mean": 0.2708,
+      "std": 0.126,
+      "variance": 0.015885
+    },
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "what is the capital of France"
+        ],
+        "predictions": [
+          "what is the capital of France"
+        ],
+        "vote": "what is the capital of France"
+      },
+      {
+        "country": "Italy",
+        "expected": "Rome",
+        "resolved_titles": [
+          "capital of Italy"
+        ],
+        "predictions": [
+          "capital of Italy"
+        ],
+        "vote": "capital of Italy"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "resolved_titles": [
+          "Australia capital city"
+        ],
+        "predictions": [
+          "Australia capital city"
+        ],
+        "vote": "Australia capital city"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "resolved_titles": [
+          "what is the capital of India"
+        ],
+        "predictions": [
+          "what is the capital of India"
+        ],
+        "vote": "what is the capital of India"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "resolved_titles": [
+          "capital of Spain"
+        ],
+        "predictions": [
+          "capital of Spain"
+        ],
+        "vote": "capital of Spain"
+      },
+      {
+        "country": "Germany",
+        "expected": "Berlin",
+        "resolved_titles": [
+          "what is the capital of Germany"
+        ],
+        "predictions": [
+          "what is the capital of Germany"
+        ],
+        "vote": "what is the capital of Germany"
+      },
+      {
+        "country": "Argentina",
+        "expected": "Buenos Aires",
+        "resolved_titles": [
+          "what is the capital of Argentina"
+        ],
+        "predictions": [
+          "what is the capital of Argentina"
+        ],
+        "vote": "what is the capital of Argentina"
+      },
+      {
+        "country": "Egypt",
+        "expected": "Cairo",
+        "resolved_titles": [
+          "Egypt capital city"
+        ],
+        "predictions": [
+          "Egypt capital city"
+        ],
+        "vote": "Egypt capital city"
+      }
+    ]
+  },
+  "majority_vote": {
+    "agents": 3,
+    "trial_accuracies": [
+      0.3333,
+      0.0833,
+      0.4167,
+      0.3333,
+      0.1667,
+      0.4167,
+      0.25,
+      0.1667,
+      0.3333,
+      0.1667,
+      0.3333,
+      0.1667,
+      0.1667,
+      0.25,
+      0.4167,
+      0.25,
+      0.1667,
+      0.1667,
+      0.3333,
+      0.1667
+    ],
+    "summary": {
+      "mean": 0.2542,
+      "std": 0.1003,
+      "variance": 0.010052
+    },
+    "mean_pairwise_prediction_agreement": 0.3819,
+    "error_samples": [
+      {
+        "country": "France",
+        "expected": "Paris",
+        "resolved_titles": [
+          "France capital city",
+          "France capital city",
+          "France capital city"
+        ],
+        "predictions": [
+          "France capital city",
+          "France capital city",
+          "France capital city"
+        ],
+        "vote": "France capital city"
+      },
+      {
+        "country": "Italy",
+        "expected": "Rome",
+        "resolved_titles": [
+          "Italy capital city",
+          "capital of Italy",
+          "Italy capital city"
+        ],
+        "predictions": [
+          "Italy capital city",
+          "capital of Italy",
+          "Italy capital city"
+        ],
+        "vote": "Italy capital city"
+      },
+      {
+        "country": "Australia",
+        "expected": "Canberra",
+        "resolved_titles": [
+          "Australia capital city",
+          "what is the capital of Australia",
+          "what is the capital of Australia"
+        ],
+        "predictions": [
+          "Australia capital city",
+          "what is the capital of Australia",
+          "what is the capital of Australia"
+        ],
+        "vote": "what is the capital of Australia"
+      },
+      {
+        "country": "India",
+        "expected": "New Delhi",
+        "resolved_titles": [
+          "what is the capital of India",
+          "capital of India",
+          "what is the capital of India"
+        ],
+        "predictions": [
+          "what is the capital of India",
+          "capital of India",
+          "what is the capital of India"
+        ],
+        "vote": "what is the capital of India"
+      },
+      {
+        "country": "Spain",
+        "expected": "Madrid",
+        "resolved_titles": [
+          "Spain capital city",
+          "what is the capital of Spain",
+          "what is the capital of Spain"
+        ],
+        "predictions": [
+          "Spain capital city",
+          "what is the capital of Spain",
+          "what is the capital of Spain"
+        ],
+        "vote": "what is the capital of Spain"
+      },
+      {
+        "country": "Germany",
+        "expected": "Berlin",
+        "resolved_titles": [
+          "what is the capital of Germany",
+          "Germany capital city",
+          "capital of Germany"
+        ],
+        "predictions": [
+          "what is the capital of Germany",
+          "Germany capital city",
+          "the city of Berlin"
+        ],
+        "vote": "what is the capital of Germany"
+      },
+      {
+        "country": "Kenya",
+        "expected": "Nairobi",
+        "resolved_titles": [
+          "Kenya capital city",
+          "what is the capital of Kenya",
+          "what is the capital of Kenya"
+        ],
+        "predictions": [
+          "Kenya capital city",
+          "what is the capital of Kenya",
+          "what is the capital of Kenya"
+        ],
+        "vote": "what is the capital of Kenya"
+      },
+      {
+        "country": "Sweden",
+        "expected": "Stockholm",
+        "resolved_titles": [
+          "Sweden capital city",
+          "Sweden capital city",
+          "Stockholm"
+        ],
+        "predictions": [
+          "Sweden capital city",
+          "Sweden capital city",
+          "Stockholm"
+        ],
+        "vote": "Sweden capital city"
+      }
+    ]
+  },
+  "delta": {
+    "mean_accuracy_n3_minus_n1": -0.0166,
+    "variance_ratio_n3_over_n1": 0.6328
+  },
+  "interpretation": "This run scores direct capital answers extracted from fetched knowledge content (with fallback to resolved title), reducing resolver-proxy bias in the F-FIN1 factual diversification test.",
+  "generated_at_utc": "2026-02-27T20:49:25Z"
+}

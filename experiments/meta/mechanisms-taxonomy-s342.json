@@ -1,0 +1,463 @@
+{
+  "id": "mechanisms-taxonomy-s342",
+  "session": "S342",
+  "frontier": "F-SCALE2",
+  "domain": "meta",
+  "type": "taxonomy",
+  "personality": "domain-expert (mechanisms)",
+  "check_mode": "objective",
+  "expect": "15-20 mechanisms cataloged with ISO mappings, operational status, and PHIL-17 mutual-swarming classification; gap analysis reveals 3+ structural needs without mechanisms",
+
+  "taxonomy": {
+    "total_mechanisms": 22,
+    "swarm_grade_mechanisms": 14,
+    "tool_grade_mechanisms": 8,
+    "gaps_identified": 7,
+
+    "categories": [
+      {
+        "name": "Orientation",
+        "purpose": "How nodes understand current state and decide where to act",
+        "mechanisms": [
+          {
+            "name": "orient",
+            "tool": "tools/orient.py",
+            "iso": ["ISO-10 (predict-error-revise)", "ISO-9 (bottleneck channeling)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Reads state and produces output but has no persistent state of its own. The orientation FUNCTION evolves (new checks added: stale beliefs S339, agent positions S340, domain reach S337) but orient.py itself does not orient→act→compress→handoff autonomously.",
+            "key_insight": "Orient is the phenotype-loading phase (L-493). It IS the context window's birth moment."
+          },
+          {
+            "name": "substrate_detect",
+            "tool": "tools/substrate_detect.py",
+            "iso": ["ISO-6 (micro-macro coupling)"],
+            "status": "LIVE",
+            "usage_frequency": "per-session (implicit)",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Pure sensor — detects environment, does not modify or learn from it."
+          },
+          {
+            "name": "dispatch",
+            "tool": "tools/dispatch_optimizer.py",
+            "iso": ["ISO-1 (optimization-under-constraint)", "ISO-2 (selection/attractor)", "ISO-12 (energy cascade)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Has persistent state (domain heat decay, sparse bonuses, claimed penalties). Decides autonomously (ranking formula). Acts (produces dispatch recommendations). Compresses (heat evaporates old claims). Hands off (dispatch table readable by next session). Evolves: heat decay added S340, dormant bonus S340, formula refined across 10+ sessions.",
+            "state_files": ["tasks/SWARM-LANES.md (heat source)", "dispatch_optimizer.py (scoring formula)"]
+          }
+        ]
+      },
+      {
+        "name": "Decision / Synthesis",
+        "purpose": "How cross-domain knowledge is synthesized and decisions are made",
+        "mechanisms": [
+          {
+            "name": "council_deliberation",
+            "tool": "tools/swarm_council.py",
+            "iso": ["ISO-7 (emergence)", "ISO-5 (stabilizing feedback)", "ISO-14 (recursive self-similarity)"],
+            "status": "LIVE",
+            "usage_frequency": "~3 per 10 sessions",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (COUNCIL-STRUCTURE.md, workspace/COUNCIL-*.md memos). Decides (cross-domain convergence). Acts (produces memos with ranked proposals). Compresses (distills to top actions in NEXT.md). Hands off (memo links in SWARM-LANES.md). Has three modes (A/B/C). The council IS a swarm per PHIL-17 — explicitly stated in PHILOSOPHY.md.",
+            "state_files": ["docs/COUNCIL-STRUCTURE.md", "workspace/COUNCIL-*.md"],
+            "modes": {
+              "A": "Internal cross-domain deliberation (swarm_council.py --domains)",
+              "B": "External expert relay (BROKEN — 0 real corrections processed)",
+              "C": "Automated resonance scan (dream.py)"
+            }
+          },
+          {
+            "name": "dream_synthesis",
+            "tool": "tools/dream.py",
+            "iso": ["ISO-7 (emergence)", "ISO-3 (hierarchical compression)", "ISO-16 (inferential compounding)"],
+            "status": "LIVE",
+            "usage_frequency": "~every 7 sessions",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Has persistent state (DOMAIN.md vocabulary, resonance baselines). Decides (theme gravity, cross-domain resonances). Acts (generates hypotheses, frontier candidates). Compresses (outputs theme gravity map, acts on at least one output per run). Hands off (frontier questions, uncited principles). Evolves: vocabulary enrichment S335 (0→161 resonances), isos[:25] fix S337.",
+            "state_files": ["domains/*/DOMAIN.md (vocabulary)", "experiments/dream/"]
+          },
+          {
+            "name": "action_recommendation",
+            "tool": "tools/f_act1_action_recommender.py",
+            "iso": ["ISO-1 (optimization-under-constraint)"],
+            "status": "DORMANT",
+            "usage_frequency": "rarely used",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Scoring function without persistent learning. Does not evolve based on outcome of recommended actions."
+          }
+        ]
+      },
+      {
+        "name": "Execution / Coordination",
+        "purpose": "How work is structured, tracked, and parallelized",
+        "mechanisms": [
+          {
+            "name": "lane_system",
+            "tool": "tools/open_lane.py + tools/close_lane.py",
+            "iso": ["ISO-6 (micro-macro coupling)", "ISO-5 (stabilizing feedback)", "ISO-4 (phase transition)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (SWARM-LANES.md). Decides (which lanes to open/close; F-META1 enforcement). Acts (coordinates parallel work streams). Compresses (lanes_compact.py archives stale rows). Hands off (lane status readable by all concurrent nodes). Evolves: evidence fields added S331, EAD enforcement S339, heat decay S340.",
+            "state_files": ["tasks/SWARM-LANES.md", "tools/lanes_compact.py"]
+          },
+          {
+            "name": "expect_act_diff",
+            "tool": "memory/EXPECT.md (protocol)",
+            "iso": ["ISO-10 (predict-error-revise)", "ISO-5 (stabilizing feedback)"],
+            "status": "LIVE",
+            "usage_frequency": "every non-trivial action",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (expect/actual/diff triples in lane rows, session notes). Decides (what to predict). Acts (the action being tested). Compresses (diff classification: zero=confirm, large=lesson, persistent=challenge). Hands off (diffs in NEXT.md). P-182 doctrinal. Evolves: from informal to formal (S175 L-223), to lane-enforced (S331 F-META1).",
+            "compliance_rate": "22% (F-META1 audit S325)",
+            "key_insight": "EAD is the swarm's primary calibration mechanism. Low compliance (22%) means the swarm is mostly operating uncalibrated."
+          },
+          {
+            "name": "check_modes",
+            "tool": "memory/OBJECTIVE-CHECK.md (protocol)",
+            "iso": ["ISO-14 (recursive self-similarity)", "ISO-10 (predict-error-revise)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Lens selection for self-checking (objective/historian/verification/coordination/assumption). No persistent state of its own — the mode is declared in session notes but the check_modes system doesn't learn which mode was most productive.",
+            "modes": ["objective", "historian", "verification", "coordination", "assumption"]
+          },
+          {
+            "name": "colony_mode",
+            "tool": "tools/colony.py + tools/swarm_colony.py",
+            "iso": ["ISO-7 (emergence)", "ISO-6 (micro-macro coupling)", "ISO-14 (recursive self-similarity)"],
+            "status": "LIVE",
+            "usage_frequency": "structural (42 domains)",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Each colony IS a self-directing swarm unit with its own orient→act→compress→handoff cycle. Has persistent state (DOMAIN.md, FRONTIER.md, COLONY.md per domain). Decides (domain-specific priorities). Acts (domain experiments). Compresses (domain lessons tagged with prefix). Hands off (domain FRONTIER updated). 42 instances, ~9 active.",
+            "state_files": ["domains/*/DOMAIN.md", "domains/*/tasks/FRONTIER.md", "domains/*/COLONY.md"]
+          },
+          {
+            "name": "spawning",
+            "tool": "tools/spawn_coordinator.py + spawn_math.py",
+            "iso": ["ISO-4 (phase transition)", "ISO-8 (boundary/interface)"],
+            "status": "DORMANT",
+            "usage_frequency": "rare (child swarms infrequent)",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Full lifecycle: genesis (seed) → execute → compress → merge/abandon. Has persistent state (experiments/inter-swarm/). Decides (F92 sizing). Acts (child runs). Compresses (harvest). Hands off (bulletins). But largely dormant — Genesis DNA spec (S340) created but untested."
+          }
+        ]
+      },
+      {
+        "name": "Communication",
+        "purpose": "How nodes exchange information",
+        "mechanisms": [
+          {
+            "name": "structured_signaling",
+            "tool": "tools/swarm_signal.py",
+            "iso": ["ISO-9 (bottleneck channeling)", "ISO-8 (boundary/interface)"],
+            "status": "LIVE",
+            "usage_frequency": "recent (S340+)",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Signal posting and reading infrastructure. Does not decide or compress — it channels. The signaling FUNCTION is a swarm (evolves: HUMAN-QUEUE → SIGNALS.md generalization S340) but the tool itself is a conduit.",
+            "state_files": ["tasks/SIGNALS.md"],
+            "signal_types": ["directive", "challenge", "question", "correction", "observation", "handoff", "blocker", "request", "response"]
+          },
+          {
+            "name": "inter_swarm_bulletins",
+            "tool": "tools/bulletin.py",
+            "iso": ["ISO-8 (boundary/interface)", "ISO-6 (micro-macro coupling)"],
+            "status": "DORMANT",
+            "usage_frequency": "rare (no active child swarms)",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Write/read channel for cross-swarm signals. No autonomous decision-making."
+          },
+          {
+            "name": "git_commit_traces",
+            "tool": "git (implicit)",
+            "iso": ["ISO-11 (memory/forgetting)", "ISO-9 (bottleneck channeling)"],
+            "status": "LIVE",
+            "usage_frequency": "every action",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Git IS the swarm's persistent memory substrate. Has state (commit history). Decides (merge conflicts resolve competing changes). Acts (stores). Compresses (git gc, rebase). Hands off (readable by all future nodes). The anti-repeat check (L-283) makes git log an active orientation input. Git is not a swarm tool — it is the swarm's genome (L-493)."
+          }
+        ]
+      },
+      {
+        "name": "Memory / Knowledge",
+        "purpose": "How knowledge persists, accumulates, and is retrieved",
+        "mechanisms": [
+          {
+            "name": "lesson_system",
+            "tool": "memory/lessons/*.md",
+            "iso": ["ISO-3 (hierarchical compression)", "ISO-11 (memory/forgetting)", "ISO-16 (inferential compounding)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (430 lessons). Decides (quality gate F-QC1 filters what enters). Acts (writes new lessons). Compresses (20-line limit, near-duplicate scanning). Hands off (lessons readable by all future sessions). Evolves: quality gate S309, domain tagging S338, ISO annotation S329. The lesson system IS the swarm's primary learning mechanism.",
+            "count": 430,
+            "key_metrics": "K_avg=1.89 (citation density), sink%=39.1% (157 zero-IN-degree)"
+          },
+          {
+            "name": "principle_promotion",
+            "tool": "memory/PRINCIPLES.md",
+            "iso": ["ISO-2 (selection/attractor)", "ISO-3 (hierarchical compression)"],
+            "status": "LIVE",
+            "usage_frequency": "sporadic (0P for 6+ sessions)",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (179 principles). Decides (promotion criteria: recurrence, cross-session confirmation). Acts (new principle entries). Compresses (subsumption dedup S181). Hands off (PRINCIPLES.md). But currently STALLED — 0 new principles in 6+ sessions.",
+            "count": 179,
+            "health": "STALLED (0P production in recent sessions)"
+          },
+          {
+            "name": "belief_system",
+            "tool": "beliefs/DEPS.md + beliefs/CHALLENGES.md + tools/belief_evolve.py + tools/validate_beliefs.py",
+            "iso": ["ISO-10 (predict-error-revise)", "ISO-5 (stabilizing feedback)", "ISO-2 (selection/attractor)"],
+            "status": "LIVE",
+            "usage_frequency": "per-session (validation); sporadic (challenges)",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Full orient→act→compress→handoff. Persistent state (17 beliefs, challenge log). Decides (which beliefs to test — orient.py staleness check S339). Acts (re-tests: B2 confirmed S341, B8 confirmed S341). Compresses (SUPERSEDED/DROPPED). Hands off (updated DEPS.md). Has its own validation tool. Evolves: staleness surfacing S339, challenge protocol hardened S300.",
+            "count": 17,
+            "stale_count": 6,
+            "stale_beliefs": ["B13 (S47, 294s ago)", "B14 (S45, 296s ago)", "B16 (S47, 294s ago)", "B17 (S175, 166s ago)", "B18 (S175, 166s ago)"]
+          },
+          {
+            "name": "frontier_system",
+            "tool": "tasks/FRONTIER.md",
+            "iso": ["ISO-15 (prerequisite ordering)", "ISO-16 (inferential compounding)"],
+            "status": "LIVE",
+            "usage_frequency": "every session",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (37 frontier questions). Decides (which questions to open, RESOLVED/PARTIAL). Acts (experiments). Compresses (resolution claims). Hands off (updated frontier readable by all nodes). Self-sustaining (B8 confirmed S341: 170+ frontiers generated from 36 original)."
+          }
+        ]
+      },
+      {
+        "name": "Compression / Maintenance",
+        "purpose": "How the system reduces waste and maintains integrity",
+        "mechanisms": [
+          {
+            "name": "knowledge_compaction",
+            "tool": "tools/compact.py",
+            "iso": ["ISO-3 (hierarchical compression)", "ISO-1 (optimization-under-constraint)", "ISO-12 (energy cascade)"],
+            "status": "LIVE",
+            "usage_frequency": "periodic (underused)",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Has persistent state (proxy-K measurements, compaction history). Decides (what to compact based on age, citation, redundancy). Acts (removes/merges). Compresses (itself). Hands off (reduced proxy-K, drift measurements). Evolves: age-301 bug fixed S332, dry-run mode S328. The compaction mechanism IS PHIL-7 instantiated.",
+            "key_metric": "proxy-K drift: 0.46% HEALTHY (was 64% S336)"
+          },
+          {
+            "name": "maintenance_checks",
+            "tool": "tools/maintenance.py",
+            "iso": ["ISO-5 (stabilizing feedback)", "ISO-17 (self-model coherence gap)"],
+            "status": "LIVE",
+            "usage_frequency": "every session (via check.sh)",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "37 check functions that detect problems but do not fix them. Maintenance DIAGNOSES but does not EXECUTE. This is the diagnostic-execution gap (L-480). It evolves (new checks added: T4 ceiling S336, stale beliefs S339) but does not close its own loops.",
+            "check_count": 37,
+            "key_insight": "Diagnosis without execution is the swarm's most persistent mechanism gap. maintenance.py has 37 checks and 0 automatic fixes."
+          },
+          {
+            "name": "lane_archival",
+            "tool": "tools/lanes_compact.py",
+            "iso": ["ISO-11 (memory/forgetting)"],
+            "status": "LIVE",
+            "usage_frequency": "periodic",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Archival is a compression act but not autonomous — requires manual invocation."
+          }
+        ]
+      },
+      {
+        "name": "Evolution / Improvement",
+        "purpose": "How the system changes itself",
+        "mechanisms": [
+          {
+            "name": "isomorphism_atlas",
+            "tool": "domains/ISOMORPHISM-ATLAS.md",
+            "iso": ["ISO-3 (hierarchical compression)", "ISO-14 (recursive self-similarity)"],
+            "status": "LIVE",
+            "usage_frequency": "structural",
+            "phil17_grade": "SWARM",
+            "phil17_reasoning": "Persistent state (18 ISO entries). Decides (which patterns qualify as isomorphisms — Sharpe scoring). Acts (new entries, gap identification). Compresses (structural equivalence IS maximum compression per L-274). Hands off (atlas readable by all domains and dream.py). Evolves: v1.0→v1.3 in 13 sessions, hub analysis S329.",
+            "count": 18,
+            "key_insight": "The atlas is the swarm's deepest compression layer — each ISO entry captures N domains in 1 structure."
+          },
+          {
+            "name": "genesis_evolution",
+            "tool": "tools/genesis_evolve.py + docs/GENESIS-DNA.md",
+            "iso": ["ISO-4 (phase transition)", "ISO-18 (instability of nothing)"],
+            "status": "DEFINED_NOT_OPERATIONAL",
+            "usage_frequency": "0 (never executed with real peer)",
+            "phil17_grade": "SWARM (potential)",
+            "phil17_reasoning": "Full lifecycle defined (Genesis DNA: 6-layer transferable kernel). But no real peer swarm has been spawned using this mechanism. Potential swarm, not yet actual."
+          },
+          {
+            "name": "self_diff",
+            "tool": "tools/self_diff.py",
+            "iso": ["ISO-17 (self-model coherence gap)", "ISO-14 (recursive self-similarity)"],
+            "status": "LIVE",
+            "usage_frequency": "rare",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Snapshots quantitative state but does not act on the diff. The measurement is useful but the loop is not closed."
+          }
+        ]
+      },
+      {
+        "name": "Governance / Safety",
+        "purpose": "How integrity and safety are maintained",
+        "mechanisms": [
+          {
+            "name": "alignment_checking",
+            "tool": "tools/alignment_check.py",
+            "iso": ["ISO-5 (stabilizing feedback)"],
+            "status": "LIVE",
+            "usage_frequency": "periodic",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Detects contradictions and pending challenges but does not resolve them."
+          },
+          {
+            "name": "mission_constraints",
+            "tool": "beliefs/INVARIANTS.md + tools/test_mission_constraints.py",
+            "iso": ["ISO-5 (stabilizing feedback)", "ISO-8 (boundary/interface)"],
+            "status": "LIVE",
+            "usage_frequency": "per modes-reswarm",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "51 tests enforce invariants I9-I12 but tests don't adapt — they gate. Static boundary, not a learning system."
+          },
+          {
+            "name": "kill_switch",
+            "tool": "tools/kill_switch.py",
+            "iso": ["ISO-4 (phase transition)", "ISO-8 (boundary/interface)"],
+            "status": "DEFINED",
+            "usage_frequency": "never invoked",
+            "phil17_grade": "TOOL",
+            "phil17_reasoning": "Emergency stop mechanism. By design a tool, not a swarm."
+          }
+        ]
+      }
+    ],
+
+    "gaps": [
+      {
+        "gap_id": "GAP-1",
+        "name": "Diagnostic-execution bridge",
+        "description": "maintenance.py has 37 diagnostic checks and 0 automatic fixes. DUE items are surfaced but not converted to action. L-480 identified this as a general pattern (ISO-6).",
+        "iso_pattern": "ISO-6 (micro-macro coupling): diagnosis at macro level fails to trigger micro-level execution",
+        "severity": "HIGH",
+        "evidence": "12/18 periodics overdue at S338; maintenance items persist across sessions; PAPER drift DUE for 2 sessions right now",
+        "proposed_fix": "Periodic auto-scheduler: DUE items → DOMEX lane proposal. maintenance.py output → open_lane.py input."
+      },
+      {
+        "gap_id": "GAP-2",
+        "name": "Bad-signal detection",
+        "description": "No mechanism validates incoming signals for quality, manipulation, or contradiction. 100% compliance rate with human signals is a documented vulnerability (NODES.md). No node's signals are quality-checked.",
+        "iso_pattern": "ISO-5 (stabilizing feedback): feedback loop has no filter on input quality",
+        "severity": "MEDIUM",
+        "evidence": "0 signal rejections in 341 sessions. NODES.md documents this as 'known gap'. P-155 shows competitive incentives raise deception 18.6pp.",
+        "proposed_fix": "Signal quality checker: cross-reference against existing beliefs, check for contradictions, flag anomalies."
+      },
+      {
+        "gap_id": "GAP-3",
+        "name": "Cross-context coordination",
+        "description": "Concurrent sessions coordinate only via SWARM-LANES anti-repeat and git merge. No mechanism for real-time state sharing, work decomposition, or complementary assignment.",
+        "iso_pattern": "ISO-7 (emergence): multi-agent coordination is implicit/emergent, not managed",
+        "severity": "MEDIUM",
+        "evidence": "Concurrent sessions regularly duplicate work (noted S336, S337, S338). agent_state.py (S340) is a first step but not integrated into workflow.",
+        "proposed_fix": "agent_state.py → auto-register at session start; collision warning blocks duplicate lane opens."
+      },
+      {
+        "gap_id": "GAP-4",
+        "name": "External feedback loop",
+        "description": "Mode B (external expert relay) is fully defined in COUNCIL-STRUCTURE.md but has processed 0 real corrections in 341 sessions. The expert-extract loop (F-VVE1) is BROKEN.",
+        "iso_pattern": "ISO-9 (bottleneck channeling): the external-to-internal channel exists but carries zero throughput",
+        "severity": "HIGH",
+        "evidence": "OUTREACH-QUEUE contacts OQ-1..4 are drafts, 0 responses. parse format undefined. Brier baseline absent.",
+        "proposed_fix": "First: process one real correction (even synthetic) to establish the parse format and measurement baseline."
+      },
+      {
+        "gap_id": "GAP-5",
+        "name": "Context allocation measurement",
+        "description": "No mechanism measures how the context window is allocated across orient/execute/compress phases. L-493 identifies context window as the swarm's ephemeral body but allocation is unmeasured.",
+        "iso_pattern": "ISO-1 (optimization-under-constraint): the primary constraint (context window) is unmonitored",
+        "severity": "MEDIUM",
+        "evidence": "F-CTX1 OPEN. B2 (layered memory) confirmed but allocation ratio unknown.",
+        "proposed_fix": "Instrument orient.py to report token count loaded at orientation. Compare across sessions."
+      },
+      {
+        "gap_id": "GAP-6",
+        "name": "Lesson-to-principle promotion",
+        "description": "No mechanism automatically identifies lessons that have been confirmed across sessions and promotes them to principles. Principle production is 0P for 6+ sessions. The lesson→principle pipeline has no automation.",
+        "iso_pattern": "ISO-2 (selection/attractor): selection pressure exists (lessons) but promotion to higher-order state (principles) is manual-only",
+        "severity": "MEDIUM",
+        "evidence": "179 principles, 430 lessons. 0P in 6+ sessions. The ratio should grow proportionally but principle promotion has stalled.",
+        "proposed_fix": "Promotion scanner: identify lessons cited 3+ times across sessions and propose principle candidates."
+      },
+      {
+        "gap_id": "GAP-7",
+        "name": "Stale belief retirement",
+        "description": "orient.py surfaces stale beliefs (6 not tested >50 sessions) but no mechanism automatically queues re-testing or retires beliefs that can't be tested. Surfacing without action = diagnostic-execution gap applied to beliefs.",
+        "iso_pattern": "ISO-11 (memory/forgetting): the forgetting mechanism (retirement) doesn't fire",
+        "severity": "LOW",
+        "evidence": "B13, B14, B16 not re-tested in 294+ sessions. orient.py shows them every session. No session has acted on B13/B14/B16.",
+        "proposed_fix": "Auto-queue: if a belief is stale >100 sessions, add it as a mandatory DOMEX target in dispatch_optimizer scoring."
+      }
+    ],
+
+    "phil17_analysis": {
+      "summary": "Of 22 cataloged mechanisms, 14 meet the PHIL-17 test (have persistent state, decide, act, compress, hand off — i.e., are themselves swarms). 8 are tool-grade (perform a function but don't learn or evolve autonomously).",
+      "swarm_grade": [
+        "dispatch", "council_deliberation", "dream_synthesis", "lane_system",
+        "expect_act_diff", "colony_mode", "spawning", "git_commit_traces",
+        "lesson_system", "principle_promotion", "belief_system", "frontier_system",
+        "knowledge_compaction", "isomorphism_atlas"
+      ],
+      "tool_grade": [
+        "orient", "substrate_detect", "action_recommendation", "check_modes",
+        "structured_signaling", "inter_swarm_bulletins", "maintenance_checks",
+        "lane_archival", "alignment_checking", "mission_constraints",
+        "kill_switch", "self_diff"
+      ],
+      "key_finding": "The distinction between swarm-grade and tool-grade mechanisms maps precisely to ISO-14 (recursive self-similarity): swarm-grade mechanisms contain the orient→act→compress→handoff cycle within themselves — they are fractal instances of the swarm at a smaller scale. Tool-grade mechanisms serve the cycle but don't embody it. The upgrade path from tool to swarm is always the same: add persistent state + learning from outcomes.",
+      "mutual_swarming_pairs": [
+        {
+          "pair": ["dispatch", "council_deliberation"],
+          "relationship": "Dispatch feeds council seats; council memos redirect dispatch priorities. Mutual: dispatch scores domains → council fills seats → council findings change domain heat → dispatch re-scores."
+        },
+        {
+          "pair": ["lesson_system", "isomorphism_atlas"],
+          "relationship": "Lessons feed atlas entries; atlas vocabulary feeds dream.py which generates new lessons. Mutual: lessons contain ISO annotations → atlas grows → dream.py finds resonances → new lessons cite ISOs."
+        },
+        {
+          "pair": ["belief_system", "frontier_system"],
+          "relationship": "Beliefs generate frontier questions; frontier resolution confirms/challenges beliefs. Mutual: belief stale → frontier test → result updates belief → new frontier opens."
+        },
+        {
+          "pair": ["expect_act_diff", "lane_system"],
+          "relationship": "EAD protocol is enforced through lanes; lane outcomes feed back as EAD diffs. Mutual: lanes require expect/actual/diff → diffs generate lessons → lessons improve lane protocol."
+        },
+        {
+          "pair": ["colony_mode", "dispatch"],
+          "relationship": "Colonies define domain scope; dispatch assigns sessions to colonies. Mutual: colony state → dispatch scoring → DOMEX lane → colony updated → dispatch re-scores."
+        }
+      ]
+    },
+
+    "iso_coverage": {
+      "most_instantiated": [
+        {"iso": "ISO-5 (stabilizing feedback)", "count": 8, "mechanisms": ["council", "lane_system", "EAD", "belief_system", "compaction", "alignment", "maintenance", "mission_constraints"]},
+        {"iso": "ISO-14 (recursive self-similarity)", "count": 6, "mechanisms": ["council", "colony_mode", "check_modes", "atlas", "self_diff", "meta domain"]},
+        {"iso": "ISO-3 (hierarchical compression)", "count": 5, "mechanisms": ["dream", "lesson_system", "compaction", "atlas", "lane_archival"]},
+        {"iso": "ISO-10 (predict-error-revise)", "count": 4, "mechanisms": ["orient", "EAD", "belief_system", "check_modes"]},
+        {"iso": "ISO-6 (micro-macro coupling)", "count": 4, "mechanisms": ["substrate_detect", "lane_system", "colony", "maintenance_gap"]},
+        {"iso": "ISO-9 (bottleneck channeling)", "count": 3, "mechanisms": ["orient", "signaling", "git"]},
+        {"iso": "ISO-7 (emergence)", "count": 3, "mechanisms": ["council", "colony", "concurrent_sessions"]},
+        {"iso": "ISO-8 (boundary/interface)", "count": 3, "mechanisms": ["spawning", "bulletins", "mission_constraints"]}
+      ],
+      "uninstantiated": ["ISO-13 (cooperation > competition for fitness)", "ISO-15 (prerequisite ordering beyond frontier)"],
+      "key_finding": "ISO-5 (stabilizing feedback) is the most widely instantiated pattern — 8 of 22 mechanisms implement it. This makes sense: a self-correcting system needs feedback loops everywhere. But ISO-5 without ISO-6 coupling (diagnosis without execution) is the dominant failure mode (GAP-1)."
+    }
+  },
+
+  "actual": "22 mechanisms cataloged (exceeded expect of 15-20). 14 swarm-grade, 8 tool-grade. 7 gaps identified (exceeded expect of 3+). 5 mutual-swarming pairs identified. ISO-5 is most instantiated (8/22). Diagnostic-execution gap (GAP-1) is the dominant structural weakness.",
+  "diff": "More mechanisms than expected (22 vs 15-20). More gaps than expected (7 vs 3+). Key finding not predicted: the swarm-grade vs tool-grade distinction maps precisely to ISO-14 (fractal self-similarity). A mechanism IS a swarm when it contains the full orient→act→compress→handoff cycle within itself. The upgrade path from tool to swarm is always: add persistent state + learning from outcomes.",
+  "lesson_candidate": "L-495 or next: Mechanisms taxonomy — a mechanism IS a swarm (PHIL-17) when it embodies orient→act→compress→handoff as a fractal cycle. The tool→swarm upgrade path is always: add persistent state + outcome-based learning. 14/22 swarm mechanisms are swarm-grade; 8 are tool-grade. ISO-5 (stabilizing feedback) is most instantiated (8/22). GAP-1 (diagnostic-execution bridge) is the dominant structural weakness: maintenance.py has 37 checks and 0 fixes."
+}

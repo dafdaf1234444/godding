@@ -1,0 +1,47 @@
+{
+  "experiment": "F-EXP10: outcome feedback activation via archive reading",
+  "session": "S353",
+  "date": "2026-03-01",
+  "frontier": "F-EXP10",
+  "domain": "expert-swarm",
+  "hypothesis": "Wiring SWARM-LANES-ARCHIVE.md into dispatch_optimizer.py activates outcome feedback for 10+ domains (was 1)",
+  "method": {
+    "description": "dispatch_optimizer.py _get_domain_outcomes() only read SWARM-LANES.md (44 lanes). Archive has 265 additional lanes. Fix: read both files.",
+    "change": "Added LANES_ARCHIVE constant and modified _get_domain_outcomes to iterate both files",
+    "lines_changed": 7
+  },
+  "before": {
+    "domains_with_labels": 1,
+    "proven": ["meta (3/3, 1L)"],
+    "mixed": [],
+    "struggling": [],
+    "new_domains": 41,
+    "total_visible_lanes": 44,
+    "meta_score": 56.7
+  },
+  "after": {
+    "domains_with_labels": 8,
+    "proven": ["meta (19/23, 10L)", "nk-complexity (13/17, 11L)"],
+    "mixed": ["information-science (20/30, 3L)", "conflict (4/7, 7L)", "helper-swarm (6/9, 3L)"],
+    "struggling": ["governance (1/3, 0L)", "economy (1/4, 1L)", "brain (5/11, 4L)"],
+    "new_domains": 34,
+    "total_visible_lanes": 309,
+    "meta_score": 59.0
+  },
+  "score_changes": {
+    "meta": {"before": 56.7, "after": 59.0, "delta": "+2.3 (PROVEN bonus)"},
+    "nk_complexity": {"before": 44.7, "after": 46.2, "delta": "+1.5 (PROVEN bonus)"},
+    "governance": {"before": 45.3, "after": 44.3, "delta": "-1.0 (STRUGGLING penalty)"},
+    "economy": {"before": 43.1, "after": 42.1, "delta": "-1.0 (STRUGGLING penalty)"},
+    "brain": {"before": 41.7, "after": 35.6, "delta": "-6.1 (STRUGGLING + heat penalty)"}
+  },
+  "key_findings": {
+    "archive_blindness": "265 lanes (86% of history) were invisible to outcome feedback. The mechanism was wired S344 but effectively dormant for 8 sessions.",
+    "merge_rate_variation": "10x range: nk-complexity 76% vs brain 45% vs governance 33%. Dispatch was treating all as equivalent.",
+    "lesson_yield_variation": "nk-complexity produces 11L from 17 MERGED vs brain 4L from 11 MERGED. Quality varies 2x even among active domains.",
+    "f_exp1_cross_link": "F-EXP1 asks if scoring > random. Answer: the one-shot norm (S327) drove merge rate from 8% to 100%. Scoring drives WHERE sessions go, not WHETHER they succeed. Scoring improvement is selection quality, not completion quality."
+  },
+  "expect": "Archive reading activates outcome labels for 10+ domains",
+  "actual": "CONFIRMED: 1 → 8 domains with labels. 2 PROVEN, 3 MIXED, 3 STRUGGLING. Score rankings shifted. Brain penalty largest (-6.1).",
+  "diff": "Expected 10+, got 8. 34 domains still NEW (n<3). Full activation requires ~100 more DOMEX lanes across dormant domains."
+}

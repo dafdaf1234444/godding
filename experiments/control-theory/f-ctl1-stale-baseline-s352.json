@@ -1,0 +1,42 @@
+{
+  "experiment": "F-CTL1 stale baseline analysis",
+  "session": "S352",
+  "date": "2026-03-01",
+  "frontier": "F-CTL1",
+  "domain": "control-theory",
+  "hypothesis": "maintenance.py proxy-K drift uses stale clean baseline (S188, 164 sessions old) as floor, causing false URGENT signals when actual drift is healthy",
+  "method": {
+    "description": "Traced maintenance.py check_proxy_k_drift() floor selection algorithm",
+    "observations": {
+      "total_proxy_k_entries": 37,
+      "dirty_entries": 35,
+      "clean_entries": 2,
+      "clean_sessions": ["S186", "S188"],
+      "clean_floor_used": 51536,
+      "actual_post_compaction_floor": 59958,
+      "compact_py_drift": "5.0%",
+      "maintenance_py_drift": "21.7%",
+      "false_positive_duration_sessions": "4+ (S349-S352)",
+      "sessions_misled": ["S349", "S350", "S351", "S352"]
+    }
+  },
+  "control_theory_analysis": {
+    "failure_mode": "Observer staleness — primary measurement channel (clean snapshots) blocked for 164 sessions",
+    "analogy": "Kalman filter with zero measurement updates — state estimate diverges from reality",
+    "classification": "Observability failure, not controllability failure",
+    "iso_mapping": {
+      "ISO-13": "Anti-windup — stale observer caused 4 sessions of unnecessary corrective action (compaction planning that was never needed)",
+      "ISO-1": "Optimization under constraint — the threshold sweep (F-CTL1 prior work) was optimizing the wrong parameter; baseline staleness, not threshold values, was the binding constraint"
+    },
+    "fix_applied": {
+      "type": "Dual observer — fallback to dirty post-compaction baselines when clean floor >50 sessions stale",
+      "lines_changed": 10,
+      "file": "tools/maintenance.py",
+      "verified": true,
+      "false_positive_eliminated": true
+    }
+  },
+  "expect": "F-CTL1 advanced: stale-baseline is a more fundamental threshold issue than due/urgent values",
+  "actual": "CONFIRMED — the F-CTL1 sweep was optimizing due=0.06/urgent=0.10 values, but the real problem was the floor being 164 sessions stale. Fixing the observer (dual baseline) eliminates the false positive entirely without changing any threshold values",
+  "diff": "F-CTL1 prior work focused on threshold VALUES; actual binding constraint was baseline STALENESS. This reframes F-CTL1 from 'what thresholds?' to 'is the observer healthy?'"
+}

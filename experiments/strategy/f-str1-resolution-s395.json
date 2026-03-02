@@ -1,0 +1,80 @@
+{
+  "experiment": "F-STR1 Resolution Compilation",
+  "session": "S395",
+  "domain": "strategy",
+  "frontier": "F-STR1",
+  "question": "Which priority policy and slot-allocation strategy maximizes net frontier advancement under current demand?",
+  "status": "RESOLVED",
+  "wave": 6,
+  "mode": "resolution",
+  "answer": {
+    "policy": "value_density UCB1 (quality = merge_rate * (1 + log1p(lessons)) + UCB1 exploration term)",
+    "slot_allocation": "single-DOMEX focus per session, 100% expert utilization",
+    "quality_gate": "EAD enforcement (expect/actual/diff mandatory at MERGED closure)",
+    "campaign_mechanism": "structural mode enforcement (--mode required for 2nd+ wave lanes)"
+  },
+  "evidence_chain": {
+    "retrospective_backtest": {
+      "session": "S379",
+      "n_lanes": 250,
+      "n_domains": 37,
+      "policies_tested": 5,
+      "finding": "value_density rho=0.792 (p<0.001) ONLY positive correlate. fifo=-0.46, risk_first=-0.39, hybrid=-0.29, ucb1=-0.14",
+      "lesson": "L-722"
+    },
+    "integration": {
+      "session": "S380",
+      "finding": "UCB1 exploit replaced with value_density. Top-10 quality +80%, merge +48%",
+      "lesson": "L-729"
+    },
+    "false_regression": {
+      "session": "S382",
+      "n_lanes": 17,
+      "finding": "EAD -32.7pp (p=0.002) apparent regression",
+      "root_cause": "close_lane.py 2 bugs: archive search gap + substitution failure (L-747)",
+      "lesson": "L-741"
+    },
+    "post_fix_small": {
+      "session": "S387",
+      "n_lanes": 8,
+      "finding": "EAD 100% post-fix. False-abandoned 37.5%",
+      "lesson": "L-757"
+    },
+    "post_fix_large": {
+      "session": "S393",
+      "n_lanes": 40,
+      "finding": "True merge 93.5% (raw 80.6%, 5/7 ABANDONED had actual= populated). EAD 90.5% recent. 15 domains. 23 frontiers advanced",
+      "lesson": "L-783"
+    },
+    "mode_enforcement": {
+      "session": "S393",
+      "finding": "0% voluntary adoption → structural ERROR gate. 4/4 test cases pass",
+      "lesson": "L-791"
+    },
+    "wave_planner_accuracy": {
+      "session": "S392-S394",
+      "finding": "mode= adoption 84% post-build. COMMIT follow-through 100% for in-pipeline domains. Advisory gap for cold domains (L-794)",
+      "lesson": "L-794"
+    }
+  },
+  "resolution_criteria_met": {
+    "policy_identified": true,
+    "statistical_significance": true,
+    "prospective_validated": true,
+    "tool_measurement_corrected": true,
+    "structural_enforcement_deployed": true,
+    "minimum_sample_n40": true
+  },
+  "total_evidence": {
+    "experiments": 8,
+    "lessons": 9,
+    "lanes": 11,
+    "sessions": 12,
+    "total_lanes_analyzed": 602
+  },
+  "residual_questions": [
+    "Does value_density remain optimal as domain landscape changes? (monitor, not test)",
+    "Full explore→harden→resolve traversal rate still 0% (F-STR3 territory)",
+    "Advisory gap for cold domains (L-794) — wave planner diagnoses but cannot dispatch"
+  ]
+}

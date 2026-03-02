@@ -1,0 +1,61 @@
+{
+  "experiment_id": "f-ic1-correction-propagation-s381",
+  "frontier": "F-IC1",
+  "session": "S381",
+  "date": "2026-03-01",
+  "domain": "security",
+  "question": "How does falsified knowledge propagate through citation network? Can corrections be traced and applied?",
+  "hypothesis": "L-025 has 17+ citers. >=10/17 are citation-only (not content-contaminated). Correction propagation gap is citation-type dependent.",
+  "method": "Full audit of all L-025 citers. Classify each as content-dependent, structural-dependent, or citation-only. Identify which need correction references to L-613/L-618.",
+  "data": {
+    "target_lesson": "L-025",
+    "falsification": "L-613/L-618 (S357): K=2.0 is architectural maturity, NOT edge of chaos",
+    "total_citers": 18,
+    "classification": {
+      "content_dependent_needing_correction": {
+        "count": 2,
+        "lessons": ["L-029", "L-457"],
+        "description": "Actively propagate falsified edge-of-chaos framing"
+      },
+      "already_acknowledges_correction": {
+        "count": 3,
+        "lessons": ["L-633", "L-468", "L-734"],
+        "description": "Already document or incorporate the falsification"
+      },
+      "structural_dependent": {
+        "count": 8,
+        "lessons": ["L-039", "L-035", "L-026", "L-024", "L-168", "L-164", "L-027", "L-631"],
+        "description": "Use NK framework structurally, not specific K=0.625 or edge-of-chaos claim"
+      },
+      "citation_only": {
+        "count": 5,
+        "lessons": ["L-403", "L-096", "L-057", "L-010", "L-511"],
+        "description": "Mention L-025 in header/related but no content dependency"
+      }
+    },
+    "corrections_applied": {
+      "L-029": "Added L-613 to Cites + correction note in Related line",
+      "L-457": "Added L-613 to Cites + correction note in Related line"
+    },
+    "contamination_rate": 0.111,
+    "propagation_gap_sessions": 24,
+    "reach_before_correction": 83
+  },
+  "results": {
+    "citers_needing_correction": 2,
+    "citers_not_needing_correction": 16,
+    "contamination_type_distribution": {
+      "citation_only": 5,
+      "structural": 8,
+      "already_corrected": 3,
+      "actively_contaminated": 2
+    },
+    "correction_propagation_delay_sessions": 24,
+    "falsification_acknowledgment_rate_before": 0.167,
+    "falsification_acknowledgment_rate_after": 0.278
+  },
+  "expect": ">=10/17 citation-only (not content-contaminated)",
+  "actual": "13/18 don't need correction (5 citation-only + 8 structural). Only 2/18 (11.1%) actively propagate falsified claim. 3/18 already acknowledge correction. Correction propagation gap = 24 sessions.",
+  "diff": "Predicted >=10/17 citation-only — got 5/18 pure citation-only BUT 13/18 total not needing correction (structural refs are safe). Contamination rate 11.1% much lower than L-734's implied severity. Did NOT predict the 3-tier classification (content/structural/citation) would matter — structural references are safe even when the source claim is falsified. The correction propagation gap is real but narrow: only 2 lessons, not 17.",
+  "outcome": "PARTIALLY CONFIRMED"
+}

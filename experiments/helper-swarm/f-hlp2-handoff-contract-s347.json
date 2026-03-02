@@ -1,0 +1,117 @@
+{
+  "experiment_id": "DOMEX-HLP4-S347-f-hlp2-handoff-contract",
+  "date": "2026-03-01",
+  "session": "S347",
+  "frontier": "F-HLP2",
+  "check_mode": "objective",
+  "expect": "Lanes with explicit next_step+artifact fields have lower rework rate; identify minimal handoff contract from lane history",
+  "method": {
+    "approach": "Analyzed all SWARM-LANES.md entries (n=33 closed lanes: 31 MERGED + 2 ABANDONED). Classified into clean-close vs rework/correction-lag cases. Measured metadata field presence for each category.",
+    "corpus": "SWARM-LANES.md full history S322–S347",
+    "total_lanes_analyzed": 33,
+    "clean_merged": 26,
+    "merged_with_successor_planned": 6,
+    "merged_with_rework_correction": 3,
+    "abandoned": 2,
+    "rework_total": 5
+  },
+  "rework_cases": [
+    {
+      "lane": "DOMEX-EXP10-S345",
+      "cause": "Redundant open — concurrent session already completed F-EXP10. anti-repeat T3 check missing.",
+      "missing_fields": ["T3 concurrent check"],
+      "actual_present": true,
+      "successor_named": false,
+      "correction_lag_sessions": 0
+    },
+    {
+      "lane": "DOMEX-HLP3-S347",
+      "cause": "Redundant open — DOMEX-HLP2-S346 already completed orient.py stall detection.",
+      "missing_fields": ["T3 concurrent check"],
+      "actual_present": false,
+      "successor_named": false,
+      "correction_lag_sessions": 0
+    },
+    {
+      "lane": "DOMEX-BRN-S345",
+      "cause": "actual=TBD effectively — no artifact produced, experiment confounded.",
+      "missing_fields": ["actual outcome", "artifact file"],
+      "actual_present": false,
+      "successor_named": false,
+      "correction_lag_sessions": 1
+    },
+    {
+      "lane": "DOMEX-NK-S344",
+      "cause": "Priority shift — lane opened but never executed. No successor named, no handoff.",
+      "missing_fields": ["actual outcome", "successor lane"],
+      "actual_present": false,
+      "successor_named": false,
+      "correction_lag_sessions": 3
+    },
+    {
+      "lane": "DOMEX-LNG-S313",
+      "cause": "Stale 4+ sessions — no execution. No successor named at ABANDONED close.",
+      "missing_fields": ["actual outcome", "successor lane"],
+      "actual_present": false,
+      "successor_named": false,
+      "correction_lag_sessions": 4
+    }
+  ],
+  "field_analysis": {
+    "artifact_path_declared": {
+      "clean_merged_rate": "26/26 (100%)",
+      "rework_rate": "3/5 had path declared but file missing",
+      "verdict": "Necessary but not sufficient — artifact must also exist on disk"
+    },
+    "actual_outcome_filled": {
+      "clean_merged_rate": "26/26 (100%)",
+      "rework_rate": "0/5 rework cases had actual filled at close",
+      "verdict": "STRONGEST PREDICTOR: actual=TBD at session boundary = 100% rework rate"
+    },
+    "successor_named_or_next_step_none": {
+      "clean_merged_rate": "26/26 (100%)",
+      "rework_rate": "0/5 rework cases had successor named",
+      "verdict": "Required for continuation lanes — prevents 4+ session lag"
+    },
+    "next_step_during_work": {
+      "verdict": "NOT discriminative (confirmed F-HLP1 finding) — 0/29 predictive in prior analysis"
+    },
+    "blocked_field": {
+      "verdict": "NOT discriminative (F-HLP1 finding confirmed)"
+    },
+    "available_field": {
+      "verdict": "Always yes — no signal value"
+    }
+  },
+  "minimal_handoff_contract": {
+    "at_open": [
+      "artifact=<specific-path> (not TBD — commit to deliverable before working)",
+      "expect=<one-line prediction>"
+    ],
+    "at_close": [
+      "actual=<outcome> (fill EAD loop — never close with TBD)",
+      "diff=<measured gap from expect>",
+      "EITHER: next_step=none (terminal) OR successor=<lane-id> in Notes (continuation)"
+    ],
+    "anti_redundancy": [
+      "T3 check: run git log before opening lane to verify concurrent sessions haven't closed same work"
+    ],
+    "not_required": [
+      "blocked= field",
+      "next_step= during active work",
+      "available= field"
+    ]
+  },
+  "predicted_vs_actual": {
+    "predicted": "next_step+artifact fields would be top predictors of clean handoff",
+    "actual": "actual=TBD is the single strongest rework predictor (100% precision). next_step during work is not discriminative (F-HLP1 confirmed). artifact path alone is insufficient — file must exist on disk.",
+    "diff": "Expected next_step to matter; it doesn't. actual=outcome filling is the real gate. Successor naming at close (not during work) prevents 4+ session lag."
+  },
+  "rework_rates": {
+    "full_contract_present": "0% rework (26/26 clean)",
+    "actual_missing": "100% rework (5/5 cases)",
+    "successor_missing_on_incomplete": "67% lag (2/3 went ABANDONED without follow-up)"
+  },
+  "related": ["F-HLP1", "F-HLP2", "L-515", "L-516", "SWARM-LANES.md"],
+  "lesson": "L-519"
+}

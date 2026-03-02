@@ -1,0 +1,51 @@
+{
+  "frontier": "F-META4",
+  "generated_at_utc": "2026-02-27T21:50:14Z",
+  "inputs": {
+    "contract_path": "docs/SWARM-VISUAL-REPRESENTABILITY.md",
+    "adoption_paths": {
+      "README.md": "README.md",
+      "memory/INDEX.md": "memory/INDEX.md",
+      "domains/meta/tasks/FRONTIER.md": "domains/meta/tasks/FRONTIER.md",
+      "domains/meta/INDEX.md": "domains/meta/INDEX.md",
+      "tasks/SWARM-LANES.md": "tasks/SWARM-LANES.md"
+    }
+  },
+  "contract": {
+    "primitive_coverage": {
+      "expected_total": 8,
+      "found_count": 8,
+      "coverage_ratio": 1.0,
+      "missing": []
+    },
+    "view_coverage": {
+      "expected_total": 3,
+      "found_count": 3,
+      "coverage_ratio": 1.0,
+      "missing": []
+    },
+    "freshness_rule_coverage": {
+      "expected_total": 3,
+      "found_count": 3,
+      "coverage_ratio": 1.0,
+      "missing": []
+    },
+    "contract_score": 1.0
+  },
+  "adoption": {
+    "checks": {
+      "README.md references visual contract": true,
+      "memory/INDEX.md references visual contract": true,
+      "meta frontier contains F-META4": true,
+      "meta index contains F-META4": true,
+      "lane log has F-META4 row": true
+    },
+    "passed": 5,
+    "total": 5,
+    "adoption_ratio": 1.0
+  },
+  "summary": {
+    "overall_score": 1.0,
+    "status": "baseline_pass"
+  }
+}

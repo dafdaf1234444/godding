@@ -1,0 +1,54 @@
+{
+  "frontier_id": "F-EVAL1",
+  "session": 349,
+  "created_on": "2026-03-01",
+  "hypothesis": "At least 2-3 PHILOSOPHY.md claims lack supporting evidence or contradict git history. P-164 (confirmation rate >80% = underchallenging) predicts we'll find falsifiable gaps in unchallenged claims.",
+  "method": "Systematic audit of all 21 PHIL claims. Focused counter-evidence search on the 10 never-challenged claims (PHIL-2,6,7,10,12,14,17,18,19,20). For each: searched git log, experiments, lessons, and quantitative tools for contradicting evidence.",
+  "findings": {
+    "total_claims": 21,
+    "previously_challenged": 11,
+    "never_challenged": 10,
+    "challenge_rate_before": "52.4% (11/21)",
+    "challenges_filed_this_audit": 3,
+    "challenge_rate_after": "66.7% (14/21)",
+    "dropped_challenges": 0,
+    "total_challenges_now": 31,
+    "confirmation_rate": "100% (0 DROPPED out of 31)"
+  },
+  "challenges_filed": [
+    {
+      "claim": "PHIL-14",
+      "type": "axiom",
+      "counter_evidence": "Truthful sub-score 1/3 (33% evidence_rate). Failing own defined metric (50% threshold). Binding constraint on F-EVAL1.",
+      "strength": "strong",
+      "required_action": "Process one QUEUED challenge with measured falsification evidence"
+    },
+    {
+      "claim": "PHIL-17",
+      "type": "axiom",
+      "counter_evidence": "Zero peer-to-peer mutual swarming instances in 349 sessions. Mechanisms taxonomy says 'potential, not yet actual'. All interactions are parent→child.",
+      "strength": "strong",
+      "required_action": "Run two swarm instances on separate repos, mutual orient→act→compress for ≥3 sessions"
+    },
+    {
+      "claim": "PHIL-6",
+      "type": "axiom",
+      "counter_evidence": "5 documented breakage events (L-234, L-233, L-279, L-370). 729-file deletion most severe. All recovered. Advisory guards, not enforced.",
+      "strength": "moderate",
+      "required_action": "Refine wording to 'grow with resilient recovery' or add 'breaking is signal' qualifier"
+    }
+  ],
+  "secondary_findings": [
+    {
+      "claim": "PHIL-10",
+      "note": "66% zero-citation rate on lessons. Compounding mechanism exists but integration efficiency is low. Modern agent architectures (MemGPT, Reflexion) partially close the gap."
+    },
+    {
+      "claim": "PHIL-7",
+      "note": "Proxy-K drift 8.5%, total size 2.29x higher than period start. Compaction lags behind growth. Already partially addressed by PHIL-8 challenge (rising sawtooth)."
+    }
+  ],
+  "meta_observation": "P-164 prediction confirmed: confirmation rate remains 100% (0 DROPPED in 31 challenges). The challenge mechanism refines and confirms — it does not falsify. This is the same structural gap as PHIL-14 truthful failing: the swarm is better at adjusting than rejecting.",
+  "verdict": "PARTIAL — 3 challenges filed, challenge rate improved 52.4%→66.7%. Zero-DROPPED pattern persists. The audit itself demonstrates the confirmation bias: even the counter-evidence found leads to REFINED, not DROPPED.",
+  "candidate_lesson_id": "L-541"
+}

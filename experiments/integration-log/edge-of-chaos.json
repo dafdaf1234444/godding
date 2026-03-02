@@ -1,0 +1,7 @@
+{
+  "child": "edge-of-chaos",
+  "date": "2026-02-27",
+  "integrated_via": "merge-report",
+  "merge_report": "experiments/merge-reports/edge-of-chaos.md",
+  "note": "Manually harvested across S64-S68; merge report written S68. Integration-log entry added S70."
+}

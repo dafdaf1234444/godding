@@ -1,0 +1,63 @@
+{
+  "experiment": "F-IS5",
+  "title": "controlled-overlap slice comparison",
+  "baseline_artifact": "experiments/information-science/f-is5-lane-distill-s186-selected-vs-backlog.json",
+  "overlap_artifact": "experiments/information-science/f-is5-lane-distill-tags-s186-overlap.json",
+  "baseline": {
+    "claims_total": 12,
+    "claims_unique_text": 12,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 20,
+    "transfer_accepted": 0,
+    "transfer_acceptance_rate": 0.0,
+    "merge_collision_count": 0,
+    "merge_collision_frequency": 0.0,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 10,
+        "cross_domain_targets": 16
+      },
+      "lane-owner-B": {
+        "claims": 2,
+        "cross_domain_targets": 4
+      }
+    }
+  },
+  "overlap": {
+    "claims_total": 21,
+    "claims_unique_id": 21,
+    "duplicate_claim_count": 0,
+    "duplicate_claim_rate": 0.0,
+    "transfer_candidates": 31,
+    "contested_transfer_candidates": 5,
+    "transfer_accepted": 1,
+    "transfer_acceptance_rate": 0.0323,
+    "merge_collision_count": 4,
+    "merge_collision_frequency": 0.8,
+    "by_owner": {
+      "lane-owner-A": {
+        "claims": 14,
+        "cross_domain_targets": 22,
+        "accepted_targets": 10,
+        "rejected_targets": 12
+      },
+      "lane-owner-B": {
+        "claims": 7,
+        "cross_domain_targets": 14,
+        "accepted_targets": 8,
+        "rejected_targets": 6
+      }
+    }
+  },
+  "delta": {
+    "duplicate_claim_rate": 0.0,
+    "transfer_acceptance_rate": 0.0323,
+    "merge_collision_frequency": 0.8,
+    "contested_transfer_candidates": 5
+  },
+  "interpretation": {
+    "signal": "controlled overlap restored measurable transfer/collision signal versus owner-isolated baseline",
+    "note": "owner-isolated selected-vs-backlog had zero contested candidates; overlap slice is intended to reintroduce limited contestability."
+  }
+}

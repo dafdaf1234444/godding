@@ -1,0 +1,85 @@
+{
+  "experiment": "F-GT1",
+  "title": "Scale-free test on swarm lesson citation graph",
+  "session": "S306",
+  "date": "2026-02-28",
+  "domain": "graph-theory",
+  "check_mode": "objective",
+  "expect": "Power-law degree distribution with alpha in [2.0, 3.0] (classical scale-free); ISO-8 confirmed",
+  "method": "Parse all L-*.md for L-NNN citation patterns; build in-degree distribution; MLE fit power-law on non-zero tail (k_min=1)",
+  "metrics": {
+    "N": 329,
+    "K_total_citations": 266,
+    "K_avg": 0.809,
+    "orphan_count": 190,
+    "orphan_pct": 57.8,
+    "degree_distribution": {
+      "0": 190,
+      "1": 81,
+      "2": 31,
+      "3": 13,
+      "4": 8,
+      "5": 4,
+      "7": 1,
+      "10": 1
+    },
+    "power_law_alpha_mle": 1.9032,
+    "scale_free_threshold": "2.0 <= alpha <= 3.0",
+    "top_10_hubs": [
+      [
+        "L-001",
+        10
+      ],
+      [
+        "L-304",
+        7
+      ],
+      [
+        "L-219",
+        5
+      ],
+      [
+        "L-218",
+        5
+      ],
+      [
+        "L-251",
+        5
+      ],
+      [
+        "L-276",
+        5
+      ],
+      [
+        "L-015",
+        4
+      ],
+      [
+        "L-220",
+        4
+      ],
+      [
+        "L-253",
+        4
+      ],
+      [
+        "L-268",
+        4
+      ]
+    ]
+  },
+  "actual": "alpha=1.899. 57.8% orphan rate. Top hub: L-001 (10 cites). Tail is monotonically decreasing but alpha < 2.",
+  "diff": "Expected alpha 2.0-3.0; actual 1.899 \u2014 just outside scale-free range. Zero-inflation (57.8%) is larger than expected. Tail is power-law-like but thinner hub than classical scale-free networks.",
+  "verdict": {
+    "scale_free": false,
+    "alpha": 1.9032,
+    "reason": "alpha < 2.0 falls outside classical scale-free range. Zero-inflation (57.8%) violates preferential attachment assumption \u2014 most lessons are never cited, which breaks the rich-get-richer dynamic.",
+    "partial_confirmation": "Hub lessons (L-001, L-304) do act as attractors \u2014 tail is consistent with weak preferential attachment. ISO-8 partially confirmed for the non-zero tail only.",
+    "ISO8_status": "PARTIAL \u2014 power law holds for cited lessons (k>=1), but majority of lessons (58%) are never cited, which is not predicted by ISO-8"
+  },
+  "implications": {
+    "compaction": "Hub lessons (alpha < 2 means hubs dominate even more than in typical scale-free) \u2014 L-001, L-304 must be compaction-protected. Orphan 58% are safe to archive.",
+    "citation_culture": "Current low citation density prevents scale-free network formation. Target K_avg > 2 would likely produce true scale-free structure via preferential attachment.",
+    "F-GT4_connection": "Spectral clustering on a near-empty graph will not find meaningful clusters \u2014 need K_avg > 1 first."
+  }
+}

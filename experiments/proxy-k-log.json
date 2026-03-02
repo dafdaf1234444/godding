@@ -1,0 +1,929 @@
+[
+  {
+    "date": "2026-02-27",
+    "session": 74,
+    "tiers": {
+      "T0-mandatory": 1732,
+      "T1-identity": 5538,
+      "T2-protocols": 2997,
+      "T3-knowledge": 4921,
+      "T4-tools": 10412
+    },
+    "total": 25600,
+    "genesis": 9836
+  },
+  {
+    "date": "2026-02-27",
+    "session": 75,
+    "tiers": {
+      "T0-mandatory": 1732,
+      "T1-identity": 5538,
+      "T2-protocols": 2997,
+      "T3-knowledge": 4827,
+      "T4-tools": 11103
+    },
+    "total": 26197,
+    "genesis": 9752
+  },
+  {
+    "date": "2026-02-27",
+    "session": 77,
+    "tiers": {
+      "T0-mandatory": 1765,
+      "T1-identity": 4943,
+      "T2-protocols": 2997,
+      "T3-knowledge": 5356,
+      "T4-tools": 9499
+    },
+    "total": 24560,
+    "genesis": 8506
+  },
+  {
+    "date": "2026-02-27",
+    "session": 80,
+    "tiers": {
+      "T0-mandatory": 1815,
+      "T1-identity": 4943,
+      "T2-protocols": 3034,
+      "T3-knowledge": 5775,
+      "T4-tools": 9443
+    },
+    "total": 25010,
+    "genesis": 8601
+  },
+  {
+    "date": "2026-02-27",
+    "session": 85,
+    "tiers": {
+      "T0-mandatory": 1925,
+      "T1-identity": 5085,
+      "T2-protocols": 3034,
+      "T3-knowledge": 5523,
+      "T4-tools": 9444
+    },
+    "total": 25011,
+    "genesis": 7989
+  },
+  {
+    "date": "2026-02-27",
+    "session": 87,
+    "tiers": {
+      "T0-mandatory": 1941,
+      "T1-identity": 5085,
+      "T2-protocols": 3034,
+      "T3-knowledge": 4729,
+      "T4-tools": 9110
+    },
+    "total": 23899,
+    "genesis": 7671,
+    "note": "new floor after T3+T4 compression"
+  },
+  {
+    "date": "2026-02-27",
+    "session": 86,
+    "tiers": {
+      "T0-mandatory": 1941,
+      "T1-identity": 5085,
+      "T2-protocols": 3034,
+      "T3-knowledge": 4213,
+      "T4-tools": 9110
+    },
+    "total": 23383,
+    "genesis": 7671
+  },
+  {
+    "session": 89,
+    "total": 23631,
+    "tiers": {
+      "T0-mandatory": 1982,
+      "T1-identity": 5085,
+      "T2-protocols": 3034,
+      "T3-knowledge": 4420,
+      "T4-tools": 9110
+    },
+    "note": "S89 new floor: MDL K-recompression pass complete (\u221210.9% from 26,268); P-132 OBSERVED; 183L 137P"
+  },
+  {
+    "date": "2026-02-27",
+    "session": 96,
+    "tiers": {
+      "T0-mandatory": 2383,
+      "T1-identity": 5085,
+      "T2-protocols": 3034,
+      "T3-knowledge": 5216,
+      "T4-tools": 9118
+    },
+    "total": 24836,
+    "genesis": 7578
+  },
+  {
+    "date": "2026-02-27",
+    "session": 99,
+    "tiers": {
+      "T0-mandatory": 2417,
+      "T1-identity": 5085,
+      "T2-protocols": 3080,
+      "T3-knowledge": 5121,
+      "T4-tools": 9122
+    },
+    "total": 24825,
+    "genesis": 7635
+  },
+  {
+    "date": "2026-02-27",
+    "session": 0,
+    "tiers": {
+      "T0-mandatory": 2535,
+      "T1-identity": 3085,
+      "T2-protocols": 3192,
+      "T3-knowledge": 4329,
+      "T4-tools": 11479
+    },
+    "total": 24620,
+    "genesis": 7752
+  },
+  {
+    "date": "2026-02-27",
+    "session": 113,
+    "tiers": {
+      "T0-mandatory": 2593,
+      "T1-identity": 5237,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4146,
+      "T4-tools": 11466
+    },
+    "total": 26645,
+    "genesis": 7638
+  },
+  {
+    "date": "2026-02-27",
+    "session": 115,
+    "tiers": {
+      "T0-mandatory": 2593,
+      "T1-identity": 5237,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4185,
+      "T4-tools": 11046
+    },
+    "total": 26264,
+    "genesis": 7677
+  },
+  {
+    "date": "2026-02-27",
+    "session": 125,
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 5394,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4222,
+      "T4-tools": 12871
+    },
+    "total": 28064,
+    "genesis": 7376
+  },
+  {
+    "date": "2026-02-27",
+    "session": 126,
+    "dirty_tree": true,
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 5394,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4185,
+      "T4-tools": 11876
+    },
+    "total": 27032,
+    "genesis": 7339
+  },
+  {
+    "date": "2026-02-27",
+    "session": 127,
+    "dirty_tree": true,
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 4297,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4185,
+      "T4-tools": 7901
+    },
+    "total": 21960,
+    "genesis": 3399
+  },
+  {
+    "date": "2026-02-27",
+    "session": 129,
+    "dirty_tree": true,
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4185,
+      "T4-tools": 12014
+    },
+    "total": 25419,
+    "genesis": 5584
+  },
+  {
+    "date": "2026-02-27",
+    "session": 131,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4218,
+      "T4-tools": 12665
+    },
+    "total": 26103,
+    "genesis": 5617
+  },
+  {
+    "date": "2026-02-27",
+    "session": 133,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2374,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4218,
+      "T4-tools": 12665
+    },
+    "total": 26103,
+    "genesis": 5617
+  },
+  {
+    "date": "2026-02-27",
+    "session": 138,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2426,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4243,
+      "T4-tools": 13326
+    },
+    "total": 26841,
+    "genesis": 5669
+  },
+  {
+    "date": "2026-02-27",
+    "session": 139,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2425,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4243,
+      "T4-tools": 13544
+    },
+    "total": 27058,
+    "genesis": 5669
+  },
+  {
+    "date": "2026-02-27",
+    "session": 145,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2430,
+      "T1-identity": 3643,
+      "T2-protocols": 3203,
+      "T3-knowledge": 4276,
+      "T4-tools": 14198
+    },
+    "total": 27750,
+    "genesis": 5674
+  },
+  {
+    "date": "2026-02-27",
+    "session": 150,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2592,
+      "T1-identity": 3643,
+      "T2-protocols": 3669,
+      "T3-knowledge": 4340,
+      "T4-tools": 15429
+    },
+    "total": 29673,
+    "genesis": 5682
+  },
+  {
+    "date": "2026-02-27",
+    "session": 151,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2592,
+      "T1-identity": 3643,
+      "T2-protocols": 3669,
+      "T3-knowledge": 4340,
+      "T4-tools": 15429
+    },
+    "total": 29673,
+    "genesis": 5682
+  },
+  {
+    "date": "2026-02-27",
+    "session": 152,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2687,
+      "T1-identity": 3643,
+      "T2-protocols": 3795,
+      "T3-knowledge": 4410,
+      "T4-tools": 16848
+    },
+    "total": 31383,
+    "genesis": 5773
+  },
+  {
+    "date": "2026-02-27",
+    "session": 153,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2729,
+      "T1-identity": 3919,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4432,
+      "T4-tools": 18639
+    },
+    "total": 33537,
+    "genesis": 5795
+  },
+  {
+    "date": "2026-02-27",
+    "session": 154,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 2805,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4432,
+      "T4-tools": 19651
+    },
+    "total": 34634,
+    "genesis": 5795
+  },
+  {
+    "date": "2026-02-27",
+    "session": 157,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3061,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4442,
+      "T4-tools": 23082
+    },
+    "total": 38331,
+    "genesis": 5926
+  },
+  {
+    "date": "2026-02-27",
+    "session": 159,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4454,
+      "T4-tools": 23162
+    },
+    "total": 38456,
+    "genesis": 5938
+  },
+  {
+    "date": "2026-02-27",
+    "session": 160,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4471,
+      "T4-tools": 23614
+    },
+    "total": 38925,
+    "genesis": 5955
+  },
+  {
+    "date": "2026-02-27",
+    "session": 161,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4471,
+      "T4-tools": 23858
+    },
+    "total": 39169,
+    "genesis": 5955
+  },
+  {
+    "date": "2026-02-27",
+    "session": 162,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 3928,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4496,
+      "T4-tools": 24826
+    },
+    "total": 40162,
+    "genesis": 5980
+  },
+  {
+    "date": "2026-02-27",
+    "session": 163,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 4043,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4496,
+      "T4-tools": 24830
+    },
+    "total": 40281,
+    "genesis": 5980
+  },
+  {
+    "date": "2026-02-27",
+    "session": 165,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3094,
+      "T1-identity": 4177,
+      "T2-protocols": 3818,
+      "T3-knowledge": 4496,
+      "T4-tools": 24830
+    },
+    "total": 40415,
+    "genesis": 5980
+  },
+  {
+    "date": "2026-02-27",
+    "session": 167,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3146,
+      "T1-identity": 3973,
+      "T2-protocols": 3500,
+      "T3-knowledge": 4658,
+      "T4-tools": 23622
+    },
+    "total": 38899,
+    "genesis": 6194
+  },
+  {
+    "date": "2026-02-27",
+    "session": 168,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3146,
+      "T1-identity": 3973,
+      "T2-protocols": 3500,
+      "T3-knowledge": 4658,
+      "T4-tools": 23622
+    },
+    "total": 38899,
+    "genesis": 6194
+  },
+  {
+    "date": "2026-02-27",
+    "session": 169,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3152,
+      "T1-identity": 3973,
+      "T2-protocols": 3500,
+      "T3-knowledge": 4658,
+      "T4-tools": 23261
+    },
+    "total": 38544,
+    "genesis": 6200
+  },
+  {
+    "date": "2026-02-27",
+    "session": 171,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3145,
+      "T1-identity": 3973,
+      "T2-protocols": 3500,
+      "T3-knowledge": 4900,
+      "T4-tools": 21042
+    },
+    "total": 36560,
+    "genesis": 6193
+  },
+  {
+    "date": "2026-02-27",
+    "session": 174,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3198,
+      "T1-identity": 4187,
+      "T2-protocols": 3500,
+      "T3-knowledge": 5227,
+      "T4-tools": 21042
+    },
+    "total": 37154,
+    "genesis": 6504
+  },
+  {
+    "date": "2026-02-27",
+    "session": 175,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3208,
+      "T1-identity": 4187,
+      "T2-protocols": 3500,
+      "T3-knowledge": 5323,
+      "T4-tools": 21042
+    },
+    "total": 37260,
+    "genesis": 6553
+  },
+  {
+    "date": "2026-02-27",
+    "session": 179,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3493,
+      "T1-identity": 4544,
+      "T2-protocols": 3595,
+      "T3-knowledge": 6498,
+      "T4-tools": 21042
+    },
+    "total": 39172,
+    "genesis": 7250
+  },
+  {
+    "date": "2026-02-27",
+    "session": 180,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3542,
+      "T1-identity": 5367,
+      "T2-protocols": 3595,
+      "T3-knowledge": 6971,
+      "T4-tools": 21323
+    },
+    "total": 40798,
+    "genesis": 7299
+  },
+  {
+    "date": "2026-02-27",
+    "session": 181,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3555,
+      "T1-identity": 5367,
+      "T2-protocols": 3595,
+      "T3-knowledge": 6974,
+      "T4-tools": 21323
+    },
+    "total": 40814,
+    "genesis": 7332
+  },
+  {
+    "date": "2026-02-27",
+    "session": 182,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 3694,
+      "T1-identity": 5760,
+      "T2-protocols": 3595,
+      "T3-knowledge": 8541,
+      "T4-tools": 21347
+    },
+    "total": 42937,
+    "genesis": 7517
+  },
+  {
+    "date": "2026-02-28",
+    "session": 186,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 5008,
+      "T1-identity": 5760,
+      "T2-protocols": 3756,
+      "T3-knowledge": 7317,
+      "T4-tools": 29532
+    },
+    "total": 51373,
+    "genesis": 8049
+  },
+  {
+    "date": "2026-02-28",
+    "session": 188,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 5012,
+      "T1-identity": 5760,
+      "T2-protocols": 3756,
+      "T3-knowledge": 7562,
+      "T4-tools": 29446
+    },
+    "total": 51536,
+    "genesis": 8298
+  },
+  {
+    "date": "2026-02-28",
+    "session": 191,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 5166,
+      "T1-identity": 6693,
+      "T2-protocols": 3756,
+      "T3-knowledge": 9809,
+      "T4-tools": 29515
+    },
+    "total": 54939,
+    "genesis": 10082
+  },
+  {
+    "date": "2026-02-28",
+    "session": 195,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 5492,
+      "T1-identity": 7157,
+      "T2-protocols": 3756,
+      "T3-knowledge": 10209,
+      "T4-tools": 29515
+    },
+    "total": 56129,
+    "genesis": 10808
+  },
+  {
+    "date": "2026-02-28",
+    "session": 301,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 6132,
+      "T1-identity": 7344,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8816,
+      "T4-tools": 32050
+    },
+    "total": 58098,
+    "genesis": 9672
+  },
+  {
+    "date": "2026-02-28",
+    "session": 306,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 6136,
+      "T1-identity": 7344,
+      "T2-protocols": 3756,
+      "T3-knowledge": 9404,
+      "T4-tools": 32113
+    },
+    "total": 58753,
+    "genesis": 10264
+  },
+  {
+    "date": "2026-03-01",
+    "session": 335,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 6890,
+      "T1-identity": 7859,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8955,
+      "T4-tools": 32778
+    },
+    "total": 60238,
+    "genesis": 10052
+  },
+  {
+    "date": "2026-03-01",
+    "session": 339,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 6896,
+      "T1-identity": 7859,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8955,
+      "T4-tools": 28464
+    },
+    "total": 55930,
+    "genesis": 10058
+  },
+  {
+    "date": "2026-03-01",
+    "session": 350,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7379,
+      "T1-identity": 10412,
+      "T2-protocols": 3756,
+      "T3-knowledge": 10108,
+      "T4-tools": 31041
+    },
+    "total": 62696,
+    "genesis": 11828
+  },
+  {
+    "date": "2026-03-01",
+    "session": 351,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7379,
+      "T1-identity": 9301,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8937,
+      "T4-tools": 30585
+    },
+    "total": 59958,
+    "genesis": 11391
+  },
+  {
+    "date": "2026-03-01",
+    "session": 362,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7719,
+      "T1-identity": 10660,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8278,
+      "T4-tools": 32907
+    },
+    "total": 63320,
+    "genesis": 14155
+  },
+  {
+    "date": "2026-03-01",
+    "session": 383,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7929,
+      "T1-identity": 9551,
+      "T2-protocols": 3756,
+      "T3-knowledge": 9155,
+      "T4-tools": 33405
+    },
+    "total": 63796,
+    "genesis": 14094
+  },
+  {
+    "date": "2026-03-01",
+    "session": 384,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7929,
+      "T1-identity": 9551,
+      "T2-protocols": 3756,
+      "T3-knowledge": 8309,
+      "T4-tools": 33405
+    },
+    "total": 62950,
+    "genesis": 13081
+  },
+  {
+    "date": "2026-03-01",
+    "session": 399,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7828,
+      "T1-identity": 10695,
+      "T2-protocols": 3756,
+      "T3-knowledge": 9957,
+      "T4-tools": 34260
+    },
+    "total": 66496,
+    "genesis": 12067
+  },
+  {
+    "date": "2026-03-01",
+    "session": 402,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7986,
+      "T1-identity": 10732,
+      "T2-protocols": 3858,
+      "T3-knowledge": 9957,
+      "T4-tools": 34264
+    },
+    "total": 66797,
+    "genesis": 12225
+  },
+  {
+    "date": "2026-03-01",
+    "session": 403,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7986,
+      "T1-identity": 10732,
+      "T2-protocols": 3858,
+      "T3-knowledge": 9665,
+      "T4-tools": 35240
+    },
+    "total": 67481,
+    "genesis": 12504
+  },
+  {
+    "date": "2026-03-01",
+    "session": 404,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 7986,
+      "T1-identity": 9840,
+      "T2-protocols": 3213,
+      "T3-knowledge": 6744,
+      "T4-tools": 35240
+    },
+    "total": 63023,
+    "genesis": 12150
+  },
+  {
+    "date": "2026-03-01",
+    "session": 409,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 8035,
+      "T1-identity": 10584,
+      "T2-protocols": 3213,
+      "T3-knowledge": 7020,
+      "T4-tools": 37717
+    },
+    "total": 66569,
+    "genesis": 12357
+  },
+  {
+    "date": "2026-03-01",
+    "session": 411,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 8033,
+      "T1-identity": 10622,
+      "T2-protocols": 3213,
+      "T3-knowledge": 7097,
+      "T4-tools": 38514
+    },
+    "total": 67479,
+    "genesis": 12359
+  },
+  {
+    "date": "2026-03-02",
+    "session": 425,
+    "dirty_tree": true,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 8107,
+      "T1-identity": 11634,
+      "T2-protocols": 3213,
+      "T3-knowledge": 8099,
+      "T4-tools": 24760
+    },
+    "total": 55813,
+    "genesis": 12770
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "session": "S415",
+  "frontier": "F-NK5",
+  "lane": "DOMEX-NK-S415",
+  "question": "NK tracking checkpoint at N=838: K_avg trajectory, hub concentration, isolation, sink dynamics",
+  "expect": "K_avg ~2.85 (rate 0.0025/L from S409). Hub z >50. L-601 dominance 3.5x. Sinks <30%.",
+  "method": "nk_null_model.py (1000 Monte Carlo trials). Hub = unique citing files via grep. Comparison baseline: S405 (N=792).",
+  "results": {
+    "N": 838,
+    "edges": 2404,
+    "K_avg": 2.8687,
+    "K_max": 145,
+    "Gini": 0.6116,
+    "zero_out": 51,
+    "zero_out_pct": 6.1,
+    "zero_in": 201,
+    "zero_in_pct": 24.0,
+    "hub_z": 59.413,
+    "gini_z": 17.099,
+    "isolation_z": 4.864,
+    "verdict": "GENUINELY NON-RANDOM",
+    "rate_from_S405": {
+      "K_avg_S405": 2.7841,
+      "N_S405": 792,
+      "rate_per_lesson": 0.00184,
+      "rate_S405": 0.00283,
+      "deceleration_pct": -35.0
+    },
+    "hub_dominance": {
+      "L-601_incoming": 145,
+      "L-001_incoming": 38,
+      "ratio": 3.82,
+      "L-601_pct_of_K_max": 100.0
+    },
+    "asymptote": {
+      "equilibrium_estimate": 4.5,
+      "current_pct": 63.7,
+      "S405_pct": 61.9
+    },
+    "trajectory_comparison": {
+      "S403_N783": { "K_avg": 2.7586, "hub_z": 46.564, "K_max": 117 },
+      "S405_N792": { "K_avg": 2.7841, "hub_z": 49.357, "K_max": 123 },
+      "S415_N838": { "K_avg": 2.8687, "hub_z": 59.413, "K_max": 145 }
+    },
+    "trends": {
+      "K_avg": "decelerating (+0.00184/L, -35% from S405 rate)",
+      "hub_z": "accelerating (+20.4% from S405, fastest growth metric)",
+      "gini_z": "accelerating (+14.7% from S405)",
+      "isolation_z": "improving (+16.7% from S405, orphans integrating)",
+      "sinks": "declining (24.0%, was 31.4% at S355)"
+    }
+  },
+  "actual": "K_avg=2.8687 (predicted ~2.85, within 0.7%). Hub z=59.413 (predicted >50, confirmed). L-601 dominance 3.82x (predicted 3.5x, slightly higher). Sinks 24.0% (predicted <30%, confirmed). All 4 predictions confirmed. New signal: K_avg decelerating (-35% from S405) while hub z accelerating (+20.4%). Dissociation deepening — new citations concentrate on existing hubs rather than broadening the graph.",
+  "diff": "All 4 directional predictions confirmed. K_avg slightly above predicted. Qualitative new finding: K_avg-to-hub-z dissociation intensifying. At S403 the dissociation was noted as 'new'. By S415 it is structural: K_avg slows (approaching ceiling) while hub z accelerates (preferential attachment super-linear). This suggests the graph is entering a mature regime where new edges reinforce existing structure rather than expanding it.",
+  "verdict": "CONFIRMED — all predictions met. New signal: K_avg deceleration + hub z acceleration = structural maturity.",
+  "citations": ["L-870", "L-801", "L-790", "L-737", "L-613", "L-618", "L-598", "L-900"]
+}

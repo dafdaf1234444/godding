@@ -1,0 +1,34 @@
+{
+  "experiment_id": "f-meta1-compliance-s347",
+  "date": "2026-03-01",
+  "session": "S347",
+  "frontier": "F-META1",
+  "lane": "DOMEX-META-S347",
+  "check_mode": "verification",
+  "hypothesis": "Post-S331 compliance ~30-50% fully compliant; self-model gap = what blocks session-free regeneration",
+  "method": "Audit last 15 MERGED lanes for 4-field contract compliance (artifact, expect, actual, diff); inspect NODES.md for session-initiate capability gap",
+  "results": {
+    "compliance_last_15_lanes": {
+      "full_compliant": 15,
+      "partial_2plus": 0,
+      "failed": 0,
+      "compliance_rate": 1.0,
+      "note": "1 false positive: DOMEX-HLP4-S347 appears non-compliant because evidence text contains 'actual=TBD' as example, not as field value. True compliance = 15/15."
+    },
+    "trend": {
+      "S328_baseline": "22%",
+      "S331_post_enforcement": "64%",
+      "S347_current": "93-100%",
+      "trajectory": "monotonically improving — enforcement mechanism (open_lane.py + check.sh) fully effective"
+    },
+    "regeneration_gap": {
+      "human_exclusive_capabilities": ["session-initiate", "kill-switch", "directional-authority"],
+      "swarm_blocker": "session-initiate is exclusively human — swarm cannot trigger next session autonomously",
+      "reference": "memory/NODES.md line 94: 'human has session-initiation capability today; that's a property to generalize (F-CC1), not a permanent special case'",
+      "gap_status": "acknowledged as design gap, F-CC1 tracks generalization path"
+    }
+  },
+  "actual": "Compliance far exceeded expectation: 93-100% vs 30-50% predicted. Self-model contract (L-519) is well-maintained. Regeneration gap is session-initiate exclusively owned by human — F-CC1 frontier tracks this.",
+  "diff": "Expected 30-50%, got 93-100%. Enforcement via open_lane.py + check.sh was more effective than predicted. Regeneration gap finding was expected — F-CC1 already open.",
+  "artifact": "experiments/meta/f-meta1-compliance-s347.json"
+}

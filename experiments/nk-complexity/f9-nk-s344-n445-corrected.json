@@ -1,0 +1,86 @@
+{
+  "id": "f9-nk-s344-n445-corrected",
+  "session": "S344",
+  "date": "2026-03-01",
+  "domain": "nk-complexity",
+  "frontier": "F9-NK",
+  "method": "Citation graph analysis at N=445 with regex correction. Fixed: L-(\\d+) falsely matches PHIL-N\u2192L-N. Corrected regex: (?<![A-Za-z])L-(\\d+). Null model (\\bL-(\\d+)\\b) was already correct.",
+  "N": 445,
+  "K_avg_corrected": 1.7663,
+  "K_avg_buggy": 1.9753,
+  "edges_corrected": 786,
+  "edges_buggy": 879,
+  "phantom_edges": 93,
+  "inflation_pct": 11.8,
+  "zero_incoming": 154,
+  "zero_incoming_pct": 34.6,
+  "zero_outgoing": 48,
+  "zero_outgoing_pct": 10.8,
+  "architecture": "SCALE_FREE_CANDIDATE",
+  "F75_threshold": 1.5,
+  "F75_status": "ABOVE (corrected K_avg=1.7663 > 1.5, F75 holds)",
+  "prediction_test": {
+    "prediction": "K_avg\u21922.0 by N\u2248440 (L-492, S341)",
+    "actual": "K_avg=1.7663 at N=445",
+    "verdict": "FALSIFIED \u2014 prediction assumed 0.0155/L rate continues, actual rate decelerated to 0.0049/L"
+  },
+  "corrected_series": {
+    "S305": {
+      "N": 325,
+      "reported": 0.77,
+      "corrected_est": 0.689
+    },
+    "S312": {
+      "N": 357,
+      "reported": 1.028,
+      "corrected_est": 0.919
+    },
+    "S329": {
+      "N": 393,
+      "reported": 1.562,
+      "corrected_est": 1.397
+    },
+    "S333": {
+      "N": 398,
+      "reported": 1.545,
+      "corrected_est": 1.382
+    },
+    "S336": {
+      "N": 402,
+      "reported": 1.57,
+      "corrected_est": 1.404
+    },
+    "S338": {
+      "N": 412,
+      "reported": 1.614,
+      "corrected_est": 1.443
+    },
+    "S341": {
+      "N": 430,
+      "reported": 1.893,
+      "corrected_est": 1.693
+    },
+    "S344": {
+      "N": 445,
+      "corrected": 1.7663
+    }
+  },
+  "rate_analysis": {
+    "S338_S341_corrected": 0.0139,
+    "S341_S344_corrected": 0.0049,
+    "deceleration": "3.5x \u2192 0.0049/L (rate dropped 65%)",
+    "ETA_2_0": "~N=493 at current rate"
+  },
+  "bug_finding": {
+    "regex_bug": "r'L-(\\d+)' falsely matches PHIL-N (e.g., PHIL-11 \u2192 L-11) because L- is a substring",
+    "fix": "Use r'(?<![A-Za-z])L-(\\d+)' or r'\\bL-(\\d+)\\b' (word boundary)",
+    "permanent_tools_correct": true,
+    "adhoc_scripts_buggy": true,
+    "top_phantom_targets": "L-13(12), L-4(11), L-2(10), L-16(8), L-8(7)"
+  },
+  "sink_trend": {
+    "S341": 36.3,
+    "S344": 34.6,
+    "direction": "declining (organic)"
+  }
+}

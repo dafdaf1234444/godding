@@ -1,0 +1,39 @@
+{
+  "name": "expert-swarm-colony",
+  "intent": "Spawn child swarms seeded with expert personalities to test expert-swarm structure.",
+  "children": [
+    {
+      "name": "expert-colony-domain",
+      "topic": "domain-frontier",
+      "personality": "domain-expert"
+    },
+    {
+      "name": "expert-colony-skeptic",
+      "topic": "verification",
+      "personality": "skeptic"
+    },
+    {
+      "name": "expert-colony-checker",
+      "topic": "objective-tests",
+      "personality": "checker-expert"
+    },
+    {
+      "name": "expert-colony-generalizer",
+      "topic": "transfer",
+      "personality": "generalizer-expert"
+    },
+    {
+      "name": "expert-colony-creator",
+      "topic": "expert-creation",
+      "personality": "swarm-expert-builder"
+    },
+    {
+      "name": "expert-colony-harvest",
+      "topic": "harvest",
+      "personality": "harvest-expert"
+    }
+  ],
+  "sessions_per_child": 1,
+  "status": "created",
+  "notes": "Run `python3 tools/colony.py run expert-swarm-colony` to spawn; execute at least one session per child before compare."
+}

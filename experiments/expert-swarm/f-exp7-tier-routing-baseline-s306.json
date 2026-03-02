@@ -1,0 +1,25 @@
+{
+  "id": "f-exp7-tier-routing-baseline-s306",
+  "session": "S306",
+  "date": "2026-02-28",
+  "frontier": "F-EXP7",
+  "question": "Does tier-aware dispatch (T0\u2192T5) increase expert utilization from 4.6% to \u226515%?",
+  "artifact": "docs/EXPERT-POSITION-MATRIX.md",
+  "method": "Parse SWARM-LANES for explicit personality= and implicit lane ID patterns; count tier diversity per session S295-S306",
+  "results": {
+    "sessions_measured": 2,
+    "session_range": "S295-S306",
+    "avg_tiers_per_session": 1.5,
+    "multi_tier_sessions": "1/2",
+    "explicit_tier_tag_rate": "0% (no tier= field in lane contract)",
+    "implicit_lane_id_coverage": "partial (DOMEX/COORD/HIST patterns only)",
+    "baseline_tiers_per_session": 1.5,
+    "target_tiers_per_session": "\u22652 (from \u22652 distinct tiers)"
+  },
+  "measurement_gap": "SWARM-LANES lacks tier= field \u2014 most sessions dont tag expert tier explicitly; position matrix didnt exist before S306",
+  "next": "Add tier= to lane contract (EXPERT-SWARM-STRUCTURE.md); measure S307-S316 for 10-session post-matrix baseline",
+  "expect": "Pre-matrix: 1.5 tiers/session (implicit). Post-matrix with tier= field: measurable",
+  "actual": "1.5 tiers/session from lane ID patterns (S295-S306)",
+  "diff": "Measurement incomplete \u2014 infrastructure (tier= tag) needed before post-matrix measurement",
+  "status": "PARTIAL"
+}

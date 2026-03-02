@@ -1,0 +1,37 @@
+{
+  "session": "S425",
+  "frontier": "F-EXP8",
+  "domain": "expert-swarm",
+  "lane": "DOMEX-EXP-S425",
+  "check_mode": "objective",
+  "level": "L3",
+  "timestamp": "2026-03-02",
+  "hypothesis": "Cross-domain citation rate ~0.1% (1-2/867 lessons via generalizer). ISO annotation provides 20+ cross-domain mapping targets. T4 pass adds 5-10 cross-domain citations raising rate to 0.7-1.2%.",
+  "methods": [
+    "generalizer_expert.py — measures frontier cross-refs (F-XXX spanning multiple domains)",
+    "Custom Python analysis of Cites: headers across 867 lessons",
+    "Domain extraction from 'Session: SXXX | Domain: XXX' headers",
+    "Strict metric: non-meta source and non-meta different-domain target"
+  ],
+  "results": {
+    "total_lessons": 867,
+    "metric_1_frontier_crossrefs": {"count": 51, "rate": 0.059, "s417_baseline": 0.001, "growth": "15x"},
+    "metric_2_cites_all_edges": {"cross_domain": 1257, "total": 2080, "rate": 0.604, "note": "confounded by meta domain"},
+    "metric_3_strict_nondomain": {"cross_lessons": 152, "domain_specific_lessons": 344, "rate": 0.442, "note": "TOOL ARTIFACT: lesson_quality_fixer.py added headers post-S411"},
+    "organic_rate_estimate": "~0.1% (unchanged from L-932 S417 after removing tool-added Cites:)"
+  },
+  "comparison_to_hypothesis": {
+    "rate_estimate": "WRONG: actual frontier-ref rate 5.9% (not 0.1%), Cites-based rate 44.2%",
+    "iso_targets": "WRONG: not applicable — measurement definition problem identified first",
+    "t4_pass": "NOT EXECUTED: design flaw discovered — generalizer measures (1) not (3)"
+  },
+  "key_finding": "3 operational definitions give wildly different answers: frontier cross-refs 5.9%, Cites-based 44.2%, organic ~0.1%. The 44.2% is a tool artifact from lesson_quality_fixer.py. Knowledge silo persists in organic citations. F-EXP8 pre-registered instrument (generalizer) measures metric (1); the F-EXP6 problem was about metric (3). Design flaw: wrong instrument for the hypothesis.",
+  "lesson": "L-954",
+  "implications": [
+    "F-EXP8 needs redesign: organic-vs-tool Cites: annotation required before measuring true integration",
+    "L-932 measurement was valid at S417 (frontier cross-refs = 0.1%). Now 5.9% = positive signal for frontier-level integration.",
+    "lesson_quality_fixer.py created a measurement artifact: organic and tool-added citations now indistinguishable",
+    "True test of F-EXP6 open question (close 0.1% gap) requires author-intent tracking"
+  ],
+  "meta_swarm": "Target: tools/lesson_quality_fixer.py — should stamp added Cites: with a marker (e.g., '[auto]') to distinguish tool-added from author-written. This restores interpretability of cross-domain metrics."
+}

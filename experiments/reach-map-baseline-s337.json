@@ -1,0 +1,971 @@
+{
+  "tool_reach": {
+    "bridges": {
+      "claude-code": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 326
+      },
+      "codex-copilot": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 327
+      },
+      "cursor": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 327
+      },
+      "gemini": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 327
+      },
+      "windsurf": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 327
+      },
+      "copilot": {
+        "exists": true,
+        "loads_swarm": true,
+        "has_expert_dispatch": true,
+        "last_session": 327
+      }
+    },
+    "score": 1.0,
+    "active": 6,
+    "total": 6
+  },
+  "domain_reach": {
+    "domains": {
+      "ai": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 4,
+        "active_lanes": 26,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "brain": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 11,
+        "active_lanes": 0,
+        "last_domex_session": 335,
+        "status": "recent"
+      },
+      "catastrophic-risks": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 0,
+        "status": "dormant"
+      },
+      "claude-code": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 22,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "competitions": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": false,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 307,
+        "status": "dormant"
+      },
+      "conflict": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 0,
+        "last_domex_session": 0,
+        "status": "dormant"
+      },
+      "control-theory": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "cryptocurrency": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "cryptography": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "distributed-systems": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "dream": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 0,
+        "last_domex_session": 335,
+        "status": "recent"
+      },
+      "economy": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 0,
+        "last_domex_session": 317,
+        "status": "dormant"
+      },
+      "evaluation": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 4,
+        "active_lanes": 1,
+        "last_domex_session": 329,
+        "status": "active"
+      },
+      "evolution": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 0,
+        "last_domex_session": 307,
+        "status": "dormant"
+      },
+      "experiments": {
+        "has_colony": false,
+        "has_frontier": false,
+        "has_domain_md": false,
+        "has_index": false,
+        "lesson_count": 0,
+        "active_lanes": 15,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "expert-swarm": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 7,
+        "active_lanes": 0,
+        "last_domex_session": 310,
+        "status": "dormant"
+      },
+      "farming": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 0,
+        "status": "dormant"
+      },
+      "finance": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 4,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "fluid-dynamics": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 1,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "fractals": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "game-theory": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "gaming": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "governance": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 4,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "graph-theory": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 4,
+        "active_lanes": 1,
+        "last_domex_session": 331,
+        "status": "active"
+      },
+      "guesstimates": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "health": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 1,
+        "last_domex_session": 308,
+        "status": "active"
+      },
+      "helper-swarm": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "history": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "human-systems": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 3,
+        "active_lanes": 0,
+        "last_domex_session": 307,
+        "status": "dormant"
+      },
+      "information-science": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 0,
+        "last_domex_session": 314,
+        "status": "dormant"
+      },
+      "linguistics": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": false,
+        "lesson_count": 5,
+        "active_lanes": 4,
+        "last_domex_session": 335,
+        "status": "active"
+      },
+      "meta": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 75,
+        "active_lanes": 6,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "nk-complexity": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 12,
+        "active_lanes": 4,
+        "last_domex_session": 336,
+        "status": "active"
+      },
+      "operations-research": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "physics": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "protocol-engineering": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "psychology": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "quality": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 2,
+        "active_lanes": 2,
+        "last_domex_session": 333,
+        "status": "active"
+      },
+      "security": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 0,
+        "status": "dormant"
+      },
+      "social-media": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 1,
+        "active_lanes": 0,
+        "last_domex_session": 302,
+        "status": "dormant"
+      },
+      "statistics": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 0,
+        "last_domex_session": 318,
+        "status": "dormant"
+      },
+      "strategy": {
+        "has_colony": true,
+        "has_frontier": true,
+        "has_domain_md": true,
+        "has_index": true,
+        "lesson_count": 0,
+        "active_lanes": 1,
+        "last_domex_session": 335,
+        "status": "active"
+      }
+    },
+    "score": 0.333,
+    "active": 14,
+    "dormant": 28,
+    "empty": 0,
+    "total": 42
+  },
+  "knowledge_reach": {
+    "total_lessons": 411,
+    "tagged_domains": 98,
+    "untagged": 235,
+    "gini": 0.3626,
+    "score": 0.637,
+    "top_5": [
+      [
+        "meta",
+        19
+      ],
+      [
+        "meta/coordination",
+        9
+      ],
+      [
+        "nk-complexity",
+        7
+      ],
+      [
+        "nk complexity",
+        5
+      ],
+      [
+        "graph-theory",
+        4
+      ]
+    ],
+    "bottom_5": [
+      [
+        "linguistics/meta",
+        1
+      ],
+      [
+        "physics (f136)",
+        1
+      ],
+      [
+        "meta/portability",
+        1
+      ],
+      [
+        "linguistics",
+        1
+      ],
+      [
+        "dream",
+        1
+      ]
+    ]
+  },
+  "protocol_reach": {
+    "score": 0.929,
+    "complete": 39,
+    "partial": 2,
+    "none": 1,
+    "total": 42,
+    "details": {
+      "ai": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "brain": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "catastrophic-risks": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "claude-code": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "competitions": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": false
+        },
+        "status": "partial",
+        "score": 3
+      },
+      "conflict": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "control-theory": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "cryptocurrency": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "cryptography": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "distributed-systems": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "dream": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "economy": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "evaluation": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "evolution": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "experiments": {
+        "checks": {
+          "colony": false,
+          "frontier": false,
+          "index": false,
+          "domain_md": false
+        },
+        "status": "none",
+        "score": 0
+      },
+      "expert-swarm": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "farming": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "finance": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "fluid-dynamics": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "fractals": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "game-theory": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "gaming": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "governance": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "graph-theory": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "guesstimates": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "health": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "helper-swarm": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "history": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "human-systems": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "information-science": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "linguistics": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": false,
+          "domain_md": true
+        },
+        "status": "partial",
+        "score": 3
+      },
+      "meta": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "nk-complexity": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "operations-research": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "physics": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "protocol-engineering": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "psychology": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "quality": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "security": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "social-media": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "statistics": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      },
+      "strategy": {
+        "checks": {
+          "colony": true,
+          "frontier": true,
+          "index": true,
+          "domain_md": true
+        },
+        "status": "complete",
+        "score": 4
+      }
+    }
+  },
+  "composite": {
+    "composite": 0.6726,
+    "components": {
+      "tool": 1.0,
+      "domain": 0.333,
+      "knowledge": 0.637,
+      "protocol": 0.929
+    },
+    "weights": {
+      "tool": 0.15,
+      "domain": 0.35,
+      "knowledge": 0.2,
+      "protocol": 0.3
+    }
+  },
+  "session": "S337",
+  "timestamp": "2026-02-28T23:41:23.766747+00:00"
+}

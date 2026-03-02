@@ -1,0 +1,80 @@
+{
+  "frontier_id": "F75",
+  "title": "F75: Decompose-by-data vs decompose-by-method across all task types",
+  "session": "S306",
+  "domain": "nk-complexity",
+  "hypothesis": "K_avg < 1 = data-parallel wins universally (all task types). K_avg >= 1.5 = method wins for sequential/refactoring.",
+  "methodology": "Monte Carlo simulation (n=100 nodes, 1000 reps each). Data decomposition: 4 batches; cost = base + cross-batch dependencies. Method decomposition: connected components; cost = base + 0.5/component mapping overhead.",
+  "results": [
+    {
+      "k_avg": 0.77,
+      "task_type": "data_parallel",
+      "avg_data_cost": 116.7,
+      "avg_method_cost": 138.95,
+      "data_wins_rate": 1.0,
+      "winner": "data",
+      "efficiency_ratio": 1.191
+    },
+    {
+      "k_avg": 3.0,
+      "task_type": "sequential",
+      "avg_data_cost": 115.0,
+      "avg_method_cost": 100.5,
+      "data_wins_rate": 0.0,
+      "winner": "method",
+      "efficiency_ratio": 0.874
+    },
+    {
+      "k_avg": 1.5,
+      "task_type": "sequential",
+      "avg_data_cost": 105.96,
+      "avg_method_cost": 102.56,
+      "data_wins_rate": 0.021,
+      "winner": "method",
+      "efficiency_ratio": 0.968
+    },
+    {
+      "k_avg": 0.5,
+      "task_type": "sequential",
+      "avg_data_cost": 100.27,
+      "avg_method_cost": 147.66,
+      "data_wins_rate": 1.0,
+      "winner": "data",
+      "efficiency_ratio": 1.473
+    },
+    {
+      "k_avg": 4.0,
+      "task_type": "refactoring",
+      "avg_data_cost": 364.82,
+      "avg_method_cost": 100.5,
+      "data_wins_rate": 0.0,
+      "winner": "method",
+      "efficiency_ratio": 0.275
+    },
+    {
+      "k_avg": 1.5,
+      "task_type": "refactoring",
+      "avg_data_cost": 175.9,
+      "avg_method_cost": 102.42,
+      "data_wins_rate": 0.0,
+      "winner": "method",
+      "efficiency_ratio": 0.582
+    },
+    {
+      "k_avg": 0.5,
+      "task_type": "refactoring",
+      "avg_data_cost": 103.53,
+      "avg_method_cost": 147.68,
+      "data_wins_rate": 1.0,
+      "winner": "data",
+      "efficiency_ratio": 1.426
+    }
+  ],
+  "key_finding": "K_avg threshold (< 1.0 = data wins, >= 1.5 = method wins for high-coupling tasks) holds across all 3 task types. Swarm K_avg=0.77 (from S305 F9-NK) confirms data-parallel wins for ALL current swarm task types.",
+  "f75_status": "PARTIAL\u2192RESOLVED (sequential + refactoring tested; K_avg threshold universally confirmed)",
+  "iso_links": [
+    "ISO-6 (efficiency threshold)",
+    "ISO-12 (bottleneck law \u2014 decomposition is the min-cut)"
+  ],
+  "generated_at": "2026-02-28T12:30:00Z"
+}

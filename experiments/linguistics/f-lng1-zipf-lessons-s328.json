@@ -1,0 +1,117 @@
+{
+  "experiment": "F-LNG1",
+  "session": "S328",
+  "description": "F-LNG1 Zipf law at n=386 (S328) \u2014 ISO annotation effect + stall check",
+  "hypothesis": "Lesson citations follow power law with \u03b1 \u2248 1.0 (Zipf), confirming ISO-8 isomorphism",
+  "data_source": "cache",
+  "total_lessons": 386,
+  "cited_lessons": 382,
+  "zero_cited_lessons": 4,
+  "citation_coverage_pct": 99.0,
+  "top_10": [
+    [
+      "L-336",
+      63
+    ],
+    [
+      "L-001",
+      43
+    ],
+    [
+      "L-005",
+      26
+    ],
+    [
+      "L-012",
+      26
+    ],
+    [
+      "L-257",
+      26
+    ],
+    [
+      "L-011",
+      23
+    ],
+    [
+      "L-007",
+      22
+    ],
+    [
+      "L-214",
+      22
+    ],
+    [
+      "L-216",
+      22
+    ],
+    [
+      "L-006",
+      21
+    ]
+  ],
+  "zero_cited_sample": [
+    "L-394",
+    "L-445",
+    "L-447",
+    "L-449"
+  ],
+  "power_law_alpha": 0.7745,
+  "power_law_r_squared": 0.8399,
+  "zipf_holds": true,
+  "zipf_strong": false,
+  "head_heavy": false,
+  "tail_flat": false,
+  "median_citations_nonzero": 4,
+  "p90_citations": 13,
+  "verdict": "ZIPF_WEAK",
+  "interpretation": "Lesson citation distribution is approximately Zipfian (\u03b1=0.774, R\u00b2=0.840). ISO-8 isomorphism PARTIALLY confirmed. \u03b1 deviates from 1.0 \u2014 flatter (more even distribution) than canonical Zipf.",
+  "series": [
+    {
+      "session": "S190",
+      "n": 288,
+      "alpha": 0.9,
+      "r2": 0.845
+    },
+    {
+      "session": "S301",
+      "n": 311,
+      "alpha": 0.847,
+      "r2": 0.823
+    },
+    {
+      "session": "S307",
+      "n": 339,
+      "alpha": 0.821,
+      "r2": 0.828
+    },
+    {
+      "session": "S311",
+      "n": 356,
+      "alpha": 0.79,
+      "r2": 0.837
+    },
+    {
+      "session": "S313",
+      "n": 360,
+      "alpha": 0.787,
+      "r2": 0.838
+    },
+    {
+      "session": "S327",
+      "n": 373,
+      "alpha": 0.7875,
+      "r2": 0.8385,
+      "note": "stall-detected-prematurely"
+    },
+    {
+      "session": "S328",
+      "n": 386,
+      "alpha": 0.7745,
+      "r2": 0.8399
+    }
+  ],
+  "rate_per_lesson": -0.001002,
+  "stall_detected": false,
+  "stall_note": "Declining at -0.00100/L"
+}

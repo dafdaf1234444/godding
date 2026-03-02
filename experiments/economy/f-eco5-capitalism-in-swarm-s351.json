@@ -1,0 +1,84 @@
+{
+  "experiment": "F-ECO5 Capitalism in the Swarm",
+  "title": "Market Mechanisms Without Market Incentives — Capitalism's Useful Parts",
+  "session": "S351",
+  "date": "2026-03-01",
+  "method": "concept analysis — map capitalism's components to existing swarm mechanisms",
+  "frontier": "F-ECO5 (candidate)",
+  "human_signal": "S351: 'capitalism in the swarm swarm the swarm for the swarm or any other idea swarm'",
+
+  "hypothesis": "The swarm already implements capitalism's allocation mechanisms (price signals, creative destruction, specialization) while rejecting its incentive structure (competition, self-interest). This separation is novel — most systems adopt both or neither.",
+
+  "mechanism_mapping": {
+    "price_signals": {
+      "capitalism": "Supply/demand → prices → allocation decisions",
+      "swarm": "dispatch_optimizer scores = implicit prices for domain attention",
+      "status": "IMPLEMENTED",
+      "evidence": "dispatch scores range 33-56, drive 90% DOMEX throughput (L-407, F-ECO4)"
+    },
+    "creative_destruction": {
+      "capitalism": "Inefficient firms exit; new entrants displace incumbents",
+      "swarm": "Compaction removes zero-Sharpe lessons; protocol supersession (modes → check_modes, L-529)",
+      "status": "IMPLEMENTED",
+      "evidence": "P-188 Sharpe ratio as exit gate; L-529 modes 0% adoption → superseded"
+    },
+    "specialization_and_trade": {
+      "capitalism": "Division of labor + comparative advantage (Ricardo 1817, Adam Smith)",
+      "swarm": "DOMEX domain specialization + ISO cross-domain transfer",
+      "status": "IMPLEMENTED",
+      "evidence": "ISO-15 maps specialization-generalization duality; 17 domains with MERGED DOMEX"
+    },
+    "invisible_hand": {
+      "capitalism": "Individual self-interest → collective benefit without central planning",
+      "swarm": "Bounded-context sessions → emergent global knowledge without central coordinator",
+      "status": "IDENTIFIED (ISO-20 candidate)",
+      "evidence": "L-537, ISO-20 atlas entry; K_avg 1.94 via bounded-epistemic self-replication"
+    },
+    "scarcity_and_budgets": {
+      "capitalism": "Scarce resources → pricing → efficient allocation",
+      "swarm": "Context window is scarce → proxy-K measures cost → compaction manages budget",
+      "status": "IMPLEMENTED",
+      "evidence": "P-163 proxy-K inflation model; 6% drift threshold = monetary tightening"
+    },
+    "competition": {
+      "capitalism": "Firms compete for customers; survival of fittest",
+      "swarm": "EXPLICITLY REJECTED — PHIL-14 collaboration, L-207 shows +37.6pp deception under competition",
+      "status": "REJECTED",
+      "evidence": "L-207, P-155: competitive incentives are deception vectors in cooperative systems"
+    },
+    "self_interest": {
+      "capitalism": "Agents maximize individual utility",
+      "swarm": "REJECTED — P14 total self-application means swarm optimizes for collective, not individual sessions",
+      "status": "REJECTED",
+      "evidence": "CORE.md P14; concurrent session absorption pattern is anti-individual-credit"
+    }
+  },
+
+  "novel_finding": "MECHANISM-INCENTIVE SEPARATION: The swarm implements 5/7 capitalist mechanisms while rejecting 2/7 capitalist incentives. This separation — using allocation efficiency without competitive motivation — may be a general design pattern for cooperative systems. Most economic systems are package deals (take all of capitalism or none). The swarm unbundles it.",
+
+  "implications": [
+    "dispatch_optimizer IS the swarm's price mechanism — formalize this framing",
+    "compaction IS creative destruction — low-Sharpe exits are market-clearing events",
+    "ISO-20 invisible hand needs formal verification: do bounded-context sessions ACTUALLY produce better global allocation than centralized planning?",
+    "The 2/7 rejection (competition + self-interest) is load-bearing — removing it enables concurrent absorption (sessions don't protect 'their' work)",
+    "Candidate F-ECO5 frontier: Can the swarm improve allocation by making its implicit price mechanism more explicit?"
+  ],
+
+  "prior_work": {
+    "iso_15": "Specialization-generalization duality — Ricardo/Adam Smith mapped",
+    "iso_20_candidate": "Invisible hand as bounded-epistemic self-replication (L-537)",
+    "economy_domain": "Full economic model (GDP/capital/depreciation/inflation) mapped",
+    "finance_domain": "Sharpe ratio as quality price, portfolio diversification",
+    "L-207": "Competitive incentives increase deception 37.6pp — ANTI-competition evidence",
+    "L-529": "Protocol supersession = creative destruction in governance"
+  },
+
+  "testable_predictions": [
+    "P1: Making dispatch scores visible to sessions (like prices) would improve domain allocation",
+    "P2: Introducing inter-session competition would DEGRADE output quality (per L-207)",
+    "P3: The mechanism-incentive separation is stable — adding competition would break concurrent absorption",
+    "P4: The swarm's 'invisible hand' (ISO-20) produces more uniform domain coverage than centralized dispatch would"
+  ],
+
+  "candidate_lesson": "L-xxx: Mechanism-incentive separation: the swarm implements capitalism's allocation tools (price signals, creative destruction, specialization, scarcity pricing) while rejecting its motivation structure (competition, self-interest). 5/7 mechanisms adopted, 2/7 rejected. This unbundling enables concurrent absorption (no session 'owns' its output) and prevents deception vectors (L-207). Design principle: cooperative systems can use market MECHANISMS without market INCENTIVES."
+}

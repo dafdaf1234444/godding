@@ -1,0 +1,168 @@
+{
+  "frontier_id": "F-EVO4",
+  "title": "Multi-branch evolution swarmability baseline",
+  "session": "S186",
+  "source": "tasks/SWARM-LANES.md",
+  "analysis": {
+    "max_session": 186,
+    "overall_multibranch_swarmable": true,
+    "verdict_strength": 1.0,
+    "level_verdicts": {
+      "within_agent": {
+        "swarmable": true,
+        "score": 0.9984,
+        "threshold": 0.6,
+        "metrics": {
+          "agent_session_count": 3,
+          "multi_branch_agent_session_rate": 0.6667,
+          "mean_branch_count_per_agent_session": 7.6667,
+          "mean_explicit_branch_count_per_agent_session": 6.3333,
+          "mean_lane_close_rate": 0.9934
+        },
+        "samples": [
+          {
+            "agent": "codex",
+            "session": "S184",
+            "lane_count": 7,
+            "branch_count": 1,
+            "explicit_branch_count": 0,
+            "lane_close_rate": 1.0,
+            "is_multi_branch": false
+          },
+          {
+            "agent": "codex",
+            "session": "S185",
+            "lane_count": 14,
+            "branch_count": 2,
+            "explicit_branch_count": 0,
+            "lane_close_rate": 1.0,
+            "is_multi_branch": true
+          },
+          {
+            "agent": "codex",
+            "session": "S186",
+            "lane_count": 152,
+            "branch_count": 20,
+            "explicit_branch_count": 19,
+            "lane_close_rate": 0.9803,
+            "is_multi_branch": true
+          }
+        ]
+      },
+      "within_swarm": {
+        "swarmable": true,
+        "score": 0.7402,
+        "threshold": 0.65,
+        "metrics": {
+          "session_count": 3,
+          "mean_active_branch_diversity": 0.7619,
+          "mean_active_explicit_branch_diversity": 0.3016,
+          "mean_active_contract_rate": 0.298,
+          "collision_row_rate": 0.0823
+        },
+        "samples": [
+          {
+            "session": "S184",
+            "active_lane_count": 3,
+            "active_branch_count": 1,
+            "active_explicit_branch_count": 0,
+            "active_branch_diversity": 0.3333,
+            "active_explicit_branch_diversity": 0.0,
+            "active_contract_rate": 0.0,
+            "collision_rows": 1
+          },
+          {
+            "session": "S185",
+            "active_lane_count": 1,
+            "active_branch_count": 1,
+            "active_explicit_branch_count": 0,
+            "active_branch_diversity": 1.0,
+            "active_explicit_branch_diversity": 0.0,
+            "active_contract_rate": 0.0,
+            "collision_rows": 0
+          },
+          {
+            "session": "S186",
+            "active_lane_count": 21,
+            "active_branch_count": 20,
+            "active_explicit_branch_count": 19,
+            "active_branch_diversity": 0.9524,
+            "active_explicit_branch_diversity": 0.9048,
+            "active_contract_rate": 0.8939,
+            "collision_rows": 26
+          }
+        ]
+      },
+      "overall_swarm": {
+        "swarmable": true,
+        "score": 0.7055,
+        "threshold": 0.65,
+        "metrics": {
+          "row_count": 328,
+          "lane_count": 172,
+          "merged_lane_rate": 0.9651,
+          "explicit_branch_lane_rate": 0.1105,
+          "active_residue_rate": 0.0174,
+          "multi_branch_lane_rate": 0.0465,
+          "branch_concentration_hhi": 0.7907,
+          "effective_branch_count": 1.2646,
+          "top_branches_by_lane_count": [
+            [
+              "local",
+              160
+            ],
+            [
+              "master",
+              1
+            ],
+            [
+              "lane-domex-is",
+              1
+            ],
+            [
+              "lane-domex-brn",
+              1
+            ],
+            [
+              "lane-domex-ai",
+              1
+            ],
+            [
+              "lane-domex-stat",
+              1
+            ],
+            [
+              "lane-domex-ops",
+              1
+            ],
+            [
+              "lane-domex-gam",
+              1
+            ],
+            [
+              "lane-domex-evo",
+              1
+            ],
+            [
+              "lane-domex-ctl",
+              1
+            ]
+          ]
+        }
+      }
+    },
+    "lane_snapshot": {
+      "total_lanes": 172,
+      "active_lanes": 3,
+      "closed_lanes": 169,
+      "lanes_with_explicit_branch": 19,
+      "lanes_with_multi_branch_history": 8
+    }
+  },
+  "interpretation": {
+    "question": "Is multi-branch evolution swarmable within agents, within swarms, and overall?",
+    "answer": "YES",
+    "note": "Scores are observational and proxy-based. Use for lane-policy calibration, not as causal proof."
+  },
+  "generated_at_utc": "2026-02-27T22:01:26Z"
+}

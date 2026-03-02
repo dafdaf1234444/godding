@@ -1,0 +1,76 @@
+{
+  "experiment": "F-EVAL4 Event-Frequency Asymmetry in PHIL-14 Goal Metrics",
+  "session": "S421",
+  "domain": "evaluation",
+  "frontier": "F-EVAL4",
+  "level": "L3",
+  "pre_registration": {
+    "hypothesis": "PHIL-14 goals use data sources with vastly different event frequencies, creating asymmetric detection latency for behavioral regressions",
+    "expected": "Protect/Truthful detection latency >100x Increase due to event-frequency gap",
+    "falsified_if": "All four goals have comparable detection latency (<5x ratio)"
+  },
+  "method": {
+    "approach": "Measure events-per-session for each PHIL-14 goal's primary data source, compute detection latency (sessions needed to detect 10pp behavioral regression with p<0.05)",
+    "data_sources": [
+      "memory/SESSION-LOG.md (lessons+principles for Increase)",
+      "tasks/SWARM-LANES.md (lanes for Collaborate)",
+      "beliefs/CHALLENGES.md (challenges for Protect+Truthful)",
+      "memory/HUMAN-SIGNALS.md (signals for Truthful)"
+    ],
+    "sample": "N=421 sessions, N=19 challenges, N=36 active-file lanes"
+  },
+  "results": {
+    "event_frequencies_per_session": {
+      "Increase_lessons_principles": 1.84,
+      "Collaborate_lanes": 0.72,
+      "Protect_challenges": 0.045,
+      "Truthful_challenges": 0.045
+    },
+    "frequency_ratio_max_min": 40.9,
+    "detection_latency_sessions": {
+      "Increase": 16,
+      "Collaborate": 79,
+      "Protect": 444,
+      "Truthful": 444
+    },
+    "detection_latency_ratio": 27.75,
+    "marginal_sensitivity_pp_per_event": {
+      "challenges_alltime_N19": 0.26,
+      "challenges_windowed_N11": 0.76,
+      "lanes_alltime_N36": 0.45
+    },
+    "temporal_windowing_effect": {
+      "challenges_alltime_evidence_rate": 0.947,
+      "challenges_recent50_evidence_rate": 0.909,
+      "delta_pp": -3.8,
+      "lanes_alltime_merge_rate": 0.833,
+      "lanes_recent50_merge_rate": 0.871,
+      "delta_pp_lanes": 3.8,
+      "verdict_change": false,
+      "note": "Windowing changes rates but not verdicts in this snapshot. However, marginal sensitivity triples (0.26pp to 0.76pp), making future regressions detectable sooner."
+    }
+  },
+  "findings": [
+    "40x event-frequency gap: Increase generates 1.84 events/session vs Protect/Truthful at 0.045/session",
+    "28x detection-latency asymmetry: a 10pp behavioral regression in Increase is detectable in 16 sessions; in Protect/Truthful, 444 sessions",
+    "Protect and Truthful share the same data source (challenges), creating correlated blind spots",
+    "Temporal windowing improves marginal sensitivity 3x (0.26pp to 0.76pp per event) but cannot overcome the fundamental event-frequency gap",
+    "The eval_sufficiency system is responsive to production regressions but nearly blind to ethical/epistemic regressions"
+  ],
+  "structural_fix_proposal": {
+    "principle": "Every session must generate at least one observation for every PHIL-14 goal",
+    "mechanism": "Add per-session protect/truthful observations to SESSION-LOG.md or eval_sufficiency.py: (1) was any belief corrected? (2) did any evidence contradict existing claims? (3) was validate_beliefs.py run and PASS?",
+    "expected_effect": "Normalize event frequency across goals to >0.5/session, reducing max detection latency from 444 to <50 sessions",
+    "implementation_cost": "Low — add 3 boolean fields to session-end logging"
+  },
+  "fourth_metric_design_property": {
+    "property": "Event-frequency parity",
+    "description": "All metrics in a composite scorer must have comparable event frequencies (within 5x) or the scorer has asymmetric sensitivity to different failure modes",
+    "prior_three_properties": [
+      "Session-count floor (N<5 cap) — L-919",
+      "Continuous scoring (interpolation vs cliff-edge) — L-928",
+      "Session-type stratification (DOMEX vs non-DOMEX) — L-928"
+    ]
+  },
+  "verdict": "CONFIRMED — 40x event-frequency gap creates 28x detection-latency asymmetry. Fourth metric-design property identified."
+}
