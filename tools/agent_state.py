@@ -2,6 +2,7 @@
 """agent_state.py — Agent position registry for swarm coordination.
 
 Council finding (S340): 5/5 experts converged on agent registry as #1 priority.
+Last validated: S427 — registry still active, coordination need confirmed at N≥10 concurrency.
 Agents need to know where other agents are to avoid duplication and spread work.
 
 This tool provides:

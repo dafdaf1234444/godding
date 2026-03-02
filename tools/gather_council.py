@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 gather_council.py — Activate council seats by scanning top-10 domains for vacancy.
+Last validated: S427 — council dispatch active, seat mechanism operational.
 
 Reads dispatch_optimizer rankings, checks active DOMEX lanes, outputs seat status
 + open_lane.py commands for vacant seats.

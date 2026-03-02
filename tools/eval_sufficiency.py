@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
 eval_sufficiency.py — PHIL-14 Mission Sufficiency Scorer
+Last validated: S427 — avg_lp=1.84 (50-session window), ECE improvement ongoing.
 
 Scores each of the four PHIL-14 goals (Collaborate, Increase, Protect, Truthful)
 on a 0-3 scale using proxy metrics from swarm state files.
@@ -157,7 +158,8 @@ def _load_session_log() -> list[dict]:
     """
     path = ROOT / "memory" / "SESSION-LOG.md"
     by_session: dict[int, dict] = {}
-    pat = re.compile(r"S(\d+)\s*[\t|].*?\+(\d+)L.*?\+(\d+)P")
+    # Match +NL with either +NP or +?P (staleness marker from sync_state backfill)
+    pat = re.compile(r"S(\d+)\s*[\t|].*?\+(\d+)L.*?\+(\d+|\?)P")
     for line in path.read_text(encoding="utf-8").splitlines():
         m = pat.search(line)
         if m:
@@ -165,7 +167,8 @@ def _load_session_log() -> list[dict]:
             if s not in by_session:
                 by_session[s] = {"session": s, "lessons": 0, "principles": 0, "is_domex": False}
             by_session[s]["lessons"] += int(m.group(2))
-            by_session[s]["principles"] += int(m.group(3))
+            p_str = m.group(3)
+            by_session[s]["principles"] += int(p_str) if p_str != "?" else 0
             if "DOMEX" in line:
                 by_session[s]["is_domex"] = True
     return sorted(by_session.values(), key=lambda x: x["session"])

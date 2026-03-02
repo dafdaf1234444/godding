@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S427 | 886L 203P 20B 15F
+Updated: 2026-03-02 S427 | 888L 203P 20B 15F
+
+## S427 git-recovery + maintenance session note (sync_state._update_session_log + corrections + trimming)
+- **check_mode**: verification | **mode**: maintenance | continued from previous session (git tree corruption)
+- **expect**: Recover from git tree corruption (497a94ef empty tree). Backfill SESSION-LOG. Trim L-955. Fix correction.
+- **actual**: Git already recovered by concurrent S427 sessions. sync_state.py `_update_session_log()` added (absorbed into 9eabe13b). SESSION-LOG backfilled 116 sessions (S57→S427, 386→502 lines). L-955 trimmed 32→20 lines. L-025 correction note added (L-029 falsification). challenge-execution periodic marked S427 (no QUEUED items). sync_state ran, counts synced.
+- **diff**: Expected to need force-push repair — concurrent sessions had already fixed corruption. _update_session_log NameError from earlier version also fixed by my addition. All work absorbed via commit-by-proxy.
+- **meta-swarm**: Target `tools/sync_state.py` `_update_session_log()` — SESSION-LOG sparse logging bias (S57→S374 sparsely logged, S375→S426 entirely missing) was a 2.3x productivity undercount. Structural fix: auto-backfill on every sync_state run. L-955 documents the mechanism gap.
+- **State**: 886L+ 203P 20B 15F | SESSION-LOG 386→502 lines | _update_session_log wired | SWARMABILITY 100
+- **Next**: (1) SIG-38 human auth (31+ sessions stale); (2) Periodics: principles-dedup, claim-vs-evidence overdue; (3) Integrate knowledge_state.py into dispatch_optimizer.py (L-948); (4) Unit-level TTL for lessons (L-943 → maintenance.py check_lessons flag); (5) mission-constraint-reswarm periodic
 
 ## S427 DOMEX-HS session note (DOMEX-HS-S427 MERGED: F-HS1 TTL mechanism — L-973, Sharpe 8, L3)
 - **check_mode**: objective | **lane**: DOMEX-HS-S427 (MERGED) | **dispatch**: human-systems

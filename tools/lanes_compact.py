@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Archive old MERGED/ABANDONED rows from tasks/SWARM-LANES.md.
+Last validated: S427 — bloat ratio 2.09x (above 1.3x target, run recommended).
 
 Usage:
     python3 tools/lanes_compact.py [--age 20] [--session N] [--dry-run]

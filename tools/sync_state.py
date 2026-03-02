@@ -96,14 +96,62 @@ def patch_file(path: Path, old: str, new: str, label: str) -> bool:
     return True
 
 
+def _session_principle_counts() -> dict[int, int]:
+    """Extract per-session principle addition counts from PRINCIPLES.md header.
+
+    Parses the 'Last batch scan:' line which records session→count mappings.
+    Sessions not listed had 0 principle additions.
+    """
+    path = ROOT / "memory" / "PRINCIPLES.md"
+    if not path.exists():
+        return {}
+    header = path.read_text(encoding="utf-8")[:2000]
+    counts: dict[int, int] = {}
+    # Match patterns like "S397 (+1 P-267)" or "S423 (+1 P-278 ...)"
+    for m in re.finditer(r"S(\d+)\s+\(\+(\d+)\s+P-", header):
+        sn = int(m.group(1))
+        counts[sn] = counts.get(sn, 0) + int(m.group(2))
+    return counts
+
+
+def _fix_stale_principle_counts(log_path: Path, p_counts: dict[int, int]) -> int:
+    """Replace +?P with +NP in existing SESSION-LOG entries using known counts.
+
+    Returns the number of entries fixed.
+    """
+    text = log_path.read_text(encoding="utf-8")
+    fixed = 0
+
+    def _replace_qmark(m: re.Match) -> str:
+        nonlocal fixed
+        sn = int(m.group(1))
+        n_p = p_counts.get(sn, 0)
+        fixed += 1
+        return m.group(0).replace("+?P", f"+{n_p}P")
+
+    new_text = re.sub(r"^(S(\d+).*?)\+\?P", _replace_qmark, text, flags=re.MULTILINE)
+    if fixed > 0:
+        log_path.write_text(new_text, encoding="utf-8")
+    return fixed
+
+
 def _update_session_log(session: int) -> bool:
     """Backfill SESSION-LOG.md with missing session entries derived from lesson Session: headers.
+    Also fixes stale +?P entries using principle counts from PRINCIPLES.md.
     Idempotent: only appends entries for sessions not already present.
     L-955 structural remedy: SESSION-LOG was sparse because logging was voluntary.
     """
     log_path = ROOT / "memory" / "SESSION-LOG.md"
     if not log_path.exists():
         return False
+
+    # Extract principle counts per session from PRINCIPLES.md header
+    p_counts = _session_principle_counts()
+
+    # Fix existing +?P entries first
+    n_fixed = _fix_stale_principle_counts(log_path, p_counts)
+    if n_fixed > 0 and not QUIET:
+        print(f"  SESSION-LOG: fixed {n_fixed} stale +?P entries")
 
     existing_text = log_path.read_text(encoding="utf-8")
     existing_sessions: set[int] = set()
@@ -132,7 +180,7 @@ def _update_session_log(session: int) -> bool:
     # Find sessions to backfill: have lessons, not in log, not future
     log_max = max(existing_sessions, default=0)
     missing = sorted(s for s in session_lessons if s not in existing_sessions and s <= session)
-    if not missing:
+    if not missing and n_fixed == 0:
         return False
 
     # Get commit messages for session descriptions
@@ -153,6 +201,7 @@ def _update_session_log(session: int) -> bool:
         lids = sorted(session_lessons[sn], key=lambda x: int(x.split("-")[1]))
         n_lessons = len(lids)
         lesson_str = ", ".join(lids[:5]) + (f"... +{n_lessons-5}" if n_lessons > 5 else "")
+        n_principles = p_counts.get(sn, 0)
         msgs = commit_msgs.get(sn, [])
         # Extract short description from first commit message
         desc = ""
@@ -161,16 +210,18 @@ def _update_session_log(session: int) -> bool:
             if m_d:
                 desc = m_d.group(1)[:80]
         new_lines.append(
-            f"S{sn}\t| {today} | +{n_lessons}L ({lesson_str}) +?P | {desc}"
+            f"S{sn}\t| {today} | +{n_lessons}L ({lesson_str}) +{n_principles}P | {desc}"
         )
 
     if new_lines:
+        # Re-read in case _fix_stale_principle_counts modified the file
+        existing_text = log_path.read_text(encoding="utf-8")
         appended = "\n".join(new_lines) + "\n"
         log_path.write_text(existing_text.rstrip("\n") + "\n" + appended, encoding="utf-8")
         if not QUIET:
             print(f"  SESSION-LOG: backfilled {len(new_lines)} sessions (S{missing[0]}..S{missing[-1]})")
         return True
-    return False
+    return n_fixed > 0
 
 
 def main():
