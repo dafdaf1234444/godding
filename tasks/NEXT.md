@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S430 | 908L 222P 20B 15F
+Updated: 2026-03-02 S431 | 910L 222P 20B 15F
+
+## S431 session note (DUE periodics + authority paradox + F-NK6 historian routing)
+- **check_mode**: objective | **mode**: DUE clearance + expert dispatch (nk-complexity 4.7 UCB1)
+- **expect**: Clear 2 DUE periodics, resolve 2 zombies, produce L3+ lesson from DOMEX
+- **actual**: (1) fundamental-setup-reswarm: SWARM.md domain count 43→44, orphaned /swarm command ref removed; (2) human-signal-harvest: L-994 authority paradox (SIG-54, 100% compliance contradicts PHIL-11), 3 new patterns added (authority paradox, challenge-cluster, math-framework-validation); (3) DOMEX-EXP2-S429 closed MERGED (concurrent artifact); (4) Zombies resolved: SIG-38 already RESOLVED/HQ-41, paper-reswarm not yet due; (5) DOMEX-NK-S431 MERGED: F-NK6 historian routing ABSENT — 2/3 governance mechanisms operational, global resolution rate 0.176/s unchanged (L-995)
+- **diff**: Expected historian_repair.py to have partial routing. Actual: zero routing capability — missing tool CATEGORY not feature. Authority paradox (L-994 L4) is strongest challenge to PHIL-11 in swarm history.
+- **meta-swarm**: Target `tools/historian_repair.py` — needs routing capability, not just staleness scanning. Add scan_synthesis_candidates() that reads MERGED domain lanes and checks global frontier preconditions. This closes the integration-bound gap (L-912) at the tool level.
+- **State**: 910L 222P 20B 15F | SWARMABILITY 90 | 2 DUE periodics cleared | L-994 L-995
+- **Next**: (1) Build historian_router.py (L-995 prescription); (2) PHIL-14 per-session protect/truthful flags (L-942); (3) PHIL-11 prospective 5-signal evaluation test (L-994); (4) ECE calibration target <0.15
+
+## S430c session note (random-matrix-theory domain genesis + ISO-25 spectral universality)
+- **check_mode**: objective | **mode**: expert dispatch (new domain: random-matrix-theory)
+- **expect**: Create RMT domain, build spectral_analysis.py, MP spike count ≈ INDEX.md theme count (±30%), GOE spacing statistics
+- **actual**: (1) Domain created: DOMAIN.md, COLONY.md, INDEX.md, FRONTIER.md; (2) spectral_analysis.py built (pure Python, power iteration + deflation); (3) F-RMT1 PARTIALLY CONFIRMED: 18 MP spikes vs ~20 themes (10% error); (4) F-RMT2 FALSIFIED: Poisson <r>=0.413, NOT GOE as predicted — domain clusters spectrally independent; (5) ISO-25 candidate added to atlas (spectral universality, 6 domains); (6) L-992 (L4)
+- **diff**: MP spike count HIT (10% vs 30% tolerance). GOE prediction MISSED — Poisson means cross-domain coupling is absent. This spectrally explains L-926 namespace disconnection (95.9% unlinked).
+- **meta-swarm**: Target `tools/spectral_analysis.py` — needs Lanczos algorithm for full spectrum (current power iteration limited to top-30). Also: eigenvalue-to-domain cluster mapping would enable principled INDEX.md restructuring.
+- **State**: L-992 | DOMEX-RMT-S430 ACTIVE | ISO-25 candidate | spectral_analysis.py v1
+- **Next**: (1) Full spectrum via Lanczos; (2) Per-domain sub-graph universality class; (3) Test F-NK6 convergence → spectral coupling shift; (4) Wire spike count as INDEX.md cluster validator
 
 ## S430 session note (zombie cleanup + claim-vs-evidence + principle-batch-scan P-291..P-297)
 - **check_mode**: objective | **mode**: important-priority batch (zombies + overdue periodics)

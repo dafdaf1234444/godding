@@ -1,5 +1,5 @@
 # Isomorphism Atlas — Atlas of Deep Structure
-v1.8 | 2026-03-01 | S354 | ISO-24: ergodic decomposition / non-ergodicity as feature (L-577, stochastic-processes genesis); 24 entries
+v1.9 | 2026-03-02 | S430 | ISO-25 candidate: spectral universality / RMT (L-992, random-matrix-theory genesis); 25 entries
 
 ## What this is
 A cross-domain atlas of structural equivalences. Each entry maps one abstract structure to its manifestations across multiple domains. This is NOT a fact database — it is a compression of world knowledge into shared structure.
@@ -527,6 +527,25 @@ Domains appearing in 4+ entries — highest isomorphism density, swarm first:
 
 ---
 
+### ISO-25 (candidate): Spectral universality — system behavior class determined by symmetry, not microscopic detail
+**Structure**: The eigenvalue statistics of a large random matrix depend only on the matrix's symmetry class (real symmetric → GOE/β=1, complex Hermitian → GUE/β=2, quaternion self-dual → GSE/β=4), not on the specific distribution of entries. Systems whose interaction matrices share a symmetry class exhibit identical phase transition thresholds, spacing statistics, and extreme-value distributions regardless of their physical substrate. Conversely, Poisson eigenvalue spacing (β=0) indicates absence of global coupling — components are spectrally independent.
+
+| Domain | Manifestation | Notes |
+|--------|---------------|-------|
+| Physics | Nuclear energy level spacing follows GOE | Wigner (1955): neutron resonances match GOE, not Poisson. Confirmed across 100+ nuclei. |
+| Finance | Correlation matrix denoising via Marchenko-Pastur | Eigenvalues within MP bulk are noise; spikes above λ+ = σ²(1+√γ)² are genuine market factors. Portfolio optimization uses spectral cleaning. |
+| Neuroscience | Functional connectivity modules = eigenvalue spikes | Brain network adjacency matrix spectral analysis reveals functional modules as outlier eigenvalues above random baseline. |
+| Complex networks | Small-world/scale-free spectral signatures | Random graphs → GOE; scale-free → deviations in spectral rigidity; small-world → complex peak structure. Network type identifiable from spectrum alone. |
+| Ecology | May's stability theorem | Robert May (1972): ecosystem stability threshold σ_c = 1/√(SC) from circular law. Complex ecosystems MORE fragile when more connected — RMT prediction contradicting intuition. |
+| Swarm | Citation graph: 18 MP spikes ≈ 20 INDEX themes; Poisson spacing | S430 measurement (N=907, 2646 edges): MP spike count matches heuristic theme count within 10%. But Poisson spacing (<r>=0.413) indicates domain clusters are spectrally independent — explains L-926 namespace disconnection (95.9% unlinked). L-992. |
+
+**Sharpe: 3** (6 domains; physics rigorously grounded since 1955; finance quantitatively deployed; swarm measured S430 but n=28 spacing ratios — needs replication)
+**Gaps**: Evolution (fitness landscape interaction matrix universality class?), Linguistics (word co-occurrence matrix spectral type?), Game theory (payoff matrix ensemble?)
+**Inversion**: Universality fails when matrix has structural constraints that break ensemble symmetry — e.g., block-diagonal structure (modular systems), sparse graphs below percolation threshold, or matrices with exact zeros (forbidden interactions). These constraints create system-specific spectral features that universality misses.
+**Relationship**: ISO-25 provides the spectral framework underlying ISO-4 (phase transition thresholds are eigenvalue-derived). ISO-1 (optimization) maps to spectral thresholding as the optimal signal extraction method. ISO-6 (scaling laws) follows from eigenvalue density scaling ρ(λ) ~ √N. ISO-24 (ergodicity) connects: Poisson statistics = non-ergodic subspaces; GOE = ergodic phase.
+
+---
+
 ## Open questions (F126)
 1. **Hub identification**: What are the ~50 domains with highest isomorphism density? (current table: 7 candidates)
 2. **Sharpe scoring**: How to measure evidence quality × breadth for a structural claim?
@@ -543,6 +562,7 @@ F126: swarm → isomorphism atlas → world knowledge base (world is beneficiary
 Both share the mechanism. F126 inverts the directionality of value flow.
 
 ## Version history
+- v1.9 (S430): ISO-25 candidate: spectral universality / random matrix theory (L-992; 6 domains: physics, finance, neuroscience, complex networks, ecology, swarm). Swarm citation graph measured: 18 MP spikes ≈ 20 themes; Poisson spacing falsifies GOE prediction. Random-matrix-theory domain created. 25 entries.
 - v1.8 (S354): ISO-24: ergodic decomposition / non-ergodicity as feature (stochastic processes council, L-577; 7 domains: physics, finance, evolution, swarm, neuroscience, economics, mathematics). N_e ≈ 15, 58% orphan rate measured. 24 entries.
 - v1.7 (S353): ISO-23 candidate: stopping time / first-passage (stochastic processes genesis council, L-573; 8 domains: physics, neuroscience, finance, psychology, biology, ecology, epidemiology, swarm). Stochastic-processes domain created. 23 entries.
 - v1.6 (S352): ISO-22 candidate: recursive state modeling / mirror descent (empathy genesis council, L-568; 8 domains: psychology, game theory, distributed systems, literature, diplomacy, swarm, biology, economics). Empathy domain created. 22 entries.

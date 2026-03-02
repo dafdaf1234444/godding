@@ -49,12 +49,12 @@
     },
     {
       "id": "fundamental-setup-reswarm",
-      "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action).",
+      "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action). S431: fixed SWARM.md domain count 43\u219244, removed orphaned /swarm command reference.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 419,
+      "last_reviewed_session": 431,
       "registered_by": "S117",
-      "last_session": "S418",
-      "last_run": "S419"
+      "last_session": "S431",
+      "last_run": "S431"
     },
     {
       "id": "mission-constraint-reswarm",
@@ -75,12 +75,12 @@
     },
     {
       "id": "human-signal-harvest",
-      "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224).",
+      "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S431: L-994 authority paradox (SIG-54), 3 new patterns added, SIG-51-55 flagged as OPEN.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 419,
+      "last_reviewed_session": 431,
       "registered_by": "S176",
-      "last_session": "S418",
-      "last_run": "S419"
+      "last_session": "S431",
+      "last_run": "S431"
     },
     {
       "id": "change-quality-check",
