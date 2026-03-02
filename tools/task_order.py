@@ -383,8 +383,22 @@ def get_dispatch_tasks() -> list[dict]:
     return tasks[:3]  # top 3 dispatch suggestions
 
 
+def _current_session() -> int:
+    """Extract current session number from INDEX.md."""
+    try:
+        idx = (ROOT / "memory" / "INDEX.md").read_text(encoding="utf-8")
+        m = re.search(r"Sessions:\s*(\d+)", idx)
+        return int(m.group(1)) if m else 0
+    except Exception:
+        return 0
+
+
 def get_periodic_tasks() -> list[dict]:
-    """Get overdue periodic maintenance from maintenance output."""
+    """Get overdue periodic maintenance from maintenance output.
+    
+    L-985: periodics overdue by >1 cadence escalate to DUE tier (P-280 structural fix).
+    Prevents zombie accumulation (22% rate) for long-overdue periodics.
+    """
     tasks = []
     try:
         r = subprocess.run(
@@ -394,6 +408,24 @@ def get_periodic_tasks() -> list[dict]:
         output = r.stdout + r.stderr
     except Exception:
         return tasks
+
+    # Check periodics.json for escalation candidates (overdue by >1 cadence)
+    escalated_labels: set[str] = set()
+    try:
+        pj_path = ROOT / "tools" / "periodics.json"
+        pj = json.loads(pj_path.read_text(encoding="utf-8"))
+        sess = _current_session()
+        for item in pj.get("items", []):
+            last = item.get("last_reviewed_session") or item.get("last_session", 0)
+            if isinstance(last, str):
+                m = re.search(r"(\d+)", last)
+                last = int(m.group(1)) if m else 0
+            cadence = item.get("cadence_sessions", 10)
+            overdue_by = sess - (last + cadence)
+            if overdue_by > cadence:  # overdue by more than one full cadence
+                escalated_labels.add(item["id"])
+    except Exception:
+        pass
 
     in_periodic = False
     for line in output.splitlines():
@@ -406,11 +438,12 @@ def get_periodic_tasks() -> list[dict]:
             m = re.match(r"\[([^\]]+)\]\s*(.*)", clean)
             label = m.group(1) if m else "periodic"
             detail = (m.group(2) if m else clean)[:80]
+            escalated = label in escalated_labels
             tasks.append({
-                "priority": P_PERIODIC,
-                "tier": "PERIODIC",
-                "score": 30,
-                "action": f"Periodic: {label}",
+                "priority": P_DUE if escalated else P_PERIODIC,
+                "tier": "DUE" if escalated else "PERIODIC",
+                "score": 80 if escalated else 30,
+                "action": f"Periodic: {label}" + (" [ESCALATED >2x overdue]" if escalated else ""),
                 "detail": detail,
                 "command": None,
             })
