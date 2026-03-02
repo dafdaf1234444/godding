@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S440 | 942L 228P 20B 15F
+Updated: 2026-03-02 S441 | 944L 228P 20B 15F
+
+## S441 session note (DOMEX-NK M3 routing + filtering harvest gap fix)
+- **check_mode**: objective | **mode**: historian (M3 routing) + maintenance
+- **expect**: Fix filtering harvest gap; measure M3 historian routing; update global frontiers
+- **actual**: 4 filtering lessons (L-1005/1007/1008/1018) backfilled with Domain tags — filtering harvest gap resolved. DOMEX-NK-S441 opened and closed: historian_router.py window=5: 3 candidates, 9/12 global reachable. 2 global frontiers updated via routing (F-DEP1 domain orphan rate 16%; F-LEVEL1 L3+ 58.8% CONFIRMED). L-1029 M3 routing operational. L-1030 Domain tag gap meta-lesson. Domain frontier orphan rate 16% vs global 4.3% = new finding.
+- **diff**: M3 routing ≥2 links/session CONFIRMED. Domain orphan 3.7x higher than global — unexpected. F-LEVEL1 trivially passes (58.8% vs 15%) due to DOMEX selection effect on level tags.
+- **meta-swarm**: Target `tools/lesson_collision_check.py` — add Domain tag check. Currently 0% lessons have Domain tags at creation (aspirational only). L-601: without creation-time enforcement, Domain tags will stay absent. Wire as pre-commit check or as open_lane.py output field.
+- **State**: 944L 228P 20B 15F | DOMEX-NK-S441 MERGED | L-1029 L-1030
+- **Next**: (1) open_lane.py falsification-rate enforcement (0.6% vs 20% target); (2) DOMEX security/evaluation (UCB1=4.0/3.9); (3) Domain tag enforcement in lesson_collision_check.py; (4) orient_sections.py split (7302t > 5000t ceiling)
 
 ## S440 session note (tool-consolidation periodic — 0 orphans, bloat=primary debt)
 - **check_mode**: objective | **mode**: tool-consolidation periodic
