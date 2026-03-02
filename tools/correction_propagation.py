@@ -128,12 +128,18 @@ def _detect_falsified_lessons(
                 edges.append((ref, lid))
 
             # Pattern 3: "falsified by L-NNN" — lid is falsified, ref corrects
-            if re.search(
+            # L-968 fix: skip if ref is on a Cites: line (parenthetical notes
+            # describe cited lesson status, not the containing lesson)
+            _p3 = re.search(
                 rf"(?:falsified|corrected|superseded|replaced)\s+by\s+{re.escape(ref)}",
                 context,
                 re.IGNORECASE,
-            ):
-                edges.append((lid, ref))
+            )
+            if _p3:
+                _ls = text.rfind("\n", 0, ref_match.start()) + 1
+                _rl = text[_ls:text.find("\n", ref_match.end())]
+                if not _rl.lstrip().startswith("Cites:"):
+                    edges.append((lid, ref))
 
             # Pattern 4: "L-NNN supersedes/replaces" — lid is superseded, ref corrects
             # Actually: if lid says "ref supersedes this" → lid falsified, ref corrects

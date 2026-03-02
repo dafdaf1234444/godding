@@ -267,6 +267,63 @@ def main():
         diff=args.diff,
     )
 
+    # Federated convergence check (F-NK6, L-960): when a DOMEX domain lane closes as MERGED,
+    # scan the domain's FRONTIER.md for FQs with "Global synthesis: F-XXXX" tags and surface
+    # any global frontiers that could now be synthesized. L-601: tags alone decay; this gate
+    # at closure time is the enforcement half of the domain-global linkage intervention.
+    if args.status == "MERGED":
+        _check_global_synthesis_links(args.lane)
+
+
+def _check_global_synthesis_links(lane_id: str) -> None:
+    """Surface global frontier synthesis opportunities at DOMEX domain lane closure (F-NK6, L-960)."""
+    import re as _re
+    domex_match = _re.match(r"DOMEX-([A-Z]+(?:-[A-Z]+)*)-S\d+", lane_id.upper())
+    if not domex_match:
+        return
+    domain_abbrev = domex_match.group(1).lower()
+    _abbrev_map = {
+        "nk": "nk-complexity", "meta": "meta", "sec": "security", "exp": "expert-swarm",
+        "cat": "catastrophic-risks", "brn": "brain", "evo": "evolution", "eco": "economy",
+        "ai": "ai", "gov": "governance", "hs": "human-systems", "gt": "graph-theory",
+        "ling": "linguistics", "crypto": "cryptocurrency", "cry": "cryptography",
+        "eval": "evaluation", "comp": "competitions", "is": "information-science",
+        "sp": "spawn-harvest", "ct": "control-theory", "ds": "distributed-systems",
+        "phy": "physics", "his": "history", "far": "far-future", "cache": "caching",
+    }
+    domain_dir = _abbrev_map.get(domain_abbrev, domain_abbrev)
+    frontier_path = REPO_ROOT / "domains" / domain_dir / "tasks" / "FRONTIER.md"
+    global_frontier = REPO_ROOT / "tasks" / "FRONTIER.md"
+    if not frontier_path.exists() or not global_frontier.exists():
+        return
+    global_ids = set(_re.findall(r'\*\*(F-[A-Z0-9]+)\*\*', global_frontier.read_text()))
+    content_f = frontier_path.read_text()
+    active_section = ""
+    if "## Active" in content_f:
+        active_section = content_f.split("## Active")[1]
+        for cutoff in ["## Archived", "## Resolved"]:
+            if cutoff in active_section:
+                active_section = active_section.split(cutoff)[0]
+    global_links = []
+    for fq in set(_re.findall(r'\*\*(F-[A-Z0-9\-]+)\*\*', active_section)):
+        fq_pat = _re.compile(rf'\*\*{_re.escape(fq)}\*\*.*?(?=\n- \*\*F-|\Z)', _re.DOTALL)
+        m = fq_pat.search(active_section)
+        if m:
+            grefs = list(set(
+                r for r in _re.findall(r'F-[A-Z][A-Z0-9]+', m.group(0))
+                if r in global_ids and r != fq
+            ))
+            if grefs:
+                global_links.append((fq, grefs))
+    if global_links:
+        print(f"\n=== GLOBAL SYNTHESIS CHECK (F-NK6 federated convergence, L-960) ===")
+        print(f"Domain {domain_dir}: {len(global_links)} FQ(s) with global frontier links.")
+        print("Before closing out, check if any global frontier can now be synthesized:")
+        for fq, grefs in sorted(global_links):
+            print(f"  {fq} -> global: {\', \'.join(sorted(grefs))}")
+        print("Review tasks/FRONTIER.md and update if domain work closes them.")
+        print("=================================================================\n")
+
 
 if __name__ == "__main__":
     main()
