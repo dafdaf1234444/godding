@@ -1,0 +1,753 @@
+{
+  "session": "S426",
+  "frontier": "F-EXP8",
+  "domain": "expert-swarm",
+  "timestamp": "2026-03-02",
+  "methodology": {
+    "approach": "Full-corpus git-history analysis. Batch git log --diff-filter=A to map each lesson to its creation commit, then git show to retrieve original content. Compare current Cites:/Related: L-NNN refs against original commit content to classify as organic vs tool-assisted.",
+    "organic_definition": "L-NNN citation present in the lesson at its creation commit",
+    "tool_definition": "L-NNN citation NOT in the creation commit (added later, typically by lesson_quality_fixer.py at S358)",
+    "cross_domain_definition": "Source lesson domain != cited lesson domain (both must be known)",
+    "strict_definition": "Cross-domain excluding meta as source or target (L-954 flagged meta as confounding)",
+    "exclusions": [
+      "Lessons with unknown domain excluded from rate calculations",
+      "F-XXX and P-NNN refs excluded (not lesson-to-lesson citations)",
+      "Only L-NNN refs are domain-resolvable"
+    ],
+    "known_tool_commits": [
+      "7aa43637 [S358] lesson_quality_fixer harvest: 192 lessons + Cites headers",
+      "6c822c1c [S358] lesson batch: pass 2 ~90 lessons"
+    ]
+  },
+  "summary": {
+    "total_lessons": 877,
+    "lessons_with_cites": 594,
+    "lessons_with_related": 175,
+    "lessons_with_either": 722,
+    "lessons_classified": 722,
+    "domain_unknown_count": 161
+  },
+  "lesson_level": {
+    "all_organic": 239,
+    "mixed": 187,
+    "all_tool": 296
+  },
+  "citations_full": {
+    "note": "All domains including meta",
+    "organic": {
+      "total_L_refs": 1310,
+      "cross_domain": 599,
+      "same_domain": 711,
+      "cross_domain_rate": 0.4573,
+      "unresolvable": 263
+    },
+    "tool_assisted": {
+      "total_L_refs": 416,
+      "cross_domain": 234,
+      "same_domain": 182,
+      "cross_domain_rate": 0.5625,
+      "unresolvable": 414
+    },
+    "combined": {
+      "total_L_refs": 1726,
+      "cross_domain": 833,
+      "cross_domain_rate": 0.4826
+    }
+  },
+  "citations_strict": {
+    "note": "Excluding meta as source or target",
+    "organic": {
+      "total_L_refs": 615,
+      "cross_domain": 200,
+      "cross_domain_rate": 0.3252
+    },
+    "tool_assisted": {
+      "total_L_refs": 184,
+      "cross_domain": 104,
+      "cross_domain_rate": 0.5652
+    }
+  },
+  "per_domain": {
+    "ai": {
+      "organic_refs": 6,
+      "organic_cross": 5,
+      "organic_cross_rate": 0.8333,
+      "tool_refs": 3,
+      "tool_cross": 3,
+      "tool_cross_rate": 1.0
+    },
+    "architecture": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 2,
+      "tool_cross": 2,
+      "tool_cross_rate": 1.0
+    },
+    "brain-topology": {
+      "organic_refs": 51,
+      "organic_cross": 18,
+      "organic_cross_rate": 0.3529,
+      "tool_refs": 10,
+      "tool_cross": 7,
+      "tool_cross_rate": 0.7
+    },
+    "catastrophic-risks": {
+      "organic_refs": 33,
+      "organic_cross": 23,
+      "organic_cross_rate": 0.697,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "claude-code": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 1,
+      "tool_cross": 1,
+      "tool_cross_rate": 1.0
+    },
+    "competitions": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 3,
+      "tool_cross": 3,
+      "tool_cross_rate": 1.0
+    },
+    "conflict-theory": {
+      "organic_refs": 15,
+      "organic_cross": 4,
+      "organic_cross_rate": 0.2667,
+      "tool_refs": 12,
+      "tool_cross": 10,
+      "tool_cross_rate": 0.8333
+    },
+    "control-theory": {
+      "organic_refs": 3,
+      "organic_cross": 3,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 1,
+      "tool_cross": 1,
+      "tool_cross_rate": 1.0
+    },
+    "coordination": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 2,
+      "tool_cross": 2,
+      "tool_cross_rate": 1.0
+    },
+    "cryptocurrency": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 4,
+      "tool_cross": 1,
+      "tool_cross_rate": 0.25
+    },
+    "cryptography": {
+      "organic_refs": 7,
+      "organic_cross": 6,
+      "organic_cross_rate": 0.8571,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "distributed-systems": {
+      "organic_refs": 15,
+      "organic_cross": 10,
+      "organic_cross_rate": 0.6667,
+      "tool_refs": 1,
+      "tool_cross": 0,
+      "tool_cross_rate": 0.0
+    },
+    "dream-engine": {
+      "organic_refs": 2,
+      "organic_cross": 2,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 7,
+      "tool_cross": 7,
+      "tool_cross_rate": 1.0
+    },
+    "economy": {
+      "organic_refs": 63,
+      "organic_cross": 20,
+      "organic_cross_rate": 0.3175,
+      "tool_refs": 9,
+      "tool_cross": 7,
+      "tool_cross_rate": 0.7778
+    },
+    "empathy": {
+      "organic_refs": 9,
+      "organic_cross": 8,
+      "organic_cross_rate": 0.8889,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "evaluation": {
+      "organic_refs": 34,
+      "organic_cross": 24,
+      "organic_cross_rate": 0.7059,
+      "tool_refs": 5,
+      "tool_cross": 2,
+      "tool_cross_rate": 0.4
+    },
+    "evolution": {
+      "organic_refs": 9,
+      "organic_cross": 7,
+      "organic_cross_rate": 0.7778,
+      "tool_refs": 36,
+      "tool_cross": 26,
+      "tool_cross_rate": 0.7222
+    },
+    "expert-swarm": {
+      "organic_refs": 78,
+      "organic_cross": 21,
+      "organic_cross_rate": 0.2692,
+      "tool_refs": 7,
+      "tool_cross": 5,
+      "tool_cross_rate": 0.7143
+    },
+    "farming": {
+      "organic_refs": 2,
+      "organic_cross": 2,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "fluid-dynamics": {
+      "organic_refs": 10,
+      "organic_cross": 5,
+      "organic_cross_rate": 0.5,
+      "tool_refs": 7,
+      "tool_cross": 5,
+      "tool_cross_rate": 0.7143
+    },
+    "fractals": {
+      "organic_refs": 6,
+      "organic_cross": 5,
+      "organic_cross_rate": 0.8333,
+      "tool_refs": 4,
+      "tool_cross": 4,
+      "tool_cross_rate": 1.0
+    },
+    "game-theory": {
+      "organic_refs": 15,
+      "organic_cross": 8,
+      "organic_cross_rate": 0.5333,
+      "tool_refs": 3,
+      "tool_cross": 2,
+      "tool_cross_rate": 0.6667
+    },
+    "governance": {
+      "organic_refs": 20,
+      "organic_cross": 14,
+      "organic_cross_rate": 0.7,
+      "tool_refs": 8,
+      "tool_cross": 5,
+      "tool_cross_rate": 0.625
+    },
+    "graph-theory": {
+      "organic_refs": 14,
+      "organic_cross": 10,
+      "organic_cross_rate": 0.7143,
+      "tool_refs": 6,
+      "tool_cross": 4,
+      "tool_cross_rate": 0.6667
+    },
+    "guesstimates": {
+      "organic_refs": 2,
+      "organic_cross": 2,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 4,
+      "tool_cross": 4,
+      "tool_cross_rate": 1.0
+    },
+    "health": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 14,
+      "tool_cross": 13,
+      "tool_cross_rate": 0.9286
+    },
+    "helper-swarm": {
+      "organic_refs": 7,
+      "organic_cross": 4,
+      "organic_cross_rate": 0.5714,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "history": {
+      "organic_refs": 5,
+      "organic_cross": 5,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "human-signals": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 2,
+      "tool_cross": 2,
+      "tool_cross_rate": 1.0
+    },
+    "human-systems": {
+      "organic_refs": 11,
+      "organic_cross": 9,
+      "organic_cross_rate": 0.8182,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "information-science": {
+      "organic_refs": 25,
+      "organic_cross": 16,
+      "organic_cross_rate": 0.64,
+      "tool_refs": 7,
+      "tool_cross": 7,
+      "tool_cross_rate": 1.0
+    },
+    "linguistics": {
+      "organic_refs": 5,
+      "organic_cross": 1,
+      "organic_cross_rate": 0.2,
+      "tool_refs": 16,
+      "tool_cross": 10,
+      "tool_cross_rate": 0.625
+    },
+    "meta": {
+      "organic_refs": 476,
+      "organic_cross": 180,
+      "organic_cross_rate": 0.3782,
+      "tool_refs": 167,
+      "tool_cross": 65,
+      "tool_cross_rate": 0.3892
+    },
+    "nk-complexity": {
+      "organic_refs": 119,
+      "organic_cross": 51,
+      "organic_cross_rate": 0.4286,
+      "tool_refs": 41,
+      "tool_cross": 9,
+      "tool_cross_rate": 0.2195
+    },
+    "operations": {
+      "organic_refs": 1,
+      "organic_cross": 1,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "operations-research": {
+      "organic_refs": 6,
+      "organic_cross": 4,
+      "organic_cross_rate": 0.6667,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "philosophy": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 3,
+      "tool_cross": 3,
+      "tool_cross_rate": 1.0
+    },
+    "physics": {
+      "organic_refs": 8,
+      "organic_cross": 4,
+      "organic_cross_rate": 0.5,
+      "tool_refs": 12,
+      "tool_cross": 10,
+      "tool_cross_rate": 0.8333
+    },
+    "protocol-engineering": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 2,
+      "tool_cross": 2,
+      "tool_cross_rate": 1.0
+    },
+    "protocols": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 2,
+      "tool_cross": 2,
+      "tool_cross_rate": 1.0
+    },
+    "psychology": {
+      "organic_refs": 4,
+      "organic_cross": 4,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 1,
+      "tool_cross": 1,
+      "tool_cross_rate": 1.0
+    },
+    "quality": {
+      "organic_refs": 15,
+      "organic_cross": 8,
+      "organic_cross_rate": 0.5333,
+      "tool_refs": 3,
+      "tool_cross": 3,
+      "tool_cross_rate": 1.0
+    },
+    "security": {
+      "organic_refs": 67,
+      "organic_cross": 37,
+      "organic_cross_rate": 0.5522,
+      "tool_refs": 1,
+      "tool_cross": 0,
+      "tool_cross_rate": 0.0
+    },
+    "social-media": {
+      "organic_refs": 11,
+      "organic_cross": 9,
+      "organic_cross_rate": 0.8182,
+      "tool_refs": 3,
+      "tool_cross": 3,
+      "tool_cross_rate": 1.0
+    },
+    "statistics": {
+      "organic_refs": 14,
+      "organic_cross": 14,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 0,
+      "tool_cross": 0,
+      "tool_cross_rate": null
+    },
+    "stochastic-processes": {
+      "organic_refs": 53,
+      "organic_cross": 29,
+      "organic_cross_rate": 0.5472,
+      "tool_refs": 3,
+      "tool_cross": 1,
+      "tool_cross_rate": 0.3333
+    },
+    "strategy": {
+      "organic_refs": 89,
+      "organic_cross": 26,
+      "organic_cross_rate": 0.2921,
+      "tool_refs": 4,
+      "tool_cross": 2,
+      "tool_cross_rate": 0.5
+    }
+  },
+  "per_era": {
+    "S1-S100 (early)": {
+      "organic_refs": 2,
+      "organic_cross": 2,
+      "organic_cross_rate": 1.0,
+      "tool_refs": 21,
+      "tool_cross": 9,
+      "tool_cross_rate": 0.4286
+    },
+    "S101-S200 (growth)": {
+      "organic_refs": 25,
+      "organic_cross": 14,
+      "organic_cross_rate": 0.56,
+      "tool_refs": 97,
+      "tool_cross": 71,
+      "tool_cross_rate": 0.732
+    },
+    "S201-S300 (scaling)": {
+      "organic_refs": 0,
+      "organic_cross": 0,
+      "organic_cross_rate": null,
+      "tool_refs": 12,
+      "tool_cross": 7,
+      "tool_cross_rate": 0.5833
+    },
+    "S301-S358 (pre-fixer)": {
+      "organic_refs": 315,
+      "organic_cross": 178,
+      "organic_cross_rate": 0.5651,
+      "tool_refs": 243,
+      "tool_cross": 115,
+      "tool_cross_rate": 0.4733
+    },
+    "S359-S400 (post-fixer)": {
+      "organic_refs": 581,
+      "organic_cross": 266,
+      "organic_cross_rate": 0.4578,
+      "tool_refs": 16,
+      "tool_cross": 12,
+      "tool_cross_rate": 0.75
+    },
+    "S401+ (current)": {
+      "organic_refs": 374,
+      "organic_cross": 133,
+      "organic_cross_rate": 0.3556,
+      "tool_refs": 17,
+      "tool_cross": 12,
+      "tool_cross_rate": 0.7059
+    },
+    "unknown": {
+      "organic_refs": 13,
+      "organic_cross": 6,
+      "organic_cross_rate": 0.4615,
+      "tool_refs": 10,
+      "tool_cross": 8,
+      "tool_cross_rate": 0.8
+    }
+  },
+  "top_organic_cross_pairs": [
+    {
+      "source": "nk-complexity",
+      "target": "meta",
+      "count": 31
+    },
+    {
+      "source": "meta",
+      "target": "nk-complexity",
+      "count": 22
+    },
+    {
+      "source": "strategy",
+      "target": "meta",
+      "count": 22
+    },
+    {
+      "source": "evaluation",
+      "target": "meta",
+      "count": 19
+    },
+    {
+      "source": "security",
+      "target": "meta",
+      "count": 18
+    },
+    {
+      "source": "meta",
+      "target": "quality",
+      "count": 15
+    },
+    {
+      "source": "meta",
+      "target": "stochastic-processes",
+      "count": 15
+    },
+    {
+      "source": "meta",
+      "target": "conflict-theory",
+      "count": 13
+    },
+    {
+      "source": "meta",
+      "target": "evolution",
+      "count": 13
+    },
+    {
+      "source": "brain-topology",
+      "target": "meta",
+      "count": 13
+    },
+    {
+      "source": "meta",
+      "target": "brain-topology",
+      "count": 12
+    },
+    {
+      "source": "meta",
+      "target": "expert-swarm",
+      "count": 12
+    },
+    {
+      "source": "stochastic-processes",
+      "target": "meta",
+      "count": 11
+    },
+    {
+      "source": "expert-swarm",
+      "target": "meta",
+      "count": 10
+    },
+    {
+      "source": "meta",
+      "target": "strategy",
+      "count": 10
+    },
+    {
+      "source": "meta",
+      "target": "governance",
+      "count": 10
+    },
+    {
+      "source": "catastrophic-risks",
+      "target": "meta",
+      "count": 10
+    },
+    {
+      "source": "security",
+      "target": "nk-complexity",
+      "count": 10
+    },
+    {
+      "source": "governance",
+      "target": "meta",
+      "count": 9
+    },
+    {
+      "source": "meta",
+      "target": "helper-swarm",
+      "count": 8
+    }
+  ],
+  "top_tool_cross_pairs": [
+    {
+      "source": "meta",
+      "target": "brain-topology",
+      "count": 10
+    },
+    {
+      "source": "meta",
+      "target": "conflict-theory",
+      "count": 7
+    },
+    {
+      "source": "evolution",
+      "target": "nk-complexity",
+      "count": 7
+    },
+    {
+      "source": "evolution",
+      "target": "physics",
+      "count": 7
+    },
+    {
+      "source": "economy",
+      "target": "meta",
+      "count": 6
+    },
+    {
+      "source": "meta",
+      "target": "expert-swarm",
+      "count": 6
+    },
+    {
+      "source": "evolution",
+      "target": "meta",
+      "count": 5
+    },
+    {
+      "source": "meta",
+      "target": "governance",
+      "count": 5
+    },
+    {
+      "source": "health",
+      "target": "meta",
+      "count": 4
+    },
+    {
+      "source": "information-science",
+      "target": "meta",
+      "count": 4
+    },
+    {
+      "source": "dream-engine",
+      "target": "meta",
+      "count": 4
+    },
+    {
+      "source": "physics",
+      "target": "nk-complexity",
+      "count": 4
+    },
+    {
+      "source": "conflict-theory",
+      "target": "meta",
+      "count": 4
+    },
+    {
+      "source": "governance",
+      "target": "meta",
+      "count": 3
+    },
+    {
+      "source": "health",
+      "target": "nk-complexity",
+      "count": 3
+    },
+    {
+      "source": "meta",
+      "target": "game-theory",
+      "count": 3
+    },
+    {
+      "source": "linguistics",
+      "target": "meta",
+      "count": 3
+    },
+    {
+      "source": "meta",
+      "target": "quality",
+      "count": 3
+    },
+    {
+      "source": "linguistics",
+      "target": "nk-complexity",
+      "count": 3
+    },
+    {
+      "source": "meta",
+      "target": "dream-engine",
+      "count": 3
+    }
+  ],
+  "organic_cross_examples": [
+    "L-275 (meta) -> L-268 (brain-topology)",
+    "L-275 (meta) -> L-270 (brain-topology)",
+    "L-276 (meta) -> L-268 (brain-topology)",
+    "L-277 (meta) -> L-268 (brain-topology)",
+    "L-288 (meta) -> L-222 (protocols)",
+    "L-293 (helper-swarm) -> L-287 (evolution)",
+    "L-298 (quality) -> L-283 (meta)",
+    "L-304 (conflict-theory) -> L-298 (quality)",
+    "L-308 (meta) -> L-305 (brain-topology)",
+    "L-308 (meta) -> L-306 (linguistics)",
+    "L-310 (meta) -> L-297 (conflict-theory)",
+    "L-310 (meta) -> L-304 (conflict-theory)",
+    "L-310 (meta) -> L-298 (quality)",
+    "L-312 (dream-engine) -> L-137 (meta)",
+    "L-312 (dream-engine) -> L-207 (evolution)"
+  ],
+  "tool_cross_examples": [
+    "L-173 (governance) -> L-170 (meta)",
+    "L-176 (strategy) -> L-143 (nk-complexity)",
+    "L-176 (strategy) -> L-172 (nk-complexity)",
+    "L-208 (evolution) -> L-145 (meta)",
+    "L-212 (governance) -> L-192 (evolution)",
+    "L-213 (protocols) -> L-209 (meta)",
+    "L-213 (protocols) -> L-211 (governance)",
+    "L-227 (meta) -> L-217 (distributed-systems)",
+    "L-227 (meta) -> L-219 (governance)",
+    "L-227 (meta) -> L-220 (distributed-systems)",
+    "L-227 (meta) -> L-225 (governance)",
+    "L-242 (health) -> L-205 (meta)",
+    "L-243 (ai) -> L-134 (meta)",
+    "L-245 (health) -> L-781 (meta)",
+    "L-245 (health) -> L-151 (meta)"
+  ],
+  "key_finding": "Organic cross-domain citation rate: 45.7% (599/1310). Tool-assisted cross-domain rate: 56.2% (234/416). Strict non-meta organic rate: 32.5% (200/615). L-954 estimated organic rate at ~0.1% \u2014 actual is 45.7% (much higher than estimated). Lesson_quality_fixer.py added 416 L-NNN refs across the corpus; of those, 234 (56.2%) are cross-domain.",
+  "comparison_to_l954": {
+    "l954_organic_estimate": "~0.1%",
+    "actual_organic_rate_full": "45.7%",
+    "actual_organic_rate_strict": "32.5%",
+    "l954_tool_rate": "44.2%",
+    "actual_tool_rate_full": "56.2%",
+    "verdict": "L-954 organic estimate of 0.1% was WRONG \u2014 actual organic cross-domain rate is 45.7%. The organic rate is substantial, not negligible. However, the tool-assisted rate (56.2%) is higher, indicating lesson_quality_fixer.py amplified cross-domain citations."
+  }
+}
