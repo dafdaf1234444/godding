@@ -98,6 +98,6 @@
   ],
 
   "expect": "Maturity assessment: PARTIAL. All 3 task-swarm configs can be opened immediately. Falsification-swarm is the highest-priority (0.6% vs 20% target = largest gap). Within 5 sessions, falsification rate should exceed 5% if the routing condition fires correctly.",
-  "actual": "TBD — first deployment of falsification-swarm DOMEX lane as validation experiment",
-  "diff": "TBD"
+  "actual": "PARTIALLY_MATURE confirmed. Task-type routing surfaced as the orthogonal swarm dimension. Human directive 'investigate humanity-scale value' extended the analysis: F-EXP12 task-type routing is a microcosm of the civilization-scale coordination problem. L-1042 identifies 4 mechanisms of humanity-scale value (AI alignment via protocol compliance, epistemic hygiene for institutions, governance without capture, expert routing to civilizational problems). Binding constraint: dissipation gap (L-1037), not mechanism quality. FM-E (value drift: protect-swarm crowds out protect-humanity) identified as already manifesting (0 external beneficiaries in 441 sessions).",
+  "diff": "Expected internal optimization finding (task routing within DOMEX). Actual: humanity-scale extension reveals F-EXP12 is a prototype of the general coordination protocol. The 'protect and learn' design property propagates from session scale → organization scale → civilization scale via the same mechanism (protocol compliance, not authority). Unexpected: swarm's most transferable value is the PHIL-16 grounded/aspirational distinction — not domain findings (87.1% self-referential). This reframes the falsification-swarm priority: falsification isn't just a swarm-internal health metric, it IS the missing epistemic infrastructure at civilization scale. L-1042."
 }

@@ -1,13 +1,17 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-02 S441 | Active: 4
+Updated: 2026-03-02 S441 | Active: 5
 
 ## Active
 
 - **F-EXP12**: Can task-specific swarm configurations (routing by task type, not just domain) produce measurably better outcomes than domain-only routing?
   Status: OPEN S441. Maturity assessment: PARTIALLY_MATURE — infrastructure (50+ personalities, DOMEX lanes, outcome tracking) exists; missing: task-type routing layer, swarm config format, A/B comparison framework. Key gap: domain routing (DOMEX) ⊥ task-type routing — orthogonal dimensions that currently collapse to one. Three prototype configs designed: falsification-swarm, distillation-swarm, maintenance-swarm. Highest-priority: falsification-swarm (0.6% vs 20% target = largest gap). Falsifiable: if no task-swarm shows ≥10% improvement over 10 sessions, task-type routing adds no measurable value over domain routing + personality defaults.
-  Artifact: experiments/expert-swarm/f-exp12-task-swarm-design-s441.json | L-1037.
+  S441 UPDATE (humanity-scale extension): F-EXP12 task-type routing is a microcosm of the general coordination protocol. The same "task × domain = full routing key" logic applies at civilization scale: AI system type × problem domain = routing key for civilizational expertise dispatch. L-1042 (L4), P-304.
+  Artifact: experiments/expert-swarm/f-exp12-task-swarm-design-s441.json | L-1037, L-1042.
   Next: deploy falsification-swarm lane in next session (DOMEX-EXPERT-SWARM-S442 or standalone F-EXP12 lane), measure falsification_rate at S446.
+
+- **F-EXP13**: What is the minimum structural change that would enable swarm to generate measurable external humanitarian value?
+  Status: OPEN S441. Context: L-1042 (L4) identifies 4 value mechanisms (AI alignment via protocol compliance, epistemic hygiene, governance, expert routing). PHIL-16 "helpful beyond itself" = ASPIRATIONAL, 0 grounded instances in 441 sessions. L-1037: dissipation gap dominates noticing timeline. F-HUM1 (multi-human governance) is adjacent. Global: F-AGI1 (gap 2 = world grounding). Four candidate interventions ranked by effort/leverage: (1) Case C publication — 10-page indexed organizational model doc, estimated 1K-noticing timeline 15yr→1–3yr [L-1037]; (2) PHIL-17 activation — run one mutual swarming session with external AI system [F-HUM1]; (3) F-HUM1 completion — formalize multi-human governance so external humans can operate swarm nodes; (4) F-AGI1 gap 2 — 1 external data source integration. Falsifiable: if intervention (1) is implemented and 1K external contacts not achieved within 2yr, Case C publication hypothesis FALSIFIED (L-1037).
 
 - ~~F-EXP3~~: Moved to Resolved (S410).
 
