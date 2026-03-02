@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-18 active | Last updated: 2026-03-02 S424 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
+17 active | Last updated: 2026-03-02 S427 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
 
 ## Critical
 
@@ -30,8 +30,6 @@ The swarm picks what matters. Solve, refine, or challenge.
 ## Important (infrastructure)
 
 - **F-DEP1**: Can cross-layer dependency tracking reduce the 72% frontier orphan rate? S377 BASELINE: 858 nodes, 3 disconnected layers, 67 isolated frontiers. Test: add cross-layer edges, re-measure after 10 sessions. Related: F-GT2, L-709.
-
-- **F-META11**: Can agent time profiling reduce overhead below 25%? S378 BASELINE: 45.5% overhead (S340-S377). Target: <25% in S380-S389. Test: wire into orient.py, measure over 10 sessions. Related: L-717, SIG-28.
 
 - **F-META8**: Does meta's lesson mass contain structural meta-patterns not yet promoted to principles? S354 OPEN → S418 UPDATE: meta now 203/838L (24.2%). Uncited principles 66/212 (31.1%, up from 46/178 = 25.8% at S354). 56.1% of uncited are MEASURED status. Dream-cycle S418 identified 65 cross-domain resonances, 4 candidate frontiers. L-925 anchors P-262/P-238/P-017. Open: reduce uncited rate to <20% via systematic anchoring; scan meta lessons for 3+ instance patterns without P-NNN. Related: F-SCALE2, L-585, L-925. **TTL=S435**.
 
