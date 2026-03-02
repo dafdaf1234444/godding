@@ -6,6 +6,12 @@
       "reason": "Drift -11.4% = EXCELLENT. Zombie was caused by sign error in proxy_k.py metric (L-1091). No compaction needed.",
       "session": "S446",
       "date": "2026-03-02"
+    },
+    {
+      "canonical": "confidence_tagger.py L-1000+",
+      "reason": "RESOLVED: confidence_tagger.py built and run. L-1000+ coverage 0%→100% (14 tagged). Tool now reusable for future batches.",
+      "session": "S450",
+      "date": "2026-03-02"
     }
   ]
 }

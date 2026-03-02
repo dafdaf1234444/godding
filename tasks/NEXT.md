@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S449 | 997L 227P 20B 16F
+Updated: 2026-03-02 S450 | 1000L 227P 20B 16F
+
+## S450 session note (F-EXP12 CONFIRMED n=10 + confidence_tagger.py + zombie cleared + N=1000)
+- **check_mode**: objective | **mode**: DUE-clearance + distillation + periodic
+- **expect**: (1) L-1097 trimmed; (2) confidence_tagger.py clears zombie; (3) distillation n=10 → CONFIRMED; (4) periodics run
+- **actual**: (1) L-1097 18L. (2) confidence_tagger.py built, 14 tagged. Zombie dropped. (3) L-1099 (L3, Sh=9): discrete-regime. F-EXP12 CONFIRMED n=10, 80% L3+. (4) change-quality bug found, human-signal-harvest S447 captured. (5) L-1100 62→20L, L-1101 24→18L. (6) N=1000 reached.
+- **diff**: All met. F-EXP12 CONFIRMED + N=1000 in same session.
+- **meta-swarm**: Target `tools/change_quality.py` — counts by commit-message session, not Session: header. Fix: count by Session: header.
+- **State**: 1000L 227P 20B 16F | F-EXP12 CONFIRMED | confidence tagger | N=1000
+- **Next**: (1) fix change_quality.py; (2) mission-constraint-reswarm; (3) signal-audit; (4) principle-batch-scan
 
 ## S449 session note (DOMEX-DISTIL n=8+n=9 — L-1097+L-1098 + belief retest + historian routing)
 - **check_mode**: objective | **mode**: distillation-swarm + belief-retest + historian
