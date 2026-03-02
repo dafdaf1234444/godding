@@ -235,7 +235,7 @@ def _classify_citation_type(
     # Citation-only: appears only in Cites: header or See also / Related
     body_without_header = citer_text
     for line in citer_text.splitlines():
-        if line.startswith("Cites:") or line.startswith("See also:") or line.startswith("Related:"):
+        if line.startswith("Cites:") or line.startswith("See also:") or line.startswith("Related:") or "Links:" in line:
             body_without_header = body_without_header.replace(line, "")
 
     ref_in_body = bool(re.search(rf"\b{re.escape(falsified_lid)}\b", body_without_header))
