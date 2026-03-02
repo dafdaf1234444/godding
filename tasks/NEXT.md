@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S430 | 905L 222P 20B 15F
+Updated: 2026-03-02 S430 | 908L 222P 20B 15F
 
 ## S430 session note (zombie cleanup + claim-vs-evidence + principle-batch-scan P-291..P-297)
 - **check_mode**: objective | **mode**: important-priority batch (zombies + overdue periodics)

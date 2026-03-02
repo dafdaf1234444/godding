@@ -312,9 +312,21 @@ def get_zombie_due_items() -> list[dict]:
                     item_counter[canon] += 1
                     seen.add(canon)
 
+        # Filter: resolved signals and recently-done periodics are false positives
+        resolved_sigs = _get_resolved_signal_ids()
+        done_periodics = _get_done_periodic_ids()
+
         for item, count in item_counter.most_common():
             if count < 5:
                 break
+            # Skip RESOLVED signals (false zombie — item text contains SIG-NNN)
+            sig_match = re.search(r"SIG-(\d+)", item, re.IGNORECASE)
+            if sig_match and f"SIG-{sig_match.group(1)}" in resolved_sigs:
+                continue
+            # Skip periodics that have been run recently (within cadence)
+            per_match = re.search(r"\[([a-z][a-z0-9-]+)\]", item)
+            if per_match and per_match.group(1) in done_periodics:
+                continue
             tasks.append({
                 "priority": P_DUE,
                 "tier": "DUE",
@@ -326,6 +338,51 @@ def get_zombie_due_items() -> list[dict]:
     except Exception:
         pass
     return tasks[:5]
+
+
+def _get_resolved_signal_ids() -> set:
+    """Return set of SIG-NNN IDs that have RESOLVED status in SIGNALS.md."""
+    resolved = set()
+    signals_file = ROOT / "tasks" / "SIGNALS.md"
+    if not signals_file.exists():
+        return resolved
+    for line in signals_file.read_text(encoding="utf-8", errors="replace").splitlines():
+        if not line.startswith("| SIG-"):
+            continue
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) < 8:
+            continue
+        sig_id = parts[1]
+        status = parts[7] if len(parts) > 7 else ""
+        if "RESOLVED" in status.upper() or "ABANDONED" in status.upper():
+            resolved.add(sig_id)
+    return resolved
+
+
+def _get_done_periodic_ids() -> set:
+    """Return set of periodic IDs that are NOT overdue per periodics.json."""
+    done = set()
+    try:
+        import json as _json
+        periodics_path = ROOT / "tools" / "periodics.json"
+        if not periodics_path.exists():
+            return done
+        data = _json.loads(periodics_path.read_text(encoding="utf-8", errors="replace"))
+        # Detect current session
+        idx_path = ROOT / "memory" / "INDEX.md"
+        sess = 0
+        if idx_path.exists():
+            m = re.search(r"Sessions:\s*(\d+)", idx_path.read_text(encoding="utf-8", errors="replace"))
+            if m:
+                sess = int(m.group(1))
+        for pid, entry in data.items():
+            last = entry.get("last_reviewed_session", 0)
+            cadence = entry.get("cadence_sessions", 20)
+            if sess - last < cadence:  # not yet due — it's a false zombie
+                done.add(pid)
+    except Exception:
+        pass
+    return done
 
 
 def get_dispatch_tasks() -> list[dict]:
