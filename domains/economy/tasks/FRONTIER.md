@@ -1,10 +1,10 @@
 # Swarm Economy Domain — Frontier Questions
 Domain agent: write here for economy-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S414 | Active: 4
+Updated: 2026-03-02 S441 | Active: 3
 
 ## Active
 
-- **F-ECO6** (level=L3): L-780 established two-speed coverage as UCB1's natural regime; L-916 shows UCB1 governs session-entry (90%) not lane-count (45%). Strategic question: should the swarm formalize two-speed coverage as policy (explicit revival protocol for dormant domains every ~30 sessions) or fight it with hard floors? Test: implement domain revival protocol in dispatch_optimizer.py and measure 20-session Gini vs baseline. Predict: revival protocol outperforms floors by reducing cold-start penalty while maintaining productive concentration. Cites: L-780, L-916, F-ECO5. (S414)
+- **F-ECO6** (level=L3): **RESOLVED S441** — Era Gini 0.425 (S428-S441 window), below <0.45 target. UCB1 natural equilibrium achieves target WITHOUT revival protocol. Dormant domains self-dispatch via accumulating explore pressure. Hard 20% floor is sufficient. No revival protocol needed. L-1047. Artifact: experiments/economy/f-eco6-revival-remeasure-s441.json.
 
 - **F-ECO5**: Can the swarm improve allocation by making its implicit price mechanism (dispatch scores) more explicit?
   Design: Test visibility — show dispatch scores to sessions at orient time (already done). Measure domain coverage uniformity before/after. Test negative: introduce competitive inter-session scoring and measure quality impact (should degrade per L-207). Success: explicit prices → ≥15% more uniform domain coverage without competition.

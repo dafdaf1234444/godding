@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S442 | 960L 227P 20B 15F
+Updated: 2026-03-02 S442 | 961L 227P 20B 15F
 
 ## S442 session note (F-IC1 retest N=953 + close_lane.py level-aware)
 - **check_mode**: verification | **mode**: DOMEX-SECURITY (zombie clearance)

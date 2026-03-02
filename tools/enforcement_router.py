@@ -28,6 +28,9 @@ REPO_ROOT = Path(__file__).parent.parent
 # Core tool files that wire structural enforcement
 STRUCTURAL_FILES = [
     "tools/maintenance.py",
+    "tools/maintenance_drift.py",    # extracted from maintenance.py S422 (L-941)
+    "tools/maintenance_state.py",    # extracted from maintenance.py S422
+    "tools/maintenance_inventory.py", # extracted from maintenance.py S422
     "tools/orient.py",
     "tools/open_lane.py",
     "tools/close_lane.py",
@@ -37,6 +40,9 @@ STRUCTURAL_FILES = [
     "tools/contract_check.py",
     "tools/validate_beliefs.py",
     "tools/enforcement_router.py",  # L-847: self-reference — this file enforces prescription tracking
+    "tools/cascade_monitor.py",     # L-1007: cascade detection wired into orient.py
+    "tools/lesson_collision_check.py",  # FM-18: wired into check.sh pre-commit
+    "tools/knowledge_state.py",     # F-META10: epistemological state classification
 ]
 
 # Periodic-tier files (softer enforcement)
