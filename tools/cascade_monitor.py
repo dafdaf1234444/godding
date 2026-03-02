@@ -193,6 +193,31 @@ def check_attention_layer() -> dict:
         if not trigger_file.exists():
             return {"layer": "A", "failing": False, "evidence": "SESSION-TRIGGER.md not found"}
         text = trigger_file.read_text(errors="replace")
+        # Staleness check: if SESSION-TRIGGER.md was last updated >1 session ago, report UNCERTAIN
+        current_session = 0
+        try:
+            result = subprocess.run(
+                ["git", "log", "--oneline", "-1", "--format=%s"],
+                capture_output=True, text=True, cwd=REPO_ROOT
+            )
+            m = re.search(r'\[S(\d+)\]', result.stdout)
+            if m:
+                current_session = int(m.group(1))
+        except Exception:
+            pass
+        last_checked = 0
+        for m in re.finditer(r'\|\s*S(\d+)\s*\|', text):
+            last_checked = max(last_checked, int(m.group(1)))
+        if current_session > 0 and last_checked > 0 and (current_session - last_checked) > 1:
+            return {
+                "layer": "A",
+                "high_firing": 0,
+                "medium_firing": 0,
+                "total_firing": 0,
+                "fp_proxy": 0,
+                "failing": False,
+                "evidence": f"UNCERTAIN — SESSION-TRIGGER.md last checked S{last_checked}, current S{current_session}; run orient.py to refresh",
+            }
         # Count FIRING triggers by urgency
         high_firing = len(re.findall(r'\|\s*HIGH\s*\|\s*FIRING', text))
         medium_firing = len(re.findall(r'\|\s*MEDIUM\s*\|\s*FIRING', text))
