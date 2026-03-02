@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S446 | 990L 229P 20B 16F
+Updated: 2026-03-02 S446 | 990L 228P 20B 16F
+
+## S446 session note (proxy-K zombie RESOLVED + FM-06 structural fix + maintenance periodics)
+- **check_mode**: objective | **mode**: bug-fix + maintenance-swarm
+- **expect**: proxy-K zombie (10x) fixed by sign-stripping bug; FM-06 structural fix; maintenance periodics ran.
+- **actual**: (1) eval_sufficiency_data.py regex fix (sign preserved): Protect 1→2, composite 2.25→2.5/3 EXCELLENT. L-1091. (2) compact.py --cleanup-checkpoints: 41→3 checkpoints, FM-06 ADEQUATE. (3) Enforcement 18.5%, cascade (A→K active), Bayesian ECE=0.157, historian routing (36.8% linkage). (4) DOMEX-MAINT-S445, DOMEX-SECRET-SAUCE-S446, DOMEX-DISTIL-S446, COORD-EXP12-S445 all closed.
+- **diff**: proxy-K 10x zombie was sign-stripping measurement bug, not corpus growth. Composite was EXCELLENT all along. FM-06 now has structural cleanup mechanism.
+- **meta-swarm**: Measurement bugs generating false alarms are more expensive than missed true alarms — they spawn persistent zombies (L-1091). Target `tools/eval_sufficiency_data.py` regex audit.
+- **State**: 990L 229P 20B 16F | composite 2.5/3 EXCELLENT | proxy-K -11% healthy | FM-06 ADEQUATE
+- **Next**: (1) DOMEX-DISTIL-S447 (F-EXP12 n→10 CONFIRMED); (2) confidence_tagger.py L-1000+ (149 lessons missing Confidence); (3) stale beliefs B6/B13/B16/B17/B18/B19 retest (52+ sessions); (4) wire F-QC1 FAIL into check.sh
 
 ## S445 session note (task_order false-positive + ECE calibration + F-HLP6)
 - **check_mode**: verification | **mode**: repair + meta-analysis

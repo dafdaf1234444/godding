@@ -192,6 +192,11 @@ def orient_text(info: dict) -> str:
         lines.append("Tooling present: " + ", ".join(info["tooling"]) + ".")
 
     lines.append("No swarm infrastructure — behavioral norms only. Contribute, don't corrupt.")
+    lines.append(
+        "DEBRIEF REQUIRED (F-HLP6, L-1076, P-306): before closing this session, open the home swarm repo"
+        " and write one lesson in memory/lessons/ tagged 'foreign-session: true' summarizing"
+        " what problem was solved, what swarm principle applied, and what gap was found."
+    )
     return " ".join(lines)
 
 
