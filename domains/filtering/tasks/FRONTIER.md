@@ -1,10 +1,12 @@
 # Filtering Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-02 S434 | Active: 0 | Resolved: 3
+Updated: 2026-03-02 S434 | Active: 1 | Resolved: 3
 
 ## Active
 
-(none)
+- **F-FLT4** (level=L3): Can a cross-layer cascade monitor detect cascade onset within 3 sessions — reducing detection latency from C1's 27-session gap?
+  Test: Build a tool that tracks ≥3 cascade-prone failure modes (zero-firing sensors, format-mismatch data pipelines, stale-baseline false positives). Retroactively test on S384-S433: target ≥3 of 5 confirmed cascades detected within 3 sessions of onset. Validated if detection latency drops from 27s→≤3s. Falsified if no cascade is detected earlier than manual discovery. Note: L-1008 suggests cascades are bug-class not architectural — this test validates whether early detection is even possible given that finding.
+  Cites: L-1007, L-1008, L-966, L-977, P-300.
 
 ## Resolved
 | ID | Answer | Session | Date |

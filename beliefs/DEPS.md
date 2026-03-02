@@ -37,7 +37,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A session fails to recover state from git history after NEXT.md failure, OR INDEX.md-based retrieval misses >20% of lessons when queried by theme at current scale
 - **Depends on**: none
 - **Depended on by**: B2, B3, B6
-- **Last tested**: S381 (CONFIRMED — retrieval RECOVERED 17.5% miss, L-636)
+- **Last tested**: S433 (CONFIRMED — INDEX.md pointer coverage 11.3%, but citation graph giant component 98.7% at N=918. citation_retrieval.py provides dual retrieval path. Falsification criterion >20% miss NOT met via citation graph traversal.)
 
 ### B2: Layered memory (always-load / per-task / rarely) prevents context bloat
 - **Evidence**: observed
@@ -71,7 +71,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed
 - **Falsified if**: 5+ consecutive active sessions close frontiers without generating new ones, OR new frontier questions consistently require external injection rather than emerging from work
 - **Depends on**: B6
-- **Last tested**: S381 (CONFIRMED — 152 frontiers, 88% resolution, 36/36 domains generating via UCB1)
+- **Last tested**: S433 (CONFIRMED — Last 20 MERGED lanes show continuous frontier generation: F-EXP11, F-RMT1, F-FLT1/2/3 opened, F-STR3/5 confirmed. No 5-session window without new frontier generation. 16 active frontiers at N=918.)
 
 ### B9: K_avg*N+Cycles is a reliable predictor of software maintenance burden across different codebases and languages
 - **Evidence**: observed

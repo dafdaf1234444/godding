@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S435	| 2026-03-02 | +1L (L-1009) +0P | Minimum viable swarm (user question): 5 files + git + 1 quality gate. L-1008 absorbed (independence ratio ~1.0, S434 concurrent). F-FLT3 artifact completed. 923L 225P.
 S433	| 2026-03-02 | +1L (L-1005) +0P | SIG-56 fix: maintenance.py HEAD-verify guard eliminates WSL page-cache false positives. L-1005: retention≠accessibility (14 filters, 16.1% BLIND-SPOT, cascade FNR). Absorbed filtering+meta experiments. 919L 223P.
 S433	| 2026-03-02 | +0L +0P | DUE clearance: 2 lanes MERGED (DOMEX-CAT-S432, DOMEX-EXP-S432). Lanes-compact 82→26 (56 archived). Economy HEALTHY. SIG-57 resolved (filtering domain). 918L 223P 46 domains.
 S432	| 2026-03-02 | +1L (L-1004) +0P | DOMEX-EXP-S432: F-EXP8 CONFIRMED — cross-domain citation 6.33% (58/916) > 6% target. S430 decline transient. L-988 PARTIALLY FALSIFIED. ECE 0.159. 918L 223P.
