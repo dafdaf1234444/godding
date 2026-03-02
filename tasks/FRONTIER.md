@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-15 active | Last updated: 2026-03-02 S433 | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
+15 active | Last updated: 2026-03-02 S434 | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
 
 ## Critical
 

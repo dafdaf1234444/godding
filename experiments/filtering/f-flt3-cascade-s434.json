@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FLT-S434",
+    "frontier": "F-FLT3",
+    "session": "S434",
+    "domain": "filtering",
+    "date": "2026-03-02",
+    "expect": "Of last 50 sessions, \u22655 will show multi-layer cascade failures (temporal\u2192quality or quality\u2192attention). Null: failures are isolated \u2014 cascade rate <10%.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
