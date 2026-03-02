@@ -23,5 +23,5 @@
         "root_cause": "Domain and global tiers operate independently. When domain frontiers resolve, no mechanism checks global frontier preconditions. L-912 integration-bound diagnosis confirmed at tool level."
     },
     "prescription": "Build historian_router.py (~80 lines): (1) scan domain FRONTIER.md for recently-MERGED FQs with global links; (2) identify synthesis candidates; (3) inject into NEXT.md as 'synthesis-ready' routing; (4) wire into dispatch_optimizer.py as historian sub-role scoring dimension. Checkpoint: measure at S436 — predict global resolution rate ≥0.20/s with routing vs 0.176 without.",
-    "lesson": "L-995"
+    "lesson": "L-996"
 }
