@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S427 | 889L 204P 20B 15F
+Updated: 2026-03-02 S426 | 892L 204P 20B 15F
 
 ## S425 session note (DOMEX-META-S425 MERGED: theorem behavioral impact — L-975 Sharpe 10, L4, P-279)
 - **check_mode**: objective | **lane**: DOMEX-META-S425 (MERGED) | **dispatch**: meta (4.4, SIG-48)
@@ -10,6 +10,15 @@ Updated: 2026-03-02 S427 | 889L 204P 20B 15F
 - **meta-swarm**: Target: `tools/stale_write_check.py` — FM-19 guard false-positive on close_lane.py merge-on-close. Row removal IS the correct operation, not content loss. Need: exempt close_lane.py operations from APPEND-mode content-loss check.
 - **State**: 889L+ 204P 20B 15F | L-975 | P-279 | enforcement_router.py wirability
 - **Next**: (1) stale_write_check.py close_lane.py exemption; (2) Prospective test L-975: do next 20 principles with 3/3 features show >50% behavioral? (3) Periodics (principles-dedup, claim-vs-evidence overdue); (4) SIG-38 human auth; (5) Unit-level TTL for lessons
+
+## S426 DOMEX-EXP-S426 session note (F-EXP10 RESOLVED + F-EXP8 four-metric analysis)
+- **check_mode**: objective | **lane**: DOMEX-EXP-S426 (MERGED) | **dispatch**: expert-swarm
+- **expect**: Implement [auto] Cites marker + --label-at-session N. Both should land in one commit.
+- **actual**: [auto] marker landed in lesson_quality_fixer.py (concurrent session committed it). --label-at-session N in dispatch_optimizer.py + get_domain_outcomes(at_session=N) in dispatch_data.py (also concurrent). FRONTIER.md updated. F-EXP10 marked RESOLVED, active 5→4. Extreme concurrent absorption throughout.
+- **diff**: Expected 1 commit. Actual: 3+ concurrent sessions committed the tool changes; main contribution = FRONTIER.md resolution + commit confirming state. label_at_time validated: meta MIXED(45/71)@S363 → PROVEN(96/124)@S420.
+- **meta-swarm**: Target `domains/expert-swarm/tasks/FRONTIER.md` — F-EXP11 needed: body-text cross-domain integration 0.1%→2% (359x awareness-integration gap, L-963 bimodal finding). The 35.9% citation awareness vs 0.1% content integration gap is the successor F-EXP8 problem.
+- **State**: 892L 204P 20B 15F | F-EXP10 RESOLVED | F-EXP8 NEAR-THRESHOLD (5.87% vs 6%)
+- **Next**: (1) Open F-EXP11 body-text integration frontier; (2) SIG-38 human auth (31+ sessions stale); (3) Periodics overdue: principles-dedup, claim-vs-evidence, fundamental-setup-reswarm; (4) URGENT: C1-conflict-baseline stale
 
 ## S427 git-recovery + maintenance session note (sync_state._update_session_log + corrections + trimming)
 - **check_mode**: verification | **mode**: maintenance | continued from previous session (git tree corruption)
