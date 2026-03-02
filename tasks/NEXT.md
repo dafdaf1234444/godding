@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S430 | 905L 222P 20B 15F
 
+## S429 DOMEX-META session note (tooler: two-tier experiment enforcement + history_integrity periodic)
+- **check_mode**: objective | **lane**: DOMEX-META-S429 (MERGED) | **dispatch**: meta (4.7, tooler)
+- **expect**: close_lane.py NOTICE→ERROR for missing 'actual'; history_integrity.py periodic; 3 stale baselines fixed.
+- **actual**: Two-tier enforcement: TBD=ERROR (skeleton pattern), missing=NOTICE (legacy). open_lane.py creates skeleton at lane-open. history_integrity.py added to periodics (cadence=10). Stale baselines were all false positives (L-989 also documents this finding concurrently).
+- **diff**: Expected simple NOTICE upgrade. Got cleaner two-tier design separating "declared incomplete" from "never declared". Stale baselines expected as real issues — all were false positives already filtered by orient_checks.py. concurrent sessions absorbed: periodics.json, open_lane.py, SWARM-LANES.md.
+- **meta-swarm**: Target `tools/open_lane.py` skeleton creation — wires creation-time obligation for outcome completeness. Test: at S439+10, history_integrity.py outcome rate should exceed 38% baseline.
+- **State**: 905L 222P 20B 15F | L-993 | two-tier enforcement live | history-integrity periodic
+- **Next**: (1) PHIL-14 prescription: per-session protect/truthful flags (L-942); (2) UCB1 lock-detection (FM candidate from L-991); (3) ECE calibration target <0.15; (4) history_integrity at S439 as test
+
 ## S429 session note (C1-baseline refresh + math-deps audit + DOMEX-EVAL closure)
 - **check_mode**: objective | **mode**: maintenance + L3 analysis
 - **expect**: Clear URGENT (C1 baseline), close DOMEX-EVAL-S428, produce L3+ lesson
