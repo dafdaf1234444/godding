@@ -67,10 +67,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 427,
+      "last_reviewed_session": 429,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S427"
+      "last_session": "S429"
     },
     {
       "id": "human-signal-harvest",
@@ -134,9 +134,9 @@
       "id": "principle-batch-scan",
       "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%\u21924%; batch extraction is the structural remedy. Target: maintain \u226510% promotion rate.",
       "cadence_sessions": 15,
-      "last_reviewed_session": 397,
+      "last_reviewed_session": 429,
       "registered_by": "S366",
-      "last_session": "S398"
+      "last_session": "S429"
     },
     {
       "id": "iso-annotation-sprint",

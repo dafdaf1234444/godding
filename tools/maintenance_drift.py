@@ -263,14 +263,19 @@ def check_observer_staleness(
                 pass
 
     # --- Layer 3: Experiment artifact baselines ---
-    baseline_artifacts = [
-        ("experiments/conflict/f-con1-baseline-s189.json", "C1-conflict-baseline"),
+    # Dynamic: find the latest baseline file per pattern (not hardcoded path)
+    baseline_patterns = [
+        ("experiments/conflict", "f-con1-baseline-s*.json", "C1-conflict-baseline"),
     ]
-    for rel_path, label in baseline_artifacts:
-        art_path = REPO_ROOT / rel_path
-        if not art_path.exists():
+    for rel_dir, pattern, label in baseline_patterns:
+        art_dir = REPO_ROOT / rel_dir
+        if not art_dir.exists():
             continue
-        art_m = re.search(r"[sS](\d{3,})", rel_path)
+        candidates = sorted(art_dir.glob(pattern))
+        if not candidates:
+            continue
+        latest = candidates[-1]  # sorted alphabetically, s429 > s189
+        art_m = re.search(r"[sS](\d{3,})", latest.name)
         if art_m:
             age = sess - int(art_m.group(1))
             if age > threshold:
