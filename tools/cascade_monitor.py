@@ -31,10 +31,11 @@ THRESHOLDS = {
     "A_fp_count": 3,                # ≥3 false-positive orient items = A layer failing
 }
 # Cascade adjacency: which layers can cascade to which
+# T→K: stale tools produce stale measurements → corrupted knowledge state (BUG-3 fix, S436c)
 ADJACENCY = {
-    "T": ["Q", "A"],
+    "T": ["Q", "A", "K"],
     "Q": ["T", "A", "E"],
-    "K": ["Q", "E", "A"],
+    "K": ["Q", "E", "A", "T"],
     "E": ["Q", "K"],
     "A": ["T", "Q"],
 }
