@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S452",
+    "frontier": "F-NK6",
+    "session": "S452",
+    "domain": "nk-complexity",
+    "date": "2026-03-03",
+    "expect": "F-NK6 3-mechanism model does NOT sustain improvement \u2014 213% rate is burst artifact from historian cadence, not structural. Predict: excluding historian-burst sessions, rate drops below 0.24/session target",
+    "actual": "TBD",
+    "diff": "TBD"
+}
