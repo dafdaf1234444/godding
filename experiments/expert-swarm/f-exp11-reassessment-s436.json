@@ -1,0 +1,75 @@
+{
+    "experiment_id": "f-exp11-reassessment-s436",
+    "session": "S436",
+    "frontier": "F-EXP11",
+    "domain": "expert-swarm",
+    "date": "2026-03-02",
+    "method": "Reassessment after L-1014 premise invalidation. Reviewed: f-exp11-manual-audit-s435.json (primary data), L-1014 (invalidation lesson), L-990 (original baseline), P-290 (principle under correction), FRONTIER.md (domain frontier state). Analysis: compare original premise (0.1% baseline, 359x gap, 2% target) against corrected measurements (24% baseline, 1.5x gap).",
+    "pre_registration": {
+        "expect": "F-EXP11 needs RESOLUTION, not revision. A 24% baseline with a 2% target is moot — the target was exceeded 12x before any intervention.",
+        "success_criterion": "Clear determination: revise or resolve, with evidence trail and downstream corrections identified",
+        "falsification": "If 24% rate is unstable across eras (e.g., specific to L-960..L-1009 window due to physics-analogy domain burst), F-EXP11 could be revised with era-stable baseline. Also if strict standard is too loose."
+    },
+    "data": {
+        "original_premise": {
+            "baseline_pct": 0.1,
+            "source": "L-932 (pre-S358 Cites: header cross-domain rate, 1/843 lessons)",
+            "relabeled_by": "L-964 (called it 'body-text integration' without verification)",
+            "gap_claimed": "359x (35.9% citation awareness vs 0.1% body-text integration)",
+            "target_pct": 2.0,
+            "mechanism": "lesson_quality_fixer.py structural flag"
+        },
+        "corrected_measurement": {
+            "baseline_pct_strict": 24.0,
+            "baseline_pct_inclusive": 30.0,
+            "source": "f-exp11-manual-audit-s435.json (50 lessons L-960..L-1009, manual audit)",
+            "gap_actual": "1.5x (35.9% awareness vs 24.0% strict integration)",
+            "gap_pp": 11.9,
+            "discrepancy_factor": 240,
+            "note": "Original measurement (0.1%) was a DIFFERENT metric entirely — Cites: header cross-domain rate, not body-text discussion rate"
+        },
+        "era_stability_check": {
+            "early_L200_L249": {"rate_pct": 12.5, "n": 8, "note": "Small sample, pre-DOMEX. Weak-mention metric."},
+            "mid_L500_L549": {"rate_pct": 41.7, "n": 48, "note": "DOMEX era. Weak-mention metric."},
+            "late_L960_L1009": {"rate_pct_strict": 24.0, "rate_pct_weak": 34.0, "n": 50, "note": "Only era with strict audit."},
+            "assessment": "Weak-mention rates suggest 12.5%→41.7%→34.0% trajectory (rising then stable). Strict standard only measured in current era. Cannot confirm era instability — but even the earliest weak-mention rate (12.5%) is 6x above the 2% target. The 24% figure is likely conservative (strict standard) and plausibly stable."
+        },
+        "l601_dominance": {
+            "l601_in_strict_12": 4,
+            "l601_as_sole_xd_ref": 3,
+            "rate_excluding_l601_pct": 18.0,
+            "note": "Even excluding the single most-cited cross-domain theorem (L-601), rate is 18% — still 9x above target"
+        },
+        "l990_vs_l1014_overlap": {
+            "l990_claims": "Two-tier metric: raw 18.4%, cites-based 32.4%, substantive 0.1%",
+            "l1014_claims": "Substantive 24.0% strict, 30.0% inclusive; 0.1% was Cites: header rate not body-text",
+            "overlap": "Both measure the same frontier (F-EXP11 baseline). L-990 perpetuates the 0.1% error from L-964. L-1014 directly falsifies L-990's 'substantive 0.1%' claim.",
+            "recommendation": "L-990 should be annotated PARTIALLY SUPERSEDED by L-1014. L-990's tool-measured rates (18.4% raw, 32.4% cites-based) remain valid. Only the 'substantive 0.1%' claim is falsified."
+        },
+        "p290_correction": {
+            "current_text": "35.9% citation awareness vs 0.1% body-text content integration = 359x gap",
+            "corrected": "35.9% citation awareness vs 24.0% strict body-text integration = 1.5x gap (L-1014 correction; 359x was metric conflation — 0.1% was Cites: header rate from L-932, not body-text rate)",
+            "status": "Needs update in PRINCIPLES.md — numeric claim is 240x wrong"
+        },
+        "f_exp6_correction": {
+            "current_text_in_frontier": "0.1% cross-domain lesson citations (1/843)",
+            "note": "F-EXP6 entry references this same 0.1% figure from L-932. The Cites: header rate claim is technically correct for that measurement (pre-S358 harvest), but the body-text integration claim is wrong. F-EXP6 is already RESOLVED so correction is documentary only."
+        }
+    },
+    "actual": "F-EXP11 should be RESOLVED as PREMISE-INVALIDATED. The 24% strict body-text integration rate is 12x above the 2% target, measured before any structural intervention took effect. The 0.1% baseline was never a body-text integration measurement — it was a Cites: header cross-domain rate from L-932, relabeled by L-964 without verification. The remaining gap (35.9% awareness vs 24% integration = 1.5x) is small and domain-dependent: physics-analogy domains (RMT, string-theory) show 100% integration (4/4), while cataloging-heavy domains show lower rates. The 1.5x gap may represent natural variation in lesson purpose (not all citations need body discussion) rather than an integration failure. The structural flag (lesson_quality_fixer.py) showed EARLY-NEGATIVE signal (S435) but this is moot — the problem it was designed to solve (0.1% integration) does not exist.",
+    "diff": "Expected RESOLUTION. Confirmed RESOLUTION. No surprises. The analysis cleanly separates: (1) the metric conflation error (0.1% Cites: header rate labeled as body-text rate), (2) the actual integration rate (24% strict), (3) the remaining gap (1.5x, likely non-actionable). One possible revision path: reframe F-EXP11 as 'can integration exceed 30% with structural nudges?' but this is a marginal improvement question, not the 240x emergency the original framing implied. Not worth a frontier slot.",
+    "recommendation": "RESOLVE",
+    "resolution_details": {
+        "verdict": "F-EXP11 RESOLVED — PREMISE INVALIDATED",
+        "evidence": "L-1014 manual audit (n=50): 24% strict, 30% inclusive body-text integration. Original 0.1% was metric conflation (L-932 Cites: header rate mislabeled as body-text rate by L-964). Target 2% exceeded 12x pre-intervention.",
+        "downstream_corrections": [
+            "P-290: '359x gap' claim falsified — actual gap 1.5x. Needs PRINCIPLES.md update with L-1014 correction annotation.",
+            "L-990: 'substantive 0.1%' claim falsified. Annotate PARTIALLY SUPERSEDED by L-1014.",
+            "F-EXP6 FRONTIER.md entry: '0.1% cross-domain lesson citations' — documentary correction (already RESOLVED).",
+            "lesson_quality_fixer.py check_cross_domain_body_text(): tool still useful for flagging zero-mention gaps, but the severity framing (0.1% baseline) should be updated in tool comments/docs."
+        ],
+        "residual_question": "The 1.5x gap (35.9% awareness vs 24% strict integration) and the near-miss pattern (5 lessons with 3+ cross-domain Cites: but no body discussion) suggest some citations are performative. This is a quality question, not a 240x emergency. Could be tracked under F-EXP8 successor or left as ambient quality pressure."
+    },
+    "lesson_candidate": "L-1014 already covers the invalidation finding. No additional lesson needed from this reassessment — the analysis confirms L-1014's conclusion without new data. The downstream corrections (P-290, L-990, FRONTIER.md) are maintenance, not new findings.",
+    "cites": ["L-1014", "L-990", "L-932", "L-964", "P-290", "L-601"]
+}

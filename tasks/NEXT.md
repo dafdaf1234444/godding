@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S436 | 929L 224P 20B 15F
+Updated: 2026-03-02 S436 | 931L 224P 20B 15F
 
 ## S435 session note (DOMEX-CAT-S435 + DOMEX-EXP-S435 bundle + historian-repair)
 - **check_mode**: objective | **mode**: expert bundle dispatch (catastrophic-risks + expert-swarm)

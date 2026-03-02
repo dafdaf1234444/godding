@@ -160,21 +160,25 @@ def check_t4_tool_size() -> list[tuple[str, str]]:
 
 
 def check_zombie_tools() -> list[tuple[str, str]]:
-    """L-601 self-application: detect tools/*.py with no references in automation entry points."""
+    """L-601 self-application: detect tools/*.py with no references in automation entry points.
+    L-1017: walks import chain from entry points to reduce false positives on extraction modules."""
     results: list[tuple[str, str]] = []
     tools_dir = REPO_ROOT / "tools"
     if not tools_dir.exists():
         return results
     # Enumerate production tools (exclude tests, archive, __pycache__)
-    tool_files = sorted(
+    tool_stems = sorted(
         f.stem for f in tools_dir.glob("*.py")
         if not f.stem.startswith("test_") and f.stem != "__init__"
     )
-    if not tool_files:
+    if not tool_stems:
         return results
-    # Scan automation entry points + protocol files for references
+    tool_stem_set = set(tool_stems)
+
+    # Phase 1: scan entry points + protocol files for direct references
     entry_files = ["tools/check.sh", "tools/orient.py", "tools/maintenance.py",
-                   "tools/periodics.json", "CLAUDE.md", "SWARM.md"]
+                   "tools/periodics.json", "CLAUDE.md", "SWARM.md",
+                   "tools/autoswarm.sh", ".claude/commands/swarm.md"]
     ref_text = ""
     for ef in entry_files:
         ef_path = REPO_ROOT / ef
@@ -185,12 +189,45 @@ def check_zombie_tools() -> list[tuple[str, str]]:
                 pass
     if not ref_text:
         return results
-    unreferenced = [t for t in tool_files if t not in ref_text]
-    if len(unreferenced) > len(tool_files) * 0.6:
+    reachable = {t for t in tool_stem_set if t in ref_text}
+
+    # Phase 2: walk import chain — tools referenced by reachable tools are also reachable
+    import_re = re.compile(r"(?:from|import)\s+([\w]+)")
+    subprocess_re = re.compile(r"tools[/\\]([\w]+)\.py")
+    # Match Path() concatenation: "tools" / "foo.py" or quoted "foo.py" near "tools"
+    quoted_tool_re = re.compile(r'["\'](\w+)\.py["\']')
+    frontier = list(reachable)
+    while frontier:
+        stem = frontier.pop()
+        src_path = tools_dir / f"{stem}.py"
+        if not src_path.exists():
+            continue
+        try:
+            src = src_path.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            continue
+        for m in import_re.finditer(src):
+            dep = m.group(1)
+            if dep in tool_stem_set and dep not in reachable:
+                reachable.add(dep)
+                frontier.append(dep)
+        for m in subprocess_re.finditer(src):
+            dep = m.group(1)
+            if dep in tool_stem_set and dep not in reachable:
+                reachable.add(dep)
+                frontier.append(dep)
+        for m in quoted_tool_re.finditer(src):
+            dep = m.group(1)
+            if dep in tool_stem_set and dep not in reachable:
+                reachable.add(dep)
+                frontier.append(dep)
+
+    unreferenced = sorted(t for t in tool_stems if t not in reachable)
+    if len(unreferenced) > len(tool_stems) * 0.6:
         if len(unreferenced) > 30:
-            results.append(("NOTICE", f"{len(unreferenced)}/{len(tool_files)} tools not referenced by automation/protocol files (L-601 zombie risk). Top: {_truncated(unreferenced, 5)}"))
+            results.append(("NOTICE", f"{len(unreferenced)}/{len(tool_stems)} tools not referenced by automation/protocol files (L-601 zombie risk). Top: {_truncated(unreferenced, 5)}"))
     elif unreferenced:
-        results.append(("NOTICE", f"{len(unreferenced)}/{len(tool_files)} tools not referenced by automation entry points. {_truncated(unreferenced, 5)}"))
+        results.append(("NOTICE", f"{len(unreferenced)}/{len(tool_stems)} tools not referenced by automation entry points. {_truncated(unreferenced, 5)}"))
     return results
 
 

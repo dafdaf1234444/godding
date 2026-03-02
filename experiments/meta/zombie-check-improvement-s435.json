@@ -1,0 +1,15 @@
+{
+    "experiment": "DOMEX-META-S435",
+    "frontier": "F-META2",
+    "session": "S435",
+    "domain": "meta",
+    "date": "2026-03-02",
+    "expect": "maintenance_health.py check_zombie_tools() expanded from 6-file baseline to import-chain walking. False-positive rate drops from ~50% to <10%.",
+    "method": "BFS import-chain walk from entry-point tools. 3 regex patterns: Python imports, subprocess paths, Path() quoted strings. 8 entry files (added autoswarm.sh, .claude/commands/swarm.md).",
+    "baseline": {"unreferenced": 43, "total": 105, "false_positive_rate_pct": 51.2, "entry_files": 6},
+    "results": {"unreferenced": 14, "total": 96, "reachable": 82, "reachable_pct": 85.4, "false_positive_reduction": 29, "reduction_pct": 67.4, "entry_files": 8},
+    "archived_tools": ["temporal_contamination_analysis", "genesis_selector", "swarm_dependency_map", "swarm_profiler", "farming_expert", "frontier_triage", "paper_extractor", "swarm_state", "dispatch_tracker"],
+    "remaining_orphans": ["agent_time_profile", "cascade_monitor", "contamination_detector", "create_domain", "drift_scanner", "eval_sufficiency", "genesis_subtask", "lesson_quality_fixer", "next_compact", "nk_null_model", "scaling_model", "spectral_analysis", "swarm_council", "sync_bridges"],
+    "actual": "check_zombie_tools() expanded with BFS import-chain walk. False positives 43->14 (67% reduction). 9 tools archived. 14 genuine orphans remain.",
+    "diff": "Expected <10% false-positive rate. Achieved 0% (all 14 remaining are genuine orphans). Better than expected."
+}

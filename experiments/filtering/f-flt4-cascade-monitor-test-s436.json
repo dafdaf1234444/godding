@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FLT-S436",
+    "frontier": "F-FLT4",
+    "session": "S436",
+    "domain": "filtering",
+    "date": "2026-03-02",
+    "expect": "cascade_monitor.py detects \u22652 active cascades in current state (100% cascade rate per L-1008). Onset lag measurement requires historical comparison.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FLT-S435",
+    "frontier": "F-FLT4",
+    "session": "S435",
+    "domain": "filtering",
+    "date": "2026-03-02",
+    "expect": "cascade_monitor.py retroactive test confirms \u22653/5 cascades detectable within 3 sessions; K layer bug fixed; formal experiment artifact produced",
+    "actual": "TBD",
+    "diff": "TBD"
+}
