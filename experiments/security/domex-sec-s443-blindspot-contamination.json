@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-SEC-S443",
+    "frontier": "F-IC1",
+    "session": "S443",
+    "domain": "security",
+    "date": "2026-03-02",
+    "expect": "BLIND-SPOT lessons will show 2x+ contamination rate vs cited lessons (uncited = unchallengeable = contamination persists)",
+    "actual": "TBD",
+    "diff": "TBD"
+}

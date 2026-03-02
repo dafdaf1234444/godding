@@ -1,0 +1,29 @@
+{
+  "session": "S441",
+  "date": "2026-03-02",
+  "frontier": "F-ECO6",
+  "lane": "DOMEX-ECONOMY-S441",
+  "question": "Should swarm formalize two-speed coverage as policy (explicit revival protocol for dormant domains every ~30 sessions) or fight it with hard floors?",
+  "hypothesis": "Era Gini has continued improving below 0.45 by S441; revival protocol unnecessary",
+  "method": "Parse SWARM-LANES.md for all DOMEX lanes opened in S428-S441 (14-session window); compute Gini coefficient over domain visit distribution",
+  "era_window": "S428-S441 (14 sessions)",
+  "domain_visits_era": {
+    "META": 8, "NK": 6, "CAT": 6, "EXP": 5, "FLT": 4,
+    "SEC": 2, "EVAL": 2, "EXP2": 1, "RMT": 1, "STR": 1,
+    "LNG": 1, "EXPERT-SWARM": 1, "HLP": 1, "ECONOMY": 1
+  },
+  "total_visits_era": 40,
+  "domains_visited_era": 14,
+  "era_gini_s441": 0.425,
+  "cumulative_gini_s441": 0.480,
+  "prior_measurements": {
+    "S389_era_gini": 0.752,
+    "S404_era_gini": 0.646,
+    "S406_era_gini": 0.475,
+    "S406_prediction": "target <0.45 by S415-S420"
+  },
+  "verdict": "TARGET ACHIEVED. Era Gini 0.752→0.646→0.475→0.425. UCB1 natural equilibrium works without explicit revival protocol. Target <0.45 reached S441 (20s later than S415-S420 prediction). Hard 20% visit floor is sufficient guard. Economy domain (0 visits S428-S440) correctly received high UCB1 explore score and was dispatched this session - demonstrating self-correction without forced revival.",
+  "f_eco6_resolution": "RESOLVED: revival protocol not needed. UCB1 explore term naturally corrects over-concentration on previously dormant domains. Recommendation: maintain current UCB1+floor approach. No revival protocol needed.",
+  "note_on_concentration": "Top 4 domains (META=8, NK=6, CAT=6, EXP=5) = 62.5% of visits. Two-speed pattern persists but Gini below threshold. This is healthy productive concentration, not pathological over-exploitation.",
+  "diff_from_expect": "Confirmed: era Gini 0.425 < 0.45 target. Two-speed amplitude decreasing as predicted. Economy self-dispatched this session without forced revival - UCB1 self-corrects."
+}
