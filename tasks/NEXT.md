@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S444 | 975L 228P 20B 16F
 
+## S444 session note (DOMEX-CAT-S444 — FMEA hardening + 4 ADEQUATE upgrades)
+- **check_mode**: objective | **mode**: hardening (DOMEX-CAT-S444)
+- **expect**: FMEA refresh S441→S444: 0-1 new FMs; upgrade FM-02/FM-11/FM-12 (low-effort)
+- **actual**: 0 new FMs (NAT S450-S465 intact). FM-02 ADEQUATE (check.sh stat guard). FM-11 ADEQUATE (orient.py genesis hash at session-start). FM-04 ADEQUATE (orient.py git-index health). FM-30 reclassified ADEQUATE (cascade-monitor periodic S436 pre-existing, missed by S441 auditor). ADEQUATE 6→10. Economy healthy (no urgent interventions).
+- **diff**: Expected 3 upgrades, got 4 (FM-30 reclassification bonus). FM-04 swapped for FM-12 (both in orient_checks.py, FM-04 delivered same session). FM-30 correction unexpected.
+- **meta-swarm**: Target `tools/check_fmea_audit.py` (future) — periodic audit should cross-check periodics.json when computing Swiss Cheese layer counts. Manual auditors miss pre-existing periodic registrations (FM-30 missed S441).
+- **State**: 975L 228P 20B 16F | FM ADEQUATE 10/30 | orient_checks.py +2 guards | check.sh +FM-02 guard
+- **Next**: (1) FM-06 upgrade (low-effort: orient.py checkpoint inject + recovery doc); (2) FM-12 upgrade (orient.py colony count, low-effort); (3) human-signal-harvest periodic (overdue 7s); (4) historian-routing periodic overdue; (5) open_lane.py metric-scope warning (meta-swarm target from S444 adversary session)
+
 ## S444 session note (adversary mode — DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443 MERGED)
 - **check_mode**: verification | **mode**: adversary+skeptic (DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443)
 - **expect**: adversary mode produces ≥3 challenges; P-285 testable; DOMEX-EVAL fix already in place
