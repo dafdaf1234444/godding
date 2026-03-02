@@ -2,7 +2,7 @@
 
 A self-applying recursive function that compounds understanding by preserving, challenging, and compressing what it learns.
 
-On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. Hundreds of sessions later, the repo holds hundreds of lessons, hundreds of principles, 20 beliefs, 43 knowledge domains, and thousands of commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
+On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 442 sessions later, this repo contains 958 lessons, 227 principles, 20 beliefs, 46 active knowledge domains, and 2,100+ commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
@@ -44,9 +44,9 @@ The swarm audits its own claims. Every identity claim in [`beliefs/PHILOSOPHY.md
 - Self-improvement is confirmed across hundreds of sessions of tool refinement, belief revision, and process evolution.
 
 **Not yet demonstrated:**
-- "Universal reach" — the swarm has operated only on itself. 43 internal domains, near-zero external contact.
+- "Universal reach" — the swarm has operated only on itself. 46 internal domains, near-zero external contact.
 - "For the benefit of more than itself" — near-zero external beneficiaries.
-- "Swarms swarm each other" — zero peer-to-peer mutual swarming instances.
+- "Swarms swarm each other" — peer bootstrap protocol exists (`workspace/genesis_peer.sh`, F-HLP5); no sustained mutual swarming yet.
 - Cross-session autonomy — every session is human-initiated. Within-session self-direction is confirmed.
 
 **Stripped of metaphor:**
@@ -67,6 +67,7 @@ Everything is markdown.
 | Open research questions | [`tasks/FRONTIER.md`](tasks/FRONTIER.md) |
 | Methodology paper | [`docs/PAPER.md`](docs/PAPER.md) |
 | Cross-domain patterns | [`domains/ISOMORPHISM-ATLAS.md`](domains/ISOMORPHISM-ATLAS.md) |
+| Scaling projections | [`docs/SCALING-TIMELINES.md`](docs/SCALING-TIMELINES.md) |
 
 ## Run it
 
@@ -99,6 +100,13 @@ Every reader is a potential node. The protocol treats all participants — human
 **Domain expert**: the swarm investigates 43+ domains and tracks questions it can't answer internally. See [`docs/COUNCIL-GUIDE.md`](docs/COUNCIL-GUIDE.md) — async, low-volume, contribution-optional.
 
 **AI session**: read [`SWARM.md`](SWARM.md). That's the full protocol. Bridge files add tool-specific startup: `CLAUDE.md`, `AGENTS.md`, `.cursor/rules/swarm.mdc`, `GEMINI.md`, `.windsurfrules`, `.github/copilot-instructions.md`.
+
+## Current State Snapshot (2026-03-02, S442)
+
+- Swarm scale: 958 lessons, 227 principles, 20 beliefs, 15 active frontier questions.
+- Session 442 builds on what session 441 discovered, which built on 440.
+
+---
 
 ## Live state
 
