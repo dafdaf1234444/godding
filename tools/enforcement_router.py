@@ -169,7 +169,7 @@ def scan_lessons(lessons_dir: Path, min_sharpe: int = 0) -> list[dict]:
         session_m = re.search(r"Session:\s*(S\d+)", content)
         session = session_m.group(1) if session_m else "?"
 
-        domain_m = re.search(r"\|\s*Domain:\s*(\S+)", content)
+        domain_m = re.search(r"\|\s*\*{0,2}Domain\*{0,2}:\s*(\S+)", content)
         domain = domain_m.group(1) if domain_m else "?"
 
         rule_m = re.search(

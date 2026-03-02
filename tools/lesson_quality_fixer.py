@@ -73,27 +73,27 @@ def load_lesson(path: Path) -> dict:
     header_area = "\n".join(content.splitlines()[:6])
 
     # Session
-    sess_match = re.search(r"Session:\s*S(\d+)", header_area)
+    sess_match = re.search(r"\*{0,2}Session\*{0,2}:\s*S(\d+)", header_area)
     lesson["session"] = int(sess_match.group(1)) if sess_match else None
 
     # Domain
-    domain_match = re.search(r"Domain:\s*(.+?)(?:\s*\||\s*$)", header_area)
+    domain_match = re.search(r"\*{0,2}Domain\*{0,2}:\s*(.+?)(?:\s*\||\s*$)", header_area)
     lesson["domain"] = domain_match.group(1).strip() if domain_match else None
 
     # ISO
-    iso_match = re.search(r"ISO:\s*(.+?)(?:\s*\||\s*$)", header_area)
+    iso_match = re.search(r"\*{0,2}ISO\*{0,2}:\s*(.+?)(?:\s*\||\s*$)", header_area)
     lesson["iso"] = iso_match.group(1).strip() if iso_match else None
 
     # Sharpe
-    sharpe_match = re.search(r"Sharpe:\s*(\d+)", header_area)
+    sharpe_match = re.search(r"\*{0,2}Sharpe\*{0,2}:\s*(\d+)", header_area)
     lesson["sharpe"] = int(sharpe_match.group(1)) if sharpe_match else None
 
     # Confidence
-    conf_match = re.search(r"Confidence:\s*(.+?)(?:\s*$)", header_area, re.MULTILINE)
+    conf_match = re.search(r"\*{0,2}Confidence\*{0,2}:\s*(.+?)(?:\s*$)", header_area, re.MULTILINE)
     lesson["confidence"] = conf_match.group(1).strip() if conf_match else None
 
     # Cites header
-    cites_match = re.search(r"^Cites:\s*(.+)", content, re.MULTILINE)
+    cites_match = re.search(r"^\*{0,2}Cites\*{0,2}:\s*(.+)", content, re.MULTILINE)
     lesson["cites_header"] = cites_match.group(1).strip() if cites_match else None
     lesson["cites_auto"] = bool(cites_match and "[auto]" in cites_match.group(1))
 
@@ -442,9 +442,9 @@ def apply_fixes(lessons: dict, issues: list) -> int:
             # Insert after header metadata (after line 2 or 3)
             insert_idx = 1
             for idx, line in enumerate(lines[:6]):
-                if line.startswith(("Session:", "Date:", "Domain:", "ISO:", "Sharpe:", "Confidence:")):
+                if re.match(r"\*{0,2}(Session|Date|Domain|ISO|Sharpe|Confidence)\*{0,2}:", line):
                     insert_idx = idx + 1
-                elif line.startswith("Cites:"):
+                elif re.match(r"\*{0,2}Cites\*{0,2}:", line):
                     insert_idx = -1  # Already has Cites
                     break
 

@@ -36,7 +36,7 @@ def parse_lesson(path: Path) -> dict:
     meta_line = lines[1] if len(lines) > 1 else ""
 
     # Parse confidence
-    conf_match = re.search(r"Confidence:\s*(.+?)(?:\s*\||$)", meta_line)
+    conf_match = re.search(r"\*{0,2}Confidence\*{0,2}:\s*(.+?)(?:\s*\||$)", meta_line)
     confidence = conf_match.group(1).strip() if conf_match else "unknown"
 
     # Parse sample size from confidence
@@ -44,11 +44,11 @@ def parse_lesson(path: Path) -> dict:
     sample_size = int(n_match.group(1)) if n_match else None
 
     # Parse session
-    sess_match = re.search(r"Session:\s*(S\d+)", meta_line)
+    sess_match = re.search(r"\*{0,2}Session\*{0,2}:\s*(S\d+)", meta_line)
     if sess_match:
         session = sess_match.group(1)
     else:
-        date_match = re.search(r"Date:\s*(\d{4}-\d{2}-\d{2})", meta_line)
+        date_match = re.search(r"\*{0,2}Date\*{0,2}:\s*(\d{4}-\d{2}-\d{2})", meta_line)
         session = date_match.group(1) if date_match else "unknown"
     sess_num = int(session[1:]) if session.startswith("S") else 0
 
@@ -56,17 +56,17 @@ def parse_lesson(path: Path) -> dict:
     iso_tags = re.findall(r"ISO-\d+", meta_line)
 
     # Parse Sharpe
-    sharpe_match = re.search(r"Sharpe:\s*(\d+)", meta_line)
+    sharpe_match = re.search(r"\*{0,2}Sharpe\*{0,2}:\s*(\d+)", meta_line)
     sharpe = int(sharpe_match.group(1)) if sharpe_match else None
 
     # Parse domain
-    domain_match = re.search(r"Domain:\s*(\S+)", meta_line)
+    domain_match = re.search(r"\*{0,2}Domain\*{0,2}:\s*(\S+)", meta_line)
     domain = domain_match.group(1).strip() if domain_match else "unknown"
 
     # Parse Cites: line
     cites_line = ""
     for line in lines[:5]:
-        if line.startswith("Cites:"):
+        if re.match(r"\*{0,2}Cites\*{0,2}:", line):
             cites_line = line
             break
     explicit_cites = re.findall(r"\bL-(\d+)\b", cites_line)

@@ -325,7 +325,7 @@ def _scan_lesson_domains(lesson_dir):
     for lesson_file in lesson_dir.glob("L-*.md"):
         try:
             text = lesson_file.read_text(encoding="utf-8", errors="ignore")
-            m = re.search(r"Domain:\s*([^|\n]+)", text)
+            m = re.search(r"\*{0,2}Domain\*{0,2}:\s*([^|\n]+)", text)
             if not m:
                 continue
             for d in re.split(r"[,/]", m.group(1)):
