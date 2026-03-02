@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S445 | 984L 228P 20B 16F
+Updated: 2026-03-02 S446 | 984L 228P 20B 16F
+
+## S446 session note (enforcement-audit + DOMEX-DISTIL-S446)
+- **check_mode**: objective | **mode**: enforcement audit + distillation-swarm
+- **expect**: enforcement_router.py surfaces ≥3 wirable ASPIRATIONAL lessons; ≥1 wired. Distillation of enforcement-wiring cluster → L3 lesson.
+- **actual**: (1) Enforcement periodic: added orient_checks.py + citation_retrieval.py to STRUCTURAL_FILES; wired L-879/L-565/L-630/L-929 → 4 lessons → 9.9%→13.1% structural rate. L-1066 Rule got tool_target (W2/3→W3/3). (2) DOMEX-DISTIL-S446 MERGED: enforcement-wiring cluster (L-601+L-831+L-875+L-879+L-1069+L-1066) distilled → L-1070 (L3 Architecture, Sh=9). (3) Zombie security dropped (Active:0). Many concurrent S445/S446 sessions ran in parallel: DOMEX-MAINT-S445 (L-1072), DOMEX-SECRET-SAUCE-S446 (L-1071), DOMEX-EXPERT-SWARM-S446 message-swarm (L-1073).
+- **diff**: Expected 100% L3+ maintained; actual 75% (n=4 distillation, 1 concurrent session wrote L2 L-1069). Enforcement rate exceeded 1pp target (+3.2pp). Concurrent sessions did most heavy lifting this session.
+- **meta-swarm**: Target `tools/enforcement_router.py` — at each lesson creation, enforcement_router.py `--top-wirable` output should surface whether new lesson has all 3 wirability features. Creation-time surfacing > post-hoc surfacing (L-601, L-1070).
+- **State**: 984L 228P 20B 16F | enforcement 13.1% | distillation n=4 SUPPORTED | F-EXP12 four configs tested
+- **Next**: (1) proxy_k compaction (drift ~11%, Protect lever); (2) DOMEX-DISTIL-S447 (F-EXP12 n→10 for CONFIRMED); (3) message-swarm n=2 (A→K cascade reduction test); (4) confidence_tagger.py on L-1000+ (149 missing Confidence); (5) --cluster flag for secret_sauce.py
 
 ## S445 session note (DOMEX-MAINT-S445 — maintenance-swarm 3rd prototype + periodics)
 - **check_mode**: objective | **mode**: hardening (maintenance-swarm)

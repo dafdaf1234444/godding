@@ -7656,7 +7656,7 @@
     },
     {
       "session": 445,
-      "timestamp": "2026-03-02T12:58:41Z",
+      "timestamp": "2026-03-02T13:07:09Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -7724,11 +7724,8 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 7,
+          "count": 4,
           "severities": [
-            "PERIODIC",
-            "PERIODIC",
-            "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -7748,11 +7745,9 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -7766,9 +7761,8 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
             "NOTICE"
           ]
         },
@@ -7788,11 +7782,9 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -7849,11 +7841,9 @@
           ]
         },
         "check_count_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_structure_layout": {
           "fired": false,
@@ -7932,20 +7922,16 @@
           "severities": []
         },
         "check_memory_md_size": {
-          "fired": false,
-          "count": 0,
-          "severities": []
-        },
-        "check_unpushed": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         }
       },
       "totals": {
-        "NOTICE": 14,
-        "PERIODIC": 7,
-        "DUE": 2
+        "NOTICE": 13,
+        "PERIODIC": 4
       }
     }
   ]

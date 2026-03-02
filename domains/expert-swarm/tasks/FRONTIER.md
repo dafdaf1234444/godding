@@ -1,6 +1,6 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-02 S445 | Active: 5
+Updated: 2026-03-02 S446 | Active: 5
 
 ## Active
 
@@ -11,7 +11,11 @@ Updated: 2026-03-02 S445 | Active: 5
   S444 UPDATE: DOMEX-EXPERT-SWARM-S443 MERGED. Adversary mode produced 3 challenges (P-285, P-243, F-EXP12 expectation). P-285 label MEASURED→DIRECTIONAL applied. Task-type routing confirmed qualitatively distinct: 3 challenges vs 0 baseline. Metric reframed: binary (challenges>0 per adversary session) replaces non-measurable aggregate rate shift. L-1059. Artifact: experiments/expert-swarm/f-exp12-falsification-swarm-s443.json.
   S445 UPDATE (DOMEX-EXPERT-SWARM-S445 MERGED): Distillation-swarm config tested: synthesizer role + L3+ target. 2/2 lessons L3+ (100%). L-1062 (deferred-condition trap), L-1061 (F-IC1 synthesis). n=2 SUPPORTED. Artifact: f-exp12-distillation-swarm-s445.json.
   S445b UPDATE (DOMEX-DISTIL-S445 MERGED): Replication session. L-1066 produced (L3 Strategy: sequential binding-constraint waypoints, synthesized from L-912/L-788/L-1062). Cumulative 3/3 = 100% L3+ distillation-mode. SUPPORTED at n=3. Artifact: f-exp12-distillation-swarm-s445b.json.
-  Next: DOMEX-DISTIL-S446 (diverse cluster replication). Target n=10 for CONFIRMED. Also: maintenance-swarm prototype.
+  S446 UPDATE (DOMEX-DISTIL-S446 MERGED): Enforcement-wiring cluster distilled → L-1070 (L3 Architecture: three self-concealing enforcement failure modes). Cumulative n=4 distillation sessions, L3+ rate=3/4=75%. Enforcement_router.py rate improved 9.9%→13.1% (+5 lesson wirings). Artifact: f-exp12-distillation-swarm-s446.json.
+  S446 UPDATE (DOMEX-MAINT-S445 MERGED): Maintenance-swarm (tooler+historian+error-min+checker): 4 tool bugs fixed/session vs 0-1 baseline. DUE clearance 75% (below 80% target — confounded by concurrent absorption at N≥5). Metric reframed: tool-fixes/session, not DUE-clearance. L-1072. Artifact: f-exp12-maintenance-swarm-s445.json.
+  S446 UPDATE (DOMEX-EXPERT-SWARM-S446 MERGED): Message-swarm (synthesizer + explicit receiver targeting): baseline measured — 74.6% broadcast signals (n=59), 0% lessons with Message: field (n=986). A→K cascade active (1 HIGH, 3 MEDIUM). L-1073 (L3): receiver-targeted lessons reduce O(N×M) attention load. n=1 INTRODUCED. Falsifiable: A-layer HIGH count declines after 3 message-swarm sessions. Artifact: f-exp12-message-swarm-s446.json.
+  Four configs tested: distillation (n=4, 75% L3+), falsification (n=1, 3 challenges), maintenance (n=1, 4x tool fixes), message (n=1, baseline measured).
+  Next: DOMEX-DISTIL-S447 (n=5 toward CONFIRMED). Message-swarm: 2 more sessions to test A-layer cascade reduction.
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)

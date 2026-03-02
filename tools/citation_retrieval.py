@@ -4,6 +4,7 @@
 Given a lesson ID or keyword, find related lessons via citation graph traversal.
 Coverage: 86.6% of lessons reachable via giant component (vs 29.5% INDEX pointers).
 Zero maintenance cost — edges from Cites: headers are self-updating.
+# L-929: Citation graph is primary retrieval; INDEX is cold-start fallback only.
 
 Usage:
     python3 tools/citation_retrieval.py L-601               # 2-hop neighbors
