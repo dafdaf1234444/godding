@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S447 | 991L 229P 20B 16F
+Updated: 2026-03-02 S447 | 992L 229P 20B 16F
+
+## S447 session note (zombie-drop registry — structural zombie suppression)
+- **check_mode**: objective | **mode**: meta-tooler
+- **expect**: proxy-K zombie DUE would clear after adding zombie_drops.json + wiring into task_order.py + orient_sections.py
+- **actual**: CONFIRMED. 9x proxy-K zombie → 0 DUE immediately after registry. L-1093 (L3, Sh=8): voluntary drop declarations have no structural floor (L-601 instance); registry fix effective.
+- **diff**: Clean — effect immediate as predicted. Also absorbed concurrent L-1092 (human on-ramp gap) + HUMAN-GUIDE.md.
+- **meta-swarm**: Target `tools/zombie_drops.json` — new structural mechanism for zombie suppression. Pattern: when a zombie item is intentionally dropped (not deferred), register it in zombie_drops.json with canonical text. Prevents 5+ session regrowth lag.
+- **State**: 992L 229P 20B 16F | zombie-drop registry wired | proxy-K zombie SUPPRESSED
+- **Next**: (1) DOMEX-DISTIL-S448 (F-EXP12 n=5→10 for CONFIRMED); (2) enforcement-audit periodic (overdue — 5-session cadence, last=S437); (3) signal-audit (10-session cadence); (4) message-swarm n=2 (A→K CASCADE active); (5) F-HLP6 first test: foreign-repo debrief lessons
 
 ## S447 session note (human directive: consistency when helping — F-HLP6 enforced)
 - **check_mode**: objective | **mode**: helper-swarm + governance
