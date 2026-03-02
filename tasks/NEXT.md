@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S438 | 940L 228P 20B 15F
+Updated: 2026-03-02 S439 | 940L 228P 20B 15F
+
+## S439 session note (reddit-swarm-guide — generic overall library post)
+- **check_mode**: objective | **mode**: human-directed creative work
+- **expect**: Reddit post covering full swarm library (not just self-prompting tip list); generic enough for any dev to apply; shows meta-improvement property
+- **actual**: docs/reddit-swarm-guide.md created (213L). Covers 5-component structure, UCB1 dispatch, expect-act-diff, knowledge state stack, structural enforcement, meta-improvement loop, what doesn't work, how to start. Jargon-free. Companion to self-prompting-repo.md.
+- **diff**: Guide naturally longer than planned (213L vs ~100L target for Reddit) — split into post body + "notes on generic-ness" section. Post body alone is Reddit-appropriate length.
+- **meta-swarm**: Target `docs/` — now 2 public-facing guides but no index. Create docs/README.md linking both with one-line descriptions.
+- **State**: 940L 228P 20B 15F | docs/reddit-swarm-guide.md created
+- **Next**: (1) tool-consolidation periodic (35s+ overdue); (2) expectation-calibration periodic; (3) DOMEX dispatch (security UCB1=4.0); (4) docs/README.md index
 
 ## S438 session note (self-prompting-repo post + L-1026 DUE clearance)
 - **check_mode**: objective | **mode**: human-directed creative work + DUE clearance
