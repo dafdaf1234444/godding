@@ -81,6 +81,45 @@ def check_bridge_sync() -> Dict[str, Dict]:
     return results
 
 
+def extract_swarm_protocol_tools(swarm_path: str = "SWARM.md") -> Set[str]:
+    """Extract tool invocations from SWARM.md protocol steps (python3 tools/*.py)."""
+    tools = set()
+    if not os.path.exists(swarm_path):
+        return tools
+    with open(swarm_path, 'r') as f:
+        content = f.read()
+    for match in re.finditer(r'`(python3 tools/\w+\.py)`', content):
+        tools.add(match.group(1))
+    return tools
+
+
+def check_swarm_parity(sync_status: Dict) -> List[str]:
+    """Check bridge Minimum Swarmed Cycle sections against SWARM.md tool references."""
+    gaps = []
+    swarm_tools = extract_swarm_protocol_tools()
+    if not swarm_tools:
+        return gaps
+
+    for name, data in sync_status.items():
+        if not data.get("exists"):
+            continue
+        min_cycle = data.get("sections", {}).get("min_cycle", "")
+        missing = []
+        for tool in sorted(swarm_tools):
+            if tool not in min_cycle:
+                path = get_bridge_files().get(name, "")
+                if path and os.path.exists(path):
+                    with open(path, 'r') as f:
+                        full = f.read()
+                    if tool not in full:
+                        missing.append(tool)
+                else:
+                    missing.append(tool)
+        if missing:
+            gaps.append(f"SWARM.md parity: {name} missing {missing}")
+    return gaps
+
+
 def find_sync_gaps(sync_status: Dict) -> List[str]:
     """Find potential synchronization gaps between bridge files."""
     gaps = []
@@ -106,6 +145,10 @@ def find_sync_gaps(sync_status: Dict) -> List[str]:
 
         if bridges_without_section and len(bridges_with_section) > 0:
             gaps.append(f"Section '{section}' in {bridges_with_section} but missing from {bridges_without_section}")
+
+    # Check canonical source parity (SWARM.md → bridges)
+    swarm_gaps = check_swarm_parity(sync_status)
+    gaps.extend(swarm_gaps)
 
     return gaps
 
