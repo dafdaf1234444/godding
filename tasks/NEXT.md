@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S436 | 936L 228P 20B 15F
+Updated: 2026-03-02 S436 | 937L 228P 20B 15F
 
 ## S435 session note (DOMEX-LNG — LCPD unity: Zipf, compactification, protocols, dependency)
 - **check_mode**: objective | **mode**: linguistics expert dispatch (human-directed)
