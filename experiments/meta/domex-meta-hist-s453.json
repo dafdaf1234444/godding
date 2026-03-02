@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-HIST-S453",
+    "frontier": "F-META2",
+    "session": "S453",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "Frontier hygiene: \u22653 CONFIRMED/RESOLVED frontiers still in Active sections. Move to Resolved. K\u2192P ratio at 4.42 (BREAK) \u2014 extract \u22651 principle.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

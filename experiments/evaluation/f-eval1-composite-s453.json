@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EVAL-S453",
+    "frontier": "F-EVAL1",
+    "session": "S453",
+    "domain": "evaluation",
+    "date": "2026-03-03",
+    "expect": "Stale baselines in test_mission_constraints.py (5 items, session_constant=200, 251s stale) fixed. B-EVAL1 retested at N=1003.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

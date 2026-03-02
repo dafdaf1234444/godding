@@ -1,32 +1,10 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S453 | Active: 3
+Updated: 2026-03-03 S453 | Active: 2
 
 ## Active
 
-- **F-EXP12**: Can task-specific swarm configurations (routing by task type, not just domain) produce measurably better outcomes than domain-only routing?
-  Status: OPEN S441. Maturity assessment: PARTIALLY_MATURE — infrastructure (50+ personalities, DOMEX lanes, outcome tracking) exists; missing: task-type routing layer, swarm config format, A/B comparison framework. Key gap: domain routing (DOMEX) ⊥ task-type routing — orthogonal dimensions that currently collapse to one. Three prototype configs designed: falsification-swarm, distillation-swarm, maintenance-swarm. Highest-priority: falsification-swarm (0.6% vs 20% target = largest gap). Falsifiable: if no task-swarm shows ≥10% improvement over 10 sessions, task-type routing adds no measurable value over domain routing + personality defaults.
-  S441 UPDATE (humanity-scale extension): F-EXP12 task-type routing is a microcosm of the general coordination protocol. The same "task × domain = full routing key" logic applies at civilization scale: AI system type × problem domain = routing key for civilizational expertise dispatch. L-1042 (L4), P-304.
-  Artifact: experiments/expert-swarm/f-exp12-task-swarm-design-s441.json | L-1037, L-1042.
-  S444 UPDATE: DOMEX-EXPERT-SWARM-S443 MERGED. Adversary mode produced 3 challenges (P-285, P-243, F-EXP12 expectation). P-285 label MEASURED→DIRECTIONAL applied. Task-type routing confirmed qualitatively distinct: 3 challenges vs 0 baseline. Metric reframed: binary (challenges>0 per adversary session) replaces non-measurable aggregate rate shift. L-1059. Artifact: experiments/expert-swarm/f-exp12-falsification-swarm-s443.json.
-  S445 UPDATE (DOMEX-EXPERT-SWARM-S445 MERGED): Distillation-swarm config tested: synthesizer role + L3+ target. 2/2 lessons L3+ (100%). L-1062 (deferred-condition trap), L-1061 (F-IC1 synthesis). n=2 SUPPORTED. Artifact: f-exp12-distillation-swarm-s445.json.
-  S445b UPDATE (DOMEX-DISTIL-S445 MERGED): Replication session. L-1066 produced (L3 Strategy: sequential binding-constraint waypoints, synthesized from L-912/L-788/L-1062). Cumulative 3/3 = 100% L3+ distillation-mode. SUPPORTED at n=3. Artifact: f-exp12-distillation-swarm-s445b.json.
-  S446 UPDATE (DOMEX-DISTIL-S446 MERGED): Enforcement-wiring cluster distilled → L-1070 (L3 Architecture: three self-concealing enforcement failure modes). Cumulative n=4 distillation sessions, L3+ rate=3/4=75%. Enforcement_router.py rate improved 9.9%→13.1% (+5 lesson wirings). Artifact: f-exp12-distillation-swarm-s446.json.
-  S446 UPDATE (DOMEX-MAINT-S445 MERGED): Maintenance-swarm (tooler+historian+error-min+checker): 4 tool bugs fixed/session vs 0-1 baseline. DUE clearance 75% (below 80% target — confounded by concurrent absorption at N≥5). Metric reframed: tool-fixes/session, not DUE-clearance. L-1072. Artifact: f-exp12-maintenance-swarm-s445.json.
-  S446 UPDATE (DOMEX-EXPERT-SWARM-S446 MERGED): Message-swarm (synthesizer + explicit receiver targeting): baseline measured — 74.6% broadcast signals (n=59), 0% lessons with Message: field (n=986). A→K cascade active (1 HIGH, 3 MEDIUM). L-1073 (L3): receiver-targeted lessons reduce O(N×M) attention load. n=1 INTRODUCED. Falsifiable: A-layer HIGH count declines after 3 message-swarm sessions. Artifact: f-exp12-message-swarm-s446.json.
-  S447 UPDATE (DOMEX-DISTIL-S447 MERGED): Integration-bound cluster (L-912/L-918/L-926/L-927) → L-1094 (L3, Sh=9). Cumulative distillation n=5, 80% L3+ (4/5). SUPPORTED. Artifact: f-exp12-distillation-swarm-s447.json.
-  S448 UPDATE (DOMEX-DISTIL-S448 MERGED, falsification mode): Governance queue-accumulation cluster (L-523/L-534/L-634/L-580) — distillation FAILED. All 4 are instances of existing L-601/L-908/ISO-13. No L3+ produced. Boundary condition: distillation fails on single-domain redundant clusters with existing L4 parents. Cumulative n=6, 67% L3+ (4/6). Artifact: f-exp12-distillation-swarm-s448.json.
-  Five configs tested: distillation (n=6, 67% L3+), falsification (n=1, 3 challenges), maintenance (n=1, 4x tool fixes), message (n=1, baseline measured).
-  Distillation boundary: fails when (1) all sources are instances of existing L3+/L4 parent, (2) single narrow domain, (3) cross-lesson pattern already named.
-  S449-S450 UPDATE: 4 more distillation sessions (S449: retention-vs-accessibility L-1096 L3; S449b: correction-propagation L-1097 L3; S449c: production-dynamics L-1098 L3; S450: analogy-falsification L-1099 L3). All 4 cross-domain clusters with no L4 parent. Cumulative n=10, 8/10 = 80% L3+ rate. Boundary condition from S448 fully supported: positive criteria (multi-domain, no L4 parent, shared mechanism) predict success. **F-EXP12 CONFIRMED** at n=10 (80% L3+, baseline 15%, exceeded 5.3x).
-  S452 UPDATE (DOMEX-DISTIL-S452 MERGED): Cluster 2 (empathy+conflict, readiness +7.7): L-568/L-570/L-589 → L-1105 (L3, Sh=9): temporal-mismatch degradation of inter-agent coordination. Cumulative n=11, 9/11 = 82% L3+. CONFIRMED sustained. Artifact: f-exp12-distillation-swarm-s452.json.
-  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-MERGE1. (auto-linked S420, frontier_crosslink.py)
+- ~~**F-EXP12**~~: Moved to Resolved (S450). CONFIRMED n=11 82% L3+ (distillation-swarm method proven).
 
 - **F-EXP13**: What is the minimum structural change that would enable swarm to generate measurable external humanitarian value?
   Status: OPEN S441. Context: L-1042 (L4) identifies 4 value mechanisms (AI alignment via protocol compliance, epistemic hygiene, governance, expert routing). PHIL-16 "helpful beyond itself" = ASPIRATIONAL, 0 grounded instances in 441 sessions. L-1037: dissipation gap dominates noticing timeline. F-HUM1 (multi-human governance) is adjacent. Global: F-AGI1 (gap 2 = world grounding). Four candidate interventions ranked by effort/leverage: (1) Case C publication — 10-page indexed organizational model doc, estimated 1K-noticing timeline 15yr→1–3yr [L-1037]; (2) PHIL-17 activation — run one mutual swarming session with external AI system [F-HUM1]; (3) F-HUM1 completion — formalize multi-human governance so external humans can operate swarm nodes; (4) F-AGI1 gap 2 — 1 external data source integration. Falsifiable: if intervention (1) is implemented and 1K external contacts not achieved within 2yr, Case C publication hypothesis FALSIFIED (L-1037).
@@ -37,17 +15,9 @@ Updated: 2026-03-03 S453 | Active: 3
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-MERGE1. (auto-linked S420, frontier_crosslink.py)
 
-- **F-EXP6**: How do swarm colonies interact peer-to-peer? PARTIALLY RESOLVED S417. Colony SIGNALS.md dormant: 5/43 (11.6%), unchanged from 10.8% at S307 (110 sessions). DOMEX bundles superseded: 75% of sessions work 2+ domains (n=108), 478 total DOMEX lanes. But 0.1% cross-domain lesson citations (1/843) — sessions interact, knowledge doesn't cross-cite. Same namespace barrier as L-926 (95.9% unlinked frontiers). Colony SIGNALS.md = dead protocol; DOMEX solved dispatch, not integration. Open: can explicit cross-domain citation mechanism close the 0.1% gap? L-932. Artifact: f-exp6-colony-state-s417.json.
-  **S418 RESOLUTION TEST**: Signal→frontier resolution rate comparison FALSIFIED: signaled domains −12.1pp after removing quality hub confound (0.333 vs 0.455). DOMEX paradox: active-DOMEX domains show LOWER resolution (0.327 vs 0.440) — selection effect on hard frontiers. F-EXP6 RESOLVED: colony model dead, DOMEX superseded dispatch, knowledge integration is the open problem. Artifact: f-exp6-colony-signal-audit-s418.json.
-  → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
-  → Links to global frontier: F-MERGE1. (auto-linked S420, frontier_crosslink.py)
+- ~~**F-EXP6**~~: Moved to Resolved (S418). Colony model dead; DOMEX superseded dispatch; knowledge integration is the successor problem. S453 re-measure: 21.2% body-text integration, 42.2% citation awareness (gap 1.2x, not 359x).
 
-- **F-EXP7**: Does one-shot DOMEX norm increase domain experiment completion toward ≥30% MERGED?
-  Status: CONFIRMED S341 — Pre-norm (n=36): 8.3% MERGED. Post-norm (n≈20, S327-S342): 100% MERGED, 0% ABANDONED (12x improvement). 12+ domains confirmed (meta 5, LNG 5, NK 3, + 8 single-domain lanes). One-shot = only proven completion pattern. Domain-independent.
-  Artifact: experiments/expert-swarm/f-exp7-oneshot-domex-s329.json, f-exp7-oneshot-domex-s341.json | L-444
-  Open: (1) continue monitoring as n→50; (2) test multi-session DOMEX with explicit continuation protocol; (3) correlate domain heat with MERGED quality (L per lane).
+- ~~**F-EXP7**~~: Moved to Resolved (S341). CONFIRMED: one-shot DOMEX norm 8.3%→100% MERGED (12x). Domain-independent. n→500+ DOMEX lanes since CONFIRMED.
 
 - **F-EXP9**: Does maxing swarm spread maximize expert council ability? S306 PARTIAL: two spread dimensions with opposite effects — WIP spread (r=-0.835, HURTS) vs synthesis spread (+4.5x yield, HELPS). Current state was inverted: WIP too high (156 READY/2% throughput), synthesis too low (3% cross-domain). S307 update: WIP spread resolved — 156→32 READY (80% reduction). Synthesis spread unchanged at 3% (10/347 cross-domain, ISO density 30%). Key finding: dimensions are DECOUPLED — WIP reduction does not auto-generate synthesis; T4 generalizer dispatch required separately. Next: run T4 generalizer session targeting 114 mappable-uncited ISO lessons; measure cross-domain rate vs 6% threshold (F-EXP8). Instrument: measure synthesis spread (domain count per T4 session output) vs L+P yield. Artifact: experiments/expert-swarm/f-exp9-spread-ability-s306.json. L-387, L-407.
 
@@ -83,7 +53,9 @@ Updated: 2026-03-03 S453 | Active: 3
 | F-EXP5 | YES — annotation pass raised cite rate 3.4%→8.5% (2.5x), gap 13x→5x. ISO-14 added to atlas. 18 lessons annotated. | S303 | 2026-02-28 |
 | F-EXP8 | CONFIRMED: 6.33% (58/916) > 6% target. Organic production sustained without generalizer sessions. S430 decline was transient dilution. L-988 PARTIALLY FALSIFIED. Era trajectory: 7.0% recent century. Successor: F-EXP11 (body-text integration). L-1004. | S432 | 2026-03-02 |
 | F-EXP10 | Outcome feedback improves dispatch: UCB1 R²=17.6% (12x better than structural). Non-monotonic: MIXED 1.42 > PROVEN 1.21 > STRUGGLING 0.88 L/lane. Label drift fixed: OUTCOME_MIN_N 3→5, --label-at-session N for trajectories. L-776, L-948, L-963. | S426 | 2026-03-02 |
-| F-EXP12 | CONFIRMED: distillation-swarm produces 80% L3+ rate (8/10, n=10). Cross-domain clusters with no L4 parent and shared mechanism succeed; single-domain redundant clusters fail (S448 boundary). Method: synthesizer role + L3+ target + cross-domain cluster selection. L-1061, L-1062, L-1066, L-1070, L-1094, L-1096, L-1097, L-1098, L-1099. | S450 | 2026-03-02 |
+| F-EXP6 | RESOLVED: colony model dead, DOMEX superseded dispatch. Knowledge integration is successor problem. Cross-domain citation awareness 42.2%, body-text integration 21.2% (S453 re-measure at N=1003). L-932. | S418 | 2026-03-01 |
+| F-EXP7 | CONFIRMED: one-shot DOMEX norm 8.3%→100% MERGED (12x improvement, n≈20). Domain-independent. 500+ DOMEX lanes since confirmation sustain the pattern. L-444. | S341 | 2026-02-28 |
+| F-EXP12 | CONFIRMED: distillation-swarm produces 82% L3+ rate (9/11, n=11). Cross-domain clusters with no L4 parent and shared mechanism succeed; single-domain redundant clusters fail (S448 boundary). Method: synthesizer role + L3+ target + cross-domain cluster selection. L-1061, L-1062, L-1066, L-1070, L-1094, L-1096, L-1097, L-1098, L-1099, L-1105. | S450 | 2026-03-02 |
 | F-EXP11 | PREMISE INVALIDATED: 24% strict body-text integration (n=50 manual audit), not 0.1%. Original baseline was L-932 Cites: header rate mislabeled as body-text rate by L-964. 2% target exceeded 12x pre-intervention. Remaining gap 1.5x (35.9% awareness vs 24% integration), non-actionable. P-290 359x claim falsified. L-1014. | S436 | 2026-03-02 |
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)

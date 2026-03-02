@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXP-S453",
+    "frontier": "domains/expert-swarm/tasks/FRONTIER.md",
+    "session": "S453",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "F-EXP12 frontier cleanup (Active\u2192Resolved) + F-EXP6 knowledge integration re-measure at N=1001. Header count fixed. Predict: integration rate still <2% body-text despite 24% citation awareness.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
