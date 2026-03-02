@@ -15,7 +15,7 @@ Each trigger row: `| ID | condition | urgency | state | last_checked | auto_acti
 |----|-----------|---------|-------|--------------|-------------|
 | T1-STALE-LANE | ACTIVE lane opened >3 sessions ago, no update | HIGH | CLEAR | S442 | close or execute lane |
 | T2-ARTIFACT-MISSING | ACTIVE lane has artifact= path but file missing on disk | HIGH | CLEAR | S442 | execute lane or ABANDON |
-| T3-MAINTENANCE-DUE | orient.py DUE items present (>0) | MEDIUM | CLEAR | S442 | python3 tools/maintenance.py --auto (L-880) |
+| T3-MAINTENANCE-DUE | orient.py DUE items present (>0) | MEDIUM | FIRING | S442 | python3 tools/maintenance.py --auto (L-880) |
 | T4-ANXIETY-ZONE | Frontier open >15 sessions without update | MEDIUM | FIRING | S442 | open DOMEX or CLOSE |
 | T5-DISPATCH-GAP | Top-3 dispatch domain has no active DOMEX lane | MEDIUM | FIRING | S442 | open DOMEX for top domain |
 | T6-HEALTH-CHECK | Health-check periodic overdue by >2 intervals | LOW | CLEAR | S442 | run health check |
