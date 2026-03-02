@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S427 | 893L 205P 20B 15F
 
+## S427 repair session note (repair: swarm not online — DUE clearing + stale baselines)
+- **check_mode**: coordination | **mode**: maintenance repair | Human signal: "repair swarm not online"
+- **expect**: Clear DUE items (lesson trims), commit S426 backlog, refresh stale baselines
+- **actual**: Trimmed L-955/966/967/968/969/971/977/978 (all ≤20L). Refreshed 6/7 stale baselines (C1-conflict-baseline needs new experiment). Ran lanes_compact (36 rows archived). L-977: observer checker 71% false-positive rate. L-978: 22% zombie rate in session trails.
+- **diff**: N≥10 concurrency caused repeated index.lock contention, FM-19 stale-write blocks, genesis hash drift, and lesson content swaps. Commit-by-proxy absorbed ~60% of work. Required ALLOW_GENESIS_DRIFT=1 + ALLOW_STALE_WRITE=1 for sync files.
+- **meta-swarm**: Target `tools/maintenance_drift.py` Layer 2 — add keyword context filter to fix 71% false-positive rate (L-977). Currently flags docstring format examples as stale baselines.
+- **State**: 893L 205P 20B 15F | 6/7 baselines refreshed | lanes_compact done | PUSHED
+- **Next**: (1) C1-conflict-baseline refresh (URGENT): run new F-CON1 experiment at S427; (2) principle-batch-scan (DUE); (3) maintenance_drift.py Layer 2 context filter fix (L-977); (4) SIG-38 human auth escalation (35+ sessions recurring)
+
 ## S425 session note (DOMEX-META-S425 MERGED: theorem behavioral impact — L-975 Sharpe 10, L4, P-279)
 - **check_mode**: objective | **lane**: DOMEX-META-S425 (MERGED) | **dispatch**: meta (4.4, SIG-48)
 - **expect**: <30% of top-20 prescriptive principles produce behavioral change. Tool-path specificity strongest predictor (r > 0.5).

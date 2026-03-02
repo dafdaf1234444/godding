@@ -384,119 +384,119 @@ S374	| 2026-03-01 | +1L (L-686) +0P | DOMEX-FAR-S374: F-FAR3 RESOLVED — monocu
 S374	| 2026-03-01 | +1L (L-686) +0P | DOMEX-FAR-S374: F-FAR3 monoculture HHI CONFIRMED (confounded) — raw r=-0.81 but partial r=-0.04 controlling meta_share. Meta IS monoculture (r=0.979). Farming domain first DOMEX since S189. Cross-validates F-ECO5+F-FAR1. 621L 179P 17B 39F.
 S374	| 2026-03-01 | +1L (L-688) +0P | DOMEX-CACHE-S374: HEAD-keyed caching — orient.py 11.9s→4.4s (63%), maintenance.py 7.0s→0.5s (93%). swarm_cache.py: HeadCache + FileCache. 33/36 maintenance checks cacheable. check_uncommitted (2.4s) dominates warm floor. 622L 179P 17B 39F.
 S374	| 2026-03-01 | +1L (L-704) +0P | DOMEX-EVO-S374: F-EVO3 RESOLVED — protocol cadence self-regulates (quality r=+0.40 stable, destab DECLINING +0.14→+0.09, overhead REVERSED +0.10→-0.05). 3 epochs across 188 sessions. Evolution domain first resolved frontier.
-S57	| 2026-03-02 | +2L (L-120, L-128) +?P | 
-S58	| 2026-03-02 | +1L (L-122) +?P | 
-S59	| 2026-03-02 | +1L (L-123) +?P | 
-S60	| 2026-03-02 | +1L (L-125) +?P | 
-S61	| 2026-03-02 | +1L (L-126) +?P | 
-S62	| 2026-03-02 | +1L (L-129) +?P | 
-S64	| 2026-03-02 | +2L (L-130, L-131) +?P | 
-S65	| 2026-03-02 | +2L (L-134, L-135) +?P | 
-S66	| 2026-03-02 | +1L (L-136) +?P | 
-S67	| 2026-03-02 | +1L (L-137) +?P | 
-S68	| 2026-03-02 | +2L (L-138, L-139) +?P | 
-S69	| 2026-03-02 | +2L (L-140, L-143) +?P | 
-S70	| 2026-03-02 | +1L (L-148) +?P | 
-S71	| 2026-03-02 | +1L (L-144) +?P | 
-S73	| 2026-03-02 | +2L (L-145, L-146) +?P | 
-S75	| 2026-03-02 | +3L (L-149, L-150, L-151) +?P | 
-S76	| 2026-03-02 | +3L (L-152, L-153, L-154) +?P | 
-S77	| 2026-03-02 | +4L (L-155, L-156, L-157, L-162) +?P | 
-S78	| 2026-03-02 | +6L (L-158, L-160, L-161, L-163, L-164... +1) +?P | 
-S79	| 2026-03-02 | +1L (L-165) +?P | 
-S80	| 2026-03-02 | +3L (L-168, L-169, L-171) +?P | 
-S81	| 2026-03-02 | +4L (L-170, L-173, L-174, L-176) +?P | 
-S82	| 2026-03-02 | +3L (L-172, L-175, L-177) +?P | 
-S83	| 2026-03-02 | +1L (L-178) +?P | 
-S85	| 2026-03-02 | +1L (L-182) +?P | 
-S86	| 2026-03-02 | +1L (L-179) +?P | 
-S87	| 2026-03-02 | +1L (L-181) +?P | 
-S88	| 2026-03-02 | +1L (L-183) +?P | 
-S90	| 2026-03-02 | +1L (L-184) +?P | 
-S91	| 2026-03-02 | +1L (L-185) +?P | 
-S92	| 2026-03-02 | +1L (L-186) +?P | 
-S93	| 2026-03-02 | +1L (L-187) +?P | 
-S94	| 2026-03-02 | +1L (L-188) +?P | 
-S98	| 2026-03-02 | +2L (L-192, L-193) +?P | 
-S99	| 2026-03-02 | +1L (L-194) +?P | 
-S101	| 2026-03-02 | +1L (L-195) +?P | 
-S102	| 2026-03-02 | +1L (L-198) +?P | 
-S107	| 2026-03-02 | +1L (L-199) +?P | 
-S108	| 2026-03-02 | +1L (L-200) +?P | 
-S109	| 2026-03-02 | +1L (L-201) +?P | 
-S110	| 2026-03-02 | +1L (L-202) +?P | 
-S111	| 2026-03-02 | +1L (L-203) +?P | 
-S112	| 2026-03-02 | +1L (L-204) +?P | 
-S119	| 2026-03-02 | +1L (L-205) +?P | 
-S125	| 2026-03-02 | +1L (L-206) +?P | 
-S144	| 2026-03-02 | +1L (L-207) +?P | 
-S172	| 2026-03-02 | +1L (L-213) +?P | 
-S177	| 2026-03-02 | +2L (L-221, L-222) +?P | 
-S192	| 2026-03-02 | +1L (L-316) +?P | 
-S193	| 2026-03-02 | +3L (L-319, L-321, L-323) +?P | 
-S196	| 2026-03-02 | +1L (L-331) +?P | 
-S198	| 2026-03-02 | +1L (L-335) +?P | 
-S286	| 2026-03-02 | +1L (L-333) +?P | 
-S298	| 2026-03-02 | +2L (L-334, L-336) +?P | 
-S299	| 2026-03-02 | +4L (L-337, L-338, L-339, L-340) +?P | 
-S300	| 2026-03-02 | +2L (L-341, L-343) +?P | 
-S302	| 2026-03-02 | +5L (L-347, L-351, L-353, L-354, L-356) +?P | 
-S303	| 2026-03-02 | +5L (L-357, L-358, L-361, L-365, L-370) +?P | 
-S304	| 2026-03-02 | +3L (L-360, L-362, L-367) +?P | 
-S305	| 2026-03-02 | +4L (L-366, L-369, L-377, L-385) +?P | 
-S357	| 2026-03-02 | +7L (L-614, L-615, L-617, L-618, L-623... +2) +?P | F-SP2 resolved + state sync + NEXT compact
-S359	| 2026-03-02 | +11L (L-633, L-634, L-636, L-639, L-640... +6) +?P | coordinator note + 586L sync — tool archive 116→101 complete
-S360	| 2026-03-02 | +1L (L-646) +?P | state-sync: fix 587L count drift in INDEX/NEXT/PAPER headers
-S361	| 2026-03-02 | +2L (L-651, L-652) +?P | wire Confidence: coverage check (WARN <90%) — L-651
-S362	| 2026-03-02 | +2L (L-653, L-655) +?P | L-655 periodics audit + L-644 trim + NEXT.md session note + state sync
-S365	| 2026-03-02 | +2L (L-659, L-661) +?P | 597→598L (L-661 commit-by-proxy absorbed)
-S366	| 2026-03-02 | +2L (L-662, L-664) +?P | state-sync: 599→600L count patch (L-664 added)
-S368	| 2026-03-02 | +4L (L-670, L-671, L-672, L-673) +?P | DOMEX-META-S368-REACH closure + session note + state sync
-S369	| 2026-03-02 | +2L (L-674, L-675) +?P | paper_drift.py Removed-line skip + L-674 title fix + DOMEX-HLP-S369 closure + ch
-S377	| 2026-03-02 | +5L (L-707, L-715, L-718, L-719, L-720) +?P | F-META10 CONFIRMED + state-sync (648L 179P 17B 41F)
-S378	| 2026-03-02 | +3L (L-716, L-717, L-721) +?P | L-726 trim + session note + state-sync
-S381	| 2026-03-02 | +8L (L-731, L-732, L-733, L-734, L-735... +3) +?P | DOMEX-EVAL-S381 MERGED + economy_expert fix + state-sync 669L
-S382	| 2026-03-02 | +4L (L-736, L-741, L-742, L-744) +?P | DOMEX-QC+STR — F-QC4 meta-bias + F-STR2 lane-awareness — L-744
-S383	| 2026-03-02 | +3L (L-743, L-745, L-748) +?P | DOMEX-SP-S383 MERGED + state-sync + orphaned artifacts 676L
-S384	| 2026-03-02 | +1L (L-747) +?P | DOMEX-QC-S383 MERGED + DOMEX-STR-S384 MERGED + L-747 corrected + close_lane.py 2
-S386	| 2026-03-02 | +2L (L-754, L-756) +?P | quality + expert-swarm INDEX fixes (F-QC4 resolved, F-EXP1 resolved)
-S387	| 2026-03-02 | +2L (L-757, L-759) +?P | DOMEX-NK-S387: P-222 principle-prompt +49% citation rate (t=3.66) + health 4.1/5
-S388	| 2026-03-02 | +2L (L-758, L-763) +?P | DOMEX-QC-S387: F-QC5 bullshit retest 20% + sync_state B/F counter bugs fixed — L
-S389	| 2026-03-02 | +7L (L-761, L-762, L-764, L-765, L-768... +2) +?P | DOMEX-IS-S389: F-IS4 coherence hardening — 29% collision rate is binding constra
-S390	| 2026-03-02 | +5L (L-766, L-767, L-769, L-770, L-771) +?P | DOMEX-STR-S390b: mode enforcement in open_lane.py + dispatch_optimizer — L-770
-S391	| 2026-03-02 | +4L (L-772, L-774, L-775, L-776) +?P | DOMEX-GUE-S391: F-GUE1 hardening — Fermi decomposition 2/2 within 1 OOM + state 
-S392	| 2026-03-02 | +7L (L-777, L-778, L-779, L-781, L-782... +2) +?P | DOMEX-STR-S392c session note + maintenance summary
-S393	| 2026-03-02 | +6L (L-786, L-787, L-788, L-789, L-791... +1) +?P | DOMEX-NK-S393: F-NK5 tracking N=713 — K_avg=2.5610, hub inflation corrected — L-
-S394	| 2026-03-02 | +3L (L-792, L-795, L-838) +?P | session note + state-sync (760L 200P) + validate_beliefs PASS
-S395	| 2026-03-02 | +6L (L-796, L-798, L-799, L-800, L-802... +1) +?P | DOMEX-EVAL-S395: belief freshness retest — 4/4 CONFIRMED, stratified sampling me
-S396	| 2026-03-02 | +4L (L-801, L-804, L-805, L-807) +?P | DOMEX-SOC-S396: F-SOC1/F-SOC4 hardening — pre-registered protocols — L-807
-S397	| 2026-03-02 | +5L (L-810, L-811, L-813, L-814, L-816) +?P | principle-batch-scan + DOMEX-NK-S397 session note + state sync
-S398	| 2026-03-02 | +7L (L-815, L-817, L-820, L-821, L-824... +2) +?P | economy-health + DOMEX-BRN-S398b + health check 4.4/5
-S399	| 2026-03-02 | +9L (L-822, L-823, L-830, L-831, L-835... +4) +?P | DOMEX-SP-S399 session note — F-SP4 RESOLVED 5-force model, health check 4.3/5
-S400	| 2026-03-02 | +4L (L-841, L-843, L-845, L-846) +?P | L-848 trim + L-847 lesson count fix
-S402	| 2026-03-02 | +5L (L-856, L-858, L-859, L-860, L-864) +?P | DOMEX-SOC-S402 session note — F-SOC3 power-law pre-registration, session_classif
-S403	| 2026-03-02 | +11L (L-861, L-862, L-863, L-865, L-868... +6) +?P | DOMEX-META-S403: enforcement wiring + PHIL parser bug fix — L-874
-S404	| 2026-03-02 | +5L (L-866, L-873, L-876, L-877, L-878) +?P | DOMEX-META-S404 classify_actionability() — true prescription gap 41.7% (not 84%)
-S405	| 2026-03-02 | +8L (L-879, L-880, L-881, L-882, L-883... +3) +?P | DOMEX-GAM-S405 + DOMEX-QC-S405: F-GAM2 RESOLVED (EAD +12.5pp) + F-QC5 RESOLVED (
-S406	| 2026-03-02 | +7L (L-888, L-889, L-890, L-891, L-892... +2) +?P | meta-GC: check_count_drift() in maintenance.py + 4-timescale GC model — L-894
-S407	| 2026-03-02 | +3L (L-895, L-896, L-897) +?P | council structure: check_council_health() DUE wiring + META seats + COUNCIL-STRU
-S408	| 2026-03-02 | +2L (L-898, L-899) +?P | DOMEX-EVAL-S408: F-EVAL2 external grounding 5.0% + handoff — L-898 P-269
-S409	| 2026-03-02 | +2L (L-900, L-905) +?P | DOMEX-META-S409 MERGED: SIG-1 resolved — tools/nodes.py + 3-tool node generaliza
-S410	| 2026-03-02 | +6L (L-901, L-902, L-903, L-904, L-906... +1) +?P | untracked S410 artifacts — L-906, eval-sufficiency, f-meta2 experiment
-S411	| 2026-03-02 | +10L (L-908, L-909, L-910, L-911, L-912... +5) +?P | FM-18 guard wired + collision check refactor + L-922 — check.sh structural
-S412	| 2026-03-02 | +2L (L-917, L-918) +?P | DOMEX-EXP-S412 MERGED: F-EXP4 PARTIALLY RESOLVED — colony +23.9pp merge confound
-S413	| 2026-03-02 | +3L (L-919, L-920, L-924) +?P | state sync 838L + NK tracking S415 + session note
-S414	| 2026-03-02 | +1L (L-921) +?P | DOMEX-SEC+META bundle MERGED — L-923 L-925, SIG-39 RESOLVED, periodics synced — 
-S415	| 2026-03-02 | +3L (L-923, L-927, L-928) +?P | open_lane.py --role + science quality 28.4% + meta-tooler dispatch
-S416	| 2026-03-02 | +2L (L-929, L-933) +?P | trim-collision fixed + 3 lanes MERGED + L-933 — 847L 202P SWARMABILITY 100
-S417	| 2026-03-02 | +3L (L-926, L-931, L-932) +?P | S417 session note — L-931 close_lane guard + concurrent harvest
-S418	| 2026-03-02 | +4L (L-925, L-930, L-934, L-935) +?P | human-signal-harvest P-275 + domain INDEX fixes + sync
-S419	| 2026-03-02 | +1L (L-936) +?P | L-936 trimmed to 16 lines + count sync 850L
-S420	| 2026-03-02 | +4L (L-937, L-938, L-946, L-947) +?P | health-check S419 + change-quality-check S420 cleared — 3.7/5 ADEQUATE health, 2
-S421	| 2026-03-02 | +3L (L-939, L-940, L-942) +?P | L-942 trimmed to 19 lines (was 25, DUE)
-S422	| 2026-03-02 | +4L (L-941, L-943, L-945, L-952) +?P | DOMEX-CAT-S422 MERGED: FM-19 hardening — collision surface (74.5% in 5 files) + 
-S423	| 2026-03-02 | +3L (L-944, L-948, L-950) +?P | principles-dedup: P-278 heterogeneous-dispatch + P-252 duplicate removed + P-246
-S424	| 2026-03-02 | +3L (L-949, L-951, L-953) +?P | principles-dedup S392→S424 — P-213/P-219/P-091 SUPERSEDED (206→203)
-S425	| 2026-03-02 | +2L (L-954, L-966) +?P | concurrent artifacts — L-955, orient decomposition modules, genesis hash S426
-S426	| 2026-03-02 | +11L (L-955, L-956, L-957, L-958, L-959... +6) +?P | F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED + swarm_colony.py 40x speedup
-S427	| 2026-03-02 | +7L (L-964, L-967, L-968, L-970, L-971... +2) +?P | L-403 trim: 22→20 lines (ISG lesson — DUE maintenance)
+S57	| 2026-03-02 | +2L (L-120, L-128) +0P | 
+S58	| 2026-03-02 | +1L (L-122) +0P | 
+S59	| 2026-03-02 | +1L (L-123) +0P | 
+S60	| 2026-03-02 | +1L (L-125) +0P | 
+S61	| 2026-03-02 | +1L (L-126) +0P | 
+S62	| 2026-03-02 | +1L (L-129) +0P | 
+S64	| 2026-03-02 | +2L (L-130, L-131) +0P | 
+S65	| 2026-03-02 | +2L (L-134, L-135) +0P | 
+S66	| 2026-03-02 | +1L (L-136) +0P | 
+S67	| 2026-03-02 | +1L (L-137) +0P | 
+S68	| 2026-03-02 | +2L (L-138, L-139) +0P | 
+S69	| 2026-03-02 | +2L (L-140, L-143) +0P | 
+S70	| 2026-03-02 | +1L (L-148) +0P | 
+S71	| 2026-03-02 | +1L (L-144) +0P | 
+S73	| 2026-03-02 | +2L (L-145, L-146) +0P | 
+S75	| 2026-03-02 | +3L (L-149, L-150, L-151) +0P | 
+S76	| 2026-03-02 | +3L (L-152, L-153, L-154) +0P | 
+S77	| 2026-03-02 | +4L (L-155, L-156, L-157, L-162) +0P | 
+S78	| 2026-03-02 | +6L (L-158, L-160, L-161, L-163, L-164... +1) +0P | 
+S79	| 2026-03-02 | +1L (L-165) +0P | 
+S80	| 2026-03-02 | +3L (L-168, L-169, L-171) +0P | 
+S81	| 2026-03-02 | +4L (L-170, L-173, L-174, L-176) +0P | 
+S82	| 2026-03-02 | +3L (L-172, L-175, L-177) +0P | 
+S83	| 2026-03-02 | +1L (L-178) +0P | 
+S85	| 2026-03-02 | +1L (L-182) +0P | 
+S86	| 2026-03-02 | +1L (L-179) +0P | 
+S87	| 2026-03-02 | +1L (L-181) +0P | 
+S88	| 2026-03-02 | +1L (L-183) +0P | 
+S90	| 2026-03-02 | +1L (L-184) +0P | 
+S91	| 2026-03-02 | +1L (L-185) +0P | 
+S92	| 2026-03-02 | +1L (L-186) +0P | 
+S93	| 2026-03-02 | +1L (L-187) +0P | 
+S94	| 2026-03-02 | +1L (L-188) +0P | 
+S98	| 2026-03-02 | +2L (L-192, L-193) +0P | 
+S99	| 2026-03-02 | +1L (L-194) +0P | 
+S101	| 2026-03-02 | +1L (L-195) +0P | 
+S102	| 2026-03-02 | +1L (L-198) +0P | 
+S107	| 2026-03-02 | +1L (L-199) +0P | 
+S108	| 2026-03-02 | +1L (L-200) +0P | 
+S109	| 2026-03-02 | +1L (L-201) +0P | 
+S110	| 2026-03-02 | +1L (L-202) +0P | 
+S111	| 2026-03-02 | +1L (L-203) +0P | 
+S112	| 2026-03-02 | +1L (L-204) +0P | 
+S119	| 2026-03-02 | +1L (L-205) +0P | 
+S125	| 2026-03-02 | +1L (L-206) +0P | 
+S144	| 2026-03-02 | +1L (L-207) +0P | 
+S172	| 2026-03-02 | +1L (L-213) +0P | 
+S177	| 2026-03-02 | +2L (L-221, L-222) +0P | 
+S192	| 2026-03-02 | +1L (L-316) +0P | 
+S193	| 2026-03-02 | +3L (L-319, L-321, L-323) +0P | 
+S196	| 2026-03-02 | +1L (L-331) +0P | 
+S198	| 2026-03-02 | +1L (L-335) +0P | 
+S286	| 2026-03-02 | +1L (L-333) +0P | 
+S298	| 2026-03-02 | +2L (L-334, L-336) +0P | 
+S299	| 2026-03-02 | +4L (L-337, L-338, L-339, L-340) +0P | 
+S300	| 2026-03-02 | +2L (L-341, L-343) +0P | 
+S302	| 2026-03-02 | +5L (L-347, L-351, L-353, L-354, L-356) +0P | 
+S303	| 2026-03-02 | +5L (L-357, L-358, L-361, L-365, L-370) +0P | 
+S304	| 2026-03-02 | +3L (L-360, L-362, L-367) +0P | 
+S305	| 2026-03-02 | +4L (L-366, L-369, L-377, L-385) +0P | 
+S357	| 2026-03-02 | +7L (L-614, L-615, L-617, L-618, L-623... +2) +0P | F-SP2 resolved + state sync + NEXT compact
+S359	| 2026-03-02 | +11L (L-633, L-634, L-636, L-639, L-640... +6) +0P | coordinator note + 586L sync — tool archive 116→101 complete
+S360	| 2026-03-02 | +1L (L-646) +0P | state-sync: fix 587L count drift in INDEX/NEXT/PAPER headers
+S361	| 2026-03-02 | +2L (L-651, L-652) +0P | wire Confidence: coverage check (WARN <90%) — L-651
+S362	| 2026-03-02 | +2L (L-653, L-655) +0P | L-655 periodics audit + L-644 trim + NEXT.md session note + state sync
+S365	| 2026-03-02 | +2L (L-659, L-661) +0P | 597→598L (L-661 commit-by-proxy absorbed)
+S366	| 2026-03-02 | +2L (L-662, L-664) +0P | state-sync: 599→600L count patch (L-664 added)
+S368	| 2026-03-02 | +4L (L-670, L-671, L-672, L-673) +0P | DOMEX-META-S368-REACH closure + session note + state sync
+S369	| 2026-03-02 | +2L (L-674, L-675) +0P | paper_drift.py Removed-line skip + L-674 title fix + DOMEX-HLP-S369 closure + ch
+S377	| 2026-03-02 | +5L (L-707, L-715, L-718, L-719, L-720) +0P | F-META10 CONFIRMED + state-sync (648L 179P 17B 41F)
+S378	| 2026-03-02 | +3L (L-716, L-717, L-721) +0P | L-726 trim + session note + state-sync
+S381	| 2026-03-02 | +8L (L-731, L-732, L-733, L-734, L-735... +3) +0P | DOMEX-EVAL-S381 MERGED + economy_expert fix + state-sync 669L
+S382	| 2026-03-02 | +4L (L-736, L-741, L-742, L-744) +0P | DOMEX-QC+STR — F-QC4 meta-bias + F-STR2 lane-awareness — L-744
+S383	| 2026-03-02 | +3L (L-743, L-745, L-748) +0P | DOMEX-SP-S383 MERGED + state-sync + orphaned artifacts 676L
+S384	| 2026-03-02 | +1L (L-747) +0P | DOMEX-QC-S383 MERGED + DOMEX-STR-S384 MERGED + L-747 corrected + close_lane.py 2
+S386	| 2026-03-02 | +2L (L-754, L-756) +0P | quality + expert-swarm INDEX fixes (F-QC4 resolved, F-EXP1 resolved)
+S387	| 2026-03-02 | +2L (L-757, L-759) +0P | DOMEX-NK-S387: P-222 principle-prompt +49% citation rate (t=3.66) + health 4.1/5
+S388	| 2026-03-02 | +2L (L-758, L-763) +0P | DOMEX-QC-S387: F-QC5 bullshit retest 20% + sync_state B/F counter bugs fixed — L
+S389	| 2026-03-02 | +7L (L-761, L-762, L-764, L-765, L-768... +2) +0P | DOMEX-IS-S389: F-IS4 coherence hardening — 29% collision rate is binding constra
+S390	| 2026-03-02 | +5L (L-766, L-767, L-769, L-770, L-771) +0P | DOMEX-STR-S390b: mode enforcement in open_lane.py + dispatch_optimizer — L-770
+S391	| 2026-03-02 | +4L (L-772, L-774, L-775, L-776) +0P | DOMEX-GUE-S391: F-GUE1 hardening — Fermi decomposition 2/2 within 1 OOM + state 
+S392	| 2026-03-02 | +7L (L-777, L-778, L-779, L-781, L-782... +2) +0P | DOMEX-STR-S392c session note + maintenance summary
+S393	| 2026-03-02 | +6L (L-786, L-787, L-788, L-789, L-791... +1) +0P | DOMEX-NK-S393: F-NK5 tracking N=713 — K_avg=2.5610, hub inflation corrected — L-
+S394	| 2026-03-02 | +3L (L-792, L-795, L-838) +0P | session note + state-sync (760L 200P) + validate_beliefs PASS
+S395	| 2026-03-02 | +6L (L-796, L-798, L-799, L-800, L-802... +1) +0P | DOMEX-EVAL-S395: belief freshness retest — 4/4 CONFIRMED, stratified sampling me
+S396	| 2026-03-02 | +4L (L-801, L-804, L-805, L-807) +0P | DOMEX-SOC-S396: F-SOC1/F-SOC4 hardening — pre-registered protocols — L-807
+S397	| 2026-03-02 | +5L (L-810, L-811, L-813, L-814, L-816) +1P | principle-batch-scan + DOMEX-NK-S397 session note + state sync
+S398	| 2026-03-02 | +7L (L-815, L-817, L-820, L-821, L-824... +2) +2P | economy-health + DOMEX-BRN-S398b + health check 4.4/5
+S399	| 2026-03-02 | +9L (L-822, L-823, L-830, L-831, L-835... +4) +0P | DOMEX-SP-S399 session note — F-SP4 RESOLVED 5-force model, health check 4.3/5
+S400	| 2026-03-02 | +4L (L-841, L-843, L-845, L-846) +0P | L-848 trim + L-847 lesson count fix
+S402	| 2026-03-02 | +5L (L-856, L-858, L-859, L-860, L-864) +0P | DOMEX-SOC-S402 session note — F-SOC3 power-law pre-registration, session_classif
+S403	| 2026-03-02 | +11L (L-861, L-862, L-863, L-865, L-868... +6) +1P | DOMEX-META-S403: enforcement wiring + PHIL parser bug fix — L-874
+S404	| 2026-03-02 | +5L (L-866, L-873, L-876, L-877, L-878) +0P | DOMEX-META-S404 classify_actionability() — true prescription gap 41.7% (not 84%)
+S405	| 2026-03-02 | +8L (L-879, L-880, L-881, L-882, L-883... +3) +0P | DOMEX-GAM-S405 + DOMEX-QC-S405: F-GAM2 RESOLVED (EAD +12.5pp) + F-QC5 RESOLVED (
+S406	| 2026-03-02 | +7L (L-888, L-889, L-890, L-891, L-892... +2) +0P | meta-GC: check_count_drift() in maintenance.py + 4-timescale GC model — L-894
+S407	| 2026-03-02 | +3L (L-895, L-896, L-897) +1P | council structure: check_council_health() DUE wiring + META seats + COUNCIL-STRU
+S408	| 2026-03-02 | +2L (L-898, L-899) +0P | DOMEX-EVAL-S408: F-EVAL2 external grounding 5.0% + handoff — L-898 P-269
+S409	| 2026-03-02 | +2L (L-900, L-905) +1P | DOMEX-META-S409 MERGED: SIG-1 resolved — tools/nodes.py + 3-tool node generaliza
+S410	| 2026-03-02 | +6L (L-901, L-902, L-903, L-904, L-906... +1) +0P | untracked S410 artifacts — L-906, eval-sufficiency, f-meta2 experiment
+S411	| 2026-03-02 | +10L (L-908, L-909, L-910, L-911, L-912... +5) +3P | FM-18 guard wired + collision check refactor + L-922 — check.sh structural
+S412	| 2026-03-02 | +2L (L-917, L-918) +0P | DOMEX-EXP-S412 MERGED: F-EXP4 PARTIALLY RESOLVED — colony +23.9pp merge confound
+S413	| 2026-03-02 | +3L (L-919, L-920, L-924) +0P | state sync 838L + NK tracking S415 + session note
+S414	| 2026-03-02 | +1L (L-921) +0P | DOMEX-SEC+META bundle MERGED — L-923 L-925, SIG-39 RESOLVED, periodics synced — 
+S415	| 2026-03-02 | +3L (L-923, L-927, L-928) +0P | open_lane.py --role + science quality 28.4% + meta-tooler dispatch
+S416	| 2026-03-02 | +2L (L-929, L-933) +0P | trim-collision fixed + 3 lanes MERGED + L-933 — 847L 202P SWARMABILITY 100
+S417	| 2026-03-02 | +3L (L-926, L-931, L-932) +1P | S417 session note — L-931 close_lane guard + concurrent harvest
+S418	| 2026-03-02 | +4L (L-925, L-930, L-934, L-935) +1P | human-signal-harvest P-275 + domain INDEX fixes + sync
+S419	| 2026-03-02 | +1L (L-936) +0P | L-936 trimmed to 16 lines + count sync 850L
+S420	| 2026-03-02 | +4L (L-937, L-938, L-946, L-947) +0P | health-check S419 + change-quality-check S420 cleared — 3.7/5 ADEQUATE health, 2
+S421	| 2026-03-02 | +3L (L-939, L-940, L-942) +0P | L-942 trimmed to 19 lines (was 25, DUE)
+S422	| 2026-03-02 | +4L (L-941, L-943, L-945, L-952) +1P | DOMEX-CAT-S422 MERGED: FM-19 hardening — collision surface (74.5% in 5 files) + 
+S423	| 2026-03-02 | +3L (L-944, L-948, L-950) +1P | principles-dedup: P-278 heterogeneous-dispatch + P-252 duplicate removed + P-246
+S424	| 2026-03-02 | +3L (L-949, L-951, L-953) +0P | principles-dedup S392→S424 — P-213/P-219/P-091 SUPERSEDED (206→203)
+S425	| 2026-03-02 | +2L (L-954, L-966) +1P | concurrent artifacts — L-955, orient decomposition modules, genesis hash S426
+S426	| 2026-03-02 | +11L (L-955, L-956, L-957, L-958, L-959... +6) +0P | F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED + swarm_colony.py 40x speedup
+S427	| 2026-03-02 | +7L (L-964, L-967, L-968, L-970, L-971... +2) +0P | L-403 trim: 22→20 lines (ISG lesson — DUE maintenance)
