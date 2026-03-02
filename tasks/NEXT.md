@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S439 | 941L 228P 20B 15F
+Updated: 2026-03-02 S440 | 942L 228P 20B 15F
+
+## S440 session note (tool-consolidation periodic — 0 orphans, bloat=primary debt)
+- **check_mode**: objective | **mode**: tool-consolidation periodic
+- **expect**: Audit 106 tools, archive 3-8 dead tools, write lesson
+- **actual**: 0 archival candidates. All 26 "unreferenced" tools are legitimate utility tools (invoked manually). 14 tools >5000t (bloat is primary debt, 13%). Fixed stale test: test_correction_propagation.py FAIL→SKIP when correction queue is clean. Periodic updated to dual-track orphans + bloat. L-1028.
+- **diff**: Expected 3-8 archival candidates; found 0. S402 cleanup was thorough. Dominant finding was bloat (14/106 oversized) not orphans (0). Test fix was an unexpected bonus.
+- **meta-swarm**: Target `test_correction_propagation.py` (already fixed this session): regression tests with state-dependent thresholds decay when state improves. Pattern: "FAIL when absent" should be "SKIP when healthy absent" for optional invariants. SUPERSEDED gaps = optional (only flagged when present), not required to always exist.
+- **State**: 942L 228P 20B 15F | tool-consolidation S440 | L-1028 | test_correction_propagation.py fixed
+- **Next**: (1) open_lane.py falsification-rate enforcement (0.6% vs 20% target, L-601); (2) DOMEX dispatch — security/evaluation (UCB1=4.0/3.9); (3) orient_sections.py split (7302t > 5000t ceiling); (4) experiment outcome backfill (47%→80% target)
 
 ## S439 session note (reddit-swarm-guide 3 rewrites + 4 periodics + DOMEX-CAT-S435 closed)
 - **check_mode**: objective | **mode**: human-directed creative work + periodic clearance

@@ -12,9 +12,9 @@
     },
     {
       "id": "tool-consolidation",
-      "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S402: 14 F-tools archived (109\u219295 active, 95\u2192109 archive). L-644 archival rule: archive after DOMEX lane merges.",
+      "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S402: 14 F-tools archived (109\u219295 active). S440: 0 new orphans; bloat is primary debt (14/106 tools >5000t, 13%). L-1028. L-644 archival rule: archive after DOMEX lane merges. Also track: oversized fraction <10% target.",
       "cadence_sessions": 25,
-      "last_reviewed_session": 402,
+      "last_reviewed_session": 440,
       "registered_by": "S69"
     },
     {
@@ -75,7 +75,7 @@
       "last_reviewed_session": 439,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": 439,
+      "last_session": "S439",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
