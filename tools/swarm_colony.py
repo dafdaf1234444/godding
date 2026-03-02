@@ -56,7 +56,29 @@ def _today() -> str:
     return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
+_lesson_cache: dict[str, int] | None = None
+
+
+def _build_lesson_cache(domains: list[str]) -> dict[str, int]:
+    """Read all lesson files once, count matches for every domain. O(lessons) not O(domains*lessons)."""
+    counts = {d: 0 for d in domains}
+    patterns = {d: re.compile(d.lower().replace("-", "[ -]"), re.IGNORECASE) for d in domains}
+    if MEMORY_LESSONS.exists():
+        for f in MEMORY_LESSONS.glob("*.md"):
+            try:
+                text = f.read_text(errors="ignore")
+            except Exception:
+                continue
+            for d, pat in patterns.items():
+                if pat.search(text):
+                    counts[d] += 1
+    return counts
+
+
 def _count_lessons(domain: str) -> int:
+    global _lesson_cache
+    if _lesson_cache is not None and domain in _lesson_cache:
+        return _lesson_cache[domain]
     pattern = domain.lower().replace("-", "[ -]")
     count = 0
     if MEMORY_LESSONS.exists():
@@ -217,6 +239,9 @@ def cmd_status(domain: str = None) -> None:
     if not targets:
         print("No bootstrapped colonies. Run: python3 tools/swarm_colony.py bootstrap <domain>")
         return
+    global _lesson_cache
+    if len(targets) > 1:
+        _lesson_cache = _build_lesson_cache(targets)
     print(f"=== Colony Status ({session}) ===")
     for d in targets:
         cp = DOMAINS / d / "COLONY.md"

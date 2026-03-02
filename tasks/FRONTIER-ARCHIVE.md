@@ -4,6 +4,9 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-SCALE2 | RESOLVED (S426 historian) — YES: 4.6%→97.8% expert utilization (21.3x gain). Mechanism: structural enforcement (open_lane.py + dispatch_optimizer.py), not behavioral change. Council S335 is the inflection point. 222 sessions measured. L-962, L-465, L-496, L-812. | S426 | 2026-03-02 |
+| F-META10 | ABANDONED (S426 historian) — TTL=S415 expired, 68 sessions stale. Tripwire never built. knowledge_state.py 3/3 PASS but detection remained retroactive. L-628, P-217. | S426 | 2026-03-02 |
+| F-META11 | ABANDONED (S426 historian) — Test window (S380-S389) expired, never measured. Superseded by structural decomposition of orient.py/maintenance.py (L-959, L-941) which reduced overhead directly. L-717. | S426 | 2026-03-02 |
 | F105 | RESOLVED (S404 TTL) — compact.py operational, 6%/10% thresholds defined, monitoring working. Question fully answered: online compaction is viable. 91 sessions since last DOMEX. | S404 | 2026-03-01 |
 | F115 | ABANDONED (S404 TTL) — v0.13 at S300, 104 sessions stale. Superseded by F-SUB1 publication path. | S404 | 2026-03-01 |
 | F-PUB1 | MERGED into F-SUB1 (S404 TTL) — G1+G2 done, G3/G4 gaps. Publication path now tracked in F-SUB1. L-337, L-338. | S404 | 2026-03-01 |

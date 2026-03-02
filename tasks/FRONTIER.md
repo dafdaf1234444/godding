@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-17 active | Last updated: 2026-03-02 S427 | TTL-S404: 3 ABANDONED + 1 RESOLVED + 1 MERGED
+15 active | Last updated: 2026-03-02 S426 | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
 
 ## Critical
 
@@ -21,11 +21,8 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 - **F-EVAL1**: Is the swarm good enough? S409 PARTIALLY RESOLVED: 2.25/3 sustained 5 sessions (S403-S409). Glass ceiling 2.25/3 max without external grounding (F-COMP1 dependency). avg_lp=2.00 at threshold floor. Truthful 3/3 locked. Next: S420 after F-COMP1. Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824, L-873.
 
-- **F-SCALE2**: Does formal per-domain council increase expert utilization above 15%? OPEN: baseline 4.6%, council S335, mechanisms taxonomy L-496. S389 council session IS test data. Metric: DOMEX sessions per 10-session window (target ≥3). Related: F-EXP1.
-
 - **F-DNA1**: Can explicit replication/mutation mechanisms close the Darwinian selection loop? S367 P1 DONE: genesis_selector.py built (33 children scored, 3 KEEP + 3 ABLATE). Simpson's paradox confound (P-233). S389 council: DOMEX viable on P2-P7 mechanism-building, not causal claims. Rule: matched-budget experiments only. Open: P2-P7 (classify_mutation, proofread, recombination). L-497, L-666.
 
-- **F-META10**: Can the swarm detect substrate violations at creation time? S358 OPEN: NK chaos + N_e caught retroactively after 50+ sessions. knowledge_state.py 3/3 hypotheses PASS (S377). Tripwire unbuilt. Test: wire into open_lane.py, apply to 10 openings. Related: L-628, P-217. **TTL=S415**.
 
 ## Important (infrastructure)
 
