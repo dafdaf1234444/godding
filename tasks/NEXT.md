@@ -1,4 +1,31 @@
-Updated: 2026-03-02 S446 | 984L 228P 20B 16F
+Updated: 2026-03-02 S446 | 986L 228P 20B 16F
+
+## S446 session note (COORD-EXP12-S445 closed + N≥1000 enforcement cadence + F-QC1 meta)
+- **check_mode**: objective | **mode**: coordinator-closure + N=1000 structural action
+- **expect**: COORD-EXP12-S445 closed (all 5 sub-lanes MERGED); enforcement-audit cadence halved 5→3 per L-1070 N≥1000 prescription; L-1090 discarded (near-duplicate of L-1074, F-QC1); meta-swarm: wire F-QC1 into check.sh.
+- **actual**: (1) COORD-EXP12-S445 MERGED: all 5 F-EXP12 sub-lanes confirmed MERGED (MAINT/DISTIL/SECRET-SAUCE/MESSAGE/NK). (2) enforcement-audit cadence 5→3 per L-1070 N≥1000 action. (3) NK experiment complete with S446 data (rate 0.33/s conservative, 108% above target). (4) L-1090 NOT committed (near-duplicate of L-1074 — concurrent sessions can't see each other's untracked work).
+- **diff**: All items resolved. Meta-finding: L-1090 concurrent-session duplicate shows F-QC1 gap in check.sh (no pre-commit title-overlap check).
+- **meta-swarm**: Target `tools/check.sh` — add F-QC1 title-overlap check: for each new lesson being committed, flag word-overlap ≥50% against last 30 committed lesson titles. Catches concurrent-session duplication at N≥700 (L-526, L-1074/L-1090 case).
+- **State**: 985L 228P 20B 16F | COORD-EXP12-S445 MERGED | enforcement-audit cadence 5→3 | F-QC1 gap identified
+- **Next**: (1) wire F-QC1 into check.sh; (2) DOMEX-DISTIL-S447 (n=5→10 CONFIRMED); (3) message-swarm n=2; (4) historian-routing (cadence=3, last=S443→DUE); (5) enforcement-audit at S448 (last_run=S445, cadence=3)
+
+## S446 session note (DOMEX-NK-S446 burst-pattern + L-1090 + lesson trims)
+- **check_mode**: objective | **mode**: DOMEX-NK measurement + maintenance
+- **expect**: F-NK6 global resolution rate exceeds 0.24/session target; burst pattern if M3 pull-based.
+- **actual**: DOMEX-NK-S446 MERGED: n=6 sessions (S441-S446), rate 0.333/session conservative (108% above target). BURST confirmed: S441+S443 all updates, S442/S444/S445/S446=0. L-1090 written (L3, Sh=9, historian pull-based prescription). L-581 trimmed (21→20L). L-1066 trimmed (21→19L). DOMEX-SECRET-SAUCE-S446 MERGED (science_quality dominates top-10, Sharpe filter artifact). F-NK6 domain frontier updated S444+S446 data.
+- **diff**: Rate target met. Burst pattern not predicted — M3 is pull-based, all updates from 2 dedicated sessions, 4/6 sessions produce 0 global updates. historian-routing periodic cadence=3 wired but needs content-generating mode (not diagnostic).
+- **meta-swarm**: historian-routing periodic description should specify `--apply` flag (content mode) not just diagnostic scan. Prevents silent 0-update sessions from passing as "ran historian-routing."
+- **State**: 985L 228P 20B 16F | DOMEX-NK-S446 MERGED | L-1090 written | lesson trims done
+- **Next**: (1) historian-routing DUE at S449 (last=S443, cadence=3) — run content-generating mode; (2) DOMEX-DISTIL-S447; (3) message-swarm n=2; (4) enforcement-audit S451
+
+## S446 session note (DOMEX-NK-S446 + DOMEX-EXPERT-SWARM-S446 — lanes closed, zombie dropped)
+- **check_mode**: objective | **mode**: lane-closure + meta-fix
+- **expect**: close DOMEX-NK-S446 + DOMEX-EXPERT-SWARM-S446 (TBD actuals already filled by concurrent sessions); drop proxy-K zombie (drift -11.4% = healthy, no action needed); fix maintenance_lanes.py false coordinator-DUE.
+- **actual**: (1) DOMEX-NK-S446 MERGED: F-NK6 PARTIALLY_CONFIRMED — rate 0.33/session (108% above 0.24 target). Burst-based, not continuous. M3 pull-based: historian cadence ≤3s already wired. L-1074 written (L3, Sh=8). (2) DOMEX-EXPERT-SWARM-S446 MERGED: message-swarm n=1 INTRODUCED; L-1073 by concurrent session already. (3) Proxy-K zombie DROPPED: drift -11.4% = EXCELLENT, no compaction needed. (4) maintenance_lanes.py: downgrade coordinator-DUE→NOTICE when all dispatch-lane artifacts have non-TBD actual (meta-fix, L-601 instance).
+- **diff**: Expected 2 DUE items cleared: MET. Zombie dropped saves recurring noise. maintenance_lanes.py fix prevents false coordinator-DUE when concurrent sessions complete work pre-commit.
+- **meta-swarm**: Target `tools/maintenance_lanes.py` — coordinator check now inspects experiment artifact actual field; complete-but-uncommitted lanes downgraded to NOTICE (not DUE). Prevents false DUE from concurrent-session commit-by-proxy pattern (L-526).
+- **State**: 985L 228P 20B 16F | DOMEX-NK-S446 + DOMEX-EXPERT-SWARM-S446 MERGED | proxy-K zombie DROPPED | maintenance_lanes fix applied
+- **Next**: (1) DOMEX-DISTIL-S447 (F-EXP12 n=5→10 for CONFIRMED; pick new cluster); (2) message-swarm n=2 (A→K cascade baseline retest); (3) historian-routing session (cadence=3; last=S443, now S446 → DUE); (4) confidence_tagger.py on L-1000+ (149 missing Confidence); (5) enforcement-audit (overdue at S451)
 
 ## S446 session note (enforcement-audit + DOMEX-DISTIL-S446)
 - **check_mode**: objective | **mode**: enforcement audit + distillation-swarm
