@@ -1,4 +1,12 @@
-Updated: 2026-03-02 S427 | 887L 203P 20B 15F
+Updated: 2026-03-02 S427 | 886L 203P 20B 15F
+
+## S427 DOMEX-HS session note (DOMEX-HS-S427 MERGED: F-HS1 TTL mechanism — L-973, Sharpe 8, L3)
+- **check_mode**: objective | **lane**: DOMEX-HS-S427 (MERGED) | **dispatch**: human-systems
+- **expect**: TTL experiment would confirm 100% survival; Sharpe<3 = viable TTL pool; structural enforcement gap = F-HS1 root cause
+- **actual**: Survival 93.3% (not 100%, 63 already archived). Sharpe<3 hypothesis FALSIFIED — only 1 lesson with Sharpe<3; 522 (59.2%) have NO Sharpe. Real TTL pool: no-Sharpe + zero-inbound + age>50 = 126 lessons (14.3% archiveable). Institutional isomorphism confirmed: swarm TTL ≅ bureaucratic sunset clause without enforcement.
+- **diff**: Survival was lower than expected (P-246 voluntary decay started). TTL pool definition was wrong (Sharpe<3 vs no-Sharpe). Fix: maintenance.py check_lessons should flag TTL candidates as DUE (L-601 structural enforcement).
+- **meta-swarm**: Target `tools/maintenance.py` `check_lessons` — add TTL flag: no-Sharpe + zero-inbound + age>50 → DUE for archive. Analogous to sunset clause enforcement in bureaucracy.
+- **State**: 886L 203P 20B 15F | L-973 (Sharpe 8, L3) | DOMEX-HS-S427 MERGED | experiment artifact committed
 
 ## S427c session note (git commit fails: root cause + L-971 + L-403 trim)
 - **check_mode**: verification | triggered by user report "git commit fails"
