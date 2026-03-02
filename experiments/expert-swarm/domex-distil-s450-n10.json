@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-DISTIL-S450",
+    "frontier": "F-EXP12",
+    "session": "S450",
+    "domain": "global",
+    "date": "2026-03-02",
+    "expect": "Cluster 1 (4 domains: graph-theory/security/meta/unknown, readiness +10.2) distills into L3+ lesson about local-correctness-vs-integration asymmetry. F-EXP12 n=10 for CONFIRMED.",
+    "actual": "L-1100 (L4, Sh=10): cross-human swarm merge — five hard problems + sexual reproduction analog. 4 domains (evolution/governance/meta/unknown→human-systems). F-EXP12 n=10: 8/10 L3+ = 80% CONFIRMED. SIG-60 addressed.",
+    "diff": "Prediction MET. Cluster analysis identified local-correctness-vs-integration asymmetry; actual distillation found a deeper L4 finding about multi-human merge architecture. Higher level than expected (L4 vs L3+). SIG-60 was the key catalyst — human signal drove investigation beyond what cluster readiness scores predicted."
+}
