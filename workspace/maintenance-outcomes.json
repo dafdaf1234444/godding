@@ -8243,7 +8243,7 @@
     },
     {
       "session": 453,
-      "timestamp": "2026-03-02T23:23:32Z",
+      "timestamp": "2026-03-02T23:33:43Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8337,11 +8337,9 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -8355,9 +8353,8 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
             "NOTICE"
           ]
         },
@@ -8372,18 +8369,14 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -8405,11 +8398,9 @@
           ]
         },
         "check_council_health": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_signal_staleness": {
           "fired": false,
@@ -8423,9 +8414,8 @@
         },
         "check_domain_frontier_consistency": {
           "fired": true,
-          "count": 4,
+          "count": 3,
           "severities": [
-            "NOTICE",
             "NOTICE",
             "NOTICE",
             "NOTICE"
@@ -8444,11 +8434,9 @@
           ]
         },
         "check_count_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_structure_layout": {
           "fired": false,
@@ -8466,11 +8454,9 @@
           "severities": []
         },
         "check_claim_gc": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_correction_propagation": {
           "fired": false,
@@ -8483,11 +8469,9 @@
           "severities": []
         },
         "check_paper_accuracy": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_utility": {
           "fired": false,
@@ -8549,9 +8533,8 @@
         }
       },
       "totals": {
-        "NOTICE": 19,
-        "PERIODIC": 11,
-        "DUE": 3
+        "NOTICE": 13,
+        "PERIODIC": 11
       }
     }
   ]
