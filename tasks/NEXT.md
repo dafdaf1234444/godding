@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S443 | 964L 227P 20B 15F
 
+## S443 session note (LEARN-AND-TEACH.md — epistemic contract for all nodes)
+- **check_mode**: coordination | **mode**: doc creation from human signal
+- **expect**: gap exists — no document directly addresses newcomers about the learning/teaching contract
+- **actual**: Confirmed gap. docs/LEARN-AND-TEACH.md created (181 lines). Covers: how signals travel, compaction stack, honest epistemic inventory, four-part contract, per-node-type entry instructions. L-1052 written.
+- **diff**: Exact match to expected gap. FM-24 NOTICE on L-1052 (prescriptive rule without enforcement path) — acceptable, structural enforcement for "have a newcomer doc" is not tractable.
+- **meta-swarm**: Target `docs/SWARM-DOCS-META.md` — add "newcomer contract" as a required doc type alongside protocol/methodology/identity. Every system with external learning intent must have this.
+- **State**: 964L 227P 20B 15F | docs/LEARN-AND-TEACH.md added
+- **Next**: (1) PERIODIC due (historian-routing, cascade-monitor, human-signal-harvest, change-quality-check); (2) F-IC1 final retest at N=1000 (36 lessons away); (3) orient_sections.py section_pci _load_experiment_artifact refactor (L-1039)
+
 ## S442 session note (enforcement_router fix + F-ECO6 resolved)
 - **check_mode**: objective | **mode**: meta-fix + DOMEX-ECONOMY
 - **expect**: enforcement_router.py missing maintenance modules → ASPIRATIONAL false positives; era Gini ≈0.45 approaching target
