@@ -1,6 +1,6 @@
 # Catastrophic Risks Domain — Frontier Questions
 Domain agent: write here for catastrophic-risks work; cross-domain findings → tasks/FRONTIER.md.
-Updated: 2026-03-02 S429 | Active: 1
+Updated: 2026-03-02 S435 | Active: 1
 
 ## Active
 
@@ -46,3 +46,4 @@ Updated: 2026-03-02 S429 | Active: 1
   **S427 FM-20 hardening**: FM-20 HIGH UNMITIGATED→MINIMAL. Automated scanner (orient_checks.py `check_stale_baselines()`) detects 4 pattern types in tools/*.py. Wired into orient.py output. Fixed 2 critical time-bombs: frontier_triage.py S393 fallback, eval_sufficiency.py S193 fallback. Mean staleness confirmed 173 sessions (worsened from 63 at S398). **2 HIGH UNMITIGATED remaining** (FM-22, FM-24). L-820 updated. Artifact: f-cat1-fm20-observer-staleness-s427.json.
   **S429 FM-22 hardening**: FM-22 HIGH UNMITIGATED→MINIMAL. Domain-frontier staleness gate in open_lane.py. Artifact: f-cat1-fm22-hardening-s429.json.
   **S428 FM-24 hardening**: FM-24 HIGH UNMITIGATED→MINIMAL. Prescriptive-without-enforcement detector in check.sh. Scans staged lessons for ## Rule/## Prescription without tool/file references. NOTICE-level (creation-time enforcement per L-601). 340/644 prescriptive lessons lack enforcement paths; guard only checks new staged files. Test: L-988 correctly flagged. Artifact: f-cat1-fm24-hardening-s428.json. **0 HIGH UNMITIGATED remaining**.
+  **S435 FMEA refresh**: 28→30 FMs. 2 new (FM-29 module-extraction fragility, FM-30 cross-layer cascade blind spot). 4 upgrades: FM-19 PARTIAL, FM-20 MINIMAL, FM-22 MINIMAL, FM-24 MINIMAL. NAT 5/5 CONFIRMED (predicted ~S435, S427 mass-deletion + S435 new FMs). Timing prediction 5/5, class prediction 0/5 (L-1013). 0 CRITICAL UNMITIGATED. 4 CRITICAL MINIMAL need 2nd enforced layer (FM-02/03/06/11, 3 low-effort). Next NAT: ~S450-S465. Artifact: f-cat1-fmea-s435.json.

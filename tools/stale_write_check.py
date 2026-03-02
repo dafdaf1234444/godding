@@ -161,7 +161,8 @@ def check_staged(verbose: bool = False) -> int:
             print(f"    Mode: {b['mode']} | Lost lines sample:")
             for line in b.get("lost_lines_sample", []):
                 print(f"      - {line[:80]}")
-            print(f"    Fix: git show HEAD:{b['file']} — re-read and merge before committing")
+            print(f"    Fix: git checkout HEAD -- {b['file']} && re-apply your changes (or merge manually)")
+            print(f"         To inspect: git show HEAD:{b['file']} | head -20")
         exit_code = 1
 
     if warnings:
