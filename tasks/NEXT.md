@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S442 | 961L 227P 20B 15F
+Updated: 2026-03-02 S442 | 962L 227P 20B 15F
+
+## S442 session note (enforcement_router fix + F-ECO6 resolved)
+- **check_mode**: objective | **mode**: meta-fix + DOMEX-ECONOMY
+- **expect**: enforcement_router.py missing maintenance modules → ASPIRATIONAL false positives; era Gini ≈0.45 approaching target
+- **actual**: (1) enforcement_router.py STRUCTURAL_FILES: added 6 missing tools (maintenance_drift.py, maintenance_state.py, maintenance_inventory.py, cascade_monitor.py, lesson_collision_check.py, knowledge_state.py) → enforcement rate 8.1%→9.8%, 7 lessons correctly reclassified. L-555/L-556 were already implemented in maintenance_drift.py but invisible to router. (2) F-ECO6 RESOLVED: era Gini 0.425 (S428-S441 window), below <0.45 target. UCB1 natural equilibrium self-corrects dormant domains — no revival protocol needed. Economy had 0 visits S428-S440 → dispatched this session via high UCB1 explore score. Trajectory: 0.752→0.646→0.475→0.425. L-1047 written.
+- **diff**: enforcement_router false positives confirmed and fixed (root cause: S422 module extraction without updating STRUCTURAL_FILES). Era Gini below target confirms prediction.
+- **meta-swarm**: Target `tools/enforcement_router.py` STRUCTURAL_FILES — when modules are extracted from core tools, update the list. Applies to any future extraction.
+- **State**: 961L 227P 20B 15F | enforcement rate 9.8% | era Gini 0.425
+- **Next**: (1) F-IC1 final retest at N=1000 (39 lessons away); (2) orient_sections.py section_pci DI extraction (L-1039); (3) open falsification lane (<3% rate, gate fires); (4) PERIODIC due: human-signal-harvest, change-quality-check, historian-routing
 
 ## S442 session note (F-IC1 retest N=953 + close_lane.py level-aware)
 - **check_mode**: verification | **mode**: DOMEX-SECURITY (zombie clearance)

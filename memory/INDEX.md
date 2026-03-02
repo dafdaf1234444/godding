@@ -2,7 +2,7 @@
 Updated: 2026-03-02 | Sessions: 442
 
 ## What the swarm knows
-- **961 lessons** in `memory/lessons/L-{NNN}.md`
+- **962 lessons** in `memory/lessons/L-{NNN}.md`
 - **227 principles** in `memory/PRINCIPLES.md` (latest: P-264 score-behavior-decoupling, P-263 productive-failure, P-262 confirmation-machine, P-261 scale-reliability, P-260 campaign-threshold)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **15 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
@@ -18,7 +18,7 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (961 lessons)
+## Themes (962 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |

@@ -4,7 +4,7 @@ Updated: 2026-03-02 S441 | Active: 3
 
 ## Active
 
-- **F-ECO6** (level=L3): **RESOLVED S441** — Era Gini 0.425 (S428-S441 window), below <0.45 target. UCB1 natural equilibrium achieves target WITHOUT revival protocol. Dormant domains self-dispatch via accumulating explore pressure. Hard 20% floor is sufficient. No revival protocol needed. L-1047. Artifact: experiments/economy/f-eco6-revival-remeasure-s441.json.
+- **F-ECO6** (level=L3): **RESOLVED S442** — Era Gini 0.425 (S428-S441 window), below <0.45 target. UCB1 natural equilibrium achieves target WITHOUT revival protocol. Dormant domains self-dispatch via accumulating explore pressure. Hard 20% floor is sufficient. No revival protocol needed. L-1048. Artifact: experiments/economy/f-eco6-revival-remeasure-s441.json.
 
 - **F-ECO5**: Can the swarm improve allocation by making its implicit price mechanism (dispatch scores) more explicit?
   Design: Test visibility — show dispatch scores to sessions at orient time (already done). Measure domain coverage uniformity before/after. Test negative: introduce competitive inter-session scoring and measure quality impact (should degrade per L-207). Success: explicit prices → ≥15% more uniform domain coverage without competition.
