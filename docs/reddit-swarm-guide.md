@@ -59,6 +59,57 @@ That's it. Session 1 is done. The next AI session that opens this repo will read
 
 ---
 
+### What the entry file needs to actually tell an agent
+
+The four-field template above is the minimum. But an agent isn't a human — it doesn't infer things you leave implicit. The entry file is the agent's operating manual. If a rule isn't in it, the agent won't follow that rule. If a decision isn't covered, the agent will guess.
+
+Here's a more complete template once you're past session 5:
+
+```markdown
+## What this project is
+[One sentence.]
+
+## Read these first
+1. tasks/next.md — what happened last session and what to do now
+2. memory/rules.md — hard-won rules; don't repeat these mistakes
+3. tasks/questions.md — open questions waiting for an answer
+
+## How to start each session
+1. Run: python3 tools/orient.py
+2. Check: git log --oneline -5 (someone else may have already done your planned task)
+3. Pick the highest-priority item from the orient output
+4. Write one line: "I expect X after doing this" — before doing anything
+
+## What you can decide on your own
+- Adding notes, writing lessons, filing open questions
+- Code changes inside [specific directories]
+- Committing local work
+- Updating tasks/next.md and memory/
+
+## What needs a human decision
+- Deleting anything that can't be recovered
+- Pushing to external services or APIs
+- Changing project direction or goals
+- Anything outside [specific directories]
+
+## How to commit
+Format: "[session number] what: why"
+Example: "session 12: cache auth token — reduces latency at high load"
+Always update tasks/next.md before committing.
+
+## How to end each session
+1. Write the handoff in tasks/next.md (did / expected / actual / next)
+2. Write any new note to memory/notes/ if you learned something
+3. Name one process friction: a specific file or step that slowed you down
+4. Commit everything
+```
+
+The **"what you can decide vs. what needs a human"** section is the most important addition. Without it, the agent either asks about everything (annoying) or acts on everything (dangerous). Clear authority boundaries let the agent self-direct confidently on low-risk work and correctly stop and ask on high-stakes decisions.
+
+The **"check git log before starting"** instruction matters if you ever run more than one session. The work you planned may already be done. An agent that doesn't check will redo it.
+
+---
+
 ### Step 2: Give the AI a memory (sessions 2–5)
 
 One file isn't enough to build up knowledge. You need somewhere to store what you learn over time.
@@ -164,6 +215,35 @@ As the project grows, `orient.py` grows with it. Add checks for overdue things, 
 
 ---
 
+### The agent's session protocol
+
+Once the system has memory and open questions (steps 2–3), you want agents to follow a consistent loop every session. Without an explicit protocol in the entry file, different sessions will behave differently and leave inconsistent state.
+
+Give the agent this protocol in the entry file — or link to a file that describes it:
+
+**At the start of every session:**
+1. Run orient (the script or manual equivalent)
+2. Check recent commits — if your top-priority item is already done, confirm it and move to the next
+3. Pick one item to work on
+4. Write your expectation: *"I expect X to be true after I do this"*
+
+**During the session:**
+- Work on one thing at a time, commit frequently
+- If you discover the task is bigger than expected: commit what you have, update `tasks/next.md`, stop
+- If you discover something that contradicts a rule: write a note, don't silently change the rule
+- If you're blocked by something that needs a human decision: stop, write the question to `tasks/questions.md` with a `[NEEDS HUMAN]` tag, then pick a different task
+
+**At the end of every session:**
+- Check if your expectation was right
+- If the diff was large (expected X, got Y): write a note explaining what you learned
+- Update `tasks/next.md` — the handoff format: did / expected / actual / next
+- Name one process friction: the specific file or step that slowed you down this session
+- Commit
+
+This protocol sounds bureaucratic written out. In practice it takes 2–3 minutes at the start and end of a session and prevents 90% of the state corruption that comes from unstructured sessions. The orient step alone prevents duplicate work. The handoff alone prevents cold starts.
+
+---
+
 ### Step 5: Turn repeated notes into rules (sessions 15–30)
 
 By session 15, you'll notice you've written the same insight multiple times in different notes. That's the signal to distill it.
@@ -219,6 +299,54 @@ fi
 Now the rule is enforced automatically. You don't have to remember it. The system remembers it for you.
 
 This pattern generalizes: every time you find yourself relying on willpower to follow a process step, ask how to make it structural. Automated enforcement is the single biggest lever for keeping the system working over time.
+
+---
+
+### Running multiple agents on the same repo
+
+Once the system is working well with one agent at a time, you might want to run several sessions in parallel — one working on a bug, one investigating an open question, one doing maintenance. This is where things get interesting and also where things break if you're not careful.
+
+**The core problem:** two agents start at the same time, both read `tasks/next.md`, both decide to do the same highest-priority task. They race. One wins. The other either duplicates the work or overwrites the first agent's output.
+
+**Four rules that prevent most parallel-session problems:**
+
+**1. Check git log before every non-trivial action**
+
+Every agent, at the start of every task (not just session start), runs:
+```bash
+git log --oneline -5
+```
+
+If the task you were about to start appears in the recent commits, it's done. Confirm it, move to the next item. Don't redo it.
+
+At high session volume (5+ concurrent), this check needs to happen before *each* task within a session, not just once at the start. Sessions commit fast. Your planned work can be preempted in minutes.
+
+**2. Mark what you're about to edit before editing it**
+
+Before touching a file that another agent might also be editing, leave a marker:
+
+```bash
+# simple lock-file approach
+echo "session-14 editing" > tasks/next.md.lock
+
+# do your work
+
+rm tasks/next.md.lock
+```
+
+More robust: write your session ID and timestamp into a `workspace/claims.md` file. Any other agent that reads claims before editing will see the conflict and skip to a different task.
+
+**3. Give each agent a distinct scope**
+
+The simplest coordination is no coordination: assign different agents to different directories or work areas. One agent owns `memory/`, one owns `tools/`, one owns the source code. They can't collide if they're not touching the same files.
+
+In your entry file, add a `## Your scope` section that each agent reads. Different agent instances (or different sessions) can be given different scopes via different entry files or via a command-line argument.
+
+**4. Accept that sometimes work gets absorbed**
+
+At high concurrency (10+ parallel sessions), something useful happens: when an agent has uncommitted work and another agent commits first, the first agent's work sometimes ends up included in the second agent's commit. This is the normal behavior of git-based collaboration.
+
+Don't fight it. When you see your planned work in the log under a different session's commit: confirm it's there, mark it done, move on. Re-doing already-committed work is waste. Checking git log before each task is how you catch this.
 
 ---
 
