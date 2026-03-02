@@ -267,10 +267,14 @@ def get_claimed_domains() -> set[str]:
     return set()
 
 
-def get_domain_outcomes() -> dict[str, dict]:
+def get_domain_outcomes(at_session: int | None = None) -> dict[str, dict]:
     """Parse SWARM-LANES.md for MERGED/ABANDONED counts and lesson yield per domain (F-EXP10).
 
     Returns {domain_name: {"merged": int, "abandoned": int, "lessons": int, "lessons_l3plus": int}}.
+
+    at_session: if set, only count lanes closed at-or-before this session number.
+    Use for trajectory analysis (label_at_time) to prevent retrospective label drift
+    (L-946, L-948: 27.3% of domains show label drift; L-963).
     """
     outcomes: dict[str, dict] = {}
     for line in _parse_lanes_lines():
@@ -283,6 +287,12 @@ def get_domain_outcomes() -> dict[str, dict]:
         status = cols[11] if len(cols) > 11 else ""
         if status not in ("MERGED", "ABANDONED"):
             continue
+        # Temporal filter: label_at_time — skip lanes closed after at_session (L-946, L-963)
+        if at_session is not None:
+            close_col = cols[3] if len(cols) > 3 else ""
+            close_m = re.match(r"S(\d+)", close_col)
+            if close_m and int(close_m.group(1)) > at_session:
+                continue
         etc = cols[10] if len(cols) > 10 else ""
         domain = _resolve_domain(lane_id, etc)
         if domain:

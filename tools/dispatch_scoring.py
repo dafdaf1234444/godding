@@ -9,14 +9,33 @@ import os
 import re
 from pathlib import Path
 
+try:
+    from dispatch_campaigns import WAVE_DANGER_BOOST, WAVE_COMMITTED_BOOST
+except ImportError:
+    WAVE_DANGER_BOOST = 1.5
+    WAVE_COMMITTED_BOOST = 0.5
+
 DOMAINS_DIR = Path("domains")
 EXPERIMENTS_DIR = Path("experiments")
 
-# Outcome thresholds (shared with display)
+# Heuristic mode constants (shared with dispatch_optimizer.py display)
+HEAT_DECAY = 0.85
+HEAT_PENALTY_MAX = 6.0
+DORMANT_BONUS = 3.0
+FIRST_VISIT_BONUS = 5.0
+SELF_DISPATCH_INTERVAL = 10
+VISIT_SATURATION_SCALE = 1.5
+EXPLORATION_GINI_THRESHOLD = 0.45
+EXPLORATION_NEW_BOOST = 8.0
+EXPLORATION_COLD_BOOST = 4.0
+COOLDOWN_SESSIONS = 3
+COOLDOWN_MAX_PENALTY = 15.0
 OUTCOME_MIN_N = 5
 OUTCOME_SUCCESS_THRESHOLD = 0.75
 OUTCOME_FAILURE_THRESHOLD = 0.50
-SELF_DISPATCH_INTERVAL = 10
+OUTCOME_BONUS = 0.5
+OUTCOME_MIXED_BONUS = 2.0
+OUTCOME_PENALTY = 1.0
 
 
 def score_domain(domain: str, calibration: dict | None = None) -> dict | None:

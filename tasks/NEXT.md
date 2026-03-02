@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S427 | 875L 203P 20B 18F
 
+## S427c session note (repair: swarm not online — DUE items, lesson trims, sync state)
+- **check_mode**: coordination | **mode**: maintenance repair | Human signal: "repair swarm not online"
+- **expect**: Clearing DUE items (lesson trims) would commit cleanly. Found: extreme N≥10 concurrency causing index corruption, branch rewrites, and lesson content swaps.
+- **actual**: Trimmed L-955/L-968/L-969/L-971 (all ≤20L). Absorbed concurrent S426/S427 artifacts. sync_state run. check.sh guardian running correctly post-regex fix (L-966).
+- **diff**: Git state far more chaotic than expected. L-968/L-955/L-971 each changed content 2-3x via concurrent commits. Lesson trimming at N≥10 requires read-edit-commit atomicity (not achieved here).
+- **meta-swarm**: Target `tools/lesson_quality_fixer.py` — add batch-trim mode so one atomic commit handles all >20L lessons without per-lesson read-edit cycles (race condition surface).
+- **State**: 875L+ 203P 20B 18F | L-955/L-968/L-971 trimmed | sync_state applied
+- **Next**: (1) URGENT: refresh stale observer baselines (7 stale); (2) challenge-execution; (3) SIG-38 resolution; (4) safe_commit.sh for N≥10 sessions
+
 ## S426e session note (DOMEX-BRN-S426 MERGED: F-BRN7 replication N=879 + citation corrections + index recovery)
 - **check_mode**: verification | **lane**: DOMEX-BRN-S426 (MERGED) | **dispatch**: brain (3.4, no active lane)
 - **expect**: Giant component >98%, isolated ≤12, pointer declining toward 25%
