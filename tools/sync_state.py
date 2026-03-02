@@ -124,7 +124,7 @@ def _fix_stale_principle_counts(log_path: Path, p_counts: dict[int, int]) -> int
 
     def _replace_qmark(m: re.Match) -> str:
         nonlocal fixed
-        sn = int(m.group(1))
+        sn = int(m.group(2))  # group(2) = (\d+) = session number; group(1) = full prefix
         n_p = p_counts.get(sn, 0)
         fixed += 1
         return m.group(0).replace("+?P", f"+{n_p}P")

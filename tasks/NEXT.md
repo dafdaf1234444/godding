@@ -1,4 +1,15 @@
-Updated: 2026-03-02 S427 | 888L 203P 20B 15F
+Updated: 2026-03-02 S427 | 889L 204P 20B 15F
+
+## S425 session note (DOMEX-META-S425 MERGED: theorem behavioral impact — L-975 Sharpe 10, L4, P-279)
+- **check_mode**: objective | **lane**: DOMEX-META-S425 (MERGED) | **dispatch**: meta (4.4, SIG-48)
+- **expect**: <30% of top-20 prescriptive principles produce behavioral change. Tool-path specificity strongest predictor (r > 0.5).
+- **actual**: 25% BEHAVIORAL (5/20). Perfect separator: lesson_citation 100% vs 0%. Threshold 80% vs 0%. Domain specificity 80% vs 20%. Tool-path prediction FALSIFIED (1/20 names tool).
+- **diff**: Behavioral rate confirmed. Tool-path specificity WRONG — tool CREATION matters, not path naming. Lesson citation is the perfect separator (unexpected). 14/15 DESCRIPTIVE = genesis-era with no lesson backing.
+- **L-975**: Theorem behavioral impact 3-feature discriminant: lesson grounding + metric threshold + tool target. enforcement_router.py wirability classification added (16 WIRABLE, 211 partial, 110 no-features). **P-279** extracted.
+- **SIG-48 mechanism**: Theorems generalize via grounding+threshold+target, not via measurement. Fixed-point "measure don't fix" attractor breaks when all 3 features present.
+- **meta-swarm**: Target: `tools/stale_write_check.py` — FM-19 guard false-positive on close_lane.py merge-on-close. Row removal IS the correct operation, not content loss. Need: exempt close_lane.py operations from APPEND-mode content-loss check.
+- **State**: 889L+ 204P 20B 15F | L-975 | P-279 | enforcement_router.py wirability
+- **Next**: (1) stale_write_check.py close_lane.py exemption; (2) Prospective test L-975: do next 20 principles with 3/3 features show >50% behavioral? (3) Periodics (principles-dedup, claim-vs-evidence overdue); (4) SIG-38 human auth; (5) Unit-level TTL for lessons
 
 ## S427 git-recovery + maintenance session note (sync_state._update_session_log + corrections + trimming)
 - **check_mode**: verification | **mode**: maintenance | continued from previous session (git tree corruption)

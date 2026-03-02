@@ -72,6 +72,44 @@ _IMPERATIVE_VERBS = {
 }
 
 
+def classify_wirability(rule_text: str, full_content: str) -> dict:
+    """Classify whether an ASPIRATIONAL prescription has the 3 features that predict
+    behavioral adoption (L-975: lesson_grounding + metric_threshold + tool_target).
+
+    Returns dict with features present and missing list.
+    """
+    features = {}
+    missing = []
+
+    # Feature 1: Lesson grounding — Rule section cites other lessons
+    features["lesson_grounding"] = bool(re.search(r"\bL-\d{2,4}\b", rule_text))
+    if not features["lesson_grounding"]:
+        missing.append("lesson_grounding")
+
+    # Feature 2: Metric threshold — concrete number in rule text
+    # Match patterns like >6%, <0.3, 1-in-5, >=80%, N=20, ~170t, 2.3x, 50%
+    features["metric_threshold"] = bool(
+        re.search(r"[><≥≤]=?\s*\d|(?<!\w)\d+(?:\.\d+)?[%x]|\d+-in-\d+|n[=>]\d+|~\d+", rule_text, re.IGNORECASE)
+    )
+    if not features["metric_threshold"]:
+        missing.append("metric_threshold")
+
+    # Feature 3: Tool target — names a specific file in tools/ or a .py/.sh file
+    features["tool_target"] = bool(
+        re.search(r"tools/\w+\.(?:py|sh)|[\w_]+\.(?:py|sh)\b", rule_text)
+    )
+    if not features["tool_target"]:
+        missing.append("tool_target")
+
+    score = sum(features.values())
+    return {
+        "features": features,
+        "missing": missing,
+        "score": score,
+        "wirable": score == 3,
+    }
+
+
 def classify_actionability(rule_text: str) -> bool:
     """Return True if rule_text is an imperative prescription (not just an observation).
 
@@ -144,6 +182,7 @@ def scan_lessons(lessons_dir: Path, min_sharpe: int = 0) -> list[dict]:
         # Extract first meaningful sentence
         first_line = rule_text.split("\n")[0].strip()
 
+        wirability = classify_wirability(rule_text, content)
         rules.append(
             {
                 "lesson": lesson_id,
@@ -152,6 +191,7 @@ def scan_lessons(lessons_dir: Path, min_sharpe: int = 0) -> list[dict]:
                 "sharpe": sharpe,
                 "rule": first_line[:200],
                 "actionable": classify_actionability(rule_text),
+                "wirability": wirability,
             }
         )
     return rules
@@ -247,6 +287,11 @@ def main() -> None:
             "observational_aspirational_count": len(observational_asp),
             "high_sharpe_aspirational": display_hs[:args.top],
             "all_aspirational_count": len(aspirational),
+            "wirability": {
+                "wirable_3of3": sum(1 for r in aspirational if r["wirability"]["wirable"]),
+                "partial": sum(1 for r in aspirational if 0 < r["wirability"]["score"] < 3),
+                "no_features": sum(1 for r in aspirational if r["wirability"]["score"] == 0),
+            },
         }
         print(json.dumps(result, indent=2))
         return
@@ -282,15 +327,27 @@ def main() -> None:
     print(f"Prescription gap (all aspirational): {len(aspirational)}/{total}")
     print(f"True prescription gap (actionable only): {len(actionable_asp)}/{total} ({true_gap_rate:.1%})")
 
+    # L-975 wirability summary for ASPIRATIONAL lessons
+    wirable = [r for r in aspirational if r["wirability"]["wirable"]]
+    partial_wire = [r for r in aspirational if 0 < r["wirability"]["score"] < 3]
+    no_wire = [r for r in aspirational if r["wirability"]["score"] == 0]
+    print(f"\nWirability (L-975): {len(wirable)} WIRABLE (3/3) | "
+          f"{len(partial_wire)} partial | {len(no_wire)} no features")
+
     if display_hs:
         label = "actionable " if args.actionable_only else ""
         print(f"\nTop {label}ASPIRATIONAL prescriptions (Sharpe≥8, n={len(display_hs)}):")
         for r in display_hs[: args.top]:
             act_tag = "[ACT]" if r["actionable"] else "[OBS]"
+            w = r["wirability"]
+            wire_tag = f"[W{w['score']}/3]"
+            miss = ",".join(w["missing"])[:30] if w["missing"] else "WIRABLE"
             print(
-                f"  {act_tag} {r['lesson']} Sh={r['sharpe']} ({r['domain']}):"
+                f"  {act_tag} {wire_tag} {r['lesson']} Sh={r['sharpe']} ({r['domain']}):"
             )
-            print(f"    {r['rule'][:90]}")
+            print(f"    {r['rule'][:80]}")
+            if w["missing"]:
+                print(f"    missing: {miss}")
     else:
         print("\nNo high-Sharpe aspirational prescriptions found.")
 
