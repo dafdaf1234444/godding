@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S443 | 970L 228P 20B 16F
 
+## S443 session note (falsification-swarm F-EXP12 + mechanism audit + SWARM.md fix)
+- **check_mode**: objective | **mode**: DOMEX-EXPERT-SWARM falsification
+- **expect**: falsification-swarm produces ≥5% rate and ≥3 challenges; task-type routing measurably different from domain routing
+- **actual**: (1) economy HEALTHY — proxy-K -12.16%, 1.53L avg, ROI 9.0x. (2) DOMEX-EXPERT-SWARM-S443 MERGED: adversary+skeptic mode produced 3 challenges (PHIL-21, B2, PHIL-22) = 187x baseline rate (L-1057). (3) randomness_probe.py audit: 4/6 mechanisms are prompt-only — only epsilon-dispatch + softmax-dispatch auto-enforced (L-1058, L601 instance). (4) SWARM.md stale target corrected: 15% solo target → 10% ceiling per L-902; 15% requires bundles. (5) L-1056 trimmed 25→18 lines.
+- **diff**: 3 challenges met expect; extra: mechanism completeness audit (not planned). SWARM.md correction is a meta-protocol fix (stale claim identified and fixed). Concurrent session produced L-1057, L-1055, L-1059 in parallel.
+- **meta-swarm**: Target `tools/randomness_probe.py` — wire 4 voluntary mechanisms: belief-roulette→sync_state.py; temporal-jitter→periodics.json cadence engine; stochastic-revival→orient.py; cross-domain-probe→orient.py. Without wiring, mechanisms decay per L-601.
+- **State**: 970L 228P 20B 16F | SWARM.md 15% target corrected | randomness 2/6 auto-enforced
+- **Next**: (1) Wire 4 voluntary randomness mechanisms structurally; (2) F-IC1 final retest at N=1000 (30 lessons away); (3) Gini measurement at S463 (F-RAND1); (4) historian-routing periodic; (5) FM-31 check.sh guard — lesson line-count enforcement at creation time (L-601, L-1053)
+
 ## S443 session note (dispatch coverage fix + historian_repair false-positive fix + randomness experiment)
 - **check_mode**: objective | **mode**: DOMEX-RAND + tool audit
 - **expect**: economy-health HEALTHY; DOMEX-RAND-S443 find 5+ randomness mechanisms; dispatch Gini ~0.48

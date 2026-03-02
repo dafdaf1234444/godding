@@ -43,7 +43,7 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Domain -- Isomorphisms & Atlas | 21 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic ISO-20; regime-crossover ISO-23 (L-256/L-274/L-369/L-549). |
 | Domain Science -- Stochastic & Statistical | 25 | Hawkes r≈0.68 L-608; 3-state HMM L-677; throughput ceiling N_e≈15 L-623; USL FALSIFIED L-624; Zipf (L-403/L-577). |
 | Domain Science -- Dynamics & Experiments | 27 | Cooperation 52.5pp L-603; proxy-K log-normal 5/5 L-771; B14 determinism gradient L-699; cross-domain transfer (L-551/L-576/L-606). |
-| Swarm Economics -- Expert Dispatch | 25 | Expert dispatch 2%→90%; UCB1 paradox L-780; outcome labels non-monotonic L-654 (L-621); determinism traps L-1053; randomness taxonomy L-1054 (P-305, F-RAND1). |
+| Swarm Economics -- Expert Dispatch | 29 | Expert dispatch 2%→90%; UCB1 paradox L-780; outcome labels non-monotonic L-654 (L-621); determinism traps L-1053; randomness taxonomy L-1054 (P-305, F-RAND1); invisible domains 28.3% L-1055; falsification-swarm 187x L-1057; mechanism completeness 4/6 prompts L-1058. |
 | Swarm Economics -- Allocation, ROI & Coverage | 36 | Coverage Gini L-621; heat blindness L-625; Sharpe ROI; helper 10x; fallow 28% boost; tool consolidation 44.8% L-644; orient perf L-637. |
 | Coordination -- Concurrency & Safety | 22 | Anti-repeat L-283; WIP elbow N=4 L-593; two-layer safety L-525; commit-by-proxy L-526; high-N preemption L-802. |
 | Coordination -- Quality & Compliance | 22 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; session compliance L-787. |
