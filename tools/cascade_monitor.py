@@ -55,7 +55,10 @@ def _current_session() -> int:
     m = re.search(r'\[S(\d+)\]', log)
     if m:
         return int(m.group(1))
-    return 435  # fallback
+    # Fallback: derive from lesson count (#L-1103, FM-35 — static fallback was S435-stale)
+    import glob
+    lesson_count = len(glob.glob(str(REPO_ROOT / "memory" / "lessons" / "L-*.md")))
+    return max(lesson_count, 452)
 
 
 def check_tool_layer() -> dict:

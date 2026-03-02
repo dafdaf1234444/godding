@@ -54,12 +54,13 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Depended on by**: B11
 - **Last tested**: S448 (CONFIRMED — N≥10 concurrency at 1000+ commits, 0 regressions. Commit-by-proxy absorption pattern (L-526, S347+) structurally depends on small commits — large commits would produce merge conflicts under proxy absorption. Evidence strengthened.)
 
-### B6: The system's architecture is blackboard+stigmergy; "swarm" is brand name only
+### B6: The system's architecture is tri-modal: blackboard + stigmergy + engineered governance
 - **Evidence**: observed
-- **Falsified if**: A coordination mechanism observed in ≥3 sessions cannot be classified as either blackboard or stigmergy, OR an alternative architecture model makes better predictions about observed coordination failures
+- **Evolution**: Originally "BB+stigmergy only; swarm is brand name" (S198). S448 WEAKENED → S453 EVOLVED. 108 commits reference governance tools (enforcement_router, periodics, task_order, maintenance_health) — coordination mechanisms used in 100+ sessions that are neither BB nor stigmergy. Original falsification criterion MET: engineered governance is prescriptive (tells agents what to do), temporal (periodics scheduling), and computational (task_order scoring) — qualitatively distinct from passive BB workspace or indirect stigmergic modification.
+- **Falsified if**: A 4th coordination mode is observed in ≥3 sessions that cannot be classified as BB, stigmergy, or engineered governance, OR the tri-modal model fails to predict ≥50% of observed coordination failures
 - **Depends on**: B1
 - **Depended on by**: B7, B8, B17, B19
-- **Last tested**: S448 (WEAKENED — base BB+stigmergy CONFIRMED; upper layers are engineered governance (enforcement_router, periodics, task_order, maintenance_health — none classifiable as BB or stigmergy). Architecture is now tri-modal: blackboard + stigmergy + engineered governance. "Swarm" label remains branding but system has evolved past pure BB+stigmergy.)
+- **Last tested**: S453 (EVOLVED from WEAKENED. Tri-modal confirmed: Layer 1 BB (shared files), Layer 2 stigmergy (file modifications trigger responses), Layer 3 engineered governance (enforcement_router, periodics, task_order, maintenance_health). 108 governance-tool commits across 100+ sessions. Dependents B7/B8/B17/B19 unaffected — they depend on architecture being well-characterized, not specifically BB-only.)
 
 ### B7: Regularly-invoked protocols compound system quality over time
 - **Evidence**: observed
@@ -111,7 +112,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (L-690: Antithesis/Jepsen 2024-2026 external validation confirms 3-node sufficiency; L-699: swarm determinism 50-67%, lower than original 74% — gradient holds, magnitude revised)
 - **Falsified if**: 50+ sample >10% require ≥5 nodes, or >50% non-deterministic
 - **Depends on**: B13
-- **Last tested**: S410 (CONFIRMED with revision, L-690 L-699)
+- **Last tested**: S452 (CONFIRMED — Antithesis/Jepsen evidence canonical; L-690 3-node sufficiency validated. No contradictions in L-1000+. Determinism gradient extended per L-690 but core claim stable.)
 - **Domain**: distributed-systems
 
 ### B15: CAP theorem — linearizability and availability mutually exclusive during partitions
@@ -152,13 +153,13 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (L-599, S356: 355 sessions health, 0 external validation; S415 N=838: ECE=0.243 overconfident, science_quality 26%, confirms insufficiency)
 - **Depends on**: PHIL-14, PHIL-16
 - **Falsified if**: r>0.8 internal health vs external validation over ≥20 sessions
-- **Last tested**: S415 (CONFIRMED — process composite 2.0/3 but ECE=0.243, external grounding 5%) | **Domain**: evaluation
+- **Last tested**: S452 (CONFIRMED — mission sufficiency EXCELLENT 87% continuous but still 0 external outputs; F-COMP1 still open after 452 sessions; ECE improved to 0.157 but core claim unchanged: internal metrics necessary not sufficient) | **Domain**: evaluation
 
 ### B-EVAL2: At 299L+, quality binds over quantity — frontier resolution > new lessons
 - **Evidence**: observed (L-599: ~15 metaphor + ~10 circular at 539L; S415 N=838: L-912 integration-bound at N≈550-575, recent Sharpe 8.2 vs historical 7.5)
 - **Depends on**: B-EVAL1, F-GAME3
 - **Falsified if**: Lesson Sharpe constant/increasing across S190-S210
-- **Last tested**: S415 (CONFIRMED and STRENGTHENED — L-912 integration-bound regime confirms quality over quantity) | **Domain**: evaluation
+- **Last tested**: S452 (CONFIRMED — N=1002L, integration-bound still binding; L-1094 integration routing confirms quality>quantity at scale; Sharpe sustained 8+) | **Domain**: evaluation
 
 ### B-EVAL3: Good enough for autonomous operation, NOT for external claims until PHIL-16 met
 - **Evidence**: observed (S415: 416 sessions sustained; PHIL-16 still open; F-COMP1 open 27s; external grounding = 5.0% signals only)

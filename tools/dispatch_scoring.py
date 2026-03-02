@@ -111,9 +111,9 @@ def score_domain(domain: str, calibration: dict | None = None) -> dict | None:
         + (w.get("has_index", 1.0) if has_index else 0.0)
     )
 
-    # First open frontier description
+    # First open frontier description — restrict to active_section (#L-1103, FM-31)
     first_frontier = ""
-    match = re.search(r"^- (\*\*F[^*\n]+\*\*.*?)(?=^- \*\*F|\Z)", content, re.MULTILINE | re.DOTALL)
+    match = re.search(r"^- (\*\*F[^*\n]+\*\*.*?)(?=^- \*\*F|\Z)", active_section, re.MULTILINE | re.DOTALL)
     if match:
         first_frontier = match.group(1).strip()[:120].replace("\n", " ")
 

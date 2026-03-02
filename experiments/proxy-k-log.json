@@ -925,5 +925,19 @@
     },
     "total": 55813,
     "genesis": 12770
+  },
+  {
+    "date": "2026-03-03",
+    "session": 451,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 8445,
+      "T1-identity": 14424,
+      "T2-protocols": 3213,
+      "T3-knowledge": 11645,
+      "T4-tools": 12612
+    },
+    "total": 50339,
+    "genesis": 13310
   }
 ]
