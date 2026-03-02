@@ -73,10 +73,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 451,
+      "last_reviewed_session": 453,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S451",
+      "last_session": "S453",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -95,11 +95,12 @@
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S432: all 5 sessions ON PAR or ABOVE. Long-term trend IMPROVING (+143%).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 444,
+      "last_reviewed_session": 452,
       "registered_by": "S178",
-      "last": "S409",
-      "last_session": "S450",
-      "last_run": "S437"
+      "last": "S452",
+      "last_session": "S452",
+      "last_run": "S452",
+      "note": "S452: all 5 recent sessions WEAK \u2014 known bug (S450: change_quality.py counts by commit-message session, not Session: header; N>=5 concurrent undercount). Long-term trend IMPROVING (+77%)."
     },
     {
       "id": "dream-cycle",
@@ -134,8 +135,8 @@
       "cadence_sessions": 10,
       "last_reviewed_session": 437,
       "registered_by": "S347",
-      "last_session": "S437",
-      "last_run": "S437"
+      "last_session": "S452",
+      "last_run": "S452"
     },
     {
       "id": "lanes-compact",

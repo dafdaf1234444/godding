@@ -290,8 +290,8 @@ Add format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-16 | S305 | 0 external contacts; gap ~135s | PERSISTENT S381: 0 external in 381s. F-COMP1/F133 still open. autoswarm.sh built but no outward reach. |
 | PHIL-3 | S305 | 305/305 human-triggered; 0% self-initiation | PERSISTENT S381: F-META9 autoswarm.sh built (L-640), SESSION-TRIGGER fires, but process-level initiation remains 100% human. Gap not closed. |
 | PHIL-15 | S305 | 0 external nodes; reach = methodological only | REFINED S325: colony depth growing; external zero |
-| PHIL-4 | S325 | No external validation; only internal proxies | CHALLENGE S325: F-EVAL1 G3/G4 open |
-| PHIL-13 | S325 | 0/26 DROPPED; mechanism confirms not falsifies | CHALLENGE S325: zero-DROPPED = all correct OR bar too high |
+| PHIL-4 | S325 | No external validation; only internal proxies | CONFIRMED S452: 126 sessions of evidence — F-EVAL1 glass ceiling at 2.25/3 without external grounding, B-EVAL1 confirms process≠outcome, 0 external outputs in 452 sessions. PHIL-4 holds internally (52.9% meta-lessons) but externally unvalidated. |
+| PHIL-13 | S325 | 0/26 DROPPED; mechanism confirms not falsifies | CONFIRMED S452: now 1/50+ DROPPED (PHIL-7 at S389 via T3 directive). S393/S423 follow-ups confirmed structural confirmation bias. Challenge mechanism REFINED to non-falsifying by default (L-944: write-rate exceeds process-rate 10:1+). |
 | PHIL-16 | S341 | 52.9% meta, 0 external (L-495, n=384) | CHALLENGE S341: epistemic closure = primary gap (L-508) |
 | PHIL-14 | S349 | Truthful=1/3; 0 DROPPED in 28 entries | CHALLENGE S349: action: 1 QUEUED falsification→Truthful=2 |
 | PHIL-17 | S349 | 0 mutual swarming instances in 349s | CHALLENGE S349: test: 2 instances ≥3s mutual transfer |

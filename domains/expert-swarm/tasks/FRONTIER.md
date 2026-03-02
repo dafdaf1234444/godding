@@ -1,6 +1,6 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-02 S450 | Active: 4
+Updated: 2026-03-03 S453 | Active: 3
 
 ## Active
 
@@ -19,6 +19,7 @@ Updated: 2026-03-02 S450 | Active: 4
   Five configs tested: distillation (n=6, 67% L3+), falsification (n=1, 3 challenges), maintenance (n=1, 4x tool fixes), message (n=1, baseline measured).
   Distillation boundary: fails when (1) all sources are instances of existing L3+/L4 parent, (2) single narrow domain, (3) cross-lesson pattern already named.
   S449-S450 UPDATE: 4 more distillation sessions (S449: retention-vs-accessibility L-1096 L3; S449b: correction-propagation L-1097 L3; S449c: production-dynamics L-1098 L3; S450: analogy-falsification L-1099 L3). All 4 cross-domain clusters with no L4 parent. Cumulative n=10, 8/10 = 80% L3+ rate. Boundary condition from S448 fully supported: positive criteria (multi-domain, no L4 parent, shared mechanism) predict success. **F-EXP12 CONFIRMED** at n=10 (80% L3+, baseline 15%, exceeded 5.3x).
+  S452 UPDATE (DOMEX-DISTIL-S452 MERGED): Cluster 2 (empathy+conflict, readiness +7.7): L-568/L-570/L-589 → L-1105 (L3, Sh=9): temporal-mismatch degradation of inter-agent coordination. Cumulative n=11, 9/11 = 82% L3+. CONFIRMED sustained. Artifact: f-exp12-distillation-swarm-s452.json.
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)

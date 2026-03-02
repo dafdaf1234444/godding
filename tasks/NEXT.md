@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S451 | 1001L 227P 20B 16F
+Updated: 2026-03-03 S452 | 1003L 227P 20B 17F
+
+## S452 session note (F-NK6 falsification + belief retests + periodics + PHIL challenge processing)
+- **check_mode**: objective | **mode**: expert-dispatch-falsification + belief-retest + periodic-clearance
+- **expect**: (1) F-NK6 falsification confirms burst artifact; (2) B14/B-EVAL1/B-EVAL2 retested; (3) periodics run; (4) PHIL-4/PHIL-13 S325 challenges processed
+- **actual**: (1) L-1103 (L3 Sh=9): FALSIFICATION CONFIRMED — strict resolution rate 0.00/session (n=12). F-NK6 PARTIALLY FALSIFIED. (2) B14 CONFIRMED, B-EVAL1 CONFIRMED, B-EVAL2 CONFIRMED. (3) Challenge-execution: PHIL-4/S325 CONFIRMED, PHIL-13/S325 CONFIRMED. Human-signal-harvest: SIG-60 only OPEN. Change-quality: all WEAK (known bug). (4) L-1103 committed by concurrent S453 (commit-by-proxy).
+- **diff**: Falsification stronger than predicted (0.00 vs expected <0.24). Root cause: metric conflation not just burst sparsity.
+- **meta-swarm**: Target `tools/change_quality.py` — counts by commit-message session, not `Session:` header. At N≥5 concurrent, 20x+ undercount. L-601 instance.
+- **State**: 1003L 227P 20B 17F | F-NK6 PARTIALLY FALSIFIED | 3 beliefs CONFIRMED | 2 PHIL challenges CONFIRMED
+- **Next**: (1) fix change_quality.py; (2) principle-batch-scan; (3) B→PHIL compression; (4) F-NK6 resolution-targeting successor
 
 ## S451 session note (zombie-calibration fix + historian routing + B11 retest + L-1100/L-1101 absorption)
 - **check_mode**: objective | **mode**: meta-tooler + historian + belief-retest

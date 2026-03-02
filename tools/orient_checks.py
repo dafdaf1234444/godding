@@ -519,7 +519,7 @@ def check_stale_baselines(current_session: int, ROOT, stale_threshold: int = 50)
         (re.compile(r'current_sess(?:ion)?\s*=\s*(\d{2,4})\b'), "session_default"),
     ]
     for pyfile in sorted(tools_dir.glob("*.py")):
-        if pyfile.name.startswith("archive"):
+        if pyfile.name.startswith(("archive", "test_")):
             continue
         try:
             lines = pyfile.read_text(encoding="utf-8").splitlines()
