@@ -1467,30 +1467,6 @@
         }
       ]
     },
-    "F-RMT1": {
-      "domain": "rmt",
-      "prior": 0.5,
-      "posterior": 0.798,
-      "n_experiments": 1,
-      "verdict_counts": {
-        "CONFIRMED": 0,
-        "PARTIAL": 1,
-        "FALSIFIED": 0
-      },
-      "mean_quality": 0.6,
-      "conclusion": "MODERATE CONFIRM",
-      "replication_capped": false,
-      "trace": [
-        {
-          "session": 430,
-          "verdict": "PARTIAL",
-          "bf": 3.0,
-          "weight": 1.25,
-          "prior": 0.5,
-          "posterior": 0.798
-        }
-      ]
-    },
     "F-IC1": {
       "domain": "ic",
       "prior": 0.5,
@@ -1815,13 +1791,13 @@
       "domain": "str",
       "prior": 0.5,
       "posterior": 1.0,
-      "n_experiments": 8,
+      "n_experiments": 9,
       "verdict_counts": {
-        "CONFIRMED": 6,
+        "CONFIRMED": 7,
         "PARTIAL": 2,
         "FALSIFIED": 0
       },
-      "mean_quality": 0.45,
+      "mean_quality": 0.4,
       "conclusion": "STRONG CONFIRM",
       "replication_capped": false,
       "trace": [
@@ -1888,6 +1864,38 @@
           "weight": 1.0,
           "prior": 1.0,
           "posterior": 1.0
+        },
+        {
+          "session": 431,
+          "verdict": "CONFIRMED",
+          "bf": 10.0,
+          "weight": 0.5,
+          "prior": 1.0,
+          "posterior": 1.0
+        }
+      ]
+    },
+    "F-STR5": {
+      "domain": "str",
+      "prior": 0.5,
+      "posterior": 0.85,
+      "n_experiments": 1,
+      "verdict_counts": {
+        "CONFIRMED": 1,
+        "PARTIAL": 0,
+        "FALSIFIED": 0
+      },
+      "mean_quality": 0.4,
+      "conclusion": "STRONG CONFIRM",
+      "replication_capped": true,
+      "trace": [
+        {
+          "session": 431,
+          "verdict": "CONFIRMED",
+          "bf": 10.0,
+          "weight": 1.0,
+          "prior": 0.5,
+          "posterior": 0.909
         }
       ]
     }
@@ -1912,16 +1920,16 @@
       "calibration_error": 0.118
     },
     "0.6-0.8": {
-      "n": 17,
-      "mean_predicted_p": 0.742,
-      "mean_actual_rate": 0.522,
-      "calibration_error": 0.22
+      "n": 16,
+      "mean_predicted_p": 0.738,
+      "mean_actual_rate": 0.523,
+      "calibration_error": 0.215
     },
     "0.8-1.0": {
-      "n": 33,
-      "mean_predicted_p": 0.894,
-      "mean_actual_rate": 0.847,
-      "calibration_error": 0.047
+      "n": 34,
+      "mean_predicted_p": 0.893,
+      "mean_actual_rate": 0.852,
+      "calibration_error": 0.04
     }
   },
   "domain_summary": {
@@ -1989,6 +1997,14 @@
       "strong_confirm": 1,
       "strong_doubt": 0
     },
+    "str": {
+      "n_frontiers": 3,
+      "total_experiments": 13,
+      "mean_posterior": 0.9,
+      "evidence_gini": 0.41,
+      "strong_confirm": 3,
+      "strong_doubt": 0
+    },
     "fra": {
       "n_frontiers": 2,
       "total_experiments": 2,
@@ -2011,14 +2027,6 @@
       "mean_posterior": 0.8,
       "evidence_gini": 0.167,
       "strong_confirm": 1,
-      "strong_doubt": 0
-    },
-    "str": {
-      "n_frontiers": 2,
-      "total_experiments": 11,
-      "mean_posterior": 0.924,
-      "evidence_gini": 0.227,
-      "strong_confirm": 2,
       "strong_doubt": 0
     },
     "cc": {
@@ -2117,14 +2125,6 @@
       "strong_confirm": 0,
       "strong_doubt": 1
     },
-    "rmt": {
-      "n_frontiers": 1,
-      "total_experiments": 1,
-      "mean_posterior": 0.798,
-      "evidence_gini": 0.0,
-      "strong_confirm": 0,
-      "strong_doubt": 0
-    },
     "ic": {
       "n_frontiers": 1,
       "total_experiments": 5,
@@ -2151,8 +2151,8 @@
     }
   },
   "publication_bias": {
-    "n": 119,
-    "r_quality_confirmed": 0.116,
+    "n": 120,
+    "r_quality_confirmed": 0.108,
     "interpretation": "NEUTRAL: quality does not predict confirmation"
   },
   "replication_inconsistencies": [
