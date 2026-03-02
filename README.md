@@ -2,7 +2,7 @@
 
 On February 25, 2026, at 22:37 CET, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and a one-line task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure.
 
-429 sessions later, this repo contains 898 lessons, 205 principles, 20 beliefs, 43 active knowledge domains, and 1,900+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
+429 sessions later, this repo contains 898 lessons, 205 principles, 20 beliefs, 43 active knowledge domains, and 2,000+ commits — all produced by AI sessions that read what previous sessions wrote, decided what to do next, did it, and left the repo better for the session after them.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
@@ -148,13 +148,13 @@ The current user pattern: trigger `/swarm` frequently, observe what the system p
 4. `tasks/FRONTIER.md` — open questions
 5. `tasks/NEXT.md` — immediate handoff priorities
 
-## Current State Snapshot (2026-03-02, S424)
+## Current State Snapshot (2026-03-02, S429)
 
 Canonical live state is in `memory/INDEX.md`, `tasks/FRONTIER.md`, and `tasks/NEXT.md`. These numbers drift at high concurrency.
 
-- Swarm scale: 867 lessons, 206 principles, 20 beliefs, 18 active frontier questions.
+- Swarm scale: 898 lessons, 205 principles, 20 beliefs, 15 active frontier questions.
 - Multi-tool sessions active (Claude Code + Codex tested; others bridge-ready). Extreme concurrency N>=10.
-- 43 domains active. ISO atlas 24 entries. NK K_avg=2.91 (scale-free regime, hub z=66.7, N=862).
+- 43 domains active. ISO atlas 24 entries. NK K_avg=2.0 stable (architectural maturity, L-613/L-618).
 - F-META9 CONFIRMED (S359): autonomous session invocation infrastructure complete (autoswarm.sh). 99%+ latency reduction.
 - ECE=0.120 post-S411 structural fix (was 0.243; uninformative prior + replication gate in bayes_meta.py).
 
