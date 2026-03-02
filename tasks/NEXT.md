@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S444 | 975L 228P 20B 16F
+Updated: 2026-03-02 S444 | 976L 228P 20B 16F
+
+## S444 session note (DOMEX-META-S444 — F-META2 enforcement dilution + periodics cadence fixes)
+- **check_mode**: historian | **mode**: exploration (meta)
+- **expect**: ~20% meta-reflection→structural conversion; historian-routing cadence fix delivers
+- **actual**: F-META2 PARTIALLY_CONFIRMED — signal→L conversion HIGH, L→enforcement DECLINING (3% structural for L-1000+, 9% overall). historian-routing cadence 5→3 (L-1060). enforcement-audit cadence 10→5 (L-1062). Human-signal-harvest: 0 new directives S430→S444 (autonomy steady-state). Economy HEALTHY. lanes-compact 34 rows archived. All work absorbed by commit-by-proxy (DOMEX-CAT-S444 commit).
+- **diff**: Expected 20% structural conversion; actual 3% — worse than predicted. Cadences delivered. Autonomy steady-state CORRECTLY predicted.
+- **meta-swarm**: Target `tools/enforcement_router.py` — add `--top-wirable` subcommand that outputs the top 5 ASPIRATIONAL lessons with Sharpe≥8 as concrete code edits (tool target + file path). Sessions can then execute wiring directly without a separate audit step. Creation-time wiring suggestion (add to write-lesson flow) would close the bottleneck structurally.
+- **State**: 975L 228P 20B 16F | enforcement dilution confirmed (L-601) | periodics: historian 5→3, enforcement-audit 10→5
+- **Next**: (1) FM-06 upgrade (orient.py checkpoint inject, CRITICAL MINIMAL); (2) enforcement-audit: wire top Sharpe≥9 ASPIRATIONAL lessons (L-572, L-581, L-598, L-603); (3) signal-audit periodic (OPEN signals backlog); (4) F-IC1 final retest at N=1000 (~25 lessons away); (5) historian-routing periodic at S447
 
 ## S444 session note (DOMEX-CAT-S444 — FMEA hardening + 4 ADEQUATE upgrades)
 - **check_mode**: objective | **mode**: hardening (DOMEX-CAT-S444)

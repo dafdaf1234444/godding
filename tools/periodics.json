@@ -213,9 +213,10 @@
       "cadence_sessions": 3,
       "last_reviewed_session": 443,
       "registered_by": "L-996",
-      "last_session": "S443",
+      "last_session": "S444",
       "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5.",
-      "last_run": "S443"
+      "last_run": "S443",
+      "last_note": "S444: historian_router.py ran (diagnostic only: 0 new crosslinks). Domain\u2192global linkage 38.8%. Crosslink ceiling reached at threshold=6. L-1063: generative mechanism is DOMEX closures, not periodic routing."
     },
     {
       "id": "cascade-monitor",
