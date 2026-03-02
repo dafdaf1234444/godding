@@ -1,9 +1,9 @@
 # Memory Index
-Updated: 2026-03-03 | Sessions: 453
+Updated: 2026-03-03 | Sessions: 454
 
 ## What the swarm knows
-- **1004 lessons** in `memory/lessons/L-{NNN}.md`
-- **227 principles** in `memory/PRINCIPLES.md` (latest: P-305 structured-randomness-injection, P-304 methodology-as-product, P-303 cascade-detection-scope)
+- **1009 lessons** in `memory/lessons/L-{NNN}.md`
+- **230 principles** in `memory/PRINCIPLES.md` (latest: P-305 structured-randomness-injection, P-304 methodology-as-product, P-303 cascade-detection-scope)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **17 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
 ## Structure
@@ -18,7 +18,7 @@ domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
 docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ```
 
-## Themes (1004 lessons)
+## Themes (1009 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |

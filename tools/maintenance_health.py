@@ -298,6 +298,10 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
 
     Three measured waypoints: N≈550 (integration-bound), N≈750 (reliability-break),
     N≈1000 (enforcement-dilution). Each shifts the binding constraint.
+
+    FM-33 hardening (S453): auto-apply cadence changes instead of advisory DUE (L-601).
+    All remediation paths with deterministic actions use detect→write→NOTICE, not
+    detect→DUE→hope. DUE is reserved for items requiring human judgment.
     """
     results = []
     try:
@@ -308,17 +312,10 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
         n = int(m.group(1))
 
         # Waypoint 3: N≥1000 — enforcement dilution (L-1066, L-1062)
-        # Action: reduce enforcement-audit cadence from 5 to 3 sessions
+        # Action: auto-reduce enforcement-audit cadence to 3 sessions
+        # FM-33 hardening (S453): auto-apply instead of advisory DUE (L-601)
         if n >= 1000:
-            periodics_path = REPO_ROOT / "tools" / "periodics.json"
-            try:
-                import json as _json
-                data = _json.loads(periodics_path.read_text(encoding="utf-8"))
-                enf = next((e for e in data.get("items", []) if e.get("id") == "enforcement-audit"), None)
-                if enf and enf.get("cadence_sessions", 5) > 3:
-                    results.append(("DUE", f"L-1066 N≥1000 waypoint: enforcement-dilution — scale enforcement-audit cadence 5→3 (python3 tools/enforcement_router.py, tools/periodics.json)"))
-            except Exception:
-                results.append(("DUE", f"L-1066 N≥1000 waypoint: enforcement-dilution — scale enforcement-audit cadence (L-1066, L-1062)"))
+            results.extend(_auto_apply_enforcement_cadence(n))
 
         # Waypoint 2: N≥750 — reliability-break, O(N²) and hardcoded value audit (L-1066, L-788)
         elif n >= 750:
@@ -328,6 +325,50 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
         elif n >= 550:
             results.append(("NOTICE", f"L-1066 N≥550 waypoint ({n}L): integration-bound — route ≥1/3 dispatch sessions to historian-mode (L-912, tools/historian_router.py)"))
 
-    except Exception:
-        pass
+    except Exception as e:
+        results.append(("NOTICE", f"check_scale_waypoints error: {e}"))
+    return results
+
+
+# Target cadences per waypoint (FM-33 auto-apply table).
+# Each entry: (periodic_id, max_cadence_at_waypoint, waypoint_label)
+_N1000_CADENCE_TARGETS = [
+    ("enforcement-audit", 3, "enforcement-dilution"),
+]
+
+
+def _auto_apply_enforcement_cadence(n: int) -> list[tuple[str, str]]:
+    """FM-33 structural remediation: auto-write cadence changes to periodics.json.
+
+    Pattern: detect→write→NOTICE (not detect→DUE→hope).
+    If periodics.json is unreadable/unwritable, emit URGENT (not DUE) so the failure
+    of the fix itself is visible rather than silently decaying to advisory (L-601).
+    """
+    results: list[tuple[str, str]] = []
+    periodics_path = REPO_ROOT / "tools" / "periodics.json"
+    try:
+        data = json.loads(periodics_path.read_text(encoding="utf-8"))
+    except Exception as e:
+        results.append(("URGENT", f"FM-33 auto-apply FAILED: cannot read periodics.json: {e} — manual fix required (L-1066)"))
+        return results
+
+    items = data.get("items", [])
+    changed = False
+    for periodic_id, max_cadence, label in _N1000_CADENCE_TARGETS:
+        entry = next((e for e in items if e.get("id") == periodic_id), None)
+        if entry is None:
+            results.append(("URGENT", f"FM-33: periodic '{periodic_id}' missing from periodics.json — N≥1000 {label} cadence cannot be enforced"))
+            continue
+        current = entry.get("cadence_sessions", max_cadence + 1)
+        if current > max_cadence:
+            entry["cadence_sessions"] = max_cadence
+            changed = True
+            results.append(("NOTICE", f"L-1066 N≥1000 waypoint: auto-applied {periodic_id} cadence {current}→{max_cadence} in periodics.json (FM-33 hardening)"))
+
+    if changed:
+        try:
+            periodics_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+        except Exception as e:
+            results.append(("URGENT", f"FM-33 auto-apply FAILED: cannot write periodics.json: {e} — manual fix required"))
+
     return results
