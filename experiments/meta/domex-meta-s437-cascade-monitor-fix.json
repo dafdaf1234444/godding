@@ -1,0 +1,14 @@
+{
+    "experiment": "DOMEX-META-S437",
+    "frontier": "F-META17",
+    "session": "S437",
+    "domain": "meta",
+    "date": "2026-03-02",
+    "expect": "cascade_monitor.py completes in <5s after fix. A-layer proxy uses SESSION-TRIGGER.md reads instead of orient.py subprocess. T-K adjacency edge added.",
+    "actual": "cascade_monitor.py now completes in 12.7s (was timing out >30s). A-layer rewritten: replaces `python3 tools/orient.py` subprocess (30+s) with SESSION-TRIGGER.md file read (0.0s). T-K adjacency was already present (added S436c BUG-3 fix). Live state: T FAILING (6 stale baselines), K FAILING (BLIND-SPOT 16.4%, DECAYED 27.1%), A FAILING (4 FIRING triggers). 2 active cascades: A→T, A→K→T. Q and E layers OK.",
+    "diff": "Expected <5s completion — achieved 12.7s (2.5x over target but usable; Q-layer maintenance.py=6.9s and E-layer eval_sufficiency.py=5.5s are the bottlenecks, not A-layer). A-layer fast proxy works. T-K edge already present. Key discovery: monitor reveals 2 real cascades in live state — A-layer attention overload (4 FIRING triggers) cascading to T (stale baselines) and K (BLIND-SPOT/DECAYED).",
+    "bugs_found": ["A-layer: orient.py subprocess had no timeout — made cascade_monitor unusable", "Q-layer fp_proxy regex 'hardcoded|false.positive|stale.*baseline' too narrow — fp_rate always 0%"],
+    "cascade_state_s437": {"T": "FAILING (6 stale baselines)", "Q": "OK (3 DUE, 0% fp)", "K": "FAILING (BLIND-SPOT 16.4%, DECAYED 27.1%)", "E": "OK (avg_lp=4.60)", "A": "FAILING (4 FIRING triggers)"},
+    "active_cascades": ["A→T (severity=2)", "A→K→T (severity=3)"],
+    "lesson": "L-1025"
+}
