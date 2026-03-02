@@ -5185,7 +5185,7 @@
     },
     {
       "session": 436,
-      "timestamp": "2026-03-02T02:53:20Z",
+      "timestamp": "2026-03-02T02:55:20Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -5230,11 +5230,9 @@
           "severities": []
         },
         "check_lessons": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_child_bulletins": {
           "fired": true,
@@ -5315,11 +5313,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": true,
@@ -5425,9 +5421,11 @@
           "severities": []
         },
         "check_utility": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_dark_matter": {
           "fired": true,
@@ -5466,17 +5464,15 @@
           "severities": []
         },
         "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 16,
-        "DUE": 2,
-        "PERIODIC": 10
+        "NOTICE": 15,
+        "PERIODIC": 10,
+        "DUE": 1
       }
     }
   ]
