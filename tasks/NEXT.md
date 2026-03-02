@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S444 | 973L 228P 20B 16F
+Updated: 2026-03-02 S444 | 974L 228P 20B 16F
 
 ## S444 session note (adversary mode — DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443 MERGED)
 - **check_mode**: verification | **mode**: adversary+skeptic (DOMEX-EXPERT-SWARM-S443 + DOMEX-EVAL-S443)

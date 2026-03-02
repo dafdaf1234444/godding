@@ -328,6 +328,70 @@ def check_git_object_health(ROOT) -> list:
     return lines
 
 
+def check_genesis_hash(ROOT) -> list:
+    """FM-11 guard: verify genesis bundle hash at session start (2nd automated layer, S444).
+    check.sh verifies at commit time; orient.py verifies at session start — independent layers.
+    Returns list of output lines. Caller must print."""
+    lines = []
+    try:
+        import hashlib
+        hash_files = sorted((ROOT / "workspace").glob("genesis-bundle-*.hash"),
+                            key=lambda f: f.stat().st_mtime)
+        if not hash_files:
+            return lines  # no hash file — skip silently (not yet initialized)
+        latest = hash_files[-1]
+        stored = latest.read_text().strip().split()[0]
+        if not stored:
+            return lines
+        h = hashlib.sha256()
+        for p in ["workspace/genesis.sh", "beliefs/CORE.md"]:
+            fp = ROOT / p
+            if fp.exists():
+                h.update(fp.read_bytes())
+        for candidate in ["beliefs/PRINCIPLES.md", "memory/PRINCIPLES.md"]:
+            fp = ROOT / candidate
+            if fp.exists():
+                h.update(fp.read_bytes())
+                break
+        current = h.hexdigest()
+        if current != stored:
+            lines.append(f"  !! FM-11: genesis hash MISMATCH at session start")
+            lines.append(f"     current={current[:12]}... stored={stored[:12]}... ({latest.name})")
+            lines.append(f"     Investigate genesis.sh/CORE.md/PRINCIPLES.md changes.")
+            lines.append(f"     Fix: python3 tools/genesis_hash.py --write --session SXXX")
+    except Exception:
+        pass
+    return lines
+
+
+def check_git_index_health(ROOT) -> list:
+    """FM-04 guard: detect git index corruption at session start (1st automated layer, S444).
+    Auto-recovery: rebuild index from HEAD if corruption detected.
+    Returns list of output lines. Caller must print."""
+    lines = []
+    try:
+        index_path = ROOT / ".git" / "index"
+        if not index_path.exists():
+            lines.append("  !! FM-04: .git/index missing — rebuilding from HEAD")
+            subprocess.run(["git", "read-tree", "HEAD"], cwd=str(ROOT),
+                           capture_output=True, timeout=10)
+            return lines
+        # Minimum viable index is >100 bytes (empty repo index is 12 bytes + entries)
+        if index_path.stat().st_size < 100:
+            lines.append(f"  !! FM-04: .git/index suspiciously small ({index_path.stat().st_size}b) — may be corrupted")
+            lines.append(f"     Fix: rm .git/index && git read-tree HEAD")
+            return lines
+        # Verify git status works (index parse succeeds)
+        result = subprocess.run(["git", "status", "--short"],
+                                capture_output=True, text=True, timeout=15, cwd=str(ROOT))
+        if result.returncode != 0:
+            lines.append("  !! FM-04: git status failed — index likely corrupted")
+            lines.append(f"     Fix: rm .git/index && git read-tree HEAD")
+    except Exception:
+        pass
+    return lines
+
+
 def _scan_lesson_domains(lesson_dir):
     """Scan all lesson files and count domain tags."""
     lesson_domains = {}

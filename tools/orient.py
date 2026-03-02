@@ -159,6 +159,14 @@ def check_git_object_health():
     from orient_checks import check_git_object_health as _impl
     return _impl(ROOT)
 
+def check_genesis_hash():
+    from orient_checks import check_genesis_hash as _impl
+    return _impl(ROOT)
+
+def check_git_index_health():
+    from orient_checks import check_git_index_health as _impl
+    return _impl(ROOT)
+
 def check_experiment_harvest_gap(threshold: int = 5) -> list:
     from orient_checks import check_experiment_harvest_gap as _impl
     return _impl(ROOT, _hcache, threshold)
@@ -293,14 +301,22 @@ def main():
     # Parallelize all slow independent operations:
     # git_fsck ~3s, historian_repair ~7s, meta_tooler ~11s, prescription_gap ~2s
     from concurrent.futures import ThreadPoolExecutor
-    with ThreadPoolExecutor(max_workers=4) as _pool:
+    with ThreadPoolExecutor(max_workers=6) as _pool:
         _git_health_future = _pool.submit(check_git_object_health)
+        _genesis_future = _pool.submit(check_genesis_hash)
+        _index_health_future = _pool.submit(check_git_index_health)
         _hist_future = _pool.submit(section_historian_repair)
         _meta_future = _pool.submit(section_meta_tooler)
         _prescription_future = _pool.submit(section_prescription_gap)
         maint_out = _run_maint()  # run in main thread while others execute
     # Print git health check results (moved from pre-checks, now parallelized)
     for _line in _git_health_future.result():
+        print(_line)
+    # FM-11: genesis hash check at session start (2nd automated layer, S444)
+    for _line in _genesis_future.result():
+        print(_line)
+    # FM-04: git index health check at session start (1st automated layer, S444)
+    for _line in _index_health_future.result():
         print(_line)
     _historian_repair_lines = _hist_future.result()
     _meta_tooler_lines = _meta_future.result()
