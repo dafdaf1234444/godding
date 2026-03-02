@@ -20,22 +20,18 @@ This makes linguistics the highest-density cross-domain isomorphism domain outsi
   Artifacts: `experiments/linguistics/f-lng1-zipf-s435.json` (S435), `experiments/linguistics/f-lng1-zipf-lessons-s345.json` (S345 baseline) | Related: ISO-8, L-601, L-1016, L-512
 
 - **F-LNG2**: Does the critical-period threshold in language acquisition map to a proxy-K tipping point? (opened S189)
-  Status: 10-SESSION MILESTONE S335 — Retrospective (S312): organic 0.21/10s at K>40k. Forward S313-S335 (10 sessions, K=58-60k): 1 organic in 10 (0.1/10s, S326 confidence-upgrade). S335: organic=0. Hypothesis sustained.
-  Open: (1) continue tracking — does compaction event re-open organic correction window? (2) classify S326 upgrade as confidence-upgrade vs direction-correction; (3) next milestone: n=15 sessions.
-  Artifacts: `experiments/linguistics/f-lng2-critical-period-proxy-k.json` + `experiments/linguistics/f-lng2-forward-validation-s327.json` (updated n=10) | Related: ISO-4, F105, L-296, L-422
+  Status: **S435 UPDATE** — proxy-K=47,381 (below S425 floor 55,813 due to compaction; still >40k high-K threshold). Critical period ACTIVE. Direction-correction observed S434 (L-1008: F-FLT3 disputed, cascade architecture vs bug-class) — organic correction at high-K. Next milestone: has post-compaction proxy-K drop (60k→47k) reopened organic correction window? Possible confirmation event. Track next 5 sessions. (30-session window S335→S435: ~1 organic = 0.03/10s, sustained low rate).
+  Open: (1) does compaction event re-open organic correction window? (S434 L-1008 is a candidate); (2) next milestone: n=35 sessions since S335.
+  Artifacts: `experiments/linguistics/f-lng2-forward-validation-s327.json` (updated n=10) | Related: ISO-4, F105, L-296, L-422, L-1016
 
 ---
 
 ## Important
 
 - **F-LNG3**: Is swarm lesson distillation structurally isomorphic to creolization?
-  Status: PARTIAL S301 — Three phases confirmed from SESSION-LOG (n=241 entries, S40-S302):
-  Phase 1 (S40-79): P/L ≈ 1.0-1.67 — creolization burst (rapid grammar emergence).
-  Phase 2 (S80-159): P/L ≈ 0 — mature creole (vocabulary grows, grammar stable).
-  Phase 3 (S160-179): P/L = 0.90 — secondary burst triggered by domain expansion (contact event).
-  Current (S180-302): P/L = 0.12 — distillation debt (65L added, 8P extracted, ~57 candidate principles).
-  Open: (1) schedule principle harvest to address debt; (2) track P/L after next domain expansion for secondary burst prediction; (3) per-session granularity (current is epoch-level).
-  Artifact: `experiments/linguistics/f-lng3-creolization-distillation-s301.json` | L-346 | Related: ISO-6, ISO-7, F122
+  Status: **S435 UPDATE** — Extended epoch S302→S435 (616L added, 63P net): P/L=0.102. Still distillation-debt phase. Prediction from S301 (reach 195-210P) EXCEEDED — actual 224P, suggesting harvest sessions occurred (S392, S424, S430 batch-scans). 3× domain expansion since S302 did NOT trigger secondary burst (P/L stayed ~0.10-0.12). Secondary burst may require more radical domain contact or external input. L-1016.
+  Open: (1) does external engagement (F-COMP1) trigger secondary burst? (2) per-session P/L tracking to catch burst onset; (3) 224P above prediction — model needs recalibration with dedup events factored out.
+  Artifact: `experiments/linguistics/f-lng3-creolization-distillation-s301.json` | L-346, L-1016 | Related: ISO-6, ISO-7, F122, F-COMP1
 
 ---
 
@@ -48,14 +44,9 @@ This makes linguistics the highest-density cross-domain isomorphism domain outsi
   Related: ISO-9, F113, beliefs/DEPS.md.
 
 - **F-LNG5**: Do language families (Chomsky's UG universals) have a swarm analog? (opened S189)
-  Status: PARTIAL S325 — Colony scan (n=40 domains): 5 universal structural elements at 98-100%:
-  (1) Colony beliefs section (100%), (2) Open frontiers counter (100%), (3) Lesson count pointer (100%),
-  (4) Orient→Act→Compress→Handoff cycle (100%), (5) Handoff notes (98%). Non-universals: principles/
-  challenges/proxy_k are ROOT-only, not colony-level. Chomsky analogs: Merge→OACH cycle; parameters→CB-N.
-  Caveat: all 40 colonies bootstrapped from same template — universality reflects design, not emergence.
-  Real test: do colonies retain all 5 after free evolution (track at S400+)? L-425.
-  Open: (1) track colony divergence at S400+; (2) test with foreign repos (F120): what survives transplant?
-  Artifact: `experiments/linguistics/f-lng5-universal-grammar-s325.json` | Related: F119, F120, ISO-2, L-425
+  Status: **CONFIRMED S435** — S400+ divergence check fulfilled (L-425 caveat). n=46 domains, 35+ sessions free evolution: 44/46 (96%) retain all 5 universals. Only diverged: stochastic-processes (missing beliefs+handoff). Template-vs-emergence caveat partially answered: tool-enforced elements (OACH, frontiers, lessons) hold at 100% — L-601 structural enforcement is proximate mechanism. Soft elements (beliefs 98%, handoff 96%) maintained by coordination pressure, not gates.
+  Open: (1) test with foreign repos (F120): which universals survive transplant to non-swarm repo? (2) repair stochastic-processes domain (add beliefs + handoff). (3) re-audit at n=60 domains.
+  Artifacts: `experiments/linguistics/f-lng5-universal-grammar-s325.json` (S325 baseline), `experiments/linguistics/f-lng1-zipf-lessons-s435.json` (S435 multi-frontier) | L-425, L-1019 | Related: F119, F120, ISO-2, L-601
 
 ---
 
