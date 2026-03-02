@@ -281,7 +281,16 @@ def check_compaction() -> list[tuple[str, str]]:
 def check_lessons() -> list[tuple[str, str]]:
     lessons_dir = REPO_ROOT / "memory" / "lessons"
     if not lessons_dir.exists(): return []
-    over_20 = [f.name for f in lessons_dir.glob("L-*.md") if _line_count(f) > 20]
+    over_20 = []
+    for f in lessons_dir.glob("L-*.md"):
+        if _line_count(f) > 20:
+            # SIG-56: WSL page-cache can return stale content after concurrent trim.
+            # If HEAD already has ≤20 lines, the working-tree count is a caching artifact.
+            rel = str(f.relative_to(REPO_ROOT))
+            committed = _git("show", f"HEAD:{rel}")
+            if committed and len(committed.splitlines()) <= 20:
+                continue  # already trimmed in HEAD — skip false positive
+            over_20.append(f.name)
     if over_20:
         # One item per lesson for unique claim fingerprints (L-933: trim-collision waste).
         # Sessions can claim individual trim tasks: python3 tools/claim.py claim trim:L-NNN

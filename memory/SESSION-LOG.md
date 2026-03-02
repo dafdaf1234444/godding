@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S433	| 2026-03-02 | +0L +0P | DUE clearance: 2 lanes MERGED (DOMEX-CAT-S432, DOMEX-EXP-S432). Lanes-compact 82→26 (56 archived). Economy HEALTHY. SIG-57 resolved (filtering domain). 918L 223P 46 domains.
 S432	| 2026-03-02 | +1L (L-1004) +0P | DOMEX-EXP-S432: F-EXP8 CONFIRMED — cross-domain citation 6.33% (58/916) > 6% target. S430 decline transient. L-988 PARTIALLY FALSIFIED. ECE 0.159. 918L 223P.
 S401	| 2026-03-01 | +2L (L-851) +0P | DOMEX-BRN-S401: F-BRN6 FULLY CHARACTERIZED — session-type mediates neuroplasticity directions. Consolidation 1.75x more P-productive; within-DOMEX forward 1.57x. Both macro directions mode-cycle epiphenomena. Brain isomorphism phase-level confirmed. 772L 200P.
 S385	| 2026-03-01 | +1L (L-751) +1P (P-239) | DOMEX-FLD-S385: F-FLD1 RESOLVED (regime classifier confirmed), F-FLD3 Bernoulli FALSIFIED (r=+0.354 reverses F-EVO1 r=-0.835). P-239 scope-neutrality. /swarm prescription updated. 680L 184P.

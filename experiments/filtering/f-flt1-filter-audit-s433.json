@@ -1,0 +1,155 @@
+{
+    "experiment": "DOMEX-FLT-S433",
+    "frontier": "F-FLT1",
+    "session": "S433",
+    "domain": "filtering",
+    "date": "2026-03-02",
+    "expect": "9 swarm filters identified, >=6 with measured FPR/FNR, 1 novel cross-layer prediction",
+    "actual": "14 filters identified across 6 layers, 7 with measured selectivity, 1 novel cascade prediction (retention != accessibility)",
+    "diff": "Exceeded filter count (14 vs 9). Met selectivity target (7 vs 6). Novel prediction: BLIND-SPOT 16.1% dominates aggregate FNR, not compaction 0%. Filter cascade shows retention (knowledge layer) and accessibility (attention layer) are independent — 0% loss at one can coexist with 16.1% invisibility at another.",
+    "filter_inventory": {
+        "context_filters": [
+            {
+                "name": "INDEX.md 60-line limit",
+                "layer": "context",
+                "input": "918 active lessons",
+                "criterion": "Theme + Sharpe density, 60-line hard cap",
+                "coverage": "88.4% (810/918 themed)",
+                "selectivity": "11.6% unthemed (dark matter)"
+            },
+            {
+                "name": "orient.py display",
+                "layer": "context",
+                "input": "Full state files (INDEX, NEXT, FRONTIER, SIGNALS, maintenance, git log)",
+                "criterion": "Section-level signal presence, 5-signal cap, 50-session stale threshold",
+                "selectivity": "Not measured — informational display only"
+            }
+        ],
+        "knowledge_filters": [
+            {
+                "name": "compact.py Sharpe presort",
+                "layer": "knowledge",
+                "input": "Active lessons + file tokens",
+                "criterion": "Sharpe = citations/age, age < 5 recency guard",
+                "selectivity": "FPR=0% (Sharpe), was 15.4% (size-only). L-268.",
+                "measured": true
+            },
+            {
+                "name": "F-QC1 near-duplicate gate",
+                "layer": "knowledge",
+                "input": "Last 40 lesson titles",
+                "criterion": "Jaccard > 0.4 word overlap",
+                "selectivity": "15.3% baseline duplication at N=288. L-QC1.",
+                "measured": true
+            },
+            {
+                "name": "L-601 structural enforcement",
+                "layer": "knowledge",
+                "input": "390 rule-bearing lessons",
+                "criterion": "Creation-time enforcement (tool gates, check.sh wiring)",
+                "selectivity": "9.5% structurally enforced, 87% aspirational (decay to floor)",
+                "measured": true
+            }
+        ],
+        "attention_filters": [
+            {
+                "name": "UCB1 dispatch (dispatch_optimizer.py)",
+                "layer": "attention",
+                "input": "34 domains with FRONTIER.md",
+                "criterion": "avg_yield + 1.414 * sqrt(log(N)/n), 20% floor, cooldown",
+                "selectivity": "Gini=0.492, 33/34 visited. Worsened diversity at N>100 (L-927).",
+                "measured": true
+            },
+            {
+                "name": "task_order.py priority tiers",
+                "layer": "attention",
+                "input": "Maintenance, lanes, signals, dispatch, periodics",
+                "criterion": "6 tiers: COMMIT > DUE > CLOSE > STRATEGY > DISPATCH > PERIODIC",
+                "selectivity": "Cap at 8 tasks. Not measured for FPR/FNR.",
+                "measured": false
+            }
+        ],
+        "quality_filters": [
+            {
+                "name": "check.sh pre-commit gates",
+                "layer": "quality",
+                "input": "Git staging area",
+                "criterion": "11 hard FAILs (FM-01/03/10/11/13/18/19 + beliefs + contract + maintenance + tests)",
+                "selectivity": "Hard gate — blocks commit. FPR measured for near-dup (50% word overlap threshold).",
+                "measured": true
+            },
+            {
+                "name": "validate_beliefs.py",
+                "layer": "quality",
+                "input": "beliefs/DEPS.md",
+                "criterion": "Evidence type, last-tested field, dependency resolution",
+                "selectivity": "FNR=1.4% (L-653). Hard gate via check.sh.",
+                "measured": true
+            }
+        ],
+        "temporal_filters": [
+            {
+                "name": "periodics.json cadence system",
+                "layer": "temporal",
+                "input": "26 periodic items",
+                "criterion": "session_gap > cadence_sessions",
+                "selectivity": "31% overdue (8/26), max 1.9x overdue ratio (periodics-meta-audit).",
+                "measured": true
+            },
+            {
+                "name": "task_order.py periodic escalation",
+                "layer": "temporal",
+                "input": "Overdue periodics",
+                "criterion": "Overdue > 2x cadence → escalate to DUE tier (L-985)",
+                "selectivity": "0 currently at 2x threshold; 1 at 1.9x (approaching).",
+                "measured": false
+            }
+        ],
+        "epistemic_filters": [
+            {
+                "name": "knowledge_state.py classification",
+                "layer": "epistemic",
+                "input": "1288 knowledge items (lessons + principles + beliefs)",
+                "criterion": "age + citation recency, STALE_WINDOW=50 sessions",
+                "selectivity": "MUST-KNOW 18.8%, ACTIVE 30.7%, SHOULD-KNOW 9.1%, DECAYED 25.2%, BLIND-SPOT 16.1%",
+                "measured": true
+            },
+            {
+                "name": "Human signal filter (PHIL-11)",
+                "layer": "epistemic",
+                "input": "48+ human signals",
+                "criterion": "None — 0/48 signals rejected",
+                "selectivity": "FPR=0% (passes everything), FNR=unknown. Operationally = no filter.",
+                "measured": true
+            },
+            {
+                "name": "3-S verification rule",
+                "layer": "epistemic",
+                "input": "All claims",
+                "criterion": "Specific AND Stale AND Stakes-high → verify",
+                "selectivity": "Not measured. L-116: filter can fail silently on confident wrong claims.",
+                "measured": false
+            }
+        ]
+    },
+    "cascade_prediction": {
+        "thesis": "Retention != accessibility. Serial filter cascade can show 0% loss at knowledge layer (compaction) but 16.1% complete invisibility at attention layer (BLIND-SPOT). Aggregate FNR dominated by weakest filter, not strongest.",
+        "evidence": {
+            "compaction_loss": "0% (Sharpe-weighted, L-268)",
+            "blind_spot_rate": "16.1% (208/1288 items, knowledge_state.py S432)",
+            "uncited_lessons": "23.9% (219/918 active lessons with 0 incoming citations)",
+            "temporal_leakage": "31% periodics overdue",
+            "cascade_example": "L-556: stale baseline (temporal) -> false URGENT (quality FP) -> wasted session (attention corrupted) -> zero production (knowledge output degraded)"
+        },
+        "novel_vs_existing": "This prediction is NOT equivalent to proxy-K, UCB1 Gini, or check.sh gates. Existing tools optimize individual filter layers. The cascade prediction says cross-layer interaction (temporal filter failure corrupts quality filter) is the dominant failure mode at scale, and no tool currently monitors cross-layer propagation."
+    },
+    "citation_network": {
+        "active_lessons": 918,
+        "cited_by_at_least_one": "76.1% (699/918)",
+        "uncited": "23.9% (219/918)",
+        "no_outgoing_citations": "4.7% (43/918)",
+        "mean_citations_per_lesson": 3.20,
+        "most_cited": "L-601 with 188 citations",
+        "power_law": "Top 10 lessons account for disproportionate citation share (L-601=188, L-613=43, L-1=40)"
+    }
+}
