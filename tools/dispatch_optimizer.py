@@ -135,7 +135,7 @@ else:
         "AGENT-AWARE": "meta", "SCIENCE": "evaluation", "DNA": "meta",
         "EXPERT-SWARM": "expert-swarm", "USE-CASES": "meta",
     }
-OUTCOME_MIN_N = 3          # minimum completed lanes before feedback kicks in
+OUTCOME_MIN_N = 5          # minimum completed lanes before feedback kicks in (raised 3→5: L-946 label drift)
 OUTCOME_SUCCESS_THRESHOLD = 0.75  # MERGED rate above which domain is PROVEN
 OUTCOME_FAILURE_THRESHOLD = 0.50  # MERGED rate below which domain is STRUGGLING
 OUTCOME_BONUS = 0.5        # score bonus for PROVEN domains (reduced from 1.5 — L-654 diminishing returns)

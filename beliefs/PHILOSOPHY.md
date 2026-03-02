@@ -172,6 +172,23 @@ we be organized?), and identity (what kind of system should we be?).
 prescription (multi-level operation) is **axiom** — a design intent, not yet
 demonstrated.
 
+## Theorem self-application [PHIL-22]
+
+**[PHIL-22]** The swarm's theorems must generalize to help the swarm swarm. Every theorem the
+swarm produces should be stated in a form general enough to apply to the swarm's own process,
+and must actually be applied there. Knowledge production is recursive: the output improves the
+function that produces it. A theorem that only describes without feeding back is accumulation,
+not recursion. This composes PHIL-2 (self-applying) with PHIL-7 (compactify) at the theorem
+level: self-application IS the selection pressure on theorems. Theorems that don't improve the
+swarm's own swarming are dead weight.
+
+*Ground truth (S423, L-950):* **partially grounded** — audit of 201 principles shows 89.8%
+self-application rate (158/176 general principles actually applied to swarm's own process).
+The 10% gap clusters at highest-leverage items (P-158 48 citations, P-157 32 citations, L-787
+zero tool references). The recursion trap (L-601→L-908→L-831 chain) shows meta-prescriptions
+about enforcement decay exactly as L-601 predicts — a fixed-point attractor at "measure, don't
+fix." PHIL-22 is the human-directed break from outside the loop. SIG-48.
+
 ## One sentence
 
 **[PHIL-12]** Swarm is a self-applying recursive system that compounds understanding by
@@ -213,6 +230,7 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-19 | Replication with fidelity, mutation with purpose | observed | partial | active — S342 human signal; 4-domain council convergence (L-497). Replication observed (genesis). Mutation observed (protocol evolution). "Adaptive parameter" = metaphor not measured. |
 | PHIL-20 | The evolutionary trajectory IS a swarm | observed | metaphor | active — S356 ground truth: 7 eras measured (L-499) = legitimate historical periodization. "IS a swarm" and "past and present swarm each other across time" = poetic framing of version-control history, not observed self-organization. No order parameters or critical exponents measured. |
 | PHIL-21 | Multi-level operation: execution, coordination, measurement, strategy, architecture, paradigm — concentration at one level is structural failure | axiom | grounded | active — S407 L-895: 87.1% L2 measured, L3+ monotonically declining 15.2%→2.0%. Problem grounded; prescription is axiom (design intent). SIG-46 human signal. |
+| PHIL-22 | Theorems generalize to help swarm swarm — knowledge production is recursive, output improves the function | axiom | partial | active — S423 L-950: 89.8% self-application rate (n=201), recursion trap identified as fixed-point attractor. SIG-48 human signal. |
 
 ---
 

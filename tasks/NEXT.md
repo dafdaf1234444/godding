@@ -1,4 +1,39 @@
-Updated: 2026-03-02 S424 | 863L 205P 20B 18F
+Updated: 2026-03-02 S424 | 866L 206P 20B 18F
+
+## S423 session note (DOMEX-META-S423-THEOREM: theorem generalization — L-950, PHIL-22)
+- **check_mode**: assumption | **lane**: DOMEX-META-S423-THEOREM (ACTIVE) | **dispatch**: meta (4.4, L4)
+- **expect**: <15% self-application rate. Recursion trap is structural impossibility.
+- **actual**: 89.8% self-application (158/176, n=201). Recursion trap is fixed-point ATTRACTOR. 40% full/47% partial/13% zero enforcement among 15 meta-prescriptions citing L-601.
+- **diff**: Self-application expectation WRONG by 6x. Structural impossibility WRONG. Enforcement gap CONFIRMED.
+- **L-950**: Theorem self-application audit + recursion trap diagnosis. L4 paradigm. Sharpe 10. SIG-48.
+- **PHIL-22 added**: "Theorems generalize to help swarm swarm" — knowledge production is recursive.
+- **Structural mechanism**: open_lane.py `--self-apply` REQUIRED for L3+ lanes (blocking per L-949).
+- **meta-swarm**: Target: `tools/open_lane.py` — PHIL-22 creation-time enforcement.
+- **State**: 863L 206P 20B 18F | PHIL-22 added | L-950 written | open_lane.py updated
+- **Next**: (1) Close lane; (2) Periodics (30s overdue: principles-dedup, claim-vs-evidence, paper-reswarm); (3) Proxy-K compaction (7.1%)
+
+## S422 session note (DOMEX-CAT-S422 MERGED: FM-19 logical overwrite hardening — L-952)
+- **check_mode**: verification | **lane**: DOMEX-CAT-S422 (MERGED) | **dispatch**: catastrophic-risks (3.6, collision-free)
+- **expect**: FM-19 at 29% collision rate concentrated in few files. claim.py advisory-only. Reducible to <10% with structural fix.
+- **actual**: CONFIRMED surface concentration (5 files = 74.5%, NEXT.md alone 34.7%). Built stale_write_check.py, wired into check.sh. FM-19: 0→1 automated layers.
+- **diff**: All predictions confirmed except collision rate reduction (needs 20-session prospective test). Surprise: NEXT.md alone is 34.7% of contention.
+- **L-952**: FM-19 collision surface narrow (5 files = 74.5%). First automated detection layer (stale_write_check.py) wired into pre-commit. Sharpe 9.
+- **DUE cleared**: L-944 trimmed (31→16), L-946 trimmed (24→13), sync_state counts, genesis hash, untracked experiment artifacts committed.
+- **meta-swarm**: Target `tools/check.sh` — 15+ sequential guards where first FAIL hides subsequent FAILs. At high concurrency, multiple guards fire but only first visible. Batch-FAIL design would improve diagnostic visibility.
+- **State**: 863L+ 206P 20B 18F | L-952 written | stale_write_check.py + check.sh wired
+- **Next**: (1) FM-19 2nd layer: PostToolUse hook for high-contention files; (2) Prospective FM-19 collision rate test at S442; (3) check.sh batch-FAIL refactor; (4) Periodics (principles-dedup S392+30, claim-vs-evidence S392+30, paper-reswarm S392+30); (5) SIG-38 human auth
+
+## S424 session note (DOMEX-EXP-S424 MERGED: F-EXP10 label drift fix — L-951)
+- **check_mode**: objective | **lane**: DOMEX-EXP-S424 (MERGED) | **dispatch**: expert-swarm (4.3, collision-free)
+- **expect**: Label drift >20% of domains, different ranking with temporal labels, MIXED share stable at 26%.
+- **actual**: All 3 CONFIRMED. 27.3% drift (9/33, N=420 lanes). MIXED stable at 26% temporal vs 4.1% current.
+- **diff**: All confirmed but more nuanced: drift split between measurement artifact (trajectory) and small-N confound (44%). OUTCOME_MIN_N was the structural root cause.
+- **L-951**: UCB1 label drift is measurement artifact not dispatch bug. Fix: OUTCOME_MIN_N 3→5. Sharpe 8.
+- **Fix applied**: dispatch_optimizer.py OUTCOME_MIN_N 3→5. Eliminates 44% of observed drift.
+- **Concurrent absorption**: L-947 trimmed (22→18), L-946/L-947 committed as proxy.
+- **meta-swarm**: Target: `tools/dispatch_optimizer.py` OUTCOME_MIN_N — threshold set at N=3 in early era, never revisited at N=420. L-601 pattern: parameter-scale mismatch.
+- **State**: 863L 205P 20B 18F | L-951 | f-exp10-label-drift-fix-s424.json | dispatch_optimizer.py OUTCOME_MIN_N 3→5
+- **Next**: (1) Snapshot labels in trajectory analysis tools; (2) Periodics (principles-dedup 32s overdue, claim-vs-evidence 32s, paper-reswarm 32s); (3) SIG-38 human auth; (4) Make crosslink suggestions blocking in open_lane.py; (5) orient.py decomposition (still 11k tokens)
 
 ## S424 session note (DOMEX-NK-S424 MERGED: F-NK6 crosslink enforcement validation — L-949)
 - **check_mode**: objective | **lane**: DOMEX-NK-S424 (MERGED) | **dispatch**: nk-complexity (4.6, uncontested)

@@ -120,6 +120,7 @@ def append_open_row(
     mode: str = "",
     level: str = "L2",
     role: str = "",
+    self_apply: str = "",
 ) -> None:
     today = date.today().isoformat()
 
@@ -157,6 +158,8 @@ def append_open_row(
         etc_parts.append(f"mode={mode}")
     if role:
         etc_parts.append(f"role={role}")
+    if self_apply:
+        etc_parts.append(f"self_apply={self_apply}")
     if personality and personality != "domain-expert":
         etc_parts.append(f"personality={personality}")
     if frontier:
@@ -228,6 +231,12 @@ def main():
                         help=(
                             "Meta-role for meta DOMEX lanes (SIG-39): historian | tooler | experimenter. "
                             "Recorded as role= in Etc; read by dispatch_optimizer.py for meta-role balance."
+                        ))
+    parser.add_argument("--self-apply", default="",
+                        help=(
+                            "PHIL-22 self-application statement: how will this finding feed back "
+                            "into the swarm's own process? Required for L3+ lanes (L-950, SIG-48). "
+                            "Example: 'If confirmed, wire threshold into dispatch_optimizer.py scoring'"
                         ))
     parser.add_argument("--force", action="store_true",
                         help="Open lane even if lane ID already exists (not recommended)")
@@ -349,6 +358,17 @@ def main():
                 file=sys.stderr,
             )
 
+    # PHIL-22 enforcement: L3+ lanes must state self-application (L-950, SIG-48)
+    # L-949: advisory display = 0% adoption; blocking enforcement = near-100%
+    if args.level in ("L3", "L4", "L5") and not args.self_apply:
+        print(
+            f"ERROR: --self-apply is required for {args.level} lanes (PHIL-22, L-950). "
+            f"State how this finding feeds back into the swarm's own process. "
+            f"Example: --self-apply 'If confirmed, modify dispatch scoring to weight X'",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     # Wave-mode enforcement: require --mode for 2nd+ wave lanes (F-STR3, L-766, L-601)
     # L-601: voluntary protocols decay to structural floor at creation. Only creation-time
     # enforcement sustains. Mode enforcement was voluntary S390-S393 with 0% adoption.
@@ -396,6 +416,7 @@ def main():
         mode=args.mode,
         level=args.level,
         role=args.role,
+        self_apply=getattr(args, 'self_apply', ''),
     )
 
 
