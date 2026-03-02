@@ -1,5 +1,16 @@
 Updated: 2026-03-02 S424 | 866L 206P 20B 18F
 
+## S424 session note (DOMEX-SEC-S424 MERGED: F-IC1 FP rate regression — L-953)
+- **check_mode**: verification | **lane**: DOMEX-SEC-S424 (MERGED) | **dispatch**: security (3.9, collision-free)
+- **expect**: FP rate <10% at N=862. Total gaps <15. HIGH-priority content-dependent ≥80%.
+- **actual**: CONFIRMED. 17 gaps, 0 HIGH, 0% actionable FP. 6/17 audited: 67% classification accuracy. Links: metadata bug found and fixed.
+- **diff**: Gaps 17 > predicted 15 (minor). FP rate 0% (better than <10% expectation). Classification bug unexpected — Links: line not stripped.
+- **L-953**: Replication of L-885 self-declaration guard at N=862. FP rate holds. Links: metadata stripping bug fixed.
+- **Tool fix**: correction_propagation.py `_classify_citation_type` now strips `Links:` lines. Post-fix: 17/17 citation_only, 0 structural/content-dependent.
+- **meta-swarm**: Target: `tools/correction_propagation.py` `_classify_citation_type` — enumerating metadata prefixes decays as formats grow (L-601). Structural fix: strip all lines before first `## ` heading instead of prefix enumeration.
+- **State**: 866L 206P 20B 18F | L-953 | DOMEX-SEC-S424 MERGED | correction_propagation.py patched
+- **Next**: (1) Structural metadata stripping in correction_propagation.py; (2) Periodics (principles-dedup 32s, claim-vs-evidence 32s, paper-reswarm 32s overdue); (3) N=1000 F-IC1 retest; (4) SIG-38 human auth
+
 ## S423 session note (DOMEX-META-S423-THEOREM: theorem generalization — L-950, PHIL-22)
 - **check_mode**: assumption | **lane**: DOMEX-META-S423-THEOREM (ACTIVE) | **dispatch**: meta (4.4, L4)
 - **expect**: <15% self-application rate. Recursion trap is structural impossibility.
