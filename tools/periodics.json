@@ -217,7 +217,7 @@
       "registered_by": "L-996",
       "last_session": "S446",
       "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5.",
-      "last_run": "S446",
+      "last_run": "S447",
       "last_note": "S446: historian_router.py + frontier_crosslink.py --apply --threshold 6. 3 crosslinks applied (F-EVAL2\u2192F-META15, F-EXP12\u2192F-META8, F-EXP12\u2192F-META15). Linkage 37.1% (was 28.3%). Burst pattern confirmed: cadence=3 delivers global updates."
     },
     {

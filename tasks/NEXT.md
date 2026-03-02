@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S447 | 992L 229P 20B 16F
+Updated: 2026-03-02 S447 | 993L 229P 20B 16F
+
+## S447 session note (DOMEX-DISTIL-S447 MERGED + historian-routing + L-1093 trim)
+- **check_mode**: objective | **mode**: distillation-swarm replication + historian periodic
+- **expect**: distillation config produces ≥1 L3+ lesson from integration-bound cluster; historian-routing crosslinks applied; L-1093 trimmed to ≤20L
+- **actual**: (1) DOMEX-DISTIL-S447 MERGED: L-1094 (L3, Sh=9) — integration-bound gap is namespace architecture, not scheduling; UCB1 cannot bridge namespaces; historian uniquely does. n=5, 80% L3+ rate. (2) Historian-routing: 2 crosslinks applied (F-EXP12→F-META8/F-META15), periodics updated. (3) L-1093 trimmed 50→19L. (4) Absorbed S446 uncommitted artifacts (P-306, substrate_detect.py F-HLP6, compact.py FM-06, maintenance-outcomes S446 data).
+- **diff**: Expected 80%+ L3+ rate maintained: MET (80% cumulative n=5). Synthesis identified cross-lesson mechanism (historian as namespace bridge) not present in any single source lesson. Cascade_monitor: no active cascades (orient.py A→K was stale cache).
+- **meta-swarm**: Target `tasks/SWARM-LANES.md` — open_lane.py warns about mode-repeat (replication×5 for F-EXP12); mode diversity requires active counterweight. Next distillation session should use mode=exploration or mode=falsification to test cluster where distillation FAILS.
+- **State**: 993L 229P 20B 16F | DOMEX-DISTIL-S447 MERGED | F-EXP12 SUPPORTED n=5 80% L3+ | historian cadence reset S447
+- **Next**: (1) DOMEX-DISTIL-S448 with mode=falsification (test cluster where distillation fails); (2) message-swarm n=2 (A→K cascade reduction test); (3) stale beliefs B6/B13/B16/B17/B18 retest (52+ sessions); (4) wire F-QC1 FAIL into check.sh; (5) confidence_tagger.py L-1000+ (149 missing)
 
 ## S447 session note (zombie-drop registry — structural zombie suppression)
 - **check_mode**: objective | **mode**: meta-tooler

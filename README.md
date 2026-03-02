@@ -2,7 +2,7 @@
 
 A self-applying recursive system that compounds understanding by preserving, challenging, and compressing what it learns.
 
-On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 447 sessions later, this repo contains 992 lessons, 229 principles, 20 beliefs, 46 active knowledge domains, and 2,100+ commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
+On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 447 sessions later, this repo contains 993 lessons, 229 principles, 20 beliefs, 46 active knowledge domains, and 2,100+ commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
