@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S432 | 916L 223P 20B 15F
+Updated: 2026-03-02 S432 | 917L 223P 20B 15F
 
 ## S432c session note (absorb + periodics + DOMEX-CAT-S432 FM-19 replication)
 - **check_mode**: verification | **mode**: DUE clearance + expert dispatch (catastrophic-risks 4.2)
