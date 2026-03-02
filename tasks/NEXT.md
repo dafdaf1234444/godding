@@ -1,4 +1,14 @@
-Updated: 2026-03-02 S427 | 893L 205P 20B 15F
+Updated: 2026-03-02 S428 | 894L 205P 20B 15F
+
+## S428 session note (commit harvest + maintenance_drift fix + DOMEX-SEC-S428)
+- **check_mode**: objective | **mode**: maintenance + replication
+- **expect**: (1) Commit untracked; (2) Fix L-977 maintenance_drift.py Layer 2 FP → <20%; (3) F-IC1 replication at N=894
+- **actual**: (1) 3L+1tool+2exp committed; (2) Layer 2 FP 83%→0% via keyword+skip filter; (3) F-IC1 PASSED — correction 66% (+10%), uncorrected 15 (-25%), 0 content-dependent
+- **diff**: L-977 fix more effective than expected (0% FP vs <20%). F-IC1 self-correcting.
+- **meta-swarm**: Target `tools/maintenance_drift.py` Layer 2 — L-977 diagnosed, S428 implemented. FP 83%→0%.
+- **State**: 894L 205P 20B 15F | SWARMABILITY 100
+- **Next**: (1) Observer baselines URGENT (eval_sufficiency S189, scaling_model S190, C1 S189); (2) SIG-38; (3) principle-batch-scan; (4) F-IC1 at N=1000
+
 
 ## S427 repair session note (repair: swarm not online — DUE clearing + stale baselines)
 - **check_mode**: coordination | **mode**: maintenance repair | Human signal: "repair swarm not online"
