@@ -83,9 +83,9 @@
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S431: L-994 authority paradox (SIG-54), 3 new patterns added, SIG-51-55 flagged as OPEN.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 437,
+      "last_reviewed_session": 444,
       "registered_by": "S176",
-      "last_session": "S437",
+      "last_session": "S444",
       "last_run": "S437",
       "last": "S431"
     },
@@ -93,10 +93,10 @@
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S432: all 5 sessions ON PAR or ABOVE. Long-term trend IMPROVING (+143%).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 437,
+      "last_reviewed_session": 444,
       "registered_by": "S178",
       "last": "S409",
-      "last_session": "S437",
+      "last_session": "S444",
       "last_run": "S437"
     },
     {
@@ -121,9 +121,9 @@
       "id": "economy-health",
       "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
       "cadence_sessions": 10,
-      "last_reviewed_session": 433,
+      "last_reviewed_session": 444,
       "registered_by": "S188",
-      "last_session": 443,
+      "last_session": "S444",
       "note": "S437 audit: cadence 5\u219210. production velocity tracked by change-quality-check at cadence=5."
     },
     {
@@ -139,9 +139,9 @@
       "id": "lanes-compact",
       "cadence_sessions": 10,
       "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
-      "last_reviewed_session": 433,
+      "last_reviewed_session": 444,
       "registered_by": "S191",
-      "last_session": "S433"
+      "last_session": "S444"
     },
     {
       "id": "principle-batch-scan",
@@ -191,8 +191,8 @@
     },
     {
       "id": "enforcement-audit",
-      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422). See L-843, L-846, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601.",
-      "cadence_sessions": 10,
+      "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422, 10.0% at S444 \u2014 dilution active). See L-843, L-846, L-1062, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601. L-1062: cadence 10\u21925 (enforcement dilution confirmed \u2014 must keep pace with lesson growth).",
+      "cadence_sessions": 5,
       "last_reviewed_session": 437,
       "registered_by": "S401",
       "last_session": "S437",
@@ -209,8 +209,8 @@
     },
     {
       "id": "historian-routing",
-      "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage.",
-      "cadence_sessions": 5,
+      "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage).",
+      "cadence_sessions": 3,
       "last_reviewed_session": 443,
       "registered_by": "L-996",
       "last_session": "S443",
