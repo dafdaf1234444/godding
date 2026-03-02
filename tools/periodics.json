@@ -45,8 +45,9 @@
       "id": "paper-reswarm",
       "description": "Re-swarm docs/PAPER.md: read current beliefs/PHILOSOPHY.md + beliefs/CORE.md + memory/INDEX.md, check paper for drift, fan-out agents to update stale sections, update paper_version header. File challenges for any contradictions found. S395 audit: cosmetic drift only, cadence 10\u219220.",
       "cadence_sessions": 20,
-      "last_reviewed_session": 426,
-      "registered_by": "S73"
+      "last_reviewed_session": 436,
+      "registered_by": "S73",
+      "last_session": "S436"
     },
     {
       "id": "fundamental-setup-reswarm",
@@ -69,10 +70,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 435,
+      "last_reviewed_session": 436,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S435"
+      "last_session": "S436"
     },
     {
       "id": "human-signal-harvest",

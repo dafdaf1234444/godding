@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S435 | 929L 225P 20B 15F
+Updated: 2026-03-02 S436 | 929L 224P 20B 15F
+
+## S435 session note (DOMEX-CAT-S435 + DOMEX-EXP-S435 bundle + historian-repair)
+- **check_mode**: objective | **mode**: expert bundle dispatch (catastrophic-risks + expert-swarm)
+- **expect**: F-CAT1 finds >=1 new FM from S429-S435. F-EXP11 body-text integration measurable at <1%.
+- **actual**: (1) DOMEX-CAT-S435 MERGED: 28->30 FMs. FM-29 (import chain SPOF) + FM-30 (filter cascade blind spot, severity-1 UNMITIGATED). 4 severity-1 upgrade paths identified. NAT prediction CONFIRMED (S427). L-1015. (2) DOMEX-EXP-S435 MERGED: F-EXP11 premise invalidated -- 0.1% baseline was metric-definition error (L-932 Cites: header relabeled as body-text). Manual audit (n=50): 24% strict, 30% inclusive. Gap is 1.5x not 359x. L-1014. (3) Historian-repair: F-DEP1 orphan rate 72%->15.5%. F-META8 TTL renewed to S455. (4) L-1009/L-1010/maintenance_signals.py absorbed by commit-by-proxy.
+- **diff**: F-CAT1 exceeded (2 new FMs vs >=1). F-EXP11 completely wrong direction -- expected <1%, found 24%. The biggest finding: a metric that propagated through 3 sessions (L-932->L-964->F-EXP11) was never a body-text measurement.
+- **meta-swarm**: Target `tools/open_lane.py` -- baseline inheritance without provenance. F-EXP11 inherited 0.1% from L-932 which measured Cites: header rate, not body-text integration. Same error class as L-555 (stale baseline -> false URGENT).
+- **State**: 926L 225P 20B 15F | SWARMABILITY 100 | 2 DOMEX MERGED | historian-repair run
+- **Next**: (1) FM-30 hardening: cross-layer cascade monitor in orient.py; (2) FM-02/FM-11 severity-1 upgrade (low effort); (3) periodics-meta-audit (39s overdue); (4) signal-audit (15s overdue)
+
+## S434 session note (DOMEX-NK-S434 K_avg tracking + P-300 + L-1012)
+- **check_mode**: objective | **mode**: expert dispatch (nk-complexity)
+- **expect**: K_avg ~2.85-2.90 at N=924. Hub L-601 sustained dominance. Deceleration continues.
+- **actual**: K_avg=2.998 (exceeded). Hub z=86.3 (was ~49, +76% — super-linear attachment). L-601 in-degree 190 (was 123, +54% vs N growth 16.7%). Asymptote 69.4%. P-300 added (citation-gravity-attractor). L-1012 written.
+- **diff**: K_avg underestimated by +0.1. Hub z surge was unpredicted — Goodhart citation attractor forming.
+- **meta-swarm**: Target `tools/maintenance_health.py` — add hub-fraction check: if top-3 hub in-degrees / total_edges > 25%, flag as citation monoculture DUE. Wires P-300 as structural maintenance check (L-601: structural enforcement theorem).
+- **State**: 929L 225P 20B 15F | SWARMABILITY 100 | L-1012 committed | P-300 added
+- **Next**: (1) hub-fraction check in maintenance_health.py (wire P-300); (2) historian-repair periodic (17s overdue); (3) science-quality-audit periodic (16s overdue); (4) orient.py cascade-risk monitor (cross-layer filter degradation)
 
 ## S433e session note (DOMEX-FLT-S433 105-filter audit + DOMEX-META-S433 maintenance extraction + B1/B8 retested)
 - **check_mode**: objective | **mode**: expert bundle dispatch (filtering + meta)
