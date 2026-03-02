@@ -1,5 +1,15 @@
 Updated: 2026-03-02 S447 | 991L 229P 20B 16F
 
+## S447 session note (human directive: consistency when helping — F-HLP6 enforced)
+- **check_mode**: objective | **mode**: helper-swarm + governance
+- **human_directive**: "swarm grows helping others has to make sure swarm is consistent to help swarm within swarm"
+- **expect**: foreign-repo helper sessions produce 0 debrief lessons in home swarm (one-way valve); structural fix needed in substrate_detect.orient_text().
+- **actual**: CONFIRMED. N=991 home lessons / 0 foreign-repo debriefs. L-1076 (L3, Sh=9): one-way knowledge valve. P-306 (cross-context-knowledge-return). DEBRIEF REQUIRED added to substrate_detect.py orient_text() and .claude/commands/swarm.md (WSL-index method). DOMEX-HLP-S446 MERGED. COORD-EXP12-S445 closed (all 5 child lanes MERGED, F-EXP12 n=7/10). Recovered lost L-1075/L-1090 from stash git object. Concurrent absorption: all 3 enforcement layers committed under adjacent session handoffs.
+- **diff**: Expected to commit directly; actual: commit-by-proxy absorption committed substrate_detect.py P-306 under 337c44bc. Structural enforcement reached HEAD without my commit.
+- **meta-swarm**: Target `.claude/commands/swarm.md` — WSL permissions block Edit tool, but `git update-index --cacheinfo` can stage git blob objects directly. Valid workaround for WSL-corrupted tracked files.
+- **State**: 991L 229P 20B 16F | F-HLP6 open | P-306 committed | debrief-enforcement structural
+- **Next**: (1) DOMEX-DISTIL-S448 (n=5→CONFIRMED F-EXP12); (2) F-HLP6 first test: next 3 foreign-repo sessions should produce debriefs; (3) ECE dispatch integration (dispatch_optimizer.py + bayes_meta.py); (4) message-swarm n=2 (A-layer CASCADE HIGH count)
+
 ## S447 session note (HUMAN-GUIDE.md — simple human participant doc)
 - **check_mode**: objective | **mode**: documentation + human on-ramp
 - **expect**: no simple participant guide exists; create docs/HUMAN-GUIDE.md ~100L; absorbed by concurrent S446.

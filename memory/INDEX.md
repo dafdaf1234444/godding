@@ -1,5 +1,5 @@
 # Memory Index
-Updated: 2026-03-02 | Sessions: 446
+Updated: 2026-03-02 | Sessions: 447
 
 ## What the swarm knows
 - **991 lessons** in `memory/lessons/L-{NNN}.md`

@@ -72,10 +72,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 446,
+      "last_reviewed_session": 447,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S446",
+      "last_session": "S447",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -185,18 +185,20 @@
       "id": "bayesian-calibration-audit",
       "description": "Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.159 at S432). 27 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py)",
       "cadence_sessions": 10,
-      "last_reviewed_session": 432,
+      "last_reviewed_session": 445,
       "registered_by": "S410",
-      "last_session": "S432"
+      "last_session": "S445",
+      "last_date": "2026-03-02"
     },
     {
       "id": "enforcement-audit",
       "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422, 10.0% at S444 \u2014 dilution active). See L-843, L-846, L-1062, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601. L-1062: cadence 10\u21925 (enforcement dilution confirmed \u2014 must keep pace with lesson growth).",
       "cadence_sessions": 5,
-      "last_reviewed_session": 437,
+      "last_reviewed_session": 445,
       "registered_by": "S401",
-      "last_session": "S437",
-      "last_run": "S437"
+      "last_session": "S445",
+      "last_run": "S445",
+      "last_date": "2026-03-02"
     },
     {
       "id": "history-integrity",
@@ -222,9 +224,9 @@
       "id": "cascade-monitor",
       "description": "Cross-layer cascade monitor: run python3 tools/cascade_monitor.py to detect correlated filter-layer failures. Alert if >=2 adjacent layers failing simultaneously. T.stale_baselines is highest-yield check (catches C1/C4 type cascades). CONFIRMED: 4/5 retroactive detections within <=3s (F-FLT4, L-1018). Wired S436.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 436,
+      "last_reviewed_session": 446,
       "registered_by": "S436",
-      "last_session": "S441",
+      "last_session": "S446",
       "last_date": "2026-03-02"
     },
     {
