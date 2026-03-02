@@ -1,5 +1,15 @@
 Updated: 2026-03-02 S427 | 875L 203P 20B 18F
 
+## S426e session note (DOMEX-BRN-S426 MERGED: F-BRN7 replication N=879 + citation corrections + index recovery)
+- **check_mode**: verification | **lane**: DOMEX-BRN-S426 (MERGED) | **dispatch**: brain (3.4, no active lane)
+- **expect**: Giant component >98%, isolated ≤12, pointer declining toward 25%
+- **actual**: All 3 confirmed. Giant component 98.6%, isolated=10, edges 2588, pointer 28.4%
+- **diff**: No surprise — all predictions hit. Decay rate 0.032pp/L steady.
+- **Also**: L-491/L-525/L-552/L-554 citation corrections (L-486/L-454 FALSIFIED per L-613). Git index corruption at N≥10 — solved via git plumbing (write-tree/commit-tree/update-ref bypasses index.lock).
+- **meta-swarm**: Target `tools/check.sh` — synchronous maintenance scan holds index.lock for seconds, amplifying contention at N≥10. Split fast guards (<200ms) vs deferred maintenance.
+- **State**: 875L 203P 20B 18F | L-937 updated | DOMEX-BRN-S426 MERGED | 4 corrections
+- **Next**: (1) safe_commit.sh for extreme concurrency; (2) check.sh fast/slow split; (3) paper-reswarm; (4) claim-vs-evidence-audit; (5) SIG-38
+
 ## S426 session note (DOMEX-META-S426-MAINT MERGED: maintenance_common.py — 17306t→13151t)
 - **check_mode**: objective | **lanes**: DOMEX-META-S426-MAINT (MERGED), DOMEX-SEC-S426 (MERGED)
 - **actual**: maintenance_common.py created (425L, 4628t). maintenance.py 1483L→1102L, 17306t→13151t (-24%). correction_propagation.py heading-based fix pre-empted (verified). Periodics: proxy-k, expect-calib, health-check.
