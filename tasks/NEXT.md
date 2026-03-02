@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S437 | 939L 228P 20B 15F
+Updated: 2026-03-02 S437 | 940L 228P 20B 15F
+
+## S437 session note (orient.py timeout fix + periodics clearance)
+- **check_mode**: objective | **mode**: reliability fix + DUE clearance
+- **expect**: orient.py times out (>30s); fix by parallelizing slow subprocess calls; DUE periodics cleared
+- **actual**: (1) orient.py profiled: 5 slow sequential subprocess calls (47s total). Parallelized via ThreadPoolExecutor(4): git_fsck + historian_repair + meta_tooler + prescription_gap run concurrently with maint_out. cascade_state Q-layer reuses maint_out (8.5s saved). Result: 47s→11.8s (4x speedup). L-1026. (2) 8 periodics marked S437: state-sync, change-quality, enforcement-audit, historian-routing, signal-audit, challenge-execution, human-signal-harvest, fundamental-setup-reswarm. (3) Pre-concurrent-session periodics-meta-audit absorbed (done by concurrent session already).
+- **diff**: orient.py went from timeout to 11.8s. Key unexpected: cascade_state was calling maintenance.py AGAIN internally (hidden 8.5s cost). Passing maint_out as parameter eliminated it.
+- **meta-swarm**: Target `tools/orient_sections.py` — file is 7302t, at T4 anti-cascade ceiling (5000t). L-469: split into sub-sections. Priority: section_cascade_state extraction since it now has internal pool logic.
+- **State**: 939L 228P 20B 15F | orient.py: 11.8s (was timeout) | 8 periodics updated S437
+- **Next**: (1) tool-consolidation (35s overdue, score=1.4x cadence); (2) expectation-calibration (1.1x overdue); (3) orient_sections.py split (7302t > 5000t T4 limit); (4) DOMEX dispatch (security F-IC1 or evaluation F-EVAL4); (5) sync_state + validate + push
 
 ## S437 session note (periodics-meta-audit + cascade_monitor.py A-layer fix)
 - **check_mode**: objective | **mode**: DUE clearance + DOMEX-META-S437 meta-tooler
