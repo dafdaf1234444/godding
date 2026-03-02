@@ -452,6 +452,26 @@ def main():
         self_apply=getattr(args, 'self_apply', ''),
     )
 
+    # Skeleton artifact creation (L-984, SIG-49): create experiment JSON template
+    # at lane-open time so 'actual' is present as TBD from the start.
+    # close_lane.py will error if 'actual' is still TBD on MERGED.
+    artifact_path = REPO_ROOT / args.artifact
+    if artifact_path.suffix == ".json" and not artifact_path.exists():
+        artifact_path.parent.mkdir(parents=True, exist_ok=True)
+        domain_val = args.domain or (args.focus.split("/")[1] if "/" in args.focus else args.focus)
+        skeleton = {
+            "experiment": args.lane,
+            "frontier": args.frontier or "",
+            "session": args.session,
+            "domain": domain_val,
+            "date": date.today().isoformat(),
+            "expect": args.expect,
+            "actual": "TBD",
+            "diff": "TBD",
+        }
+        artifact_path.write_text(json.dumps(skeleton, indent=4) + "\n")
+        print(f"  skeleton: {args.artifact} (fill 'actual' before MERGED)")
+
 
 if __name__ == "__main__":
     main()

@@ -33,11 +33,11 @@
     },
     {
       "id": "claim-vs-evidence-audit",
-      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S392: 3 challenges filed (PHIL-16/13/3), 1/29+ DROPPED (PHIL-7 S389). Challenge rate: 29 entries, 1 DROPPED, 3 SUPERSEDED. External-reach gap (PHIL-16) 87s persistent.",
+      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S430: 4 challenges filed (PHIL-21/14/18/11). PHIL-21 stale ground truth + Goodhart on level tags; PHIL-14 3/4 goals unmeasured (L-942); PHIL-18 0 challenges in 430s + unfalsifiability risk; PHIL-11 0/48+ signals rejected = total deference. 33 challenge entries total, 1 DROPPED, 4 SUPERSEDED.",
       "cadence_sessions": 20,
-      "last_reviewed_session": 392,
+      "last_reviewed_session": 430,
       "registered_by": "S81b",
-      "last_session": 423
+      "last_session": "S430"
     },
     {
       "id": "paper-reswarm",
@@ -67,10 +67,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 429,
+      "last_reviewed_session": 430,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S429"
+      "last_session": "S430"
     },
     {
       "id": "human-signal-harvest",
@@ -134,9 +134,9 @@
       "id": "principle-batch-scan",
       "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%\u21924%; batch extraction is the structural remedy. Target: maintain \u226510% promotion rate.",
       "cadence_sessions": 15,
-      "last_reviewed_session": 429,
+      "last_reviewed_session": 430,
       "registered_by": "S366",
-      "last_session": "S429"
+      "last_session": "S430"
     },
     {
       "id": "iso-annotation-sprint",

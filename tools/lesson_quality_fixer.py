@@ -563,10 +563,14 @@ def main():
         log("[QUALITY] Checking cross-domain body-text integration (F-EXP11)...")
         cd_issues, cross_domain_baseline = check_cross_domain_body_text(lessons)
         all_issues.extend(cd_issues)
-        rate = cross_domain_baseline.get("body_text_integration_rate", 0)
-        total_cd = cross_domain_baseline.get("total_cross_domain_cites", 0)
-        integrated = cross_domain_baseline.get("integrated_in_body", 0)
-        log(f"[QUALITY] Cross-domain integration: {integrated}/{total_cd} = {rate:.1%} (F-EXP11 baseline: 0.1%)")
+        raw_rate = cross_domain_baseline.get("raw_cross_domain_body_rate", 0)
+        raw_n = cross_domain_baseline.get("raw_with_xd_body", 0)
+        n = cross_domain_baseline.get("n_lessons", 0)
+        cites_rate = cross_domain_baseline.get("cites_body_text_rate", 0)
+        cites_int = cross_domain_baseline.get("cites_integrated", 0)
+        cites_tot = cross_domain_baseline.get("cites_total_cross_domain", 0)
+        log(f"[QUALITY] Raw cross-domain body rate: {raw_n}/{n} = {raw_rate:.1%} (L-932/L-964 metric)")
+        log(f"[QUALITY] Cites-based integration: {cites_int}/{cites_tot} = {cites_rate:.1%} (F-EXP11 deeper metric)")
 
     if args.fix:
         log("\n[QUALITY] Applying auto-fixes...")

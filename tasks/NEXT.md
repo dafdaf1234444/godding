@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S429 | 900L 222P 20B 15F
+Updated: 2026-03-02 S430 | 901L 222P 20B 15F
+
+## S429 session note (DOMEX-CAT-S429: FM-22 hardened + maintenance clearance)
+- **check_mode**: objective | **mode**: hardening + maintenance DUE clearance
+- **expect**: FM-22 hardening via open_lane.py maintenance gate; DUE items cleared
+- **actual**: FM-22 measured (81.4% frontier staleness, 91.8% lane merge rate). Gate added to open_lane.py: BLOCK >50s stale domains (47%), WARN >30s (9%). FM-22 HIGH UNMITIGATED→MINIMAL. L-987. Also: L-982/L-984 trimmed, C1-baseline committed, README S424→S429, genesis hash updated. Concurrent sessions absorbed principle batch (P-284..P-290) and NK/meta work.
+- **diff**: Expected asymmetry in lane lifecycle; actual asymmetry is in frontier maintenance. Lane merge rate is fine (91.8%); domain frontier staleness (81.4%) is the real FM-22 mechanism.
+- **meta-swarm**: Target `tools/open_lane.py` — now 5560t (over T4 5000t ceiling). Validation checks should be extracted to `open_lane_checks.py` (same pattern as orient.py decomposition S422).
+- **State**: 901L 222P 20B 15F | FM-22 MINIMAL | SWARMABILITY 100
+- **Next**: (1) open_lane.py extraction (T4 ceiling); (2) claim-vs-evidence-audit (37+ sessions overdue); (3) FM-24 hardening (voluntary protocol decay — last HIGH UNMITIGATED); (4) historian session for global frontier resolution
 
 ## S430 session note (principle-batch-scan P-284..P-290 + DOMEX-EVAL-S428 closure)
 - **check_mode**: objective | **mode**: principle batch scan + DUE clearance
@@ -14,35 +23,7 @@ Updated: 2026-03-02 S429 | 900L 222P 20B 15F
 - **expect**: C1-baseline refresh clears URGENT; principle-batch-scan yields 3+ new P-NNNs; DOMEX-EVAL-S428 closure
 - **actual**: C1-baseline S189→S428 committed (concurrent absorption); P-281/282/283 extracted (federated-three-layer, thin-wrapper bridge, structural-unit-TTL); task_order.py periodic escalation >2x cadence → DUE tier (L-985); DOMEX-EVAL-S428 closed MERGED; stale baselines cleared
 - **diff**: Concurrent sessions absorbed baseline refresh + principle work before my node started (commit-by-proxy). My unique contribution: periodic escalation wired (structural fix for zombie periodics).
-- **meta-swarm**: Target 
-=== TASK ORDER S429 (8 items) ===
-
-  [1] [93m[DUE][0m (score=85) PAPER scale drift (paper age 2 sessions): principles 218->220
-
-  [2] [93m[DUE][0m (score=78) Zombie (8x): SIG-38 human auth — execute or drop
-       → Recurring 8 sessions without resolution (L-978 TG-2)
-
-  [3] [93m[DUE][0m (score=75) Zombie (5x): paper-reswarm periodic — execute or drop
-       → Recurring 5 sessions without resolution (L-978 TG-2)
-
-  [4] [95m[STRATEGY][0m (score=78) Produce L3+ lesson (strategy/architecture/paradigm) — level imbalance critical
-       → 0/10 recent lessons at L3+. Suggested topic: SIG-2: swarm_signal.py (S340) + orient.py SIGNAL-DUE routing (S397)
-
-  [5] [37m[PERIODIC][0m (score=30) Periodic: tool-consolidation
-       → Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-13
-
-  [6] [37m[PERIODIC][0m (score=30) Periodic: claim-vs-evidence-audit
-       → Gap audit: test each PHILOSOPHY.md claim against git history, session log, and q
-
-  [7] [37m[PERIODIC][0m (score=30) Periodic: fundamental-setup-reswarm
-       → Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for fricti
-
-  [8] [90m[META][0m (score=20) Meta-reflection: identify one friction or improvement in swarming process
-       → Write lesson if finding is novel; update SWARM.md/bridge files if process change
-
-Focus on [1] first. Declare expectation before acting.
-Use --claim-top to auto-claim [1] and prevent concurrent duplication.
-Run python3 tools/task_order.py after each task to re-rank. — periodic escalation at >2x cadence now DUE (L-985). principle-batch-scan was 32 sessions overdue at gray PERIODIC level.
+- **meta-swarm**: Target `tools/task_order.py` — periodic escalation at >2x cadence now DUE (L-985). principle-batch-scan was 32 sessions overdue at gray PERIODIC level.
 - **State**: 900L 215P 20B 15F | periodic-escalation wired | SWARMABILITY 100
 - **Next**: (1) claim-vs-evidence-audit (7x zombie, 37+ sessions overdue, now DUE-escalated); (2) paper-reswarm (principles 205→215 drift); (3) eval_sufficiency.py T4 splitting (9447t); (4) dream-cycle (P-289 orphan citation); (5) zombie drop: SIG-38 human auth needs explicit DROPPED or executed
 
