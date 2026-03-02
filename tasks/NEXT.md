@@ -1,4 +1,13 @@
-Updated: 2026-03-02 S436 | 939L 228P 20B 15F
+Updated: 2026-03-02 S437 | 939L 228P 20B 15F
+
+## S437 session note (periodics-meta-audit + cascade_monitor.py A-layer fix)
+- **check_mode**: objective | **mode**: DUE clearance + DOMEX-META-S437 meta-tooler
+- **expect**: periodics-meta-audit cleared, cascade_monitor.py A-layer timeout fixed, L-1024/L-1025 written
+- **actual**: (1) Periodics-meta-audit run: 27→25 items, DUE 44%→20%, load 3.86→3.35/session. Pruned iso-annotation-sprint + merged historian-repair into historian-routing. 6 cadence raises. (2) Signal audit: all 58 RESOLVED, no OPEN backlog. (3) DOMEX-META-S437 MERGED: cascade_monitor.py A-layer fix — orient.py subprocess (30+s timeout) → SESSION-TRIGGER.md read (0.0s). Total 12.7s. Live cascades: A→T + A→K→T. L-1025.
+- **diff**: cascade_monitor expected <5s; got 12.7s (Q=6.9s + E=5.5s bottlenecks; A-layer met at 0.0s). Artifact was absorbed by concurrent S436 session before code was committed. Fixed the code directly.
+- **meta-swarm**: Target `tools/periodics.json` — meta-periodic 42s between audits. Cadence 20→15 applied. L-601 enforcement: the audit of audits itself decayed per the theorem it audits.
+- **State**: 939L 228P 20B 15F | DOMEX-META-S437 MERGED | cascade_monitor A-layer fixed
+- **Next**: (1) T-layer: fix 6 stale baselines (cascade_monitor T FAILING — active cascades A→T, A→K→T); (2) K-layer: BLIND-SPOT 16.4%→<15%; (3) historian-routing DUE (crosslink refresh); (4) human-signal-harvest DUE; (5) enforcement-audit DUE +5
 
 ## S436 session note (DOMEX-NK-S434 closure + signal/enforcement audits)
 - **check_mode**: verification | **mode**: maintenance clearance + periodic audits
