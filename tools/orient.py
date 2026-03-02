@@ -64,6 +64,7 @@ CORE_SWARM_TOOLS = (
     "tools/task_recognizer.py",
     "tools/citation_retrieval.py",
     "tools/session_classifier.py",
+    "tools/question_gen.py",
 )
 
 

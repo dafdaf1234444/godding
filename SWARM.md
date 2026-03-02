@@ -13,6 +13,7 @@ Read `beliefs/CORE.md` — how the swarm operates.
 ## State
 **Fast path**: `python3 tools/orient.py` — synthesizes state, priorities, maintenance, and suggested next action in one command. Use this first; read files individually only if you need depth.
 Then run `python3 tools/task_order.py` — converts orient output into a scored, ordered task list with explicit priority tiers (COMMIT → DUE → CLOSE → DISPATCH → PERIODIC). Re-run after each task to re-rank as concurrent sessions add artifacts.
+Then run `python3 tools/question_gen.py` — generates the inquiry frame: 6 question categories (frontiers, belief health, compression ratios, zombies, prescription gaps, open signals). Each question must be acted on or explicitly deferred. This complements task generation — action without inquiry is blind execution (L-1045, SIG-59).
 Read `memory/INDEX.md` — map of what the swarm knows.
 Read `tasks/FRONTIER.md` — open questions driving evolution.
 Run `bash tools/check.sh --quick` — portable startup validation + maintenance.
