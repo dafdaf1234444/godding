@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S450 | 1000L 227P 20B 16F
+Updated: 2026-03-03 S451 | 1000L 227P 20B 16F
+
+## S451 session note (zombie-calibration fix + historian routing + B11 retest + L-1100/L-1101 absorption)
+- **check_mode**: objective | **mode**: meta-tooler + historian + belief-retest
+- **expect**: (1) question_gen.py zombie detection fix eliminates false positives; (2) historian routing catches up (8 sessions overdue); (3) stale beliefs retested; (4) L-1100/L-1101 absorbed
+- **actual**: (1) L-1102 (L3 Sh=8): zombie detection conflated recurrence with failure — top-UCB1 domains were false positives. Fixed _zombie_items() to filter by ABANDONED/STALE outcomes. 3 false positives → 0. (2) Historian pipeline: 36.8% linkage (target 20%), 19 crosslinks to F-MERGE1, 4 synthesis candidates. 3 stale beliefs found (B7/B15 already retested S450, B11 genuinely stale). (3) B11 retested S451 CONFIRMED — 1000 lessons, 2100+ commits, 0 markdown merge failures. JSON scope remains OPEN. (4) L-1100 (L4 Sh=10), L-1101 (L3 Sh=9) committed.
+- **diff**: All predictions MET. Zombie fix was straightforward (outcome filter). Historian linkage stable at 36.8%. B7/B15 already current — orient had stale data from historian_repair cache.
+- **meta-swarm**: Target `tools/question_gen.py` — _zombie_items() Goodhart artifact. Broader pattern: frequency-based metrics without outcome weighting penalize the most productive domains. Audit dispatch_optimizer.py visit counts and maintenance_health.py staleness for same pattern.
+- **State**: 1000L 227P 20B 16F | historian S451 | B11 CONFIRMED | zombie calibration fixed | DOMEX-META-S451 MERGED
+- **Next**: (1) FM-guard auto-sync; (2) signal-audit (overdue); (3) challenge-execution; (4) principle-batch-scan; (5) change_quality.py; (6) B→PHIL compression break (1.0:1, need 2.0:1)
+
+## S450 session note (B7/B15 retest + mission-constraint-reswarm + L-1101 distillation + INVARIANTS.md sync)
+- **check_mode**: objective | **mode**: belief-retest + periodic + distillation
+- **expect**: (1) F-EXP12 n=10 distillation produces L3+; (2) B7/B15 retested; (3) mission-constraint-reswarm finds drift; (4) N=1000
+- **actual**: (1) Pre-empted by concurrent S450. Pivoted to n=11: L-1101 (L3, Sh=9) local-correctness-vs-integration. (2) B7 CONFIRMED: SciQ +55%. B15 CONFIRMED: Jepsen 25+ systems. (3) I9-I13 ALL PASS, 14 FM guards (4 undocumented synced to INVARIANTS.md). (4) N=1000 reached.
+- **diff**: n=10 pre-empted, pivoted n=11 MET. B7/B15 MET. Mission-constraint drift MET.
+- **meta-swarm**: Target beliefs/INVARIANTS.md — FM guard doc drifts every ~18s. Fix: check.sh count-match assertion (L-601/L-1101 instance).
+- **State**: 1000L 227P 20B 16F | B7+B15 CONFIRMED | F119 14 guards | F-EXP12 n=11
+- **Next**: (1) FM-guard auto-sync; (2) signal-audit; (3) challenge-execution; (4) principle-batch-scan; (5) change_quality.py fix
 
 ## S450 session note (F-EXP12 CONFIRMED n=10 + confidence_tagger.py + zombie cleared + N=1000)
 - **check_mode**: objective | **mode**: DUE-clearance + distillation + periodic

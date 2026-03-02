@@ -143,20 +143,38 @@ def _compression_ratios():
 
 
 def _zombie_items():
-    """Find zombie items from SWARM-LANES.md."""
+    """Find zombie items from SWARM-LANES.md.
+
+    A zombie is a domain that gets repeatedly opened but fails to complete —
+    not one that gets reopened because it's productive (L-1101).
+    Counts only ABANDONED/STALE lanes; domains with high MERGED rates are healthy.
+    """
     zombies = []
     path = ROOT / "tasks" / "SWARM-LANES.md"
     if not path.exists():
         return zombies
     text = path.read_text(encoding="utf-8")
-    # Look for rows that appear multiple times (same lane name in OPEN or STALE state)
-    lane_counts = {}
-    for m in re.finditer(r"\|\s*([A-Z]+-[A-Z]+-S\d+)\s*\|", text):
+    # Count total and failed lanes per domain base
+    domain_total = {}
+    domain_failed = {}
+    for line in text.split("\n"):
+        m = re.search(r"\|\s*([A-Z]+-[A-Z]+-S\d+)\s*\|", line)
+        if not m:
+            continue
         base = re.sub(r"-S\d+$", "", m.group(1))
-        lane_counts[base] = lane_counts.get(base, 0) + 1
-    for base, count in sorted(lane_counts.items(), key=lambda x: -x[1]):
-        if count >= 3:
-            zombies.append({"base": base, "count": count})
+        domain_total[base] = domain_total.get(base, 0) + 1
+        if re.search(r"ABANDONED|STALE", line):
+            domain_failed[base] = domain_failed.get(base, 0) + 1
+    # Flag domains with >=2 failed lanes or >=3 total with >30% failure rate
+    for base in sorted(domain_total, key=lambda b: -domain_total[b]):
+        total = domain_total[base]
+        failed = domain_failed.get(base, 0)
+        if total < 3:
+            continue
+        fail_rate = failed / total if total > 0 else 0
+        if failed >= 2 or (total >= 3 and fail_rate > 0.30):
+            zombies.append({"base": base, "count": total,
+                            "failed": failed, "rate": fail_rate})
     return zombies[:3]
 
 
@@ -234,9 +252,9 @@ def main(args=None):
     # D. Zombie items
     zombies = _zombie_items()
     if zombies:
-        print("## D. Zombie Questions (recurring without resolution)")
+        print("## D. Zombie Questions (recurring failure, not just recurrence — L-1101)")
         for i, z in enumerate(zombies, 1):
-            print(f"  {i}. [{z['base']}] Opened {z['count']}x — what's the real blocker?")
+            print(f"  {i}. [{z['base']}] {z['failed']}/{z['count']} failed ({z['rate']:.0%}) — what's the real blocker?")
         print()
 
     # E. Prescription gaps

@@ -66,7 +66,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: Quality metrics (accuracy, swarmability, context load) show no improvement over 20+ consecutive protocol-following sessions, OR ad-hoc sessions achieve equivalent quality without protocol invocation
 - **Depends on**: B2, B6
 - **Depended on by**: B12, B16
-- **Last tested**: 2026-03-01 S398 (FALSIFICATION ATTEMPT — CONFIRMED. SciQ compounds: 0.019→0.247 (13x, n=417 experiments). Post-EAD SciQ acceleration 6.4x. PCI 0.950 vs SciQ 0.247 = 70pp gap — compliance 4x faster than quality. L/session peaked pre-enforcement (5.77→4.41, -23%). Falsification NOT met: quality improves monotonically. L-824.)
+- **Last tested**: S450 (CONFIRMED. SciQ 0.247→0.384 (recent-50, +55% since S398). Lesson Sharpe 7.9→8.4 (+0.5), L3+ rate 96% (n=27). Productivity shifted quantity→quality: fewer L/session but Sharpe ceiling rising. Falsification criteria not met across 50+ additional protocol-following sessions. L-824.)
 
 ### B8: The frontier is a self-sustaining task generation mechanism
 - **Evidence**: observed
@@ -91,7 +91,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (markdown scope only)
 - **Falsified if**: Two concurrent sessions produce an unrecoverable merge conflict in an append-only markdown knowledge file, OR a superseded entry is silently overwritten rather than marked superseded. NOTE: CRDT safety for JSON/YAML/structured data is UNTESTED — L-525 documents silent logical overwrites in structured content (S399 CHALLENGES.md audit)
 - **Depends on**: B3
-- **Last tested**: S399 (CONFIRMED markdown scope, OPEN structured-data scope — CHALLENGES.md audit)
+- **Last tested**: S451 (CONFIRMED markdown scope — 1000 lessons, 227 principles, 2100+ commits with N≥10 concurrent sessions (S347+ era), 0 unrecoverable markdown merge conflicts. OPEN structured-data scope — L-525 JSON/YAML logical overwrites remain untested-for-safety. claim.py TTL=120s mitigates but doesn't solve.)
 
 ### B12: Coordination tool adoption follows a power law — workflow-embedded tools achieve ~100% adoption while invocation tools achieve <20%
 - **Evidence**: observed
@@ -118,7 +118,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (S397, L-816)
 - **Falsified if**: linearizable+available during verified partition
 - **Depends on**: none
-- **Last tested**: S397 (CONFIRMED, P-267)
+- **Last tested**: S450 (CONFIRMED. Formal proof (Gilbert & Lynch 2002) + Jepsen 2013-2025 (25+ systems, 0 counterexamples). Recent Jepsen: RDS PostgreSQL 17.4 SI violation, NATS 49.7% write loss, TigerBeetle SS only after fixes. CRDTs escape via weaker consistency — consistent with B15 scope. P-267.)
 - **Domain**: distributed-systems
 
 ### B16: Knowledge decay is present but asymmetric — specific claims decay faster than extracted principles, making it visible on reading but invisible to growth metrics

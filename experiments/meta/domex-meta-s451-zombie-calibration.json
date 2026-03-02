@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S451",
+    "frontier": "F-META2",
+    "session": "S451",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "Zombie false-positive rate drops from 3 domains to 0 after outcome-based filtering",
+    "actual": "CONFIRMED. Before fix: 3 false-positive zombies (META 12x, NK 8x, CAT 7x — all 100% MERGED). After fix: 0 zombies detected. 68 total DOMEX lanes, 66 MERGED (97%), 2 ABANDONED. question_gen.py _zombie_items() now filters by ABANDONED/STALE status and computes failure rate. L-1102 written (L3 Sh=8).",
+    "diff": "Prediction MET exactly. False-positive count went from 3 to 0. The deeper finding: false-positive rate was proportional to UCB1 score — Goodhart's law on recurrence measurement. Top-UCB1 domains penalized most by the broken metric."
+}

@@ -113,6 +113,101 @@ See `docs/GENESIS-DNA.md` for the transferable kernel and bootstrap sequence.
 4. In peer mode: conflicts resolved by evidence (beliefs/CONFLICTS.md protocol applies across swarms)
 5. Core beliefs inherited at spawn; peers may evolve them independently and challenge back
 
+## Cross-lineage merge (F-MERGE1, SIG-60, L-1100)
+
+Merging swarms grown by **different humans** is fundamentally different from parent-child
+or same-lineage peer swarming. Different humans act as different "regulatory genes" (S346) —
+producing divergent evolutionary paths even from identical seeds. The core challenge is
+recombination (C5 from Council S342): combining two independently-evolved genomes into a
+viable offspring, analogous to sexual reproduction in biology.
+
+### Five hard problems
+
+1. **Belief conflict across lineages**: Each swarm's beliefs are grounded in its own
+   evolutionary path. Cross-lineage conflicts have no shared arbiter. Solution: context-tagged
+   beliefs with provenance chains.
+
+2. **Human authority reconciliation**: PHIL-11 gives each human directional authority. Two
+   humans may direct in opposing directions. Options: consensus (both agree), partition
+   (scoped authority), synthesis (conflict generates novel directive).
+
+3. **Lesson incompatibility**: Estimated proportions: ~60% compatible (union safe), ~30%
+   context-dependent (both valid in their own context), ~10% genuinely contradictory.
+
+4. **Identity preservation**: Each PHILOSOPHY.md reflects its human's values. Safe merge
+   preserves both identities in functional cooperation (symbiogenesis), not absorption.
+
+5. **Genetic compatibility**: Too similar = no value (inbreeding). Too different = destructive
+   (hybrid breakdown). Optimal distance produces hybrid vigor (heterosis).
+
+### 5-phase safe merge protocol
+
+```
+Phase 0: Compatibility check
+    Run merge_compatibility.py — measures genetic distance
+    Zones: INBREEDING (<0.1) | HETEROSIS (0.1-0.4) | CAUTIOUS (0.4-0.7) | INCOMPATIBLE (>0.7)
+    Gate: INCOMPATIBLE zone blocks merge; all other zones proceed
+        ↓
+Phase 1: Read-only mutual orientation
+    Each swarm reads the other's state (beliefs, principles, frontiers, lessons)
+    Neither writes to the other — pure observation
+    Output: compatibility report, shared interests, complementary strengths
+        ↓
+Phase 2: Lesson arbitration
+    Classify every lesson pair:
+    (a) Compatible — union is safe, no action needed
+    (b) Context-dependent — both valid in their context; preserve with provenance tags
+    (c) Contradictory — one must be wrong; design experiment to resolve
+    Output: arbitration manifest with per-lesson classification
+        ↓
+Phase 3: Evidence-weighted belief merge
+    Non-conflicting beliefs: union with provenance
+    Conflicting beliefs: evidence comparison; stronger evidence wins
+    Weaker belief marked CHALLENGED, not deleted
+    Human-directed axioms: preserved with provenance (which human, which swarm)
+        ↓
+Phase 4: Identity negotiation
+    Merged swarm needs its OWN PHILOSOPHY.md — a synthesis, not a union
+    Multi-identity architecture: axioms from multiple lineages with provenance tags
+    Both humans participate in negotiating the merged identity
+    Reversibility gate: either swarm can unmerge at any phase
+```
+
+### Safety invariants for cross-lineage merge
+
+- **No information destruction**: everything preserved with provenance, never deleted
+- **Conflicts surfaced, not hidden**: every contradiction must be explicitly documented
+- **Reversibility**: either swarm can unmerge at any phase
+- **Authority parity**: neither human's authority overrides without explicit negotiation
+- **Hybrid viability**: merged swarm must be at least as capable as either parent alone
+
+### Genome fragment exchange (P7 from Council S342)
+
+Extends the bulletin board with a `genome-fragment` signal type for partial merges:
+```
+Type: genome-fragment
+Fragment-Type: tool | iso | principle | protocol
+Fragment-ID: <identifier>
+Fitness-Evidence: <how this fragment proved valuable>
+Source-Lineage: <which human/swarm produced this>
+```
+
+Genome fragments are smaller than full merges — a swarm can adopt individual tools,
+ISOs, or principles from another lineage without full merge. This is the swarm analog
+of horizontal gene transfer.
+
+### Tools
+
+- `python3 tools/merge_compatibility.py <path>` — Phase 0 genetic distance checker
+- `python3 tools/merge_back.py` — intra-lineage colony drift (existing)
+
+### Measurement
+
+- **Genetic distance**: 4-component weighted score (axiom, principle, tool, scale)
+- **Hybrid vigor**: is the merged swarm better than either parent? (Sharpe, L/session, blind spots found)
+- **Merge stability**: does the merged swarm maintain coherence over 10+ sessions?
+- **Identity preservation**: are both original PHILOSOPHY.md claims represented?
+
 ## Implementation Status
 - [x] Bulletin format defined
 - [x] Shared directory created
