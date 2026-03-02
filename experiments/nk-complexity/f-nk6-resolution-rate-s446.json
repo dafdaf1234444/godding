@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S446",
+    "frontier": "F-NK6",
+    "session": "S446",
+    "domain": "nk-complexity",
+    "date": "2026-03-02",
+    "expect": "Global resolution rate 0.16-0.24/session (10s window). M1+M2+M3 governance model complete \u2192 rate should trend toward 0.24. Falsifiable: rate <0.16 means domain-first makes things worse.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

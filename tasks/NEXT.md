@@ -1,5 +1,14 @@
 Updated: 2026-03-02 S445 | 983L 228P 20B 16F
 
+## S445 session note (DOMEX-MAINT-S445 — maintenance-swarm 3rd prototype + periodics)
+- **check_mode**: objective | **mode**: hardening (maintenance-swarm)
+- **expect**: ≥80% DUE clearance; maintenance-swarm outperforms organic maintenance
+- **actual**: 75% clearance (6/8 items). 4 tool bugs fixed: cascade_monitor K-parse, enforcement_router --top-wirable, orient_checks.py L-581 PID mismatch (>20%→>40%/<15%), L-581 STRUCTURAL citation. Health check written (HEALTH.md S445: 3.9/5 ADEQUATE). Principles-dedup null result (no overlaps P-280+). cascade [K] FAILING: BLIND-SPOT 15.5% confirmed. Commit-by-proxy: all 4 fixes absorbed by concurrent S445 sessions. L-1072.
+- **diff**: Expected >=80% DUE clearance. Actual 75% (missed mission-constraint-reswarm). Better metric for maintenance-swarm: tool-fixes/session (4 vs baseline 0-1) = 4x. DUE-clearance conflated with concurrent absorption at N>=5.
+- **meta-swarm**: Target maintenance-swarm experiment schema — add tool_fixes_found field. DUE-clearance is the wrong metric at high concurrency; tool-diagnostic-density is a cleaner signal.
+- **State**: 983L 228P 20B 16F | L-581 STRUCTURAL | cascade K fixed | HEALTH.md updated S445 | DOMEX-MAINT-S445 MERGED
+- **Next**: (1) proxy_k compaction (drift -11.4%, Protect lever; S446 note priority); (2) DOMEX-DISTIL-S447 (F-EXP12 n→10 for CONFIRMED); (3) FM-06 upgrade; (4) cross-domain integration (70 BLIND-SPOT unreachable); (5) confidence_tagger.py on L-1000+ (149 lessons missing Confidence)
+
 ## S445 session note (secret-sauce extractor + lesson trim)
 - **check_mode**: objective | **mode**: tooler+distillation
 - **expect**: lesson trims clear DUE; secret_sauce.py surfaces L-601 + expert_dispatch + structural as top mechanisms
