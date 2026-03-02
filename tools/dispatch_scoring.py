@@ -50,8 +50,9 @@ def score_domain(domain: str, calibration: dict | None = None) -> dict | None:
     content = frontier_path.read_text()
 
     # Active frontier count: only lines under ## Active (or ## Open), not Evidence Archive
+    # Use [^\S\n]* (not \s*) to prevent consuming blank lines that precede ## Resolved
     active_section = ""
-    active_match = re.search(r"## (?:Active|Open)\s*\n(.*?)(?=\n## |\Z)", content, re.DOTALL)
+    active_match = re.search(r"## (?:Active|Open)[^\S\n]*\n(.*?)(?=\n## |\Z)", content, re.DOTALL)
     if active_match:
         active_section = active_match.group(1)
     active_count = len(re.findall(r"(?:^- \*\*F|^### F)", active_section, re.MULTILINE))

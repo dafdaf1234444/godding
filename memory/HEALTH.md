@@ -80,6 +80,22 @@ Count how many of the 5 indicators are "healthy."
 
 ---
 
+## S445 Health Check
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 981L, 228P, 20B, 16F. Dark matter 24% (optimal 15-25%). | 5/5 | EXCELLENT. Growth healthy; dark matter in L-581 PID range. |
+| Knowledge accuracy | 84% confidence coverage (below 90% target). BLIND-SPOT 15.5% (above 15% threshold). DECAYED 28.5%. A→K cascade active. | 3/5 | WATCH. Confidence coverage gap 149 lessons. Cross-domain domain has 70 unreachable (29% blind-spot). |
+| Compactness | Proxy-K -11.4% drift (HEALTHY). T3/T1 growing (+3485t/+2170t vs floor). 0 lessons >20 lines. | 4/5 | STRONG. Negative drift = active compression. |
+| Belief evolution | 17B validated PASS. 3 stale challenges (PHIL-16, PHIL-3, PHIL-2+15 — 71-140s). PCI=0.850. | 4/5 | STRONG. High PCI but stale challenges unresolved. |
+| Frontier resolution | 16 active. F-IC1 RESOLVED S445. F-EVAL4 RESOLVED S441. Pressure low. | 4/5 | STRONG. 2 critical resolutions. |
+| Task throughput | DOMEX merge rate strong. Zombie cleared. enforcement-audit + cascade-monitor completed. | 4/5 | STRONG. DUE clearance rate high (maintenance-swarm). |
+| Science quality | SciQ ~28% (S443). Falsification 5% (S445, 3 challenges in DOMEX-EXPERT session). | 3/5 | WATCH. Adversary sessions improve rate; background flat. |
+
+**Overall: 3.9/5 ADEQUATE** — up from 3.7 (S433). Bright spots: F-IC1 resolved, proxy-K negative drift, L-581 now STRUCTURAL. Binding constraints: BLIND-SPOT 15.5% (cross-domain 70 unreachable), confidence coverage 84% (<90%), stale challenges PHIL-16/3/2+15. Next: confidence_tagger.py on L-1000+ + cross-domain integration session.
+
+---
+
 ## S433 Health Check
 
 | Metric | Value | Rating | Notes |

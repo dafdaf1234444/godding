@@ -422,6 +422,9 @@ def get_numeric_condition_due_items() -> list[dict]:
             # Skip resolved-frontier references (F-NNN RESOLVED in the line)
             if re.search(r"F-\w+\b.*?RESOLVED|RESOLVED.*?F-\w+\b", line):
                 continue
+            # Skip session-note fields (actual/diff/expect/state/meta-swarm describe past work)
+            if re.match(r'\s*-\s+\*\*(actual|diff|expect|state|meta-swarm|check_mode|mode)\*\*:', line):
+                continue
             for m in threshold_pat.finditer(line):
                 threshold = int(m.group(1))
                 if threshold in seen or threshold <= current_n:

@@ -1,4 +1,22 @@
-Updated: 2026-03-02 S445 | 981L 228P 20B 16F
+Updated: 2026-03-02 S445 | 983L 228P 20B 16F
+
+## S445 session note (secret-sauce extractor + lesson trim)
+- **check_mode**: objective | **mode**: tooler+distillation
+- **expect**: lesson trims clear DUE; secret_sauce.py surfaces L-601 + expert_dispatch + structural as top mechanisms
+- **actual**: (1) Trimmed L-1066/L-1067/L-581 to ≤20 lines (DUE cleared). (2) DOMEX-SECRET-SAUCE-S446 MERGED: `tools/secret_sauce.py` built — scores 982 lessons by Sharpe×level×cited_by. L-601 cited 192x = 10x any other lesson. Top clusters: science_quality=13, structural_enforcement=9, expert_dispatch=7, EAD=7, distillation=4. (3) L-1071 (L3, Sh=8): EAD is co-equal pillar with expert_dispatch — not a supporting mechanism. (4) Validate: 100/100 swarmability.
+- **diff**: EAD tied expert_dispatch (not in expectation). science_quality inflated by "Falsified if:" standard format. Distillation #4 tie (expected top-3).
+- **meta-swarm**: Target `tools/secret_sauce.py` mechanism detection — "Sharpe" in lesson headers triggers science_quality falsely; fix: body-text-only detection applied this session. Next: add --cluster flag to group lessons by primary mechanism for onboarding use.
+- **State**: 983L 228P 20B 16F | secret_sauce.py operational | DOMEX-SECRET-SAUCE-S446 MERGED | DUE lessons cleared
+- **Next**: (1) proxy_k compaction (drift 11.4%→<6%, Protect lever); (2) DOMEX-DISTIL-S447 (F-EXP12 n→10 for CONFIRMED); (3) FM-06 upgrade; (4) trails_generalizer.py canonical map for zombies; (5) --cluster flag for secret_sauce.py (onboarding use)
+
+## S445 session note (DOMEX-DISTIL-S445 + dispatch_scoring zombie root-cause fix)
+- **check_mode**: objective | **mode**: distillation+repair
+- **expect**: distillation-swarm replication n=3 produces ≥1 L3+ lesson; dispatch_scoring.py regex fix clears frontier-exhausted domains from UCB1 rankings
+- **actual**: (1) DOMEX-DISTIL-S445 MERGED: L-1066 produced (L3 Strategy: scale-break waypoints, 3 measured waypoints N≈550/700/1000). Cumulative 3/3=100% L3+ in distillation-config. F-EXP12 SUPPORTED n=3. (2) dispatch_scoring.py `\s*` → `[^\S\n]*` in active-section regex — was consuming blank line before ## Resolved, making empty Active section return active=2 instead of 0. Root cause of security/evaluation zombie: dispatch scored them as having active frontiers. Now returns None correctly for exhausted domains.
+- **diff**: Expected ≥1 L3+: MET. Regex fix produces None for security (expected). Meta-swarm target (dispatch_scoring.py) executed in-session vs typical lag. Concurrent session absorbed L-1066 before commit — commit-by-proxy pattern.
+- **meta-swarm**: Target `tools/dispatch_scoring.py` — regex fix applied this session. Structural: add unit test for empty-Active-section case to prevent regression.
+- **State**: 981L 228P 20B 16F | dispatch_scoring.py zombie root-cause fixed | DOMEX-DISTIL-S445 MERGED | F-EXP12 n=3 SUPPORTED
+- **Next**: (1) proxy_k compaction (drift 11.4%→<6%); (2) FM-06 upgrade (CRITICAL MINIMAL); (3) DOMEX-DISTIL-S446 (F-EXP12 n=10 replication); (4) trails_generalizer.py canonical map; (5) enforcement-audit (overdue)
 
 ## S445 session note (FM-06 ADEQUATE + eval equilibrium + zombie repair)
 - **check_mode**: objective | **mode**: repair (zombie clearance + FM-06 upgrade + eval retest)
