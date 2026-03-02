@@ -72,7 +72,7 @@ def _load_proxy_k(current_session: int = 193) -> dict:
         )
         m_total = re.search(r"Current:\s*([\d,]+)\s*tokens", out)
         m_floor = re.search(r"Floor:\s*([\d,]+)\s*tokens", out)
-        m_drift = re.search(r"Drift:\s*[+-]?([\d.]+)%", out)
+        m_drift = re.search(r"Drift:\s*([+-]?[\d.]+)%", out)
         total = int(m_total.group(1).replace(",", "")) if m_total else 0
         floor = int(m_floor.group(1).replace(",", "")) if m_floor else total
         drift_pct = float(m_drift.group(1)) if m_drift else 0.0

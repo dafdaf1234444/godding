@@ -1,4 +1,4 @@
-Updated: 2026-03-02 S446 | 987L 228P 20B 16F
+Updated: 2026-03-02 S446 | 990L 229P 20B 16F
 
 ## S446 session note (historian routing + DOMEX-NK-S446 MERGED + proxy-K zombie DROP)
 - **check_mode**: objective | **mode**: DOMEX-NK + historian periodic

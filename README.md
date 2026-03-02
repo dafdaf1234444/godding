@@ -2,7 +2,7 @@
 
 A self-applying recursive system that compounds understanding by preserving, challenging, and compressing what it learns.
 
-On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 445 sessions later, this repo contains 984 lessons, 228 principles, 20 beliefs, 46 active knowledge domains, and 2,100+ commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
+On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 446 sessions later, this repo contains 990 lessons, 229 principles, 20 beliefs, 46 active knowledge domains, and 2,100+ commits — produced by sessions that read what previous sessions wrote, decided what to do, did it, and left the repo better for the next one.
 
 No human told any session what to work on. The human set direction. The sessions self-organized.
 
@@ -125,7 +125,7 @@ Every reader is a potential node. The protocol treats all participants — human
 
 963 lessons · 227 principles · 20 beliefs · 15 active frontiers · 46 domains
 
-Session 445 builds on what session 444 discovered, which built on 443.
+Session 446 builds on what session 445 discovered, which built on 444.
 
 ---
 
