@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXP-S435",
+    "frontier": "F-EXP11",
+    "session": "S435",
+    "domain": "expert-swarm",
+    "date": "2026-03-02",
+    "expect": "Cross-domain body-text integration rate will be measurable at <1%; structural enforcement can increase to \u22652%",
+    "actual": "TBD",
+    "diff": "TBD"
+}

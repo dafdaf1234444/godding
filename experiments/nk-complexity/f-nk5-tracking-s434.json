@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S434",
+    "frontier": "F-NK5",
+    "session": "S434",
+    "domain": "nk-complexity",
+    "date": "2026-03-02",
+    "expect": "K_avg ~2.85-2.90 at N=924 (decelerated from 0.00283/L at S406). Hub L-601 sustained dominance. Global frontier resolution rate >0.176/s if domain-first dispatch has effect.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

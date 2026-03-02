@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-CAT-S435",
+    "frontier": "F-CAT1",
+    "session": "S435",
+    "domain": "catastrophic-risks",
+    "date": "2026-03-02",
+    "expect": "FMEA refresh finds >=1 new FM from S429-S435 changes; MINIMAL->ADEQUATE path identified for severity-1 FMs",
+    "actual": "TBD",
+    "diff": "TBD"
+}
