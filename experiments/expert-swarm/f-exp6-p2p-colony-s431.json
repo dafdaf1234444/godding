@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXP-S431",
+    "frontier": "F-EXP6",
+    "session": "S431",
+    "domain": "expert-swarm",
+    "date": "2026-03-02",
+    "expect": "Measure actual peer-to-peer coordination events: shared artifacts, cross-session lesson citations, concurrent lane complementarity. Baseline: 0 explicit P2P events logged. Expect \u22653 organic examples in last 50 sessions.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

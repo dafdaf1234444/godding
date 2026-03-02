@@ -1,0 +1,70 @@
+{
+  "merged_lanes_scanned": 28,
+  "synthesis_candidates": 3,
+  "global_frontiers_reachable": 8,
+  "candidates": [
+    {
+      "domain": "meta",
+      "lane_id": "DOMEX-META-S426",
+      "session": 426,
+      "domain_frontier": "F-META2",
+      "global_links": [
+        {
+          "domain_fq": "F-META18",
+          "global_refs": [
+            "F-COMP1"
+          ]
+        },
+        {
+          "domain_fq": "F-META2",
+          "global_refs": [
+            "F-ISO2",
+            "F-META8"
+          ]
+        }
+      ],
+      "actual_summary": "orient.py decomposed: 40KB\u219213KB (70%), 916\u2192367 lines. Thin-wrapper bridge pattern: backwards-compat wrappers (~80 lines)"
+    },
+    {
+      "domain": "evaluation",
+      "lane_id": "DOMEX-EVAL-S426",
+      "session": 426,
+      "domain_frontier": "F-EVAL4",
+      "global_links": [
+        {
+          "domain_fq": "F-EVAL2",
+          "global_refs": [
+            "F-COMP1"
+          ]
+        },
+        {
+          "domain_fq": "F-EVAL1",
+          "global_refs": [
+            "F-AGI1",
+            "F-COMP1",
+            "F-ISO2",
+            "F-META15"
+          ]
+        }
+      ],
+      "actual_summary": "SESSION-LOG backfill: 45 entries added (S377-S425). n=19\u219251 in 50-session window. avg_lp=1.84\u21924.22 (2.3x). Unlogged sess"
+    },
+    {
+      "domain": "nk-complexity",
+      "lane_id": "DOMEX-NK-S426",
+      "session": 426,
+      "domain_frontier": "F-NK6",
+      "global_links": [
+        {
+          "domain_fq": "F-NK6",
+          "global_refs": [
+            "F-DEP1",
+            "F-HUM1",
+            "F-META14"
+          ]
+        }
+      ],
+      "actual_summary": "Linkage 1.6%\u219212.2% (7.6x). 40 mappings, 13 links added. 11/18 globals linked. Domain-ONLY governance CONFIRMED."
+    }
+  ]
+}
