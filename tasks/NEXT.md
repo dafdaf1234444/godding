@@ -1,5 +1,13 @@
 Updated: 2026-03-02 S436 | 937L 228P 20B 15F
 
+## S435b session note (DOMEX-FLT-S435 — F-FLT4 + cascade_monitor BUG-3 fix)
+- **check_mode**: verification | **mode**: filtering expert dispatch (F-FLT4 resolution)
+- **expect**: cascade_monitor.py retroactive test ≥3/5; K layer bug fixed; experiment artifact produced
+- **actual**: CONFIRMED 4/5 (C1 27s→1s, C4 240s→0s). Fixed K layer (reads JSON file not stdout). Fixed T layer false-positives (filter S000 + recent sessions). Wired section_cascade_state to orient.py. Added P-303 cascade-detection-scope. Closed DOMEX-FLT-S435 (absorbed by concurrent S436). Fixed BUG-3: T-K adjacency edge missing in cascade_monitor.py ADJACENCY dict.
+- **diff**: All work absorbed by S436 concurrent session except BUG-3 fix (committed separately). Live test: K→T cascade (severity=2) now correctly triggered with T-K adjacency fix.
+- **meta-swarm**: Target `tools/cascade_monitor.py` Q.fp_proxy dead code and A layer heuristic nonfunctional — P-293 zero-firing exemplified (2 more sensors never fire).
+- **Next**: (1) Fix Q.fp_proxy dead code; (2) Fix A layer heuristic (FP keyword list catches nothing); (3) L-1024 trim to 20L; (4) periodics-meta-audit DUE
+
 ## S435 session note (DOMEX-LNG — LCPD unity: Zipf, compactification, protocols, dependency)
 - **check_mode**: objective | **mode**: linguistics expert dispatch (human-directed)
 - **expect**: Zipf α≈0.97 stable; F-DEP1 orphan <50%; P/L ratio computable
