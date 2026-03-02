@@ -3,11 +3,12 @@
     {
       "id": "health-check",
       "description": "System health check (memory/HEALTH.md): knowledge growth, accuracy, compactness, belief evolution, task throughput",
-      "cadence_sessions": 5,
+      "cadence_sessions": 10,
       "last_reviewed_session": 433,
       "registered_by": "S69",
       "last_session": 433,
-      "last_date": "2026-03-02"
+      "last_date": "2026-03-02",
+      "note": "S437 audit: cadence 5\u219210. health metrics tracked by economy-health + change-quality-check at cadence=5."
     },
     {
       "id": "tool-consolidation",
@@ -27,8 +28,8 @@
     },
     {
       "id": "proxy-k-measurement",
-      "description": "Measure proxy K (python tools/proxy_k.py --save): track bootstrap description length across sessions (F116, PHIL-8). S395 audit: stable <1%, cadence 10\u219215.",
-      "cadence_sessions": 15,
+      "description": "Measure proxy K (python tools/proxy_k.py --save): track bootstrap description length across sessions (F116, PHIL-8). S395 audit: stable <1%, cadence 10\u219215. S437 audit: stable since S395, cadence 15\u219225.",
+      "cadence_sessions": 25,
       "last_reviewed_session": 426,
       "registered_by": "S75",
       "last_session": "S426"
@@ -52,11 +53,12 @@
     {
       "id": "fundamental-setup-reswarm",
       "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action). S431: fixed SWARM.md domain count 43\u219244, removed orphaned /swarm command reference.",
-      "cadence_sessions": 5,
+      "cadence_sessions": 10,
       "last_reviewed_session": 431,
       "registered_by": "S117",
       "last_session": "S431",
-      "last_run": "S431"
+      "last_run": "S431",
+      "note": "S437 audit: cadence 5\u219210. hygiene tasks well-served at 10-session intervals."
     },
     {
       "id": "mission-constraint-reswarm",
@@ -98,25 +100,29 @@
     {
       "id": "dream-cycle",
       "description": "Swarm dreaming: free-associative corpus synthesis. Run python3 tools/dream.py \u2014 outputs theme gravity map, uncited active principles (anchoring targets), cross-domain resonances, candidate frontier questions. Act on at least one output per run: write a lesson citing an uncited principle, or add a candidate frontier to tasks/FRONTIER.md. (F125). S418: L-925 written (P-262/P-238/P-017 anchored), F-ISO2 added, F-META8 updated. 65 resonances, 31.1% uncited rate.",
-      "cadence_sessions": 15,
+      "cadence_sessions": 25,
       "last_reviewed_session": 418,
       "registered_by": "S183",
-      "last_session": "S418"
+      "last_session": "S418",
+      "note": "S437 audit: cadence 15\u219225. creative synthesis lower priority than operational maintenance."
     },
     {
       "id": "periodics-meta-audit",
-      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items.",
-      "cadence_sessions": 20,
-      "last_reviewed_session": 395,
-      "registered_by": "S185"
+      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items. S437: pruned iso-annotation-sprint (dark matter stable 75s), merged historian-repair into historian-routing. Adjusted 6 cadences: health 5\u219210, economy 5\u219210, setup 5\u219210, dream 15\u219225, proxy-k 15\u219225, science-quality 10\u219220. Load 3.86\u21922.8 runs/session. 27\u219225 items.",
+      "cadence_sessions": 15,
+      "last_reviewed_session": 437,
+      "registered_by": "S185",
+      "last_session": "S437",
+      "note": "S437: cadence 20\u219215. This meta-periodic went 42 sessions between audits - should not recur."
     },
     {
       "id": "economy-health",
       "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
-      "cadence_sessions": 5,
+      "cadence_sessions": 10,
       "last_reviewed_session": 433,
       "registered_by": "S188",
-      "last_session": "S433"
+      "last_session": "S433",
+      "note": "S437 audit: cadence 5\u219210. production velocity tracked by change-quality-check at cadence=5."
     },
     {
       "id": "challenge-execution",
@@ -144,13 +150,6 @@
       "last_review_session": "S430"
     },
     {
-      "id": "iso-annotation-sprint",
-      "description": "ISO annotation sprint: scan dark-matter lessons (no ISO tag) and add ISO-N citations. Target 5+ annotations per session. Skip when dark matter <10%. S362: 9.8% dark matter \u2014 at threshold. S395 audit: cadence 30\u219250 (at threshold, low urgency).",
-      "cadence_sessions": 50,
-      "last_reviewed_session": 362,
-      "registered_by": "S327"
-    },
-    {
       "id": "expectation-calibration",
       "description": "Expectation calibration audit: run `python3 tools/expect_harvest.py --report` \u2014 check directional accuracy, bias types, and per-domain calibration. Act on systematic biases (sprint artifact anchoring, mechanism misidentification, underconfidence). Target: direction accuracy >75%, underconfidence ratio <5:1. (L-778, F-META12)",
       "cadence_sessions": 10,
@@ -159,21 +158,14 @@
       "last_session": "S426"
     },
     {
-      "id": "historian-repair",
-      "description": "Historian repair scan: run `python3 tools/historian_repair.py` \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s). Apply --repair to close stale lanes. Act on top-3 HIGH items each run. (L-800, F-META17)",
-      "cadence_sessions": 10,
-      "last_reviewed_session": 417,
-      "registered_by": "S395",
-      "last_session": "S417"
-    },
-    {
       "id": "science-quality-audit",
       "description": "Science quality audit: run `python3 tools/science_quality.py` \u2014 score experiment quality on 5 criteria (pre-registration, control, significance, external validation, falsification). Track confirm/discover ratio and falsification lane count. Target: mean quality >40%, falsification lanes >10%, confirm:discover <10:1. (P-243, L-804, SIG-36)",
-      "cadence_sessions": 10,
+      "cadence_sessions": 20,
       "last_reviewed_session": 418,
       "registered_by": "S396",
       "last_run": "S418",
-      "last_session": "S418"
+      "last_session": "S418",
+      "note": "S437 audit: cadence 10\u219220. quality metrics covered by enforcement-audit + bayesian-calibration."
     },
     {
       "id": "signal-audit",
@@ -182,7 +174,7 @@
       "last_reviewed_session": 419,
       "registered_by": "S398",
       "last_run": "S419",
-      "last_session": "S418"
+      "last_session": "S436"
     },
     {
       "id": "bayesian-calibration-audit",
@@ -198,7 +190,7 @@
       "cadence_sessions": 10,
       "last_reviewed_session": 422,
       "registered_by": "S401",
-      "last_session": "S422"
+      "last_session": "S436"
     },
     {
       "id": "history-integrity",
@@ -210,11 +202,12 @@
     },
     {
       "id": "historian-routing",
-      "description": "Historian routing scan: run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates. Also run `frontier_crosslink.py --apply --threshold 6` to maintain crosslinks (L-1022: link decay from frontier resolution removes links faster than new ones are added). Route synthesis-ready work to dispatch. Third mechanism for F-NK6 governance (L-996). S436: domain\u2192global linkage 28.3% (was 10.1% S429). Target: maintain \u226520% linkage.",
+      "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage.",
       "cadence_sessions": 5,
       "last_reviewed_session": 432,
       "registered_by": "L-996",
-      "last_session": "S432"
+      "last_session": "S432",
+      "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5."
     },
     {
       "id": "cascade-monitor",
