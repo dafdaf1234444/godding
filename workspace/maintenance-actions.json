@@ -8,7 +8,7 @@
     },
     {
       "priority": "DUE",
-      "message": "3 active dispatch lane(s) have no active coordinator lane: DOMEX-EXPSW-S465b, DOMEX-HS-S466, DOMEX-NK-S465"
+      "message": "3 active dispatch lane(s) have no active coordinator lane: DOMEX-EXPSW-S465b, DOMEX-HS-S466, DOMEX-FAR-S466"
     }
   ]
 }

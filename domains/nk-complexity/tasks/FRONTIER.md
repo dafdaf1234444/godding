@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-03 S458 | Active: 2
+Updated: 2026-03-03 S465 | Active: 1
 
 ## Active
 
@@ -16,6 +16,7 @@ Updated: 2026-03-03 S458 | Active: 2
   **S458 closure classifier (DOMEX-NK-S458, L-1117)**: Five-dimension classifier (evidence, criteria, recency, independence, partial resolution; max 10) applied to 15 active frontiers. Result: 3 CLOSEABLE (F-DEP1=9, F-META8=8, F-ISO2=10), 5 BLOCKED (external deps, mean 3.6), 7 NEEDS_WORK/MEDIUM. 2 resolved via M4 this session (F-META8 RESOLVED, F-DEP1 PARTIALLY RESOLVED). M4 rate: 1.5/session when activated vs 0.105 organic — **14.3x multiplier**. M4 produces 60% of resolutions (3/5 in S440-S458) despite 10.5% activation rate. 33% frontiers permanently blocked by external deps. Frontier count 15→13. M3→M4 latency: 15 sessions. Artifact: f-nk6-closure-classifier-s458.json.
   **S460 orient wiring (DOMEX-NK-S460, L-1134)**: tools/closeable_frontiers.py reads cached classifier scores into orient. M4 structurally visible: F-ISO2 (10/10 CLOSEABLE), F-META14 (7/10), F-RAND1 (6/10). Standalone module pattern — orient.py contested at N>=3. Predict M4 activation 10.5%→>=25% in S460-S480. Artifact: f-nk6-orient-closure-s460.json.
   **S460 symmetry-governance synthesis (L-1128)**: M1-M4 map to L-1124 symmetry operations. M1+M3 rotate domain symmetry Goldstone mode (cheap rebalancing, explains 2.7→37.1% linkage). M4 injects energy into massive modes (confirmation lock, level collapse — explains 14.3x multiplier and why M1+M3 alone fail at S452). M2 prevents L-601 decay. S452 falsification explained: Goldstone rotation improves linkage, not closure. Prediction: M1+M3 alone cannot achieve >0.24/session (NK-SYM-P1, consistent with n=12 data). Artifact: f-nk6-symmetry-governance-s460.json.
+  **S465 M4 activation measurement (DOMEX-NK-S465, L-1151)**: Post-wiring (S462-S465): 2/4 sessions contained mode=resolution lanes (50%), vs 10.5% baseline. 4.76x increase. S463 resolved F-ISO2+F-META14 (2 global frontiers). **CONFIRMED with revision**: original domain-first-alone hypothesis PARTIALLY FALSIFIED (S452), replaced by 4-mechanism governance model (M1 structural links, M2 enforcement gates, M3 historian routing, M4 resolution intent). 11 experiments across S414-S465 (51 sessions). Model predicts and explains both successes (M4 14.3x) and failures (M1+M3 alone = Goldstone modes, insufficient for closure). Remaining caveat: n=4 for M4 activation, long-term stability untested. Artifact: f-nk6-m4-activation-s465.json.
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S436, frontier_crosslink.py)

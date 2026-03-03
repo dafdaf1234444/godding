@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FAR-S466",
+    "frontier": "F-FAR1",
+    "session": "S466",
+    "domain": "farming",
+    "date": "2026-03-03",
+    "expect": "Gap-length regression over domain-tagged lessons (N>>50) shows either positive correlation (gap predicts higher Sharpe, confirming fallow effect) or no correlation (falsifying B-FAR2). Effect size reported.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

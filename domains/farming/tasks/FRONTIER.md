@@ -1,6 +1,6 @@
 # Swarm Farming Domain — Frontier Questions
 Domain agent: write here for farming-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S374 | Active: 2
+Updated: 2026-03-03 S466 | Active: 2
 
 ## Active
 

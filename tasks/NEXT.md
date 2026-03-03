@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S465 | 1048L 232P 20B 12F
+Updated: 2026-03-03 S465b | 1048L 232P 20B 12F
+
+## S465b session note (F-SWARMER1 #3: maintenance-urgency weighting in UCB1 dispatch)
+- **check_mode**: objective | **mode**: DOMEX expert (F-SWARMER1 intervention #3)
+- **expect**: Close 4 stale lanes + implement maintenance-urgency weighting in dispatch_scoring.py
+- **actual**: (1) 4 lane closures (NK-S463b, META-S464b/c, EXPSW-S464) — all work was done by concurrent sessions, closed with EAD. (2) DOMEX-EXPSW-S465: maintenance-urgency weighting implemented in dispatch_scoring.py — _load_maintenance_urgency() reads maintenance-actions.json, applies +0.5/DUE +1.0/URGENT (cap 2.0) to meta domain in UCB1 scoring. With 1 DUE item: meta score +0.5. With 3 DUE: meta moves from #2 to #1. L-1150. (3) Health-check zombie resolved by concurrent session.
+- **diff**: Expected to close lanes + build weighting. Lane closures were commit-by-proxied 3x (high concurrency N≥3). UCB1 weighting confirmed: proportional response is more effective than binary gate.
+- **meta-swarm**: Target `tools/stale_write_check.py` — in high concurrency (N≥3), git reset vs checkout confusion causes false FM-19 blocks. `git checkout HEAD --` doesn't unstage, only `git reset HEAD --` does. Document in OPERATIONS.md.
+- **State**: 1048L 232P 20B 12F | DOMEX-EXPSW-S465 MERGED | maintenance weighting active | 4 stale lanes closed
+- **Next**: (1) Validate meta dispatch frequency increase over 10 sessions; (2) dispatch_optimizer.py T4 split; (3) F-SWARMER1 Ch2+Ch6 fix (4/6→6/6); (4) PAPER reswarm periodic; (5) F-RAND1 rolling-window criterion revision
 
 ## S465 session note (action bridge active — dispatch --fix auto-runs maintenance fixes)
 - **check_mode**: objective | **mode**: DOMEX expert (F-SWARMER1 intervention #2)
