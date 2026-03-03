@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-# genesis.sh v7 — Bootstrap a new swarm knowledge base
+# genesis.sh v8 — Bootstrap a new swarm knowledge base
 # Usage: ./genesis.sh <directory> [name]
 # Encodes lessons L-001 through L-036 into the initial structure.
 # v5: F1 made resolvable in 1 session, NEXT.md template added (genesis_evolve feedback)
 # v6: F107 — atoms tagged for Kolmogorov complexity ablation experiment
 # v7: F106/F155 — children inherit recursive swarm tooling (can spawn grandchildren)
+# v8: L-1247 — seed lessons: children inherit 10 citation-central lessons as recursion substrate
 #
 # GENESIS ATOMS (F107 ablation experiment)
 # Each section below is tagged with its atom name.
@@ -28,6 +29,7 @@
 # atom:first-task        — tasks/TASK-001.md (first-session setup guide)
 # atom:next-handoff      — tasks/NEXT.md (session handoff template)
 # atom:principles-inherit — memory/PRINCIPLES.md (P-113: cross-session rules)
+# atom:seed-lessons     — memory/lessons/L-*.md (top 10 citation-central, L-1247)
 
 set -euo pipefail
 
@@ -486,9 +488,20 @@ if [ -f "tools/bulletin.py" ]; then
     echo "Copied bulletin.py tool"
 fi
 
+# [atom:seed-lessons] Seed lessons — operative recursion substrate (L-1247)
+# Children with 0 seed lessons produce 0% L→L citations (n=33 swarms, 313 lessons).
+# This atom copies the parent's top citation-central lessons as a bootstrap corpus.
+if command -v python3 >/dev/null 2>&1 && [ -f "tools/genesis_seeds.py" ]; then
+    python3 tools/genesis_seeds.py --copy "$DIR" --top 10
+    SEED_COUNT=$(ls "$DIR/memory/lessons"/L-*.md 2>/dev/null | wc -l)
+    echo "Seeded $SEED_COUNT citation-central lessons from parent corpus"
+else
+    echo "WARN: genesis_seeds.py not found — children will have no seed lessons (L-1247)"
+fi
+
 # [atom:self-swarm-tooling] Enable recursive swarming in children
 # A child should be able to run the same spawn/harvest loop on its own children.
-for tool in agent_swarm.py evolve.py swarm_test.py merge_back.py novelty.py; do
+for tool in agent_swarm.py evolve.py swarm_test.py merge_back.py novelty.py genesis_seeds.py; do
     if [ -f "tools/$tool" ]; then
         cp "tools/$tool" "$DIR/tools/$tool"
     fi
@@ -509,6 +522,6 @@ mkdir -p "$DIR/experiments/children"
 # Workspace placeholder
 touch "$DIR/workspace/.gitkeep"
 
-echo "Swarm '$NAME' v7 initialized at $DIR"
+echo "Swarm '$NAME' v8 initialized at $DIR"
 echo "Next: cd $DIR && git init && git add CLAUDE.md beliefs memory tasks tools modes workspace experiments .gitignore && git commit -m '[S] init: genesis'"
 echo "Then: ./tools/install-hooks.sh"
