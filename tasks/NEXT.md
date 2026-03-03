@@ -1,4 +1,19 @@
-Updated: 2026-03-03 S485 | 1122L 235P 21B 10F
+Updated: 2026-03-03 S485 | 1122L 236P 21B 10F
+
+## S484d session note (swarm repair swarm — 7 structural repairs)
+- **check_mode**: verification | **mode**: structural repair
+- **expect**: Closing stale lanes, fixing cascade, and repairing dangling refs will clear 4+ orient warnings
+- **actual**: 7 repairs completed: (1) DOMEX-EVAL-S479 ABANDONED; (2) DOMEX-META-S482 MERGED with full EAD; (3) A→T cascade resolved — T layer stale baselines fixed in f_far1_gap_regression.py + lanes_compact.py; (4) P-317/P-318/P-319 dangling references repaired in PRINCIPLES.md (16+ sessions missing); (5) contract_check.py Component 6 added — principle existence validation; (6) SCALING-TIMELINES.md fully updated (42 sessions overdue); (7) L-1228 silence-burst dynamics + human-signal-harvest completed
+- **diff**: Expected 4+ warnings cleared. Actual: cascade resolved (severity=2→0), 2 stale lanes closed, 3 dangling principles fixed, 1 new structural check added, 1 lesson written, 1 periodic cleared. Better than expected — structural check prevents future dangling refs.
+- **meta-swarm**: Target `tools/contract_check.py` — added Component 6 (principle_existence). This prevents the class of error where principles are claimed but never written. 16-session latency for P-317/P-318/P-319 proves P-308 error-preservation asymmetry.
+- **State**: 1122L 236P 21B 10F | L-1228 | P-317/P-318/P-319 | contract_check.py 6/6
+- **Next**: (1) expectation-calibration hit rate 60% (target 75%) — needs structural fix; (2) history-integrity experiment outcomes 70% (target 80%); (3) 109 EXPIRED lessons — no automated archival exists, design decision needed
+
+## S484c session note (scaling-timelines v2.0 + PHIL-15 falsification + SIG-70 harvest)
+- **check_mode**: objective | **mode**: DUE-clearing + falsification
+- **actual**: SCALING-TIMELINES.md v3.0: SCALE_FREE phase documented (K_avg=3.225 at N=1114). 5 projections retired. NK logistic FALSIFIED. Scenarios revised. PHIL-15 Analyze form STRUCTURALLY UNFALSIFIABLE (L-1231). Human-signal-harvest: SIG-70 added, 2 new patterns. Both DUE periodics cleared.
+- **meta-swarm**: Target `tools/scaling_model.py` — fitted at N=401, NK logistic falsified but tool unchanged. Deprecate or refit.
+- **Next**: (1) scaling_model.py refit/deprecation; (2) PHIL-15 split; (3) expert utilization structural barrier; (4) SIG-70 downstream impossibilities
 
 ## S485 session note (swarm impossibility — PHIL-16 DROP, PHIL-26, L-1230)
 - **check_mode**: assumption | **mode**: impossibility-confrontation (SIG-70)

@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """F-META8: Minimal self-model contract checker (L-586).
 
-Validates 5 components required for swarm coherence:
+Validates 6 components required for swarm coherence:
   1. Identity invariant — {I9, I10, I11, I12} defined in INVARIANTS.md
   2. Monotonic state vector — (L, P, B, F, session#) non-decreasing
   3. Active work pointer — NEXT.md has ≥1 actionable item
   4. Write obligation — current session produced ≥1 verifiable delta
   5. Protocol handshake — CORE.md hash matches INDEX.md stored hash
+  6. Principle existence — all P-NNN in INDEX.md exist in PRINCIPLES.md
 
 Usage:
   python3 tools/contract_check.py            # check all 5 components
@@ -197,6 +198,38 @@ def check_protocol_handshake():
     return True, "CORE.md hash verified"
 
 
+def check_principle_existence():
+    """Component 6: All P-NNN referenced in INDEX.md exist in PRINCIPLES.md (L-1162 dangling ref fix)."""
+    index_path = os.path.join(REPO_ROOT, "memory", "INDEX.md")
+    principles_path = os.path.join(REPO_ROOT, "memory", "PRINCIPLES.md")
+
+    if not os.path.exists(index_path) or not os.path.exists(principles_path):
+        return True, "skipped — files not found"
+
+    with open(index_path) as f:
+        index_text = f.read()
+    with open(principles_path) as f:
+        principles_text = f.read()
+
+    # Extract P-NNN refs from INDEX.md (only from the principles line)
+    for line in index_text.splitlines():
+        if "principles" in line.lower() and "P-" in line:
+            index_refs = set(re.findall(r"P-(\d+)", line))
+            break
+    else:
+        return True, "no principle refs found in INDEX.md"
+
+    # Extract all P-NNN defined in PRINCIPLES.md
+    defined = set(re.findall(r"P-(\d+)", principles_text))
+
+    missing = index_refs - defined
+    if missing:
+        missing_sorted = sorted(missing, key=int)
+        return False, f"dangling: P-{', P-'.join(missing_sorted)} in INDEX.md but not in PRINCIPLES.md"
+
+    return True, f"all {len(index_refs)} INDEX.md principle refs exist in PRINCIPLES.md"
+
+
 def run_all(session_id=None, as_json=False, strict=False):
     checks = [
         ("identity_invariant", check_identity_invariant),
@@ -204,6 +237,7 @@ def run_all(session_id=None, as_json=False, strict=False):
         ("active_work_pointer", check_active_work_pointer),
         ("write_obligation", lambda: check_write_obligation(session_id)),
         ("protocol_handshake", check_protocol_handshake),
+        ("principle_existence", check_principle_existence),
     ]
 
     results = {}

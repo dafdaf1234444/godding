@@ -26,7 +26,26 @@ from pathlib import Path
 ROOT = Path(__file__).parent.parent
 LESSONS_DIR = ROOT / "memory" / "lessons"
 LANES_PATH = ROOT / "tasks" / "SWARM-LANES.md"
-ARTIFACT_PATH = ROOT / "experiments" / "farming" / "f-far1-gap-regression-s466.json"
+
+
+def _current_session() -> int:
+    """Derive current session number from git log or lesson count."""
+    import subprocess
+    try:
+        out = subprocess.check_output(
+            ["git", "log", "--oneline", "-1", "--format=%s"],
+            cwd=ROOT, text=True, stderr=subprocess.DEVNULL,
+        )
+        m = re.search(r'\[S(\d+)\]', out)
+        if m:
+            return int(m.group(1))
+    except Exception:
+        pass
+    return len(list(LESSONS_DIR.glob("L-*.md")))
+
+
+def _artifact_path() -> Path:
+    return ROOT / "experiments" / "farming" / f"f-far1-gap-regression-s{_current_session()}.json"
 
 # Domain aliases (from archived f_far1_fallow_measure.py)
 DOMAIN_ALIASES = {
@@ -242,7 +261,7 @@ def run() -> dict:
 
     if len(data_points) < 10:
         return {
-            "session": "S466",
+            "session": f"S{_current_session()}",
             "verdict": "INSUFFICIENT_DATA",
             "n": len(data_points),
             "skipped_first_appearance": skipped_first_appearance,
@@ -325,8 +344,8 @@ def run() -> dict:
         }
 
     result = {
-        "session": "S466",
-        "experiment": "DOMEX-FAR-S466",
+        "session": f"S{_current_session()}",
+        "experiment": f"DOMEX-FAR-S{_current_session()}",
         "frontier": "F-FAR1",
         "date": "2026-03-03",
         "methodology": "Gap-length OLS regression (continuous IV) replacing binary fallow/continuous",
@@ -371,10 +390,12 @@ def run() -> dict:
 def main():
     result = run()
 
-    ARTIFACT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    ARTIFACT_PATH.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    out_path = _artifact_path()
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(json.dumps(result, indent=2), encoding="utf-8")
 
-    print("=== F-FAR1 Gap-Length Regression (S466) ===")
+    sess = _current_session()
+    print(f"=== F-FAR1 Gap-Length Regression (S{sess}) ===")
     print(f"Total lessons parsed: {result.get('n_total_lessons', '?')}")
     print(f"Lessons with computable gap: {result.get('n_with_gap', '?')}")
     print(f"Skipped (first appearance): {result.get('n_skipped_first_appearance', '?')}")
@@ -405,7 +426,7 @@ def main():
 
     print(f"\nVerdict: {result.get('verdict', '?')}")
     print(f"Interpretation: {result.get('interpretation', '?')}")
-    print(f"\nArtifact: {ARTIFACT_PATH}")
+    print(f"\nArtifact: {out_path}")
 
 
 if __name__ == "__main__":

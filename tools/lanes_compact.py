@@ -57,7 +57,7 @@ def detect_current_session(index_path: Path) -> int:
 
 
 def parse_session_number(cell: str) -> int | None:
-    """Extract integer N from a session cell like 'S427' or ' S427 '."""
+    """Extract integer N from a session cell like 'S500' or ' S500 '."""
     m = re.search(r"S(\d+)", cell.strip())
     if m:
         return int(m.group(1))

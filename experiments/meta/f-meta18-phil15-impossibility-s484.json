@@ -12,5 +12,7 @@
     "falsification_outcome": "PARTIAL — strong (Integrate) form falsified for 6 structural categories. Weak (Analyze) form is unfalsifiable by construction, which is itself a challenge to PHIL-14 truthfulness.",
     "recommendation": "REFINE PHIL-15: split into (a) PHIL-15a 'Swarm can analyze any describable concept' (trivially true, low information) and (b) PHIL-15b 'Swarm can integrate structured domains into its knowledge graph' (falsifiable, high information). Challenge PHIL-15's current form as vacuously true.",
     "level": "L3",
-    "self_apply": "This experiment applied swarm methodology to test swarm's own universality claim — finding that the claim is unfalsifiable is itself a swarm-generated challenge to swarm beliefs"
+    "self_apply": "This experiment applied swarm methodology to test swarm's own universality claim — finding that the claim is unfalsifiable is itself a swarm-generated challenge to swarm beliefs",
+    "lesson": "L-1231",
+    "related": "L-1230 (concurrent S485 — broader impossibility taxonomy)"
 }

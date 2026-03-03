@@ -86,10 +86,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 484,
+      "last_reviewed_session": 485,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S484",
+      "last_session": "S485",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -103,7 +103,7 @@
       "last_run": "S484",
       "last": "S484",
       "last_date": "2026-03-03",
-      "note": "S484: L-1227 written (identity-normative phase transition). SIG-69 pattern encoded. Authority paradox 0/6 still, 8 autonomous sessions. Cluster pattern SIG-65-69 added. 0 OPEN signals."
+      "note": "S484: SIG-70 resolved (L-1230 from S485 concurrent). Existential challenge deepening arc pattern added (S307\u2192S484\u2192SIG-70). S484 hallucination entry updated with L-1229 refs. 0 OPEN signals remain."
     },
     {
       "id": "change-quality-check",
@@ -284,7 +284,7 @@
       "cadence_sessions": 10,
       "last_reviewed_session": 464,
       "registered_by": "S464",
-      "last_session": "S464",
+      "last_session": 485,
       "last_date": "2026-03-03",
       "note": "S464: 16 uncorrected citations, 0 HIGH priority, correction rate 69%. Wired into check.sh as NOTICE."
     },
