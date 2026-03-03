@@ -1,0 +1,28 @@
+{
+  "experiment": "f-swarmer1-ch2-citation-mechanism-s477",
+  "frontier": "F-SWARMER1",
+  "session": "S477",
+  "lane": "DOMEX-EXPSW-S477",
+  "hypothesis": "Ch2 citation Goodhart: citation count rewards presence not mechanism invocation",
+  "method": "citation_mechanism.py: classify L-NNN references as INVOKE (per/apply/enforce patterns) or MENTION (found/measured/bare refs). Compute invoke_ratio per lesson.",
+  "results": {
+    "aggregate_invoke_rate": 0.036,
+    "correlation_indeg_vs_ratio": 0.467,
+    "low_mechanism_pct": 100.0,
+    "total_invokes": 53,
+    "total_mentions": 1416,
+    "ch2_verdict": "MISALIGNED",
+    "top_5": [
+      {"lesson": "L-601", "in_degree": 930, "invoke_count": 41, "mention_count": 583, "invoke_ratio": 0.066, "tool_refs": 15, "mechanism_score": 65},
+      {"lesson": "L-001", "in_degree": 179, "invoke_count": 0, "mention_count": 79, "invoke_ratio": 0.0, "tool_refs": 1, "mechanism_score": 1},
+      {"lesson": "L-526", "in_degree": 137, "invoke_count": 0, "mention_count": 79, "invoke_ratio": 0.0, "tool_refs": 4, "mechanism_score": 4},
+      {"lesson": "L-025", "in_degree": 112, "invoke_count": 0, "mention_count": 61, "invoke_ratio": 0.0, "tool_refs": 2, "mechanism_score": 2},
+      {"lesson": "L-613", "in_degree": 103, "invoke_count": 5, "mention_count": 71, "invoke_ratio": 0.066, "tool_refs": 2, "mechanism_score": 7}
+    ]
+  },
+  "verdict": "CONFIRMED — Ch2 Goodhart is real. 3.6% aggregate invoke rate across top-20 cited lessons. 100% have invoke_ratio < 10%. Even L-601 (highest cited, 930 in-degree) converts at only 6.6%. Citations overwhelmingly reward presence, not mechanism invocation.",
+  "falsification_target": "Citation count is a valid quality signal for lesson mechanism use",
+  "falsification_outcome": "FALSIFIED — r(in_degree, invoke_ratio)=0.467 moderate but absolute invoke rates (0-6.6%) are below actionable threshold. Citation count is dominated by mention noise.",
+  "fix_applied": "reward_theory.py Ch2 now uses citation_mechanism.py invoke_ratio instead of raw in-degree count. Ch2 status: MISALIGNED with quantified measurement.",
+  "successor": "Build structural pressure toward mechanism invocation (L-601 pattern): enforce that Cites: header entries must include invocation evidence"
+}
