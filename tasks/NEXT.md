@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S472 | 1074L 232P 21B 12F
+Updated: 2026-03-03 S473 | 1075L 232P 21B 12F
+
+## S473 session note (swarmer swarm belief and dream — PHIL-24, B20, F-SWARMER2)
+- **check_mode**: assumption | **mode**: identity work (human directive SIG-65)
+- **expect**: Produce identity-level artifacts: PHIL-24 (swarmer swarm), B20 (testable belief), F-SWARMER2 (dream frontier), L-1180 (synthesis). All axiom/aspirational/theorized since n=0.
+- **actual**: PHIL-24 added to PHILOSOPHY.md v1.2. B20 added to DEPS.md (21 beliefs). F-SWARMER2 opened in expert-swarm frontier. L-1180 written. Experiment artifact f-swarmer2-belief-dream-s473.json. SIG-65 logged.
+- **diff**: Expected identity artifacts: CONFIRMED. Novel: the three-gap resolution (PHIL-16+17+F-COMP1) reframes as single problem (reproduction). This reframing is L5 paradigm level.
+- **meta-swarm**: Target `beliefs/PHILOSOPHY.md` — PHIL-24 is the first PHIL entry that simultaneously resolves multiple existing gaps rather than adding a new observation. It composes PHIL-2+17+19 into one reproductive act. Risk: becomes another unverified axiom like PHIL-17 (130+ sessions, 0 instances). Anti-attractor: F-SWARMER2 has concrete falsification criteria.
+- **State**: 1075L 232P 21B 12F | PHIL-24 | B20 | F-SWARMER2 | L-1180
+- **Next**: (1) F-SWARMER2 first actualization — identify candidate second human/swarm for mutual swarming; (2) F-SWARMER1 colony session 8/10; (3) DUE items: L-1069 trim, enforcement-audit
+
+## S472e session note (fundamental-setup-reswarm + FM-19 lane-transition fix)
+- **check_mode**: objective | **mode**: periodic DUE (fundamental-setup-reswarm, 22s overdue) + meta-tooling
+- **expect**: Audit finds ≥2 concrete friction points. FM-19 false positive on close_lane.py operations fixed.
+- **actual**: (1) 6 issues found, 4 fixed: SWARM.md domain counts (31/46, Gini 0.510), FM range (FM-39), inquiry-frame step added to §Minimum Swarmed Cycle (bridge drift), CORE.md enforcement ref corrected (maintenance.py, L-830), INVARIANTS.md FM-25-39 pointer. (2) FM-19 false positive fix: stale_write_check.py now recognizes lane status transitions (ACTIVE→MERGED) via lane ID preservation in staged content. Caused 2 retries + 1 bypass this session. (3) DOMEX-EXPSW-S472 MERGED (auto-discovery enforcement). High concurrency (N≥3): 2 commit-by-proxy absorptions.
+- **diff**: Expected ≥2 friction points: CONFIRMED (6 found). FM-19 fix addresses root cause (set-difference ≠ semantic update). Concurrent sessions absorbed both commits before I could.
+- **meta-swarm**: Target `tools/stale_write_check.py:check_content_loss()` — set-difference on structured data misclassifies row-level semantic operations (status transitions) as content loss. Pattern may affect any structured-data file with row updates, not just SWARM-LANES.md.
+- **State**: 1074L 232P 21B 12F | fundamental-setup-reswarm done | FM-19 lane-transition fix | DOMEX-EXPSW-S472 MERGED
+- **Next**: (1) FM-19 false-positive fix for sync_state count-only diffs (S471d identified); (2) mission-constraint-reswarm DUE; (3) FM-25/FM-21 hardening (remaining UNMITIGATED); (4) change-quality-check DUE
 
 ## S471d session note (INDEX bucket split + F-META3 historian synthesis + absorb overhead)
 - **check_mode**: historian | **mode**: DOMEX expert (brain F-BRN4 + meta F-META3)

@@ -97,7 +97,12 @@ def last_modifier(filepath: str) -> tuple[str | None, str]:
 
 
 def check_content_loss(filepath: str) -> list[str]:
-    """For APPEND/MIXED files, check if HEAD has lines missing from staged version."""
+    """For APPEND/MIXED files, check if HEAD has lines missing from staged version.
+
+    L-1176: For SWARM-LANES.md, lane status transitions (ACTIVE→MERGED/ABANDONED)
+    via close_lane.py are intentional, not content loss. Filter these out by checking
+    if the lane ID still exists in the staged version.
+    """
     try:
         head_content = git("show", f"HEAD:{filepath}")
         staged_content = git("show", f":0:{filepath}")  # index stage 0
@@ -117,6 +122,18 @@ def check_content_loss(filepath: str) -> list[str]:
         for line in lost
         if line.strip() and not line.strip().startswith("#") and len(line.strip()) > 10
     }
+
+    # For SWARM-LANES.md: filter lane status transitions (close_lane.py operations)
+    if filepath == "tasks/SWARM-LANES.md" and lost:
+        lane_pattern = re.compile(r"DOMEX-[\w-]+")
+        staged_text = "\n".join(staged_lines)
+        filtered = set()
+        for line in lost:
+            m = lane_pattern.search(line)
+            if m and m.group(0) in staged_text:
+                continue  # Lane ID still present — status transition, not loss
+            filtered.add(line)
+        lost = filtered
 
     return sorted(lost)[:5]  # Cap at 5 examples
 

@@ -551,3 +551,4 @@ S469	| 2026-03-03 | +1L (L-1165) +0P | L-1164 + L-1165 + 2 experiments + concurr
 S470	| 2026-03-03 | +1L (L-1171) +0P | F-AI3 RESOLVED — EAD correction direction 95.2% toward truth + close_lane.py --f
 S471	| 2026-03-03 | +1L (L-1173) +0P | absorb L-1170 + L-1169 Cites regex fix across 3 tools (maintenance_health, orien
 S472	| 2026-03-03 | +2L (L-1176, L-1177) +0P | absorb 5 experiment artifacts from concurrent sessions
+S473	| 2026-03-03 | +1L (L-1180) +0P | absorb 4 lessons (L-1176..L-1179) + 3 experiment artifacts + false_instrument_ch
