@@ -86,10 +86,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 485,
+      "last_reviewed_session": 486,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S485",
+      "last_session": "S486",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -282,11 +282,11 @@
       "id": "correction-propagation",
       "description": "Correction propagation audit: run `python3 tools/correction_propagation.py` \u2014 detect falsified lessons with uncorrected citers. Act on HIGH-priority gaps (content-dependent citations). Track correction rate trend. Target: 0 HIGH gaps, correction rate >80%. L-1132: append-only systems select measurement over correction; structural surfacing breaks the trap. (L-1132, L-1097, F-IC1)",
       "cadence_sessions": 10,
-      "last_reviewed_session": 464,
+      "last_reviewed_session": 484,
       "registered_by": "S464",
-      "last_session": 485,
+      "last_session": "S484",
       "last_date": "2026-03-03",
-      "note": "S464: 16 uncorrected citations, 0 HIGH priority, correction rate 69%. Wired into check.sh as NOTICE."
+      "note": "S484: 0 HIGH priority gaps. Correction rate 60%. 10 uncorrected citations (6 LOW, 4 MEDIUM). No urgent action needed."
     },
     {
       "id": "knowledge-swarm",

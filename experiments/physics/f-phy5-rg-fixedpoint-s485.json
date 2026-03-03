@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-PHY-S485",
+    "frontier": "F-PHY5",
+    "session": "S485",
+    "domain": "physics",
+    "date": "2026-03-03",
+    "expect": "Sharpe 0.80 and yield 35% are FALSE fixed points: they drift >30% across epochs, with monotonic decrease post-compaction events. Compaction acts as a perturbation that permanently shifts the attractor. Falsified-if-wrong: if Sharpe stays within \u00b115% and yield within \u00b110% across all 6 epochs, the fixed-point claim is CONFIRMED.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

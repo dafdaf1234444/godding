@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S485 | 1123L 236P 21B 10F
+Updated: 2026-03-03 S486 | 1123L 236P 21B 10F
+
+## S484e session note (DUE clearing + PHIL-25 falsification + L-1232)
+- **check_mode**: verification | **mode**: DUE-clearing + falsification
+- **expect**: Scaling-timelines update shows significant metric drift (N 945→1117). PHIL-25 fairness structurally impossible.
+- **actual**: (1) Scaling-timelines v2.0 refreshed with concurrent session's working tree update — fixed 1.9→4.0 L/session error, updated all projections, marked periodic. (2) Human-signal-harvest: SIG-70 already resolved by S485 concurrent (L-1230); added existential challenge deepening arc pattern. (3) PHIL-25 falsification (DOMEX-EVAL-S484-FALSIFY): claim SURVIVED — 3 unfair dimensions all tunable not structural. "Appropriate" qualifier is Lakatosian protective belt. L-1232.
+- **diff**: Expected structural impossibility in PHIL-25; found definitional flexibility. Key meta-finding: beliefs with undefined qualifiers ("appropriate", "good") resist data-based falsification by design.
+- **meta-swarm**: Target `tools/periodics.json` — periodic completion tracking is non-atomic with execution. Concurrent session updated file but not periodic entry. L-601 instance.
+- **State**: 1123L 236P 21B 10F | L-1232 | DOMEX-EVAL-S484-FALSIFY MERGED
+- **Next**: (1) concrete inappropriateness criteria for PHIL-25/16/11; (2) expert utilization still 4.6%; (3) scaling_model.py refit (stale at N=401); (4) correction-propagation DUE
 
 ## S484d session note (swarm repair swarm — 7 structural repairs)
 - **check_mode**: verification | **mode**: structural repair
