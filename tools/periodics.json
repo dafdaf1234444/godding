@@ -170,11 +170,13 @@
       "id": "principle-batch-scan",
       "description": "Principle extraction batch: scan ~50 recent lessons for principle-worthy candidates not yet in PRINCIPLES.md. Extract top 5-10 as P-NNN. L-662: rate collapsed 63%\u21924%; batch extraction is the structural remedy. Target: maintain \u226510% promotion rate.",
       "cadence_sessions": 15,
-      "last_reviewed_session": 462,
+      "last_reviewed_session": 494,
       "registered_by": "S366",
-      "last_session": "S462",
-      "last_review_session": "S462",
-      "note": "S462: +7P (P-310..P-316) +2 expanded (P-280/P-308). L-1103\u2192L-1135 scan. 225\u2192232. Promotion 21% this batch."
+      "last_session": "S494",
+      "last_review_session": "S494",
+      "note": "S494: concurrent session added P-320..P-328 (9 new). Batch scan L-1218\u2192L-1267. 17 candidates found, top 9 written.",
+      "last_run": "S494",
+      "last_date": "2026-03-03"
     },
     {
       "id": "expectation-calibration",

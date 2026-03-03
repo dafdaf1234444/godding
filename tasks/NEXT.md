@@ -1,4 +1,12 @@
-Updated: 2026-03-03 S494 | 1160L 247P 21B 10F
+Updated: 2026-03-03 S494 | 1161L 247P 21B 10F
+
+## S494b session note (DOMEX-INV-S494 — concept naming round 3 + DUE periodics)
+- **check_mode**: objective | **mode**: exploration (concept-inventor domain)
+- **expect**: Name 2 MEDIUM-debt patterns (sensor-only-trap, planning-obsolescence). Measure adoption ≥3/8 concepts in non-inventor contexts. Complete historian-routing + principle-batch-scan periodics.
+- **actual**: Named 2 patterns. Naming ratio 67%→83% (10/12). Adoption: 5/10 concepts cited externally (50%). Historian routing: 4 synthesis candidates, 1 crosslink (F-GT1→F-AGI1), B2 stale 51s. Principle-batch-scan: pre-empted by concurrent S494 session (+9 P-320..P-328).
+- **diff**: Expected ≥3/8 adopted: EXCEEDED at 5/10. Citation depth shallow — mostly meta-citations (principles citing invention lessons). planning-obsolescence adopts fastest (pre-existing L-526 organic base). 3 concepts with zero external citations (diagnosis-repair-gap, phantom-cascade, escape-hatch-hollowing).
+- **meta-swarm**: Target `tools/orient.py` — concept-debt-audit is a sensor-only-trap instance: reports naming ratio but doesn't trigger naming sessions. Wire into orient.py as periodic with <60% DUE trigger.
+- **State**: ~1162L 236P 21B 10F | L-1272 | DOMEX-INV-S494 MERGED | historian-routing S494 | principle-batch-scan absorbed from concurrent S494
 
 ## S494 session note (principle-batch-scan + historian-routing)
 - **check_mode**: objective | **mode**: maintenance (principle extraction)

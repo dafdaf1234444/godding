@@ -48,6 +48,12 @@ DNA_FILES = [
 ]
 
 
+def _normalize_lid(lid: str) -> str:
+    """Normalize L-NNN IDs: strip leading zeros for consistent matching (L-1271)."""
+    m = re.match(r"L-0*(\d+)", lid)
+    return f"L-{m.group(1)}" if m else lid
+
+
 def parse_lesson(path: Path) -> dict:
     """Extract lesson metadata: ID, title, session, domain, cites list."""
     text = path.read_text(errors="replace")
@@ -58,7 +64,7 @@ def parse_lesson(path: Path) -> dict:
     # ID + title from first line
     m = re.match(r"#\s+(L-\d+):\s*(.+)", lines[0] if lines else "")
     if m:
-        result["id"] = m.group(1)
+        result["id"] = _normalize_lid(m.group(1))
         result["title"] = m.group(2).strip()
 
     for line in lines[:10]:
@@ -73,7 +79,7 @@ def parse_lesson(path: Path) -> dict:
         # Cites
         cm = re.match(r"Cites:\s*(.+)", line)
         if cm:
-            result["cites"] = re.findall(r"L-\d+", cm.group(1))
+            result["cites"] = [_normalize_lid(c) for c in re.findall(r"L-\d+", cm.group(1))]
         # Sharpe
         shm = re.search(r"Sharpe:\s*(\d+)", line)
         if shm:
@@ -125,7 +131,7 @@ def count_dna_references() -> dict[str, int]:
             continue
         text = f.read_text(errors="replace")
         for lid in set(re.findall(r"\bL-\d+\b", text)):
-            ref_counts[lid] += 1
+            ref_counts[_normalize_lid(lid)] += 1
     return dict(ref_counts)
 
 
