@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EVAL-S479",
+    "frontier": "F-EVAL1",
+    "session": "479",
+    "domain": "evaluation",
+    "date": "2026-03-03",
+    "expect": "F-EVAL1 closure is PREMATURE: the composite score is unstable (Increase at threshold floor 2.07, 3.3% margin), external_grounding logic was recently fixed (S477, only 1 measurement since fix), and the glass ceiling claim masks that no goal has been EXCELLENT with external grounding.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

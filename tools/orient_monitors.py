@@ -323,3 +323,33 @@ def section_epsilon_dispatch(session_num, root=ROOT):
     except Exception:
         pass
     return lines
+
+
+def section_grounding_audit(root=ROOT):
+    """Grounding audit summary (F-GND1, L-1192): claim grounding health."""
+    lines = []
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from grounding_audit import run_audit
+        audit = run_audit(detail=False)
+        if "error" in audit:
+            return lines
+        total = audit["total_claims"]
+        avg = audit["avg_grounding_score"]
+        well_pct = audit["well_grounded_pct"]
+        poorly = audit["poorly_grounded"]
+        stale = audit["stale"]
+        lines.append("--- Grounding Audit (F-GND1) ---")
+        lines.append(f"  {total} claims | avg score {avg:.3f} | {well_pct}% well-grounded")
+        if poorly > 0:
+            lines.append(f"  {poorly} poorly grounded (<0.2)")
+        if stale > 0:
+            lines.append(f"  {stale} stale (>50 sessions without retest)")
+        bottom = audit.get("bottom_5", [])
+        if bottom:
+            worst = bottom[0]
+            lines.append(f"  Worst: {worst.get('id', '?')} (score {worst.get('score', 0):.3f})")
+        lines.append("")
+    except Exception:
+        pass
+    return lines

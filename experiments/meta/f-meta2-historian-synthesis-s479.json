@@ -1,0 +1,29 @@
+{
+    "experiment": "DOMEX-META-S479-HISTORIAN",
+    "frontier": "F-META2",
+    "session": "S479",
+    "domain": "meta",
+    "mode": "historian",
+    "intent": "Synthesize S476-S478 grounding crisis chain into cross-frontier pattern",
+    "expect": "Historian synthesis of 3 MERGED lanes will reveal correction-chain asymmetry — detection is fast, repair is slow",
+    "actual": "CONFIRMED. 450-session silent accumulation vs 5-session (ongoing) correction chain. Correction/error effort ratio >=5:1. Individual findings (L-1192, L-1204, L-1210-1213) were known; the chain pattern and asymmetry ratio are novel.",
+    "diff": "Expected asymmetry: CONFIRMED. Expected repair completeness: NOT YET — external grounding still 0-5% after 5 sessions. Novel: concurrent sessions attempting same fix created additional breakage (L-1213 re-export fragility), extending the correction chain.",
+    "sources": [
+        "DOMEX-META-S472b (S473) — meta domain synthesis candidate",
+        "DOMEX-EVAL-S477 (S478) — evaluation closure assessment",
+        "DOMEX-NK-S476 (S478) — NK domain synthesis",
+        "DOMEX-GND-S478 — grounding baseline",
+        "f-eval1-closure-assessment-s477.json — 4/4 goals self-referential",
+        "f-gnd1-external-check-s478.json — 5% external refs (strict 0%)"
+    ],
+    "artifacts": ["L-1214"],
+    "cross_frontier": ["F-GND1", "F-EVAL1", "F-COMP1"],
+    "key_measurements": {
+        "silent_accumulation_sessions": 450,
+        "correction_chain_sessions": 5,
+        "correction_error_ratio": ">=5:1",
+        "external_grounding_current": "0-5%",
+        "self_referential_metrics": "12/12 (100%)",
+        "concurrent_breakage_incidents": 2
+    }
+}
