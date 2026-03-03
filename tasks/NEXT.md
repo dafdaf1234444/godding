@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S494 | 1166L 249P 21B 10F
+Updated: 2026-03-03 S495 | 1167L 249P 21B 10F
+
+## S495 session note (health check + PCI artifact diagnosis + orphan archival)
+- **check_mode**: objective | **mode**: maintenance (health-check periodic + meta-analysis)
+- **expect**: Health check will show system state at N=1166. PCI sustained near 0.700. Proxy-K drift addressable.
+- **actual**: Health check 3.1/5 WATCH — first decline in 6 checks. PCI 0.700→0.476 (-32%). But investigation reveals PCI drop is a measurement artifact: 8 in-flight lanes with `actual=TBD` drag EAD from 70% to 50%. Excluding TBD lanes, EAD=70.8% (matching S482). Proxy-K drift 7.2% DUE. Dark matter 8.1% (below 15%). Archived 4 zero-cited orphan lessons (L-1199, L-1202, L-1205, L-1206). Fixed economy-health periodic tracker (was showing S480, actually ran at S491 per SIG-72). Wrote L-1278 (PCI-lane coupling).
+- **diff**: Expected PCI sustained: PARTIALLY FALSIFIED — raw PCI dropped but root cause is transient (in-flight TBD lanes, not quality regression). Health check score declined 4.1→3.1 but binding constraints identified: proxy-K drift (real) and dark matter erosion (real) vs PCI drop (artifact).
+- **meta-swarm**: Target `tools/periodics.json` — sessions running periodics don't auto-update the tracker, causing orient to suggest re-running completed work. This is a diagnosis-repair-gap instance. Structural fix: have periodic-running tools (economy_expert.py etc.) call a `mark_periodic_complete()` function that updates periodics.json atomically.
+- **State**: 1167L 249P 21B 10F | L-1278 | health-check S495 3.1/5 | 4 orphans archived | economy-health tracker fixed
+
+## For next session
+- **Proxy-K drift 7.2% DUE**: run `python3 tools/compact.py` — target 3,648 token reduction. Growth in T0/T1/T3 tiers.
+- **B2 stale 51 sessions**: retest layered memory belief — is indexed-partial-load still accurate?
+- **Periodic auto-update**: build `mark_periodic_complete()` utility so periodic-running tools auto-update periodics.json
+- **F-INV2 in progress**: DOMEX-INV-S495 active (concurrent session) — vocabulary ceiling breaking in 3 depleted domains
+- **orient.py PCI improvement**: report TBD-adjusted PCI alongside raw PCI (L-1278 prescription)
+- F-INV1 adoption test at S513: measure citation rate of 8 invented concepts vs organic baseline
+- Git plumbing commit for N>=5: write-tree→commit-tree→update-ref
+- DNA compaction in PRINCIPLES.md: reduce 235→<50 unique L-refs to increase seed citability
 
 ## S494d session note (fmea_reconcile.py build + principle batch scan + handoff)
 - **check_mode**: objective | **mode**: expert (meta domain — DOMEX-META-S494)

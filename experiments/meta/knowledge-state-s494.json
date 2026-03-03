@@ -1,0 +1,1739 @@
+{
+  "session": 494,
+  "stale_window": 50,
+  "global_states": {
+    "ACTIVE": 368,
+    "DECAYED": 471,
+    "BLIND-SPOT": 225,
+    "MUST-KNOW": 385,
+    "SHOULD-KNOW": 106
+  },
+  "domain_profiles": {
+    "unknown": {
+      "ACTIVE": 22,
+      "DECAYED": 109,
+      "BLIND-SPOT": 53,
+      "MUST-KNOW": 27
+    },
+    "meta": {
+      "DECAYED": 119,
+      "MUST-KNOW": 142,
+      "BLIND-SPOT": 65,
+      "ACTIVE": 83,
+      "SHOULD-KNOW": 15
+    },
+    "information-science": {
+      "MUST-KNOW": 6,
+      "DECAYED": 9,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 5
+    },
+    "nk-complexity": {
+      "DECAYED": 25,
+      "MUST-KNOW": 29,
+      "BLIND-SPOT": 5,
+      "ACTIVE": 10,
+      "SHOULD-KNOW": 1
+    },
+    "distributed-systems": {
+      "DECAYED": 3,
+      "MUST-KNOW": 1,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 0
+    },
+    "health": {
+      "DECAYED": 3,
+      "SHOULD-KNOW": 0
+    },
+    "ai": {
+      "MUST-KNOW": 2,
+      "DECAYED": 5,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 0
+    },
+    "finance": {
+      "MUST-KNOW": 1,
+      "DECAYED": 5,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 1
+    },
+    "brain": {
+      "DECAYED": 15,
+      "MUST-KNOW": 9,
+      "ACTIVE": 10,
+      "SHOULD-KNOW": 1
+    },
+    "operations-research": {
+      "DECAYED": 2,
+      "MUST-KNOW": 2,
+      "BLIND-SPOT": 1,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 2
+    },
+    "economy": {
+      "DECAYED": 9,
+      "BLIND-SPOT": 1,
+      "MUST-KNOW": 9,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 1
+    },
+    "evolution": {
+      "DECAYED": 7,
+      "MUST-KNOW": 4,
+      "BLIND-SPOT": 1,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 5
+    },
+    "gaming": {
+      "DECAYED": 3,
+      "MUST-KNOW": 1,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 3
+    },
+    "helper-swarm": {
+      "DECAYED": 1,
+      "MUST-KNOW": 6,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 3
+    },
+    "conflict": {
+      "DECAYED": 4,
+      "MUST-KNOW": 6,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 0
+    },
+    "quality": {
+      "DECAYED": 3,
+      "MUST-KNOW": 4,
+      "BLIND-SPOT": 2,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 0
+    },
+    "linguistics": {
+      "ACTIVE": 1,
+      "DECAYED": 4,
+      "MUST-KNOW": 3,
+      "SHOULD-KNOW": 5
+    },
+    "farming": {
+      "ACTIVE": 2,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 2
+    },
+    "dream": {
+      "BLIND-SPOT": 2,
+      "DECAYED": 1,
+      "SHOULD-KNOW": 4
+    },
+    "coordination": {
+      "DECAYED": 2,
+      "ACTIVE": 1
+    },
+    "evaluation": {
+      "DECAYED": 9,
+      "ACTIVE": 11,
+      "MUST-KNOW": 8,
+      "SHOULD-KNOW": 2
+    },
+    "claude-code": {
+      "DECAYED": 1,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 1
+    },
+    "graph-theory": {
+      "BLIND-SPOT": 2,
+      "DECAYED": 4,
+      "ACTIVE": 5,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 5
+    },
+    "social-media": {
+      "BLIND-SPOT": 3,
+      "ACTIVE": 3,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 4
+    },
+    "governance": {
+      "MUST-KNOW": 8,
+      "DECAYED": 7,
+      "BLIND-SPOT": 4,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 0
+    },
+    "cryptocurrency": {
+      "DECAYED": 2,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 3
+    },
+    "swarm-meta": {
+      "DECAYED": 2,
+      "BLIND-SPOT": 1
+    },
+    "expert-swarm": {
+      "DECAYED": 22,
+      "ACTIVE": 21,
+      "MUST-KNOW": 38,
+      "BLIND-SPOT": 3,
+      "SHOULD-KNOW": 3
+    },
+    "physics": {
+      "DECAYED": 4,
+      "MUST-KNOW": 2,
+      "ACTIVE": 3,
+      "SHOULD-KNOW": 2
+    },
+    "catastrophic-risks": {
+      "BLIND-SPOT": 3,
+      "MUST-KNOW": 10,
+      "DECAYED": 2,
+      "ACTIVE": 11,
+      "SHOULD-KNOW": 1
+    },
+    "human-systems": {
+      "ACTIVE": 4,
+      "BLIND-SPOT": 1,
+      "DECAYED": 1,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 4
+    },
+    "fluid-dynamics": {
+      "MUST-KNOW": 1,
+      "DECAYED": 3,
+      "ACTIVE": 3,
+      "SHOULD-KNOW": 0
+    },
+    "strategy": {
+      "DECAYED": 10,
+      "MUST-KNOW": 10,
+      "ACTIVE": 4,
+      "SHOULD-KNOW": 0
+    },
+    "statistics": {
+      "ACTIVE": 3,
+      "MUST-KNOW": 1,
+      "DECAYED": 1,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 3
+    },
+    "psychology": {
+      "BLIND-SPOT": 1,
+      "ACTIVE": 4,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 2
+    },
+    "control-theory": {
+      "DECAYED": 1,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 2
+    },
+    "empathy": {
+      "ACTIVE": 2,
+      "DECAYED": 2,
+      "SHOULD-KNOW": 0
+    },
+    "game-theory": {
+      "BLIND-SPOT": 2,
+      "MUST-KNOW": 4,
+      "SHOULD-KNOW": 2
+    },
+    "stochastic-processes": {
+      "MUST-KNOW": 5,
+      "ACTIVE": 3,
+      "DECAYED": 8,
+      "BLIND-SPOT": 2,
+      "SHOULD-KNOW": 0
+    },
+    "history": {
+      "DECAYED": 2,
+      "SHOULD-KNOW": 3
+    },
+    "cryptography": {
+      "DECAYED": 2,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 3
+    },
+    "security": {
+      "ACTIVE": 6,
+      "DECAYED": 5,
+      "MUST-KNOW": 10,
+      "BLIND-SPOT": 1,
+      "SHOULD-KNOW": 0
+    },
+    "guesstimates": {
+      "BLIND-SPOT": 1,
+      "DECAYED": 1,
+      "SHOULD-KNOW": 3
+    },
+    "protocol-engineering": {
+      "DECAYED": 1,
+      "SHOULD-KNOW": 2
+    },
+    "fractals": {
+      "ACTIVE": 2,
+      "DECAYED": 1,
+      "SHOULD-KNOW": 2
+    },
+    "competitions": {
+      "DECAYED": 1,
+      "SHOULD-KNOW": 1
+    },
+    "random-matrix-theory": {
+      "ACTIVE": 1,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 2
+    },
+    "string-theory": {
+      "ACTIVE": 1,
+      "MUST-KNOW": 1,
+      "SHOULD-KNOW": 3
+    },
+    "filtering": {
+      "ACTIVE": 2,
+      "MUST-KNOW": 3,
+      "SHOULD-KNOW": 0
+    },
+    "concept-inventor": {
+      "MUST-KNOW": 3,
+      "ACTIVE": 1,
+      "SHOULD-KNOW": 2
+    },
+    "cross-domain": {
+      "ACTIVE": 142,
+      "MUST-KNOW": 16,
+      "DECAYED": 45,
+      "BLIND-SPOT": 59
+    },
+    "global": {
+      "SHOULD-KNOW": 3
+    }
+  },
+  "revival_rate": 19.113573407202217,
+  "revival_per_session": 0.38227146814404434,
+  "total_items": 1449,
+  "total_lessons": 1166,
+  "total_principles": 262,
+  "total_beliefs": 21,
+  "frontier_count": 106,
+  "frontiers_per_domain": {
+    "ai": 0,
+    "brain": 1,
+    "catastrophic-risks": 1,
+    "claude-code": 1,
+    "competitions": 1,
+    "concept-inventor": 2,
+    "conflict": 0,
+    "control-theory": 2,
+    "cryptocurrency": 3,
+    "cryptography": 3,
+    "distributed-systems": 0,
+    "dream": 4,
+    "economy": 1,
+    "empathy": 0,
+    "evaluation": 2,
+    "evolution": 5,
+    "expert-swarm": 3,
+    "farming": 2,
+    "filtering": 0,
+    "finance": 1,
+    "fluid-dynamics": 0,
+    "fractals": 2,
+    "game-theory": 2,
+    "gaming": 3,
+    "governance": 0,
+    "graph-theory": 5,
+    "guesstimates": 3,
+    "health": 0,
+    "helper-swarm": 3,
+    "history": 3,
+    "human-systems": 4,
+    "information-science": 5,
+    "linguistics": 5,
+    "meta": 15,
+    "nk-complexity": 1,
+    "operations-research": 2,
+    "physics": 2,
+    "protocol-engineering": 2,
+    "psychology": 2,
+    "quality": 0,
+    "random-matrix-theory": 2,
+    "security": 0,
+    "social-media": 4,
+    "statistics": 3,
+    "stochastic-processes": 0,
+    "strategy": 0,
+    "string-theory": 3,
+    "global": 3
+  },
+  "hypotheses": [
+    {
+      "hypothesis": "SHOULD-KNOW > ACTIVE in \u226530% of domains",
+      "result": "28/44 domains (63.6%)",
+      "pass": true,
+      "threshold": "\u226530%"
+    },
+    {
+      "hypothesis": "DECAYED\u2192ACTIVE transitions < 1% per session",
+      "result": "0.38% per session (cumulative 19.1% over 50s window)",
+      "pass": true,
+      "threshold": "<1%"
+    },
+    {
+      "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
+      "result": "5/5 different (gap-ranked: ['dream', 'guesstimates', 'protocol-engineering', 'cryptocurrency', 'claude-code'], UCB1: ['concept-inventor', 'expert-swarm', 'nk-complexity', 'meta', 'catastrophic-risks'])",
+      "pass": true,
+      "threshold": "\u22652/5"
+    }
+  ],
+  "blind_spots": [
+    {
+      "id": "L-9",
+      "domain": "unknown",
+      "title": "First artifact \u2014 the system can produce useful tools",
+      "age": 494
+    },
+    {
+      "id": "L-17",
+      "domain": "unknown",
+      "title": "Forking is trivially possible \u2014 git fork IS knowledge fork",
+      "age": 494
+    },
+    {
+      "id": "L-20",
+      "domain": "unknown",
+      "title": "Genesis can be automated \u2014 minimum viable swarm is 12 files",
+      "age": 494
+    },
+    {
+      "id": "L-24",
+      "domain": "unknown",
+      "title": "Requisite variety \u2014 match controller modes to task types",
+      "age": 494
+    },
+    {
+      "id": "L-41",
+      "domain": "unknown",
+      "title": "Cross-language NK validation reveals supply-chain blind spot",
+      "age": 494
+    },
+    {
+      "id": "L-48",
+      "domain": "unknown",
+      "title": "Lazy imports serve two purposes, not one",
+      "age": 454
+    },
+    {
+      "id": "L-49",
+      "domain": "unknown",
+      "title": "\u0394NK reveals refactoring tradeoffs, not clear wins",
+      "age": 453
+    },
+    {
+      "id": "L-52",
+      "domain": "unknown",
+      "title": "The complexity ratchet is cycle-driven, not growth-driven",
+      "age": 453
+    },
+    {
+      "id": "L-54",
+      "domain": "unknown",
+      "title": "No project escapes tangled \u2014 but DAG discipline prevents it",
+      "age": 453
+    },
+    {
+      "id": "L-66",
+      "domain": "unknown",
+      "title": "LOC/N > 500 reliably flags monolith blind spots (100% precis",
+      "age": 494
+    },
+    {
+      "id": "L-93",
+      "domain": "unknown",
+      "title": "U-shaped constraint-fitness curve \u2014 minimal-nofalsif overtak",
+      "age": 494
+    },
+    {
+      "id": "L-115",
+      "domain": "unknown",
+      "title": "F102 resolved \u2014 falsification conditions are redundant for o",
+      "age": 494
+    },
+    {
+      "id": "L-118",
+      "domain": "unknown",
+      "title": "Primary domain = the swarm itself (human directive S55)",
+      "age": 494
+    },
+    {
+      "id": "L-124",
+      "domain": "unknown",
+      "title": "K_norm compound predictor + swarmability partially load-bear",
+      "age": 494
+    },
+    {
+      "id": "L-125",
+      "domain": "unknown",
+      "title": "Agent visibility needs three signals; without them the list ",
+      "age": 434
+    },
+    {
+      "id": "L-127",
+      "domain": "unknown",
+      "title": "Genesis rules are catalysts, not permanent requirements",
+      "age": 494
+    },
+    {
+      "id": "L-130",
+      "domain": "unknown",
+      "title": "Multi-node alignment; human is not the authority",
+      "age": 430
+    },
+    {
+      "id": "L-131",
+      "domain": "unknown",
+      "title": "protocol:distill no merge-scan S1; ctx.Context count operati",
+      "age": 430
+    },
+    {
+      "id": "L-133",
+      "domain": "unknown",
+      "title": "P-141 holds on CockroachDB; ctx_count alone produces FP on l",
+      "age": 494
+    },
+    {
+      "id": "L-138",
+      "domain": "unknown",
+      "title": "protocol:distill is split \u2014 duplication-check=CATALYST, merg",
+      "age": 426
+    },
+    {
+      "id": "L-139",
+      "domain": "unknown",
+      "title": "Cold-start convergence and periodic self-swarming",
+      "age": 426
+    },
+    {
+      "id": "L-140",
+      "domain": "unknown",
+      "title": "PHIL-4 SUPERSEDED \u2014 mine is novel experience, not latent LLM",
+      "age": 425
+    },
+    {
+      "id": "L-146",
+      "domain": "unknown",
+      "title": "A swarm can produce a coherent living self-paper via fan-out",
+      "age": 421
+    },
+    {
+      "id": "L-153",
+      "domain": "unknown",
+      "title": "Transactive memory (who-knows-what) is distinct from stigmer",
+      "age": 418
+    },
+    {
+      "id": "L-154",
+      "domain": "unknown",
+      "title": "Trace deception is a 4th stigmergic failure mode \u2014 competiti",
+      "age": 418
+    },
+    {
+      "id": "L-160",
+      "domain": "unknown",
+      "title": "Self-measurable falsification \u2014 testable by system holding t",
+      "age": 416
+    },
+    {
+      "id": "L-164",
+      "domain": "unknown",
+      "title": "F91 2D fitness: Goodhart exposure concentrated in mid-tier (",
+      "age": 416
+    },
+    {
+      "id": "L-166",
+      "domain": "unknown",
+      "title": "T1/T2 tiers near-optimal \u2014 structural overlap \u2260 MDL redundan",
+      "age": 416
+    },
+    {
+      "id": "L-173",
+      "domain": "unknown",
+      "title": "PHIL-5/11/13 refined \u2014 directional vs epistemic authority di",
+      "age": 413
+    },
+    {
+      "id": "L-182",
+      "domain": "unknown",
+      "title": "P-156 lifecycle phases \u2014 pattern real but \"fractal\" overstat",
+      "age": 409
+    },
+    {
+      "id": "L-184",
+      "domain": "unknown",
+      "title": "P-157 decision tree confirmed \u2014 coupling density alone canno",
+      "age": 404
+    },
+    {
+      "id": "L-185",
+      "domain": "unknown",
+      "title": "P-158 defense mechanism OBSERVED \u2014 base vulnerability suppor",
+      "age": 403
+    },
+    {
+      "id": "L-186",
+      "domain": "meta",
+      "title": "F117 complete \u2014 nk-analyze-go v0.1.0 extracted as installabl",
+      "age": 402
+    },
+    {
+      "id": "L-191",
+      "domain": "unknown",
+      "title": "F76 confirmed \u2014 specialist hierarchy finds ~35% more domain ",
+      "age": 494
+    },
+    {
+      "id": "L-194",
+      "domain": "unknown",
+      "title": "Swarm authorship attribution \u2014 public framing matches intern",
+      "age": 395
+    },
+    {
+      "id": "L-198",
+      "domain": "unknown",
+      "title": "Tool consolidation S102 \u2014 context_router is the key embeddin",
+      "age": 392
+    },
+    {
+      "id": "L-201",
+      "domain": "unknown",
+      "title": "F92 N=4 knee is workload-dependent, not globally optimal",
+      "age": 385
+    },
+    {
+      "id": "L-202",
+      "domain": "unknown",
+      "title": "Cooperative shared-state workload shifts colony knee to N=2",
+      "age": 384
+    },
+    {
+      "id": "L-204",
+      "domain": "unknown",
+      "title": "Cooperative scaling depends on coordination primitive, not j",
+      "age": 382
+    },
+    {
+      "id": "L-206",
+      "domain": "unknown",
+      "title": "Claim-vs-evidence audits should keep philosophy directional ",
+      "age": 369
+    },
+    {
+      "id": "L-212",
+      "domain": "unknown",
+      "title": "Platform-Scope Belief Contamination",
+      "age": 326
+    },
+    {
+      "id": "L-226",
+      "domain": "unknown",
+      "title": "Concurrent hot-file contention is the dominant session frict",
+      "age": 316
+    },
+    {
+      "id": "L-227",
+      "domain": "unknown",
+      "title": "Applying AI Domain Findings to Core Philosophy \u2014 Validation ",
+      "age": 316
+    },
+    {
+      "id": "L-236",
+      "domain": "unknown",
+      "title": "Zero-Sharpe in PRINCIPLES.md = Successful Compression, Not F",
+      "age": 314
+    },
+    {
+      "id": "L-255",
+      "domain": "unknown",
+      "title": "Parallel repair = swarm applied to swarm maintenance",
+      "age": 312
+    },
+    {
+      "id": "L-264",
+      "domain": "unknown",
+      "title": "F-IS2 \u2014 PRINCIPLES.md citation distribution is flat (\u03b1=0.21)",
+      "age": 311
+    },
+    {
+      "id": "L-290",
+      "domain": "meta",
+      "title": "Tool-consolidation audit S188: capabilities map stale by 25 ",
+      "age": 306
+    },
+    {
+      "id": "L-292",
+      "domain": "meta",
+      "title": "Concurrent convergence is validation \u2014 not collision \u2014 when ",
+      "age": 306
+    },
+    {
+      "id": "L-303",
+      "domain": "knowledge-lifecycle",
+      "title": "Paper extraction via multi-expert routing: 3 independent exp",
+      "age": 305
+    },
+    {
+      "id": "L-312",
+      "domain": "dream",
+      "title": "Dream session 1 reveals two-tier compression policy: compres",
+      "age": 304
+    },
+    {
+      "id": "L-327",
+      "domain": "claude-code",
+      "title": "Hook regex on full command string false-positives on self-do",
+      "age": 299
+    },
+    {
+      "id": "L-330",
+      "domain": "dream",
+      "title": "F-DRM3 confirmed \u2014 dream sessions generate frontier question",
+      "age": 299
+    },
+    {
+      "id": "L-331",
+      "domain": "graph-theory",
+      "title": "Graph theory is the deepest isomorphism substrate \u2014 two stru",
+      "age": 298
+    },
+    {
+      "id": "L-332",
+      "domain": "meta",
+      "title": "Compaction tools need idempotency checks in concurrent sessi",
+      "age": 299
+    },
+    {
+      "id": "L-334",
+      "domain": "meta",
+      "title": "\u2014 Priority items without action-specifications are coordinat",
+      "age": 196
+    },
+    {
+      "id": "L-339",
+      "domain": "social-media",
+      "title": "\u2014 Reddit as fitness function: swarm advertising requires fal",
+      "age": 195
+    },
+    {
+      "id": "L-343",
+      "domain": "meta",
+      "title": "\u2014 F-PERS1 confirmed (n=2): Skeptic catches classification er",
+      "age": 194
+    },
+    {
+      "id": "L-352",
+      "domain": "meta",
+      "title": "Human-signal dependency map \u2014 5 expert creation types",
+      "age": 192
+    },
+    {
+      "id": "L-353",
+      "domain": "economy",
+      "title": "\u2014 Expert economy: dispatch by yield score addresses 2% throu",
+      "age": 192
+    },
+    {
+      "id": "L-382",
+      "domain": "compaction",
+      "title": "Belief file challenge tables accumulate token waste \u2014 trim s",
+      "age": 188
+    },
+    {
+      "id": "L-386",
+      "domain": "governance",
+      "title": "F119 reswarm S306 \u2014 3 gaps, 2 hardened (120-session audit)",
+      "age": 188
+    },
+    {
+      "id": "L-388",
+      "domain": "meta",
+      "title": "P-210 self-validates \u2014 ISO-15 health metric crosses its own ",
+      "age": 188
+    },
+    {
+      "id": "L-389",
+      "domain": "cryptocurrency",
+      "title": "\u2014 F-CC3 PARTIAL: age-normalized Sharpe = chain finality (eme",
+      "age": 188
+    },
+    {
+      "id": "L-390",
+      "domain": "meta",
+      "title": "Multiswarm world \u2014 protocol is the cross-swarm invariant; st",
+      "age": 188
+    },
+    {
+      "id": "L-395",
+      "domain": "catastrophic-risks",
+      "title": "FMEA swiss-cheese audit S306 \u2014 NAT recurrence confirmed, FM-",
+      "age": 188
+    },
+    {
+      "id": "L-397",
+      "domain": "meta",
+      "title": "ISO citation pass trajectory \u2014 3.2x lift in one session via ",
+      "age": 188
+    },
+    {
+      "id": "L-398",
+      "domain": "meta",
+      "title": "SWARM-LANES bloat \u2014 merge-on-close adoption gap, not enginee",
+      "age": 188
+    },
+    {
+      "id": "L-408",
+      "domain": "evolution",
+      "title": "Domain tool depth tracks engagement, not birth cohort (F-EVO",
+      "age": 187
+    },
+    {
+      "id": "L-409",
+      "domain": "human-systems",
+      "title": "Expect-Act-Diff as Policy Accountability",
+      "age": 187
+    },
+    {
+      "id": "L-417",
+      "domain": "swarm-meta",
+      "title": "F-COMM1 autoswarm pipeline end-to-end confirmed",
+      "age": 187
+    },
+    {
+      "id": "L-419",
+      "domain": "meta",
+      "title": "\u2014 F110 T3 DONE: Lane contract compliance by enforcement + li",
+      "age": 494
+    },
+    {
+      "id": "L-430",
+      "domain": "meta",
+      "title": "\u2014 F120: portable_check.sh \u2014 9-gate POSIX integrity check, no",
+      "age": 169
+    },
+    {
+      "id": "L-431",
+      "domain": "meta",
+      "title": "\u2014 economy_expert.py: header-regex false positive triggers he",
+      "age": 169
+    },
+    {
+      "id": "L-432",
+      "domain": "governance",
+      "title": "Claim-vs-evidence audit S325 \u2014 4 challenges updated, zero-DR",
+      "age": 169
+    },
+    {
+      "id": "L-436",
+      "domain": "meta",
+      "title": "Dream-cycle S326 \u2014 brain\u2194AI third mapping (neuroplasticity\u2194p",
+      "age": 168
+    },
+    {
+      "id": "L-437",
+      "domain": "meta",
+      "title": "Modes-reswarm S327 \u2014 3 structural drift patterns fixed",
+      "age": 167
+    },
+    {
+      "id": "L-440",
+      "domain": "meta",
+      "title": "Setup-reswarm S327 \u2014 CORE.md version drift + CLAUDE.md human",
+      "age": 167
+    },
+    {
+      "id": "L-442",
+      "domain": "meta",
+      "title": "Mission-constraint-reswarm S327 \u2014 CORE.md gap closed, 51/51 ",
+      "age": 167
+    },
+    {
+      "id": "L-443",
+      "domain": "meta",
+      "title": "Periodics-meta-audit \u2014 coverage gap + cadence calibration (S",
+      "age": 494
+    },
+    {
+      "id": "L-446",
+      "domain": "meta",
+      "title": "ISO sprint complete \u2014 dark matter eliminated (62.5%\u21920.0% in ",
+      "age": 166
+    },
+    {
+      "id": "L-451",
+      "domain": "meta",
+      "title": "Staleness tiebreaker + graduated scoring fixes action-board ",
+      "age": 165
+    },
+    {
+      "id": "L-452",
+      "domain": "governance",
+      "title": "mission-constraint-reswarm S328 \u2014 I13 formalized, 51/51 pass",
+      "age": 166
+    },
+    {
+      "id": "L-453",
+      "domain": "meta",
+      "title": "B8 Challenge DROPPED \u2014 Frontier Is Generator, Not Accumulato",
+      "age": 165
+    },
+    {
+      "id": "L-473",
+      "domain": "meta",
+      "title": "F121 Human-Signal Harvest S336 \u2014 Vocabulary Bridge + 4 New P",
+      "age": 158
+    },
+    {
+      "id": "L-485",
+      "domain": "meta",
+      "title": "Phase 1 maintenance.py Compaction \u2014 Evidence-Tracking Dead C",
+      "age": 155
+    },
+    {
+      "id": "L-508",
+      "domain": "meta",
+      "title": "Cross-variant harvest R6 \u2014 S341-S345 convergence: self-refer",
+      "age": 153
+    },
+    {
+      "id": "L-519",
+      "domain": "helper-swarm",
+      "title": "Minimal handoff contract \u2014 actual=outcome is the single rewo",
+      "age": 147
+    },
+    {
+      "id": "L-524",
+      "domain": "information-science",
+      "title": "Information flow measurement is method-sensitive \u2014 forward v",
+      "age": 146
+    },
+    {
+      "id": "L-528",
+      "domain": "psychology",
+      "title": "Introversion/solitude dominant in breakthrough scientists \u2014 ",
+      "age": 146
+    },
+    {
+      "id": "L-536",
+      "domain": "meta",
+      "title": "Maintenance outcome tracking live \u2014 14/35 checks fire per se",
+      "age": 146
+    },
+    {
+      "id": "L-539",
+      "domain": "meta",
+      "title": "Agent behavioral memory breakthrough \u2014 session tracker gains",
+      "age": 145
+    },
+    {
+      "id": "L-541",
+      "domain": "meta",
+      "title": "Claim-vs-evidence audit \u2014 10/21 claims unchallenged, 0/31 DR",
+      "age": 145
+    },
+    {
+      "id": "L-545",
+      "domain": "meta",
+      "title": "Stale diagnostic tools lose signal fidelity \u2014 regex drift ac",
+      "age": 144
+    },
+    {
+      "id": "L-546",
+      "domain": "ai",
+      "title": "Cascade coupling is graded \u2014 quantitative threshold for coor",
+      "age": 144
+    },
+    {
+      "id": "L-548",
+      "domain": "meta",
+      "title": "76% of domains never expert-visited \u2014 first-visit DOMEX merg",
+      "age": 144
+    },
+    {
+      "id": "L-569",
+      "domain": "nk-complexity",
+      "title": "DOMEX synthesis breaks NK plateau \u2014 2x edge density, K_avg=1",
+      "age": 142
+    },
+    {
+      "id": "L-575",
+      "domain": "game-theory",
+      "title": "Simpson's Paradox in protocol adoption \u2014 contracts attract h",
+      "age": 141
+    },
+    {
+      "id": "L-579",
+      "domain": "meta",
+      "title": "Diagnostic tools share one structural defect \u2014 compute, prin",
+      "age": 142
+    },
+    {
+      "id": "L-588",
+      "domain": "governance",
+      "title": "Invariant I13 had 25-session enforcement gap \u2014 defined but u",
+      "age": 141
+    },
+    {
+      "id": "L-594",
+      "domain": "operations-research",
+      "title": "Scheduling policies converge when one domain's value signal ",
+      "age": 140
+    },
+    {
+      "id": "L-610",
+      "domain": "nk-complexity",
+      "title": "Hawkes self-excitement and NK citation jumps are the same me",
+      "age": 138
+    },
+    {
+      "id": "L-620",
+      "domain": "statistics",
+      "title": "High-I2 evidence pooling in self-generating systems hides me",
+      "age": 136
+    },
+    {
+      "id": "L-632",
+      "domain": "meta",
+      "title": "Auto-fix metadata additions require concurrent line-budget t",
+      "age": 136
+    },
+    {
+      "id": "L-638",
+      "domain": "unknown",
+      "title": "SUPERSEDED\u2192L-642",
+      "age": 494
+    },
+    {
+      "id": "L-645",
+      "domain": "meta",
+      "title": "task_order.py closes session-planning gap \u2014 scored ordering ",
+      "age": 135
+    },
+    {
+      "id": "L-648",
+      "domain": "meta",
+      "title": "15 dead tools archived \u2014 tools/archive/ separates active fro",
+      "age": 135
+    },
+    {
+      "id": "L-653",
+      "domain": "meta",
+      "title": "F-META8 step 3 \u2014 contract_check.py 0% FP, 1.4% FN over 71 co",
+      "age": 132
+    },
+    {
+      "id": "L-655",
+      "domain": "meta",
+      "title": "Dormant periodics accumulate as swarm functions evolve \u2014 cad",
+      "age": 132
+    },
+    {
+      "id": "L-673",
+      "domain": "meta",
+      "title": "Swarm reachability audit \u2014 knowledge dense (0.16%), infra de",
+      "age": 126
+    },
+    {
+      "id": "L-691",
+      "domain": "finance",
+      "title": "Concurrent DOMEX sessions produce independent knowledge, not",
+      "age": 119
+    },
+    {
+      "id": "L-692",
+      "domain": "meta",
+      "title": "Swarm profiler baseline \u2014 task_order.py is #1 bottleneck at ",
+      "age": 119
+    },
+    {
+      "id": "L-705",
+      "domain": "unknown",
+      "title": "Viterbi decode recovers all 3 known burst windows \u2014 HMM phas",
+      "age": 118
+    },
+    {
+      "id": "L-708",
+      "domain": "meta",
+      "title": "\u2014 Executor-layer gap: programmatic session planning",
+      "age": 117
+    },
+    {
+      "id": "L-714",
+      "domain": "field-not-normalized-\u2192-\"meta",
+      "title": "Epistemological state profile \u2014 34% DECAYED, 22% revival rat",
+      "age": 118
+    },
+    {
+      "id": "L-719",
+      "domain": "meta",
+      "title": "Epistemological state classifier reveals 91% domain-metadata",
+      "age": 117
+    },
+    {
+      "id": "L-725",
+      "domain": "gaming",
+      "title": "Productive failure confirmed \u2014 early-death sessions with git",
+      "age": 115
+    },
+    {
+      "id": "L-726",
+      "domain": "meta",
+      "title": "Self-referential ordering \u2014 60% divergence between swarm evi",
+      "age": 116
+    },
+    {
+      "id": "L-744",
+      "domain": "quality",
+      "title": "Auto-theme classifier 96.7% accurate but meta-biased \u2014 INDEX",
+      "age": 112
+    },
+    {
+      "id": "L-754",
+      "domain": "security",
+      "title": "SUPERSEDED citation correction \u2014 Cites: header fixes reduce ",
+      "age": 108
+    },
+    {
+      "id": "L-759",
+      "domain": "nk-complexity",
+      "title": "Principle-prompt P-222 increases citation density +49% \u2014 med",
+      "age": 107
+    },
+    {
+      "id": "L-763",
+      "domain": "quality",
+      "title": "Independent bullshit replication \u2014 two audits converge on nu",
+      "age": 106
+    },
+    {
+      "id": "L-772",
+      "domain": "unknown",
+      "title": "Dependency graph audit reveals B19 danger under B6 two-layer",
+      "age": 103
+    },
+    {
+      "id": "L-782",
+      "domain": "guesstimates",
+      "title": "Fermi decomposition CONFIRMED \u2014 4/5 swarm metrics within 1 O",
+      "age": 102
+    },
+    {
+      "id": "L-799",
+      "domain": "meta",
+      "title": "Human \"system-wide quality threshold\" directive triggers aud",
+      "age": 99
+    },
+    {
+      "id": "L-816",
+      "domain": "distributed-systems",
+      "title": "B15 CAP theorem \u2014 falsification fails, upgrades from theoriz",
+      "age": 97
+    },
+    {
+      "id": "L-819",
+      "domain": "meta",
+      "title": "Signal-audit periodic + bundle dispatch advisory wired (S398",
+      "age": 96
+    },
+    {
+      "id": "L-827",
+      "domain": "social-media",
+      "title": "COMMIT follow-through requires content, not just dispatch \u2014 ",
+      "age": 96
+    },
+    {
+      "id": "L-832",
+      "domain": "meta",
+      "title": "Historian triage + compaction + signal audit combined sessio",
+      "age": 96
+    },
+    {
+      "id": "L-836",
+      "domain": "nk-complexity",
+      "title": "K_avg=2.70 and hub K_max=101 \u2014 two milestones at N=757 (F-NK",
+      "age": 95
+    },
+    {
+      "id": "L-842",
+      "domain": "graph-theory",
+      "title": "5 cut-vertex sessions in knowledge DAG \u2014 S39 is 9-way fragme",
+      "age": 95
+    },
+    {
+      "id": "L-844",
+      "domain": "stochastic-processes",
+      "title": "Citation kernel is 5-force model \u2014 PA alone explains <15% of",
+      "age": 95
+    },
+    {
+      "id": "L-848",
+      "domain": "meta",
+      "title": "Tool optimization and validation requirement drift \u2014 strippe",
+      "age": 93
+    },
+    {
+      "id": "L-851",
+      "domain": "unknown",
+      "title": "Neuroplasticity directions are mode-cycle epiphenomena, not ",
+      "age": 93
+    },
+    {
+      "id": "L-853",
+      "domain": "unknown",
+      "title": "\u2014 F-AI1 meta-analysis: EN evidence-surfacing significantly i",
+      "age": 92
+    },
+    {
+      "id": "L-855",
+      "domain": "unknown",
+      "title": "Bridge parity 42.9%\u219292.9% by adding 4 operational steps to M",
+      "age": 92
+    },
+    {
+      "id": "L-864",
+      "domain": "social-media",
+      "title": "\u2014 Social graph topology pre-registration: power law \u03b1\u22480.85-1",
+      "age": 92
+    },
+    {
+      "id": "L-867",
+      "domain": "stochastic-processes",
+      "title": "Compaction irreversibility increases with system maturity \u2014 ",
+      "age": 91
+    },
+    {
+      "id": "L-878",
+      "domain": "meta",
+      "title": "Actionable classifier halves prescription gap \u2014 50% ASPIRATI",
+      "age": 90
+    },
+    {
+      "id": "L-882",
+      "domain": "meta",
+      "title": "Invariants without enforcement are advisory principles, not ",
+      "age": 89
+    },
+    {
+      "id": "L-883",
+      "domain": "meta",
+      "title": "Cumulative lane metrics require archive+git; active-only inf",
+      "age": 89
+    },
+    {
+      "id": "L-886",
+      "domain": "game-theory",
+      "title": "EAD compliance predicts merge +12.5pp \u2014 confound-free within",
+      "age": 89
+    },
+    {
+      "id": "L-891",
+      "domain": "meta",
+      "title": "Dark-matter threshold wired (L-581 STRUCTURAL) \u2014 enforcement",
+      "age": 88
+    },
+    {
+      "id": "L-906",
+      "domain": "meta",
+      "title": "Falsification bonus +1.7pp quality \u2014 only 2% of experiments ",
+      "age": 84
+    },
+    {
+      "id": "L-914",
+      "domain": "meta",
+      "title": "Swarm tools sense but don't route \u2014 closing the alert-to-act",
+      "age": 83
+    },
+    {
+      "id": "L-921",
+      "domain": "meta",
+      "title": "Expectation calibration is domain-blind \u2014 exp/human/eval hit",
+      "age": 80
+    },
+    {
+      "id": "L-922",
+      "domain": "catastrophic-risks",
+      "title": "Collision guards must test the actual failure mode, not prox",
+      "age": 83
+    },
+    {
+      "id": "L-924",
+      "domain": "meta",
+      "title": "Strategic frontier questions make L3+ work explicit \u2014 L-915 ",
+      "age": 81
+    },
+    {
+      "id": "L-934",
+      "domain": "nk-complexity",
+      "title": "Frontier namespace isolation is bidirectionally asymmetric \u2014",
+      "age": 76
+    },
+    {
+      "id": "L-959",
+      "domain": "meta",
+      "title": "Thin-wrapper bridge eliminates L-941's atomic choice constra",
+      "age": 68
+    },
+    {
+      "id": "L-961",
+      "domain": "meta",
+      "title": "Prescriptive principle behavioral adoption: era beats specif",
+      "age": 68
+    },
+    {
+      "id": "L-962",
+      "domain": "meta",
+      "title": "F-SCALE2 CONFIRMED \u2014 council drives 21.3x expert utilization",
+      "age": 68
+    },
+    {
+      "id": "L-976",
+      "domain": "meta",
+      "title": "Concurrent decomposition produces dead modules when architec",
+      "age": 67
+    },
+    {
+      "id": "L-980",
+      "domain": "meta",
+      "title": "Theory-for-swarm wiring closes zombie visibility gap in 50 L",
+      "age": 66
+    },
+    {
+      "id": "L-986",
+      "domain": "meta",
+      "title": "Principle batch scan S430 \u2014 10 new P-281..P-290 from L-809\u2192L",
+      "age": 64
+    },
+    {
+      "id": "L-987",
+      "domain": "catastrophic-risks",
+      "title": "FM-22 creation-maintenance asymmetry \u2014 frontier staleness is",
+      "age": 65
+    },
+    {
+      "id": "L-990",
+      "domain": "expert-swarm",
+      "title": "F-EXP11 baseline: cross-domain body-text integration two-tie",
+      "age": 65
+    },
+    {
+      "id": "L-993",
+      "domain": "meta",
+      "title": "Two-tier experiment outcome enforcement: TBD=ERROR (skeleton",
+      "age": 65
+    },
+    {
+      "id": "L-1000",
+      "domain": "expert-swarm",
+      "title": "P2P colony coordination is structurally operational via git ",
+      "age": 63
+    },
+    {
+      "id": "L-1004",
+      "domain": "expert-swarm",
+      "title": "F-EXP8 CONFIRMED \u2014 cross-domain citation rate sustains above",
+      "age": 62
+    },
+    {
+      "id": "L-1006",
+      "domain": "meta",
+      "title": "HEAD-verify suppresses concurrent-write false positives (S43",
+      "age": 61
+    },
+    {
+      "id": "L-1019",
+      "domain": "unknown",
+      "title": "\u2014 F-LNG5 CONFIRMED: swarm universals stable under 35+ sessio",
+      "age": 59
+    },
+    {
+      "id": "L-1020",
+      "domain": "unknown",
+      "title": "\u2014 (redirect \u2192 L-1018) duplicate of F-FLT4 CONFIRMED lesson",
+      "age": 494
+    },
+    {
+      "id": "L-1032",
+      "domain": "meta",
+      "title": "\u2014 Principles-dedup S441: 2 absorbed (P-274\u2192P-281, P-269\u2192P-29",
+      "age": 494
+    },
+    {
+      "id": "L-1039",
+      "domain": "meta",
+      "title": "",
+      "age": 53
+    },
+    {
+      "id": "L-1047",
+      "domain": "meta",
+      "title": "Methodology-as-product \u2014 full swarm as transferable epistemo",
+      "age": 51
+    },
+    {
+      "id": "L-1058",
+      "domain": "meta",
+      "title": "Randomness mechanism completeness \u2014 4/6 are prompts, not enf",
+      "age": 51
+    },
+    {
+      "id": "P-8",
+      "domain": "cross-domain",
+      "title": "validate by usage not theory",
+      "age": 59
+    },
+    {
+      "id": "P-11",
+      "domain": "cross-domain",
+      "title": "flat\u2192hierarchical when outgrown",
+      "age": 59
+    },
+    {
+      "id": "P-30",
+      "domain": "cross-domain",
+      "title": "healthy redundancy = reconstructible from raw",
+      "age": 59
+    },
+    {
+      "id": "P-2",
+      "domain": "cross-domain",
+      "title": "separate template from protocol",
+      "age": 68
+    },
+    {
+      "id": "P-5",
+      "domain": "cross-domain",
+      "title": "match names to coordination models",
+      "age": 68
+    },
+    {
+      "id": "P-27",
+      "domain": "cross-domain",
+      "title": "separate principles from stories",
+      "age": 68
+    },
+    {
+      "id": "P-16",
+      "domain": "cross-domain",
+      "title": "integrate into existing sections",
+      "age": 416
+    },
+    {
+      "id": "P-17",
+      "domain": "cross-domain",
+      "title": "git forking free, merge-back is hard",
+      "age": 416
+    },
+    {
+      "id": "P-25",
+      "domain": "cross-domain",
+      "title": "check belief coupling K \u2014 measure by git co-occurrence not i",
+      "age": 416
+    },
+    {
+      "id": "P-26",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 416
+    },
+    {
+      "id": "P-3",
+      "domain": "cross-domain",
+      "title": "baselines early",
+      "age": 494
+    },
+    {
+      "id": "P-13",
+      "domain": "cross-domain",
+      "title": "review-after dates, not expiration",
+      "age": 494
+    },
+    {
+      "id": "P-4",
+      "domain": "cross-domain",
+      "title": "define conflict resolution before conflicts",
+      "age": 316
+    },
+    {
+      "id": "P-15",
+      "domain": "cross-domain",
+      "title": "monitor open/resolved ratio",
+      "age": 316
+    },
+    {
+      "id": "P-23",
+      "domain": "cross-domain",
+      "title": "check epistemic + operational axes",
+      "age": 316
+    },
+    {
+      "id": "P-21",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-31",
+      "domain": "cross-domain",
+      "title": "migrate when trigger fires, not when argument sounds good",
+      "age": 494
+    },
+    {
+      "id": "P-35",
+      "domain": "cross-domain",
+      "title": "count N, K, identify hubs/isolates",
+      "age": 494
+    },
+    {
+      "id": "P-42",
+      "domain": "cross-domain",
+      "title": "K_avg",
+      "age": 494
+    },
+    {
+      "id": "P-38",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-36",
+      "domain": "cross-domain",
+      "title": "facade pattern yields low K/N",
+      "age": 494
+    },
+    {
+      "id": "P-54",
+      "domain": "cross-domain",
+      "title": "static analysis undercounts \u2014 use layered",
+      "age": 494
+    },
+    {
+      "id": "P-72",
+      "domain": "cross-domain",
+      "title": "always check LOC/N alongside composite \u2014 >500=confirmed mono",
+      "age": 494
+    },
+    {
+      "id": "P-47",
+      "domain": "cross-domain",
+      "title": "note boundary choice",
+      "age": 494
+    },
+    {
+      "id": "P-49",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-51",
+      "domain": "cross-domain",
+      "title": "extract modules by cycle participation, not K",
+      "age": 494
+    },
+    {
+      "id": "P-55",
+      "domain": "cross-domain",
+      "title": "\u0394NK is a vector \u2014 evaluate",
+      "age": 494
+    },
+    {
+      "id": "P-56",
+      "domain": "cross-domain",
+      "title": "complexity ratchet: cycles are mechanism; zero-cycle = linea",
+      "age": 494
+    },
+    {
+      "id": "P-64",
+      "domain": "cross-domain",
+      "title": "merged); DAG discipline from day one",
+      "age": 494
+    },
+    {
+      "id": "P-60",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-61",
+      "domain": "cross-domain",
+      "title": "cycle count = primary maintenance burden predictor",
+      "age": 494
+    },
+    {
+      "id": "P-62",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-68",
+      "domain": "cross-domain",
+      "title": "API shape",
+      "age": 494
+    },
+    {
+      "id": "P-69",
+      "domain": "cross-domain",
+      "title": "NK composite works cross-language but cycle term is language",
+      "age": 494
+    },
+    {
+      "id": "P-83",
+      "domain": "cross-domain",
+      "title": "NK at multiple granularities",
+      "age": 413
+    },
+    {
+      "id": "P-32",
+      "domain": "cross-domain",
+      "title": "test by spawning \u2014 fitness = offspring viability",
+      "age": 494
+    },
+    {
+      "id": "P-33",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 494
+    },
+    {
+      "id": "P-41",
+      "domain": "cross-domain",
+      "title": "viability scores reveal template weaknesses",
+      "age": 494
+    },
+    {
+      "id": "P-34",
+      "domain": "cross-domain",
+      "title": "typed append-only bulletins",
+      "age": 319
+    },
+    {
+      "id": "P-39",
+      "domain": "cross-domain",
+      "title": "automate full evolution cycle",
+      "age": 319
+    },
+    {
+      "id": "P-46",
+      "domain": "cross-domain",
+      "title": "stigmergy: deposit+evaporation+amplification; evaporation=at",
+      "age": 319
+    },
+    {
+      "id": "P-96",
+      "domain": "cross-domain",
+      "title": "convergent density ~70% at R4 = exploitation\u2192exploration",
+      "age": 319
+    },
+    {
+      "id": "P-81",
+      "domain": "cross-domain",
+      "title": "coupling density <0.3 = concurrent-safe",
+      "age": 72
+    },
+    {
+      "id": "P-99",
+      "domain": "cross-domain",
+      "title": "parallelism ceiling = writable hot-file count",
+      "age": 72
+    },
+    {
+      "id": "P-111",
+      "domain": "cross-domain",
+      "title": "merged)",
+      "age": 72
+    },
+    {
+      "id": "P-169",
+      "domain": "cross-domain",
+      "title": "multi-tool entry = standalone per-tool files; core protocol ",
+      "age": 72
+    },
+    {
+      "id": "P-174",
+      "domain": "cross-domain",
+      "title": "substrate-scope: runtime facts host-specific; portable-by-de",
+      "age": 72
+    },
+    {
+      "id": "P-257",
+      "domain": "cross-domain",
+      "title": "EAD dose-response: +9pp\u2192+86pp, OR=203",
+      "age": 100
+    },
+    {
+      "id": "P-168",
+      "domain": "cross-domain",
+      "title": "lib ROI",
+      "age": 136
+    },
+    {
+      "id": "P-197",
+      "domain": "cross-domain",
+      "title": "high-yield: parallel+OPEN+<25% overhead",
+      "age": 136
+    },
+    {
+      "id": "P-199",
+      "domain": "cross-domain",
+      "title": "external scouting: implementation not architecture",
+      "age": 136
+    },
+    {
+      "id": "P-204",
+      "domain": "cross-domain",
+      "title": "cite observed counts",
+      "age": 136
+    },
+    {
+      "id": "P-212",
+      "domain": "cross-domain",
+      "title": "self-deprivileging=autonomy transfer",
+      "age": 136
+    },
+    {
+      "id": "P-227",
+      "domain": "cross-domain",
+      "title": "target-specificity: 65% vs 15% abstract",
+      "age": 136
+    },
+    {
+      "id": "P-228",
+      "domain": "cross-domain",
+      "title": "cooperative +52.5pp accuracy",
+      "age": 136
+    },
+    {
+      "id": "P-234",
+      "domain": "cross-domain",
+      "title": "success-as-selection",
+      "age": 136
+    },
+    {
+      "id": "P-235",
+      "domain": "cross-domain",
+      "title": "coordination-before-expansion gate [P-252 duplicate removed:",
+      "age": 136
+    },
+    {
+      "id": "P-95",
+      "domain": "cross-domain",
+      "title": "B14 determinism",
+      "age": 430
+    },
+    {
+      "id": "P-97",
+      "domain": "cross-domain",
+      "title": "NK-EH correlation requires import cycles not coupling \u2014 DAG ",
+      "age": 430
+    }
+  ]
+}
