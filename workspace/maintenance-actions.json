@@ -1,18 +1,30 @@
 {
-  "session": 471,
-  "count": 3,
+  "session": 477,
+  "count": 6,
   "items": [
     {
       "priority": "DUE",
-      "message": "[enforcement-audit] Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422, 10.0% at S444 \u2014 dilution active). See L-843, L-846, L-1062, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601. L-1062: cadence 10\u21925\u21923 (enforcement dilution, L-1066 N\u22651000 waypoint at S448). (every ~3 sessions, last: S464)"
+      "message": "INDEX.md is 64 lines (>60)"
     },
     {
       "priority": "DUE",
-      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-EVAL-S471"
+      "message": "Lesson over 20 lines: L-784.md"
     },
     {
       "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1065 vs actual 1066) \u2014 run python3 tools/sync_state.py"
+      "message": "[change-quality-check] Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S464: 3/5 WEAK (S460/S461/S464). Long-term trend IMPROVING (+85%). (every ~5 sessions, last: S464)"
+    },
+    {
+      "priority": "DUE",
+      "message": "[historian-routing] Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage). (every ~5 sessions, last: S464)"
+    },
+    {
+      "priority": "DUE",
+      "message": "2 active dispatch lane(s) have no active coordinator lane: DOMEX-META-S476, DOMEX-META-S475"
+    },
+    {
+      "priority": "DUE",
+      "message": "Count drift in INDEX.md (L: stated 1079 vs actual 1087) \u2014 run python3 tools/sync_state.py"
     }
   ]
 }
