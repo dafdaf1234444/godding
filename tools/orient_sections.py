@@ -288,6 +288,30 @@ def section_agent_positions():
     return lines
 
 
+def section_fairness(root=ROOT):
+    """PHIL-25 fairness summary (L-1193)."""
+    lines = []
+    try:
+        from fairness_audit import run_audit
+        results = run_audit()
+        s = results.get("summary", {})
+        score = s.get("fairness_score", 0)
+        fair_n = s.get("fair_dimensions", 0)
+        total_n = s.get("total_dimensions", 5)
+        overall = s.get("overall", "?")
+        unfair = [d["dimension"].upper() for d in results.get("dimensions", [])
+                  if not d.get("fair")]
+        lines.append("--- Fairness (PHIL-25, L-1193) ---")
+        lines.append(f"  Score: {score} ({fair_n}/{total_n}) — {overall}")
+        if unfair:
+            lines.append(f"  Unfair: {', '.join(unfair)}")
+        lines.append("  Run: python3 tools/fairness_audit.py")
+        lines.append("")
+    except Exception:
+        pass
+    return lines
+
+
 def section_suggested_action(maint_out, open_signals, stall_map, priorities):
     """Suggested next action (concurrency-aware via L-526)."""
     lines = ["--- Suggested next action ---"]
