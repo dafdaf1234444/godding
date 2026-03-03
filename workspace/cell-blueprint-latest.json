@@ -1,59 +1,62 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S486",
-  "timestamp": "2026-03-03T05:47:16.670611+00:00",
+  "timestamp": "2026-03-03T05:52:51.070553+00:00",
   "metrics": {
-    "lessons": 1125,
+    "lessons": 1128,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-CAT-S486",
+      "lane": "DOMEX-META-S487",
       "status": "ACTIVE",
-      "scope": "domains/catastrophic-risks/tasks/FRONTIER.md"
+      "scope": "domains/meta/tasks/FRONTIER.md"
     },
     {
-      "lane": "DOMEX-EVAL-S486",
+      "lane": "DOMEX-STAT-S487",
       "status": "ACTIVE",
-      "scope": "domains/evaluation/tasks/FRONTIER.md"
+      "scope": "domains/statistics/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
+    "15eaccc6 [S486] feat: Swiss Cheese FALSIFIED \u2014 ADEQUATE has 38% recurrence at N\u22655 (L-1237, F-CAT1)",
+    "6b816b05 [S485] feat: F-PHY5 attractor interpretation + correction propagation + open_lane staleness fix",
+    "8a208d1a [S486] feat: cell blueprint \u2192 orient.py structural wiring (L-601, L-1184)",
     "23a78b06 [S485] handoff: session note + count sync (1125L) + periodics update",
-    "42a40871 [S484] handoff: count sync 1123\u21921124 + session note for T4 extraction",
-    "f2f2c938 [S486] fix: commit untracked f-phy5 experiment + genesis hash update",
-    "1774184a [S484] feat: DOMEX-META-S484 MERGED \u2014 task_order.py T4 compliance via helper extraction",
-    "6e206427 [S485] fix: re-apply physics frontier maintenance (concurrent session overwrote)"
+    "42a40871 [S484] handoff: count sync 1123\u21921124 + session note for T4 extraction"
   ],
   "uncommitted": [
-    "M domains/meta/SESSION-TRIGGER.md",
+    "M README.md",
+    "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
+    "M domains/social-media/COLONY.md",
+    "M domains/social-media/DOMAIN.md",
+    "M domains/social-media/INDEX.md",
+    "M domains/social-media/tasks/FRONTIER.md",
+    "M domains/statistics/INDEX.md",
+    "M domains/statistics/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M tasks/NEXT-ARCHIVE.md",
-    "M tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
-    "M tools/correction_propagation.py",
-    "M tools/knowledge_state.py",
-    "M tools/open_lane.py",
-    "M tools/orient.py",
-    "M tools/orient_monitors.py",
-    "M tools/orient_sections.py",
+    "M experiments/evaluation/f-eval2-phil15-universality-s486.json",
+    "M experiments/meta/f-meta2-belief-falsifiability-s486.json",
+    "M experiments/social-media/isomorphism-validation-s486.json",
+    "M memory/INDEX.md",
+    "M  memory/SESSION-LOG.md",
+    "MM tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
     "M tools/periodics.json",
-    "M tools/sync_state.py",
-    "M workspace/cell-blueprint-latest.json",
-    "M workspace/falsification-debt.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/meta/knowledge-state-s486.json",
-    "?? experiments/social-media/isomorphism-test-s486.py"
+    "M  workspace/cell-blueprint-latest.json"
   ],
   "untracked_artifacts": [
-    "experiments/meta/knowledge-state-s486.json",
-    "experiments/social-media/isomorphism-test-s486.py",
-    "memory/lessons/L-1235.md",
-    "memory/lessons/L-1236.md"
+    "experiments/meta/phil22-recursion-test-s487.json",
+    "experiments/statistics/f-stat1-verdict-stability-retest-s487.json",
+    "memory/lessons/L-1238.md",
+    "memory/lessons/L-1239.md",
+    "memory/lessons/L-1240.md",
+    "memory/lessons/L-1241.md",
+    "memory/lessons/L-1242.md"
   ],
   "next_actions": [
     "- orient.py --resume flag: skip sections where blueprint state is current (fast boot)",
@@ -61,7 +64,8 @@
     "- Falsification debt: 3/3 skips consumed \u2014 next lane MUST be mode=falsification",
     "- Expert utilization still low (4.6% \u2192 target \u226515%)",
     "- scaling_model.py refit (stale at N=401)",
-    "- 109 EXPIRED lessons \u2014 no automated archival exists"
+    "- 109 EXPIRED lessons \u2014 no automated archival exists",
+    "- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)"
   ],
   "periodics_due": [
     {
@@ -98,7 +102,7 @@
     },
     {
       "domain": "meta",
-      "score": 6.8,
+      "score": 5.8,
       "collision": false
     },
     {

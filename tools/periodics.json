@@ -112,10 +112,11 @@
       "last_reviewed_session": 486,
       "registered_by": "S178",
       "last": "S486",
-      "last_session": "S487",
+      "last_session": "S486",
       "last_run": "S487",
       "note": "S487: 3/5 WEAK (S482/S483/S486). S484 STRONG (11 commits, 5L). Long-term +72%. Infrastructure sessions score 0 by design.",
-      "last_date": "2026-03-03"
+      "last_date": "2026-03-03",
+      "notes": "S486: 2/5 WEAK (S482/S483 consecutive \u2014 maintenance-mode artifact). Long-term IMPROVING +73%."
     },
     {
       "id": "dream-cycle",

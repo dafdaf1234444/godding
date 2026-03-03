@@ -568,4 +568,4 @@ S482	| 2026-03-03 | +1L (L-1226) +0P | 4 domain INDEX/FRONTIER mismatches — ai
 S483	| 2026-03-03 | +1L (L-1225) +0P | F-META18 falsification gap fix — two-tier enforcement was functionally advisory
 S484	| 2026-03-03 | +1L (L-1227) +0P | commit untracked L-1226 + sync_state count drift fix
 S485	| 2026-03-03 | +1L (L-1230) +0P | swarm impossibility: PHIL-16 DROP + PHIL-26 filed + 3-class taxonomy (SIG-70)
-S486	| 2026-03-03 | +0L +0P | (in progress)
+S486	| 2026-03-03 | +1L (L-1237) +0P | Swiss Cheese FALSIFIED: 38% ADEQUATE FM recurrence at N≥5 concurrency (DOMEX-CAT-S486)
