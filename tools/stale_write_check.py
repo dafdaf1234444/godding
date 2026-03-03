@@ -52,8 +52,16 @@ def get_session_from_msg(msg: str) -> str | None:
     return f"S{m.group(1)}" if m else None
 
 
-def get_current_session() -> str | None:
-    """Infer current session from most recent commit by this session."""
+def get_current_session(override: str | None = None) -> str | None:
+    """Infer current session. Uses --session override if provided (L-1175).
+
+    At N>=3 concurrency, git log returns another session's number because
+    all recent commits may be from concurrent sessions. The --session flag
+    lets check.sh pass the actual session from the commit message.
+    """
+    if override:
+        return override
+    # Fallback: infer from most recent git log entry
     log = git("log", "--oneline", "-5")
     for line in log.splitlines():
         s = get_session_from_msg(line)
@@ -113,12 +121,12 @@ def check_content_loss(filepath: str) -> list[str]:
     return sorted(lost)[:5]  # Cap at 5 examples
 
 
-def check_staged(verbose: bool = False) -> int:
+def check_staged(verbose: bool = False, session_override: str | None = None) -> int:
     staged = get_staged_files()
     if not staged:
         return 0
 
-    current_session = get_current_session()
+    current_session = get_current_session(session_override)
     warnings = []
     blocks = []
 
@@ -245,6 +253,7 @@ def main():
     parser.add_argument("--audit", action="store_true", help="Audit last 50 commits")
     parser.add_argument("--verbose", "-v", action="store_true", help="Show all checks")
     parser.add_argument("--json", action="store_true", help="JSON output (audit mode)")
+    parser.add_argument("--session", help="Override session identity (e.g. S470). At N>=3 concurrency, git-log inference picks wrong session (L-1175).")
     args = parser.parse_args()
 
     if args.audit:
@@ -261,7 +270,7 @@ def main():
                 print(f"  {entry['collision_count']:3d} | {entry['file']}{marker}")
         return 0
 
-    return check_staged(verbose=args.verbose or True)
+    return check_staged(verbose=args.verbose or True, session_override=args.session)
 
 
 if __name__ == "__main__":

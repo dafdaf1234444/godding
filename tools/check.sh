@@ -344,7 +344,12 @@ fi
 # Content-loss detection for APPEND/MIXED files; warning for REPLACE files.
 if [ -f "tools/stale_write_check.py" ]; then
     STALE_EXIT=0
-    STALE_OUT=$("${PYTHON_CMD[@]}" tools/stale_write_check.py --staged 2>&1) || STALE_EXIT=$?
+    STALE_ARGS=(--staged)
+    # L-1175: pass session identity to avoid misidentification at N>=3 concurrency
+    if [ -n "${SWARM_SESSION:-}" ]; then
+        STALE_ARGS+=(--session "$SWARM_SESSION")
+    fi
+    STALE_OUT=$("${PYTHON_CMD[@]}" tools/stale_write_check.py "${STALE_ARGS[@]}" 2>&1) || STALE_EXIT=$?
     if [ -n "$STALE_OUT" ]; then
         echo "$STALE_OUT"
     fi
