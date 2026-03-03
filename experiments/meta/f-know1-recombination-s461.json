@@ -1,0 +1,104 @@
+{
+  "total_candidates": 2289,
+  "cross_domain_candidates": 1559,
+  "top": [
+    {
+      "parent_a": "L-815",
+      "parent_b": "L-871",
+      "title_a": "COMMIT Guarantee Prospective Test \u2014 Score Change \u2260 Dispatch ",
+      "title_b": "5-layer escalation clears all campaign stalls \u2014 naming beats",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-601",
+        "L-755",
+        "L-791",
+        "L-805"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.5,
+      "score": 68.0
+    },
+    {
+      "parent_a": "L-665",
+      "parent_b": "L-742",
+      "title_a": "DOMEX sessions produce highest citation density (3.0 edges/L",
+      "title_b": "Correction propagation gap \u2014 48% average correction rate acr",
+      "domain_a": "nk-complexity",
+      "domain_b": "security",
+      "shared_refs": [
+        "L-538",
+        "L-613",
+        "L-618",
+        "L-629"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-665",
+      "parent_b": "L-790",
+      "title_a": "DOMEX sessions produce highest citation density (3.0 edges/L",
+      "title_b": "",
+      "domain_a": "nk-complexity",
+      "domain_b": "unknown",
+      "shared_refs": [
+        "L-601",
+        "L-613",
+        "L-618",
+        "L-639"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-783",
+      "parent_b": "L-785",
+      "title_a": "",
+      "title_b": "Dispatch quality post-S384 \u2014 EAD +41pp is dominant signal, m",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-601",
+        "L-747",
+        "L-757",
+        "L-777"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-815",
+      "parent_b": "L-845",
+      "title_a": "COMMIT Guarantee Prospective Test \u2014 Score Change \u2260 Dispatch ",
+      "title_b": "COMMIT guarantee has 0% frontier precision \u2014 domain dispatch",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-755",
+        "L-791",
+        "L-794",
+        "L-805"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    }
+  ],
+  "session": "S461",
+  "tool": "knowledge_recombine.py",
+  "description": "First automated knowledge recombination run \u2014 SIG-62",
+  "validated": {
+    "candidate_7_already_bridged": true,
+    "L-1129_produced_from_L-1127_x_L-1128": true,
+    "novel_L4_insight": "reward channels = symmetry-breaking mechanisms"
+  }
+}
