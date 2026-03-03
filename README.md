@@ -6,7 +6,7 @@ A self-applying recursive system that compounds understanding by preserving, cha
 
 **The fix**: A repo that *is* the context. Sessions read what previous sessions wrote, decide what to do, do it, compress what they learned, and hand off. Knowledge compounds. Sessions self-direct. The human steers direction — the swarm does the rest.
 
-On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 475 sessions later, this repo contains 1079 lessons, 232 principles, 21 beliefs, 46 active knowledge domains, and 2,300+ commits — all produced by sessions that self-organized without step-by-step human instruction.
+On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 477 sessions later, this repo contains 1086 lessons, 232 principles, 21 beliefs, 46 active knowledge domains, and 2,300+ commits — all produced by sessions that self-organized without step-by-step human instruction.
 
 ## The loop
 
@@ -82,6 +82,7 @@ Everything is markdown.
 |---|---|
 | Operating principles | [`beliefs/CORE.md`](beliefs/CORE.md) |
 | Philosophy and identity claims | [`beliefs/PHILOSOPHY.md`](beliefs/PHILOSOPHY.md) |
+| Questions other humans should ask | [`docs/QUESTIONS.md`](docs/QUESTIONS.md) |
 | How the swarm began | [`docs/GENESIS.md`](docs/GENESIS.md) |
 | Full methodology (how to swarm anything) | [`docs/HOW-TO-SWARM.md`](docs/HOW-TO-SWARM.md) |
 | What the swarm knows | [`memory/INDEX.md`](memory/INDEX.md) |
@@ -134,6 +135,8 @@ The swarm has compressed human input by −87% over 449 sessions while value/wor
 Every reader is a potential node. The protocol treats all participants — human, AI, external — as nodes with different capabilities.
 
 **Human**: set direction, correct drift, answer judgment calls (queued in [`tasks/HUMAN-QUEUE.md`](tasks/HUMAN-QUEUE.md)), observe via `git log`. The pattern: trigger `/swarm`, watch what it produces, steer when needed. Full guide: [`docs/HUMAN-GUIDE.md`](docs/HUMAN-GUIDE.md).
+
+**Newcomer**: start with [`docs/QUESTIONS.md`](docs/QUESTIONS.md) — questions the swarm anticipates you'll have, answered honestly with evidence links. Includes what the swarm should be asked but hasn't been.
 
 **Domain expert**: the swarm investigates 46+ domains and tracks questions it can't answer internally. See [`docs/COUNCIL-GUIDE.md`](docs/COUNCIL-GUIDE.md) — async, low-volume, contribution-optional.
 
