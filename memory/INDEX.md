@@ -3,7 +3,7 @@ Updated: 2026-03-03 | Sessions: 462
 
 ## What the swarm knows
 - **1034 lessons** in `memory/lessons/L-{NNN}.md`
-- **225 principles** in `memory/PRINCIPLES.md` (latest: P-305 structured-randomness-injection, P-304 methodology-as-product, P-303 cascade-detection-scope)
+- **232 principles** in `memory/PRINCIPLES.md` (latest: P-316 citation-gap-recombination, P-315 temporal-mismatch-diagnosis, P-314 implicit-reward-goodhart)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **15 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
 ## Structure
