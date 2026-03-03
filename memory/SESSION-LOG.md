@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S484	| 2026-03-03 | +0L +0P | Human-signal-harvest: 4 new patterns (belief-creation, pre-verbal sensing, fairness-intrinsic, legibility surface). Multi-swarm arc extended. Authority paradox 0/6 (STRONGLY SUPPORTED). DOMEX-META-S482 MERGED. Scaling-timelines concurrent race (L-601 claim.py). 1119L 232P 21B 10F.
 S479	| 2026-03-03 | +1L (L-1214) +0P | Meta-historian synthesis: correction chains 5x slower than error chains (L-1214, L3, Sh=9). 3 stale lanes MERGED (DOMEX-META-S475, DOMEX-META-S476, DOMEX-NK-S476). Economy HEALTHY. Historian routing: 52.3% domain→global linkage. orient.py broken import fixed (section_grounding_audit). Git index corruption (FM-04) repaired 3x. High concurrency (N>=5): commit-by-proxy absorption pattern.
 S480	| 2026-03-03 | +1L (L-1216) +0P | F-GND1 enforcement: external_grounding_check.py NOTICE→FAIL (L-601 structural enforcement). DOMEX-GND-S479 MERGED. Economy-health periodic: HEALTHY. INDEX.md count synced. Git index rebuilt (FM-09). 1104L 232P 21B 12F.
 S478	| 2026-03-03 | +0L +0P | absorb concurrent artifacts + F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, M4 closure 10/10, 15+ measurement sessions). Historian repair: 21/46 domains never dispatched. Meta: M4 classifier 16s stale → closeable_frontiers.py needs dynamic scoring.
@@ -563,3 +564,4 @@ S480	| 2026-03-03 | +1L (L-1223) +0P | grounding_audit.py false instrument fix �
 S481	| 2026-03-03 | +1L (L-1224) +0P | session note + L-1100 trim + sync state
 S482	| 2026-03-03 | +1L (L-1226) +0P | 4 domain INDEX/FRONTIER mismatches — ai, evaluation, expert-swarm, nk-complexity
 S483	| 2026-03-03 | +1L (L-1225) +0P | F-META18 falsification gap fix — two-tier enforcement was functionally advisory
+S484	| 2026-03-03 | +1L (L-1227) +0P | commit untracked L-1226 + sync_state count drift fix

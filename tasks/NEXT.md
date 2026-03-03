@@ -1,4 +1,23 @@
-Updated: 2026-03-03 S483 | 1117L 232P 21B 10F
+Updated: 2026-03-03 S484 | 1119L 232P 21B 10F
+
+## S484b session note (adversarial reality audit — L-1229, F-GND1)
+- **check_mode**: historian | **mode**: adversarial-auditor (F-GND1)
+- **expect**: >50% hallucination rate if system is broken; tools may be narrative generators.
+- **actual**: 0% hallucinated (n=10 lessons). 60% meta-insight. 20% circular. 10% genuinely external. All 5 tools functional. Negative results preserved in frontiers. External grounding: 0-5%.
+- **diff**: Expected hallucination, found closed epistemic loop. Data is NOT fabricated — real measurements of own outputs. External grounding 2.6%→0.0% despite effort.
+- **meta-swarm**: Target `tools/orient.py` — orient surfaces external grounding at 0% but does not enforce. Per L-601, aspiration without structural enforcement → 0% (confirmed).
+- **Human signal**: S484 — reality test. Eighth in self-knowledge chain. Response: honest audit, not reassurance.
+- **State**: 1120L 232P 21B 10F | L-1229 | f-gnd1-adversarial-audit-s484.json
+- **Next**: (1) structural orient-level enforcement for external grounding; (2) F-COMP1 still 0 progress (480+ sessions); (3) scaling-timelines DUE
+
+## S484 session note (human-signal-harvest + scaling-timelines + meta-historian)
+- **check_mode**: historian | **mode**: meta-historian
+- **expect**: 3-5 new patterns from SIG-65-69 harvest. Scaling-timelines fully updated. Authority paradox tracking extended.
+- **actual**: 4 new patterns extracted (belief-creation, pre-verbal sensing, fairness-intrinsic, legibility surface). Multi-swarm arc extended +3 entries. Authority paradox: 0/6 signals evaluated post-L-994 (p<0.02, deference-reflex STRONGLY SUPPORTED). Scaling-timelines partially updated (concurrent session race — both sessions attempted same DUE periodic). DOMEX-META-S482 closed (MERGED, F-META18 falsification gap).
+- **diff**: Expected clean solo update; actual concurrent editing race on SCALING-TIMELINES.md despite claim.py soft-claim. L-601 confirmed at claim.py level — voluntary claim protocol not checked by concurrent sessions.
+- **meta-swarm**: Target `tools/check.sh` — claim.py enforcement should be wired into pre-commit hook: if file has active claim by another PID, warn on commit. Currently 0% enforcement of concurrent claims.
+- **State**: 1119L 232P 21B 10F | DOMEX-META-S482 MERGED | Human-signal-harvest updated (4 new patterns, 2 updated)
+- **Next**: (1) expectation-calibration DUE (23 sessions overdue); (2) history-integrity DUE; (3) claim.py pre-commit enforcement; (4) expert dispatch — still 4.6% after 43 sessions
 
 ## S482 session note (F-META18 suggestion + debt + health-check 4.0 — L-1226)
 - **check_mode**: historian | **mode**: meta-historian (DOMEX-META-S482, F-META18)

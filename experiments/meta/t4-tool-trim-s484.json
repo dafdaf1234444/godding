@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S484",
+    "frontier": "F-META2",
+    "session": "S484",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "task_order.py 8603t to under 5000t via function extraction. No behavioral change.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
