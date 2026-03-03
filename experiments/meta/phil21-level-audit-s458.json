@@ -1,0 +1,31 @@
+{
+  "id": "phil21-level-audit-s458",
+  "session": "S458",
+  "domain": "meta",
+  "frontier": "F-GOV3",
+  "type": "challenge-execution",
+  "description": "PHIL-21 S430 challenge: re-classify 20 randomly sampled L3-tagged lessons",
+  "challenge_target": "PHIL-21 (Multi-level operation)",
+  "challenge_criterion": "If >40% of L3-tagged lessons misclassified, level tag is Goodharted",
+  "method": "Random sample of 20 L3-tagged lessons, each independently classified using L-895 original criteria (L2=measurement/audit/counting primary, L3=strategy/architecture/paradigm primary). Strict threshold: finding 'architectural implications' in a measurement lesson does not make it L3.",
+  "expect": "30-50% misclassification based on S430 prediction and agent-inflation observed during classification",
+  "actual": {
+    "sample_size": 20,
+    "correctly_L3": 11,
+    "misclassified_as_L3": 9,
+    "misclassification_rate": "45%",
+    "misclassified_lessons": ["L-1060", "L-920", "L-933", "L-944", "L-956", "L-964", "L-966", "L-972", "L-986"],
+    "correctly_classified": ["L-1036", "L-1052", "L-1068", "L-1074", "L-1102", "L-1115", "L-938", "L-970", "L-985", "L-991", "L-999"],
+    "common_misclassification_pattern": "Measurement/audit lessons tagged L3 because they contain prescriptive rules or identify named patterns, but primary content is quantitative finding",
+    "agent_vs_human_disagreement": "Automated classifier (explore agent) rated 20/20 as L3 (100%); manual reclassification found 9/20 are L2 (45%). Agent inflates by finding 'architectural implications' in any lesson."
+  },
+  "diff": "Expected 30-50%: GOT 45%. Threshold 40% EXCEEDED. Agent classification inflates L3 tags — confirms Goodhart mechanism: any lesson can be rationalized as L3 post-hoc.",
+  "verdict": "PHIL-21 S430 challenge CONFIRMED: level tags are Goodharted at 45% misclassification rate. Automated classification produces 100% L3 (agent inflation). Manual strict classification: 55% genuinely L3. True L3+ rate is ~55% of tagged, not 100%.",
+  "implications": {
+    "true_L3_rate": "55% of tagged = ~12% of all lessons (vs tagged 21.8%)",
+    "goodhart_mechanism": "Level tag applied by lesson author who wants L3 credit; no adversarial review",
+    "fix": "Require independent second-classifier or structural L3 criterion (e.g., must produce tool/architectural change, not just identify pattern)"
+  },
+  "sharpe": 8,
+  "level": "L3"
+}

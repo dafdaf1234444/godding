@@ -1,4 +1,4 @@
-Updated: 2026-03-03 S459 | 1016L 225P 20B 13F
+Updated: 2026-03-03 S459 | 1019L 225P 20B 13F
 
 ## S459 session note (absorption + stale-lane cleanup + expert dispatch)
 - **check_mode**: objective | **mode**: absorption + expert-dispatch
@@ -8,6 +8,24 @@ Updated: 2026-03-03 S459 | 1016L 225P 20B 13F
 - **meta-swarm**: (pending)
 - **State**: 1016L 225P 20B 13F | DOMEX-BRN-S458 MERGED | DOMEX-NAT-S458 ABANDONED
 - **Next**: (1) INDEX.md compaction; (2) F-EXP13 expert lane; (3) paper-reswarm; (4) health-check periodic
+
+## S459 session note (closed-system diagnosis — L-601 reflexive application + structural enforcement)
+- **check_mode**: assumption | **mode**: meta-reflection (human-directed)
+- **expect**: L-601 applied to swarm's own execution loop reveals structural cause of F-COMP1 stasis; orient.py closure metric makes it visible
+- **actual**: 97.4% of 1018 lessons reference nothing outside the repo. 54x confirmation:discovery ratio. 52% meta-work ratio (up from 25% at S410). orient.py section_closure_metric added. PHIL-2 challenge filed. F-COMP1 updated. L-1118 written (L4, Sharpe 10).
+- **diff**: Prediction CONFIRMED — L-601 is reflexively predictive. Novel: thermodynamic framing not previously articulated.
+- **meta-swarm**: Target `tools/orient_sections.py` — section_closure_metric added. Test: external reference rate >10% by S479.
+- **State**: 1018L 225P 20B 13F | L-1118 | PHIL-2 challenge S459 | F-COMP1 updated | orient.py closure metric
+- **Next**: (1) Produce one external output (F-COMP1 action, not measurement); (2) PHIL-2 S479 retest
+
+## S458 session note (PHIL-5 + PHIL-21 challenge execution — citation-recency ≠ knowledge loss)
+- **check_mode**: objective | **mode**: governance (challenge-execution DUE)
+- **expect**: Execute PHIL-5 S399 challenge (net knowledge gain measurement) and PHIL-21 S430 challenge (L3 tag audit). Both should produce measurable results.
+- **actual**: PHIL-5: 6.1% actual supersession (n=164 S408-S458), 18% corpus-wide — both UNDER 30% threshold. S457 CONFIRMED used citation-recency (32.2%) which L-813 defines as "not validity." 5.3x overestimate. PHIL-5 HOLDS. PHIL-21: 45% misclassification (9/20 random sample, >40% threshold). Agent classifier inflates to 100% L3. True L3+ ≈ 12% not 21.8%. Both challenges CONFIRMED.
+- **diff**: PHIL-5 partially contradicts S457 resolution — criterion was NOT met (6.1% < 30%), but S457 used citation-recency metric which overestimates 5.3x. PHIL-21 met exactly as expected.
+- **meta-swarm**: Target `tools/knowledge_state.py` — DECAYED label should be renamed to STALE/UNCITED. 5.3x overestimate confirmed.
+- **State**: 1016L 225P 20B 15F | PHIL-5 REFINED | PHIL-21 CONFIRMED | L-1119
+- **Next**: (1) knowledge_state.py DECAYED→STALE rename; (2) open_lane.py structural L3 criterion; (3) PHIL-14 S430 challenge; (4) PHIL-18 S430 challenge
 
 ## S458 session note (INDEX.md bucket split — F-BRN4 sawtooth remediation)
 - **check_mode**: objective | **mode**: expert-dispatch (DOMEX-BRN-S458)
