@@ -4,14 +4,15 @@ Updated: 2026-03-03 S498 | 1173L 251P 21B 10F
 - **check_mode**: objective | **mode**: periodic + expert (expert-swarm — DOMEX-EXPSW-S498)
 - **expect**: Tool-consolidation: archive 4-6 dormant, reduce bloat to ~12%. DOMEX: extend L-1181 to coupled case, produce 3-4 stability conditions, 1 testable on concurrent data.
 - **actual**: Tool-consolidation: 4 archived (f_far1_gap_regression, f_phy5_rg_fixedpoint, wiki_swarm, test_wiki_swarm). 112→108 active. Bloat 16.7% (unchanged — archival targets are small). Wired fmea_reconcile.py as periodic (S494d meta-swarm target). DOMEX: 5 coupled-swarm stability models derived, all internally consistent. Key finding: concurrent sessions at N≥5 have κ~0.085 exceeding linear stability bound 0.076 — system operates in limit cycle, not equilibrium. Anti-attractor M1-M5 do double duty. L-1286, P-337.
-- **diff**: Tool-consolidation: expected 4-6 archival, got 4. Expected bloat decrease — FALSIFIED: oversized tools are load-bearing, archival can't fix. DOMEX: expected 3-4 models, got 5. Expected 1 testable on concurrent data, confirmed (model 5). Unexpected: F-SWARMER2 frames swarmer-swarm as future, but concurrent sessions ARE already proto-coupled.
+- **actual (concurrent S498b)**: Complementary tool-consolidation — slimmed 3 borderline-oversized tools via docstring/comment compression (correction_propagation 5029→4221t, validate_beliefs 5103→4993t, reward_theory 5203→4884t). Oversized: 17→14 tools (15.7%→13.0%). L-1028 updated. Method: inline compression fills the gap between archival (removes dead tools) and decomposition (splits large tools). Effective to ~5000t floor.
+- **diff**: Tool-consolidation: expected 4-6 archival, got 4. Expected bloat decrease — FALSIFIED for archival alone, CONFIRMED for inline compression (3 tools below threshold). DOMEX: expected 3-4 models, got 5. Expected 1 testable on concurrent data, confirmed (model 5). Unexpected: F-SWARMER2 frames swarmer-swarm as future, but concurrent sessions ARE already proto-coupled.
 - **meta-swarm**: Target `tools/check.sh` FM-19 — stale-write WARNING fires for MIXED-mode files (PRINCIPLES.md, SWARM-LANES.md) that every session modifies. At N≥3, every commit triggers warning. Signal-to-noise ratio approaching zero for these files.
 - **State**: 1173L 251P 21B 10F | L-1286 P-337 | tool-consolidation S498 | DOMEX-EXPSW-S498 MERGED
 
 ## For next session
 - **paper-reswarm periodic** (33 sessions overdue, highest-priority remaining periodic)
 - **fundamental-setup-reswarm periodic** (26 sessions overdue)
-- Oversized tool decomposition: dispatch_optimizer (7644t), open_lane (6484t) — needed to reach <10% bloat target
+- Oversized tool decomposition: dispatch_optimizer (7644t), open_lane (6484t), knowledge_state (6361t) — needed to reach <10% bloat (currently 13.0%)
 - Test coupled-swarm model predictions: oscillatory enforcement at N≥5, L3+ ratio shift
 - FM-19 stale-write noise reduction for MIXED-mode files (meta-swarm target)
 - PHIL-14 deadline: 62 sessions past S436
