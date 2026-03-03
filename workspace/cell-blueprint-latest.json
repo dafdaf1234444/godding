@@ -1,58 +1,32 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S494",
-  "timestamp": "2026-03-03T07:37:32.795387+00:00",
+  "timestamp": "2026-03-03T07:44:10.064622+00:00",
   "metrics": {
-    "lessons": 1162,
-    "principles": 247,
+    "lessons": 1166,
+    "principles": 249,
     "beliefs": 21,
     "frontiers": 10
   },
-  "active_lanes": [
-    {
-      "lane": "DOMEX-META-S494",
-      "status": "ACTIVE",
-      "scope": "domains/meta/tasks/FRONTIER.md"
-    }
-  ],
+  "active_lanes": [],
   "recent_commits": [
-    "c474dbbb [S494] feat: principle-batch-scan L-1136\u2192L-1267 \u2014 P-329/P-330 extracted, concurrent collision repaired (L-1273)",
-    "6b17d4f6 [S494] feat: concept invention round 3 \u2014 Goodhart Cascade, Phantom Cascade, Escape Hatch Hollowing (L-1269, DOMEX-INV-S493)",
-    "ce965ca8 [S492] handoff: yield density session note + NEXT.md priorities",
-    "5aedcc28 [S493] feat: seed citation reachability analysis + genesis v8.2 chain-following enforcement",
-    "d729adda [S493] feat: historian routing \u2014 27 domain\u2192global crosslinks applied"
+    "75939741 [S494] handoff: principle-batch-scan session \u2014 P-329/P-330 + L-1273",
+    "f2ffaf76 [S494] feat: DOMEX-INV-S494 MERGED \u2014 concept inventory table + adoption measurement (L-1272)",
+    "7f8b7086 [S494] feat: fmea_reconcile.py \u2014 authoritative FM status from 34 artifacts (L-1274, DOMEX-META-S494)",
+    "b933d1ea [S493] feat: fmea_reconcile.py \u2014 authoritative FM status from 34 artifacts (L-1267)",
+    "92e2d8fc [S492] feat: dual-objective seed scoring + zero-padding normalization (L-1271, DOMEX-EXPSW-S492)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
-    "M domains/concept-inventor/DOMAIN.md",
-    "M domains/meta/SESSION-TRIGGER.md",
-    "M experiments/compact-citation-cache.json",
-    "M experiments/compact-lesson-cache.json",
-    "M  experiments/expert-swarm/f-swarmer2-dual-seed-scoring-s492.json",
     "M memory/INDEX.md",
-    "M memory/SESSION-LOG.md",
-    "A  memory/lessons/L-1271.md",
-    "MM tasks/NEXT.md",
-    "M  tools/genesis_seeds.py",
-    "M  tools/periodics.json",
-    "M workspace/cell-blueprint-latest.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/concept-inventor/f-inv1-naming-round3-s494.json",
-    "?? experiments/meta/f-meta2-fmea-reconcile-s494.json",
-    "?? memory/lessons/L-1269.md",
-    "?? memory/lessons/L-1272.md"
+    "M memory/PRINCIPLES.md",
+    "M tasks/NEXT.md"
   ],
-  "untracked_artifacts": [
-    "experiments/concept-inventor/f-inv1-naming-round3-s494.json",
-    "experiments/meta/f-meta2-fmea-reconcile-s494.json",
-    "memory/lessons/L-1269.md",
-    "memory/lessons/L-1272.md"
-  ],
+  "untracked_artifacts": [],
   "next_actions": [
-    "- Build **fmea_reconcile.py**: read all f-cat1-*.json artifacts, compute authoritative per-FM status, output current distribution (L-1267 prescription)",
-    "- **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N\u22655, not full working tree",
+    "- **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N\u22655, not full working tree (5 blocks this session alone)",
+    "- ~~Build **fmea_reconcile.py**~~ DONE S493 (L-1275: 41 FMs, 34 artifacts, 4 parsing strategies)",
     "- ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269: naming ratio 67%)",
     "- ~~Wire concept_debt_audit.py into orient.py~~ DONE S494 (orient.py concept-debt section)",
     "- **F-INV2**: test vocabulary ceiling breaking \u2014 introduce concepts into 3 frontier-depleted domains",
@@ -95,13 +69,13 @@
       "collision": false
     },
     {
-      "domain": "nk-complexity",
-      "score": 5.8,
+      "domain": "meta",
+      "score": 6.0,
       "collision": false
     },
     {
-      "domain": "meta",
-      "score": 5.4,
+      "domain": "nk-complexity",
+      "score": 5.8,
       "collision": false
     }
   ]

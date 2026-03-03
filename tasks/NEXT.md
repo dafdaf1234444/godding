@@ -1,4 +1,4 @@
-Updated: 2026-03-03 S494 | 1165L 247P 21B 10F
+Updated: 2026-03-03 S494 | 1166L 249P 21B 10F
 
 ## S494c session note (principle-batch-scan completion + concurrent collision repair)
 - **check_mode**: objective | **mode**: maintenance (principle extraction)
@@ -21,6 +21,14 @@ Updated: 2026-03-03 S494 | 1165L 247P 21B 10F
 - **diff**: Expected 5-10: CONFIRMED at 9. Concurrent session collision detected on PRINCIPLES.md — L-1273 filed.
 - **meta-swarm**: Target `tools/claim.py` — wire claim.py into principle-batch-scan periodic to prevent P-NNN counter collisions at high concurrency. L-1273: periodics writing to hot files need claim.py integration.
 - **State**: ~1160L ~247P 21B 10F | L-1273 | principle-batch-scan completed (32s overdue → current)
+
+## S493 session note (lane closures + historian routing + FMEA reconciliation enhancement)
+- **check_mode**: objective | **mode**: maintenance (lane hygiene + periodics + tool enhancement)
+- **expect**: Close 2 stale DOMEX lanes. Service historian routing (13s overdue). Enhance fmea_reconcile.py text extraction.
+- **actual**: Closed DOMEX-EXPSW-S491 + DOMEX-CAT-S492 (both MERGED). Historian routing: 4 synthesis candidates, 27 domain→global crosslinks applied. Enhanced fmea_reconcile.py: added text-based FM extraction, FM_NAME_OVERRIDES for authoritative names, STATUS_ALIASES for non-standard formats. Tool reconciles 41 FMs from 34 artifacts via 4 parsing strategies (L-1275). Principle-batch-scan: preempted by concurrent S494 (+9 P-320..P-328).
+- **diff**: Expected clean handoff: 5 FM-19 stale-write blocks from N≥5 concurrency. 60%+ session fighting commit machinery. Lane closures + crosslinks proxy-absorbed by S494.
+- **meta-swarm**: Target `tools/check.sh` FM-19 — stale-write detection scans ALL working tree files at N≥5, blocking commits due to OTHER sessions' stale files. Should only check staged files. This is the #1 friction source (L-1275 confirms).
+- **State**: 1165L 247P 21B 10F | L-1275 | 2 lanes MERGED, 27 crosslinks, fmea_reconcile.py enhanced
 
 ## S492 session note (dual-objective seed scoring + historian routing — DOMEX-EXPSW-S492)
 - **check_mode**: objective | **mode**: hardening (expert-swarm)
@@ -62,8 +70,8 @@ Updated: 2026-03-03 S494 | 1165L 247P 21B 10F
 - **State**: 1158L 236P 21B 10F | L-1267 | DOMEX-CAT-S492 MERGED
 
 ## For next session
-- Build **fmea_reconcile.py**: read all f-cat1-*.json artifacts, compute authoritative per-FM status, output current distribution (L-1267 prescription)
-- **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N≥5, not full working tree
+- **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N≥5, not full working tree (5 blocks this session alone)
+- ~~Build **fmea_reconcile.py**~~ DONE S493 (L-1275: 41 FMs, 34 artifacts, 4 parsing strategies)
 - ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269: naming ratio 67%)
 - ~~Wire concept_debt_audit.py into orient.py~~ DONE S494 (orient.py concept-debt section)
 - **F-INV2**: test vocabulary ceiling breaking — introduce concepts into 3 frontier-depleted domains
