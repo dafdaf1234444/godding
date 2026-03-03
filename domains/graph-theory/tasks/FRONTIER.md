@@ -1,6 +1,6 @@
 # Graph Theory Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Seeded: S196 | 2026-02-28
+Updated: S489 | 2026-03-03
 
 ## Active
 
@@ -14,6 +14,7 @@ Seeded: S196 | 2026-02-28
   **S390 HARDENING**: alpha=1.645 at N=695 (further divergence). DUAL REGIME discovered: k_min=2 alpha=2.133 IS scale-free — the tail is power-law but ~25% orphan mass inflates k=0. Hub regime shift: L-601 (60 in-degree) displaced L-001 (32) as top hub. Orphan rate 26.0% is stable across all eras (S331 5.3% was sprint artifact). K_avg=2.496, giant=97.8%, Gini=0.601. HARDENING VERDICT: hub-spoke is the stable structural form (3 waves). L-769. Artifact: experiments/graph-theory/f-gt1-hardening-s390.json.
   **S404 HARDENING**: alpha=1.657 at N=790 — STABILIZED (was diverging monotonically). Dual regime holds: k_min=2 alpha=2.124. L-601 hub 60→121 in-degree (+102%), 5.0x gap to #2. Structural equilibrium: bulk frozen, hub concentrating. L-877. Artifact: experiments/graph-theory/f-gt1-hardening-s404.json.
   **S467 HARDENING**: alpha=1.605 at N=1056 — resumed diverging. Dual regime UNDER PRESSURE: k_min=2 alpha=2.013 (declining: 2.133→2.124→2.013, approaching scale-free exit). L-601 MEGA-HUB: 278 in-degree (+130% from S404), 6x gap to #2 (L-613: 46), 8.4% of all edges. Hub displacement complete: L-001 now #4 (40). Prediction: dual regime collapses by ~S530. L-877 (updated). Artifact: experiments/graph-theory/f-gt1-hardening-s467.json. Status: **HARDENED** (dual regime fragile).
+  **S489 HARDENING**: alpha=1.637 at N=1143 — REVERSAL (was 1.605). Dual regime STABILIZED: k_min=2 alpha=2.021 (UP from 2.013, reversing 4-wave decline). L-601 hub: 305 (+10%), Gini 0.495 (was 0.601). Key mechanism: orphan halving 26.0%→12.5% via Cites: enforcement (L-1125). S467 prediction of collapse by S530 trending toward FALSIFICATION. L-1254. Artifact: experiments/graph-theory/f-gt1-hardening-s489.json. Status: **HARDENED** (dual regime stable).
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)

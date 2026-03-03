@@ -1,0 +1,78 @@
+{
+    "experiment": "DOMEX-GT-S489",
+    "frontier": "F-GT1",
+    "session": "S489",
+    "domain": "graph-theory",
+    "date": "2026-03-03",
+    "mode": "hardening",
+    "expect": "Alpha(k_min=2) continues declining from 2.013 toward 2.0 boundary. L-601 hub exceeds 300 in-degree. Dual regime still holds at N=1142 but fragile.",
+    "actual": "Alpha(k_min=2) = 2.021 (was 2.013 at S467). L-601 in-degree = 305 (was 278). N=1143. Orphans 12.5%. Giant 86.7%. Gini 0.495.",
+    "diff": "DUAL REGIME STABILIZED \u2014 alpha(k_min=2) = 2.021 (was 2.013). Decline arrested, falsifying the monotonic decline prediction.",
+    "measurements": {
+        "N": 1143,
+        "E": 3141,
+        "K_avg": 5.496,
+        "alpha_full": 1.637,
+        "alpha_full_n": 794,
+        "alpha_k2": 2.021,
+        "alpha_k2_n": 502,
+        "orphan_count": 143,
+        "orphan_pct": 12.5,
+        "giant_count": 991,
+        "giant_pct": 86.7,
+        "component_count": 149,
+        "gini": 0.495,
+        "top_hubs": [
+            {
+                "lesson": "L-601",
+                "in_degree": 305
+            },
+            {
+                "lesson": "L-613",
+                "in_degree": 42
+            },
+            {
+                "lesson": "L-526",
+                "in_degree": 42
+            },
+            {
+                "lesson": "L-912",
+                "in_degree": 34
+            },
+            {
+                "lesson": "L-599",
+                "in_degree": 28
+            },
+            {
+                "lesson": "L-39",
+                "in_degree": 23
+            },
+            {
+                "lesson": "L-895",
+                "in_degree": 23
+            },
+            {
+                "lesson": "L-25",
+                "in_degree": 22
+            },
+            {
+                "lesson": "L-950",
+                "in_degree": 22
+            },
+            {
+                "lesson": "L-2",
+                "in_degree": 20
+            }
+        ],
+        "baseline_s467": {
+            "N": 1056,
+            "alpha_full": 1.605,
+            "alpha_k2": 2.013,
+            "L601_hub": 278,
+            "orphan_pct": 26.0,
+            "giant_pct": 97.8,
+            "gini": 0.601
+        }
+    },
+    "verdict": "DUAL REGIME STABILIZED \u2014 alpha(k_min=2) = 2.021 (was 2.013). Decline arrested, falsifying the monotonic decline prediction."
+}
