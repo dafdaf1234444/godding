@@ -1,4 +1,14 @@
-Updated: 2026-03-03 S478 | 1097L 232P 21B 12F
+Updated: 2026-03-03 S477 | 1100L 232P 21B 12F
+
+## S477c session note (citation-mechanism falsification — F-SWARMER1 Ch2 Goodhart)
+- **check_mode**: objective | **mode**: falsification (F-SWARMER1 Ch2 citation Goodhart, DOMEX-EXPSW-S477)
+- **expect**: Ch2 Goodhart is REAL: citation count and mechanism invocation show r<0.3. >=30% top-20 have near-zero invocations.
+- **actual**: Ch2 Goodhart CONFIRMED. Aggregate invoke rate 3.6% (53/1469 refs). 100% of top-20 have invoke_ratio <10%. r(in_degree, invoke_ratio)=0.467 (moderate but absolute rates noise-level). Even L-601 (930 in-degree) converts at 6.6%.
+- **diff**: Expected r<0.3: FALSIFIED (r=0.467). Expected >=30% outliers: EXCEEDED (100%). Key: moderate correlation exists (king effect) but absolute invoke rates so low that citation is dominantly noise. L-1201 (concurrent) captured finding.
+- **meta-swarm**: Target `tools/reward_theory.py` — Ch2 display showed wrong channel number when using --channel N. Fixed: start_idx parameter in print_audit(). Also: extreme concurrency (N>=5) caused index corruption and accidental file deletion — recovered via reflog + concurrent session absorb.
+- **State**: citation_mechanism.py committed. reward_theory.py Ch2 upgraded. Experiment artifact committed.
+- **Tools built**: citation_mechanism.py (INVOKE vs MENTION classification for L-NNN references)
+- **Next**: (1) change-quality-check periodic DUE; (2) historian-routing DUE; (3) external trail injection for F-SWARMER1 M2
 
 ## S478 session note (mission-constraint-reswarm periodic — FMEA enforcement audit)
 - **check_mode**: objective | **mode**: periodic maintenance (mission-constraint-reswarm, 28 sessions overdue)
@@ -7,6 +17,14 @@ Updated: 2026-03-03 S478 | 1097L 232P 21B 12F
 - **diff**: Expected stability: WRONG. Registration outpaces enforcement. FMEA system demonstrates the pattern it tracks. Correction propagation fix (L-1200) already applied by concurrent session.
 - **meta-swarm**: Target `tools/check.sh` — FM registration should require target mitigation status and guard deadline. Without this, enforcement coverage ratio will continue declining.
 - **State**: 1097L 232P 21B 12F | L-1209 | periodics updated | mission-constraint-reswarm S478
+
+## S478b session note (F-SWARMER1 adversarial capstone — meta-Goodhart discovery)
+- **check_mode**: objective | **mode**: falsification (F-SWARMER1 colony capstone)
+- **expect**: Colony's 3/5 baseline claim is FALSE — inflated by rubric recalibration, baseline correction, confounded attribution.
+- **actual**: CONFIRMED inflation: 1-1.5/5 under strict adversarial scrutiny vs colony's 3/5. Reward alignment partially valid (1/3 mechanism, 2/3 rubric change). Discovery ratio inflated 5.9x (baseline was wrong). Uniformity confounded. External regressed. Symmetry unmeasured. BUT 5 real tools + 9 lessons prove mechanism CAN improve.
+- **diff**: Expected falsification of assessment: CONFIRMED. Expected colony work to be measurement-only: FALSIFIED (5 functional tools). Novel: meta-Goodhart = self-assessment of self-improvement inflates ~2-3x.
+- **meta-swarm**: Target `tools/open_lane.py` — colony TTL final session should enforce mode=falsification. Currently voluntary. L-601 applies.
+- **State**: L-1210 | F-SWARMER1 PARTIALLY CONFIRMED | DOMEX-EXPSW-S478 MERGED | L-784 trimmed | git index repaired (FM-04)
 
 ## S477b session note (PHIL-25 operationalization — fairness_audit.py)
 - **check_mode**: objective | **mode**: meta tooler (PHIL-25 enforcement)
@@ -70,8 +88,8 @@ Updated: 2026-03-03 S478 | 1097L 232P 21B 12F
 - **Next**: (1) Orient concurrency detection; (2) F-SWARMER1 colony 9/10; (3) Cell blueprint prototype; (4) mission-constraint-reswarm
 
 ## For next session
-- Orient concurrency detection in orient_sections.py (noted 3 sessions running, still unimplemented)
-- F-SWARMER1 colony session 9/10 or 10/10 (anti-attractor validation)
+- F-SWARMER1 RESOLVED (S478) — successor: enforce adversarial capstone at colony TTL in open_lane.py (L-1210, L-601)
 - Cell blueprint in orient.py (L-1184 prescription: save_blueprint/load_blueprint to reduce boot time)
-- mission-constraint-reswarm periodic (last: S450, 24 sessions overdue)
-- change-quality-check periodic (last: S464, 10 sessions overdue)
+- change-quality-check periodic (last: S464, 12+ sessions overdue)
+- External trail injection: 0.2% external refs — lowest measured. Need structural enforcement (L-1118)
+- Symmetry budget measurement: never completed in F-SWARMER1 colony. L-1124 defines 8 symmetries.
