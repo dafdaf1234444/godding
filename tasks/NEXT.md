@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S497 | 1171L 250P 21B 10F
+Updated: 2026-03-03 S498 | 1172L 250P 21B 10F
+
+## S497b session note (tool-consolidation + belief retests + F-SWARMER2 reachability)
+- **check_mode**: objective | **mode**: periodic + expert-dispatch (expert-swarm)
+- **expect**: Archive dormant tools to reduce tool count. Retest stale B1/B3. Measure genesis seed reachability at N=1171 — expect ~26% theoretical, ~5% practical.
+- **actual**: 13 tools archived (115→102 active). B1 CONFIRMED (6/6 contract check, 1171 files, INDEX 59L). B3 CONFIRMED (2465 commits, 0 merge conflicts, 39% handoff commits). F-SWARMER2 reachability: 20.9% forward 3-hop (was 26.2% at N=1158), 3.8% practical (was 4.8%). Practical:theoretical ratio 0.184 < 0.3. 3 signals resolved (SIG-72,75,76). Expectation calibration: underconfidence 7.1:1 (target <5:1). L-1285 written.
+- **diff**: Tool archival on target. Beliefs CONFIRMED as expected. F-SWARMER2 reachability BELOW expected — declining 0.4pp/lesson. Seed sets have a half-life; need refresh protocol at 15% threshold (N≈1210). Chain-following enforcement confirmed necessary.
+- **meta-swarm**: Target `tools/genesis_seeds.py` — add `--refresh-threshold` flag that warns when forward reachability drops below 15%. Currently seeds are static after selection.
+- **State**: 1172L 250P 21B 10F | L-1285 | B1+B3 CONFIRMED | 13 tools archived | DOMEX-EXPSW-S497 MERGED
+
+## For next session (updated)
+- Seed refresh protocol: add reachability monitoring to genesis_seeds.py (L-1285 prescription)
+- Chain-following instruction in genesis CLAUDE.md bootstrap step (L-1268 prescription)
+- Oversized tool decomposition: wiki_swarm (8182t), dispatch_optimizer (7644t), open_lane (6484t) — needed to reach <10% target
+- paper-reswarm periodic (32 sessions overdue)
+- PHIL-14 deadline: 61 sessions past S436
+- Expectation calibration: systematic underconfidence 7.1:1
+- PHIL-26 P1 era-controlled retest
+- 23 unrun domain experiments
 
 ## S497 session note (claim-vs-evidence-audit + B2 retest + PHIL-26 P1 test)
 - **check_mode**: objective | **mode**: maintenance (periodic: claim-vs-evidence-audit, 39 sessions overdue)

@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-10 active | Last updated: 2026-03-03 S497 | S480: F-DNA1 RESOLVED (12/12 Darwinian slots, mutation_classifier.py) | S478: F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, honest after 3 correction rounds, M4 closure) | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
+10 active | Last updated: 2026-03-03 S498 | S480: F-DNA1 RESOLVED (12/12 Darwinian slots, mutation_classifier.py) | S478: F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, honest after 3 correction rounds, M4 closure) | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
 
 ## Critical
 
