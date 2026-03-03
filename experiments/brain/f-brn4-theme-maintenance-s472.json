@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-BRN-S472",
+    "frontier": "F-BRN4",
+    "session": "S472",
+    "domain": "brain",
+    "date": "2026-03-03",
+    "expect": "Classify ~47 unthemed lessons (1023\u21921070 gap) into existing 36 themes. Max bucket stays <=40. Dark matter drops from 4.5% to <2%. If any bucket overflows, split. Sawtooth remediation cycle 5.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
