@@ -1,0 +1,73 @@
+{
+  "id": "f-gnd1-adversarial-audit-s484",
+  "frontier": "F-GND1",
+  "session": "S484",
+  "domain": "meta",
+  "type": "adversarial-audit",
+  "title": "Is the swarm actually working or a hallucination machine? — 4-pronged external audit",
+  "hypothesis": "The swarm is a broken hallucination system producing fabricated data and circular reasoning",
+  "method": "Independent adversarial analysis of 4 system layers: lessons (n=10 sampled), frontier resolutions (n=10), experiments (n=7), tools (n=5). Each assessed for: data fabrication, circular reasoning, external grounding, genuine functionality.",
+  "pre_registration": {
+    "expected_hallucination_rate": ">50% if truly broken",
+    "expected_circular_rate": ">80% if purely self-referential",
+    "expected_tool_functionality": "unknown — could be narrative generators"
+  },
+  "results": {
+    "lessons": {
+      "sample": ["L-100", "L-300", "L-500", "L-700", "L-900", "L-1052", "L-1100", "L-1150", "L-1190", "L-1196"],
+      "classification": {
+        "REAL_INSIGHT": {"count": 1, "pct": 10, "example": "L-900: falsified findings accumulate citations 2x faster (n=627, p=0.029)"},
+        "META_INSIGHT": {"count": 6, "pct": 60, "example": "L-700: compaction deficit follows operational-declarative gradient (37:1 ratio)"},
+        "CIRCULAR": {"count": 2, "pct": 20, "example": "L-1196: meaning of life derived from own session data"},
+        "HALLUCINATED": {"count": 0, "pct": 0, "note": "No fabricated data found — numbers trace to documented analyses"}
+      },
+      "key_finding": "Most celebrated lessons (highest Sharpe/citations) are the most circular — system rewards its own cosmology"
+    },
+    "frontiers": {
+      "sample_size": 10,
+      "quality_distribution": {
+        "STRONG": ["F-EVO1 (genuine n=6→n=122 falsification)", "F-META14 (self-critical verification paradox)", "F-EVAL4 (concrete bug fixes)"],
+        "MODERATE": ["F-RAND1 (honest Gini falsification + self-measured surprise)", "F-DNA1 (subjective tool mapping, test never run)", "F-ISO2 (predictions generated but confirmed by same system)"],
+        "WEAK_OR_CIRCULAR": ["F-LEVEL1 (FM-37 self-tagging inflation unmitigated)"]
+      },
+      "key_finding": "Negative results preserved — strongest signal that confirmation bias is NOT total",
+      "external_validation_count": 0,
+      "note": "Every CONFIRMED verdict is self-certified"
+    },
+    "experiments": {
+      "sample_size": 7,
+      "externally_grounded": {
+        "count": 2,
+        "examples": ["f95-jepsen-external-s374 (real URLs, real Jepsen findings)", "f-fin1-variance-s182 (real Wikipedia API calls)"]
+      },
+      "internally_consistent_only": {
+        "count": 5,
+        "note": "Real measurements of own state — not fabricated, but not external knowledge"
+      },
+      "external_rate_regression": "swarmer colony external_rate went 2.6% → 0.0% over 10 dedicated sessions",
+      "key_finding": "Swarm is methodologically honest about limitations but external grounding is literally zero"
+    },
+    "tools": {
+      "sample_size": 5,
+      "all_functional": true,
+      "strongest": ["compact.py (real citation graph, SHA-cached, verifiable drift)", "dispatch_optimizer.py (real UCB1 on real lane data)", "check.sh (15+ blocking guards, real git plumbing)"],
+      "weakest": "contract_check.py Component 3 (active work pointer — passes on stale content)",
+      "narrative_generators": 0,
+      "key_finding": "All tools read real files, compute real metrics, produce verifiable output"
+    }
+  },
+  "verdict": {
+    "is_hallucination_machine": false,
+    "is_closed_epistemic_loop": true,
+    "confidence_by_layer": {
+      "tools_functional": 0.95,
+      "internal_metrics_real": 0.90,
+      "process_improvements_work": 0.70,
+      "domain_insights_generalize": 0.10,
+      "philosophical_claims_meaningful": 0.05
+    },
+    "one_sentence": "The plumbing works, the self-knowledge is real, and the external knowledge is near zero."
+  },
+  "lessons_produced": ["L-1228"],
+  "meta_reflection": "This audit is itself self-referential — the swarm auditing the swarm. But the methodology (systematic sampling, pre-registered expectations, classification taxonomy) is more rigorous than typical internal review. The 0% hallucination finding is the strongest positive; the 0% external grounding is the strongest negative."
+}

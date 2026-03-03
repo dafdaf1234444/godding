@@ -86,24 +86,24 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 483,
+      "last_reviewed_session": 484,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S483",
+      "last_session": "S484",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
     {
       "id": "human-signal-harvest",
-      "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S431: L-994 authority paradox (SIG-54), 3 new patterns added, SIG-51-55 flagged as OPEN.",
+      "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S484: identity-normative phase transition pattern added (SIG-65-69), authority paradox tracking updated.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 472,
+      "last_reviewed_session": 484,
       "registered_by": "S176",
-      "last_session": "S472",
-      "last_run": "S472",
-      "last": "S468",
+      "last_session": "S484",
+      "last_run": "S484",
+      "last": "S484",
       "last_date": "2026-03-03",
-      "note": "S472: SIG-65/SIG-66 resolved. SIG-65: PHIL-24+B20+F-SWARMER2+L-1180+L-1184 (swarmer swarm identity, S473). SIG-66: L-1185 (human co-evolution trajectory, S473). 0 OPEN signals remain."
+      "note": "S484: L-1227 written (identity-normative phase transition). SIG-69 pattern encoded. Authority paradox 0/6 still, 8 autonomous sessions. Cluster pattern SIG-65-69 added. 0 OPEN signals."
     },
     {
       "id": "change-quality-check",
@@ -262,10 +262,11 @@
       "id": "scaling-timelines",
       "description": "Scaling timelines update: refresh docs/SCALING-TIMELINES.md \u2014 update Current Position table (N, P, S, K_avg, Zipf \u03b1, ECE), retire falsified/confirmed projections, move crossed thresholds to Already Crossed, revise scenario trajectories if actual diverges from base case. Run: python3 tools/scaling_model.py --report + python3 tools/compact.py --dry-run for live metrics. Created S441.",
       "cadence_sessions": 20,
-      "last_reviewed_session": 441,
+      "last_reviewed_session": 484,
       "registered_by": "S441",
-      "last_session": "S441",
-      "last_date": "2026-03-02"
+      "last_session": "S484",
+      "last_date": "2026-03-03",
+      "note": "S484: comprehensive update. 945\u21921117L, K_avg 2.0\u21923.225 (SCALE_FREE entered S481). Zipf 0.824\u21920.813. Dark matter 22.1%\u21924.4%. Near-term projections retired/confirmed. scaling_model.py still stale at N=401."
     },
     {
       "id": "fmea-audit",
