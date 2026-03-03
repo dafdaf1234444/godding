@@ -302,10 +302,23 @@ def score_truthful(challenges: dict, signals: dict, frontiers: dict) -> dict:
     except Exception:
         pass
     signal_density = total_sig / estimated_sessions
-    external_grounding_ok = signal_density >= 0.1
     details["signal_density_per_session"] = round(signal_density, 3)
-    details["external_grounding_target_met"] = external_grounding_ok
-    details["external_grounding_target"] = "≥1 signal per 10 sessions (PHIL-16)"
+    details["signal_density_target_met"] = signal_density >= 0.1
+    # L-1211: signal_density is NOT external grounding — it measures internal signal
+    # frequency. True external grounding requires F-COMP1 outputs. Until those exist,
+    # external_grounding_ok defaults to False. Checks recent lesson external trail.
+    external_trail_pct = 0.0
+    try:
+        _lessons = sorted((ROOT / "memory" / "lessons").glob("L-*.md"))
+        _recent = _lessons[-50:] if len(_lessons) >= 50 else _lessons
+        _ext = sum(1 for lf in _recent if "external" in lf.read_text(encoding="utf-8", errors="ignore").lower()[:500])
+        external_trail_pct = _ext / max(len(_recent), 1) * 100
+    except Exception:
+        pass
+    external_grounding_ok = external_trail_pct > 5.0
+    details["external_grounding_ok"] = external_grounding_ok
+    details["external_trail_pct"] = round(external_trail_pct, 1)
+    details["external_grounding_target"] = ">5% external trail in recent 50 lessons (L-1211)"
     details["frontier_resolution_absolute"] = frontiers["global_resolved"]
     details["frontier_open_absolute"] = frontiers["global_open"]
 
