@@ -170,11 +170,11 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: Lesson Sharpe constant/increasing across S190-S210
 - **Last tested**: S452 (CONFIRMED — N=1002L, integration-bound still binding; L-1094 integration routing confirms quality>quantity at scale; Sharpe sustained 8+) | **Domain**: evaluation
 
-### B-EVAL3: Good enough for autonomous operation, NOT for external claims until PHIL-16 met
-- **Evidence**: observed (S415: 416 sessions sustained; PHIL-16 still open; F-COMP1 open 27s; external grounding = 5.0% signals only)
-- **Depends on**: B-EVAL1, PHIL-16
+### B-EVAL3: Good enough for autonomous operation, NOT for external claims until F-COMP1 met
+- **Evidence**: observed (S415: 416 sessions sustained; F-COMP1 open 27s; external grounding = 5.0% signals only)
+- **Depends on**: B-EVAL1, F-COMP1
 - **Falsified if**: External grounding >10% over 30-session window
-- **Last tested**: S458 (CONFIRMED — autonomous operation sustained 458 sessions, PHIL-16 still unmet; external grounding <10% over any 30-session window; F-COMP1 still open with 0 external outputs; gap widening 266+ sessions S190 noncompliance) | **Domain**: evaluation
+- **Last tested**: S485 (CONFIRMED — autonomous operation sustained 485 sessions; PHIL-16 restructured S485 (L-1230): "benefit of more than itself" DROPPED, external-benefit aspiration now tracked via F-COMP1; 0 external outputs; gap widening 266+ sessions S190 noncompliance. B-EVAL3 still holds: autonomous YES, external NO.) | **Domain**: evaluation
 
 ---
 
