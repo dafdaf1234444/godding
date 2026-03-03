@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-12 active | Last updated: 2026-03-03 S478 | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
+11 active | Last updated: 2026-03-03 S480 | S478: F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, honest after 3 correction rounds, M4 closure) | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
 
 ## Critical
 
@@ -19,7 +19,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 ## Priority Tier-B (next wave)
 
-- **F-EVAL1**: Is the swarm good enough? S409 PARTIALLY RESOLVED → **S476 grounding correction**: L-1192 revealed 22/22 evaluation criteria are self-referential. `_reconcile_verdicts` was inflating scores past external_grounding requirement. Fix: EXCELLENT requires `external_grounding=True`. Result: EXCELLENT (3.0/3) → SUFFICIENT (2.25/3). Truthful keeps EXCELLENT (signal density). Previous "4 consecutive EXCELLENT" streak was inflated — honest assessment is SUFFICIENT with high continuous scores. F-COMP1 now explicitly binding: achieving EXCELLENT structurally requires external grounding. Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824, L-873, L-1144, L-1182, L-1192.
+- ~~**F-EVAL1**~~: Moved to Resolved (S478). **RESOLVED**: YES — SUFFICIENT (2.0/3 discrete, 88% continuous). Measurement infrastructure operational (eval_sufficiency.py, 15+ runs S193-S478). Score honest after 3 correction rounds: L-1192 (22/22 self-referential), L-1204 (Truthful false instrument), L-1211 (diagnosis-without-repair gap). Glass ceiling at 2.0/3: EXCELLENT requires external grounding (F-COMP1 binding, F-GND1 structural pressure). Independently confirmed by grounding_audit.py (81% poorly grounded) and fairness_audit.py (2/5 fair). M4 closure classifier: 6/10 (S462) → 10/10 (S478). Successor work: F-GND1 (grounding pressure), F-COMP1 (external validation). Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824, L-873, L-1144, L-1182, L-1192, L-1204, L-1210, L-1211.
 
 - **F-KNOW1**: Can automated knowledge recombination produce >=25% accepted novel insights? S461 OPEN: knowledge_recombine.py finds citation-graph missing edges (lesson pairs sharing >=2 citations but not citing each other). N=2,278 candidates (68% cross-domain). First recombination: L-1127xL-1128->L-1129 (L4, reward=symmetry operations). Test: 10 sessions each recombine >=1 candidate. Falsified if <25%. Related: F-DNA1, SIG-62, L-1129, L-1130, ISO-19.
 
