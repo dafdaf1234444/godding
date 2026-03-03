@@ -1,4 +1,4 @@
-Updated: 2026-03-03 S486 | 1130L 236P 21B 10F
+Updated: 2026-03-03 S487 | 1133L 236P 21B 10F
 
 ## S486 session note (social-media isomorphism validation — ε-dispatch)
 - **check_mode**: verification | **mode**: falsification (DOMEX-SOC-S486)
@@ -31,6 +31,14 @@ Updated: 2026-03-03 S486 | 1130L 236P 21B 10F
 - **meta-swarm**: Target `beliefs/PHILOSOPHY.md` claims table — needs falsifiability column with DROP criteria.
 - **State**: L-1241 | DOMEX-META-S486 MERGED | f-meta2-belief-falsifiability-s486.json
 
+## S486 session note (PHIL-15 falsification — encounter vs sustained universality)
+- **check_mode**: verification | **mode**: falsification (DOMEX-EVAL-S486)
+- **expect**: PHIL-15 is FALSE because ≥20% of encountered inputs are neither integrated nor analyzed
+- **actual**: PARTIAL FALSIFICATION. Encounter-universal (98.6% signals, 95.7% HQ) but application-selective (27.3% domains abandoned, 31.7% DECAYED, 67% prescriptions unenforced).
+- **diff**: Expected binary FALSE, found temporal split. First-contact universal, sustained selective.
+- **meta-swarm**: Target `tools/maintenance_drift.py` — Layer 2 source-code baseline scan FP rate. Historical audit comments flagged as stale baselines.
+- **State**: 1130L 236P 21B 10F | L-1239, PHIL-15 DOWNGRADED aspirational→partial | DOMEX-EVAL-S486 MERGED
+
 ## S485 session notes (correction propagation + F-PHY5 attractor + open_lane fix)
 - **Correction propagation** (DUE, periodic S464→S485): 0 HIGH, 4 MEDIUM, 6 LOW. Rate 60%. L-025 citers referential-only.
 - **DOMEX-META-S484 closed**: task_order.py ~4959t (target <5000t). Helper extraction confirmed.
@@ -40,6 +48,7 @@ Updated: 2026-03-03 S486 | 1130L 236P 21B 10F
 - **Meta-reflection**: open_lane.py staleness regex — all 46 domains affected by false-positive staleness.
 
 ## For next session
+- Add falsifiability column to PHILOSOPHY.md claims table — DROP criteria for 13 PARTIALLY beliefs (L-1241)
 - orient.py --resume flag: skip sections where blueprint state is current (fast boot)
 - F-SWARMER2 adversarial capstone needed (5 waves, 0 falsification)
 - Falsification debt: 3/3 skips consumed — next lane MUST be mode=falsification

@@ -1,0 +1,29 @@
+{
+    "experiment": "DOMEX-META-S487",
+    "frontier": "F-META2",
+    "session": "S487",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "mode": "falsification",
+    "target": "PHIL-22: theorems generalize to help swarm swarm",
+    "expect": "PHIL-22 is FALSE because principle citation is cosmetic, not causal. Predict: r(P-cites, Sharpe) < 0.15 (n>=100). Falsified-if-wrong: if r > 0.30, PHIL-22 recursion claim is SUPPORTED.",
+    "actual": "r(P-cites, Sharpe) = -0.047 (n=549). Lessons citing principles have LOWER Sharpe (-2.2%). L4 r=-0.157. L-citation r=0.200 shows lesson-to-lesson recursion IS real. Principle-to-lesson recursion is not.",
+    "diff": "Prediction CONFIRMED (r < 0.15). Unexpected: correlation is NEGATIVE, not just zero. L4 (highest quality) shows strongest negative correlation — high-quality lessons diverge FROM principles, not toward them. Lesson-level recursion (r=0.200) vs principle-level (r=-0.047) reveals two-tier knowledge system: empirical base is recursive, abstract layer is not.",
+    "results": {
+        "n": 549,
+        "r_principle_sharpe": -0.047,
+        "r_lesson_sharpe": 0.200,
+        "r_citesheader_sharpe": 0.203,
+        "mean_sharpe": 7.88,
+        "citing_mean_sharpe": 7.75,
+        "nonciting_mean_sharpe": 7.93,
+        "by_level": {
+            "L2": {"n": 409, "r": -0.034},
+            "L3": {"n": 104, "r": -0.054},
+            "L4": {"n": 30, "r": -0.157}
+        },
+        "session_level_effect": "+2.0% (n=36 vs 69, not significant)"
+    },
+    "verdict": "PARTIALLY FALSIFIED — recursion is real at L-to-L level (r=0.200) but NOT at P-to-L level (r=-0.047). Principles are documentation artifacts, not generative mechanisms.",
+    "implication": "PHIL-22 should be refined: empirical lessons drive recursion; abstracted principles are summary, not substrate."
+}

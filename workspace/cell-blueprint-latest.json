@@ -1,19 +1,14 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S486",
-  "timestamp": "2026-03-03T05:52:51.070553+00:00",
+  "timestamp": "2026-03-03T05:53:45.436930+00:00",
   "metrics": {
-    "lessons": 1128,
+    "lessons": 1129,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [
-    {
-      "lane": "DOMEX-META-S487",
-      "status": "ACTIVE",
-      "scope": "domains/meta/tasks/FRONTIER.md"
-    },
     {
       "lane": "DOMEX-STAT-S487",
       "status": "ACTIVE",
@@ -21,16 +16,17 @@
     }
   ],
   "recent_commits": [
+    "b011239e [S486] feat: absorb 4 DOMEX lane closures + 3 lessons (L-1238..L-1240)",
     "15eaccc6 [S486] feat: Swiss Cheese FALSIFIED \u2014 ADEQUATE has 38% recurrence at N\u22655 (L-1237, F-CAT1)",
     "6b816b05 [S485] feat: F-PHY5 attractor interpretation + correction propagation + open_lane staleness fix",
     "8a208d1a [S486] feat: cell blueprint \u2192 orient.py structural wiring (L-601, L-1184)",
-    "23a78b06 [S485] handoff: session note + count sync (1125L) + periodics update",
-    "42a40871 [S484] handoff: count sync 1123\u21921124 + session note for T4 extraction"
+    "23a78b06 [S485] handoff: session note + count sync (1125L) + periodics update"
   ],
   "uncommitted": [
     "M README.md",
     "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
     "M domains/social-media/COLONY.md",
     "M domains/social-media/DOMAIN.md",
     "M domains/social-media/INDEX.md",
@@ -43,18 +39,17 @@
     "M experiments/meta/f-meta2-belief-falsifiability-s486.json",
     "M experiments/social-media/isomorphism-validation-s486.json",
     "M memory/INDEX.md",
-    "M  memory/SESSION-LOG.md",
-    "MM tasks/NEXT.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/periodics.json",
-    "M  workspace/cell-blueprint-latest.json"
+    "M memory/SESSION-LOG.md",
+    "M tasks/NEXT.md",
+    "M workspace/cell-blueprint-latest.json",
+    "M workspace/falsification-debt.json"
   ],
   "untracked_artifacts": [
     "experiments/meta/phil22-recursion-test-s487.json",
+    "experiments/statistics/f-stat1-verdict-stability-analysis-s487.py",
     "experiments/statistics/f-stat1-verdict-stability-retest-s487.json",
     "memory/lessons/L-1238.md",
     "memory/lessons/L-1239.md",
-    "memory/lessons/L-1240.md",
     "memory/lessons/L-1241.md",
     "memory/lessons/L-1242.md"
   ],
@@ -102,7 +97,7 @@
     },
     {
       "domain": "meta",
-      "score": 5.8,
+      "score": 5.9,
       "collision": false
     },
     {
