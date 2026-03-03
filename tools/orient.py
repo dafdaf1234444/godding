@@ -303,6 +303,7 @@ def main():
         section_knowledge_swarm, section_knowledge_recombination,
         section_suggested_action, section_cascade_state,
     )
+    from closeable_frontiers import section_closeable_frontiers
 
     # Parallelize all slow independent operations:
     # git_fsck ~3s, historian_repair ~7s, meta_tooler ~11s, prescription_gap ~2s
@@ -387,6 +388,7 @@ def main():
     _print_lines(section_zombie_carryover())
     _print_lines(section_closure_metric())
     _print_lines(section_knowledge_swarm())
+    _print_lines(section_closeable_frontiers(session_num=current_sess_num))
     _print_lines(section_knowledge_recombination())
 
     # Stalled campaigns — need stall_map for suggested action
