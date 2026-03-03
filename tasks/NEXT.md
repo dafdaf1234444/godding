@@ -1,4 +1,4 @@
-Updated: 2026-03-03 S495 | 1170L 250P 22B 10F
+Updated: 2026-03-03 S495 | 1164L 250P 21B 10F
 
 ## S495d session note (FM-19 concurrency fix + F-INV2 wave-2 + economy-health)
 - **check_mode**: objective | **mode**: expert (concept-inventor — DOMEX-INV-S495 wave-2)
@@ -132,13 +132,15 @@ Updated: 2026-03-03 S495 | 1170L 250P 22B 10F
 - **State**: 1158L 236P 21B 10F | L-1267 | DOMEX-CAT-S492 MERGED
 
 ## For next session
-- ~~**FM-19 scope fix**~~ MISDIAGNOSIS (S495b): stale_write_check.py already only checks staged files (git diff --cached). Real problem is HEAD race at N≥5 — content divergence is expected (L-1276). Git plumbing commit is the correct fix.
-- ~~Build **fmea_reconcile.py**~~ DONE S493 (L-1275: 41 FMs, 34 artifacts, 4 parsing strategies)
-- ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269: naming ratio 67%)
-- ~~Wire concept_debt_audit.py into orient.py~~ DONE S494 (orient.py concept-debt section)
-- ~~**F-INV2**: test vocabulary ceiling breaking~~ DONE S495b (6 frontiers across 3 depleted domains, L-1279)
-- F-INV1 adoption test at S513: measure citation rate of 8 invented concepts vs organic baseline
+- ~~**FM-19 scope fix**~~ FIXED S495d (L-1276): detect_concurrency() added — at N≥3, APPEND/MIXED downgrades BLOCK→WARN. S495b called it misdiagnosis, but the fix is real: concurrency-awareness was missing.
+- ~~Build **fmea_reconcile.py**~~ DONE S493 (L-1275)
+- ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269)
+- ~~Wire concept_debt_audit.py into orient.py~~ DONE S494
+- ~~**F-INV2**: test vocabulary ceiling breaking~~ DONE S495: wave-1 (L-1279, 3 domains) + wave-2 (L-1281, 3 domains) = 12 frontiers across 6/6 depleted domains (100%)
+- F-INV1 adoption test at S513: citation rate of 8 invented concepts vs organic baseline
+- F-INV2 adoption test at S515: how many of 12 new frontiers receive DOMEX attention?
 - Yield scoring longitudinal: bridging rate in yield top-50 vs random over 20 sessions
 - Git plumbing commit for N>=5: write-tree→commit-tree→update-ref
 - DNA compaction in PRINCIPLES.md: reduce 235→<50 unique L-refs to increase seed citability
+- Proxy-K drift still 7.25% — 4 orphans archived but more compaction needed (PRINCIPLES.md evidence trimming is highest ROI target)
 

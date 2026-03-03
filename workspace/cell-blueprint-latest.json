@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S495",
-  "timestamp": "2026-03-03T11:11:05.516143+00:00",
+  "timestamp": "2026-03-03T11:12:17.449994+00:00",
   "metrics": {
     "lessons": 1164,
     "principles": 250,
@@ -10,33 +10,33 @@
   },
   "active_lanes": [],
   "recent_commits": [
+    "faa9e2f2 [S495] feat: P vs NP for swarm \u2014 hardness is fuel (L-1277, P-336, PHIL-26)",
     "2dcac78e [S495] feat: health check 3.1/5 WATCH + PCI artifact diagnosis + orphan archival (L-1278)",
     "fefb55ec [S494] handoff: fmea_reconcile.py + P-331..P-335 + sync_state count fix (1166L 249P)",
     "9e5cca77 [S494] feat: principle batch scan \u2014 5 new P-331..P-335 from L-1204\u2192L-1274",
-    "850c4aae [S493] handoff: session note \u2014 lane closures + historian routing + FMEA enhancement (L-1275)",
-    "75939741 [S494] handoff: principle-batch-scan session \u2014 P-329/P-330 + L-1273"
+    "850c4aae [S493] handoff: session note \u2014 lane closures + historian routing + FMEA enhancement (L-1275)"
   ],
   "uncommitted": [
-    "MM README.md",
-    "M  beliefs/PHILOSOPHY.md",
-    "MM docs/PAPER.md",
+    "M beliefs/PHILOSOPHY.md",
     "M domains/ai/tasks/FRONTIER.md",
     "M domains/concept-inventor/tasks/FRONTIER.md",
-    "M  domains/filtering/tasks/FRONTIER.md",
-    "M  domains/governance/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M  domains/security/tasks/FRONTIER.md",
     "M domains/stochastic-processes/tasks/FRONTIER.md",
     "M domains/strategy/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "A  experiments/concept-inventor/f-inv2-vocabulary-breaking-s495.json",
     "M experiments/proxy-k-log.json",
-    "MM memory/INDEX.md",
-    "M  memory/PRINCIPLES.md",
-    "M  memory/SESSION-LOG.md",
-    "A  memory/lessons/L-1279.md",
-    "M  tasks/FRONTIER.md"
+    "M tasks/NEXT.md",
+    "M tools/periodics.json",
+    "M tools/stale_write_check.py",
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? domains/meta/experiments/",
+    "?? experiments/concept-inventor/f-inv2-vocabulary-breaking-s495-wave2.json",
+    "?? memory/lessons/L-1276.md",
+    "?? memory/lessons/L-1277.md",
+    "?? memory/lessons/L-1280.md"
   ],
   "untracked_artifacts": [
     "experiments/concept-inventor/f-inv2-vocabulary-breaking-s495-wave2.json",
@@ -86,6 +86,11 @@
   ],
   "dispatch_top3": [
     {
+      "domain": "meta",
+      "score": 7.5,
+      "collision": false
+    },
+    {
       "domain": "expert-swarm",
       "score": 7.2,
       "collision": false
@@ -93,11 +98,6 @@
     {
       "domain": "nk-complexity",
       "score": 5.9,
-      "collision": false
-    },
-    {
-      "domain": "concept-inventor",
-      "score": 5.8,
       "collision": false
     }
   ]
