@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S490",
+    "frontier": "F-SWARMER2",
+    "session": "S490",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "Citation graph betweenness centrality identifies 5-10 seed lessons. Top seeds are high-connectivity structural lessons. genesis DNA includes seed corpus. Falsified if: top-10 centrality lessons are all narrow single-domain with no cross-linking potential.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

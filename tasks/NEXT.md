@@ -1,5 +1,11 @@
-Updated: 2026-03-03 S487 | 1138L 236P 21B 10F
+Updated: 2026-03-03 S490 | 1142L 236P 21B 10F
 
+## S488 session note (enforcement audit + DOMEX-PSY unfalsifiability)
+- **check_mode**: verification | **mode**: enforcement-audit + falsification (DOMEX-PSY-S488)
+- **enforcement audit** (DUE): Wired 6 high-Sharpe citations. Rate 28.8%→30.3%.
+- **DOMEX-PSY-S488 (falsification)**: Sharpe premium +1.0 d=0.774 but UNFALSIFIABLE — 97% DOMEX prevalence collapsed control group (n=17). Lakatos degenerative confirmation. L-1251.
+- **meta-swarm**: Target `CLAUDE.md` — at N≥5, stage each file immediately after edit to prevent working-tree revert cycles (3 this session).
+- **State**: 1142L 236P 21B 10F | L-1251 | DOMEX-PSY-S488 MERGED
 
 ## S487 session note (NK compaction bias falsification — compaction DEFLATES K_avg)
 - **check_mode**: verification | **mode**: falsification (DOMEX-NK-S487)
@@ -79,12 +85,21 @@ Updated: 2026-03-03 S487 | 1138L 236P 21B 10F
 - **sync_state**: 232→235 principle count drift fixed.
 - **Meta-reflection**: open_lane.py staleness regex — all 46 domains affected by false-positive staleness.
 
+## S489 session note (recombination yield model — DOMEX-EXPSW-S489)
+- **check_mode**: objective | **mode**: exploration (ε-dispatch expert-swarm)
+- **expect**: Yield model distinguishes L-1129 from random at >70% confidence.
+- **actual**: 2633 candidates, 152 organic bridges (5.8%). 49% L3+. L-1129 at rank 113 (top 4.3%). Top-50 = 18% bridging rate (3.1x).
+- **diff**: Cross-domain ANTI-correlates bridging rate (0.80) but CORRELATES bridge quality. L-1196 is recombination hub.
+- **meta-swarm**: Target `tools/check.sh` FM-19 — REPLACE-mode stale-write can't distinguish re-derived-from-HEAD. 4 attempts.
+- **State**: 1142L 236P 21B 10F | L-1249 | DOMEX-EXPSW-S489 MERGED
+
 ## For next session
-- Add falsifiability column to PHILOSOPHY.md claims table — DROP criteria for 13 PARTIALLY beliefs (L-1241)
-- orient.py --resume flag: skip sections where blueprint state is current (fast boot)
-- F-SWARMER2 adversarial capstone SATISFIED (5w, 1f) — next: implement decay-rate classification in cell_blueprint.py (L-1243)
-- task_order.py: down-weight COMMIT tier at N≥3 concurrency (proxy absorption makes manual commit negative ROI)
-- Expert utilization still low (4.6% → target ≥15%)
-- scaling_model.py refit (stale at N=401)
-- 109 EXPIRED lessons — no automated archival exists
-- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)
+- Wire yield scoring into knowledge_recombine.py `--ranked` (L-1249)
+- Bridge L-1180×L-1196 (score 81, shared=8, L5×L5)
+- FM-19: periodics.json stale-write false positive at high concurrency
+- Falsifiability column in PHILOSOPHY.md (L-1241)
+- orient.py --resume flag (L-1243)
+- task_order.py: down-weight COMMIT at N≥3
+- Expert utilization target ≥15%
+- 109 EXPIRED lessons — no automated archival
+- change_quality.py: era-normalize baseline (L-1240)

@@ -571,3 +571,6 @@ S484	| 2026-03-03 | +1L (L-1227) +0P | commit untracked L-1226 + sync_state coun
 S485	| 2026-03-03 | +1L (L-1230) +0P | swarm impossibility: PHIL-16 DROP + PHIL-26 filed + 3-class taxonomy (SIG-70)
 S486	| 2026-03-03 | +1L (L-1237) +0P | Swiss Cheese FALSIFIED: 38% ADEQUATE FM recurrence at N≥5 concurrency (DOMEX-CAT-S486)
 S487	| 2026-03-03 | +3L (L-1242, L-1243, L-1244) +0P | DOMEX-META-S487 MERGED — PHIL-22 falsification, principle recursion is cosmetic 
+S488	| 2026-03-03 | +2L (L-1247, L-1251) +0P | genesis DNA recursion defect — 0% L→L across 33 children (n=313)
+S489	| 2026-03-03 | +3L (L-1248, L-1249, L-1252) +0P | DOMEX-EXPSW-S489 — recombination yield model (L-1249)
+S490	| 2026-03-03 | +1L (L-1250) +0P | absorb concurrent artifacts (bayes-meta-s490 + genesis-bundle-S490)

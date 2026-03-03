@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S489c",
+    "frontier": "F-META2",
+    "session": "S489",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "Wire 2+ Sharpe>=9 prescriptions into structural enforcement (tools/periodics). Enforcement rate 30.2% to 32%+. Falsified if: all top prescriptions are fundamentally unwirable.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

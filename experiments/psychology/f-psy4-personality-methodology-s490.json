@@ -1,0 +1,57 @@
+{
+    "experiment": "DOMEX-PSY-S490",
+    "frontier": "F-PSY4",
+    "session": "S490",
+    "domain": "psychology",
+    "date": "2026-03-03",
+    "hypothesis": "F-PSY4: personality archetypes predict research methodology effectiveness. H1: deep-investigation types (experimenter) produce 3x more paradigm shifts. H2: precision-focused types (tooler) achieve 2x higher execution precision. H3: collaborative types (historian) produce 50% more cross-domain findings.",
+    "method": "Extracted role, mode, status, artifact presence, paradigm-shift indicators, cross-domain references, and prediction-match rates from 77 DOMEX lanes in SWARM-LANES.md. 51 lanes with explicit role= tags (25 experimenter, 10 historian, 16 tooler). Paradigm shift proxy: FALSIFIED/DOWNGRADE/PHIL mentions in actual+diff+notes fields. Precision proxy: merge_rate + prediction_match. Cross-domain proxy: reference to domains other than lane's own. Effect sizes computed as Cohen's d.",
+    "sample_size": 77,
+    "tagged_lanes": 51,
+    "expect": "H1 CONFIRMED (experimenter 3x paradigm shift rate), H2 CONFIRMED (tooler 2x precision), H3 CONFIRMED (historian 50% more cross-domain). Role-mode alignment improves merge rate by 10%+.",
+    "actual": "H1 PARTIALLY CONFIRMED: experimenter 52% paradigm-shift rate vs 15% baseline (3.5x, d=+0.826 large). But mechanism is role-general, NOT falsification-specific (33% falsification vs 55% other modes). H2 PARTIALLY CONFIRMED: tooler merge=100% prediction_match=87.5% (highest precision), but experimenter nearly matches (96%/92%). Effect: toolers AVOID paradigm shifts (d=-0.661). H3 FALSIFIED: historian 0% cross-domain (vs experimenter 68%). Historian HHI=1.0 (all 10 lanes in META domain). Role-mode alignment HURTS: aligned pairs merge 75% vs misaligned 97.4%.",
+    "diff": "H1 direction correct but mechanism wrong: not introversion/falsification, just the experimenter identity. H2 confirmed for completion precision, but experimenters rival on prediction accuracy. H3 completely reversed — experimenters are the cross-domain producers, historians are tunnel-visioned. Biggest surprise: role-mode alignment is ANTI-correlated with success (75% vs 97.4%). This contradicts the personality-methodology 'fit' model.",
+    "results": {
+        "H1_paradigm_shifts": {
+            "experimenter": {"n": 25, "shifts": 13, "rate": 0.52, "d": 0.826},
+            "historian": {"n": 10, "shifts": 2, "rate": 0.20, "d": -0.348},
+            "tooler": {"n": 16, "shifts": 2, "rate": 0.125, "d": -0.661},
+            "unassigned": {"n": 26, "shifts": 5, "rate": 0.192}
+        },
+        "H2_precision": {
+            "experimenter": {"merge_rate": 0.96, "prediction_match": 0.92},
+            "historian": {"merge_rate": 0.70, "prediction_match": 0.70},
+            "tooler": {"merge_rate": 1.00, "prediction_match": 0.875},
+            "unassigned": {"merge_rate": 0.885, "prediction_match": 0.231}
+        },
+        "H3_cross_domain": {
+            "experimenter": {"n": 25, "cross": 17, "rate": 0.68},
+            "historian": {"n": 10, "cross": 0, "rate": 0.0},
+            "tooler": {"n": 16, "cross": 8, "rate": 0.50},
+            "unassigned": {"n": 26, "cross": 7, "rate": 0.269}
+        },
+        "alignment_effect": {
+            "aligned": {"n": 12, "merge_rate": 0.75, "paradigm_shift": 0.25},
+            "misaligned": {"n": 39, "merge_rate": 0.974, "paradigm_shift": 0.359}
+        },
+        "domain_concentration_HHI": {
+            "experimenter": 0.139,
+            "historian": 1.0,
+            "tooler": 0.328
+        }
+    },
+    "key_findings": [
+        "Experimenter role IS the paradigm-shift engine (52%, d=+0.826). Not methodology-specific — the identity drives the behavior.",
+        "Tooler role IS the reliability engine (100% merge, 0% abandon). Trades paradigm shifts for execution certainty.",
+        "Historian role has structural tunnel vision: HHI=1.0 (only META domain). Zero cross-domain findings despite being the 'synthesizer' archetype.",
+        "Role-mode alignment is ANTI-productive: misaligned pairs outperform aligned (97.4% vs 75% merge). Productive tension > comfortable fit.",
+        "Unassigned lanes (early DOMEX era) have 26.9% artifact rate vs 100% for all assigned roles — role assignment itself is the primary intervention."
+    ],
+    "prescription": [
+        "dispatch_optimizer.py should assign experimenter for paradigm-shift frontiers, tooler for hardening/infrastructure, and redistribute historian across domains (not just META)",
+        "Consider ANTI-matching role-mode: assign experimenters to hardening, toolers to exploration — productive friction hypothesis",
+        "Role assignment alone (vs unassigned) is the biggest effect: 100% artifact rate vs 26.9%. Tag ALL lanes."
+    ],
+    "lesson": "L-1250",
+    "cross_domain": "Connects to expert-swarm (F-SWARMER2: colony role optimization), evaluation (F-EVAL2: how to measure expert effectiveness), and organizational psychology (role-task fit literature shows 'misfit' can increase creativity — Miron-Spektor & Beenen 2015)"
+}

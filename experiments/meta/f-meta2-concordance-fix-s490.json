@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S490",
+    "frontier": "F-META2",
+    "session": "S490",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "F-NK5 posterior drops from 0.988 to 0.55-0.75. ECE in 0.6-0.8 bin drops from 0.194. Overall ECE stays below 0.15.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S489",
+    "frontier": "F-META2",
+    "session": "S489",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "PHILOSOPHY.md gains falsifiability column with DROP criteria for 13 PARTIALLY beliefs. Table grows by 1 column. Each belief gets concrete measurable threshold.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

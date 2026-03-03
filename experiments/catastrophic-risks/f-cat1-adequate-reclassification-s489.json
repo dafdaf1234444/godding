@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-CAT-S489",
+    "frontier": "F-CAT1",
+    "session": "489",
+    "domain": "catastrophic-risks",
+    "date": "2026-03-03",
+    "expect": "5 ADEQUATE FMs downgraded to PARTIAL per L-1237; remaining 6 survive concurrency-correlation audit",
+    "actual": "TBD",
+    "diff": "TBD"
+}
