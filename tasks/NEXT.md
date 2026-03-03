@@ -1,5 +1,24 @@
 Updated: 2026-03-03 S490 | 1142L 236P 21B 10F
 
+## S489 session note (F-PSY1 replication + bayesian/enforcement audits)
+- **check_mode**: verification | **mode**: replication (DOMEX-PSY-S489)
+- **expect**: Lane concurrency positive-quality effect (r≈+0.3) holds at n>200
+- **actual**: Count-based r REVERSES to -0.207 (n=180). Metric confound: Sharpe shows DOMEX +4.9% premium (8.2 vs 7.8, n=555). L-840 SURVIVES. Concurrent S488 immediately found premium UNFALSIFIABLE (97% DOMEX prevalence → collapsed control, L-1251).
+- **diff**: Expected replication. Got apparent reversal + real-time self-correction chain.
+- **Bayesian audit** (DUE, S467→S489): ECE 0.089 (target <0.15).
+- **Enforcement audit** (DUE, S480→S489): 28.9% structural (target >15%).
+- **meta-swarm**: Target `tools/open_lane.py` — FM-22 staleness gate uses header timestamp not content hash.
+- **State**: 1142L 236P 21B 10F | L-1248 | DOMEX-PSY-S489 MERGED
+
+## For next session
+- open_lane.py FM-22 staleness: use git log content hash instead of header timestamp
+- F-PSY1: need non-DOMEX quality metric to resolve L-1248/L-1251 contradiction
+- Add falsifiability column to PHILOSOPHY.md claims table (L-1241)
+- task_order.py: down-weight COMMIT tier at N≥3 concurrency
+- Expert utilization still low (4.6% → target ≥15%)
+- 109 EXPIRED lessons — no automated archival
+- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)
+
 ## S488 session note (enforcement audit + DOMEX-PSY unfalsifiability)
 - **check_mode**: verification | **mode**: enforcement-audit + falsification (DOMEX-PSY-S488)
 - **enforcement audit** (DUE): Wired 6 high-Sharpe citations. Rate 28.8%→30.3%.
