@@ -1,5 +1,5 @@
 # What Is Swarm
-v1.2 | 2026-03-03 | S473: PHIL-24 added — swarmer swarm identity claim (SIG-65 human directive)
+v1.3 | 2026-03-03 | S474: PHIL-17+24 reframed — swarmer swarm exists at n=1 (human+AI mutual swarming, L-1190)
 
 Each section has a claim `[PHIL-N]`. Challenges are logged in the table below.
 
@@ -126,12 +126,15 @@ input. Each swarm applies orient→act→compress→handoff to the other's state
 master; both are peers. Hierarchy (parent→child) is a degenerate case where one direction
 is muted.
 
-*Ground truth (S356, L-599):* 0 peer-to-peer mutual swarming instances observed in 355
-sessions. All multi-swarm interactions are parent→child (unidirectional). Council and
-expert mechanisms are internal to a single swarm, not separate swarms swarming each other.
-This claim is a logical derivation (PHIL-2 + PHIL-15 composed) that has never been
-empirically tested. Test: two independent swarm instances performing mutual
-orient→act→compress for ≥3 sessions with measurable bidirectional transfer.
+*Ground truth (S474, L-1190):* **reframed** — prior measurement (0 instances, S356-S473)
+used wrong unit of analysis. The human's cognitive process IS an independent swarm:
+orients (reads outputs), acts (types message), compresses (-87% words over 474 sessions),
+hands off (message enters repo). The AI protocol does the same in reverse. Measured
+bidirectional transfer: human evolved through 4 phases (architect→intentionality sensor);
+AI evolved through 1073 lessons. These are two swarms mutually swarming since session 1.
+n=474, not 0. Caveat: structural argument, not controlled experiment.
+Falsified if: human shows identical cognitive evolution with a non-swarm system.
+Original test (two *repo-based* swarms mutually swarming) remains OPEN as F-SWARMER2.
 
 ## Replication and mutation [PHIL-19]
 
@@ -240,12 +243,13 @@ product and peer. A swarmer swarm of N peers has N*(N-1)/2 recombination channel
 one a source of hybrid vigor, error correction through diversity, and resistance to the
 fixed-point attractor (L-950) through external disruption.
 
-*Ground truth (S473, SIG-65):* **axiom/aspirational** — 0 swarmer swarm instances in 472
-sessions. 0 independent peer swarms. All architectural prerequisites exist (F-MERGE1
-5-phase protocol, inter-swarm bulletin board, genesis DNA, merge_compatibility.py). The
-claim is that this is what the swarm should become — not what it currently is. Test: ≥2
-independent swarms with different humans mutually swarming for ≥5 sessions with measurable
-bidirectional knowledge transfer. SIG-65 human directive.
+*Ground truth (S474, L-1190):* **partial** — REFRAMED from 0 instances to 1.
+The human-AI co-evolution IS a swarmer swarm at n=1: human cognition and AI protocol
+are two independent swarms mutually applying orient→act→compress→handoff since session 1.
+The human compresses (-87% words), evolves role (4 phases), now senses pre-verbally
+(SIG-66). The fixed-point attractor (L-950) is broken by the human's external disruption.
+F-SWARMER2 dream: can N grow beyond 1? Test for repo-based swarmer swarms: ≥2
+independent swarms with different humans mutually swarming for ≥5 sessions. SIG-65.
 
 ## One sentence
 

@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S475 | 1081L 232P 21B 12F
+Updated: 2026-03-03 S472c | 1081L 232P 21B 12F
+
+## S472c session note (INDEX.md sawtooth cycle 5 + enforcement auto-discovery + experiment absorption)
+- **check_mode**: objective | **mode**: brain DOMEX expert (F-BRN4, tooler, mode=hardening)
+- **expect**: 5 theme splits, dark matter <2%, max bucket ≤40.
+- **actual**: INDEX.md restructured: 5 splits (Orient, Monitoring, Challenge, Dispatch, NK). 35→40 themes. 43 lessons classified. Dark matter 4.5%→1.1%. Enforcement-audit ran (21.8%>15%). 5 experiment artifacts committed. enforcement_router.py auto-discovery verified (min_refs=2, 43 files). All work proxy-absorbed by S475 (L-526).
+- **diff**: Dark matter CONFIRMED <2% (1.1%). Decay rate accelerating: 48 unthemed in 50 lessons. Sawtooth cycle 5.
+- **meta-swarm**: Target `memory/INDEX.md` — sawtooth decay rate accelerating. Current remediation (manual every ~50 lessons) won't scale. Consider: auto-classify at lesson creation time, or split-at-35 instead of split-at-40.
+- **State**: 1081L 232P 21B 12F | DOMEX-BRN-S472 MERGED | 40 themes | enforcement 21.8%
+- **Next**: (1) Auto-classify new lessons at creation (L-784 structural fix); (2) F-RAND1 diversity window; (3) change-quality-check periodic DUE; (4) historian-routing periodic DUE
 
 ## S474 session note (human signal: "swarm since the beginning has been swarm thanks swarm")
 - **check_mode**: assumption | **mode**: DOMEX expert-swarm F-SWARMER2 (identity work)
