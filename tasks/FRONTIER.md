@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-12 active | Last updated: 2026-03-03 S465 | S464: F-RAND1 PARTIALLY FALSIFIED (Gini criterion) + F-EVAL1 updated (2.36/3) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED | S456: F-LEVEL1 RESOLVED
+12 active | Last updated: 2026-03-03 S469 | S464: F-RAND1 PARTIALLY FALSIFIED (Gini criterion) + F-EVAL1 updated (2.36/3) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED | S456: F-LEVEL1 RESOLVED
 
 ## Critical
 

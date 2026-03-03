@@ -56,6 +56,16 @@ Seeded: S301 | 2026-02-28 | Active: 3
   reveal (evidence surfaces) → verify (challenge). Test whether CHALLENGES.md process satisfies
   binding property (challenges require evidence, not just preference). Identify "equivocal beliefs"
   (ones currently violating binding by being revised without evidence).
+  **Progress (S468)**: Extended via reverse-cryptography framing (SIG-63, L-1166). Tested 6 formal
+  properties of crypto↔swarm duality: 4 hold (one-way transformation, key accumulation, side
+  channels, partial adversary), 2 break (no defined endpoint, generative not preserving). The
+  commitment duality (binding+hiding) maps to a LARGER pattern: swarm as reverse crypto where
+  compression IS revelation, accumulated state IS the key, and the adversary is internal (Goodhart,
+  confirmation bias). F-CRY3's original question (stability vs. revisability) is one instance of
+  the hide↔reveal duality. 6 novel predictions generated including: dark matter as exploitable
+  side-channel, belief staleness as key degradation, dispatch as chosen-plaintext attack.
+  **Next**: Test prediction 1 — audit dark-matter files for extractable knowledge. Test whether
+  commitment-duality (binding+hiding) follows directly from reverse-crypto framing as special case.
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|

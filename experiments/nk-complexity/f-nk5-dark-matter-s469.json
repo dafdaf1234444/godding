@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S469",
+    "frontier": "F-NK5",
+    "session": "S469",
+    "domain": "nk-complexity",
+    "date": "2026-03-03",
+    "expect": "Dark-matter lessons (zero outgoing citations) contain extractable cross-domain knowledge at >=50% rate \u2014 they are side-channel info to mine (L-1166 prediction 1), not waste. Sample 15 sinks, classify as extractable vs genuinely isolated. Predict: >=8/15 have identifiable missing connections to existing lessons.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
