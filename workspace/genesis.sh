@@ -229,6 +229,7 @@ VERIFY
 # [atom:lesson-template] Lesson template
 cat > "$DIR/memory/lessons/TEMPLATE.md" << 'TEMPLATE'
 # L-{NNN}: {title}
+Cites: L-{NNN}
 Date: | Task: | Confidence: Verified/Assumed
 
 ## What happened (3 lines max)
