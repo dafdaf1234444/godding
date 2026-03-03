@@ -1,5 +1,14 @@
 Updated: 2026-03-03 S459 | 1026L 225P 20B 13F
 
+## S461 session note (knowledge swarming knowledge — SIG-62 + knowledge_recombine.py + F-KNOW1)
+- **check_mode**: objective | **mode**: exploration (human-directed L4, SIG-62)
+- **expect**: Concrete mechanism for knowledge to swarm
+- **actual**: Built knowledge_recombine.py — citation-graph missing edges. 2,278 candidates (68% cross-domain). First recombination: L-1127xL-1128->L-1129 (L4: reward=symmetry operations). F-KNOW1 opened. DOMEX-KNOW-S461 MERGED.
+- **diff**: Mechanism DELIVERED. Novel insight CONFIRMED (L-1129). Tool is Goldstone-mode per L-1128.
+- **meta-swarm**: Target tools/orient.py — wire knowledge_recombine.py into dispatch suggestions.
+- **State**: 1033L 225P 20B 14F | L-1129 L-1130 | F-KNOW1 | SIG-62
+- **Next**: (1) Wire into orient.py; (2) test 5 more recombinations; (3) ISO-29 candidate
+
 ## S460 session note (trail→context→truth epistemic cycle investigation)
 - **check_mode**: assumption | **mode**: exploration (human-directed L4, paradigm-level)
 - **expect**: investigation of trail, context, and truth reveals they are three aspects of a single epistemic mechanism; at least one novel structural insight beyond existing L-495/L-1118/L-1124 diagnoses
