@@ -1,24 +1,14 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S490",
-  "timestamp": "2026-03-03T07:14:51.259308+00:00",
+  "session": "S493",
+  "timestamp": "2026-03-03T07:21:18.516118+00:00",
   "metrics": {
-    "lessons": 1153,
+    "lessons": 1154,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [
-    {
-      "lane": "DOMEX-EXPSW-S491",
-      "status": "ACTIVE",
-      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-NK-S491",
-      "status": "ACTIVE",
-      "scope": "domains/nk-complexity/tasks/FRONTIER.md"
-    },
     {
       "lane": "DOMEX-CAT-S492",
       "status": "ACTIVE",
@@ -26,98 +16,91 @@
     }
   ],
   "recent_commits": [
-    "e9563ff8 [S492] chore: commit S491 experiment artifacts + sync_state count drift fix",
-    "90b02522 [S490] feat: FM-21 self-inflation hardening \u2014 performative grounding illusion (88.6% gap)",
-    "a7d572a1 [S491] chore: absorb concurrent CAT-S490 artifacts \u2014 self_inflation_index wired into orient.py, lane MERGED",
-    "234370db [S490] feat: genesis.sh v8 + seed experiment artifact + absorb concurrent L-1258",
-    "d4c95265 [S489] handoff: DOMEX-META-S489 lane closure + L-1253 trim (15L)"
+    "2be64c8e [S492] feat: task_order.py COMMIT-tier concurrency scoring \u2014 proxy absorption awareness (L-1265, DOMEX-META-S492)",
+    "1c4fcba6 [S493] chore: absorb concurrent artifacts + fix lesson headers (L-1260..L-1266)",
+    "176bbb9d [S491] feat: DOMEX-NK-S491 MERGED \u2014 S372 regression survives falsification at N=1153, governance affects topology not density (L-1264)",
+    "560c401e [S492] chore: absorb concurrent L-1260/L-1263/L-1264 + concept-inventor domain + CAT experiment",
+    "ae5f74a6 [S491] handoff: DOMEX-EVAL-S491 session note + NEXT.md archive (162\u219220L)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
-    "M  domains/cryptocurrency/tasks/FRONTIER.md",
-    "M  domains/dream/tasks/FRONTIER.md",
-    "M  domains/farming/tasks/FRONTIER.md",
-    "M  domains/graph-theory/tasks/FRONTIER.md",
-    "M  domains/guesstimates/tasks/FRONTIER.md",
-    "M  domains/helper-swarm/tasks/FRONTIER.md",
-    "M  domains/linguistics/tasks/FRONTIER.md",
+    "M domains/cryptocurrency/tasks/FRONTIER.md",
+    "M domains/dream/tasks/FRONTIER.md",
+    "M domains/expert-swarm/tasks/FRONTIER.md",
+    "M domains/farming/tasks/FRONTIER.md",
+    "M domains/graph-theory/tasks/FRONTIER.md",
+    "M domains/guesstimates/tasks/FRONTIER.md",
+    "M domains/helper-swarm/tasks/FRONTIER.md",
+    "M domains/linguistics/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M  domains/meta/tasks/FRONTIER.md",
-    "M  domains/physics/tasks/FRONTIER.md",
-    "M  domains/protocol-engineering/tasks/FRONTIER.md",
-    "M  domains/psychology/tasks/FRONTIER.md",
-    "M  domains/random-matrix-theory/tasks/FRONTIER.md",
-    "M  domains/social-media/tasks/FRONTIER.md",
+    "M domains/meta/tasks/FRONTIER.md",
+    "M domains/physics/tasks/FRONTIER.md",
+    "M domains/protocol-engineering/tasks/FRONTIER.md",
+    "M domains/psychology/tasks/FRONTIER.md",
+    "M domains/random-matrix-theory/tasks/FRONTIER.md",
+    "M domains/social-media/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M experiments/expert-swarm/f-swarmer2-yield-ranking-s491.json",
     "M memory/INDEX.md"
   ],
   "untracked_artifacts": [
     "experiments/catastrophic-risks/f-cat1-fmea-s492.json",
-    "experiments/concept-inventor/",
+    "experiments/expert-swarm/f-swarmer2-dual-objective-seeds-s492.json",
     "experiments/expert-swarm/f-swarmer2-dual-seed-scoring-s492.json",
-    "experiments/expert-swarm/f-swarmer2-seed-robustness-s491.json",
-    "experiments/meta/f-meta2-commit-tier-concurrency-s492.json",
-    "memory/lessons/L-1261.md",
-    "memory/lessons/L-1262.md",
-    "memory/lessons/L-1263.md"
+    "memory/lessons/L-1260.md",
+    "memory/lessons/L-1264.md",
+    "memory/lessons/L-1266.md",
+    "memory/lessons/L-1267.md"
   ],
   "next_actions": [
-    "- open_lane.py FM-22 staleness: use git log content hash instead of header timestamp",
-    "- F-PSY1: need non-DOMEX quality metric to resolve L-1248/L-1251 contradiction",
-    "- Ratchet periodic targets: ECE <0.15\u2192<0.09, enforcement >15%\u2192>30% (both met)",
-    "- B\u2192PHIL ratio fix: 22 PHIL / 21 B = 0.95:1 (need 2.0:1) \u2014 consolidate PHILOSOPHY.md",
-    "- F-SWARMER2 next: test lesson-digest atom (add top-50 L summaries to genesis.sh), predict >0% child L\u2192L citation",
-    "- Add falsifiability column to PHILOSOPHY.md claims table (L-1241)",
-    "- task_order.py: down-weight COMMIT tier at N\u22653 concurrency",
-    "- Expert utilization still low (4.6% \u2192 target \u226515%)",
-    "- 109 EXPIRED lessons \u2014 no automated archival",
-    "- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)"
+    "- Name 3 HIGH-debt patterns (goodhart-cascade, filter-cascade-propagation, escape-hatch-accumulation) to reach \u226560% naming ratio",
+    "- Wire concept_debt_audit.py into orient.py as periodic section",
+    "- Yield scoring longitudinal: bridging rate in yield top-50 vs random over 20 sessions",
+    "- Git plumbing commit for N>=5: write-tree\u2192commit-tree\u2192update-ref"
   ],
   "periodics_due": [
     {
       "id": "proxy-k-measurement",
-      "gap": 38,
+      "gap": 41,
       "cadence": 10
     },
     {
       "id": "principles-dedup",
-      "gap": 36,
+      "gap": 39,
       "cadence": 10
     },
     {
       "id": "claim-vs-evidence-audit",
-      "gap": 33,
+      "gap": 36,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 32,
+      "gap": 35,
       "cadence": 10
     },
     {
       "id": "challenge-execution",
-      "gap": 32,
+      "gap": 35,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
+    {
+      "domain": "meta",
+      "score": 7.4,
+      "collision": false
+    },
     {
       "domain": "expert-swarm",
       "score": 7.2,
       "collision": false
     },
     {
-      "domain": "meta",
-      "score": 6.9,
-      "collision": false
-    },
-    {
       "domain": "nk-complexity",
       "score": 5.8,
-      "collision": true
+      "collision": false
     }
   ]
 }

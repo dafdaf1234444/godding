@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S492",
+    "frontier": "F-SWARMER2",
+    "session": "S492",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "Dual-objective seeds change >=30% of top-10 vs centrality-only; DNA-ref coverage improves from 3.4% to >=6%",
+    "actual": "TBD",
+    "diff": "TBD"
+}

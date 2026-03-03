@@ -1,10 +1,10 @@
 # Memory Index
-Updated: 2026-03-03 | Sessions: 492
+Updated: 2026-03-03 | Sessions: 493
 
 ## What the swarm knows
-- **1152 lessons** in `memory/lessons/L-{NNN}.md`
+- **1154 lessons** in `memory/lessons/L-{NNN}.md`
 - **236 principles** in `memory/PRINCIPLES.md` (latest: P-319 component-autonomization, P-318 mode-mismatch-diagnosis, P-317 creation-time-gate)
-- **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **10 frontiers** in `tasks/FRONTIER.md` | **46 domains**
+- **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **10 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 
 ## Structure
 - `beliefs/` PHILOSOPHY, CORE, DEPS, CHALLENGES, CONFLICTS, INVARIANTS
@@ -40,6 +40,7 @@ Updated: 2026-03-03 | Sessions: 492
 | Meta -- Archival & Dark Matter | 40 | INDEX decay L-1111, dark matter L-573/L-1168/L-1169, SESSION-LOG L-979, retention vs accessibility L-1096. |
 | Meta -- Scale Measurement & Baselines | 25 | Scale breakpoints L-1095, baseline scanning L-1031, metadata parsing L-1035, stale detection L-989, scaling model L-1033. |
 | Meta -- Knowledge & Lesson Quality | 27 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678; yield trajectory L-1163; principle-citation recursion L-1242. |
+| Domain -- Concept Invention | 2 | Concept debt (unnamed patterns as load-bearing structure) L-1263; vocabulary ceiling + epistemic lock L-1266; generative pressure; diagnosis-repair gap; concept_debt_audit.py tool. |
 | Meta -- Belief Testing & Verification | 39 | EAD corrections L-833, grounding checks L-611, epistemic discipline, hallucination grounding, falsification-swarm L-1057, emergence audit L-1113 (L-022/L-243/L-296/L-534). |
 | Meta -- Evaluation & Mission Scoring | 22 | Eval metrics L-928, sufficiency composite, truthfulness audit L-813, mission scoring (L-636/L-1056), underconfidence 8.1:1 L-1133, C1 baseline L-1171. |
 | Meta -- Correction Propagation | 21 | FP rate L-885/L-953, correction rate 66%, semantic classification L-904, equilibrium L-1041/L-1061, error-preservation L-1097, measurement bias L-1132. |

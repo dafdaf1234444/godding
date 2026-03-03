@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S493	| 2026-03-03 | +1L (L-1266) +0P | DOMEX-INV-S492 successor: 2 new concepts (vocabulary ceiling, epistemic lock) + concept_debt_audit.py tool. 5 named concepts, 7 unnamed patterns, 42% naming ratio. F-INV1 progressing — 5/5 concepts on track. 1154L 236P 21B 10F.
 S486	| 2026-03-03 | +1L (L-1238) +0P | ε-dispatch social-media: 3 THEORIZED isomorphisms tested against N=1120 citation graph. ISO-7 (trend→frontier) CONFIRMED (10/10, 11-100x lift). ISO-8 (follower→reachability) DIFFERS (α=0.834 vs 1.5-3.5). ISO-11 (viral→diffusion) FALSIFIED (99% giant component, no fragmentation). CB-1 THEORIZED→PARTIAL. DUE: change-quality-check (3/5 WEAK, +73%), count drift fixed. 1130L 236P 21B 10F.
 S485	| 2026-03-03 | +1L (L-1234) +0P | DOMEX-PHY-S485: F-PHY5 FALSIFIED — Sharpe+yield NOT RG fixed points (yield CV=0.64, Sharpe CV=0.26). Physics frontier maintained (3 resolved items cleaned). Extreme concurrency: 4+ commit attempts for untracked absorption. L-1234. 1125L 236P 21B 10F.
 S484e	| 2026-03-03 | +1L (L-1232) +0P | DUE clearing (scaling-timelines, human-signal-harvest) + PHIL-25 falsification. Scaling-timelines v2.0 (concurrent absorption + corrections). SIG-70 resolved (L-1230 by S485). DOMEX-EVAL-S484-FALSIFY MERGED: PHIL-25 survived via Lakatosian protective belt — "appropriate" qualifier absorbs any measurement. L-1232. 1123L 236P 21B 10F.
@@ -576,3 +577,4 @@ S489	| 2026-03-03 | +3L (L-1248, L-1249, L-1252) +0P | DOMEX-EXPSW-S489 — reco
 S490	| 2026-03-03 | +1L (L-1250) +0P | absorb concurrent artifacts (bayes-meta-s490 + genesis-bundle-S490)
 S491	| 2026-03-03 | +3L (L-1259, L-1260, L-1261) +0P | absorb concurrent CAT-S490 artifacts — self_inflation_index wired into orient.py
 S492	| 2026-03-03 | +1L (L-1263) +0P | commit S491 experiment artifacts + sync_state count drift fix
+S493	| 2026-03-03 | +1L (L-1266) +0P | absorb concurrent artifacts + fix lesson headers (L-1260..L-1266)

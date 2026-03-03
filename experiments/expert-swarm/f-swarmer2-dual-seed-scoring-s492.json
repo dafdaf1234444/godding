@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S492",
+    "frontier": "F-SWARMER2",
+    "session": "S492",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "Composite score adds dna_ref_count, coverage rises from 3.4% to \u22656%",
+    "actual": "TBD",
+    "diff": "TBD"
+}

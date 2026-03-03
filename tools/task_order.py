@@ -50,6 +50,21 @@ def _git(args: list[str]) -> str:
     return r.stdout.strip()
 
 
+def _detect_concurrency() -> int:
+    """Count unique sessions in recent commits to estimate active concurrency.
+
+    At N>=3, proxy absorption (L-526, L-1243) means other sessions commit
+    untracked artifacts — manual COMMIT work becomes negative ROI.
+    """
+    log = _git(["log", "--oneline", "-15"])
+    sessions = set()
+    for line in log.splitlines():
+        m = re.search(r"\[S(\d+)\]", line)
+        if m:
+            sessions.add(int(m.group(1)))
+    return len(sessions)
+
+
 def get_untracked_artifacts() -> list[dict]:
     """Find untracked lesson + experiment files — likely done work needing commit."""
     output = _git(["status", "--short"])
@@ -69,11 +84,20 @@ def get_untracked_artifacts() -> list[dict]:
             desc_parts.append(f"{len(lessons)} lesson(s): {', '.join(Path(p).stem for p in lessons)}")
         if experiments:
             desc_parts.append(f"{len(experiments)} experiment(s)")
+        # L-1265: at N>=3 concurrency, proxy absorption handles untracked
+        # files — manual COMMIT work is negative ROI. Down-weight.
+        n_concurrent = _detect_concurrency()
+        if n_concurrent >= 3:
+            score = 40
+            tier_note = f" (down-weighted: {n_concurrent} concurrent sessions)"
+        else:
+            score = 100
+            tier_note = ""
         tasks.append({
-            "priority": P_COMMIT,
+            "priority": P_COMMIT if n_concurrent < 3 else P_PERIODIC,
             "tier": "COMMIT",
-            "score": 100,
-            "action": f"Commit untracked artifacts: {'; '.join(desc_parts)}",
+            "score": score,
+            "action": f"Commit untracked artifacts: {'; '.join(desc_parts)}{tier_note}",
             "detail": f"Files: {', '.join(lessons + experiments)}",
             "command": None,
         })
@@ -149,10 +173,12 @@ def get_closeable_lanes() -> list[dict]:
             # Artifact declared but not committed — check untracked
             untracked = _git(["status", "--short"])
             if artifact.split("/")[-1] in untracked:
+                n_concurrent = _detect_concurrency()
+                artifact_score = 40 if n_concurrent >= 3 else 95
                 tasks.append({
-                    "priority": P_COMMIT,
+                    "priority": P_COMMIT if n_concurrent < 3 else P_PERIODIC,
                     "tier": "COMMIT",
-                    "score": 95,
+                    "score": artifact_score,
                     "action": f"Commit artifact for {lane_id}: {artifact}",
                     "detail": "Artifact untracked — commit first, then close lane",
                     "command": None,
