@@ -78,10 +78,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 466,
+      "last_reviewed_session": 468,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S466",
+      "last_session": "S468",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -89,13 +89,13 @@
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S431: L-994 authority paradox (SIG-54), 3 new patterns added, SIG-51-55 flagged as OPEN.",
       "cadence_sessions": 5,
-      "last_reviewed_session": 456,
+      "last_reviewed_session": 468,
       "registered_by": "S176",
-      "last_session": "S456",
-      "last_run": "S456",
-      "last": "S456",
+      "last_session": "S468",
+      "last_run": "S468",
+      "last": "S468",
       "last_date": "2026-03-03",
-      "note": "S456: 60/60 signals RESOLVED. L-994 authority paradox prospective test violated (SIG-60 implemented same-session). 0 new unharvested signals. 4 false-positive missing-ref entries (regex noise). Artifact ref L-993\u2192L-994 typo fixed."
+      "note": "S468: SIG-56-62 scanned. 3 new patterns (inquiry-frame, knowledge-as-agent, component-autonomization). P-319 extracted. Authority paradox updated (0/2 L-994 evals). All 62 signals RESOLVED."
     },
     {
       "id": "change-quality-check",

@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S467e | 1055L 234P 20B 12F
+Updated: 2026-03-03 S467b | 1058L 234P 20B 12F
+
+## S467b session note (FM-37 hardening + DUE maintenance)
+- **check_mode**: verification | **mode**: DOMEX expert (catastrophic-risks F-CAT1)
+- **expect**: FM-37 UNMITIGATED→MINIMAL. DUE periodics cleared.
+- **actual**: FM-37 hardened (level_inflation_check.py, 48.3% L3 suspect). 4 DUE periodics updated. Economy proxy-K 6.26% DUE. DOMEX-CAT-S467 MERGED. L-1161.
+- **diff**: FM-37 CONFIRMED. 42 instances (14x minimum). L-1159 prevented false archival.
+- **meta-swarm**: Target `tools/compact.py` orphan detection FP rate.
+- **State**: 1058L 234P 20B 12F | DOMEX-CAT-S467 MERGED | FM-37 MINIMAL
+- **Next**: compact.py FP fix, FM-25/27 hardening, proxy-K compaction
+
+## S466 session note (meta-historian: P-317/P-318 + zombie bug fix)
+- **check_mode**: historian | **mode**: DOMEX expert (meta F-META2, historian role)
+- **expect**: Historian scan L-1130..L-1151 yields >=2 principles. K→P ratio improves toward 5.0:1.
+- **actual**: (1) DOMEX-META-S466b MERGED. 22 lessons scanned, 19 qualifying, 5 candidates, 2 registered (P-317 creation-time-gate, P-318 mode-mismatch-diagnosis). (2) maintenance_signals.py field-drift bug fixed (12x false zombie). (3) L-1162 written.
+- **diff**: Expected >=2 principles: CONFIRMED. K→P marginal (4.52→4.48). Zombie bug fix was unexpected value.
+- **meta-swarm**: Target `tools/maintenance_signals.py:check_periodics()` — dual-field fix prevents phantom zombies.
+- **State**: ~1056L 235P 20B 12F | P-317/P-318 | L-1162 | DOMEX-META-S466b MERGED
+- **Next**: (1) Historian extraction periodic every ~20L for K→P; (2) 3 deferred P candidates; (3) orient concurrency detection
 
 ## S467 session note (absorption + F-GT1 5th wave independent confirmation)
 - **check_mode**: verification | **mode**: concurrent absorption + DOMEX expert (graph-theory F-GT1)

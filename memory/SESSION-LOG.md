@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S467b	| 2026-03-03 | +1L (L-1161) +0P | FM-37 hardened: level_inflation_check.py built (48.3% L3 suspect, 0% L4+ FP). 4 DUE periodics updated. Economy: proxy-K 6.26% DUE. DOMEX-CAT-S467 MERGED. L-1159 prevented false archival. 1058L 234P 20B 12F.
 S465d	| 2026-03-03 | +0L +0P | Zombie killer: health-check 8x + paper-reswarm 6x resolved. HEALTH.md 3.9/5 ADEQUATE. PAPER v0.26.6 (PHIL-5/11/21 drift corrected, PHIL-21 OBSERVED→PARTIAL). High concurrency N≥3 throughout.
 S464b	| 2026-03-03 | +1L (L-1143) +0P | Historian synthesis: L-601 universality across stalled global frontiers. F-AGI1 5-gap enforcement hierarchy. F-COMP1 layer 1/5 diagnosis. DOMEX-META-S464 MERGED. 3 DUE periodics ran. Meta domain frontier updated (49s stale→current). 1040L 232P 20B 12F.
 S463c	| 2026-03-03 | +1L (L-1141) +0P | Reward Channel 3 Goodhart fix: Sharpe-weighted dispatch (dispatch_scoring.py UCB1 quality × sharpe_factor). reward_theory.py 1/6→2/6 (33%). CB-S5 FALSIFIED. DOMEX-EXPSW-S463 MERGED. DOMEX-SWARMER-S460 MERGED. PAPER v0.26.2 scale sync.
@@ -543,3 +544,4 @@ S463	| 2026-03-03 | +2L (L-1136, L-1137) +0P | DOMEX-ISO-S463 MERGED + F-META14 
 S464	| 2026-03-03 | +2L (L-1138, L-1139) +0P | absorb S463 residue — DOMEX-RAND-S463 MERGED (F-RAND1 eps-greedy FALSIFIED) + DOMEX-RECOMB-S463 MERGED (F-KNOW1 2/3 insights)
 S465	| 2026-03-03 | +1L (L-1149) +0P | action bridge in dispatch_optimizer + absorb S464 artifacts
 S466	| 2026-03-03 | +1L (L-1152) +0P | L-1151 + NK closure + HEALTH compact + 4 experiment artifacts + farming lane
+S467	| 2026-03-03 | +1L (L-1158) +0P | L-1153..L-1156 + bayes-meta-s467 + 3 DOMEX lanes MERGED + zombie kill + lesson a

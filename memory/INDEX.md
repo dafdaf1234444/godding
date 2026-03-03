@@ -3,7 +3,7 @@ Updated: 2026-03-03 | Sessions: 467
 
 ## What the swarm knows
 - **1055 lessons** in `memory/lessons/L-{NNN}.md`
-- **234 principles** in `memory/PRINCIPLES.md` (latest: P-316 citation-gap-recombination, P-315 temporal-mismatch-diagnosis, P-314 implicit-reward-goodhart)
+- **235 principles** in `memory/PRINCIPLES.md` (latest: P-319 component-autonomization, P-318 mode-mismatch-diagnosis, P-317 creation-time-gate)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **12 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
 ## Structure
