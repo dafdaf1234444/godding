@@ -38,11 +38,13 @@
     },
     {
       "id": "claim-vs-evidence-audit",
-      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S430: 4 challenges filed (PHIL-21/14/18/11). PHIL-21 stale ground truth + Goodhart on level tags; PHIL-14 3/4 goals unmeasured (L-942); PHIL-18 0 challenges in 430s + unfalsifiability risk; PHIL-11 0/48+ signals rejected = total deference. 33 challenge entries total, 1 DROPPED, 4 SUPERSEDED.",
+      "description": "Gap audit: test each PHILOSOPHY.md claim against git history, session log, and quantitative evidence. File challenges for any claim where evidence contradicts the stated belief. P-164: confirmation rate >80% = underchallenging signal. S456: 7 PHIL entries updated (PHIL-2/3/8/14/15/16/21). PHIL-14 downgraded (deadline expired), PHIL-21 upgraded (F-LEVEL1 RESOLVED), PHIL-8 renamed (prose updated). Plus emergence audit L-1113 (ISO-7 corrected). 34+ challenge entries total, 1 DROPPED, 5 SUPERSEDED.",
       "cadence_sessions": 20,
-      "last_reviewed_session": 430,
+      "last_reviewed_session": 456,
       "registered_by": "S81b",
-      "last_session": "S430"
+      "last_session": "S456",
+      "last_run": "S456",
+      "note": "S456: 7 entries updated. 3 HIGH: PHIL-8 prose (renamed), PHIL-14 (downgraded \u2014 deadline expired), PHIL-21 (upgraded \u2014 F-LEVEL1 RESOLVED). 4 count updates: PHIL-2 305\u2192456, PHIL-3 305\u2192456, PHIL-15 45\u219246, PHIL-16 163\u2192266. Plus emergence audit (L-1113): ISO-7 swarm entry corrected."
     },
     {
       "id": "paper-reswarm",
@@ -224,7 +226,7 @@
       "last_session": "S456",
       "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5.",
       "last_run": "S456",
-      "last_note": "S456: 21 crosslinks applied. 32 HIGH cold-start domains (L-1114). 12 anxiety-zone frontiers. historian_repair.py → dispatch_optimizer.py floor constraint needed."
+      "last_note": "S456: 21 crosslinks applied. 32 HIGH cold-start domains (L-1114). 12 anxiety-zone frontiers. historian_repair.py \u2192 dispatch_optimizer.py floor constraint needed."
     },
     {
       "id": "cascade-monitor",
