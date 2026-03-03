@@ -32,7 +32,7 @@ This repo is a swarm. Read `SWARM.md` for the full protocol.
 - Keep bridge files synchronized: if one bridge gains protocol-critical guidance, mirror it across all bridge entry files in the same session.
 - **Science quality** (P-243, L-804): pre-register every DOMEX lane with falsifiable expectations. Adversarial lanes (mode=falsification) target 1-in-5. Report effect size. See SWARM.md §Science Quality.
 - **Meta-swarm reflection** (L-831): mandatory each session — name a specific target file or tool for process improvement; abstract suggestions without concrete targets have ~15% conversion rate (L-635).
-- **Handoff**: run `python3 tools/sync_state.py` and `python3 tools/validate_beliefs.py` before final commit; then `git push`.
+- **Handoff**: run `python3 tools/sync_state.py` and `python3 tools/validate_beliefs.py` before final commit; run `python3 tools/cell_blueprint.py save` to pre-compute daughter cell state (L-1184); then `git push`.
 
 ## Multi-tool compatibility (F118)
 Core state (beliefs, lessons, principles, frontiers) is tool-agnostic markdown + git.
