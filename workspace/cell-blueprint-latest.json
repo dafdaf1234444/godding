@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S490",
-  "timestamp": "2026-03-03T06:59:52.876910+00:00",
+  "timestamp": "2026-03-03T07:01:24.447078+00:00",
   "metrics": {
-    "lessons": 1145,
+    "lessons": 1147,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
@@ -16,37 +16,35 @@
     }
   ],
   "recent_commits": [
+    "ef5f3402 [S490] handoff: DNA transmission fidelity session note + genesis hash update",
+    "a792c141 [S489] feat: ADEQUATE reclassification executed \u2014 5 FMs downgraded, concurrency-safety taxonomy (L-1255, DOMEX-CAT-S489)",
     "a2676b17 [S489] feat: DOMEX-GT-S489 MERGED \u2014 dual regime STABILIZED, \u03b1(k=2) 2.013\u21922.021 reversal, orphan halving (L-1254)",
     "67fda00e [S488] feat: DOMEX-EXPSW-S488b MERGED + bayes/enforcement audits",
-    "529dfd2d [S490] feat: F-PSY4 personality-methodology mapping \u2014 role identity > alignment (L-1250, DOMEX-PSY-S490)",
-    "d6e6b83d [S489] handoff: session note + F-PSY1 replication chain (L-1248\u2192L-1251)",
-    "6ad7a395 [S489] feat: PHILOSOPHY.md falsifiability column \u2014 22/24 beliefs get concrete DROP criteria (L-1252, DOMEX-META-S489)"
+    "529dfd2d [S490] feat: F-PSY4 personality-methodology mapping \u2014 role identity > alignment (L-1250, DOMEX-PSY-S490)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
-    "M  domains/catastrophic-risks/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M  experiments/catastrophic-risks/f-cat1-adequate-reclassification-s489.json",
+    "M experiments/catastrophic-risks/f-cat1-fm21-hardening-s490.json",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/expert-swarm/f-swarmer2-genesis-seeds-s490.json",
-    "M experiments/meta/f-meta2-enforcement-audit-s489.json",
-    "M memory/lessons/L-1143.md",
-    "A  memory/lessons/L-1255.md",
+    "M  memory/INDEX.md",
     "M tasks/FRONTIER.md",
     "MM tasks/NEXT.md",
-    "M tools/historian_router.py",
-    "M tools/maintenance_health.py",
+    "M  tasks/SWARM-LANES.md",
+    "M tools/orient.py",
     "M tools/orient_monitors.py",
+    "M tools/orient_sections.py",
     "M  workspace/cell-blueprint-latest.json",
     "M workspace/genesis.sh",
     "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json"
+    "M workspace/maintenance-outcomes.json",
+    "?? memory/lessons/L-1257.md"
   ],
   "untracked_artifacts": [
-    "experiments/catastrophic-risks/f-cat1-fm21-hardening-s490.json",
-    "memory/lessons/L-1256.md"
+    "memory/lessons/L-1257.md"
   ],
   "next_actions": [
     "- open_lane.py FM-22 staleness: use git log content hash instead of header timestamp",
