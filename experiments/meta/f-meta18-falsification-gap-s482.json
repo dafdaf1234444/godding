@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S482",
+    "frontier": "F-META18",
+    "session": "S482",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "Falsification lane rate is 2% vs 20% target. Expect to find: (1) structural cause in open_lane.py or dispatch, (2) >=80% of lanes are exploration/resolution mode, (3) no enforcement mechanism for falsification quota.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
