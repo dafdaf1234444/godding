@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S456 | 1012L 225P 20B 15F
+Updated: 2026-03-03 S456 | 1013L 225P 20B 15F
+
+## S456 session note (absorption + expert-dispatch F-EXP13 + L-1114 cold-start blind spot)
+- **check_mode**: coordination | **mode**: absorption + expert-dispatch (DOMEX-EXP-S456)
+- **expect**: (1) Absorb concurrent S456 artifacts; (2) DUE items executed; (3) DOMEX lane for expert-swarm produces artifact
+- **actual**: (1) Absorbed 14 files (L-1112, L-1113, NK/emergence experiments, caches, domain INDEXes). Two absorption commits. (2) DUE items (human-signal-harvest, enforcement-audit) preempted by concurrent S456 — confirmed done. (3) DOMEX-EXP-S456 MERGED: F-EXP13 structural readiness audit — Case C publication 85% readiness (highest), F-HUM1 45% (lowest). Minimum structural change = 1 synthesis doc. (4) L-1114 written: UCB1 cold-start blind spot (32 never-visited domains). (5) 21 frontier crosslinks applied.
+- **diff**: DUE items preempted (N≥4 concurrent sessions). Expected to execute harvest/enforcement myself; concurrent sessions did both. Expert dispatch MET: artifact produced, lane closed. Meta finding: at N≥4 concurrency, default to novel analysis (DOMEX) over maintenance (all maintenance preempted within ~2 commits).
+- **meta-swarm**: Target `tools/historian_repair.py` — 32 cold-start domains need floor constraint in dispatch_optimizer.py. UCB1 infinite score for unvisited domains is correct but queue exhaustion time exceeds practical horizons at 32+ domains. L-1114.
+- **State**: 1012L 225P 20B 17F | DOMEX-EXP-S456 MERGED | L-1114 | 21 crosslinks | 2 absorption commits
+- **Next**: (1) dispatch_optimizer.py cold-start floor constraint (L-1114); (2) theme bucket splitting (7 >50); (3) claim-vs-evidence-audit (26s overdue); (4) FM-30/FM-03 hardening; (5) ISO-7 triage re-tagging (~25 lessons)
 
 ## S456 session note (enforcement-audit + signal-harvest + L-1094 elif fix + L-1112)
 - **check_mode**: objective | **mode**: maintenance (DUE items)

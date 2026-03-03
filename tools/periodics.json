@@ -219,12 +219,12 @@
       "id": "historian-routing",
       "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage).",
       "cadence_sessions": 3,
-      "last_reviewed_session": 451,
+      "last_reviewed_session": 456,
       "registered_by": "L-996",
-      "last_session": "S451",
+      "last_session": "S456",
       "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5.",
-      "last_run": "S451",
-      "last_note": "S451: full pipeline. 4 synthesis candidates. 19 crosslinks applied (all to F-MERGE1). Linkage 36.8% (target 20%). 3 stale beliefs (B7/B11/B15). 9 anxiety-zone frontiers. 24 never-DOMEX domains."
+      "last_run": "S456",
+      "last_note": "S456: 21 crosslinks applied. 32 HIGH cold-start domains (L-1114). 12 anxiety-zone frontiers. historian_repair.py → dispatch_optimizer.py floor constraint needed."
     },
     {
       "id": "cascade-monitor",
