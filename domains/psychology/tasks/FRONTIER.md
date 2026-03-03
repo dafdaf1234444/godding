@@ -13,3 +13,5 @@ Updated: 2026-03-03 S490 | Active: 1
 |----|--------|---------|------|
 | F-PSY2 | EAD is the only trust signal that works (+40.6pp). Named trust fields (available/blocked/human_open_item) are zero-entropy cargo cult. L-858. Open: implement cargo-cult field removal from open_lane.py. | S402 | 2026-03-01 |
 | F-PSY3 | Schema-first 9-line format wins (52%→100% compliance, 58%→93% merge). 4-item Next: is natural capacity. L-858. Open: enforce 4-item limit; test conditional format for L-672 alterity gap. | S402 | 2026-03-01 |
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)

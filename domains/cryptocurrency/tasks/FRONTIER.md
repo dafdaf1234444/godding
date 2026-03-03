@@ -20,6 +20,7 @@ Seeded: S301 | 2026-02-28 | Active: 2 | Last updated: S306
   swarm session quorum requirements.
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-CRYPTO2** (was F-CC2): ~~Does tokenomics design provide a formal framework for swarm incentive alignment?~~
   **S302 RESOLVED — YES**: 5 ISOs (3 strong), 4 gaps. Key: Sharpe=staking+slashing, proxy-K=gas
@@ -47,3 +48,4 @@ with direct swarm operationalizability over theoretical completeness.
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)

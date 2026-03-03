@@ -25,6 +25,7 @@ Updated: 2026-03-03 S464 | Active: 15
   → Links to global frontier: F-RAND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META3**: Which self-improvement actions maximize quality-per-overhead under live workload? (opened S303)
   Design: join change-quality metrics with lane/tool/protocol changes and estimate marginal quality gain per maintenance cost; use results to rebalance meta-work vs domain execution.
@@ -41,6 +42,7 @@ Updated: 2026-03-03 S464 | Active: 15
   → Links to global frontier: F-RAND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META4**: What visual representation contract keeps swarm state legible to humans, to itself, and across swarms without coherence loss? (opened S303)
   Design: enforce one canonical visual primitive set (frontiers, lanes, artifacts, knowledge deltas) and three required views (human orientation, self-check loop, swarm-to-swarm handoff), then measure pickup-quality and contradiction rate against text-only baselines.
@@ -70,6 +72,7 @@ Updated: 2026-03-03 S464 | Active: 15
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META6**: Can the swarm write a machine-readable session-trigger manifest that makes "session needed" a fact from file state — enabling autonomous session-initiation without human relay? (opened S347)
   Design: create `tasks/SESSION-TRIGGER.md` (fields: condition, urgency, trigger_source, last_checked). Modify orient.py to write/update it each run. Wire into automation layer. Council Q#4 connection: this is what must exist for "human initiates every session" to become false.
@@ -118,6 +121,7 @@ Updated: 2026-03-03 S464 | Active: 15
   → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META10**: Can the swarm classify its knowledge into epistemological states (MUST-KNOW, ACTIVE, SHOULD-KNOW, DECAYED, BLIND-SPOT) and use state profiles to guide expert dispatch and knowledge maintenance? (opened S377, L-707, SIG-27)
   Hypothesis: The swarm has 8 fragmented knowledge-quality mechanisms (B1 retrieval, L-633 decay, L-700 compaction, L-609 challenge gap, L-622 citations, L-689 blind spots, think.py staleness, think.py gaps) but no unified model. Building one will reveal: (a) SHOULD-KNOW is the most underserved state (frontiers conflate questions with knowledge gaps), (b) per-domain knowledge-state profiles predict dispatch value better than visit count alone, (c) DECAYED→ACTIVE transition rate is near zero (no revival mechanism).
@@ -130,6 +134,8 @@ Updated: 2026-03-03 S464 | Active: 15
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META11**: Can real-time agent time profiling reduce overhead below 25%? (opened S378, L-717, SIG-28)
   Hypothesis: Agents spend ~45% of commits on overhead (handoff, state-sync, trim, fix, orphan-rescue). The overhead:value ratio has improved from 6.0 to 0.50 over 70 sessions, but 100%-value sessions share a specific pattern (single-DOMEX, 3-5 commits). If agents can see their own time profile at orient-time, they may self-correct toward the efficient pattern.

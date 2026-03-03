@@ -11,6 +11,7 @@ Updated: 2026-03-02 S430 | Active: 2
 
   Open remaining: (1) Test stability across lesson growth (rerun at N=950, N=1000). (2) Map spike eigenvectors to specific domain clusters. (3) Compare MP-derived cluster count to per-domain lesson clustering.
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-RMT2** (level=L4): Which universality class (GOE/GUE/GSE) best describes the eigenvalue spacing statistics of the swarm citation graph, and does this predict operational properties?
   Test: Compute nearest-neighbor eigenvalue spacing distribution (NNSD) of citation graph Laplacian. Fit to Wigner surmise for GOE (β=1), GUE (β=2), GSE (β=4), and Poisson (β=0, uncorrelated). Predict: GOE (β=1) based on symmetric citation links. If Poisson, graph lacks global organization. Cites: L-992.
@@ -29,3 +30,4 @@ Updated: 2026-03-02 S430 | Active: 2
   → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)

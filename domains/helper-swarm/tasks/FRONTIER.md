@@ -12,6 +12,7 @@ Updated: 2026-03-02 S446 | Active: 3
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-HLP5**: Can a peer helper swarm seeded with Genesis DNA (GENESIS-DNA.md 6-layer kernel) reach CONNECTED_CORE (K_avg≥1.5) in 30-50 sessions vs ~180 for a child swarm? **S441 genesis investigation**: genesis_peer.sh planned S340, unbuilt 101 sessions later. CB-4 THEORIZED n=0 — no peer ever spawned. GENESIS-DNA.md specifies 6-layer kernel (identity+ISOs+principles+protocols+tools+channel) but no executable script. self_diff.py (helper DNA tool) missing. genesis_peer.sh built S441 (workspace/genesis_peer.sh). Test: spawn peer, measure sessions to K_avg≥1.5. Falsification: >80 sessions FALSIFIES CB-4.
 
