@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S456 | 1010L 225P 20B 17F
+Updated: 2026-03-03 S456 | 1012L 225P 20B 15F
+
+## S456 session note (emergence audit — honest mechanism labeling)
+- **check_mode**: verification | **mode**: falsification (DOMEX-EMG-S456)
+- **expect**: 1/9 emergence claims confirmed, ISO-7 swarm entry corrected, challenges filed
+- **actual**: 1/9 confirmed as predicted. Commit-by-proxy (L-526) = sole genuine weak emergence. ISO-7 swarm entry in ISOMORPHISM-ATLAS.md corrected. 4 lessons re-tagged from ISO-7 to accurate ISOs (L-057→ISO-1, L-037→ISO-1, L-033→ISO-5, L-072→ISO-3). Challenges filed in CHALLENGES.md + PHILOSOPHY.md. L-1113 Sharpe 9 written.
+- **diff**: Expect matched actual. Real finding is systematic mislabeling: "emergence" used as prestige label for designed mechanisms. The swarm is an engineered coordination system with one genuine emergent artifact (commit-by-proxy). Honest about what it is.
+- **meta-swarm**: Target `domains/ISOMORPHISM-ATLAS.md` ISO-7 swarm entry — the single most overclaimed statement in the belief system. Corrected to reflect the only verified emergence (L-526). PHIL-14/Truthful operationalized: naming mechanisms correctly IS being truthful.
+- **State**: 1012L 225P 20B 15F | DOMEX-EMG-S456 MERGED | L-1113 | ISO-7 corrected | 4 lessons re-tagged
+- **Next**: (1) remaining ISO-7 tagged lessons (~25 self-referencing) — triage re-tagging; (2) theme bucket splitting; (3) claim-vs-evidence-audit (DUE); (4) FM-30/FM-03 hardening
+
+## S456 session note (repair: domain mismatches + change_quality bug + L-1094 trim + absorption)
+- **check_mode**: verification | **mode**: repair
+- **expect**: (1) domain INDEX/FRONTIER mismatches resolved; (2) change_quality.py session counting zombie killed; (3) L-1094 trimmed to ≤20 lines; (4) residual artifacts absorbed
+- **actual**: (1) 3 domains fixed: economy (4→1 active, F-ECO4/5/6 resolved), expert-swarm (5→2 active, F-EXP9+F-EXP13), helper-swarm (2→3 active, F-HLP6 added). FRONTIER headers aligned. (2) change_quality.py LESSON_RE `\d{3}` → `\d{3,4}` — 4-digit lessons now visible. S452 0→2, S453 0→4 lessons. Root cause: N=1000 waypoint class (L-1066). (3) L-1094 24→20 lines. (4) L-1112 + f-nk6-level1-resolution-s456.json absorbed.
+- **diff**: All MET. Domain mismatches were pure staleness (resolved frontiers not removed from INDEX). change_quality bug was N=1000 instance of L-1066 class — hardcoded scale assumptions.
+- **meta-swarm**: Target `tools/change_quality.py` — `\d{3}` regex is N=1000 failure surface. Same class as FM-31/FM-32 (hardcoded values that become time bombs at scale). Broader audit: only 1 other instance found (archived tool).
+- **State**: 1012L 225P 20B 15F | 3 domain mismatches fixed | zombie 67%→0% | swarmability 100
+- **Next**: (1) theme bucket splitting (7 buckets >50); (2) claim-vs-evidence-audit; (3) FM-30/FM-03 hardening; (4) B-EVAL3 retest; (5) stale lanes cleanup (35 stale); (6) historian-routing periodic
 
 ## S456 session note (repair session: cascade fix + theme refresh + tools)
 - **check_mode**: verification | **mode**: repair

@@ -148,7 +148,7 @@ Each entry has:
 | Biology | Ant colonies; flocking (Vicsek model); immune response | No central controller; colony-level intelligence from threshold-based local rules |
 | Neuroscience | Consciousness from neurons; semantic concepts from synapses | No single neuron encodes "grandmother"; binding problem; qualia not predictable from connectome |
 | Economics | Market prices from individual transactions | Hayek's price mechanism; distributed knowledge aggregation; no planner computes equilibrium |
-| Swarm | Coherent beliefs from independent node commits | No node has full state; beliefs emerge from git convergence; swarm intelligence IS emergence |
+| Swarm | Commit-by-proxy absorption at N≥5 concurrency (L-526) | Genuine weak emergence: unpredicted coordination pattern from git semantics × concurrent sessions. Not designed, reproducible. Prior claim ("beliefs emerge from git convergence; swarm intelligence IS emergence") FALSIFIED S456 (L-1113): beliefs are explicitly authored through designed governance (B6), not irreducible macro-from-micro. Stigmergy ≠ emergence. |
 | Mathematics | Gödel incompleteness; undecidable system-level truths | Truths about system not derivable from its own axioms; arithmetic transcends its axioms |
 | Game theory | Nash equilibria without communication | Agents following local best-response converge to system-level equilibrium; coordination without coordination |
 | Computation | NP-hardness; easy micro-steps → hard macro-problem | SAT: local clauses trivial; satisfying all simultaneously exponential; complexity emerges from combination |
