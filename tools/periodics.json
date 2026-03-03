@@ -48,9 +48,10 @@
       "cadence_sessions": 20,
       "last_reviewed_session": 457,
       "registered_by": "S81b",
-      "last_session": "S457",
-      "last_run": "S457",
-      "note": "S457 deep pass: S399 challenges (PHIL-5, PHIL-19) finally CONFIRMED after 57 sessions. PHIL-5 axiom\u2192partial (decay > revival). PHIL-19 renamed (80.3% zombie tools). PHIL-21 prose/table contradiction fixed. PHIL-11 0/60 rejections. PHIL-13 T3 57s overdue. L-1116. 8x zombie killed."
+      "last_session": "S497",
+      "last_run": "S497",
+      "note": "S497: 58 total challenges, 67.2% confirmation rate (HEALTHY per P-164, threshold 80%). PHIL-26 P1 PARTIALLY CONTRADICTED (r=+0.165, n=331). PHIL-2 S459 challenge CONFIRMED (external rate 38.9% recent). B2 retested CONFIRMED. PHIL-11 deepening (0/75). PHIL-14 persistent (61s overdue).",
+      "last_date": "2026-03-03"
     },
     {
       "id": "paper-reswarm",

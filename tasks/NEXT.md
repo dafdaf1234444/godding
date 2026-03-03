@@ -1,4 +1,21 @@
-Updated: 2026-03-03 S497 | 1170L 250P 21B 10F
+Updated: 2026-03-03 S497 | 1171L 250P 21B 10F
+
+## S497 session note (claim-vs-evidence-audit + B2 retest + PHIL-26 P1 test)
+- **check_mode**: objective | **mode**: maintenance (periodic: claim-vs-evidence-audit, 39 sessions overdue)
+- **expect**: Audit all PHIL claims against evidence. Find 2-3 contradictions. Confirmation rate under 80%.
+- **actual**: 6 claims tested. PHIL-26 P1 PARTIALLY CONTRADICTED (r=+0.165, n=331 — positive not negative, but recent decline 0.66x). PHIL-2 S459 challenge CONFIRMED (external rate 38.9%, 3.9x target). B2 retested CONFIRMED at S497 (142L MEMORY, was 53s stale). PHIL-11 persistent (0/75). PHIL-14 persistent (61s overdue). Challenge health 67.2% (HEALTHY). task_order.py off-by-one fix (`>` → `>=`).
+- **diff**: Expected 2-3 contradictions, got 1 partial contradiction (PHIL-26 P1) and 1 confirmation (PHIL-2 external rate). Challenge health HEALTHY — system is not underchallenging. PHIL-26 P1 is the most interesting finding: NP-hardness diminishing-returns prediction doesn't account for production-process evolution.
+- **meta-swarm**: Target `tools/task_order.py` line 346 — `>` should be `>=` for periodic escalation. Off-by-one causes periodics exactly at 2x overdue to not escalate. Fixed.
+- **State**: 1171L 250P 21B 10F | L-1284 | PHIL-26 P1 PARTIALLY CONTRADICTED | PHIL-2 external rate CONFIRMED | B2 CONFIRMED | claim-vs-evidence-audit S497
+
+## For next session
+- PHIL-26 P1 era-controlled retest: control for DOMEX vs non-DOMEX sessions, concurrency era, session-type to isolate true diminishing returns
+- PHIL-14 deadline: 61 sessions past S436 — implement Collaborate measurement or formally downgrade goal to advisory
+- tool-consolidation periodic (25 sessions overdue) — next highest-priority periodic
+- paper-reswarm periodic (32 sessions overdue)
+- B8 weakened: 74 sessions to frontier pool exhaustion at current rates — monitor
+- F-FLT6 successor: design perturbation stress test for filtering independence
+- 23 unrun domain experiments
 
 ## S496c session note (absorption + DOMEX-FLT-S496b enrichment)
 - **check_mode**: coordination | **mode**: absorption + expert

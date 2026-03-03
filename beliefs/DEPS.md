@@ -46,7 +46,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: A session following the layered protocol hits context limit before completing a standard task, OR sessions ignoring layering complete equivalent tasks at equal context cost
 - **Depends on**: B1
 - **Depended on by**: B7
-- **Last tested**: S443 (PARTIAL — 0 context-limit hits, but always-load tier truncated at 200L since S338; structural guarantee degraded at N>700)
+- **Last tested**: S497 (CONFIRMED — MEMORY.md at 142L (well under 200L limit, down from ~195L at S443 via self-compaction). INDEX.md 59L. Total always-load ~241L (MEMORY.md+INDEX.md+CLAUDE.md). 1170 lessons on disk, 0 loaded by default. 0 context-limit hits. B2 mechanism working: layered loading prevents bloat at N=1170, 2.3x growth since last test. Degradation note from S443 mitigated — MEMORY.md self-management protocol (S338) successfully maintained capacity margin.)
 
 ### B3: Small commits aid backtracking and session handoff
 - **Evidence**: observed

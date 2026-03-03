@@ -343,7 +343,7 @@ def get_periodic_tasks() -> list[dict]:
                 last = int(m.group(1)) if m else 0
             cadence = item.get("cadence_sessions", 10)
             overdue_by = sess - (last + cadence)
-            if overdue_by > cadence:  # overdue by more than one full cadence
+            if overdue_by >= cadence:  # overdue by one full cadence or more
                 escalated_labels.add(item["id"])
     except Exception:
         pass
