@@ -4,11 +4,11 @@
       "id": "health-check",
       "description": "System health check (memory/HEALTH.md): knowledge growth, accuracy, compactness, belief evolution, task throughput",
       "cadence_sessions": 10,
-      "last_reviewed_session": 446,
+      "last_reviewed_session": 465,
       "registered_by": "S69",
       "last_session": "S465",
-      "last_date": "2026-03-02",
-      "note": "S437 audit: cadence 5\u219210. health metrics tracked by economy-health + change-quality-check at cadence=5."
+      "last_date": "2026-03-03",
+      "note": "S465: 3.9/5 ADEQUATE (stable). Compactness 5/5, beliefs 5/5. Watch: PCI 0.500, confidence 86.3% (<90%), frontier generation declining."
     },
     {
       "id": "tool-consolidation",

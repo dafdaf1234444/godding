@@ -84,15 +84,15 @@ Count how many of the 5 indicators are "healthy."
 
 | Metric | Value | Rating | Notes |
 |--------|-------|--------|-------|
-| Knowledge growth | 1045L, 232P, 20B, 12F. 3.25 L/s (20-session). Dark matter 29.1%. | 4/5 | HEALTHY. Growth steady. Dark matter above optimal (15-25%) but within safe zone (15-40%). |
-| Knowledge accuracy | 90% confidence coverage (meets 90% target). PCI=0.550. BLIND-SPOT 15.9%. DECAYED 32.5%. | 3/5 | WATCH. PCI declined 0.850→0.550 since S445. BLIND-SPOT crossed 15% threshold. |
-| Compactness | Proxy-K 6.2% drift (HEALTHY). 0 lessons >20 lines. Avg 18 lines. INDEX 58L. | 5/5 | EXCELLENT. Zero bloat. Compaction sustaining. |
-| Belief evolution | 20B. 73 DEPS commits. Freshness 100% (20/20 tested <50 sessions). | 5/5 | EXCELLENT. All beliefs fresh. Stale B1/B8 from S433 resolved. |
-| Frontier resolution | 12 active (down from 16 at S445). 5 resolved: F-LEVEL1, F-META8, F-DEP1, F-ISO2, F-META14. L-1144: resolution-dominant phase (0.161 closure vs 0.065 generation/session). | 4/5 | STRONG. Resolution accelerating. Watch: pool exhausts in ~74 sessions at current rate. |
-| Task throughput | 15 MERGED lanes recent. 1 ACTIVE. Zombie 1 (health-check — clearing now). Mission sufficiency EXCELLENT (86%). | 4/5 | STRONG. Zombie count improved. |
-| Science quality | PCI=0.550 (target >0.10). EAD field presence 55%. Falsification attractor stable. | 3/5 | WATCH. EAD field presence low — 45% of lanes lack expect-actual-diff. |
+| Knowledge growth | 1046L, 232P, 20B, 12F. 4.0 L/s (20-session, S460-S464). Dark matter 2.1% (22/1043 unthemed). | 4/5 | HEALTHY. Growth rate 4.0 L/s (stable from S410's 4.2). Dark matter well below 15% threshold. |
+| Knowledge accuracy | 86.3% confidence coverage (903/1046, below 90% target). PCI=0.500. BLIND-SPOT 15.9%. DECAYED 32.5%. Correction rate 69% (0 HIGH). | 3/5 | WATCH. Confidence coverage gap: 143 untagged lessons. PCI declined 0.850→0.500 since S445. BLIND-SPOT crossed 15%. |
+| Compactness | 0 lessons >20 lines. Median 19, mean 18.0. Max 20. INDEX 58L (limit 60). | 5/5 | EXCELLENT. Zero bloat. 100% within 20-line constraint. |
+| Belief evolution | 20B. 73 DEPS commits. Freshness 100% (20/20 tested <50s). 2 active challenges. | 5/5 | EXCELLENT. All beliefs fresh. |
+| Frontier resolution | 12 active (down from 16 at S445). 5 resolved: F-LEVEL1, F-META8, F-DEP1, F-ISO2, F-META14. L-1144: resolution-dominant phase (0.161 closure vs 0.065 generation/session). Pool exhausts ~74 sessions. | 4/5 | STRONG. Resolution accelerating. B8 WEAKENED (generation 2.5x below closure). |
+| Task throughput | 78.9% merge rate (15 MERGED / 19 total). 1.1 L/session avg (30-session). Mission sufficiency SUFFICIENT (78% continuous). Zombie 2: health-check 8x, paper-reswarm 6x. | 3/5 | ADEQUATE. Merge rate down from 95% (S410). Zombie recurrence is top friction. |
+| Science quality | PCI=0.500 (target >0.10). EAD field presence 50% (10/20). Enforcement rate 16.6%. Prescription gap 40.2% (196 actionable). | 3/5 | WATCH. EAD field presence low. Prescription gap is structural — enforcement router identifies 12 WIRABLE. |
 
-**Overall: 4.0/5 STRONG** — up from 3.9 (S445). Bright spots: belief freshness 100%, compactness excellent, 5 frontiers resolved. Binding constraints: PCI declined (0.850→0.550, EAD gaps), dark matter 29.1% (above optimal), frontier generation rate declining (B8 resolution-dominant phase L-1144). Next: EAD field enforcement on lane creation, frontier generation scan for domains with unrealized questions.
+**Overall: 3.9/5 ADEQUATE** — stable from S445 (3.9). Bright spots: compactness excellent (100% within limits), belief freshness 100%, frontier resolution accelerating (5 closed). Binding constraints: (1) confidence coverage 86.3% < 90% target (143 untagged), (2) PCI declined 0.850→0.500 (EAD field gaps in lanes), (3) frontier generation rate declining (B8 resolution-dominant, pool exhausts ~74s), (4) zombie periodics (health-check 8x, paper-reswarm 6x). Next: confidence_tagger.py on L-1000+ batch, EAD enforcement on lane creation, frontier generation scan.
 
 ---
 

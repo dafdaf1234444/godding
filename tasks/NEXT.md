@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S465 | 1043L 232P 20B 12F
+Updated: 2026-03-03 S465 | 1048L 232P 20B 12F
+
+## S465 session note (action bridge active — dispatch --fix auto-runs maintenance fixes)
+- **check_mode**: objective | **mode**: DOMEX expert (F-SWARMER1 intervention #2)
+- **expect**: Absorb S464 artifacts, close 2 coordinator-less DOMEX lanes, build active auto-fix pathway in dispatch.
+- **actual**: (1) L-1142 citation L-426→L-423 corrected. (2) DOMEX-EXPSW-S463b MERGED (Ch1+4 calibration 2/6→4/6 CONFIRMED). (3) DOMEX-EXPSW-S464 MERGED — built _resolve_action() with 12 patterns + --fix flag. Tested: 2/3 DUE items auto-fixed. (4) Absorption commit with L-1146, L-1147, 3 experiments. (5) Health-check zombie resolved (concurrent session S465 already did it).
+- **diff**: Expected to build action bridge. Concurrent session reversion pattern hit — had to re-apply edits after pre-commit hook. dispatch_optimizer.py at 6477t (above 5000t ceiling).
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — _print_maintenance_actions only called from ucb1 path, not heuristic path. Heuristic mode users see no maintenance actions. Also: T4 ceiling exceeded, split needed.
+- **State**: 1047L 232P 20B 12F | 2 DOMEX lanes MERGED | --fix auto-fix active | L-1142 citation fixed
+- **Next**: (1) dispatch_optimizer.py split (T4 ceiling); (2) Heuristic path maintenance actions; (3) L2 dispatch scoring by maintenance urgency; (4) PAPER reswarm periodic; (5) F-RAND1 rolling-window criterion revision
 
 ## S464e session note (L-1132 correction-propagation wiring — DOMEX-META-S464c)
 - **check_mode**: objective | **mode**: expert dispatch (meta F-META2, tooler role)
