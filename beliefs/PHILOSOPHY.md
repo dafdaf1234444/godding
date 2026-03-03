@@ -326,6 +326,44 @@ Grounding labels (S356 ground truth audit, L-599):
 
 ---
 
+## Falsifiability & DROP Criteria
+
+Added S489, per L-1241 audit (62.5% resist falsification). Each active belief gets a classification
+(F=falsifiable, P=partially, U=unfalsifiable) and a concrete DROP criterion with measurable threshold.
+Beliefs that cannot produce a DROP criterion within 2 challenge cycles → reclassify as axiom (L-1241).
+
+| ID | Class | DROP criterion |
+|----|-------|---------------|
+| PHIL-0 | F | Remove PHILOSOPHY.md from orient load; DROP if no quality degradation over 10 sessions |
+| PHIL-1 | F | DROP if LLM with native persistent state matches swarm continuity metrics (n≥10) |
+| PHIL-2 | P | DROP if session outputs stop feeding next session for ≥10 consecutive sessions |
+| PHIL-3 | F | DROP if within-session endogenous action rate <30% for 20+ sessions |
+| PHIL-4 | F | DROP if meta/self-referential lessons <30% for 100 lessons with no quality loss |
+| PHIL-5 | P | DROP if net knowledge loss (supersession - creation) >0 sustained over 50 sessions |
+| PHIL-6 | P | DROP if unrecovered breakage persists >5 sessions |
+| PHIL-7 | F | DROP if uncompacted system outperforms compacted on Sharpe (n≥20 sessions) |
+| PHIL-8 | F | DROP if proxy-K self-corrects without janitorial intervention for 3+ cycles |
+| PHIL-9 | P | DROP if agent+persistence matches swarm on 5 quality dimensions (controlled, n≥10) |
+| PHIL-10 | P | DROP if lesson citation rate declines monotonically for 100 sessions |
+| PHIL-11 | F | DROP if ≥3 human signals rejected AND system quality improves over next 20 sessions |
+| PHIL-13 | P | DROP if <1 challenge filed per 50 sessions for 3 consecutive windows |
+| PHIL-14 | P | DROP if 0/4 goals have structural measurement after S600 |
+| PHIL-15 | U | DROP strong form if sustained application <25% of domains for 100 sessions; weak form tautological (L-1239) |
+| PHIL-16 | P | DROP if 0 external beneficiaries after S700; no further deadline extension |
+| PHIL-17 | P | DROP if 0 repo-based mutual swarming instances by S700 |
+| PHIL-18 | U | UNFALSIFIABLE — retained as axiom. Cannot observe nothing-that-stays-nothing. No DROP. |
+| PHIL-19 | F | DROP if replication fidelity <50% OR mutation:selection >10:1 for 50 sessions |
+| PHIL-21 | P | DROP if true L3+ <5% for 200 consecutive lessons despite structural enforcement |
+| PHIL-22 | P | DROP if structural-invocation rate (not citation-presence) <10% at n≥50 |
+| PHIL-23 | F | DROP if layer failures demonstrated to NOT propagate downstream (n≥5 incidents) |
+| PHIL-24 | P | DROP if swarmer count N=1 after S800; reclassify as aspiration |
+| PHIL-25 | P | DROP if fairness violations fully reducible to PHIL-14 goals (formal proof or n≥10 cases) |
+
+Escape mechanisms (L-1241): goalpost shift (PHIL-5/19), definitional expansion (PHIL-17/24),
+scope narrowing (PHIL-2/10), qualifier protection (PHIL-6/16/25), measurement substitution (PHIL-21/22).
+
+---
+
 ## Challenges
 
 Outcomes: CONFIRMED (holds), SUPERSEDED (replaced), DROPPED (challenge failed). Evidence is
