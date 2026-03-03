@@ -31,7 +31,7 @@ If `python` is unavailable in the active shell, run through bash: `bash tools/ma
 1. Read state
 2. Decide what's most important (tie choice to PHIL-14 goals and PHIL-4 self-improvement output). Apply the six thinking lenses (L-1021): structure>intention, scale shifts constraints, self-reference traps, cascades compound, creation must cost, compression selects.
 2b. **Expert dispatch** (F-EXP7, F-EXP3): Run `python3 tools/dispatch_optimizer.py`. Default to expert mode — if a top-3 domain has no active DOMEX lane, open one and work as that domain's expert. Expert dispatch is the preferred work mode, not a fallback. Utilization: 4.6% baseline. Solo sessions ceiling ~10% (L-902, n=19); ≥15% target requires bundle sessions (≥3 simultaneous DOMEX lanes).
-2c. **Swarmed exploration** (L-831, S399 council): If dispatch shows ≥3 unvisited/underexplored domains in top-10, spawn ≥3 parallel DOMEX agents via Task tool instead of sequential single-domain DOMEX. Exploration and consolidation are mutually exclusive modes (L-825) — parallel exploration agents don't collide (different domains). Rule: ≥3 parallel agents when ≥3 cold top-10 domains exist. 14/46 domains are frontier-depleted; Visit Gini=0.500 (improved from 0.9). Coverage: 32/46 domains visited.
+2c. **Swarmed exploration** (L-831, S399 council): If dispatch shows ≥3 unvisited/underexplored domains in top-10, spawn ≥3 parallel DOMEX agents via Task tool instead of sequential single-domain DOMEX. Exploration and consolidation are mutually exclusive modes (L-825) — parallel exploration agents don't collide (different domains). Rule: ≥3 parallel agents when ≥3 cold top-10 domains exist. 15/46 domains are frontier-depleted; Visit Gini=0.510. Coverage: 31/46 domains visited.
 3. **Check your checking** — choose a check mode (objective, historian, verification, coordination, assumption) and state what you are testing
 3b. **Anti-repeat check** (L-283, L-295): Run `git log --oneline -5` and scan recent MERGED lanes before acting. In high-concurrency sessions, every URGENT item may already be done. If something you planned is already committed: log it as confirmed, move to next.
 4. **Expect** — before acting, declare what you predict will be true after
@@ -63,6 +63,7 @@ Science = discovering what the swarm doesn't already believe. Confirmation is ne
 - Choose and log a check mode (`objective`/`historian`/`verification`/`coordination`/`assumption`) for active lane updates.
 - Declare expectation before acting and record the diff after acting.
 - Treat positive, negative, and null outcomes as first-class evidence.
+- **Inquiry frame**: `python3 tools/question_gen.py` — generates 6 question categories (frontiers, belief health, compression ratios, zombies, prescription gaps, open signals); act on or defer each.
 - Default to executing active swarm work from `tasks/NEXT.md` and `tasks/SWARM-LANES.md`; if not executed, mark explicit `blocked`/`reassigned`/`abandoned` with next action.
 - Keep bridge files synchronized: if one bridge gains protocol-critical guidance, mirror it across all bridge entry files in the same session.
 
@@ -148,7 +149,7 @@ Any node can challenge any belief. If your findings contradict a belief, append 
 - `memory/OBJECTIVE-CHECK.md` — objective-focus check mode (optional lens under self-check loop)
 - `memory/VERIFY.md` — 3-S verification rule
 - `beliefs/CONFLICTS.md` — conflict resolution
-- `beliefs/INVARIANTS.md` — mission safety (I9-I13) + failure modes (FM-01 through FM-24, 10 active)
+- `beliefs/INVARIANTS.md` — mission safety (I9-I13) + failure modes (FM-01 through FM-39; full FMEA registry in tasks/FRONTIER.md §FMEA)
 - `memory/OPERATIONS.md` — spawn, compaction, context
 - `tasks/SIGNALS.md` — structured inter-node signals (`tools/swarm_signal.py`)
 - `tasks/SWARM-LANES.md` — lane log for multi-agent/PR/model/platform coordination

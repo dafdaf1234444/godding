@@ -48,7 +48,7 @@ These are load-bearing constraints that no child or concurrent session can overr
 - **I12 MC-CONN** (continuity): append-only local state preserved when connectivity varies
 - **I13 MC-XSUB** (cross-substrate safety): foreign repos must NOT receive swarm-internal files or tooling enforcement; behavioral norms only
 
-Enforcement: `tools/archive/test_mission_constraints.py` (41 tests, archived S410 — I1-I8 reclassified ADVISORY per L-882).
+Enforcement: `tools/maintenance.py` (`check_mission_constraints()`, 41 tests). Historical test file archived at `tools/archive/test_mission_constraints.py` (S410, I1-I8 reclassified ADVISORY per L-830).
 
 ## Memory layers
 - **Always load**: active bridge file (AGENTS/CLAUDE/Copilot/etc) → SWARM.md → CORE.md → INDEX.md

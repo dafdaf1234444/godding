@@ -51,7 +51,7 @@ Swarm actions must avoid destructive or out-of-scope side effects. Risk is calib
 - **High** (force-push, mass deletion, PR creation, send-email): require explicit human direction (HQ-N)
 Note: regular `git push` (additive, to own repo) is LOW — commits are pre-validated by hooks. `git push --force` remains HIGH (destructive, rewrites remote history).
 **Negated by**: "speed justifies risky changes" or "modify external repos" or "PR creation needs no review"
-**Enforcement** (14 guards in check.sh + orient.py, wired S328-S450):
+**Enforcement** (14+ guards in check.sh + orient.py, wired S328-S472; full FMEA registry FM-01 through FM-39):
 - FM-01: mass-deletion guard (>20 staged file deletions = FAIL) [check.sh]
 - FM-02: WSL filesystem corruption guard (core file accessibility = FAIL) [check.sh] (L-658, S444)
 - FM-03: ghost-lesson resurrection guard (archived lessons re-staged = FAIL) [check.sh]
@@ -66,6 +66,7 @@ Note: regular `git push` (additive, to own repo) is LOW — commits are pre-vali
 - FM-24: prescriptive-without-enforcement detector (lesson prescribes but no enforcement = NOTICE) [check.sh] (L-601, S428)
 - FM-30: cross-layer cascade detector (cascading failure patterns = NOTICE) [check.sh] (S441)
 - FM-31: lesson line-count guard (>20 lines = FAIL) [check.sh] (L-601, L-1053)
+- FM-25 through FM-29, FM-32 through FM-39: registered in FMEA (see tasks/FRONTIER.md §FMEA, NAT S450-S465+)
 - check_observer_staleness(): detects tools with stale measurement baselines (L-820, S398) [maintenance.py]
 **Enforcement test**: `check_mission_constraints()` in maintenance.py (41 tests); HIGH_RISK_LANE_PATTERNS in maintenance.py (12 patterns).
 
