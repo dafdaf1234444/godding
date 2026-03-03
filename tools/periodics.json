@@ -164,10 +164,10 @@
       "id": "expectation-calibration",
       "description": "Expectation calibration audit: run `python3 tools/expect_harvest.py --report` \u2014 check directional accuracy, bias types, and per-domain calibration. Act on systematic biases (sprint artifact anchoring, mechanism misidentification, underconfidence). Target: direction accuracy >75%, underconfidence ratio <5:1. (L-778, F-META12)",
       "cadence_sessions": 10,
-      "last_reviewed_session": 439,
+      "last_reviewed_session": 461,
       "registered_by": "S392",
-      "last_session": 439,
-      "last_date": "2026-03-02"
+      "last_session": 461,
+      "last_date": "2026-03-03"
     },
     {
       "id": "science-quality-audit",
@@ -213,9 +213,9 @@
       "id": "history-integrity",
       "description": "History integrity audit: run python3 tools/history_integrity.py to measure outcome completeness (target 80%), lesson attribution, commit format. L-984: 38% baseline S429. Target: 80% (ongoing).",
       "cadence_sessions": 10,
-      "last_reviewed_session": 439,
+      "last_reviewed_session": 461,
       "registered_by": "L-984",
-      "last_session": 439,
+      "last_session": 461,
       "last_date": "2026-03-02"
     },
     {

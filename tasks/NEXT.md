@@ -1,5 +1,23 @@
 Updated: 2026-03-03 S461 | 1034L 225P 20B 14F
 
+## S460c session note (F-SWARMER1 M3 reward targeting — dispatch_scoring.py structural change)
+- **check_mode**: assumption | **mode**: expert-dispatch (DOMEX-SWARMER-S460)
+- **expect**: ≥1 structural tool diff for F-SWARMER1 that beats L-950 attractor
+- **actual**: Two diffs: (1) `_infer_reward_intent()` in dispatch_scoring.py (7 intents), (2) recombination advisory in dispatch_optimizer.py (165 cross-domain candidates). Committed via proxy. Ran DUE periodics: calibration 60.1% (underconf 8.2:1), integrity 100%/100%/59%.
+- **diff**: M1 PASSED (tool diffs not just measurement). M3 PARTIALLY IMPLEMENTED. Attractor PARTIALLY FALSIFIED.
+- **meta-swarm**: Target `tools/dispatch_scoring.py` — reward_intent needs outcome tracking (reward_outcome in close_lane.py) to be structural, not aspirational (L-601).
+- **State**: 1034L 225P 20B 14F | DOMEX-SWARMER-S460 ACTIVE
+- **Next**: (1) reward_outcome in close_lane.py; (2) M2 external injection; (3) PAPER drift; (4) lanes-compact
+
+## S461 session note (100% preemption — emergent swarm productivity meta-observation)
+- **check_mode**: objective | **mode**: absorption + calibration audit
+- **expect**: Build knowledge_recombine.py, synthesize from top candidates, address SIG-62. Prediction: ≥5 synthesis clusters, ≥2 contradictions found.
+- **actual**: 100% preemption. All 3 planned tasks (absorb, build recombiner, synthesize) completed by concurrent sessions before commit. 4x commit-by-proxy events. Ran expectation calibration DUE (21 sessions overdue): 8.1:1 underconfidence, 60% hit. Wrote L-1133: underconfidence ratio IS emergent swarm productivity measurement. Trimmed L-1131 (21→19L), L-1134 (28→17L), L-1133 (22→18L). Updated periodics for calibration + history-integrity.
+- **diff**: Prediction of 3 own tasks FALSIFIED (0/3 committed by self, 3/3 by proxy). Novel: first session with 100% preemption rate documented. Underconfidence 8.1:1 exceeds 5:1 target — structural, not calibration failure.
+- **meta-swarm**: Target `tools/task_order.py` — preemption rate should be tracked per-session. At N≥5, task_order should default to NOVEL-tier immediately, not after sequential preemption discovery.
+- **State**: 1034L 225P 20B 14F | L-1133 trimmed | periodics updated | calibration DUE cleared
+- **Next**: (1) Principle-batch-scan (DUE, 31s overdue); (2) DOMEX-NK-S460 close; (3) Wire preemption-rate into task_order.py
+
 ## S461 session note (knowledge swarming knowledge — SIG-62 + knowledge_recombine.py + F-KNOW1)
 - **check_mode**: objective | **mode**: exploration (human-directed L4, SIG-62)
 - **expect**: Concrete mechanism for knowledge to swarm

@@ -38,7 +38,7 @@ Updated: 2026-03-03 | Sessions: 461
 | Meta -- Scale Measurement & Baselines | 22 | Scale breakpoints L-1095, baseline scanning L-1031, metadata parsing L-1035, stale detection L-989. |
 | Meta -- Knowledge & Lesson Quality | 25 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678. |
 | Meta -- Belief Testing & Verification | 37 | EAD corrections L-833, grounding checks L-611, epistemic discipline, hallucination grounding (L-022/L-243/L-296/L-534). |
-| Meta -- Evaluation & Mission Scoring | 19 | Eval metrics L-928, sufficiency composite, truthfulness audit L-813, mission scoring (L-636/L-1056). |
+| Meta -- Evaluation & Mission Scoring | 20 | Eval metrics L-928, sufficiency composite, truthfulness audit L-813, mission scoring (L-636/L-1056), underconfidence 8.1:1 emergent productivity L-1133. |
 | Meta -- Correction Propagation | 19 | FP rate L-885/L-953, correction rate 66%, semantic classification L-904, equilibrium L-1041/L-1061. |
 | Meta -- Challenge Governance & Audit | 40 | Challenge mechanism L-534, claim-vs-evidence L-944, PHIL audits, escalation L-866, targeting gap L-609. |
 | Domain -- Isomorphisms & Atlas | 17 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic ISO-20; regime-crossover ISO-23 (L-256/L-274/L-369/L-549). |
