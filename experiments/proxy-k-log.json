@@ -953,5 +953,33 @@
     },
     "total": 50727,
     "genesis": 13522
+  },
+  {
+    "date": "2026-03-03",
+    "session": 494,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 9174,
+      "T1-identity": 15941,
+      "T2-protocols": 3213,
+      "T3-knowledge": 14809,
+      "T4-tools": 10850
+    },
+    "total": 53987,
+    "genesis": 14277
+  },
+  {
+    "date": "2026-03-03",
+    "session": 494,
+    "tier_schema": "20821b5ab8311621b49909adb92f470a769a6ddec83b8f200ffc2b09dc8db8a0",
+    "tiers": {
+      "T0-mandatory": 9174,
+      "T1-identity": 15941,
+      "T2-protocols": 3213,
+      "T3-knowledge": 14809,
+      "T4-tools": 10850
+    },
+    "total": 53987,
+    "genesis": 14277
   }
 ]

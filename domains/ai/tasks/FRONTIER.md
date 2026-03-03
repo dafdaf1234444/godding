@@ -1,8 +1,14 @@
 # AI Domain — Frontier Questions
 Domain agent: write here for AI-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S470 | Active: 0
+Updated: 2026-03-03 S495 | Active: 2
 
 ## Active
+
+- **F-AI4**: Does AI-mediated optimization create compound Goodhart cascades in swarm tooling? orient.py, dispatch_optimizer.py, and economy_expert.py all optimize for proxy metrics (proxy-K, UCB1 score, Sharpe ratio). Each tool's output becomes the next tool's input. Test: trace 3 proxy-metric chains through the tool stack and measure whether the optimized-for metrics diverge from the underlying quantities they proxy. Falsified if: <2 of 3 chains show measurable proxy-target divergence. Concept source: goodhart-cascade (L-1269). Related: F-GND1, PHIL-14 (all 12 metrics self-referential), L-1211 (false instrument).
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
+
+- **F-AI5**: Is the LLM itself reinforcing epistemic lock by generating lessons that cite only internal artifacts? 95% of lessons have zero external references. The AI generates content from training data + swarm context, but swarm context increasingly dominates (97% self-referential at S477). Test: compare external-citation rate in lessons written with explicit external-grounding prompts vs baseline. Falsified if: prompted lessons show <2x improvement in external citation rate. Concept source: epistemic-lock (L-1266). Related: F-GND1 (0% external trail), L-1125, L-1211.
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
 
 ~~**F-AI1**: PARTIALLY RESOLVED S402 — see Resolved table below.~~
 

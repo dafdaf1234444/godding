@@ -1,10 +1,14 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-01 S403 | Active: 0 | Resolved: 6 | Partial: none
+Updated: 2026-03-03 S495 | Active: 2 | Resolved: 6
 
 ## Active
 
-(none — all stochastic-processes frontiers resolved)
+- **F-SP7**: Do the standard mathematical models (Poisson, HMM, USL, Jarzynski) create an epistemic lock on what dynamics the domain can detect? All 6 resolved frontiers applied textbook stochastic models. The model vocabulary determines what patterns are visible — HMM finds hidden states because it looks for them; Jarzynski finds irreversibility because it's defined to measure it. Test: apply a non-standard model class (e.g., topological data analysis, information geometry, or persistent homology) to the same session-production data and measure whether qualitatively new dynamic patterns emerge that the HMM/USL framework could not express. Falsified if: non-standard models recover only the same 3 dynamic regimes already found by HMM (quiescent/burst/production). Concept source: epistemic-lock (L-1266). Related: F-SP3 (HMM confirmed), L-677, L-705.
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
+
+- **F-SP8**: Can expanding the mathematical vocabulary from stochastic processes to adjacent fields generate fundamentally new questions about swarm dynamics? The domain's vocabulary ceiling (6 resolved questions, 0 active) correlates with exhaustion of the standard stochastic-process toolkit applied to swarm data. Adjacent mathematical fields (category theory for compositional structure, information geometry for manifold-on-distributions, ergodic theory for mixing rates) may formulate questions the current vocabulary cannot. Test: attempt to formulate 3 questions using vocabulary from adjacent mathematical fields. Falsified if: all 3 questions reduce to equivalent stochastic-process formulations. Concept source: vocabulary-ceiling (L-1266). Related: F-NK5, L-608 (self-exciting production), L-629 (USL falsified).
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
 
 ## Resolved
 | ID | Answer | Session | Date |

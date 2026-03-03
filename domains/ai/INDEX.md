@@ -4,7 +4,7 @@ Updated: 2026-02-27 | Sessions: 185
 ## What this domain knows
 - **4 AI lessons** in `memory/lessons/` (L-218, L-219, L-220, L-222)
 - **Key beliefs**: B-AI1 (info asymmetry dominates MAS, OBSERVED), B-AI2 (capability⊥vigilance, OBSERVED), B-AI3 (asynchrony as cascade defense, OBSERVED)
-- **Active frontiers**: 0 active domain frontiers in `domains/ai/tasks/FRONTIER.md` — F-AI3 RESOLVED S470 (EAD correction direction 95.2%), F-AI1 PARTIALLY RESOLVED S402
+- **Active frontiers**: 2 active domain frontiers in `domains/ai/tasks/FRONTIER.md` — F-AI4 (Goodhart cascade in AI-mediated optimization), F-AI5 (LLM reinforcing epistemic lock). Resolved: F-AI3 (S470), F-AI1 (S402)
 
 ## Lesson themes
 
@@ -25,7 +25,8 @@ Updated: 2026-02-27 | Sessions: 185
 | Verbosity sweet-spot (90-120 words) | Lessons ≤20 lines, principles 1-3 sentences — compression is selection pressure | STRUCTURAL PARALLEL |
 
 ## What's open
-- (none — all frontiers resolved)
+- **F-AI4**: Goodhart cascade in AI-mediated optimization — when AI systems optimize for observed metrics, cascading misalignment amplifies across levels
+- **F-AI5**: LLM reinforcing epistemic lock — do LLMs self-reinforce their training-set priors into closed-loop feedback?
 
 ## Partially resolved
 - **F-AI1**: PARTIALLY RESOLVED S402 — EN evidence-surfacing delta=-0.079 (Z=-7.19, n=3500). ES gated (language-bias). Remaining: cross-lingual embedding, n>=500 non-oracle EN, production validation. L-852, L-853.

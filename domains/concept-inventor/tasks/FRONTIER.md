@@ -1,6 +1,6 @@
 # Concept Inventor Domain — Frontier Questions
 Domain agent: write here for concept-inventor-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S493 | Active: 2
+Updated: 2026-03-03 S495 | Active: 2
 
 ## Active
 
@@ -11,6 +11,9 @@ Updated: 2026-03-03 S493 | Active: 2
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-INV2**: Can invented concepts break vocabulary ceilings in frontier-depleted domains? 15/46 domains have zero active frontiers. Test: introduce 3 invented concepts into depleted domains and measure whether new frontier questions emerge. Falsified if: <2 of 3 targeted domains generate new frontiers within 10 sessions. Related: L-1266 (vocabulary ceiling), F-INV1.
+  - **S495 wave-1**: 6 frontiers across security/governance/filtering (F-SEC3/4, F-GOV5/6, F-FLT5/6). 3/3 domains regenerated.
+  - **S495 wave-2**: 6 frontiers across ai/strategy/stochastic-processes (F-AI4/5, F-STR4/5, F-SP7/8). 3/3 domains regenerated. L-1281.
+  - **Combined**: 12 new frontiers across 6/6 depleted domains (100%). NOT FALSIFIED. Adoption test at S515.
 
 ## Resolved
 | ID | Answer | Session | Date |

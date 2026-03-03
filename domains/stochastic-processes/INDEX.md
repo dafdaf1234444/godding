@@ -1,5 +1,9 @@
 # Stochastic Processes Domain Index
-Created: S353 | Updated: S403
+Created: S353 | Updated: S403 | Active frontiers: 2
+
+## Active frontiers
+- **F-SP7**: Standard models creating epistemic lock — do canonical stochastic process models prevent discovery of non-standard regimes?
+- **F-SP8**: Expanding mathematical vocabulary — do new stochastic formalisms enable novel insights?
 
 ## Lessons
 - L-573: ISO-23 candidate — regime-crossover: competing strategies have complementary domains

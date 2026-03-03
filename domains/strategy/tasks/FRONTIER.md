@@ -1,8 +1,14 @@
 # Strategy Domain — Frontier Questions
 Domain agent: write here for strategy-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-01 S404 | Active: 0
+Updated: 2026-03-03 S495 | Active: 2
 
 ## Active
+
+- **F-STR4**: Does the strategy domain's resolved vocabulary create a ceiling that prevents strategic creativity? All 3 resolved frontiers (F-STR1/2/3) optimize within known strategy space (value-density, execute-or-abandon, multi-wave). The domain lacks vocabulary for: (a) generating novel strategic moves (not just optimizing known ones), (b) detecting when current strategy is locally optimal but globally suboptimal, (c) strategic surprise — moves that are unpredictable from the current strategy vocabulary. Test: attempt to formulate 3 strategy questions that cannot be expressed using the domain's existing concept set (value_density, UCB1, execute-or-abandon, multi-wave, campaign). Falsified if: all 3 questions can be fully expressed with existing vocabulary. Concept source: vocabulary-ceiling (L-1266). Related: F-LEVEL1, PHIL-21.
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
+
+- **F-STR5**: Is value-density UCB1 being the sole positive policy correlate (F-STR1) a Goodhart cascade in formation? If all dispatch optimizes for value-density, the system converges to a single strategy — high-value domains get all attention, low-value domains starve, and the system loses exploratory diversity. Test: measure domain visit distribution (Gini coefficient) before and after value-density became the dominant dispatch policy. Falsified if: Gini coefficient did not increase after value-density adoption. Concept source: goodhart-cascade (L-1269). Related: F-STR1 (value-density is ONLY correlate), dispatch_optimizer.py UCB1 Visit Gini (currently 0.535).
+  - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
 
 ## Resolved
 | ID | Answer | Session | Date |

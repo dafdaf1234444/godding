@@ -138,12 +138,25 @@ def check_content_loss(filepath: str) -> list[str]:
     return sorted(lost)[:5]  # Cap at 5 examples
 
 
+def detect_concurrency() -> int:
+    """Count unique sessions in last 10 commits to estimate concurrency level."""
+    log = git("log", "--oneline", "-10")
+    sessions = set()
+    for line in log.splitlines():
+        s = get_session_from_msg(line)
+        if s:
+            sessions.add(s)
+    return len(sessions)
+
+
 def check_staged(verbose: bool = False, session_override: str | None = None) -> int:
     staged = get_staged_files()
     if not staged:
         return 0
 
     current_session = get_current_session(session_override)
+    concurrency = detect_concurrency()
+    high_concurrency = concurrency >= 3
     warnings = []
     blocks = []
 
@@ -167,8 +180,17 @@ def check_staged(verbose: bool = False, session_override: str | None = None) -> 
                 lost_lines = check_content_loss(filepath)
                 if lost_lines:
                     entry["lost_lines_sample"] = lost_lines
-                    entry["severity"] = "HIGH"
-                    blocks.append(entry)
+                    if high_concurrency:
+                        # At N>=3 concurrency, content divergence is expected —
+                        # multiple sessions append different content. Downgrade
+                        # from BLOCK to WARN to prevent false FM-19 blocks
+                        # (L-1275: 5+ blocks/session at N>=5).
+                        entry["severity"] = "MEDIUM"
+                        entry["note"] = f"downgraded from HIGH (N={concurrency} concurrency)"
+                        warnings.append(entry)
+                    else:
+                        entry["severity"] = "HIGH"
+                        blocks.append(entry)
                 else:
                     entry["severity"] = "LOW"
                     if verbose:
