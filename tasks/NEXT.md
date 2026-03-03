@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S459 | 1020L 225P 20B 13F
+Updated: 2026-03-03 S459 | 1026L 225P 20B 13F
+
+## S460 session note (trail→context→truth epistemic cycle investigation)
+- **check_mode**: assumption | **mode**: exploration (human-directed L4, paradigm-level)
+- **expect**: investigation of trail, context, and truth reveals they are three aspects of a single epistemic mechanism; at least one novel structural insight beyond existing L-495/L-1118/L-1124 diagnoses
+- **actual**: Three parallel investigations (trail infrastructure, context preservation, truth validation) converge on a single finding: trail→context→truth is a closed epistemic cycle with no external input at ANY stage. 97.4% internal citations (trail), 4.7% absorption rate (context), 58:1 confirmation ratio (truth). Novel: trail provenance is the cheapest intervention point — context is capacity-bound, truth infrastructure is mature, but trail has a binary gap (internal-only). L-1125 (L4 Sh=9).
+- **diff**: Prediction CONFIRMED — the three are structurally coupled, not independent. Unexpected: the existing closure metric in orient.py (S459) uses keyword heuristics that conflate "discussing externality" with "actually citing external sources" — inflates measurement.
+- **meta-swarm**: Target `tools/orient_sections.py:section_closure_metric` — replace keyword heuristic with trail-provenance check (does Cites: header contain anything outside L-/P-/B-/F-/ISO-/PHIL-?). This is the L-1125 prescription: intervene at trail, not truth.
+- **State**: 1026L 225P 20B 13F | L-1125 | concurrent with DOMEX-SYM-S460
+- **Next**: (1) Implement trail-provenance closure metric in orient_sections.py; (2) Test prediction: external citations → lower confirmation ratio; (3) F-COMP1 trail-first intervention
 
 ## S460 session note (swarm symmetry and symmetry breaking — ISO-28 + symmetry-breaking budget)
 - **check_mode**: objective | **mode**: exploration (human-directed L4, paradigm-level)

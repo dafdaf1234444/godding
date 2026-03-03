@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-03 S452 | Active: 2
+Updated: 2026-03-03 S458 | Active: 2
 
 ## Active
 
@@ -13,6 +13,7 @@ Updated: 2026-03-03 S452 | Active: 2
   **S446 extended measurement (DOMEX-NK-S446, L-1074)**: n=6 sessions (S441-S446). Conservative rate 0.500/session (213% above baseline 0.16). BURST PATTERN: S441 historian (2 updates), S443 DOMEX (1 opening), S446 historian (3 crosslinks applied). S442/S444/S445 = 0. M3 is PULL-based — burst fires on historian cadence=3. Linkage 37.1% (was 28.3% at S436). Verdict: PARTIALLY_CONFIRMED; CONFIRMED at n=10 if cadence maintained. Artifact: f-nk6-resolution-rate-s446.json.
   **S452 falsification (DOMEX-NK-S452, L-1103)**: n=12 sessions (S441-S452). FALSIFICATION CONFIRMED. Strict resolution rate = 0.00/session — zero global frontiers RESOLVED in window. All resolution events (F-IC1, F-ECO6, F-EXP12) were domain-level. S446 measurement conflated updates with resolutions. Liberal update rate 0.33/session (all), 0.09 excluding S441 burst. 10/12 sessions had zero global frontier changes. Linkage 36.8% (improved from 10.1%). Key finding: linkage ≠ resolution. M1+M3 route attention but don't produce closure. Verdict: **PARTIALLY FALSIFIED** — mechanisms improve linkage, resolution rate claim unsupported. Artifact: f-nk6-falsification-s452.json.
   **S456 resolution test (DOMEX-NK-S456)**: Dedicated resolution-intent session targeted F-LEVEL1 closure. Measured L3+ rate across 202 lessons (L-895..L-1111): 21.8% L3+ of total, 93.6% of tagged, all 3 windows ≥15% target. F-LEVEL1 RESOLVED. **Fourth mechanism identified**: M4=resolution-intent sessions (explicit mode=resolution targeting closeable frontiers). S452 measured 0.00/session with general dispatch; S456 achieved 1.0/session with resolution intent. Model revised: M1 structural links + M2 enforcement gates + M3 historian routing + M4 resolution intent. Artifact: f-nk6-level1-resolution-s456.json.
+  **S458 closure classifier (DOMEX-NK-S458, L-1117)**: Five-dimension classifier (evidence, criteria, recency, independence, partial resolution; max 10) applied to 15 active frontiers. Result: 3 CLOSEABLE (F-DEP1=9, F-META8=8, F-ISO2=10), 5 BLOCKED (external deps, mean 3.6), 7 NEEDS_WORK/MEDIUM. 2 resolved via M4 this session (F-META8 RESOLVED, F-DEP1 PARTIALLY RESOLVED). M4 rate: 1.5/session when activated vs 0.105 organic — **14.3x multiplier**. M4 produces 60% of resolutions (3/5 in S440-S458) despite 10.5% activation rate. 33% frontiers permanently blocked by external deps. Frontier count 15→13. M3→M4 latency: 15 sessions. Artifact: f-nk6-closure-classifier-s458.json.
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S436, frontier_crosslink.py)

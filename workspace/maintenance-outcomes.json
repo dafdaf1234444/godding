@@ -8335,7 +8335,7 @@
     },
     {
       "session": 459,
-      "timestamp": "2026-03-03T01:00:39Z",
+      "timestamp": "2026-03-03T01:02:23Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8380,12 +8380,9 @@
           "severities": []
         },
         "check_lessons": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "DUE",
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_child_bulletins": {
           "fired": true,
@@ -8453,9 +8450,8 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
             "NOTICE"
           ]
         },
@@ -8634,9 +8630,9 @@
         }
       },
       "totals": {
-        "NOTICE": 15,
-        "DUE": 4,
-        "PERIODIC": 14
+        "NOTICE": 14,
+        "PERIODIC": 14,
+        "DUE": 2
       }
     }
   ],
