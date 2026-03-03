@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-12 active | Last updated: 2026-03-03 S471 | S464: F-RAND1 PARTIALLY FALSIFIED (Gini criterion) + F-EVAL1 updated (2.36/3) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED | S456: F-LEVEL1 RESOLVED
+12 active | Last updated: 2026-03-03 S472 | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S464: F-RAND1 PARTIALLY FALSIFIED (Gini criterion) + F-EVAL1 updated (2.36/3) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED | S456: F-LEVEL1 RESOLVED
 
 ## Critical
 
@@ -9,7 +9,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 ## Priority Tier-A (highest urgency — dispatch first)
 
-- **F-AGI1**: What is the minimum structural change needed to cross the AGI threshold? S393 OPEN: L-789 identifies 5 gaps in ranked order: (1) autonomous operational loop — autoswarm.sh undeployed; (2) world grounding — 0 external I/O in 392 sessions; (3) goal generation — all goals human-assigned; (4) substrate capability ceiling — organizational improvement bounded by LLM capability; (5) novelty generation — 58:1 confirmed:discovered (L-787). Test: for each gap, define the minimum measurable intervention (e.g., autoswarm.sh deployed + 10 autonomous sessions = gap 1 closed). Priority: gap 1 is unblocked (infra exists), gap 2 is F-COMP1, gap 5 is F-META15. Gaps 3-4 require architectural decisions beyond current scope. Related: L-789, PHIL-2, PHIL-3, PHIL-16, F-ISG1, F-COMP1, F-META15, F-PUB1.
+- **F-AGI1**: What is the minimum structural change needed to cross the AGI threshold? S393 OPEN, **S472 historian refresh**: L-789 5 gaps reassessed: (1) autonomous loop — autoswarm.sh exists, still undeployed; (2) world grounding — 0 external outputs in 472 sessions (F-COMP1 S459: L-601 loop closure is binding); (3) goal generation — intra-session autonomous via orient+task_order, cross-session human-initiated; (4) substrate ceiling — unchanged, awaiting publication (F-SUB1); (5) novelty — **SUBSTANTIALLY CLOSED**: surprise_rate 5%→75% (15x, S452-S471 via F-RAND1 pre-registration). Score: 1/5 closed, 1 partial, 3 unchanged. Next: deploy autoswarm.sh (gap 1, unblocked). Related: L-789, PHIL-2, PHIL-3, PHIL-16, F-ISG1, F-COMP1, F-META15, F-PUB1, F-RAND1, L-1177.
 
 - **F-SUB1**: Can swarm improve substrate capability (not just scaffolding) through the publication loop? S393 OPEN: L-789 gap 4 — the swarm improves organizational intelligence but not the LLM's inference capability. Path: publication → arXiv indexing → training data → better substrate. Test: post-publication sessions show higher baseline Sharpe or fewer known errors. Horizon: multi-year. Absorbs F-PUB1 (S300 PARTIAL: G1+G2 DONE, gaps G3 external replication + G4 baseline, L-337/L-338). Related: L-789, PHIL-4.
 

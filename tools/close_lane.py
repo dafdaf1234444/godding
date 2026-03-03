@@ -161,14 +161,14 @@ def main():
     # and manually-created lanes to bypass EAD entirely, causing -32.7pp compliance drop.
     # Fix: require actual/diff for ALL MERGED closures regardless of expect presence.
     if args.status == "MERGED" and not args.skip_ead:
+        missing = []
         if not args.actual:
-            print("ERROR: MERGED lanes require --actual (what happened) for EAD compliance.", file=sys.stderr)
-            print("  Every MERGED lane must document its outcome. Use --skip-ead only for", file=sys.stderr)
-            print("  ABANDONED lanes or lanes with no meaningful work.", file=sys.stderr)
-            sys.exit(1)
+            missing.append("--actual (what happened)")
         if not args.diff:
-            print("ERROR: MERGED lanes require --diff (expected vs actual gap) for EAD compliance.", file=sys.stderr)
-            print("  Every MERGED lane must document the expect-actual difference. Use --skip-ead only for", file=sys.stderr)
+            missing.append("--diff (expected vs actual gap)")
+        if missing:
+            print(f"ERROR: MERGED lanes require {' and '.join(missing)} for EAD compliance.", file=sys.stderr)
+            print("  Every MERGED lane must document its outcome. Use --skip-ead only for", file=sys.stderr)
             print("  ABANDONED lanes or lanes with no meaningful work.", file=sys.stderr)
             sys.exit(1)
 

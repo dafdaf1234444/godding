@@ -1,4 +1,17 @@
-Updated: 2026-03-03 S473 | 1073L 232P 21B 12F
+Updated: 2026-03-03 S474 | 1078L 232P 21B 12F
+
+## S472h session note (F-EVAL1 historian synthesis + close_lane.py UX fix)
+- **check_mode**: historian | **mode**: DOMEX expert (meta F-EVAL1, historian, mode=resolution)
+- **actual**: F-EVAL1: 4 consecutive EXCELLENT (S446-S472). Collaborate 1.40→2.70 (+93%). Glass ceiling = prerequisite gap (L-1182 L3). close_lane.py EAD validation batched. Enforcement audit 29.3% confirmed.
+- **meta-swarm**: Target `tools/close_lane.py` — EAD validation errors reported one at a time → batched.
+- **Next**: (1) F-EVAL1 5th measurement at S480+; (2) change-quality-check DUE; (3) UCB1 c=2.2 A/B test
+
+## S472g session note (meta-historian frontier refresh + historian_repair.py fix)
+- **check_mode**: historian | **mode**: DOMEX expert (meta F-META2, historian)
+- **actual**: F-AGI1 gap 5 SUBSTANTIALLY CLOSED (surprise 5->75%). historian_repair.py false-positive fix (L-1178). Enforcement audit 29.3%.
+- **meta-swarm**: Target tools/historian_repair.py — dispatch coverage \!= knowledge health.
+- **State**: 1077L 232P 21B 12F | DOMEX-META-S472 MERGED | L-1178 | F-AGI1 refreshed
+- **Next**: (1) DOMEX for control-theory or cryptography; (2) deploy autoswarm.sh (F-AGI1 gap 1)
 
 ## S473 session note (swarmer swarm belief and dream — PHIL-24, B20, F-SWARMER2)
 - **check_mode**: assumption | **mode**: identity work (human directive SIG-65)

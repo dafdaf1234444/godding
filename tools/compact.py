@@ -185,12 +185,15 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
     if not lesson_files:
         return []
 
-    # Build citation map: count L-NNN refs across ALL project markdown files (including lessons)
+    # Build citation map: count L-NNN refs across ALL project files (md + py + sh)
     # L-1163: excluding lessons caused false zero-cited reports — lesson-to-lesson citations matter
+    # L-1175: tool-file refs (471 invisible citations) reward action over measurement (Goodhart Ch5 fix)
     # Use git ls-files for speed (rglob is 15s+ on WSL with 868 files; git index is ~0.3s)
     citation_counts: dict[str, int] = {}
+    tool_citation_counts: dict[str, int] = {}  # track tool-file citations separately for reporting
     import subprocess as _sp
-    _ls = _sp.run(["git", "ls-files", "*.md", "**/*.md"], capture_output=True, text=True, cwd=REPO_ROOT)
+    _ls = _sp.run(["git", "ls-files", "*.md", "**/*.md", "*.py", "**/*.py", "*.sh", "**/*.sh"],
+                  capture_output=True, text=True, cwd=REPO_ROOT)
     # Map lesson files to their own L-ID so we can exclude self-citations
     _lesson_id_map: dict[str, str] = {}  # path -> L-NNN
     scan_paths = []
@@ -208,10 +211,13 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
         key = str(sp.relative_to(REPO_ROOT))
         sha = _file_sha256(sp)
         self_lid = _lesson_id_map.get(key)  # exclude self-citations
+        is_tool_file = sp.suffix in (".py", ".sh")
         if sha and cache.get(key, {}).get("sha256") == sha:
             for lid, cnt in cache[key].get("cites", {}).items():
                 if lid != self_lid:
                     citation_counts[lid] = citation_counts.get(lid, 0) + cnt
+                    if is_tool_file:
+                        tool_citation_counts[lid] = tool_citation_counts.get(lid, 0) + cnt
         else:
             text = _read(sp)
             file_cites: dict[str, int] = {}
@@ -219,6 +225,8 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
                 lid = f"L-{match.group(1)}"
                 if lid != self_lid:
                     citation_counts[lid] = citation_counts.get(lid, 0) + 1
+                    if is_tool_file:
+                        tool_citation_counts[lid] = tool_citation_counts.get(lid, 0) + 1
                 file_cites[lid] = file_cites.get(lid, 0) + 1
             if sha:
                 cache[key] = {"sha256": sha, "cites": file_cites}
@@ -258,6 +266,7 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
                 lesson_cache_dirty = True
         age = max(max_session - session, 1)
         citations = citation_counts.get(lid, 0)
+        tool_cites = tool_citation_counts.get(lid, 0)
         # Skip zero-cited lessons written this session or last 5 sessions (L-370 guard)
         if citations == 0 and age < 5:
             continue
@@ -268,6 +277,7 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
         candidates.append({
             "lesson_id": lid, "session": session, "age": age,
             "tokens": tokens, "citations": citations,
+            "tool_citations": tool_cites,
             "in_principles": in_principles, "sharpe": round(sharpe, 6),
         })
 
@@ -363,13 +373,15 @@ def analyze():
     candidates = _lesson_sharpe_candidates(top_n=15)
     if candidates:
         zero = [c for c in candidates if c["citations"] == 0]
-        print(f"\n  Sharpe-ranked lesson candidates ({len(zero)} zero-cited of top-15):")
-        print(f"  {'ID':<8} {'Age':>5} {'Tok':>5} {'Cite':>5} {'InP':>5}  Sharpe")
+        tool_cited = [c for c in candidates if c.get("tool_citations", 0) > 0]
+        print(f"\n  Sharpe-ranked lesson candidates ({len(zero)} zero-cited, {len(tool_cited)} tool-cited of top-15):")
+        print(f"  {'ID':<8} {'Age':>5} {'Tok':>5} {'Cite':>5} {'Tool':>5} {'InP':>5}  Sharpe")
         for c in candidates:
             flag = " *" if c["citations"] == 0 else ""
             inp = "yes" if c["in_principles"] else "no"
-            print(f"  {c['lesson_id']:<8} {c['age']:>5} {c['tokens']:>5} {c['citations']:>5} {inp:>5}  {c['sharpe']:.4f}{flag}")
-        print(f"  (* = zero-cited orphan — safe to archive; 'InP=yes' = absorbed into principle)")
+            tc = c.get("tool_citations", 0)
+            print(f"  {c['lesson_id']:<8} {c['age']:>5} {c['tokens']:>5} {c['citations']:>5} {tc:>5} {inp:>5}  {c['sharpe']:.4f}{flag}")
+        print(f"  (* = zero-cited orphan — safe to archive; 'InP=yes' = absorbed into principle; Tool = .py/.sh refs)")
 
     return m, drift
 
