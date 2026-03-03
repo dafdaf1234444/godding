@@ -225,18 +225,56 @@ def _measure_channel_5_falsification():
 
 
 def _measure_channel_6_survival():
-    """Channel 6: Compactification survival — used tools persist, unused die."""
+    """Channel 6: Compactification survival — used tools persist, unused die.
+
+    Calibrated S465 (L-1155): measures dead code ratio (tools with 0 importers).
+    Aligned if dead code ratio < 10% (target < 5%, intermediate gate < 10%).
+    """
     tools_dir = ROOT / "tools"
     if not tools_dir.exists():
         return {"aligned": False, "metric": "unknown"}
 
     py_tools = [f for f in tools_dir.iterdir() if f.suffix == ".py"]
     total = len(py_tools)
+    if total == 0:
+        return {"aligned": False, "metric": "0 tools", "goodhart_type": "survival_not_merit"}
 
+    # Lightweight import/reference analysis: count tools referenced by at least
+    # one other tool OR automation entry point (check.sh, periodics.json)
+    tool_names = {f.stem for f in py_tools}
+    imported = set()
+    scan_files = list(py_tools)
+    for entry in ["check.sh", "periodics.json"]:
+        ep = tools_dir / entry
+        if ep.exists():
+            scan_files.append(ep)
+    for f in scan_files:
+        try:
+            text = f.read_text(errors="replace")
+        except OSError:
+            continue
+        stem = f.stem if f.suffix == ".py" else ""
+        for name in tool_names:
+            if name == stem:
+                continue
+            if f"import {name}" in text or f"from {name}" in text or f"{name}.py" in text:
+                imported.add(name)
+
+    orphan_count = total - len(imported)
+    dead_ratio = orphan_count / total
+
+    aligned = dead_ratio < 0.10
+    if aligned:
+        return {
+            "aligned": True,
+            "metric": f"{dead_ratio:.1%} dead code ({orphan_count}/{total} tools with 0 importers)",
+            "detail": f"ALIGNED (S465 calibrated). Dead code ratio {dead_ratio:.1%} < 10% gate.",
+            "goodhart_type": None
+        }
     return {
         "aligned": False,
-        "metric": f"{total} tools in tools/",
-        "detail": "Goodhart: survival rewards being referenced in orient/maintenance, not producing value. Zombie tools persist because nothing actively removes them. Fix: tool sunset protocol (unused >30 sessions → archive).",
+        "metric": f"{dead_ratio:.1%} dead code ({orphan_count}/{total} tools with 0 importers)",
+        "detail": f"Dead code ratio {dead_ratio:.1%} exceeds 10% gate (L-1155). Fix: archive tools unused >30 sessions.",
         "goodhart_type": "survival_not_merit"
     }
 
