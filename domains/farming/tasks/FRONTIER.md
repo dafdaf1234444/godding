@@ -8,6 +8,7 @@ Updated: 2026-03-01 S374 | Active: 2
   - **S189 baseline PARTIAL**: `tools/f_far1_fallow_measure.py` built and run → `experiments/farming/f-far1-fallow-measure-s189.json` (61 domain-tagged lessons). Full-set uplift +46.5% (confounded: pre-S186 lessons default to post_fallow). Confound-corrected (S186+, n=28): post-fallow mean Sharpe=0.3774 vs continuous=0.2944, **uplift=+28.2% → FALLOW_CONFIRMED** (threshold 10%). P-201 written. Caution: n=28 needs replication at n>50. Next: extend domain-tagging to more lessons, then rerun at S195+ for larger sample. See L-307.
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-FAR2**: Can companion-planting (synergistic domain pairing) be detected from cross-domain citation patterns? Hypothesis: domain pairs that frequently cite each other's lessons have higher per-session L+P yield than isolated domains. Design: parse all lesson files for domain-prefix citations (F-ECO1, F-IS5, etc.); build co-citation graph; compute mean session L+P for domains with high cross-cite degree vs. isolated domains; test if high-degree pairs have >20% L+P advantage. Next: build tools/f_far2_companion_detect.py. Related: B-FAR3, tasks/FRONTIER.md cross-domain links, ISOMORPHISM-ATLAS.md. (S189)
 

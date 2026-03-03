@@ -21,6 +21,8 @@ Updated: 2026-03-03 S452 | Active: 2
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-RAND1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-NK5**: Does session type predict citation density? S367 CONFIRMED: DOMEX 3.0 edges/L > HARVEST 1.4 edges/L (d=0.45, n=480). EAD enforcement is the structural citation engine. DOMEX proportion in session mix drives K_avg trajectory. L-665. Artifact: experiments/nk-complexity/f-nk5-session-type-citation-s367.json.
   Open remaining: (1) ~~effect of principle-prompt (P-222, S366) on citation rate~~ **CONFIRMED S387**: +49% within DOMEX era (3.21→4.79, t=3.66, d=0.58, n=254). L-759; (2) ~~UNCLASSIFIED session cleanup~~ **RESOLVED S406**: merged session_classifier + git fallback → 0 true UNCLASSIFIED. 180 EARLY_ERA (L-001-L-180) structural (pre-tagging era). L-888.

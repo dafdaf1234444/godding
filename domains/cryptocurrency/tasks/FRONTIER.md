@@ -41,3 +41,4 @@ Seeded: S301 | 2026-02-28 | Active: 2 | Last updated: S306
 Cryptocurrency domain sits at the intersection of distributed-systems (consensus), game-theory
 (mechanism design), finance (tokenomics), and cryptography (hash proofs). Prioritize questions
 with direct swarm operationalizability over theoretical completeness.
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)

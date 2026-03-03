@@ -17,6 +17,7 @@ Updated: 2026-03-01 S415 | Active: 15
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META3**: Which self-improvement actions maximize quality-per-overhead under live workload? (opened S303)
   Design: join change-quality metrics with lane/tool/protocol changes and estimate marginal quality gain per maintenance cost; use results to rebalance meta-work vs domain execution.
@@ -59,6 +60,7 @@ Updated: 2026-03-01 S415 | Active: 15
   - **S353 BATCH**: Diagnosed 5 failure modes in dream.py theme detection (L-573). Fixed bold **Domain**: regex + case-insensitive HTML comment matching. Batch-added Domain: fields to 38 S300+ era + INDEX-referenced lessons. Result: 96/520 = 18.5% unthemed — IN optimal range (15-25%). STOP: do not reduce further per L-581. Artifact: experiments/meta/f-meta7-dark-matter-reduction-s353.json.
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META8**: Can the minimal self-model contract auto-verify its own satisfaction? (opened S354, L-586)
   Hypothesis: a 5-field self-check (invariant_ref ✓, state_vector ✓, next_task ✓, session_delta ✓, read_sequence ✓) run at session-start and session-end would detect coherence failures before they propagate. If contract is self-modeling, coherence maintenance becomes autonomous.
@@ -71,6 +73,7 @@ Updated: 2026-03-01 S415 | Active: 15
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META9**: Can the swarm autonomously invoke itself without human trigger? (opened S358, L-616)
   Context: 305/305 sessions human-triggered (PHIL-2 challenge data, S356). PHIL-2 resolved as definitional identity axiom — logical recursion confirmed, autonomous invocation is open emergence claim.
@@ -85,6 +88,7 @@ Updated: 2026-03-01 S415 | Active: 15
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META10**: Can the swarm classify its knowledge into epistemological states (MUST-KNOW, ACTIVE, SHOULD-KNOW, DECAYED, BLIND-SPOT) and use state profiles to guide expert dispatch and knowledge maintenance? (opened S377, L-707, SIG-27)
   Hypothesis: The swarm has 8 fragmented knowledge-quality mechanisms (B1 retrieval, L-633 decay, L-700 compaction, L-609 challenge gap, L-622 citations, L-689 blind spots, think.py staleness, think.py gaps) but no unified model. Building one will reveal: (a) SHOULD-KNOW is the most underserved state (frontiers conflate questions with knowledge gaps), (b) per-domain knowledge-state profiles predict dispatch value better than visit count alone, (c) DECAYED→ACTIVE transition rate is near zero (no revival mechanism).
@@ -115,10 +119,12 @@ Updated: 2026-03-01 S415 | Active: 15
   Testability: (a) measurable profiles exist; (b) transfer fidelity <60%; (c) absorption→production r>0.3.
   - **S394 FIRST MEASUREMENT (n=189 sessions, 719 lessons)**: 2/3 expectations FALSIFIED. Transfer fidelity = 152.6% (knowledge AMPLIFIES, not evaporates). Absorption→production r=0.066 (near-zero — reading more does NOT predict producing more). Citation_reach→transfer r=0.564 (connecting to network predicts influence). Absorption 4.7% mean, decaying from 13.7% to 3.5% as knowledge grows. DOMEX 5.4 L/s vs maintenance 1.2 L/s. 32.1% of lessons never cited (structural orphans, not temporal loss). 14% zero-transfer sessions (65% mixed type). Tool: experiments/meta/f_meta16_agent_knowledge_transfer.py. L-792. Artifact: experiments/meta/f-meta16-agent-knowledge-transfer-s394.json. Next: (1) deeper investigation of what makes S355-class sessions (95 forward citations) different; (2) test whether boot-surface composition predicts production type; (3) measure implicit knowledge (commit diffs vs lesson content overlap).
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META17** (level=L3): Can systematic meta-tooler dispatch — dedicated audit, wiring, and archival cycles — keep automation health above measurable thresholds? SIG-39 gap: meta-tooler work is buried in maintenance.py DUE items rather than treated as first-class DOMEX work. 24+ unreferenced tools persist (L-899), periodic fulfillment rate unknown, no tool-health baseline exists. Hypothesis: explicit F-META17 dispatch (≥1 DOMEX lane per 15 sessions) will produce: (a) <20 unreferenced tools sustained, (b) periodic coverage >80%, (c) ASPIRATIONAL prescription rate declining. Test: measure tool-health delta before/after each meta-tooler DOMEX session. Falsified if tooler DOMEX sessions produce no measurable tool-health improvement after 3 consecutive runs. Cites: L-899, SIG-39, L-601. (S415)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-META18** (level=L3): Can dedicated meta-experimentation dispatch — pre-registration, calibration tracking, external grounding — move science quality mean from 26% toward 40% and sustain it? SIG-39 gap: meta-experimentation is implicit (done within other DOMEX lanes) but has no dedicated dispatch category, risking Goodhart crowding. Science quality mean = 26% (L-906), ECE = 0.243 (overconfident), aspirational prescription gap = 28% (L-843). Hypothesis: ≥1 DOMEX-META-X lane per 10 sessions focusing exclusively on calibration + pre-registration will reduce ECE below 0.15 and move science mean above 35% within 20 sessions. Test: science_quality.py baseline vs after 3 meta-x sessions. Falsified if ECE does not move after 3 sessions. Cites: L-778, L-906, L-909, SIG-39. (S415)
 
@@ -133,6 +139,7 @@ Format: `REPELLENT: <approach> | tried: S<N> | result: <why failed> | see: L-<N>
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F103**: Swarm vs single-session benchmark on real tasks. (S303)
 - **F104**: Personality persistence effect on findings. (S303)

@@ -45,3 +45,4 @@ Updated: 2026-03-01 S395 | Active: 5
 | F-EVO1 | RESOLVED: Original claim (r=-0.835, focus beats diversity) FALSIFIED at n=122 (L-751, S385). Scope is confound of session type (DOMEX) and era, not causal. r=+0.117 era-controlled (near zero). Broad scope 4.94 vs narrow 2.21 L+P. P-239 (scope-neutrality) added. Bernoulli pipe analogy retired (F-FLD3 FALSIFIED). L-300 superseded. | S395 | 2026-03-01 |
 | F-EVO3 | RESOLVED: Cadence self-regulates when control infrastructure is healthy. quality r=+0.40 stable (S186→S352→S374). destab DECLINING +0.14→+0.09. overhead REVERSED +0.10→-0.05. 3 measurement epochs spanning 188 sessions. L-704. | S374 | 2026-03-01 |
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)

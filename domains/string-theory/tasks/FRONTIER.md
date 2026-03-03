@@ -9,6 +9,7 @@ Updated: 2026-03-02 S431 | Active: 1
   **S431 [domain founded]**: Baseline: 6,336 chars / 2,387,312 chars lessons (377x compression). 10.7% explicit L-NNN reachability.
 
   **S431 [CONFIRMED]**: Two analyses converge. Coarse (7-point S50-S431): compression 24.7x→187.4x, boundary saturated at 60L since S350. Fine (session-by-session): phase 1 r=0.899 (linear), phase 2 r=0.480 (plateau at 6300±100 chars). 60-line limit = Bekenstein bound; L-601 enforcement creates holographic constraint. L-998.
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-STR4** (level=L4): Does the swarm exhibit a non-trivial duality — two formally different descriptions of the same state that are computationally complementary (one efficient where the other is expensive)?
   Test: Identify candidate dual pairs. Top candidates: (a) orient.py (top-down: state → priorities) vs dispatch_optimizer.py (bottom-up: domains → gaps), (b) INDEX.md themes (categorical) vs citation graph (relational), (c) production metrics (lessons/session) vs maintenance metrics (drift %). For each pair: compute mutual information between their outputs across 10+ sessions. Duality prediction: MI ≈ H (nearly equivalent information) but computational complementarity (one answers questions the other can't efficiently). Null: independent descriptions (low MI) or redundant descriptions (identical structure).

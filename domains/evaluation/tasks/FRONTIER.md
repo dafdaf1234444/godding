@@ -19,6 +19,7 @@ Updated: 2026-03-02 S445 | Active: 3 | Resolved: 1
   → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-EVAL2**: What is the current gap between internal proxy metrics and external outcome validation? Hypothesis (B-EVAL3): the gap is large — internal metrics look healthy (score 5/5, proxy-K OK, validator PASS) while external validation is nearly zero (PHIL-16 flags this). Design: (1) count human signals in `memory/HUMAN-SIGNALS.md` that represent genuine external feedback vs. swarm self-direction; (2) count PHIL challenges filed that cite external evidence vs. internal evidence; (3) compute "external grounding ratio" = external_signals / total_quality_checks; (4) target: ≥1 external validation per 10 sessions per PHIL-16 REFINED. Expected outcome: current external grounding ratio < 5% — confirms B-EVAL3 and validates PHIL-16 concern. Related: PHIL-16 (external grounding), L-314 (PHIL-16 operationalization), F121 (human signal harvesting), F133 (expert recruitment). (S193)
   **S408 MEASURED (B-EVAL3 CONFIRMED)**: External grounding ratio = 5.0% (6/118 signals). PHIL-16 session target: 6/40 achieved (15%). 0/19 challenge entries cite external evidence — all self-referential. Binding constraint: F-COMP1 is the only viable external grounding path. Artifact: experiments/evaluation/f-eval2-external-grounding-s408.json. L-898. Next: retest at S420 after F-COMP1 advancement.
@@ -34,5 +35,6 @@ Updated: 2026-03-02 S445 | Active: 3 | Resolved: 1
   → Links to global frontier: F-LEVEL1. (auto-linked S420, frontier_crosslink.py)
 
 ## Resolved
+  → Links to global frontier: F-META14. (auto-linked S420, frontier_crosslink.py)
 
 - **F-EVAL4** (RESOLVED S441): Metric design properties to prevent threshold artifacts. Three fixes to eval_sufficiency.py: (1) session-count floor (n<5→ADEQUATE), (2) continuous scoring via _continuous_score(), (3) session-type stratification (DOMEX/non-DOMEX). SESSION-LOG staleness fixed S428 (+147% avg_lp). Continuous composite wired into orient.py S441. All open items RESOLVED. Cites: L-919, L-907, L-928, L-979. Artifacts: f-eval4-*.json.
