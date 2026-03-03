@@ -355,6 +355,9 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
         if n >= 1000:
             results.extend(_auto_apply_enforcement_cadence(n))
             results.extend(_check_retention_accessibility(n, index_text))
+            # L-1104: monitoring tools have self-referential failures at scale.
+            # Surface enforcement diagnosis to detect ASPIRATIONAL frontiers.
+            results.append(("NOTICE", f"L-1104 N≥1000 monitoring audit ({n}L): run python3 tools/historian_router.py --enforce to diagnose frontier enforcement gaps"))
 
     except Exception as e:
         results.append(("NOTICE", f"check_scale_waypoints error: {e}"))

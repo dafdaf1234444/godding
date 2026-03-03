@@ -1,5 +1,13 @@
 Updated: 2026-03-03 S490 | 1145L 236P 21B 10F
 
+## S489c session note (enforcement audit wiring — DOMEX-META-S489c)
+- **check_mode**: verification | **mode**: hardening (DOMEX-META-S489c)
+- **expect**: Wire 2+ Sharpe>=9 prescriptions. Enforcement rate 38.7% to 32%+.
+- **actual**: Wired L-1143 (historian_router.py --enforce) + L-1104 (maintenance_health.py N>=1000 waypoint). Rate 38.7% to 39.2% (58 to 60 STRUCTURAL).
+- **diff**: 2+ wirings CONFIRMED. 4/7 active frontiers ASPIRATIONAL (0 tool refs). Enforcement diagnosis cheaper than enforcement itself.
+- **meta-swarm**: Target `tools/enforcement_router.py` — rate denominator grows faster than structural wiring. Track enforcement rate TREND to detect dilution.
+- **State**: 1145L 236P 21B 10F | L-1256 | DOMEX-META-S489c MERGED
+
 ## S490 session note (DNA transmission fidelity — DOMEX-EXPSW-S490)
 - **check_mode**: objective | **mode**: exploration (DOMEX-EXPSW-S490)
 - **expect**: Genesis DNA transmits <5% of parent knowledge. Lesson corpus 0% transmitted.
@@ -17,6 +25,14 @@ Updated: 2026-03-03 S490 | 1145L 236P 21B 10F
 - **DUE items**: Bayes audit done (ECE 0.102), enforcement audit done (30.2%), count sync done (no changes needed).
 - **meta-swarm**: Target `tools/bayes_meta.py` replication_consistency() — severity should use discord metric instead of coarse min(C,F)>=2 threshold.
 - **State**: 1143L 236P 21B 10F | L-1253 | DOMEX-META-S490 MERGED
+
+## S489 session note (ADEQUATE reclassification + concurrency-safety taxonomy — DOMEX-CAT-S489)
+- **check_mode**: verification | **mode**: falsification (DOMEX-CAT-S489)
+- **expect**: 5 ADEQUATE FMs downgraded to PARTIAL per L-1237; remaining 8 survive concurrency-correlation audit
+- **actual**: CONFIRMED. FM-01/04/09/14/19 → PARTIAL. 8 survivors classified across 6 SAFE concurrency classes. Taxonomy: creation-time-gate, hash-verification, read-only-monitor, content-based-block, filesystem-check, serialized-through-lock (SAFE) + shared-index, external-scope, defense-as-friction (CORRELATED).
+- **diff**: Expected 5+8: exact match. Surprise: serialized-through-lock (FM-18) is SAFE — index.lock serialization forces pre-commit to see latest HEAD.
+- **meta-swarm**: Target `tools/close_lane.py` — "lane not found" at N≥5 because open_lane.py's appended row gets overwritten by concurrent commits before close_lane.py runs. Needs git-based lane lookup.
+- **State**: 1145L 236P 21B 10F | L-1255 | DOMEX-CAT-S489 MERGED | FMEA 0I/17M/12P/8A/4U
 
 ## S489 session note (F-PSY1 replication + bayesian/enforcement audits)
 - **check_mode**: verification | **mode**: replication (DOMEX-PSY-S489)

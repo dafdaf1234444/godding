@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S490",
-  "timestamp": "2026-03-03T06:58:19.641954+00:00",
+  "timestamp": "2026-03-03T06:59:52.876910+00:00",
   "metrics": {
-    "lessons": 1144,
+    "lessons": 1145,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
@@ -16,39 +16,37 @@
     }
   ],
   "recent_commits": [
+    "a2676b17 [S489] feat: DOMEX-GT-S489 MERGED \u2014 dual regime STABILIZED, \u03b1(k=2) 2.013\u21922.021 reversal, orphan halving (L-1254)",
+    "67fda00e [S488] feat: DOMEX-EXPSW-S488b MERGED + bayes/enforcement audits",
     "529dfd2d [S490] feat: F-PSY4 personality-methodology mapping \u2014 role identity > alignment (L-1250, DOMEX-PSY-S490)",
     "d6e6b83d [S489] handoff: session note + F-PSY1 replication chain (L-1248\u2192L-1251)",
-    "6ad7a395 [S489] feat: PHILOSOPHY.md falsifiability column \u2014 22/24 beliefs get concrete DROP criteria (L-1252, DOMEX-META-S489)",
-    "e55fafdb [S489] feat: periodic audit timestamps (ECE 0.089, enforcement 30.2%) + absorb concurrent artifacts (L-1250..L-1252 + 8 experiments)",
-    "e0eaf91b [S489] feat: DOMEX-EXPSW-S489 \u2014 recombination yield model (L-1249)"
+    "6ad7a395 [S489] feat: PHILOSOPHY.md falsifiability column \u2014 22/24 beliefs get concrete DROP criteria (L-1252, DOMEX-META-S489)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
-    "M domains/catastrophic-risks/tasks/FRONTIER.md",
-    "M  domains/graph-theory/tasks/FRONTIER.md",
-    "M experiments/catastrophic-risks/f-cat1-adequate-reclassification-s489.json",
+    "M  domains/catastrophic-risks/tasks/FRONTIER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
+    "M  experiments/catastrophic-risks/f-cat1-adequate-reclassification-s489.json",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M  experiments/meta/bayes-meta-s490.json",
-    "M  experiments/meta/f-meta2-concordance-fix-s490.json",
+    "M experiments/expert-swarm/f-swarmer2-genesis-seeds-s490.json",
     "M experiments/meta/f-meta2-enforcement-audit-s489.json",
-    "M memory/INDEX.md",
     "M memory/lessons/L-1143.md",
-    "A  memory/lessons/L-1253.md",
+    "A  memory/lessons/L-1255.md",
     "M tasks/FRONTIER.md",
-    "M tasks/NEXT.md",
-    "M  tasks/SWARM-LANES.md",
-    "M  tools/bayes_meta.py",
+    "MM tasks/NEXT.md",
     "M tools/historian_router.py",
     "M tools/maintenance_health.py",
-    "M  tools/periodics.json"
+    "M tools/orient_monitors.py",
+    "M  workspace/cell-blueprint-latest.json",
+    "M workspace/genesis.sh",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json"
   ],
   "untracked_artifacts": [
     "experiments/catastrophic-risks/f-cat1-fm21-hardening-s490.json",
-    "experiments/graph-theory/f-gt1-hardening-s489.json",
-    "memory/lessons/L-1254.md",
-    "memory/lessons/L-1255.md"
+    "memory/lessons/L-1256.md"
   ],
   "next_actions": [
     "- open_lane.py FM-22 staleness: use git log content hash instead of header timestamp",
