@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S486",
+    "frontier": "F-META2",
+    "session": "S486",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "The belief system is FALSE (epistemically unhealthy): predict 7+/21 beliefs (>30%) are UNFALSIFIABLE or PARTIALLY_FALSIFIABLE with escape hatches. Falsified if: <=4/21 (<=19%) are unfalsifiable AND concrete test criteria exist for all FALSIFIABLE ones.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

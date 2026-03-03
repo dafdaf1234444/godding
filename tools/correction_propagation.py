@@ -240,7 +240,7 @@ def _detect_falsified_lessons(
         # context-matching (L-NNN near FALSIFIED/SUPERSEDED in another lesson's
         # text about something else). Require positive self-declaration to
         # confirm falsification. Without it, remove as false positive.
-        # (S405 audit: 60% FP rate without this guard — L-879)
+        # (S405 audit, re-confirmed S486: 60% FP rate without this guard — L-879)
         del result[cid]
 
     return result

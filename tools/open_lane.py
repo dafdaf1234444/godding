@@ -298,7 +298,8 @@ def main():
             domain_frontier = REPO_ROOT / "domains" / args.domain / "tasks" / "FRONTIER.md"
             if domain_frontier.exists():
                 header_text = domain_frontier.read_text()[:500]
-                sess_m = re.search(r"S(\d+)", header_text)
+                # Prefer "Updated: S<N>" over "Seeded: S<N>" — seeded date is immutable
+                sess_m = re.search(r"Updated:\s*S(\d+)", header_text) or re.search(r"S(\d+)", header_text)
                 if sess_m:
                     last_update = int(sess_m.group(1))
                     frontier_age = int(re.search(r"\d+", args.session).group()) - last_update

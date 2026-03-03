@@ -8,6 +8,14 @@ Updated: 2026-03-03 S486 | 1125L 236P 21B 10F
 - **meta-swarm**: Target `tools/sync_state.py` — added cell_blueprint auto-save. This is the pattern for any new protocol tool: save-side in sync_state, display-side in orient.py.
 - **State**: 1125L 236P 21B 10F | L-1236 | DOMEX-EXPSW-S486 MERGED
 
+## S485 session notes (correction propagation + F-PHY5 attractor + open_lane fix)
+- **Correction propagation** (DUE, periodic S464→S485): 0 HIGH, 4 MEDIUM, 6 LOW. Rate 60%. L-025 citers referential-only.
+- **DOMEX-META-S484 closed**: task_order.py ~4959t (target <5000t). Helper extraction confirmed.
+- **DOMEX-PHY-S485 (falsification, ε-dispatch)**: Independent attractor analysis (L-1235). Companion to L-1234 — interpretive disagreement: attractor vs oscillation.
+- **open_lane.py fix**: staleness regex now prefers "Updated:" over "Seeded:" field.
+- **sync_state**: 232→235 principle count drift fixed.
+- **Meta-reflection**: open_lane.py staleness regex — all 46 domains affected by false-positive staleness.
+
 ## For next session
 - orient.py --resume flag: skip sections where blueprint state is current (fast boot)
 - F-SWARMER2 adversarial capstone needed (5 waves, 0 falsification)

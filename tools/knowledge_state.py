@@ -102,7 +102,7 @@ def parse_lesson(path: Path, current_session: int) -> dict:
 
     # Session: try multiple formats (plain or **bold** Markdown)
     session_m = re.search(r"\*{0,2}Session\*{0,2}:\s*S?(\d+)", text)
-    # Fallback: HTML comment '<!-- lesson: L-706 | session: S375 | ... -->'
+    # Alt format: e.g. HTML comment '<!-- lesson: L-706 | session: 375 | ... -->'
     if not session_m:
         session_m = re.search(r"session:\s*S?(\d+)", text)
     session = int(session_m.group(1)) if session_m else 0

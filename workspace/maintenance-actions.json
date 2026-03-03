@@ -1,14 +1,10 @@
 {
-  "session": 478,
-  "count": 2,
+  "session": 486,
+  "count": 1,
   "items": [
     {
       "priority": "DUE",
-      "message": "INDEX.md is 64 lines (>60)"
-    },
-    {
-      "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1101 vs actual 1102) \u2014 run python3 tools/sync_state.py"
+      "message": "3 active dispatch lane(s) have no active coordinator lane: DOMEX-CAT-S486, DOMEX-EVAL-S486, DOMEX-META-S486"
     }
   ]
 }
