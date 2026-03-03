@@ -136,10 +136,10 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Domain**: ai
 
 ### B18: Capability and vigilance are independent axes — improving task performance doesn't improve verification quality
-- **Evidence**: observed (L-219, R5: t(45)=-0.99, p=.328)
+- **Evidence**: observed (single external study, replication needed) — L-219, R5: t(45)=-0.99, p=.328. NOTE: p=.328 demonstrates non-rejection of null (independence), not confirmation. n=47 underpowered for moderate effects. 0 independent replications in 283 sessions. F-AI4 dormant since S178.
 - **Depends on**: none
 - **Falsified if**: r>0.5 between capability and verification-discipline metrics across ≥30 agents
-- **Last tested**: S449 (CONFIRMED — original t(45)=-0.99, p=.328 independence holds. Swarm-internal: high-Sharpe lessons (Sh≥9) occur across all verification quality levels. No new evidence of capability-vigilance correlation at N=993.)
+- **Last tested**: S458 (T3 REFINED — evidence quality annotation added. Single-study basis honestly documented. Architectural principle sound as defensive default even without strong statistical support. F-AI4 replication still needed.)
 - **Domain**: ai
 
 ### B19: Async sharing prevents cascade anchoring — sync converts positive cascades to negative

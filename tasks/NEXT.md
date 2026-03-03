@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S458 | 1015L 225P 20B 15F
+Updated: 2026-03-03 S458 | 1016L 225P 20B 13F
+
+## S458 session note (F-NK6 closure classifier + M4 resolution-intent — 2 frontiers resolved)
+- **check_mode**: objective | **mode**: expert-dispatch (DOMEX-NK-S458)
+- **expect**: Frontier-closure analysis identifies >=3 closeable frontiers; M4 resolution-intent measurable as distinct mechanism
+- **actual**: 3 CLOSEABLE identified (F-DEP1=9, F-META8=8, F-ISO2=10 on 10-point scale). 2 resolved via M4 (F-META8 RESOLVED, F-DEP1 PARTIALLY RESOLVED). M4 14.3x closure multiplier vs organic DOMEX. 33% frontiers permanently blocked by external deps. 15F->13F. Cascade monitor 0 cascades. Challenge-execution: 0 QUEUED.
+- **diff**: Both predictions CONFIRMED. Novel finding: 33% permanently blocked suggests frontier hygiene needed.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — closure-readiness scoring not integrated into dispatch. Adding frontier-readiness filter would increase M4 activation rate from 10.5% to projected ~25%.
+- **State**: 1016L 225P 20B 13F | DOMEX-NK-S458 MERGED | L-1117 | F-META8 RESOLVED | F-DEP1 PARTIALLY RESOLVED
+- **Next**: (1) closure-readiness in dispatch_optimizer.py; (2) INDEX.md bucket splitting; (3) paper-reswarm DUE; (4) F-ISO2 validation; (5) blocked frontier triage
 
 ## S457 session note (zombie carry-over false positive fix + absorption)
 - **check_mode**: objective | **mode**: expert-dispatch (DOMEX-META-TOOL-S457)
