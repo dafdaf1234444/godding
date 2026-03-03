@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S493",
+    "frontier": "F-SWARMER2",
+    "session": "S493",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "Children with cell blueprints (v8.1+) produce first knowledge artifact in \u22643 commits vs \u22655 for pre-blueprint. Seed citation rate >0% vs 0% (L-1247). Falsified if no measurable boot acceleration.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

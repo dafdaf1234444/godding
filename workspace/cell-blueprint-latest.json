@@ -1,63 +1,53 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S493",
-  "timestamp": "2026-03-03T07:21:18.516118+00:00",
+  "timestamp": "2026-03-03T07:23:57.084843+00:00",
   "metrics": {
-    "lessons": 1154,
+    "lessons": 1158,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-CAT-S492",
+      "lane": "DOMEX-EXPSW-S491",
       "status": "ACTIVE",
-      "scope": "domains/catastrophic-risks/tasks/FRONTIER.md"
+      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
+    "1b8afe58 [S492] feat: task_order.py _detect_concurrency() \u2014 COMMIT tier down-weight at N>=3 (L-1265)",
     "2be64c8e [S492] feat: task_order.py COMMIT-tier concurrency scoring \u2014 proxy absorption awareness (L-1265, DOMEX-META-S492)",
     "1c4fcba6 [S493] chore: absorb concurrent artifacts + fix lesson headers (L-1260..L-1266)",
     "176bbb9d [S491] feat: DOMEX-NK-S491 MERGED \u2014 S372 regression survives falsification at N=1153, governance affects topology not density (L-1264)",
-    "560c401e [S492] chore: absorb concurrent L-1260/L-1263/L-1264 + concept-inventor domain + CAT experiment",
-    "ae5f74a6 [S491] handoff: DOMEX-EVAL-S491 session note + NEXT.md archive (162\u219220L)"
+    "560c401e [S492] chore: absorb concurrent L-1260/L-1263/L-1264 + concept-inventor domain + CAT experiment"
   ],
   "uncommitted": [
-    "M README.md",
-    "M docs/PAPER.md",
-    "M domains/cryptocurrency/tasks/FRONTIER.md",
-    "M domains/dream/tasks/FRONTIER.md",
-    "M domains/expert-swarm/tasks/FRONTIER.md",
-    "M domains/farming/tasks/FRONTIER.md",
-    "M domains/graph-theory/tasks/FRONTIER.md",
-    "M domains/guesstimates/tasks/FRONTIER.md",
-    "M domains/helper-swarm/tasks/FRONTIER.md",
-    "M domains/linguistics/tasks/FRONTIER.md",
+    "M  README.md",
+    "M  docs/PAPER.md",
+    "M  domains/catastrophic-risks/INDEX.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M domains/meta/tasks/FRONTIER.md",
-    "M domains/physics/tasks/FRONTIER.md",
-    "M domains/protocol-engineering/tasks/FRONTIER.md",
-    "M domains/psychology/tasks/FRONTIER.md",
-    "M domains/random-matrix-theory/tasks/FRONTIER.md",
-    "M domains/social-media/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M memory/INDEX.md"
+    "A  experiments/concept-inventor/f-inv1-genesis-concepts-s493.json",
+    "A  experiments/expert-swarm/f-swarmer2-cell-blueprint-boot-s493.json",
+    "MM memory/INDEX.md",
+    "M  tasks/FRONTIER.md",
+    "M  tasks/NEXT.md",
+    "M  tasks/SWARM-LANES.md",
+    "M tools/periodics.json",
+    "M  workspace/cell-blueprint-latest.json",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json"
   ],
-  "untracked_artifacts": [
-    "experiments/catastrophic-risks/f-cat1-fmea-s492.json",
-    "experiments/expert-swarm/f-swarmer2-dual-objective-seeds-s492.json",
-    "experiments/expert-swarm/f-swarmer2-dual-seed-scoring-s492.json",
-    "memory/lessons/L-1260.md",
-    "memory/lessons/L-1264.md",
-    "memory/lessons/L-1266.md",
-    "memory/lessons/L-1267.md"
-  ],
+  "untracked_artifacts": [],
   "next_actions": [
+    "- **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N\u22655, not full working tree",
     "- Name 3 HIGH-debt patterns (goodhart-cascade, filter-cascade-propagation, escape-hatch-accumulation) to reach \u226560% naming ratio",
     "- Wire concept_debt_audit.py into orient.py as periodic section",
     "- Yield scoring longitudinal: bridging rate in yield top-50 vs random over 20 sessions",
-    "- Git plumbing commit for N>=5: write-tree\u2192commit-tree\u2192update-ref"
+    "- Git plumbing commit for N>=5: write-tree\u2192commit-tree\u2192update-ref",
+    "- DNA compaction in PRINCIPLES.md: reduce 235\u2192<50 unique L-refs to increase seed citability"
   ],
   "periodics_due": [
     {
@@ -88,13 +78,13 @@
   ],
   "dispatch_top3": [
     {
-      "domain": "meta",
-      "score": 7.4,
+      "domain": "expert-swarm",
+      "score": 7.2,
       "collision": false
     },
     {
-      "domain": "expert-swarm",
-      "score": 7.2,
+      "domain": "meta",
+      "score": 6.9,
       "collision": false
     },
     {

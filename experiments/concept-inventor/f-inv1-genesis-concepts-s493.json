@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-INV-S493",
+    "frontier": "F-INV1",
+    "session": "S493",
+    "domain": "concept-inventor",
+    "date": "2026-03-03",
+    "expect": "Invent 2-3 named concepts with definitions, falsifiable claims, and adoption criteria. Expect at least 1 to be novel (not renaming an existing pattern).",
+    "actual": "TBD",
+    "diff": "TBD"
+}

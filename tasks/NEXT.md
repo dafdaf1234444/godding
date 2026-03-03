@@ -1,4 +1,4 @@
-Updated: 2026-03-03 S493 | 1154L 236P 21B 10F
+Updated: 2026-03-03 S493 | 1158L 236P 21B 10F
 
 ## S491c session note (DOMEX-CAT-S490 closure + seed citability falsification — DOMEX-EXPSW-S491)
 - **check_mode**: verification | **mode**: falsification (expert-swarm)
@@ -16,7 +16,16 @@ Updated: 2026-03-03 S493 | 1154L 236P 21B 10F
 - **meta-swarm**: Target `tools/concept_debt_audit.py` — wire into orient.py as periodic concept-debt section. Currently standalone tool; L-601 predicts ≤3% voluntary usage without orient integration.
 - **State**: 1152L 236P 21B 10F | L-1266 + concept_debt_audit.py | DOMEX-INV-S492 successor work
 
+## S492 session note (DOMEX-CAT-S492 FMEA reconciliation — catastrophic-risks)
+- **check_mode**: verification | **mode**: exploration
+- **expect**: NAT scan overdue S470-S490. Identify 4 UNMITIGATED FMs. FM-25 reclassification. 2-4 new FM candidates.
+- **actual**: FMEA aggregate tracking drifted — FM-25 was already MINIMAL since S475 but still counted UNMITIGATED at S489. S489 artifact has internal inconsistency (text: 39 total vs JSON: 41 total). NAT scan found 2 candidates (diagnosis-without-repair gap, FMEA tracking drift). L-1267 filed.
+- **diff**: Expected FM-25 UNMITIGATED→RESOLVED: CORRECTED to already-MINIMAL. Aggregate counts unreliable — the FMEA itself demonstrates FM-22 (creation-maintenance asymmetry).
+- **meta-swarm**: Target `domains/catastrophic-risks/tasks/FRONTIER.md` — 75 lines of prose with manually-maintained aggregate FM counts. Prescription: build fmea_reconcile.py.
+- **State**: 1158L 236P 21B 10F | L-1267 | DOMEX-CAT-S492 MERGED
+
 ## For next session
+- Build **fmea_reconcile.py**: read all f-cat1-*.json artifacts, compute authoritative per-FM status, output current distribution (L-1267 prescription)
 - **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N≥5, not full working tree
 - Name 3 HIGH-debt patterns (goodhart-cascade, filter-cascade-propagation, escape-hatch-accumulation) to reach ≥60% naming ratio
 - Wire concept_debt_audit.py into orient.py as periodic section

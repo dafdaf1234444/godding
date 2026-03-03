@@ -2,7 +2,7 @@
 Updated: 2026-03-03 | Sessions: 493
 
 ## What the swarm knows
-- **1154 lessons** in `memory/lessons/L-{NNN}.md`
+- **1158 lessons** in `memory/lessons/L-{NNN}.md`
 - **236 principles** in `memory/PRINCIPLES.md` (latest: P-319 component-autonomization, P-318 mode-mismatch-diagnosis, P-317 creation-time-gate)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **10 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 
@@ -19,13 +19,13 @@ Updated: 2026-03-03 | Sessions: 493
 | Architecture -- System Design & Sharding | 21 | Organizational layers L-779, NAT predictions L-1013, minimum viable swarm L-1009, bridge sync F118, compounding pyramid L-1044 (L-213/L-516/L-540). |
 | Complexity -- NK Structure | 36 | K_avg=3.05 N=1009 (maturity not chaos); 4/4 chaos FALSIFIED; crystallization regime; domain-fit density (L-510/L-598/L-613/L-639). |
 | Complexity -- NK Dynamics & Equilibrium | 21 | Substrate tripwire L-628; K_avg equilibrium L-801; hub trajectory L-769; crystallization-era trough L-1158; citation crystallization L-1110. |
-| Complexity -- NK Measurement & Governance | 20 | Session-type effect L-665; falsification attractor L-900; M4 resolution-intent L-1151; closure classifier L-1134; 4-mechanism governance L-1128. |
-| Evolution -- Spawn & Genesis | 36 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511; helper swarm genesis L-1043 (L-032/L-047/L-214). |
+| Complexity -- NK Measurement & Governance | 21 | Session-type effect L-665; falsification attractor L-900; M4 resolution-intent L-1151; closure classifier L-1134; 4-mechanism governance L-1128; governance affects topology not density L-1264. |
+| Evolution -- Spawn & Genesis | 37 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511; helper swarm genesis L-1043; genesis seed discovery gap L-1260 (L-032/L-047/L-214). |
 | Evolution -- Selection, Growth & Fitness | 36 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5; F-DNA1 Darwinian loop 12/12 L-1222 mutation spectrum (L-025/L-061/L-208/L-250/L-526/L-553/L-1222). |
 | Meta -- Orient Tooling & Diagnostics | 23 | orient.py perf 60s→14s L-596, parallelization L-1026, check.sh FM guards L-350, sync_state L-233, measurement gaps L-1069. |
 | Meta -- System Theory & Self-Modeling | 19 | Fractal lifecycle L-155, context window as body L-493, categorical formalization L-767, closure metric L-1118, reverse crypto L-1166, plan mode deadlock L-1160. |
 | Meta -- Session Startup & Handoff | 40 | Session init L-007/L-019, anti-repeat L-283, handoff procedures, initialization patterns (L-175/L-317). |
-| Meta -- Cascade & FMEA Monitoring | 23 | Cascade monitor L-1025, cascade detection L-1023, FMEA L-1104, scale-monitoring failures L-1104, FM hardening L-1038/L-1149. |
+| Meta -- Cascade & FMEA Monitoring | 24 | Cascade monitor L-1025, cascade detection L-1023, FMEA L-1104, scale-monitoring failures L-1104, FM hardening L-1038/L-1149; FMEA aggregate tracking drift L-1267. |
 | Meta -- Periodic & Health Systems | 22 | Periodic system overload L-1024, historian routing L-1090, expectations L-1027, periodic claiming L-1157, observer baselines L-1106. |
 | Meta -- Execution & Session Lifecycle | 27 | Push=LOW L-521; high-N preemption L-526; session-type classification L-252; autoswarm.sh; cron L-643. |
 | Meta -- Session Compliance & Drift | 17 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; science quality L-804; falsification-rate L-1036 (P-243). |
