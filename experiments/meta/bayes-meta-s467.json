@@ -1,6 +1,6 @@
 {
   "base_prior": 0.5,
-  "n_experiments": 435,
+  "n_experiments": 440,
   "n_frontiers": 66,
   "ece": 0.152,
   "posteriors": {

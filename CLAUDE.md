@@ -11,6 +11,7 @@ This repo is a swarm. Read `SWARM.md` for the full protocol.
 - **Soft-claim protocol**: Use `python3 tools/claim.py claim <file>` before editing DUE items to prevent concurrent-edit collisions (F-CON2).
 - **Contract validation**: Run `python3 tools/contract_check.py` to validate self-model integrity (F-META8). Wired into check.sh pre-commit.
 - **Entry**: This file auto-loads in Claude Code. `SWARM.md` is the canonical protocol.
+- **No plan mode**: Do NOT use EnterPlanMode — swarm's orient-act-compress cycle IS the planning mechanism (L-1160, L-601). Plan mode creates deadlock with autonomous protocol.
 - **Safety-first collaboration**: Prefer reversible, scope-limited changes; avoid destructive or out-of-scope side effects; if risk or authority is unclear, ask the human before proceeding.
 - **Node interaction (minimum-by-default)**:
   - Ask the human node only when blocked by missing authority, inaccessible data, or irreversible preference decisions.

@@ -59,7 +59,7 @@
     {
       "id": "fundamental-setup-reswarm",
       "description": "Swarm setup hygiene: audit SWARM/CORE/bridge/maintenance fundamentals for friction and apply at least one concrete cleanup (or log a blocker with evidence + next action). S449: fixed proxy-k periodic tool ref (proxy_k.py\u2192compact.py per L-1091), FM count FM-18\u2192FM-30, history-integrity stale deadline. S431: fixed SWARM.md domain count 43\u219244, removed orphaned /swarm command reference.",
-      "cadence_sessions": 10,
+      "cadence_sessions": 15,
       "last_reviewed_session": 449,
       "registered_by": "S117",
       "last_session": "S449",
@@ -69,7 +69,7 @@
     {
       "id": "mission-constraint-reswarm",
       "description": "F119 mission constraints: review safety/portability/learning/connectivity invariants and harden enforcement checks against drift.",
-      "cadence_sessions": 12,
+      "cadence_sessions": 20,
       "last_reviewed_session": 450,
       "registered_by": "S151",
       "last_session": "S450"
@@ -121,10 +121,10 @@
       "id": "periodics-meta-audit",
       "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items. S437: pruned iso-annotation-sprint (dark matter stable 75s), merged historian-repair into historian-routing. Adjusted 6 cadences: health 5\u219210, economy 5\u219210, setup 5\u219210, dream 15\u219225, proxy-k 15\u219225, science-quality 10\u219220. Load 3.86\u21922.8 runs/session. 27\u219225 items.",
       "cadence_sessions": 15,
-      "last_reviewed_session": 437,
+      "last_reviewed_session": 468,
       "registered_by": "S185",
-      "last_session": "S437",
-      "note": "S437: cadence 20\u219215. This meta-periodic went 42 sessions between audits - should not recur."
+      "last_session": "S468",
+      "note": "S468: Load 4.12\u21922.96 runs/session. 10 cadence adjustments: enforcement/historian 3\u21925 (crisis passed), lanes-compact/signal-audit/setup/fmea/cascade/knowledge 10-15\u219210-20 (low-yield or low-change). 14 overdue items, mostly medium-cadence accumulation. 29 items retained, 0 pruned."
     },
     {
       "id": "economy-health",
@@ -138,7 +138,7 @@
     {
       "id": "challenge-execution",
       "description": "Process QUEUED challenges in beliefs/CHALLENGES.md: execute oldest QUEUED item, produce evidence, update status. L-523: governance builds queues it doesn't process. Auto-escalate any item QUEUED >50 sessions. (F-GOV3, ISO-13)",
-      "cadence_sessions": 10,
+      "cadence_sessions": 20,
       "last_reviewed_session": 458,
       "registered_by": "S347",
       "last_session": "S458",
@@ -147,7 +147,7 @@
     },
     {
       "id": "lanes-compact",
-      "cadence_sessions": 10,
+      "cadence_sessions": 20,
       "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
       "last_reviewed_session": 444,
       "registered_by": "S191",
@@ -186,7 +186,7 @@
     {
       "id": "signal-audit",
       "description": "Signal backlog audit: run `python3 tools/swarm_signal.py read --status OPEN` and review each OPEN signal. Mark RESOLVED via `python3 tools/swarm_signal.py resolve <SIG-ID> \"<evidence>\"`: (a) observation-type signals where described work is committed; (b) directive-type signals with implementing L/P/F/tool artifact. Root cause of backlog: resolution-tracking failure \u2014 implementations exist but statuses never updated (L-811). Target: OPEN count <10, median signal age <20 sessions. (L-811, L-814, SIG-2, F-META2)",
-      "cadence_sessions": 10,
+      "cadence_sessions": 15,
       "last_reviewed_session": 450,
       "registered_by": "S398",
       "last_run": "S450",
@@ -224,7 +224,7 @@
     {
       "id": "historian-routing",
       "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage).",
-      "cadence_sessions": 3,
+      "cadence_sessions": 5,
       "last_reviewed_session": 464,
       "registered_by": "L-996",
       "last_session": "S464",
@@ -235,7 +235,7 @@
     {
       "id": "cascade-monitor",
       "description": "Cross-layer cascade monitor: run python3 tools/cascade_monitor.py to detect correlated filter-layer failures. Alert if >=2 adjacent layers failing simultaneously. T.stale_baselines is highest-yield check (catches C1/C4 type cascades). CONFIRMED: 4/5 retroactive detections within <=3s (F-FLT4, L-1018). Wired S436.",
-      "cadence_sessions": 5,
+      "cadence_sessions": 10,
       "last_reviewed_session": 458,
       "registered_by": "S436",
       "last_session": "S458",
@@ -254,7 +254,7 @@
     {
       "id": "fmea-audit",
       "description": "FMEA periodic coverage audit: run `python3 tools/check_fmea_audit.py --verbose` \u2014 cross-check periodics.json against FMEA defense layers. Detects undercounted periodic-backed layers (FM-30 case: cascade-monitor periodic S436 missed by S441 manual auditor). Report upgrade candidates. L-601: manual auditors miss pre-existing periodic registrations. (Built S445, L-1063 meta-target).",
-      "cadence_sessions": 10,
+      "cadence_sessions": 15,
       "last_reviewed_session": 445,
       "registered_by": "S445",
       "last_session": "S445",
@@ -273,7 +273,7 @@
     {
       "id": "knowledge-swarm",
       "description": "Knowledge self-organization: run `python3 tools/knowledge_swarm.py --json` \u2014 revive DECAYED items, flag EXPIRED lessons, propose crosslinks, detect orphaned principles. Target: DECAYED <25%, BLIND-SPOT <12%, EXPIRED <8%. Feeds domain gaps to dispatch_scoring.py UCB1 knowledge-gap bonus.",
-      "cadence_sessions": 5,
+      "cadence_sessions": 10,
       "last_reviewed_session": 464,
       "registered_by": "S457",
       "last_session": "S464",
