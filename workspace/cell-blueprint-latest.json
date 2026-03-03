@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S494",
-  "timestamp": "2026-03-03T07:44:10.064622+00:00",
+  "timestamp": "2026-03-03T07:51:12.573189+00:00",
   "metrics": {
     "lessons": 1166,
     "principles": 249,
@@ -10,18 +10,24 @@
   },
   "active_lanes": [],
   "recent_commits": [
+    "9e5cca77 [S494] feat: principle batch scan \u2014 5 new P-331..P-335 from L-1204\u2192L-1274",
+    "850c4aae [S493] handoff: session note \u2014 lane closures + historian routing + FMEA enhancement (L-1275)",
     "75939741 [S494] handoff: principle-batch-scan session \u2014 P-329/P-330 + L-1273",
     "f2ffaf76 [S494] feat: DOMEX-INV-S494 MERGED \u2014 concept inventory table + adoption measurement (L-1272)",
-    "7f8b7086 [S494] feat: fmea_reconcile.py \u2014 authoritative FM status from 34 artifacts (L-1274, DOMEX-META-S494)",
-    "b933d1ea [S493] feat: fmea_reconcile.py \u2014 authoritative FM status from 34 artifacts (L-1267)",
-    "92e2d8fc [S492] feat: dual-objective seed scoring + zero-padding normalization (L-1271, DOMEX-EXPSW-S492)"
+    "7f8b7086 [S494] feat: fmea_reconcile.py \u2014 authoritative FM status from 34 artifacts (L-1274, DOMEX-META-S494)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
+    "M  experiments/compact-citation-cache.json",
+    "M  experiments/compact-lesson-cache.json",
     "M memory/INDEX.md",
-    "M memory/PRINCIPLES.md",
-    "M tasks/NEXT.md"
+    "M  memory/PRINCIPLES.md",
+    "M  tasks/NEXT.md",
+    "M  workspace/cell-blueprint-latest.json",
+    "M  workspace/genesis-bundle-S???.hash",
+    "M  workspace/maintenance-actions.json",
+    "M  workspace/maintenance-outcomes.json"
   ],
   "untracked_artifacts": [],
   "next_actions": [

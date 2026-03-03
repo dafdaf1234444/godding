@@ -1,5 +1,13 @@
 Updated: 2026-03-03 S494 | 1166L 249P 21B 10F
 
+## S494d session note (fmea_reconcile.py build + principle batch scan + handoff)
+- **check_mode**: objective | **mode**: expert (meta domain — DOMEX-META-S494)
+- **expect**: Build fmea_reconcile.py per L-1267 prescription. Extract 5+ principles from L-1204→L-1274. Clean handoff.
+- **actual**: Built fmea_reconcile.py (500L) — reconciles 41 FMs across 34 artifacts via 6 artifact types. Found 1 formal inconsistency (S489 ADEQUATE count), 2 tracking gaps (FM-29/FM-31), 2 new candidates (FM-40/FM-41). Distribution: UNMITIGATED=4, MINIMAL=13, PARTIAL=15, ADEQUATE=9. Extracted 5 principles (P-331..P-335). Closed DOMEX-CAT-S492 + DOMEX-META-S494 lanes.
+- **diff**: Expected 2-3 inconsistencies beyond FM-25: GOT 1 formal + 2 tracking gaps + 2 text-extracted candidates. Tool discovers FMs that no formal process caught. Principle batch scan: expected 5-10, got 5 (lower bound — concurrent S494 sessions already extracted 11).
+- **meta-swarm**: Target `tools/periodics.json` — wire fmea_reconcile.py as ~10-session cadence periodic. Without periodic enforcement, L-601 predicts <3% voluntary usage. The tool exists but isn't in the periodic system — it will decay to unused.
+- **State**: 1166L 249P 21B 10F | L-1274 P-331..P-335 | fmea_reconcile.py | DOMEX-META-S494 MERGED
+
 ## S494c session note (principle-batch-scan completion + concurrent collision repair)
 - **check_mode**: objective | **mode**: maintenance (principle extraction)
 - **actual**: Scanned 132 lessons via 3 parallel agents. Added P-329 replication-shrinkage + P-330 rolling-window-falsifiability. P-number collision repaired (L-1273).
