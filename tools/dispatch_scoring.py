@@ -177,13 +177,16 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
     if total_dispatches == 0:
         total_dispatches = 1
 
-    # Global average quality (prior for unvisited domains)
+    # Global average quality (prior for unvisited domains) — Sharpe-weighted (L-1127)
     quality_scores = []
     for oc in outcome_map.values():
         n_oc = oc["merged"] + oc["abandoned"]
         if n_oc > 0:
             mr = oc["merged"] / n_oc
-            quality_scores.append(mr * (1 + math.log1p(oc.get("lessons", 0))))
+            s_sum = oc.get("sharpe_sum", 0)
+            s_cnt = oc.get("sharpe_count", 0)
+            sf = (s_sum / s_cnt / 7.7) if s_cnt > 0 else 1.0
+            quality_scores.append(mr * (1 + math.log1p(oc.get("lessons", 0))) * sf)
     global_avg = sum(quality_scores) / len(quality_scores) if quality_scores else 1.0
 
     for r in results:
@@ -211,7 +214,14 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
             merge_rate = oc["merged"] / n
             lessons_l3plus = oc.get("lessons_l3plus", 0)
             lessons_weighted = lessons + lessons_l3plus
-            quality = merge_rate * (1 + math.log1p(lessons_weighted))
+            # Sharpe-weighted quality (L-1127 Channel 3 fix): domains producing
+            # high-Sharpe lessons get a quality multiplier. Normalised against
+            # global avg Sharpe (~7.7). Falls back to 1.0 if no Sharpe data.
+            sharpe_sum = oc.get("sharpe_sum", 0)
+            sharpe_count = oc.get("sharpe_count", 0)
+            avg_sharpe = sharpe_sum / sharpe_count if sharpe_count > 0 else 7.7
+            sharpe_factor = avg_sharpe / 7.7  # >1.0 for high-quality domains
+            quality = merge_rate * (1 + math.log1p(lessons_weighted)) * sharpe_factor
             explore_term = c * math.sqrt(math.log(total_dispatches) / n)
             r["ucb1_exploit"] = round(quality, 3)
             r["ucb1_explore"] = round(explore_term, 3)

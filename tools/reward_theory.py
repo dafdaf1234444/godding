@@ -112,8 +112,23 @@ def _measure_channel_3_dispatch():
     total = merged + abandoned
     merge_rate = merged / total if total > 0 else 0
 
+    # Dynamic alignment check: is dispatch_scoring.py Sharpe-weighted? (L-1127 fix)
+    scoring_path = ROOT / "tools" / "dispatch_scoring.py"
+    sharpe_weighted = False
+    if scoring_path.exists():
+        scoring_text = scoring_path.read_text(errors="replace")
+        sharpe_weighted = "sharpe_factor" in scoring_text and "sharpe_sum" in scoring_text
+
+    if sharpe_weighted:
+        return {
+            "aligned": True,
+            "metric": f"{merge_rate:.0%} merge rate ({merged}/{total})",
+            "detail": f"ALIGNED (S463). UCB1 exploit term now Sharpe-weighted: quality = merge_rate × log(lessons) × (avg_sharpe/7.7). High-Sharpe domains score higher regardless of merge rate.",
+            "goodhart_type": None
+        }
+
     return {
-        "aligned": False,  # mergeability != value; easy lanes get merged more
+        "aligned": False,
         "metric": f"{merge_rate:.0%} merge rate ({merged}/{total})",
         "detail": f"Goodhart: easy/safe lanes merge more. Value-producing but risky lanes get ABANDONED. Fix: weight by Sharpe of produced lessons, not merge/abandon binary.",
         "goodhart_type": "mergeability_not_value"

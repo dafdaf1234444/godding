@@ -267,10 +267,33 @@ def get_claimed_domains() -> set[str]:
     return set()
 
 
+def _build_lesson_sharpe_cache() -> dict[str, int]:
+    """Build lesson ID → Sharpe score cache from lesson files (L-1127 Channel 3 fix)."""
+    cache: dict[str, int] = {}
+    lesson_dir = Path("memory/lessons")
+    if not lesson_dir.exists():
+        return cache
+    for f in lesson_dir.iterdir():
+        if f.name.startswith("L-") and f.suffix == ".md":
+            lid = f.stem.split("-")[1] if "-" in f.stem else ""
+            try:
+                text = f.read_text(errors="replace")
+                m = re.search(r"Sharpe:\s*(\d+)", text)
+                if m:
+                    cache[lid] = int(m.group(1))
+            except Exception:
+                pass
+    return cache
+
+
+_lesson_sharpe_cache = _build_lesson_sharpe_cache()
+
+
 def get_domain_outcomes(at_session: int | None = None) -> dict[str, dict]:
     """Parse SWARM-LANES.md for MERGED/ABANDONED counts and lesson yield per domain (F-EXP10).
 
-    Returns {domain_name: {"merged": int, "abandoned": int, "lessons": int, "lessons_l3plus": int}}.
+    Returns {domain_name: {"merged": int, "abandoned": int, "lessons": int, "lessons_l3plus": int,
+             "sharpe_sum": int, "sharpe_count": int}}.
 
     at_session: if set, only count lanes closed at-or-before this session number.
     Use for trajectory analysis (label_at_time) to prevent retrospective label drift
@@ -297,14 +320,21 @@ def get_domain_outcomes(at_session: int | None = None) -> dict[str, dict]:
         domain = _resolve_domain(lane_id, etc)
         if domain:
             if domain not in outcomes:
-                outcomes[domain] = {"merged": 0, "abandoned": 0, "lessons": 0, "lessons_l3plus": 0}
+                outcomes[domain] = {"merged": 0, "abandoned": 0, "lessons": 0,
+                                    "lessons_l3plus": 0, "sharpe_sum": 0, "sharpe_count": 0}
             outcomes[domain]["merged" if status == "MERGED" else "abandoned"] += 1
             notes = cols[12] if len(cols) > 12 else ""
-            lesson_count = len(re.findall(r"\bL-\d{3,4}\b", notes))
-            outcomes[domain]["lessons"] += lesson_count
+            lesson_ids = re.findall(r"\bL-(\d{3,4})\b", notes)
+            outcomes[domain]["lessons"] += len(lesson_ids)
             level_m = re.search(r"\blevel=L([1-5])\b", etc)
             if level_m and int(level_m.group(1)) >= 3:
-                outcomes[domain]["lessons_l3plus"] += lesson_count
+                outcomes[domain]["lessons_l3plus"] += len(lesson_ids)
+            # Track Sharpe per domain for quality-weighted dispatch (L-1127 Channel 3 fix)
+            for lid in lesson_ids:
+                sharpe = _lesson_sharpe_cache.get(lid)
+                if sharpe is not None:
+                    outcomes[domain]["sharpe_sum"] += sharpe
+                    outcomes[domain]["sharpe_count"] += 1
     return outcomes
 
 

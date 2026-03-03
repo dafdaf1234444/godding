@@ -286,11 +286,13 @@ def main():
         if patch_file(index, old, new, "INDEX beliefs"):
             changed.append("INDEX beliefs")
 
-    # Frontier count
-    m = re.search(r"\*\*(\d+) frontier questions\*\*", text)
+    # Frontier count — match both "frontier questions" and "frontiers" variants (L-1140)
+    m = re.search(r"\*\*(\d+) frontier(?:s| questions)\*\*", text)
+    if not m and not QUIET:
+        print("  WARNING: frontier count pattern not found in INDEX.md — format drift (L-1140)")
     if m and int(m.group(1)) != frontiers:
         old = m.group(0)
-        new = f"**{frontiers} frontier questions**"
+        new = f"**{frontiers} frontiers**"
         if patch_file(index, old, new, "INDEX frontiers"):
             changed.append("INDEX frontiers")
 

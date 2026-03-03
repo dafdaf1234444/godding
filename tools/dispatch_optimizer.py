@@ -372,8 +372,8 @@ def main() -> None:
     parser.add_argument("--recalibrate", action="store_true", help="Re-derive weights")
     parser.add_argument("--label-at-session", type=int, metavar="N",
                         help="Show outcome labels as they were at session N (label_at_time — L-946/L-963)")
-    parser.add_argument("--epsilon", type=float, default=0.0, metavar="E",
-                        help="ε-greedy dispatch: with prob E bypass UCB1 and pick randomly (F-RAND1)")
+    parser.add_argument("--epsilon", type=float, default=0.15, metavar="E",
+                        help="ε-greedy dispatch: with prob E bypass UCB1 and pick randomly (F-RAND1, L-601 structural enforcement)")
     args = parser.parse_args()
     if args.recalibrate:
         cal = recalibrate()

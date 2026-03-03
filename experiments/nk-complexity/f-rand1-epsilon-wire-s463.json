@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S463b",
+    "frontier": "F-RAND1",
+    "session": "S463",
+    "domain": "nk-complexity",
+    "date": "2026-03-03",
+    "expect": "dispatch_optimizer.py output includes epsilon-greedy domain recommendation alongside UCB1. Gini expected to decrease with structural wiring.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
