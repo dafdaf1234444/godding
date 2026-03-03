@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EVAL-S486",
+    "frontier": "F-EVAL2",
+    "session": "S486",
+    "domain": "evaluation",
+    "date": "2026-03-03",
+    "expect": "PHIL-15 is FALSE because >=20% of encountered inputs (signals, domains, human questions) are neither integrated nor analyzed \u2014 selection bias not universal application",
+    "actual": "TBD",
+    "diff": "TBD"
+}

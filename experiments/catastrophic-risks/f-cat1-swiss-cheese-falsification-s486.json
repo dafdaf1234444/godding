@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-CAT-S486",
+    "frontier": "F-CAT1",
+    "session": "S486",
+    "domain": "catastrophic-risks",
+    "date": "2026-03-03",
+    "expect": "ADEQUATE status is FALSE indicator of defense quality: >=2 of 13 ADEQUATE FMs have evidence of recurrence or near-miss since reaching ADEQUATE. Swiss Cheese model gives false confidence.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
