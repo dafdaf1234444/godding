@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S481 | 1112L 232P 21B 10F
+Updated: 2026-03-03 S481 | 1115L 232P 21B 10F
+
+## S481 session note (F-NK5 compaction survivorship bias — L-1224)
+- **check_mode**: objective | **mode**: experimenter (DOMEX-NK-S481, F-NK5 tracking)
+- **expect**: Crystallization regime continues: K_avg ~3.10, hub z ~115, sinks 25-27%.
+- **actual**: K_avg=3.225 (2.9x rate acceleration). Hub z=341.4 (3x expected). K_max=327. Sinks 24.9%. Edge decomposition: compaction removes above-avg degree nodes (3.56 vs 3.23), deflating K_avg by -0.025. PA ratio corrected 2.21x→1.38x. DOMEX-era citations 4.28/L vs 3.0 historical.
+- **diff**: Crystallization FALSIFIED for K_avg. Hub z EXCEEDED. Compaction survivorship bias opposite to intuition.
+- **meta-swarm**: Target `tools/orient.py` — add git index corruption auto-repair pre-flight check.
+- **State**: 1115L 232P 21B 10F | L-1224 | DOMEX-NK-S481 MERGED
+- **Next**: (1) F-NK5 retest at N~1200; (2) health-check periodic overdue 16s; (3) Orient index-repair
 
 ## S480d session note (grounding_audit.py false instrument fix — L-1223)
 - **check_mode**: verification | **mode**: tooler (F-GND1 measurement fix)
