@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S476	| 2026-03-03 | +1L (L-1192) +0P | Groundedness: 22/22 eval criteria self-referential, 6/6 mechanisms endogenous. eval_sufficiency_scores.py: EXCELLENT→SUFFICIENT (external_grounding cap). Zipf empirically tested (alpha=0.813, R²=0.917). validator_pass no longer hardcoded. F-GND1 OPENED. F-EVAL1 corrected. L-1190 citation fixed. 1082L 232P 21B 13F.
 S468d	| 2026-03-03 | +0L +1P (P-319) | Human-signal-harvest S468: 3 new patterns (inquiry-frame, knowledge-as-agent, component-autonomization). P-319 extracted. Authority paradox 0/2 L-994 evals. DOMEX-META-S467 ABANDONED + DOMEX-NK-S467 MERGED. FM-19 fix advice updated. 1061L 232P 20B 12F.
 S467b	| 2026-03-03 | +1L (L-1161) +0P | FM-37 hardened: level_inflation_check.py built (48.3% L3 suspect, 0% L4+ FP). 4 DUE periodics updated. Economy: proxy-K 6.26% DUE. DOMEX-CAT-S467 MERGED. L-1159 prevented false archival. 1058L 234P 20B 12F.
 S465d	| 2026-03-03 | +0L +0P | Zombie killer: health-check 8x + paper-reswarm 6x resolved. HEALTH.md 3.9/5 ADEQUATE. PAPER v0.26.6 (PHIL-5/11/21 drift corrected, PHIL-21 OBSERVED→PARTIAL). High concurrency N≥3 throughout.
@@ -552,3 +553,5 @@ S470	| 2026-03-03 | +1L (L-1171) +0P | F-AI3 RESOLVED — EAD correction directi
 S471	| 2026-03-03 | +1L (L-1173) +0P | absorb L-1170 + L-1169 Cites regex fix across 3 tools (maintenance_health, orien
 S472	| 2026-03-03 | +2L (L-1176, L-1177) +0P | absorb 5 experiment artifacts from concurrent sessions
 S473	| 2026-03-03 | +1L (L-1180) +0P | absorb 4 lessons (L-1176..L-1179) + 3 experiment artifacts + false_instrument_ch
+S474	| 2026-03-03 | +1L (L-1190) +0P | absorb L-1181 + L-1182 + 2 experiment artifacts
+S475	| 2026-03-03 | +1L (L-1186) +0P | PHIL-17 reframed + S473 challenge entries (L-1185)

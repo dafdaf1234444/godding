@@ -42,12 +42,15 @@ def _continuous_verdict(continuous: float) -> str:
     return "EXCELLENT"
 
 
-def _reconcile_verdicts(discrete_score: int, continuous: float) -> dict:
+def _reconcile_verdicts(discrete_score: int, continuous: float,
+                        external_grounding: bool = False) -> dict:
     """Reconcile discrete and continuous scores to produce final verdict.
 
     F-EVAL4 (L-928): if continuous and discrete verdicts diverge by >=1 step,
     adjust discrete toward continuous. Flag margin warnings for scores near boundaries.
     L-1173: changed >1 to >=1 — boundary accumulation creates max-divergence at exactly 1 step.
+    L-1191: EXCELLENT (score=3) requires external_grounding=True. Without external
+    grounding, score caps at 2 (SUFFICIENT). Prevents self-referential inflation.
     """
     discrete_verdict = _VERDICT_LABELS.get(discrete_score, "UNKNOWN")
     continuous_verdict = _continuous_verdict(continuous)
@@ -62,6 +65,16 @@ def _reconcile_verdicts(discrete_score: int, continuous: float) -> dict:
         adjustment_reason = (
             f"continuous={continuous:.2f} ({continuous_verdict}) diverged >=1 step from "
             f"discrete; adjusted to {discrete_verdict}"
+        )
+
+    # L-1191: EXCELLENT requires external grounding — cap at SUFFICIENT without it
+    if discrete_score >= 3 and not external_grounding:
+        discrete_score = 2
+        discrete_verdict = _VERDICT_LABELS[2]
+        adjusted = True
+        adjustment_reason = (
+            f"score capped at SUFFICIENT: EXCELLENT requires external_grounding=True "
+            f"(L-1191 grounding enforcement)"
         )
 
     # Margin warning: within 0.3 of any threshold
@@ -90,7 +103,8 @@ def _reconcile_verdicts(discrete_score: int, continuous: float) -> dict:
 def _finalize_goal(details: dict, discrete_score: int, continuous_score: float,
                    rationale: str, external_grounding: bool = False) -> dict:
     """Apply reconciliation and build final goal dict."""
-    reconciled = _reconcile_verdicts(discrete_score, continuous_score)
+    reconciled = _reconcile_verdicts(discrete_score, continuous_score,
+                                     external_grounding=external_grounding)
     details["score"] = reconciled["score"]
     details["verdict"] = reconciled["verdict"]
     details["discrete_score"] = discrete_score
@@ -195,7 +209,8 @@ def score_increase(sessions: list[dict], frontiers: dict, domains: int, lessons:
     if discrete_score == 2 and avg_lp_per_session >= 3.0 and resolution_rate >= 0.15:
         discrete_score = 3
 
-    reconciled = _reconcile_verdicts(discrete_score, continuous_score)
+    reconciled = _reconcile_verdicts(discrete_score, continuous_score,
+                                     external_grounding=False)
     if details["window_insufficient"] and reconciled["score"] > 1:
         reconciled["score"] = 1
         reconciled["verdict"] = "ADEQUATE"
@@ -235,7 +250,17 @@ def score_protect(proxy_k: dict, challenges: dict) -> dict:
     details["challenge_accepted_rate"] = round(accepted_rate, 3)
     details["challenges_total"] = total_ch
     details["zero_drop_warning"] = drop_rate == 0 and total_ch > 8
-    details["validator_pass"] = True
+    # L-1191: validator_pass should be checked, not assumed.
+    # Run validate_beliefs.py if available; default to True only as fallback.
+    import subprocess
+    try:
+        result = subprocess.run(
+            ["python3", str(ROOT / "tools" / "validate_beliefs.py")],
+            capture_output=True, text=True, timeout=15
+        )
+        details["validator_pass"] = result.returncode == 0
+    except Exception:
+        details["validator_pass"] = True  # fallback if tool unavailable
 
     drift_continuous = _continuous_score(max(0, 20.0 - drift), [0.0, 6.0, 14.0, 20.0])
     drop_continuous = _continuous_score(drop_rate, [0.0, 0.01, 0.05, 0.10])

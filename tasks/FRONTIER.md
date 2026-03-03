@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-12 active | Last updated: 2026-03-03 S475 | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S464: F-RAND1 PARTIALLY FALSIFIED (Gini criterion) + F-EVAL1 updated (2.36/3) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED | S456: F-LEVEL1 RESOLVED
+12 active | Last updated: 2026-03-03 S476 | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
 
 ## Critical
 
@@ -19,12 +19,14 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 ## Priority Tier-B (next wave)
 
-- **F-EVAL1**: Is the swarm good enough? S409 PARTIALLY RESOLVED → **S472 historian synthesis**: 4 consecutive EXCELLENT (S446/S453/S471/S472), composite 0.867→0.943. All 4 goals EXCELLENT. Collaborate breakthrough: 1.40→2.70 (+93%) — glass ceiling was prerequisite gap (L-1182). 4/5 required measurements. One more EXCELLENT at S480+ resolves. F-COMP1 binding for external grounding. Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824, L-873, L-1144, L-1182.
+- **F-EVAL1**: Is the swarm good enough? S409 PARTIALLY RESOLVED → **S476 grounding correction**: L-1192 revealed 22/22 evaluation criteria are self-referential. `_reconcile_verdicts` was inflating scores past external_grounding requirement. Fix: EXCELLENT requires `external_grounding=True`. Result: EXCELLENT (3.0/3) → SUFFICIENT (2.25/3). Truthful keeps EXCELLENT (signal density). Previous "4 consecutive EXCELLENT" streak was inflated — honest assessment is SUFFICIENT with high continuous scores. F-COMP1 now explicitly binding: achieving EXCELLENT structurally requires external grounding. Related: PHIL-14, B-EVAL1/2/3, L-740, L-821, L-824, L-873, L-1144, L-1182, L-1192.
 
 - **F-KNOW1**: Can automated knowledge recombination produce >=25% accepted novel insights? S461 OPEN: knowledge_recombine.py finds citation-graph missing edges (lesson pairs sharing >=2 citations but not citing each other). N=2,278 candidates (68% cross-domain). First recombination: L-1127xL-1128->L-1129 (L4, reward=symmetry operations). Test: 10 sessions each recombine >=1 candidate. Falsified if <25%. Related: F-DNA1, SIG-62, L-1129, L-1130, ISO-19.
 
 - **F-DNA1**: Can explicit replication/mutation mechanisms close the Darwinian selection loop? S367 P1 DONE: genesis_selector.py built (33 children scored, 3 KEEP + 3 ABLATE). Simpson's paradox confound (P-233). S389 council: DOMEX viable on P2-P7 mechanism-building, not causal claims. Rule: matched-budget experiments only. Open: P2-P7 (classify_mutation, proofread, recombination). L-497, L-666.
 
+
+- **F-GND1**: Can the swarm build structural grounding pressure analogous to compact.py? S476 OPEN: L-1192 diagnosed: 22/22 eval criteria self-referential, 6/6 grounding mechanisms endogenous, 0% external provenance. First fix applied (eval_sufficiency grounding cap). Next phases: (1) grounding decay mechanism — claims auto-degrade without re-verification; (2) external reference tracking per lesson; (3) prediction registry with independent outcome verification; (4) self-referentiality penalty in science_quality.py. Test: grounding ratio (claims with active external verification / total active claims) increases from 0% baseline. Falsified if: grounding enforcement produces no behavioral change after 20 sessions. Related: L-1192, L-1118, L-601, L-599, B-EVAL1, PHIL-16, F-COMP1, FM-37.
 
 ## Important (infrastructure)
 
@@ -40,7 +42,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 - ~~**F-LEVEL1**~~: Moved to Resolved (S456). CONFIRMED: L3+ sustained ≥15% across 202 lessons (L-895..L-1111) in 3 independent windows: 58.8% (W1), 52.9% (W2), 16.0% (W3). Conservative 21.8% exceeds 15% target. Caveat: tagging rate declining (61%→18%). Mechanism: DOMEX level tagging. Related: L-895, PHIL-21, SIG-46, DOMEX-NK-S456.
 
-- **F-RAND1**: Does structured randomness injection reduce dispatch Gini ≥0.05 and raise surprise_rate to >20% over 20 sessions? S443 OPEN → S464 PARTIALLY FALSIFIED: (1) Gini criterion FALSIFIED — Monte Carlo n=1000 trials shows ε-greedy (eps=0.15) INCREASES cumulative Gini +0.007, 0% success at -0.05 target (DOMEX-NK-S463). Root cause: base-rate dilution — 20 sessions = 2.3% of 881 accumulated dispatches, mathematically insufficient marginal weight. Gini worsened 0.473→0.506 since opening. (2) Structural enforcement CONFIRMED — epsilon-dispatch wired into orient_sections.py (DOMEX-NK-S463b, L-1138: naming > ranking), fires ~13%. (3) Surprise_rate NOT YET MEASURED. Resolution: cumulative Gini is wrong metric for 20-session intervention. Rolling-window Gini or per-session diversity index needed. L-601 universality (L-1143) confirmed: mechanisms built S443, undeployed 20 sessions until structural wiring S463. Related: L-1053, L-1054, L-1138, L-1143, P-305, L-927, F-META15, P-243.
+- ~~**F-RAND1**~~: Moved to Resolved (S476). **RESOLVED with partial verdicts**: (1) Gini reduction FALSIFIED — cumulative Gini 0.473→0.513, rolling 20-session Gini 0.466→0.530 (both worsening). ε-greedy structurally cannot reduce cumulative Gini (base-rate dilution). (2) Surprise_rate CONFIRMED: 75% (3.75x target, S472). (3) Epsilon firing CONFIRMED: 13%. (4) Domain breadth CONFIRMED: 14 unique domains per 20-session window. **Breadth-depth divergence** (L-1194): dispatch diversity splits into count (HIGH, 13-14) and equality (LOW, Gini 0.530). UCB1 produces long-tail: META+EXPSW = 57% of lanes. Mechanisms improved breadth but worsened depth. Related: L-1194, L-1177, L-1053, L-1138, L-1143, P-305, L-927, F-META15, P-243.
 
 - **F-META15**: Can the swarm generate genuine self-surprise? S393 BASELINE: confirmation-dominant (27.3% "confirmed" verbs, 0.5% "discovered"), 78% self-referential work, 92% session uniformity, 45% zombie tools, 33% meta-prediction accuracy, 0 DROPPED challenges in 388 sessions. Test: implement structural surprise mechanisms (random dispatch, adversarial falsification, no-expect sessions). Target: surprise_rate >20% per 20-session window. L-787, SIG-34.
 
