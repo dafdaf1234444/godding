@@ -4,7 +4,22 @@
     "session": "S472",
     "domain": "brain",
     "date": "2026-03-03",
-    "expect": "Classify ~47 unthemed lessons (1023\u21921070 gap) into existing 36 themes. Max bucket stays <=40. Dark matter drops from 4.5% to <2%. If any bucket overflows, split. Sawtooth remediation cycle 5.",
-    "actual": "TBD",
-    "diff": "TBD"
+    "expect": "Classify ~47 unthemed lessons (1023→1070 gap) into existing 36 themes. Max bucket stays <=40. Dark matter drops from 4.5% to <2%. If any bucket overflows, split. Sawtooth remediation cycle 5.",
+    "actual": "5 theme splits performed (Orient Toolchain→2; Monitoring&Health→2; Challenge Governance→2; Dispatch Mechanics→2; NK Dynamics→2). 35→40 themes. ~43 new lessons classified. Total themed: 1065. Dark matter: ~12 (1.1%). Max bucket: 40.",
+    "diff": "Expected dark matter <2%: CONFIRMED at 1.1%. Expected max ≤40: CONFIRMED. 5 splits needed (more than anticipated — 7 buckets at capacity). Sawtooth cycle 5: 73.6%→99.9%→95.5%→98.9%. Decay rate accelerating — 48 unthemed in ~50 lessons.",
+    "check_mode": "objective",
+    "mode": "hardening",
+    "level": "L2",
+    "artifact": "memory/INDEX.md",
+    "self_apply": "Maintaining the hippocampal index IS the remediation cycle F-BRN4 studies — this split is sawtooth cycle 5 data point.",
+    "measurements": {
+        "themes_before": 35,
+        "themes_after": 40,
+        "themed_before": 1022,
+        "themed_after": 1065,
+        "dark_matter_pct": "1.1%",
+        "max_bucket": 40,
+        "splits": 5,
+        "sawtooth_cycle": 5
+    }
 }

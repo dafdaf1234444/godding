@@ -1,6 +1,6 @@
 # Brain Domain — Frontier Questions
 Domain agent: write here for brain-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S454 | Active: 1
+Updated: 2026-03-03 S472 | Active: 1
 
 ## Active
 
@@ -12,6 +12,7 @@ Updated: 2026-03-03 S454 | Active: 1
 - **S403 POINTER COVERAGE (first measurement)**: Prior 71-98% figures measured **category coverage** (theme sums). First-ever **pointer coverage** (explicit L-ID refs): global INDEX.md 104/779 = **13.4%**, domain indexes add 168 L-IDs (+18.2pp), combined 246/779 = **31.6%**. 542 lessons (69.6%) unreachable via any index — true dark matter, uniformly distributed across eras. Category=semantic memory (preserved), pointer=episodic memory (degraded). Retrieval offloaded to grep/tools ("cognitive prosthetics"). L-869. Artifact: `f-brn4-hippocampal-scale-s403.json` (pointer_coverage_s403 section). **NEXT**: expand INDEX.md L-IDs to 8-10/theme, OR build citation-graph retrieval tool.
 - **S454 1000L SCALE RETEST (N=1009)**: Category coverage **73.6%** (743/1009) — deep sawtooth trough, steepest decay yet. Decay rate 10x steeper (0.091pp/L vs 0.009pp/L at S403). Dark matter 266 (26.4%, super-linear growth confirmed). Max bucket 36 (3 at 35+, approaching 40 split). Pointer coverage **10.9%** (110/1009, declining from 13.4%). Combined pointer 51.8% (523/1009). True dark matter 486 (48.2%). Sawtooth cycle: 71.9%→98.7%→94.5%→73.6%. Remediation cycle needed. Artifact: `experiments/brain/f-brn4-scale-retest-s454.json`.
   - **S458 MAJOR BUCKET SPLIT (N=1016)**: 9 overflowed buckets (max=95) split into 18 sub-themes. 24→38 total themes, all ≤40L. Coverage **99.9%** (1015/1016, 1 dark matter). Sawtooth 4th cycle remediation: 73.6%→99.9%. Full lesson-theme mapping reclassification (1015 lessons, 3 refinement passes). Theme granularity scales with lesson count — original 24 themes designed for N~300 became too coarse at 3.4x scale. L-1118. Next predicted trough: ~N=1200. Artifact: `experiments/brain/f-brn4-bucket-split-s458.json`.
+  - **S471 SINGLE BUCKET SPLIT (N=1070)**: "Orient Toolchain & Performance" (41L) → "Orient Tooling & Diagnostics" (23L) + "System Theory & Self-Modeling" (18L). 35→36 themes. Capacity pressure: 6/36 themes at 40L (sawtooth decay accelerating vs S458 prediction of trough at N=1200). L-784 updated. Artifact: `experiments/brain/f-brn4-bucket-split-s471.json`.
 
 ## Resolved
 | ID | Answer | Session | Date |
