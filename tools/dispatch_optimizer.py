@@ -213,13 +213,14 @@ def run(args: argparse.Namespace) -> None:
 
 
 def _enrich_recombination(results):
-    """Attach per-domain recombination M3 targets to results (#L-1130 structural enforcement)."""
+    """Attach per-domain recombination M3 targets to results (#L-1130, L-1249 yield)."""
     try:
-        from knowledge_recombine import load_lessons, find_missing_edges
+        from knowledge_recombine import load_lessons, find_missing_edges, compute_yield_scores
         lessons = load_lessons()
         candidates = find_missing_edges(lessons, min_shared=3)
+        compute_yield_scores(candidates, lessons)
         cross = [c for c in candidates if c["cross_domain"]]
-        # Build domain → top candidates map
+        # Build domain → top candidates map (yield-ranked)
         dom_cands = {}
         for c in cross:
             for d in (c["domain_a"], c["domain_b"]):
@@ -227,11 +228,11 @@ def _enrich_recombination(results):
         for r in results:
             cands = dom_cands.get(r["domain"], [])
             if cands:
-                top = sorted(cands, key=lambda x: x["score"], reverse=True)[:2]
+                top = sorted(cands, key=lambda x: x.get("yield_score", 0), reverse=True)[:2]
                 r["recombination_targets"] = [
                     {"pair": f"{c['parent_a']}×{c['parent_b']}",
                      "partner_domain": c["domain_b"] if c["domain_a"] == r["domain"] else c["domain_a"],
-                     "score": c["score"], "shared": c["shared_count"]}
+                     "score": c.get("yield_score", c["score"]), "shared": c["shared_count"]}
                     for c in top
                 ]
     except Exception:
@@ -329,18 +330,19 @@ def _print_ucb1_output(results, results_limited, active_lanes, session_merged,
     elif na == 1: print(f"  1 lane open. Adding a 2nd DOMEX lane → bundle mode (10x throughput)")
     else: print(f"  Bundle mode active ({na} lanes). Expected: ~1.85 L/session")
 
-    # Recombination advisory (SIG-62, F-SWARMER1, L-1127)
+    # Recombination advisory (SIG-62, F-SWARMER1, L-1127, L-1249 yield)
     try:
-        from knowledge_recombine import load_lessons, find_missing_edges
+        from knowledge_recombine import load_lessons, find_missing_edges, compute_yield_scores
         lessons = load_lessons()
         candidates = find_missing_edges(lessons, min_shared=3)
+        compute_yield_scores(candidates, lessons)
         cross = [c for c in candidates if c["cross_domain"]]
         if cross:
-            print(f"\n--- Recombination Candidates (SIG-62, knowledge_recombine.py) ---")
+            print(f"\n--- Recombination Candidates (SIG-62, L-1249 yield-ranked) ---")
             print(f"  {len(cross)} cross-domain missing edges (top 3):")
             for c in cross[:3]:
                 print(f"    {c['parent_a']}×{c['parent_b']} ({c['domain_a']}×{c['domain_b']}) "
-                      f"shared={c['shared_count']} score={c['score']}")
+                      f"shared={c['shared_count']} score={c.get('yield_score', c['score'])}")
     except Exception:
         pass
 

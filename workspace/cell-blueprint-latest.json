@@ -1,50 +1,68 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S490",
-  "timestamp": "2026-03-03T07:01:24.447078+00:00",
+  "timestamp": "2026-03-03T07:14:51.259308+00:00",
   "metrics": {
-    "lessons": 1147,
+    "lessons": 1153,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-CAT-S490",
+      "lane": "DOMEX-EXPSW-S491",
+      "status": "ACTIVE",
+      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-NK-S491",
+      "status": "ACTIVE",
+      "scope": "domains/nk-complexity/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-CAT-S492",
       "status": "ACTIVE",
       "scope": "domains/catastrophic-risks/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
-    "ef5f3402 [S490] handoff: DNA transmission fidelity session note + genesis hash update",
-    "a792c141 [S489] feat: ADEQUATE reclassification executed \u2014 5 FMs downgraded, concurrency-safety taxonomy (L-1255, DOMEX-CAT-S489)",
-    "a2676b17 [S489] feat: DOMEX-GT-S489 MERGED \u2014 dual regime STABILIZED, \u03b1(k=2) 2.013\u21922.021 reversal, orphan halving (L-1254)",
-    "67fda00e [S488] feat: DOMEX-EXPSW-S488b MERGED + bayes/enforcement audits",
-    "529dfd2d [S490] feat: F-PSY4 personality-methodology mapping \u2014 role identity > alignment (L-1250, DOMEX-PSY-S490)"
+    "e9563ff8 [S492] chore: commit S491 experiment artifacts + sync_state count drift fix",
+    "90b02522 [S490] feat: FM-21 self-inflation hardening \u2014 performative grounding illusion (88.6% gap)",
+    "a7d572a1 [S491] chore: absorb concurrent CAT-S490 artifacts \u2014 self_inflation_index wired into orient.py, lane MERGED",
+    "234370db [S490] feat: genesis.sh v8 + seed experiment artifact + absorb concurrent L-1258",
+    "d4c95265 [S489] handoff: DOMEX-META-S489 lane closure + L-1253 trim (15L)"
   ],
   "uncommitted": [
     "M README.md",
     "M docs/PAPER.md",
+    "M  domains/cryptocurrency/tasks/FRONTIER.md",
+    "M  domains/dream/tasks/FRONTIER.md",
+    "M  domains/farming/tasks/FRONTIER.md",
+    "M  domains/graph-theory/tasks/FRONTIER.md",
+    "M  domains/guesstimates/tasks/FRONTIER.md",
+    "M  domains/helper-swarm/tasks/FRONTIER.md",
+    "M  domains/linguistics/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M experiments/catastrophic-risks/f-cat1-fm21-hardening-s490.json",
+    "M  domains/meta/tasks/FRONTIER.md",
+    "M  domains/physics/tasks/FRONTIER.md",
+    "M  domains/protocol-engineering/tasks/FRONTIER.md",
+    "M  domains/psychology/tasks/FRONTIER.md",
+    "M  domains/random-matrix-theory/tasks/FRONTIER.md",
+    "M  domains/social-media/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M experiments/expert-swarm/f-swarmer2-genesis-seeds-s490.json",
-    "M  memory/INDEX.md",
-    "M tasks/FRONTIER.md",
-    "MM tasks/NEXT.md",
-    "M  tasks/SWARM-LANES.md",
-    "M tools/orient.py",
-    "M tools/orient_monitors.py",
-    "M tools/orient_sections.py",
-    "M  workspace/cell-blueprint-latest.json",
-    "M workspace/genesis.sh",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? memory/lessons/L-1257.md"
+    "M experiments/expert-swarm/f-swarmer2-yield-ranking-s491.json",
+    "M memory/INDEX.md"
   ],
   "untracked_artifacts": [
-    "memory/lessons/L-1257.md"
+    "experiments/catastrophic-risks/f-cat1-fmea-s492.json",
+    "experiments/concept-inventor/",
+    "experiments/expert-swarm/f-swarmer2-dual-seed-scoring-s492.json",
+    "experiments/expert-swarm/f-swarmer2-seed-robustness-s491.json",
+    "experiments/meta/f-meta2-commit-tier-concurrency-s492.json",
+    "memory/lessons/L-1261.md",
+    "memory/lessons/L-1262.md",
+    "memory/lessons/L-1263.md"
   ],
   "next_actions": [
     "- open_lane.py FM-22 staleness: use git log content hash instead of header timestamp",
@@ -93,13 +111,13 @@
     },
     {
       "domain": "meta",
-      "score": 5.9,
+      "score": 6.9,
       "collision": false
     },
     {
       "domain": "nk-complexity",
       "score": 5.8,
-      "collision": false
+      "collision": true
     }
   ]
 }

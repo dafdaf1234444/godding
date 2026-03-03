@@ -10,6 +10,7 @@ Usage:
   python3 tools/knowledge_recombine.py              # top-10 recombination candidates
   python3 tools/knowledge_recombine.py --top 20     # top 20
   python3 tools/knowledge_recombine.py --cross-only # only cross-domain pairs
+  python3 tools/knowledge_recombine.py --ranked     # yield-scored ranking (L-1249)
   python3 tools/knowledge_recombine.py --json       # JSON output for experiments
   python3 tools/knowledge_recombine.py --stats      # graph statistics
 
@@ -154,6 +155,35 @@ def find_missing_edges(lessons: list[dict], min_shared: int = 2) -> list[dict]:
     return candidates
 
 
+def compute_yield_scores(candidates: list[dict], lessons: list[dict]) -> list[dict]:
+    """Apply L-1249 yield model to rank by predicted bridging probability.
+
+    Yield: P(bridge) ≈ 0.058 × (shared/2)^1.5 × sharpe_bonus × level_bonus × cross_factor
+    L-1249: cross-domain anti-correlated with bridging (0.80) but higher quality.
+    """
+    by_id = {l["id"]: l for l in lessons}
+    level_num = {"L1": 1, "L2": 2, "L3": 3, "L4": 4, "L5": 5}
+
+    for c in candidates:
+        shared = c["shared_count"]
+        avg_sharpe = c["avg_sharpe"]
+        a_level = level_num.get(by_id.get(c["parent_a"], {}).get("level", "L2"), 2)
+        b_level = level_num.get(by_id.get(c["parent_b"], {}).get("level", "L2"), 2)
+        avg_level = (a_level + b_level) / 2
+
+        sharpe_bonus = 1 + 0.15 * (avg_sharpe - 7)
+        level_bonus = 1 + 0.4 * (avg_level - 2)
+        cross_factor = 0.80 if c["cross_domain"] else 1.0
+
+        c["yield_score"] = round(
+            0.058 * (shared / 2) ** 1.5 * sharpe_bonus * level_bonus * cross_factor, 4
+        )
+        c["avg_level"] = avg_level
+
+    candidates.sort(key=lambda c: c["yield_score"], reverse=True)
+    return candidates
+
+
 def graph_stats(lessons: list[dict]) -> dict:
     """Compute citation graph statistics relevant to recombination."""
     total = len(lessons)
@@ -196,6 +226,7 @@ def main():
     parser.add_argument("--top", type=int, default=10, help="Number of candidates to show")
     parser.add_argument("--min-shared", type=int, default=2, help="Min shared citations")
     parser.add_argument("--cross-only", action="store_true", help="Only cross-domain pairs")
+    parser.add_argument("--ranked", action="store_true", help="Yield-scored ranking (L-1249)")
     parser.add_argument("--json", action="store_true", help="JSON output")
     parser.add_argument("--stats", action="store_true", help="Graph statistics only")
     args = parser.parse_args()
@@ -224,24 +255,33 @@ def main():
     if args.cross_only:
         candidates = [c for c in candidates if c["cross_domain"]]
 
+    if args.ranked:
+        candidates = compute_yield_scores(candidates, lessons)
+
     top = candidates[:args.top]
 
     if args.json:
-        print(json.dumps({
+        out = {
             "total_candidates": len(candidates),
             "cross_domain_candidates": sum(1 for c in candidates if c["cross_domain"]),
+            "ranked": args.ranked,
             "top": top,
-        }, indent=2))
+        }
+        print(json.dumps(out, indent=2))
         return 0
 
     total_cross = sum(1 for c in candidates if c["cross_domain"])
-    print(f"=== Knowledge Recombination Candidates ===")
+    mode = "Yield-Ranked (L-1249)" if args.ranked else "Citation Overlap"
+    print(f"=== Knowledge Recombination Candidates ({mode}) ===")
     print(f"Total missing edges: {len(candidates)} ({total_cross} cross-domain)")
     print()
 
     for i, c in enumerate(top, 1):
         cross = " [CROSS-DOMAIN]" if c["cross_domain"] else ""
-        print(f"  [{i}] score={c['score']}{cross}")
+        if args.ranked:
+            print(f"  [{i}] yield={c['yield_score']:.4f} (raw={c['score']}){cross}")
+        else:
+            print(f"  [{i}] score={c['score']}{cross}")
         print(f"      A: {c['parent_a']} ({c['domain_a']}): {c['title_a']}")
         print(f"      B: {c['parent_b']} ({c['domain_b']}): {c['title_b']}")
         print(f"      Shared ({c['shared_count']}): {', '.join(c['shared_refs'])}")

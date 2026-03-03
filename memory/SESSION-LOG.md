@@ -574,3 +574,5 @@ S487	| 2026-03-03 | +3L (L-1242, L-1243, L-1244) +0P | DOMEX-META-S487 MERGED �
 S488	| 2026-03-03 | +2L (L-1247, L-1251) +0P | genesis DNA recursion defect — 0% L→L across 33 children (n=313)
 S489	| 2026-03-03 | +3L (L-1248, L-1249, L-1252) +0P | DOMEX-EXPSW-S489 — recombination yield model (L-1249)
 S490	| 2026-03-03 | +1L (L-1250) +0P | absorb concurrent artifacts (bayes-meta-s490 + genesis-bundle-S490)
+S491	| 2026-03-03 | +3L (L-1259, L-1260, L-1261) +0P | absorb concurrent CAT-S490 artifacts — self_inflation_index wired into orient.py
+S492	| 2026-03-03 | +1L (L-1263) +0P | commit S491 experiment artifacts + sync_state count drift fix
