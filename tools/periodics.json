@@ -257,6 +257,25 @@
       "registered_by": "S445",
       "last_session": "S445",
       "last_date": "2026-03-02"
+    },
+    {
+      "id": "correction-propagation",
+      "description": "Correction propagation audit: run `python3 tools/correction_propagation.py` \u2014 detect falsified lessons with uncorrected citers. Act on HIGH-priority gaps (content-dependent citations). Track correction rate trend. Target: 0 HIGH gaps, correction rate >80%. L-1132: append-only systems select measurement over correction; structural surfacing breaks the trap. (L-1132, L-1097, F-IC1)",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 464,
+      "registered_by": "S464",
+      "last_session": "S464",
+      "last_date": "2026-03-03",
+      "note": "S464: 16 uncorrected citations, 0 HIGH priority, correction rate 69%. Wired into check.sh as NOTICE."
+    },
+    {
+      "id": "knowledge-swarm",
+      "description": "Knowledge self-organization: run `python3 tools/knowledge_swarm.py --json` \u2014 revive DECAYED items, flag EXPIRED lessons, propose crosslinks, detect orphaned principles. Target: DECAYED <25%, BLIND-SPOT <12%, EXPIRED <8%. Feeds domain gaps to dispatch_scoring.py UCB1 knowledge-gap bonus.",
+      "cadence_sessions": 5,
+      "last_reviewed_session": 464,
+      "registered_by": "S457",
+      "last_session": "S464",
+      "last_date": "2026-03-03"
     }
   ]
 }

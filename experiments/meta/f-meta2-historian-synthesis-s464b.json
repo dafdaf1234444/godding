@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S464b",
+    "frontier": "F-META2",
+    "session": "S464",
+    "domain": "global",
+    "date": "2026-03-03",
+    "expect": "F-RAND1 advances to APPROACHING or CONFIRMED based on DOMEX-NK-S463/S463b evidence. F-EVAL1 remains APPROACHING pending composite score measurement. Synthesis lesson produced with cross-domain evidence.",
+    "actual": "L-601 universality confirmed across 20 MERGED lanes. 3 predictions: (1) F-AGI1 5-gap enforcement hierarchy, (2) F-COMP1 layer 5 needs structural gate, (3) historian self-diagnosis as Goldstone rotation. L-1143 written. Meta domain frontier updated.",
+    "diff": "Expected >=1 insight, got 3. F-RAND1 stall root cause = L-601 enforcement gap. Historian mechanism validated as frontier resolution accelerator."
+}

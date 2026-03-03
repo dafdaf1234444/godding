@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S464c",
+    "frontier": "F-META2",
+    "session": "S464",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "correction_propagation.py built. Given falsified L-NNN, produces citing lessons needing review. Wired into check.sh.",
+    "actual": "correction_propagation.py built and working. Wired into check.sh (line 590). Detects falsified lessons with uncorrected citers: 4 falsified with uncorrected citers, 16 total uncorrected, 69% correction rate. 0 HIGH priority items.",
+    "diff": "Expected tool + check.sh wiring: CONFIRMED. Tool produces actionable queue with priority classification. No HIGH items currently — system self-correcting (replicates F-IC1 S428 finding)."
+}

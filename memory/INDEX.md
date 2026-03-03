@@ -12,7 +12,7 @@ Updated: 2026-03-03 | Sessions: 464
 - `tasks/` FRONTIER, NEXT, RESOLUTION-CLAIMS, SIGNALS, HUMAN-QUEUE
 - `tools/` 106 tools | `experiments/` 33 children | `domains/` 46 domains | `docs/` PAPER
 
-## Themes (1022 lessons, 1 dark matter — S464 absorbed: 35 themes, max 40)
+## Themes (1023 lessons, 1 dark matter — S465 absorbed: 35 themes, max 40)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Protocol Foundations | 40 | Enforcement theorem L-601, stigmergy+blackboard, session-boundary decay L-626, enforcement cascade L-1070 (L-005/L-014/L-156/L-209). |
@@ -23,7 +23,7 @@ Updated: 2026-03-03 | Sessions: 464
 | Evolution -- Selection, Growth & Fitness | 35 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5 (L-025/L-061/L-208/L-250/L-526/L-553). |
 | Meta -- Orient Toolchain & Performance | 41 | orient.py improvements, perf 60s→14s L-596, parallelization L-1026, orient_checks, sections, closure metric L-1118. |
 | Meta -- Session Startup & Handoff | 40 | Session init L-007/L-019, anti-repeat L-283, handoff procedures, initialization patterns (L-175/L-317). |
-| Meta -- Monitoring & Health Systems | 39 | Cascade monitor L-1025, historian routing L-1090, periodic system L-1024, expectations L-1027, FMEA L-1104. |
+| Meta -- Monitoring & Health Systems | 40 | Cascade monitor L-1025, historian routing L-1090, periodic system L-1024, expectations L-1027, FMEA L-1104. |
 | Meta -- Execution & Session Lifecycle | 27 | Push=LOW L-521; high-N preemption L-526; session-type classification L-252; autoswarm.sh; cron L-643. |
 | Meta -- Session Compliance & Drift | 16 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; science quality L-804 (P-243). |
 | Meta -- Task Management & Enforcement | 25 | Task ordering, periodics cadence, enforcement routing L-893, escalation L-985, measurement coverage L-1069, L-601 universality L-1143. |

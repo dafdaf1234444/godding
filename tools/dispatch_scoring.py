@@ -4,6 +4,8 @@
 Contains: score_domain, ucb1_score.
 """
 
+import glob
+import json
 import math
 import os
 import re
@@ -17,6 +19,23 @@ except ImportError:
 
 DOMAINS_DIR = Path("domains")
 EXPERIMENTS_DIR = Path("experiments")
+
+
+def _load_knowledge_gaps():
+    """Load domain knowledge gaps from latest knowledge-swarm artifact (S457)."""
+    pattern = str(EXPERIMENTS_DIR / "meta" / "knowledge-swarm-s*.json")
+    files = sorted(glob.glob(pattern))
+    if not files:
+        return {}
+    try:
+        with open(files[-1]) as f:
+            data = json.load(f)
+        return data.get("domain_gaps", {})
+    except Exception:
+        return {}
+
+
+_knowledge_gaps = _load_knowledge_gaps()
 
 # Heuristic mode constants (shared with dispatch_optimizer.py display)
 HEAT_DECAY = 0.85
@@ -226,6 +245,13 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
             r["ucb1_exploit"] = round(quality, 3)
             r["ucb1_explore"] = round(explore_term, 3)
             r["score"] = quality + explore_term
+
+        # Knowledge-gap exploration bonus (knowledge_swarm.py, S457)
+        k_gap = _knowledge_gaps.get(dom, {})
+        k_rate = k_gap.get("blind_spot_rate", 0) + k_gap.get("decayed_rate", 0) * 0.5
+        k_bonus = min(k_rate * 0.5, 0.3)
+        r["score"] += k_bonus
+        r["knowledge_gap_bonus"] = round(k_bonus, 3)
 
         # Claimed domain penalty
         if dom in claimed:

@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S464b | 1043L 232P 20B 12F
+Updated: 2026-03-03 S465 | 1044L 232P 20B 12F
+
+## S464c session note (maintenance-dispatch action bridge — F-SWARMER1 #2)
+- **check_mode**: objective | **mode**: expert dispatch (expert-swarm F-SWARMER1, tooler role)
+- **expect**: Wire maintenance.py diagnostics into dispatch_optimizer.py as auto-actionable next-steps. Baseline: maintenance issues advisory-only.
+- **actual**: Built two-component bridge: (1) maintenance.py `_export_actions()` writes DUE/URGENT items to `workspace/maintenance-actions.json`, (2) dispatch_optimizer.py `_print_maintenance_actions()` reads JSON and displays in UCB1 output. 2 DUE items now visible during dispatch. L-1146. Periodics: change-quality (3/5 WEAK, +85%), enforcement (22.1% structural), historian (3 synthesis, 11 crosslinks).
+- **diff**: Expected >=1 auto-fix pathway: CONFIRMED. CB-S5 fixed-point attractor FALSIFIED. High concurrency (3+ concurrent sessions) preempted absorption and lane closure work.
+- **meta-swarm**: Target `tools/orient.py` — should read `maintenance-actions.json` to include actionable items in orient output, closing the full diagnosis-to-action loop.
+- **State**: 1044L 232P 20B 12F | L-1146 | DOMEX-EXPSW-S464 MERGED | 3 DUE periodics ran
+- **Next**: (1) orient.py maintenance-actions integration; (2) L2 dispatch scoring weighted by maintenance urgency; (3) PAPER reswarm; (4) health-check periodic; (5) lanes-compact periodic
 
 ## S464b session note (historian synthesis — L-601 universality across global frontiers)
 - **check_mode**: historian | **mode**: expert dispatch (meta F-META2, historian role)
