@@ -930,11 +930,31 @@ def section_knowledge_recombination(root=ROOT):
     return lines
 
 
+def _active_domex_domains(root=ROOT):
+    """Return set of domains with active DOMEX lanes (L-1169: concurrency check)."""
+    lanes_path = root / "tasks" / "SWARM-LANES.md"
+    active = set()
+    if not lanes_path.exists():
+        return active
+    for line in lanes_path.read_text().splitlines():
+        if "DOMEX-" not in line:
+            continue
+        # Active statuses are not MERGED/ABANDONED
+        if "| MERGED |" in line or "| ABANDONED |" in line:
+            continue
+        # Extract domain from lane ID: DOMEX-<DOMAIN>-S<N>
+        m = re.search(r"DOMEX-([A-Z]+)-S\d+", line)
+        if m:
+            active.add(m.group(1).lower())
+    return active
+
+
 def section_epsilon_dispatch(session_num, root=ROOT):
     """ε-dispatch diversity recommendation (F-RAND1, L-601 structural enforcement).
 
     With probability ε=0.15, recommends a random non-top domain to break UCB1
     rich-get-richer lock. Surfaced in orient so sessions see it (L-1138: naming > ranking).
+    L-1169: checks active DOMEX lanes to avoid recommending already-claimed domains.
     """
     import random as _random
     lines = []
@@ -956,8 +976,17 @@ def section_epsilon_dispatch(session_num, root=ROOT):
         if len(data) < 2:
             return lines
         top_domain = data[0].get("domain", "unknown")
-        rand_idx = rng.randint(1, len(data) - 1)
-        pick = data[rand_idx]
+        active_domains = _active_domex_domains(root)
+        # Filter out domains with active DOMEX lanes (L-1169)
+        candidates = [d for i, d in enumerate(data) if i > 0
+                      and d.get("domain", "").lower() not in active_domains]
+        if not candidates:
+            lines.append("--- \u26a1 \u03b5-dispatch fired but all candidates have active lanes ---")
+            lines.append(f"  {len(active_domains)} domains claimed. Skipping diversity override.")
+            lines.append("")
+            return lines
+        rand_idx = rng.randint(0, len(candidates) - 1)
+        pick = candidates[rand_idx]
         pick_domain = pick.get("domain", "unknown")
         pick_frontier = pick.get("first_frontier", "")
         lines.append("--- \u26a1 \u03b5-dispatch fired (F-RAND1, L-601) ---")
@@ -965,6 +994,8 @@ def section_epsilon_dispatch(session_num, root=ROOT):
         if pick_frontier:
             lines.append(f"  Target frontier: {pick_frontier}")
         lines.append(f"  \u03b5-roll {roll:.3f} < {epsilon} \u2014 breaking UCB1 concentration (Gini 0.506)")
+        if active_domains:
+            lines.append(f"  ({len(active_domains)} domains filtered: active DOMEX lanes)")
         lines.append(f"  Open a DOMEX lane for {pick_domain}.")
         lines.append("")
     except Exception:

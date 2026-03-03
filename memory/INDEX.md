@@ -1,9 +1,9 @@
 # Memory Index
-Updated: 2026-03-03 | Sessions: 467
+Updated: 2026-03-03 | Sessions: 471
 
 ## What the swarm knows
-- **1055 lessons** in `memory/lessons/L-{NNN}.md`
-- **235 principles** in `memory/PRINCIPLES.md` (latest: P-319 component-autonomization, P-318 mode-mismatch-diagnosis, P-317 creation-time-gate)
+- **1065 lessons** in `memory/lessons/L-{NNN}.md`
+- **232 principles** in `memory/PRINCIPLES.md` (latest: P-319 component-autonomization, P-318 mode-mismatch-diagnosis, P-317 creation-time-gate)
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **12 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
 ## Structure
