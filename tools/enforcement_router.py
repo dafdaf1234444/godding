@@ -25,32 +25,51 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).parent.parent
 
-# Core tool files that wire structural enforcement
-# L-1069: Add new wiring tools here at creation time — voluntary addition decays per L-601.
-STRUCTURAL_FILES = [
-    "tools/maintenance.py",
-    "tools/maintenance_drift.py",    # extracted from maintenance.py S422 (L-941)
-    "tools/maintenance_state.py",    # extracted from maintenance.py S422
-    "tools/maintenance_inventory.py", # extracted from maintenance.py S422
-    "tools/orient.py",
-    "tools/open_lane.py",
-    "tools/close_lane.py",
-    "tools/check.sh",
-    "tools/science_quality.py",
-    "tools/dispatch_optimizer.py",
-    "tools/contract_check.py",
-    "tools/validate_beliefs.py",
-    "tools/enforcement_router.py",  # L-847: self-reference — this file enforces prescription tracking
-    "tools/cascade_monitor.py",     # L-1007: cascade detection wired into orient.py
-    "tools/lesson_collision_check.py",  # FM-18: wired into check.sh pre-commit
-    "tools/knowledge_state.py",     # F-META10: epistemological state classification
-    "tools/orient_checks.py",       # L-581: dark matter PID, L-515: stale lane detection, etc.
-    "tools/citation_retrieval.py",  # L-929: citation graph primary retrieval; INDEX cold-start fallback
-    "tools/orient_sections.py",     # many L-NNN wired via orient.py subsections
-    "tools/maintenance_health.py",  # L-1066: scale-waypoint checks; L-1057: memory size
-    "tools/maintenance_quality.py", # L-581: dark matter; L-583: correction propagation
-    "tools/task_order.py",          # L-978: zombie DUE; L-1062: deferred-condition traps; L-1093: zombie-drop registry
+# S472 (L-1069 S472 replication): auto-discover structural files instead of hardcoded list.
+# L-1069: hardcoded STRUCTURAL_FILES suffered L-601 voluntary decay twice (S446, S472).
+# Auto-discovery scans tools/ for files with >=MIN_REFS L-NNN references.
+# Hardcoded seed retained for files that are structurally important but reference few lessons.
+_STRUCTURAL_SEED = [
+    "tools/check.sh",               # shell script (not .py) — auto-discovery covers .sh too
+    "tools/enforcement_router.py",   # L-847: self-reference — this file enforces prescription tracking
 ]
+_MIN_STRUCTURAL_REFS = 3  # minimum L-NNN references to qualify as structural
+
+
+def _auto_discover_structural_files(repo_root: Path, min_refs: int = _MIN_STRUCTURAL_REFS) -> list[str]:
+    """Auto-discover tools with >=min_refs L-NNN references (L-1069 S472 fix).
+
+    Prevents STRUCTURAL_FILES scope decay by scanning tools/ dynamically.
+    Archive files excluded. Test files excluded (they reference but don't enforce).
+    """
+    tools_dir = repo_root / "tools"
+    if not tools_dir.exists():
+        return list(_STRUCTURAL_SEED)
+
+    lesson_pattern = re.compile(r"\bL-\d{3,4}\b")
+    discovered = set()
+
+    for ext in ("*.py", "*.sh"):
+        for filepath in tools_dir.glob(ext):
+            # Skip archived tools and test files
+            if "archive" in str(filepath):
+                continue
+            if filepath.name.startswith("test_"):
+                continue
+            try:
+                content = filepath.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                continue
+            refs = set(lesson_pattern.findall(content))
+            if len(refs) >= min_refs:
+                rel = str(filepath.relative_to(repo_root))
+                discovered.add(rel)
+
+    # Merge seed (for files that might have <min_refs but are structurally important)
+    for seed_file in _STRUCTURAL_SEED:
+        discovered.add(seed_file)
+
+    return sorted(discovered)
 
 # Periodic-tier files (softer enforcement)
 PERIODIC_FILES = [

@@ -110,6 +110,19 @@ def section_precompact_checkpoint(session, root=ROOT):
         cur_session_num = int(session[1:]) if session[1:].isdigit() else 0
         session_age = (cur_session_num - cp_session) if cp_session else 999
         if stale_ratio < 0.8 and session_age <= 2:
+            # Detect proxy-absorbed files (L-526): files committed after checkpoint #L-526
+            absorbed = []
+            if still_uncommitted and cp_session:
+                try:
+                    log_out = subprocess.run(
+                        ["git", "log", "--name-only", "--format=",
+                         "--diff-filter=M", f"HEAD~10..HEAD"],
+                        capture_output=True, text=True, cwd=str(root)
+                    ).stdout
+                    committed_files = {l.strip() for l in log_out.splitlines() if l.strip()}
+                    absorbed = [f for f in still_uncommitted if f in committed_files]
+                except Exception:
+                    pass
             lines.append("--- !! COMPACTION RESUME DETECTED ---")
             lines.append(f"  Checkpoint: {latest.name} ({cp.get('trigger', '?')} at {cp.get('timestamp', '?')})")
             hint = cp.get("next_md", {}).get("For next session", "")
@@ -117,6 +130,8 @@ def section_precompact_checkpoint(session, root=ROOT):
                 lines.append(f"  In-flight: {hint[:120].splitlines()[0]}")
             if still_uncommitted:
                 lines.append(f"  Uncommitted files ({len(still_uncommitted)}/{len(uncommitted)}): {', '.join(still_uncommitted[:5])}")
+            if absorbed:
+                lines.append(f"  ⚠ Likely proxy-absorbed ({len(absorbed)}/{len(still_uncommitted)}): working tree diffs may be stale (L-526)")
             staged = cp.get("staged_files", [])
             if staged:
                 lines.append(f"  ⚠ STAGED FILES ({len(staged)}): {', '.join(staged[:5])}")
