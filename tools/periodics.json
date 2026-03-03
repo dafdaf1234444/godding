@@ -15,11 +15,11 @@
       "id": "tool-consolidation",
       "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S402: 14 F-tools archived (109\u219295 active). S440: 0 new orphans; bloat is primary debt (14/106 tools >5000t, 13%). S471: 6 archived (dormancy criterion \u226544s), bloat 16/108=14.8%. L-1028. L-644 archival rule: archive after DOMEX lane merges. Also track: oversized fraction <10% target.",
       "cadence_sessions": 25,
-      "last_reviewed_session": 471,
+      "last_reviewed_session": 498,
       "registered_by": "S69",
-      "last_session": "S497",
+      "last_session": "S498",
       "last_date": "2026-03-03",
-      "note": "S497: 13 tools archived (alignment_check, anxiety_trigger, create_domain, drift_scanner, eval_sufficiency, eval_sufficiency_data, generalizer_expert, harvest_expert, lane_history, lesson_meta, lesson_quality_fixer, next_compact, randomness_probe). Dormancy \u226544s + no live imports. 115\u2192102 active tools. Oversized 19\u219217 (16.7%). To reach <10% target: decompose top 7 (wiki_swarm 8182t, dispatch_optimizer 7644t, open_lane 6484t highest priority)."
+      "note": "S498: 3 more archived (f_far1_gap_regression, f_phy5_rg_fixedpoint, wiki_swarm+test). 112\u2192108 active. Oversized 18/108=16.7% (target <10%). Top bloat: test_mission_constraints 11286t, dispatch_optimizer 7672t. Bloat reduction requires decomposition of load-bearing tools. Wired fmea_reconcile.py as periodic."
     },
     {
       "id": "principles-dedup",
@@ -287,6 +287,16 @@
       "last_session": "S467",
       "last_date": "2026-03-03",
       "note": "S467: 34 FMs, 21 periodic-covered. FM-35 WARNING (1 perspective). 0 undercounts."
+    },
+    {
+      "id": "fmea-reconcile",
+      "description": "FMEA reconciliation: run `python3 tools/fmea_reconcile.py` \u2014 reconcile FM statuses across all artifacts (41 FMs, 34 artifacts, 6 artifact types). Detects tracking drift, internal inconsistencies, and new FM candidates from text extraction. L-1274: FMEA aggregate counts unreliable without periodic reconciliation. L-601: without periodic enforcement, voluntary usage decays to <3%.",
+      "cadence_sessions": 10,
+      "last_reviewed_session": 498,
+      "registered_by": "S498",
+      "last_session": "S498",
+      "last_date": "2026-03-03",
+      "note": "S498: wired as periodic per S494d meta-swarm target. Last manual run S494d: 41 FMs, 1 formal inconsistency, 2 tracking gaps, 2 new candidates."
     },
     {
       "id": "correction-propagation",

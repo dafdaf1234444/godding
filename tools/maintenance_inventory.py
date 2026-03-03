@@ -25,13 +25,13 @@ def build_inventory(
 ) -> dict:
     T = lambda *ns: [f"tools/{n}" for n in ns]
     cap_sets: dict[str, list[str]] = {
-        "orientation": T("maintenance.py", "orient.py", "sync_state.py", "pulse.py", "context_router.py", "substrate_detect.py", "alignment_check.py"),
+        "orientation": T("maintenance.py", "orient.py", "sync_state.py", "pulse.py", "context_router.py", "substrate_detect.py"),
         "validation": T("validate_beliefs.py", "check.sh", "check.ps1", "maintenance.sh", "maintenance.ps1", "install-hooks.sh", "repair.py", "pre-commit.hook", "commit-msg.hook"),
         "evolution": T("evolve.py", "swarm_test.py", "agent_swarm.py", "colony.py", "swarm_colony.py", "spawn_coordinator.py"),
         "collaboration": T("swarm_pr.py"),
-        "inter_swarm": T("bulletin.py", "merge_back.py", "propagate_challenges.py", "close_lane.py", "harvest_expert.py"),
+        "inter_swarm": T("bulletin.py", "merge_back.py", "propagate_challenges.py", "close_lane.py"),
         "compaction": T("compact.py", "proxy_k.py", "frontier_decay.py"),
-        "analysis": T("nk_analyze.py", "nk_analyze_go.py", "wiki_swarm.py", "dream.py", "change_quality.py", "task_recognizer.py", "generalizer_expert.py", "contamination_investigator.py"),
+        "analysis": T("nk_analyze.py", "nk_analyze_go.py", "dream.py", "change_quality.py", "task_recognizer.py"),
         "benchmarks": T("f92_benchmark.py", "f92_real_coop_benchmark.py", "spawn_quality.py", "p155_live_trace.py"),
         "support": T("swarm_parse.py", "novelty.py", "validate_beliefs_extras.py"),
     }
