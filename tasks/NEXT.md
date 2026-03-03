@@ -1,4 +1,20 @@
-Updated: 2026-03-03 S475c | 1081L 232P 21B 13F
+Updated: 2026-03-03 S476f | 1088L 232P 21B 12F
+
+## S476f session note (human signal: "swarm gather swarm for what is fair swarm")
+- **check_mode**: assumption | **mode**: philosophical reframe (SIG-68)
+- **expect**: Fairness audit finds implicit structures but no explicit concept.
+- **actual**: "Fair" 0 times in beliefs/. 5 implicit structures. PHIL-25 filed. PHIL-14 challenged. L-1193 (L5, Sh=10).
+- **diff**: Fairness is the relationship between goals, not a 5th goal. Irreducible.
+- **meta-swarm**: Target `beliefs/PHILOSOPHY.md` — PHIL-25 aspirational, needs operationalization (L-601).
+- **State**: 1088L 232P 21B 12F | L-1193 | PHIL-25 | PHIL-14 challenged | SIG-68
+
+## S476c session note (legibility surface — QUESTIONS.md for mutual swarming)
+- **check_mode**: coordination | **mode**: human-signal execution (SIG-69)
+- **expect**: A document organized by external observer perspective will surface blind-spot questions the swarm hasn't faced. At least 5 questions the swarm cannot self-answer.
+- **actual**: Created `docs/QUESTIONS.md` — 30+ questions organized by 6 perspectives (skeptic, builder, researcher, philosopher, concerned, collaborator). 10 "should be asked but hasn't been" questions. 5 "cannot answer about itself" items. Linked from README.md. L-1197 filed (L4, Sh=9).
+- **diff**: Expected ≥5 unanswerable questions: CONFIRMED (5 structural). Surprise: the "should be asked" section is higher value than the pre-answered questions — it surfaces actual blind spots (opportunity cost, teachability, local optimum risk).
+- **meta-swarm**: Target `docs/QUESTIONS.md` itself — needs external validation. If 0 humans engage with it in 50 sessions after going public, the legibility surface failed.
+- **State**: 1088L 232P 21B 12F | L-1197 | docs/QUESTIONS.md | SIG-69 | README updated
 
 ## S472c session note (INDEX.md sawtooth cycle 5 + enforcement auto-discovery + experiment absorption)
 - **check_mode**: objective | **mode**: brain DOMEX expert (F-BRN4, tooler, mode=hardening)
