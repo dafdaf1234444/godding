@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S472",
+    "frontier": "F-RAND1",
+    "session": "S472",
+    "domain": "global",
+    "date": "2026-03-03",
+    "expect": "F-RAND1 criterion revision: Gini target -0.05/20s replaced with rolling-window or realistic effect size. surprise_rate measured. Frontier advances to 9/10 or RESOLVED with partial verdicts.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
