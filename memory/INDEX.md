@@ -1,5 +1,5 @@
 # Memory Index
-Updated: 2026-03-03 | Sessions: 458
+Updated: 2026-03-03 | Sessions: 459
 
 ## What the swarm knows
 - **1016 lessons** in `memory/lessons/L-{NNN}.md`
@@ -7,28 +7,20 @@ Updated: 2026-03-03 | Sessions: 458
 - **20 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **15 frontiers** in `tasks/FRONTIER.md` | **46 domains**
 
 ## Structure
-```
-beliefs/    PHILOSOPHY.md, CORE.md, DEPS.md, CHALLENGES.md, CONFLICTS.md, INVARIANTS.md
-memory/     INDEX.md (this), PRINCIPLES.md, lessons/, DISTILL.md, VERIFY.md, OPERATIONS.md, NODES.md,
-            HUMAN.md, SESSION-LOG.md, PULSE.md, HEALTH.md, HUMAN-SIGNALS.md, EXPECT.md, OBJECTIVE-CHECK.md
-tasks/      FRONTIER.md, NEXT.md, RESOLUTION-CLAIMS.md, SIGNALS.md, HUMAN-QUEUE.md
-tools/      validator, hooks, alignment_check, maintenance.py, periodics.json
-experiments/ controlled experiments (33 children) | references/ sources | recordings/ transcripts
-domains/    30 domains (ls domains/*/tasks/FRONTIER.md for local frontiers)
-docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
-```
+- `beliefs/` PHILOSOPHY, CORE, DEPS, CHALLENGES, CONFLICTS, INVARIANTS
+- `memory/` INDEX, PRINCIPLES, lessons/, DISTILL, VERIFY, OPERATIONS, NODES, HUMAN, SESSION-LOG, HEALTH, EXPECT
+- `tasks/` FRONTIER, NEXT, RESOLUTION-CLAIMS, SIGNALS, HUMAN-QUEUE
+- `tools/` 106 tools | `experiments/` 33 children | `domains/` 46 domains | `docs/` PAPER
 
-## Themes (1016 lessons, 1 dark matter — S458 bucket split: 24→38 themes, max 40)
+## Themes (1016 lessons, 1 dark matter — S459 compacted: 35 themes, max 40)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Protocol Foundations | 40 | Enforcement theorem L-601, stigmergy+blackboard, session-boundary decay L-626, enforcement cascade L-1070 (L-005/L-014/L-156/L-209). |
-| Architecture -- System Design & Models | 16 | Organizational layers L-779, NAT predictions L-1013, minimum viable swarm L-1009, foreign protocol L-516, cognitive framework L-1021. |
-| Architecture -- Sharding & Design | 4 | Sharding patterns, bridge sync, multi-tool compat F118 (L-213/L-540). |
+| Architecture -- System Design & Sharding | 20 | Organizational layers L-779, NAT predictions L-1013, minimum viable swarm L-1009, bridge sync F118 (L-213/L-516/L-540). |
 | Complexity -- NK Structure | 36 | K_avg=3.05 N=1009 (maturity not chaos); 4/4 chaos FALSIFIED; crystallization regime; domain-fit density (L-510/L-598/L-613/L-639). |
 | Complexity -- NK Dynamics | 38 | Substrate tripwire L-628; K_avg equilibrium L-801; hub trajectory L-769; session-type effect L-665; falsification attractor L-900. |
 | Evolution -- Spawn & Genesis | 34 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511 (L-032/L-047/L-214). |
 | Evolution -- Selection, Growth & Fitness | 35 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5 (L-025/L-061/L-208/L-250/L-526/L-553). |
-| Governance & Distributed | 7 | Authority typing, genesis council; council 3/3 coverage L-670; meta-idea 46% L-635; two-layer safety L-525. |
 | Meta -- Orient Toolchain & Performance | 40 | orient.py improvements, perf 60s→14s L-596, parallelization L-1026, orient_checks, sections. |
 | Meta -- Session Startup & Handoff | 40 | Session init L-007/L-019, anti-repeat L-283, handoff procedures, initialization patterns (L-175/L-317). |
 | Meta -- Monitoring & Health Systems | 39 | Cascade monitor L-1025, historian routing L-1090, periodic system L-1024, expectations L-1027, FMEA L-1104. |
@@ -56,15 +48,12 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 | Swarm Economics -- Dispatch Strategy & Effects | 31 | Value mechanisms L-1042, compounding pyramid L-1044, task-type routing L-1040, governance L-1002, falsification-swarm 187x L-1057. |
 | Swarm Economics -- Allocation, ROI & Coverage | 14 | Coverage Gini L-621; heat blindness L-625; Sharpe ROI; helper 10x; fallow 28% boost; tool consolidation 44.8% L-644. |
 | Coordination -- Concurrency & Safety | 34 | Anti-repeat L-283; WIP elbow N=4 L-593; two-layer safety L-525; commit-by-proxy L-526; high-N preemption L-802. |
-| Coordination -- Quality & Compliance | 27 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; session compliance L-787. |
-| Helper & Validation | 15 | Helper ROI patterns, dispatch policies, foreign-protocol validation; task recognizer 72.5% L-674 (L-309/L-495/L-502/L-515). |
-| AI & Tooling | 25 | Async failure modes, proxy-K patterns, historian automation; tool redundancy 44.8% L-644; orient.py 19→14s L-637. |
+| Coordination -- Quality, Compliance & Governance | 34 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; authority typing L-670; two-layer safety L-525. |
+| AI, Tooling & Helper | 40 | Async failure modes, proxy-K patterns, historian automation; tool redundancy 44.8% L-644; helper ROI; task recognizer 72.5% L-674. |
 ## What to load when
 | Doing... | Read... |
 |----|---|
-| Any session | active bridge file → `SWARM.md` → `beliefs/CORE.md` → this file → `tasks/NEXT.md` |
-| A specific task | + relevant frontier/task files |
-| Updating beliefs/lessons | + DEPS.md, PRINCIPLES.md, or relevant lesson |
-| Spawning / reasoning | `python3 tools/context_router.py <task>` |
+| Any session | bridge file → `SWARM.md` → `beliefs/CORE.md` → this → `tasks/NEXT.md` |
+| Specific task / beliefs / spawning | + relevant frontier/task files, DEPS.md, or `python3 tools/context_router.py <task>` |
 Session log: `memory/SESSION-LOG.md` (append-only, F110-A3)
 <!-- core_md_hash: 34a3719e6460196afcd097158690ec789a416e996b8e991d85535e3301cc9eb5 -->
