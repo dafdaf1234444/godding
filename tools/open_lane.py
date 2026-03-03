@@ -366,12 +366,37 @@ def main():
     # P-243 falsification mandate: track recent lanes and enforce 1-in-5 adversarial ratio
     # L-601: advisory display = 0% adoption; blocking enforcement = near-100% (L-949)
     # Upgraded from WARN to ERROR to match structural enforcement pattern (PHIL-22/--self-apply).
+    # S482 F-META18: debt tracking — skips accumulate cost, block after 3 consecutive
+    debt_path = REPO_ROOT / "workspace" / "falsification-debt.json"
+    try:
+        debt = json.loads(debt_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        debt = {"consecutive_skips": 0, "total_skips": 0,
+                "last_skip_session": None, "last_falsification_session": None,
+                "max_consecutive_before_block": 3}
+
     if args.mode == "falsification":
         print(
             f"INFO: Adversarial lane — explicitly testing against a belief/claim. "
             f"Target: prove the expect WRONG. Record DROP if falsified (P-243, L-804).",
         )
+        # Clear debt on falsification lane
+        debt["consecutive_skips"] = 0
+        debt["last_falsification_session"] = args.session
+        debt_path.write_text(json.dumps(debt, indent=2) + "\n")
     else:
+        # Check debt: after max_consecutive_before_block skips, MUST falsify (no bypass)
+        max_skips = debt.get("max_consecutive_before_block", 3)
+        if debt.get("consecutive_skips", 0) >= max_skips:
+            print(
+                f"ERROR: Falsification debt exhausted ({debt['consecutive_skips']}/{max_skips} "
+                f"consecutive non-falsification lanes). P-243 requires the NEXT lane to use "
+                f"--mode falsification. Run 'python3 tools/dispatch_optimizer.py' to see "
+                f"suggested falsification targets. No bypass available (L-601).",
+                file=sys.stderr,
+            )
+            sys.exit(1)
+
         # Count recent falsification lanes vs total (last 20 sessions)
         recent_falsification = 0
         recent_total = 0
@@ -394,30 +419,35 @@ def main():
                 if sess < max(1, cur_sess - 20):
                     continue
                 recent_total += 1
-                if "mode=falsification" in etc:
+                if "; mode=falsification" in etc or etc.startswith("mode=falsification"):
                     recent_falsification += 1
         falsif_rate = recent_falsification / recent_total if recent_total > 0 else 1.0
         if recent_total >= 5 and falsif_rate < 0.20:
             msg = (
-                f"{'ERROR' if recent_falsification == 0 else 'WARN'}: "
+                f"ERROR: "
                 f"{recent_falsification}/{recent_total} recent lanes use mode=falsification "
                 f"({falsif_rate:.0%} vs 20% target). "
                 f"P-243 requires 1-in-5 adversarial lanes (L-601: voluntary → structural enforcement). "
                 f"Options: (1) --mode falsification --expect '<belief> is FALSE because <reason>', "
                 f"(2) --skip-falsification-check 'reason' to override with justification."
             )
-            if recent_falsification == 0:
-                # Hard block: 0 falsification lanes in 5+ recent lanes (L-601 enforcement)
-                if args.skip_falsification_check:
-                    print(
-                        f"INFO: Falsification-rate block overridden: '{args.skip_falsification_check}'. "
-                        f"Current ratio {recent_falsification}/{recent_total} — next lane should be falsification.",
-                    )
-                else:
-                    print(msg, file=sys.stderr)
-                    sys.exit(1)
+            # L-601 structural enforcement: hard-block at <20%, not just at 0%
+            # S483 F-META18 fix: advisory-only at >0% caused 1.1% actual rate (18x below target)
+            if args.skip_falsification_check:
+                # Increment debt on skip
+                debt["consecutive_skips"] = debt.get("consecutive_skips", 0) + 1
+                debt["total_skips"] = debt.get("total_skips", 0) + 1
+                debt["last_skip_session"] = args.session
+                debt_path.write_text(json.dumps(debt, indent=2) + "\n")
+                remaining = max_skips - debt["consecutive_skips"]
+                print(
+                    f"INFO: Falsification-rate block overridden: '{args.skip_falsification_check}'. "
+                    f"Debt: {debt['consecutive_skips']}/{max_skips} skips "
+                    f"({remaining} remaining before mandatory falsification).",
+                )
             else:
                 print(msg, file=sys.stderr)
+                sys.exit(1)
 
     # PHIL-22 enforcement: L3+ lanes must state self-application (L-950, SIG-48)
     # L-949: advisory display = 0% adoption; blocking enforcement = near-100%
