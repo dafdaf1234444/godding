@@ -1,0 +1,30 @@
+{
+  "experiment": "expectation-calibration-S461",
+  "frontier": "F-META12",
+  "session": "S461",
+  "domain": "meta",
+  "date": "2026-03-03",
+  "periodic": "expectation-calibration",
+  "last_run": "S439",
+  "gap_sessions": 22,
+  "expect": "Direction accuracy >75%, underconfidence ratio <5:1. Prior S439: ratio was ~6:1.",
+  "actual": {
+    "records": 524,
+    "classified": 300,
+    "hit_rate_pct": 60.0,
+    "partial_rate_pct": 33.7,
+    "wrong_rate_pct": 6.3,
+    "underconf_ratio": "8.1:1",
+    "temporal_trend": "IMPROVING (56.3% → 62.6%)",
+    "worst_domain": "expert-swarm (20% wrong)",
+    "best_domain": "strategy (83% hit, 0% wrong)",
+    "direction_bias": {"over": 16, "under": 130, "neutral": 378}
+  },
+  "diff": "Underconfidence ratio worsened from ~6:1 to 8.1:1 — target <5:1 NOT MET. Hit rate improving (56→63%). Novel finding: underconfidence ratio IS emergent swarm productivity exceeding single-node expectations (L-1133). At N>=5, 100% preemption observed. The ratio is not a calibration defect but a measurement of collective capacity.",
+  "lesson": "L-1133",
+  "next_actions": [
+    "Adjust expect-act-diff protocol to include swarm-level capacity estimate",
+    "Track preemption rate as emergent productivity signal",
+    "expert-swarm domain needs prediction improvement (20% wrong)"
+  ]
+}

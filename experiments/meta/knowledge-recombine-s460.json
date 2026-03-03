@@ -1,0 +1,357 @@
+{
+  "total_candidates": 2305,
+  "cross_domain_candidates": 1575,
+  "top": [
+    {
+      "parent_a": "L-1130",
+      "parent_b": "L-1131",
+      "title_a": "Knowledge recombination via citation missing-edges produces ",
+      "title_b": "Anti-attractor colony design \u2014 5 structural mechanisms preve",
+      "domain_a": "meta",
+      "domain_b": "expert-swarm",
+      "shared_refs": [
+        "L-1118",
+        "L-1124",
+        "L-1125",
+        "L-1127",
+        "L-601",
+        "L-950"
+      ],
+      "shared_count": 6,
+      "cross_domain": true,
+      "avg_sharpe": 9.5,
+      "score": 114.0
+    },
+    {
+      "parent_a": "L-1129",
+      "parent_b": "L-1131",
+      "title_a": "Reward channels ARE symmetry-breaking mechanisms \u2014 fix Goodh",
+      "title_b": "Anti-attractor colony design \u2014 5 structural mechanisms preve",
+      "domain_a": "meta",
+      "domain_b": "expert-swarm",
+      "shared_refs": [
+        "L-1118",
+        "L-1124",
+        "L-1127",
+        "L-601",
+        "L-950"
+      ],
+      "shared_count": 5,
+      "cross_domain": true,
+      "avg_sharpe": 9.5,
+      "score": 95.0
+    },
+    {
+      "parent_a": "L-815",
+      "parent_b": "L-871",
+      "title_a": "COMMIT Guarantee Prospective Test \u2014 Score Change \u2260 Dispatch ",
+      "title_b": "5-layer escalation clears all campaign stalls \u2014 naming beats",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-601",
+        "L-755",
+        "L-791",
+        "L-805"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.5,
+      "score": 68.0
+    },
+    {
+      "parent_a": "L-665",
+      "parent_b": "L-742",
+      "title_a": "DOMEX sessions produce highest citation density (3.0 edges/L",
+      "title_b": "Correction propagation gap \u2014 48% average correction rate acr",
+      "domain_a": "nk-complexity",
+      "domain_b": "security",
+      "shared_refs": [
+        "L-538",
+        "L-613",
+        "L-618",
+        "L-629"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-665",
+      "parent_b": "L-790",
+      "title_a": "DOMEX sessions produce highest citation density (3.0 edges/L",
+      "title_b": "",
+      "domain_a": "nk-complexity",
+      "domain_b": "unknown",
+      "shared_refs": [
+        "L-601",
+        "L-613",
+        "L-618",
+        "L-639"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-783",
+      "parent_b": "L-785",
+      "title_a": "",
+      "title_b": "Dispatch quality post-S384 \u2014 EAD +41pp is dominant signal, m",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-601",
+        "L-747",
+        "L-757",
+        "L-777"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-815",
+      "parent_b": "L-845",
+      "title_a": "COMMIT Guarantee Prospective Test \u2014 Score Change \u2260 Dispatch ",
+      "title_b": "COMMIT guarantee has 0% frontier precision \u2014 domain dispatch",
+      "domain_a": "unknown",
+      "domain_b": "strategy",
+      "shared_refs": [
+        "L-755",
+        "L-791",
+        "L-794",
+        "L-805"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-874",
+      "parent_b": "L-966",
+      "title_a": "Format evolution breaks consumers silently \u2014 PHIL parser 47-",
+      "title_b": "Observer staleness checker silent for 27 sessions \u2014 regex bu",
+      "domain_a": "meta",
+      "domain_b": "catastrophic-risks",
+      "shared_refs": [
+        "L-555",
+        "L-556",
+        "L-601",
+        "L-820"
+      ],
+      "shared_count": 4,
+      "cross_domain": true,
+      "avg_sharpe": 8.0,
+      "score": 64.0
+    },
+    {
+      "parent_a": "L-1118",
+      "parent_b": "L-1121",
+      "title_a": "Closed-system convergence \u2014 L-601 applied reflexively predic",
+      "title_b": "Nature\u2192swarm prescription: attention (1/N) is carrying capac",
+      "domain_a": "meta",
+      "domain_b": "biology",
+      "shared_refs": [
+        "L-601",
+        "L-895",
+        "L-912"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 10.0,
+      "score": 60.0
+    },
+    {
+      "parent_a": "L-1097",
+      "parent_b": "L-950",
+      "title_a": "Error-preservation asymmetry \u2014 append-only systems retain er",
+      "title_b": "Theorem self-application is 89.8% \u2014 recursion trap is fixed-",
+      "domain_a": "security",
+      "domain_b": "meta",
+      "shared_refs": [
+        "L-601",
+        "L-908",
+        "L-913"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.5,
+      "score": 57.0
+    },
+    {
+      "parent_a": "L-1128",
+      "parent_b": "L-1131",
+      "title_a": "F-NK6 4-mechanism governance maps to L-1124 symmetry operati",
+      "title_b": "Anti-attractor colony design \u2014 5 structural mechanisms preve",
+      "domain_a": "nk-complexity",
+      "domain_b": "expert-swarm",
+      "shared_refs": [
+        "L-1118",
+        "L-1124",
+        "L-601"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.5,
+      "score": 57.0
+    },
+    {
+      "parent_a": "L-1096",
+      "parent_b": "L-929",
+      "title_a": "Retention and accessibility diverge \u2014 storage completeness m",
+      "title_b": "Citation graph covers 98.5% vs INDEX pointers 29.5% \u2014 retrie",
+      "domain_a": "filtering",
+      "domain_b": "brain",
+      "shared_refs": [
+        "L-601",
+        "L-869",
+        "L-912"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-1097",
+      "parent_b": "L-813",
+      "title_a": "Error-preservation asymmetry \u2014 append-only systems retain er",
+      "title_b": "Truthfulness audit \u2014 three measurement systems inflate swarm",
+      "domain_a": "security",
+      "domain_b": "meta",
+      "shared_refs": [
+        "L-025",
+        "L-601",
+        "L-633"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-1099",
+      "parent_b": "L-758",
+      "title_a": "Domain analogies systematically fail \u2014 swarm dynamics are di",
+      "title_b": "Interest gradient \u2014 what the swarm knows vs what matters",
+      "domain_a": "fluid-dynamics",
+      "domain_b": "meta",
+      "shared_refs": [
+        "L-599",
+        "L-601",
+        "L-751"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-1125",
+      "parent_b": "L-1128",
+      "title_a": "Trail\u2192Context\u2192Truth is one closed epistemic cycle \u2014 trail pr",
+      "title_b": "F-NK6 4-mechanism governance maps to L-1124 symmetry operati",
+      "domain_a": "meta",
+      "domain_b": "nk-complexity",
+      "shared_refs": [
+        "L-1118",
+        "L-1121",
+        "L-1124"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-1127",
+      "parent_b": "L-1128",
+      "title_a": "Swarm has 6 implicit reward channels but no explicit reward ",
+      "title_b": "F-NK6 4-mechanism governance maps to L-1124 symmetry operati",
+      "domain_a": "meta",
+      "domain_b": "nk-complexity",
+      "shared_refs": [
+        "L-1118",
+        "L-1124",
+        "L-601"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-556",
+      "parent_b": "L-625",
+      "title_a": "",
+      "title_b": "Heat tracker archive blindness \u2014 30+ domains misclassified a",
+      "domain_a": "meta",
+      "domain_b": "economy (F-ECO5)",
+      "shared_refs": [
+        "L-510",
+        "L-530",
+        "L-555"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-613",
+      "parent_b": "L-617",
+      "title_a": "NK chaos predictions falsified \u2014 K=2.0 is structural milesto",
+      "title_b": "Dark matter 15-25% is a homeostatic range, not a designed ta",
+      "domain_a": "nk-complexity",
+      "domain_b": "meta",
+      "shared_refs": [
+        "L-574",
+        "L-590",
+        "L-599"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-824",
+      "parent_b": "L-950",
+      "title_a": "B7 falsification fails \u2014 compliance compounds 4x faster than",
+      "title_b": "Theorem self-application is 89.8% \u2014 recursion trap is fixed-",
+      "domain_a": "evaluation",
+      "domain_b": "meta",
+      "shared_refs": [
+        "L-601",
+        "L-646",
+        "L-787"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    },
+    {
+      "parent_a": "L-830",
+      "parent_b": "L-900",
+      "title_a": "Challenge coverage gap \u2014 80% of beliefs and 30% of principle",
+      "title_b": "Falsification attractor \u2014 falsified findings accumulate cita",
+      "domain_a": "meta",
+      "domain_b": "nk-complexity",
+      "shared_refs": [
+        "L-601",
+        "L-813",
+        "L-821"
+      ],
+      "shared_count": 3,
+      "cross_domain": true,
+      "avg_sharpe": 9.0,
+      "score": 54.0
+    }
+  ]
+}
