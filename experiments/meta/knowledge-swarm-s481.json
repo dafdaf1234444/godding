@@ -1,0 +1,2173 @@
+{
+  "session": 481,
+  "timestamp": "2026-03-03T04:53:19.326547+00:00",
+  "revival": [
+    {
+      "id": "L-501",
+      "title": "Expert dispatch is PHIL-2's test case \u2014 the function that forgot to apply to its",
+      "sharpe": 5,
+      "age": 138,
+      "active_citers": 5,
+      "score": 9.06,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-901",
+      "title": "Expert domain coverage 10% not 14.8% \u2014 bundle sessions drive all variance",
+      "sharpe": 9,
+      "age": 71,
+      "active_citers": 1,
+      "score": 6.34,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-595",
+      "title": "Multi-tool bridge audit \u2014 2/6 tested, 4 bridge-ready with tool-specific gaps",
+      "sharpe": 7,
+      "age": 127,
+      "active_citers": 2,
+      "score": 5.51,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-587",
+      "title": "Harvest gap checkpoint in orient.py \u2014 zero-conversion domains surface before bur",
+      "sharpe": 7,
+      "age": 128,
+      "active_citers": 2,
+      "score": 5.47,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-888",
+      "title": "DOMEX-solo vs DOMEX-multi dissociation: solo lessons get cited more; multi produ",
+      "sharpe": 8,
+      "age": 75,
+      "active_citers": 1,
+      "score": 5.33,
+      "action": "cite_in_active_lane"
+    }
+  ],
+  "compress": [
+    {
+      "id": "L-009",
+      "title": "First artifact \u2014 the system can produce useful tools",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-017",
+      "title": "Forking is trivially possible \u2014 git fork IS knowledge fork",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-020",
+      "title": "Genesis can be automated \u2014 minimum viable swarm is 12 files",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-024",
+      "title": "Requisite variety \u2014 match controller modes to task types",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-041",
+      "title": "Cross-language NK validation reveals supply-chain blind spot",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-048",
+      "title": "Lazy imports serve two purposes, not one",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-049",
+      "title": "\u0394NK reveals refactoring tradeoffs, not clear wins",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-052",
+      "title": "The complexity ratchet is cycle-driven, not growth-driven",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-066",
+      "title": "LOC/N > 500 reliably flags monolith blind spots (100% precision)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-093",
+      "title": "U-shaped constraint-fitness curve \u2014 minimal-nofalsif overtake at ~130 sessions",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-115",
+      "title": "F102 resolved \u2014 falsification conditions are redundant for observed beliefs",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-118",
+      "title": "Primary domain = the swarm itself (human directive S55)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-124",
+      "title": "K_norm compound predictor + swarmability partially load-bearing (F107 S2)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-127",
+      "title": "Genesis rules are catalysts, not permanent requirements",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 80,
+      "action": "archive"
+    },
+    {
+      "id": "L-133",
+      "title": "P-141 holds on CockroachDB; ctx_count alone produces FP on leaf utilities",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-191",
+      "title": "F76 confirmed \u2014 specialist hierarchy finds ~35% more domain findings than single",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-264",
+      "title": "F-IS2 \u2014 PRINCIPLES.md citation distribution is flat (\u03b1=0.21), not Zipf \u2014 lesson\u2192",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-352",
+      "title": "Human-signal dependency map \u2014 5 expert creation types",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-382",
+      "title": "Belief file challenge tables accumulate token waste \u2014 trim separately",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-408",
+      "title": "Domain tool depth tracks engagement, not birth cohort (F-EVO5)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-419",
+      "title": "\u2014 F110 T3 DONE: Lane contract compliance by enforcement + lifecycle pruning",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-431",
+      "title": "\u2014 economy_expert.py: header-regex false positive triggers helper spawn",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-437",
+      "title": "Modes-reswarm S327 \u2014 3 structural drift patterns fixed",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-442",
+      "title": "Mission-constraint-reswarm S327 \u2014 CORE.md gap closed, 51/51 PASS",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 75,
+      "action": "archive"
+    },
+    {
+      "id": "L-443",
+      "title": "Periodics-meta-audit \u2014 coverage gap + cadence calibration (S327+S329)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-453",
+      "title": "B8 Challenge DROPPED \u2014 Frontier Is Generator, Not Accumulator",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-638",
+      "title": "SUPERSEDED\u2192L-642",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 10,
+      "action": "archive"
+    },
+    {
+      "id": "L-691",
+      "title": "Concurrent DOMEX sessions produce independent knowledge, not complementary",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-692",
+      "title": "Swarm profiler baseline \u2014 task_order.py is #1 bottleneck at 14.7s, not orient.py",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-708",
+      "title": "\u2014 Executor-layer gap: programmatic session planning",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-726",
+      "title": "Self-referential ordering \u2014 60% divergence between swarm evidence and swarm beha",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-819",
+      "title": "Signal-audit periodic + bundle dispatch advisory wired (S398)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-827",
+      "title": "COMMIT follow-through requires content, not just dispatch \u2014 F-SOC4 content strat",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-832",
+      "title": "Historian triage + compaction + signal audit combined session (S398)",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 65,
+      "action": "archive"
+    },
+    {
+      "id": "L-834",
+      "title": "Swarm temperature (activity rate) does NOT dilute quality \u2014 high-temp sessions a",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-842",
+      "title": "5 cut-vertex sessions in knowledge DAG \u2014 S39 is 9-way fragmentation point (F-GT3",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-851",
+      "title": "Neuroplasticity directions are mode-cycle epiphenomena, not causal links",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 55,
+      "action": "archive"
+    },
+    {
+      "id": "L-853",
+      "title": "\u2014 F-AI1 meta-analysis: EN evidence-surfacing significantly improves MAS accuracy",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 60,
+      "action": "archive"
+    },
+    {
+      "id": "L-855",
+      "title": "Bridge parity 42.9%\u219292.9% by adding 4 operational steps to Minimum Swarmed Cycle",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-867",
+      "title": "Compaction irreversibility increases with system maturity \u2014 efficiency paradox",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-1019",
+      "title": "\u2014 F-LNG5 CONFIRMED: swarm universals stable under 35+ sessions free evolution (S",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-1020",
+      "title": "\u2014 (redirect \u2192 L-1018) duplicate of F-FLT4 CONFIRMED lesson",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 30,
+      "action": "archive"
+    },
+    {
+      "id": "L-1032",
+      "title": "\u2014 Principles-dedup S441: 2 absorbed (P-274\u2192P-281, P-269\u2192P-292); 228\u2192226 (S441, L",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1039",
+      "title": "",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 70,
+      "action": "archive"
+    },
+    {
+      "id": "L-1194",
+      "title": "Dispatch diversity has two independent dimensions \u2014 breadth and depth diverge un",
+      "sharpe": -1,
+      "age": 481,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-054",
+      "title": "No project escapes tangled \u2014 but DAG discipline prevents it",
+      "sharpe": -1,
+      "age": 440,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-099",
+      "title": "In DAG-enforced Go, errcheck tooling adoption predicts EH quality \u2014 not NK metri",
+      "sharpe": -1,
+      "age": 434,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-125",
+      "title": "Agent visibility needs three signals; without them the list is noise",
+      "sharpe": -1,
+      "age": 421,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-130",
+      "title": "Multi-node alignment; human is not the authority",
+      "sharpe": -1,
+      "age": 417,
+      "est_tokens": 60,
+      "action": "archive"
+    },
+    {
+      "id": "L-131",
+      "title": "protocol:distill no merge-scan S1; ctx.Context count operationalizes step-2",
+      "sharpe": -1,
+      "age": 417,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-138",
+      "title": "protocol:distill is split \u2014 duplication-check=CATALYST, merge/supersede-scan=PER",
+      "sharpe": -1,
+      "age": 413,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-139",
+      "title": "Cold-start convergence and periodic self-swarming",
+      "sharpe": -1,
+      "age": 413,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-140",
+      "title": "PHIL-4 SUPERSEDED \u2014 mine is novel experience, not latent LLM knowledge",
+      "sharpe": -1,
+      "age": 412,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-146",
+      "title": "A swarm can produce a coherent living self-paper via fan-out synthesis",
+      "sharpe": -1,
+      "age": 408,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-153",
+      "title": "Transactive memory (who-knows-what) is distinct from stigmergy \u2014 missing TMS exp",
+      "sharpe": -1,
+      "age": 405,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-154",
+      "title": "Trace deception is a 4th stigmergic failure mode \u2014 competitive pressure converts",
+      "sharpe": -1,
+      "age": 405,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-160",
+      "title": "Self-measurable falsification \u2014 testable by system holding the belief, not exter",
+      "sharpe": -1,
+      "age": 403,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-164",
+      "title": "F91 2D fitness: Goodhart exposure concentrated in mid-tier (ranks 6-11)",
+      "sharpe": -1,
+      "age": 403,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-166",
+      "title": "T1/T2 tiers near-optimal \u2014 structural overlap \u2260 MDL redundancy",
+      "sharpe": -1,
+      "age": 403,
+      "est_tokens": 30,
+      "action": "archive"
+    },
+    {
+      "id": "L-173",
+      "title": "PHIL-5/11/13 refined \u2014 directional vs epistemic authority distinction",
+      "sharpe": -1,
+      "age": 400,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-182",
+      "title": "P-156 lifecycle phases \u2014 pattern real but \"fractal\" overstates",
+      "sharpe": -1,
+      "age": 396,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-184",
+      "title": "P-157 decision tree confirmed \u2014 coupling density alone cannot distinguish archit",
+      "sharpe": -1,
+      "age": 391,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-185",
+      "title": "P-158 defense mechanism OBSERVED \u2014 base vulnerability supported externally",
+      "sharpe": -1,
+      "age": 390,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-186",
+      "title": "F117 complete \u2014 nk-analyze-go v0.1.0 extracted as installable lib, 65/65 tests",
+      "sharpe": -1,
+      "age": 389,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-194",
+      "title": "Swarm authorship attribution \u2014 public framing matches internal autonomy",
+      "sharpe": -1,
+      "age": 382,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-198",
+      "title": "Tool consolidation S102 \u2014 context_router is the key embedding gap",
+      "sharpe": -1,
+      "age": 379,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-201",
+      "title": "F92 N=4 knee is workload-dependent, not globally optimal",
+      "sharpe": -1,
+      "age": 372,
+      "est_tokens": 55,
+      "action": "archive"
+    },
+    {
+      "id": "L-202",
+      "title": "Cooperative shared-state workload shifts colony knee to N=2",
+      "sharpe": -1,
+      "age": 371,
+      "est_tokens": 55,
+      "action": "archive"
+    },
+    {
+      "id": "L-204",
+      "title": "Cooperative scaling depends on coordination primitive, not just shared-state",
+      "sharpe": -1,
+      "age": 369,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-206",
+      "title": "Claim-vs-evidence audits should keep philosophy directional and move numerics to",
+      "sharpe": -1,
+      "age": 356,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-212",
+      "title": "Platform-Scope Belief Contamination",
+      "sharpe": -1,
+      "age": 313,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-226",
+      "title": "Concurrent hot-file contention is the dominant session friction",
+      "sharpe": -1,
+      "age": 303,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-227",
+      "title": "Applying AI Domain Findings to Core Philosophy \u2014 Validation and Gaps",
+      "sharpe": -1,
+      "age": 303,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-236",
+      "title": "Zero-Sharpe in PRINCIPLES.md = Successful Compression, Not Failure",
+      "sharpe": -1,
+      "age": 301,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-255",
+      "title": "Parallel repair = swarm applied to swarm maintenance",
+      "sharpe": -1,
+      "age": 299,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-290",
+      "title": "Tool-consolidation audit S188: capabilities map stale by 25 sessions, 11 active ",
+      "sharpe": -1,
+      "age": 293,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-292",
+      "title": "Concurrent convergence is validation \u2014 not collision \u2014 when findings are indepen",
+      "sharpe": -1,
+      "age": 293,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-303",
+      "title": "Paper extraction via multi-expert routing: 3 independent experts converge on sam",
+      "sharpe": -1,
+      "age": 292,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-312",
+      "title": "Dream session 1 reveals two-tier compression policy: compress structure, prolife",
+      "sharpe": -1,
+      "age": 291,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-327",
+      "title": "Hook regex on full command string false-positives on self-documentation",
+      "sharpe": -1,
+      "age": 286,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-330",
+      "title": "F-DRM3 confirmed \u2014 dream sessions generate frontier questions at 3.33x directed ",
+      "sharpe": -1,
+      "age": 286,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-332",
+      "title": "Compaction tools need idempotency checks in concurrent sessions",
+      "sharpe": -1,
+      "age": 286,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-331",
+      "title": "Graph theory is the deepest isomorphism substrate \u2014 two structures cover 8+ doma",
+      "sharpe": -1,
+      "age": 285,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-334",
+      "title": "\u2014 Priority items without action-specifications are coordination dead-ends",
+      "sharpe": -1,
+      "age": 183,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-339",
+      "title": "\u2014 Reddit as fitness function: swarm advertising requires falsifiable claims",
+      "sharpe": -1,
+      "age": 182,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-343",
+      "title": "\u2014 F-PERS1 confirmed (n=2): Skeptic catches classification errors Explorer misses",
+      "sharpe": -1,
+      "age": 181,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-353",
+      "title": "\u2014 Expert economy: dispatch by yield score addresses 2% throughput (F-ECO4)",
+      "sharpe": -1,
+      "age": 179,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-386",
+      "title": "F119 reswarm S306 \u2014 3 gaps, 2 hardened (120-session audit)",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-388",
+      "title": "P-210 self-validates \u2014 ISO-15 health metric crosses its own target same session",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-389",
+      "title": "\u2014 F-CC3 PARTIAL: age-normalized Sharpe = chain finality (emergent isomorphism)",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-390",
+      "title": "Multiswarm world \u2014 protocol is the cross-swarm invariant; state diverges locally",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-395",
+      "title": "FMEA swiss-cheese audit S306 \u2014 NAT recurrence confirmed, FM-09 new gray rhino",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-397",
+      "title": "ISO citation pass trajectory \u2014 3.2x lift in one session via hub-first annotation",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-398",
+      "title": "SWARM-LANES bloat \u2014 merge-on-close adoption gap, not engineering gap",
+      "sharpe": -1,
+      "age": 175,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-409",
+      "title": "Expect-Act-Diff as Policy Accountability",
+      "sharpe": -1,
+      "age": 174,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-417",
+      "title": "F-COMM1 autoswarm pipeline end-to-end confirmed",
+      "sharpe": -1,
+      "age": 174,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-430",
+      "title": "\u2014 F120: portable_check.sh \u2014 9-gate POSIX integrity check, no Python",
+      "sharpe": -1,
+      "age": 156,
+      "est_tokens": 80,
+      "action": "archive"
+    },
+    {
+      "id": "L-432",
+      "title": "Claim-vs-evidence audit S325 \u2014 4 challenges updated, zero-DROPPED gap widens",
+      "sharpe": -1,
+      "age": 156,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-436",
+      "title": "Dream-cycle S326 \u2014 brain\u2194AI third mapping (neuroplasticity\u2194principle-extraction)",
+      "sharpe": -1,
+      "age": 155,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-440",
+      "title": "Setup-reswarm S327 \u2014 CORE.md version drift + CLAUDE.md human-protocol gap",
+      "sharpe": -1,
+      "age": 154,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-446",
+      "title": "ISO sprint complete \u2014 dark matter eliminated (62.5%\u21920.0% in one session)",
+      "sharpe": -1,
+      "age": 153,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-452",
+      "title": "mission-constraint-reswarm S328 \u2014 I13 formalized, 51/51 pass, F-CC1 lifecycle ga",
+      "sharpe": -1,
+      "age": 153,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-451",
+      "title": "Staleness tiebreaker + graduated scoring fixes action-board ceiling saturation",
+      "sharpe": -1,
+      "age": 152,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-473",
+      "title": "F121 Human-Signal Harvest S336 \u2014 Vocabulary Bridge + 4 New Patterns",
+      "sharpe": -1,
+      "age": 145,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-485",
+      "title": "Phase 1 maintenance.py Compaction \u2014 Evidence-Tracking Dead Code Pattern",
+      "sharpe": -1,
+      "age": 142,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-579",
+      "title": "Diagnostic tools share one structural defect \u2014 compute, print, discard",
+      "sharpe": -1,
+      "age": 129,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-655",
+      "title": "Dormant periodics accumulate as swarm functions evolve \u2014 cadence retirement beat",
+      "sharpe": -1,
+      "age": 119,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-705",
+      "title": "Viterbi decode recovers all 3 known burst windows \u2014 HMM phase structure validate",
+      "sharpe": -1,
+      "age": 105,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-714",
+      "title": "Epistemological state profile \u2014 34% DECAYED, 22% revival rate, domain fragmentat",
+      "sharpe": -1,
+      "age": 105,
+      "est_tokens": 95,
+      "action": "archive"
+    }
+  ],
+  "crosslinks": [
+    {
+      "blind_id": "L-186",
+      "active_id": "L-106",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-290",
+      "active_id": "L-370",
+      "reason": "same domain (meta/tooling)"
+    },
+    {
+      "blind_id": "L-292",
+      "active_id": "L-278",
+      "reason": "same domain (meta/swarm-structure)"
+    },
+    {
+      "blind_id": "L-312",
+      "active_id": "L-562",
+      "reason": "shared target L-207"
+    },
+    {
+      "blind_id": "L-331",
+      "active_id": "L-383",
+      "reason": "same domain (graph-theory)"
+    },
+    {
+      "blind_id": "L-332",
+      "active_id": "L-447",
+      "reason": "same domain (meta/coordination)"
+    },
+    {
+      "blind_id": "L-334",
+      "active_id": "L-447",
+      "reason": "same domain (meta/coordination)"
+    },
+    {
+      "blind_id": "L-339",
+      "active_id": "L-807",
+      "reason": "same domain (social-media)"
+    },
+    {
+      "blind_id": "L-343",
+      "active_id": "L-320",
+      "reason": "same domain (meta/personality)"
+    },
+    {
+      "blind_id": "L-353",
+      "active_id": "L-286",
+      "reason": "same domain (economy)"
+    }
+  ],
+  "orphaned_principles": [],
+  "domain_gaps": {
+    "health-(f-hlt1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "health-(f-hlt1-extension)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "ai-(f-ai2)": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "finance-(f-fin2)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "information-science-(f-is1": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "brain/safety-(f-brn3": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/cross-swarm": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "quality/knowledge-management": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/knowledge-structure-(f126)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "gaming/frontier-design": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "knowledge-lifecycle": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/quality": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "dream/meta": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "evaluation/meta": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/epistemics": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/beliefs": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "claude-code/meta": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.5
+    },
+    "meta/operations": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "dream-(f-drm3)": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "cryptocurrency": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.667
+    },
+    "governance-(f-gov4)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "expert-swarm-(f-exp6)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "expert-swarm-(f-comm1": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "expert-swarm-/-meta": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta-(modes-reswarm)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta-(f119)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "governance/meta-(f119)": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta-(iso-15": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/generalizer": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.667
+    },
+    "catastrophic-risks-(f-cat1)": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/swarm-lanes": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "swarm-meta": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/portability": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/graph-theory": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "dream": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "philosophy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "finance": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "guesstimates": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.5
+    },
+    "protocol-engineering": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "farming": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "meta/coordination": {
+      "total": 9,
+      "blind_spot": 4,
+      "decayed": 4,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.444,
+      "decayed_rate": 0.444
+    },
+    "statistics": {
+      "total": 5,
+      "blind_spot": 1,
+      "decayed": 3,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.2,
+      "decayed_rate": 0.6
+    },
+    "meta/compaction": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.667
+    },
+    "control-theory": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.667
+    },
+    "fractals": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.667
+    },
+    "distributed-systems": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.333
+    },
+    "meta/swarm-structure": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.333
+    },
+    "meta/personality": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.333
+    },
+    "quality": {
+      "total": 7,
+      "blind_spot": 2,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 3,
+      "blind_spot_rate": 0.286,
+      "decayed_rate": 0.286
+    },
+    "unknown": {
+      "total": 318,
+      "blind_spot": 76,
+      "decayed": 83,
+      "active": 88,
+      "must_know": 67,
+      "blind_spot_rate": 0.239,
+      "decayed_rate": 0.261
+    },
+    "ai-(f-ai3)": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "finance-(f-fin1)": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "meta/tooling": {
+      "total": 4,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 2,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.0
+    },
+    "graph-theory": {
+      "total": 8,
+      "blind_spot": 2,
+      "decayed": 2,
+      "active": 3,
+      "must_know": 1,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.25
+    },
+    "coordination": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "fluid-dynamics": {
+      "total": 6,
+      "blind_spot": 1,
+      "decayed": 2,
+      "active": 2,
+      "must_know": 1,
+      "blind_spot_rate": 0.167,
+      "decayed_rate": 0.333
+    },
+    "psychology": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.0
+    },
+    "ai": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.0
+    },
+    "stochastic-processes": {
+      "total": 16,
+      "blind_spot": 2,
+      "decayed": 6,
+      "active": 3,
+      "must_know": 5,
+      "blind_spot_rate": 0.125,
+      "decayed_rate": 0.375
+    },
+    "social-media": {
+      "total": 5,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 1,
+      "blind_spot_rate": 0.4,
+      "decayed_rate": 0.0
+    },
+    "brain": {
+      "total": 23,
+      "blind_spot": 3,
+      "decayed": 6,
+      "active": 8,
+      "must_know": 6,
+      "blind_spot_rate": 0.13,
+      "decayed_rate": 0.261
+    },
+    "meta": {
+      "total": 271,
+      "blind_spot": 52,
+      "decayed": 40,
+      "active": 69,
+      "must_know": 109,
+      "blind_spot_rate": 0.192,
+      "decayed_rate": 0.148
+    },
+    "gaming": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "brain/meta": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.333
+    },
+    "meta/governance": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "human-systems": {
+      "total": 6,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 3,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "game-theory": {
+      "total": 6,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 4,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "nk-complexity": {
+      "total": 60,
+      "blind_spot": 7,
+      "decayed": 12,
+      "active": 14,
+      "must_know": 27,
+      "blind_spot_rate": 0.117,
+      "decayed_rate": 0.2
+    },
+    "catastrophic-risks": {
+      "total": 17,
+      "blind_spot": 4,
+      "decayed": 1,
+      "active": 5,
+      "must_know": 7,
+      "blind_spot_rate": 0.235,
+      "decayed_rate": 0.059
+    },
+    "expert-swarm": {
+      "total": 64,
+      "blind_spot": 12,
+      "decayed": 6,
+      "active": 21,
+      "must_know": 25,
+      "blind_spot_rate": 0.188,
+      "decayed_rate": 0.094
+    },
+    "governance": {
+      "total": 18,
+      "blind_spot": 3,
+      "decayed": 2,
+      "active": 5,
+      "must_know": 8,
+      "blind_spot_rate": 0.167,
+      "decayed_rate": 0.111
+    },
+    "physics": {
+      "total": 4,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.25
+    },
+    "operations-research": {
+      "total": 4,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 2,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.0
+    },
+    "information-science": {
+      "total": 13,
+      "blind_spot": 1,
+      "decayed": 2,
+      "active": 4,
+      "must_know": 6,
+      "blind_spot_rate": 0.077,
+      "decayed_rate": 0.154
+    },
+    "evaluation": {
+      "total": 21,
+      "blind_spot": 1,
+      "decayed": 3,
+      "active": 9,
+      "must_know": 8,
+      "blind_spot_rate": 0.048,
+      "decayed_rate": 0.143
+    },
+    "evolution": {
+      "total": 11,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 6,
+      "must_know": 3,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.182
+    },
+    "helper-swarm": {
+      "total": 7,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 6,
+      "blind_spot_rate": 0.143,
+      "decayed_rate": 0.0
+    },
+    "economy": {
+      "total": 13,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 6,
+      "must_know": 5,
+      "blind_spot_rate": 0.077,
+      "decayed_rate": 0.0
+    },
+    "security": {
+      "total": 17,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 8,
+      "must_know": 8,
+      "blind_spot_rate": 0.059,
+      "decayed_rate": 0.0
+    },
+    "strategy": {
+      "total": 23,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 13,
+      "must_know": 9,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.043
+    },
+    "health-(f-hlt3)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-/-evolution": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-/-multi-tool": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain-(f122-extension)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain-(b-brn1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain/information-science-(f-brn3)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "operations-research-(f-ops1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/information-science": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/wsl": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "economy-/-coordination-(f-eco3)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/swarm-behavior": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "helper-swarm-/-meta-(f-hlp4)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "tooling/compaction": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "conflict": {
+      "total": 9,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 4,
+      "must_know": 5,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "conflict/coordination-(f-con1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain/coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "linguistics-(f-lng1)": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "farming-(f-far1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "quality/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/philosophy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "coordination/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "architecture/coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/quality/publication": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/publication": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "conflict/coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "linguistics-(f-lng3)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/management": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-(f-gen1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-(f-hum1": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-(f-hum1)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-(f121": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "physics-/-meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "linguistics/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "physics-(f136)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "linguistics": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "empathy-(genesis)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "empathy": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 3,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "`-regex-\u2014-22-recoverable": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "x`-format-adopted-~s300+.-fix:-add-domain:-fallback-in-load_lessons().": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "history": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "economy-(f-eco5)": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "field-retroactive-tagging-inflates-domex_pct.-the-dynamics-are-correct;-the-measurement-variable-is-contaminated.": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "operations": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/strategy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "competitions": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "random-matrix-theory": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "string-theory": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "`-does-not-appear.-regex-matched-old-plain-format-only.-100%-of": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "filtering": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "biology": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "cryptography": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "grounding": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    }
+  },
+  "summary": {
+    "total": 1111,
+    "decayed_pct": 20.3,
+    "blind_spot_pct": 18.5
+  }
+}
