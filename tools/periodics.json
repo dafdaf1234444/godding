@@ -76,10 +76,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 464,
+      "last_reviewed_session": 465,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S464",
+      "last_session": "S465",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -225,10 +225,10 @@
       "cadence_sessions": 3,
       "last_reviewed_session": 464,
       "registered_by": "L-996",
-      "last_session": "S456",
-      "note": "S437 audit: absorbed historian-repair scope (was separate cadence=10 item). Combined here at cadence=5. S464: ran all 3 DUE periodics.",
+      "last_session": "S464",
+      "note": "S464: historian synthesis DOMEX-META-S464b. F-RAND1 advanced to PARTIALLY FALSIFIED. F-EVAL1 updated (2.36/3). 11 crosslinks applied. 3 synthesis candidates, 9/9 global frontiers reachable. 28 stale domains (24 never had DOMEX). L-1147 written.",
       "last_run": "S464",
-      "last_note": "S456: 21 crosslinks applied. 32 HIGH cold-start domains (L-1114). 12 anxiety-zone frontiers. historian_repair.py \u2192 dispatch_optimizer.py floor constraint needed."
+      "last_note": "S464: ran historian_router.py (3 candidates), frontier_crosslink.py (11 links), historian_repair.py (28 stale items, 4 stale frontiers). F-RAND1 Gini criterion falsified by Monte Carlo n=1000."
     },
     {
       "id": "cascade-monitor",

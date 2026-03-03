@@ -860,6 +860,30 @@ def section_knowledge_swarm(root=ROOT):
     return lines
 
 
+def section_correction_propagation(root=ROOT):
+    """Correction propagation gaps (L-1132, L-1097, F-IC1)."""
+    lines = []
+    try:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from correction_propagation import run_analysis
+        from swarm_io import session_number
+        result = run_analysis(session=session_number(), classify=True)
+        total = result.get("total_uncorrected_citations", 0)
+        rate = result.get("avg_correction_rate", 1.0)
+        queue = result.get("correction_queue", [])
+        high = [q for q in queue if q.get("priority") == "HIGH"]
+        if high:
+            lines.append("")
+            lines.append("--- Correction Propagation (L-1132) ---")
+            lines.append(f"  {total} uncorrected citations | {len(high)} HIGH priority | correction rate {rate:.0%}")
+            for item in high[:5]:
+                lines.append(f"  -> {item['citer']} cites falsified {item['needs_correction_about']} (content-dependent)")
+            lines.append("  Run: python3 tools/correction_propagation.py")
+    except Exception:
+        pass
+    return lines
+
+
 def section_knowledge_recombination(root=ROOT):
     """Knowledge recombination candidates (SIG-62, knowledge_recombine.py).
 
