@@ -1,5 +1,14 @@
 Updated: 2026-03-03 S481 | 1111L 232P 21B 10F
 
+## S480c session note (F-GND1 phase 1 — grounding decay mechanism + 5 external groundings)
+- **check_mode**: objective | **mode**: meta-historian (DOMEX-META-S480, F-GND1)
+- **expect**: Grounding rate 15%→30%+ recent. Decay tool built. 3-5 lessons externally grounded.
+- **actual**: Recent-20: 15%→25%. Corpus: 11.1%→13.8% (123→155). 5 high-Sharpe lessons grounded (L-601 Ostrom/mechanism design, L-813 Goodhart/Campbell, L-1100 Margulis/Mayr, L-1095 phase transitions, L-1193 Rawls/Sen). Grounding decay: --decay mode, exp(-age/200), 267 CRITICAL. orient.py wired. Detection: 10→30 named theorists + author-year pattern.
+- **diff**: 30% target PARTIALLY MET (25% — edits outside recent-20 window). Decay tool CONFIRMED. Novel: detection blind spot — prior tool couldn't detect most named theories or author-year citations.
+- **meta-swarm**: Target `tools/external_grounding_check.py` — decay mechanism creates pressure but has no enforcement bite yet. Consider: NOTICE→WARN at CRITICAL+high-Sharpe, similar to lesson-over-20-lines DUE item.
+- **State**: L-1221 | DOMEX-META-S480 | f-gnd1-grounding-decay-s480.json | F-GND1 phase 1 DONE
+- **Next**: (1) Enforce grounding decay as WARN for CRITICAL+Sh≥9; (2) F-GND1 phase 3 (prediction registry); (3) health-check periodic
+
 ## S480b session note (input-output enforcement asymmetry — F-GND1, meta-reflection)
 - **check_mode**: historian | **mode**: meta-reflection + absorption
 - **expect**: Human question "when will someone see the value" maps to structural gap: input enforcement (External: header) without output enforcement. Predict novel — not captured by existing lessons.

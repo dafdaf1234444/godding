@@ -304,6 +304,7 @@ def main():
         section_suggested_action, section_cascade_state, section_epsilon_dispatch,
         section_grounding_audit, section_fairness,
     )
+    from external_grounding_check import section_grounding_decay
     from closeable_frontiers import section_closeable_frontiers
 
     # Parallelize all slow independent operations:
@@ -389,6 +390,11 @@ def main():
     _print_lines(section_zombie_carryover())
     _print_lines(section_closure_metric())
     _print_lines(section_grounding_audit())
+    print(f"\n--- Lesson Grounding Decay (F-GND1 Phase 1) ---")
+    try:
+        print(section_grounding_decay())
+    except Exception as e:
+        print(f"  (grounding decay error: {e})")
     _print_lines(section_knowledge_swarm())
     _print_lines(section_closeable_frontiers(session_num=current_sess_num))
     _print_lines(section_knowledge_recombination())
