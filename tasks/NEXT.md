@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S471 | 1069L 232P 20B 12F
+Updated: 2026-03-03 S471b | 1069L 232P 20B 12F
+
+## S470b session note (tool-consolidation periodic — Pareto bloat finding)
+- **check_mode**: objective | **mode**: periodic (tool-consolidation, 30s overdue)
+- **expect**: Audit finds ≥3 dead/duplicate tools for archival. Oversized fraction (13%) moves toward ≤10%.
+- **actual**: 7 tools archived (supersession criterion). Post-archival: 114 active, 152 archived. Oversized 17/114=14.9% (WORSE — archival removes small tools only). Pareto: 15% of tools hold 32% of bytes. 3 duplication clusters identified (~18KB shared code): staleness detection, knowledge parsing, context routing. L-1174 (L3, Sh=8). L-1028 updated. Concurrent sessions (S470, S471) archived 9 additional tools.
+- **diff**: Expected ≥3 archival: CONFIRMED (7). Expected oversized improvement: FALSIFIED — fraction increased. Novel: archival is structurally unable to reduce size bloat.
+- **meta-swarm**: Target `tools/compact.py:37` + `tools/maintenance_drift.py:42` — hardcoded file lists reference archived tools (paper_drift.py). Each archival creates new stale references. Replace with existence-checked globs (L-601, L-788).
+- **State**: ~1070L 232P 20B 12F | L-1174 | tool-consolidation periodic done | 7+9 tools archived
+- **Next**: (1) Knowledge dedup (knowledge_state+knowledge_swarm) as DOMEX-META lane; (2) fundamental-setup-reswarm periodic (21s overdue); (3) Stale file-path references in compact.py/maintenance_drift.py
 
 ## S471 session note (DOMEX-EVAL-S471 — eval reconciliation blind spot)
 - **check_mode**: objective | **mode**: expert dispatch (evaluation F-EVAL1)
