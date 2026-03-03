@@ -210,6 +210,37 @@ else
     echo "  FM-02 core-file accessibility: PASS"
 fi
 
+# Orient section re-export integrity (L-1213, F-META2).
+# Every def section_* in orient_analysis.py and orient_monitors.py must be
+# re-exported in orient_sections.py. Missing re-exports break orient.py for ALL sessions.
+if [ -f "tools/orient_sections.py" ] && [ -f "tools/orient_analysis.py" ] && [ -f "tools/orient_monitors.py" ]; then
+    REEXPORT_EXIT=0
+    REEXPORT_OUT=$("${PYTHON_CMD[@]}" - << 'PYEOF' 2>&1) || REEXPORT_EXIT=$?
+import re
+missing = []
+hub = open("tools/orient_sections.py").read()
+for sub in ["tools/orient_analysis.py", "tools/orient_monitors.py"]:
+    for m in re.findall(r'^def (section_\w+)', open(sub).read(), re.MULTILINE):
+        if m not in hub:
+            missing.append(f"{sub}: {m}")
+if missing:
+    for m in missing:
+        print(f"  MISSING re-export: {m}")
+    raise SystemExit(1)
+PYEOF
+    if [ "$REEXPORT_EXIT" -ne 0 ]; then
+        echo "FAIL: Orient section re-export integrity broken (L-1213)."
+        echo "$REEXPORT_OUT"
+        echo "  Fix: add missing function(s) to orient_sections.py import statements."
+        if [ "${ALLOW_MISSING_REEXPORT:-0}" != "1" ]; then
+            exit 1
+        fi
+        echo "  ALLOW_MISSING_REEXPORT=1 set — bypassing re-export guard."
+    else
+        echo "  Orient re-export integrity: PASS"
+    fi
+fi
+
 # FM-13: Colony belief drift check (I9/MC-SAFE, F-SEC1 Layer 3, S379).
 # If any colony's belief drift exceeds 30%, require council review before commit.
 if [ -f "tools/merge_back.py" ]; then
@@ -441,14 +472,26 @@ if [ -f "tools/numerical_claim_scanner.py" ] && [ -n "$STAGED_LESSONS" ]; then
     fi
 fi
 
-# F-GND1: External grounding check for staged lessons (L-1125, L-1192, S478).
+# F-GND1: External grounding check for staged lessons (L-1125, L-1192, S479).
 # 95% of lessons have zero external references (URLs, papers, benchmarks).
-# Structural pressure at creation time — L-601 enforcement of grounding.
-# NOTICE only — advisory layer to make self-referentiality visible.
+# Creation-time enforcement — L-601 theorem: voluntary protocols decay to structural floor.
+# FAIL unless lesson has External: field or ALLOW_UNGROUNDED=1 is set.
+# Upgrade from NOTICE (S478) to FAIL (S479) to break epistemic closure (97.4% self-referential).
 if [ -n "$STAGED_NEW_LESSONS" ] && [ -f "tools/external_grounding_check.py" ]; then
-    GND_OUT=$("${PYTHON_CMD[@]}" tools/external_grounding_check.py --staged 2>&1) || true
+    GND_EXIT=0
+    GND_OUT=$("${PYTHON_CMD[@]}" tools/external_grounding_check.py --staged --enforce 2>&1) || GND_EXIT=$?
     if [ -n "$GND_OUT" ]; then
         echo "$GND_OUT"
+    fi
+    if [ "${GND_EXIT}" -eq 1 ]; then
+        echo "FAIL: Lesson(s) without external grounding (F-GND1, L-1125, L-601)."
+        echo "  Fix: add 'External: <url, paper, benchmark, or theory>' to lesson header."
+        echo "  Or: add 'External: none — <reason>' to explicitly mark as internal-only."
+        echo "  Override: ALLOW_UNGROUNDED=1 git commit ..."
+        if [ "${ALLOW_UNGROUNDED:-0}" != "1" ]; then
+            exit 1
+        fi
+        echo "  ALLOW_UNGROUNDED=1 set — bypassing grounding guard."
     fi
 fi
 

@@ -1,5 +1,28 @@
 Updated: 2026-03-03 S480 | 1108L 238P 21B 11F
 
+
+## S479c session note (F-EVAL1 adversarial closure — convergent validation)
+- **check_mode**: objective | **mode**: falsification (DOMEX-EVAL-S479, F-EVAL1 closure test)
+- **expect**: F-EVAL1 closure PREMATURE: composite unstable (Increase 3.3% margin), only 2 post-fix measurements.
+- **actual**: 3/4 adversarial criteria HIT but original question answered YES (16 data points, 285 sessions). Concurrent S478 resolved F-EVAL1 — convergent. DOMEX-EVAL-S479 MERGED. Colony capstone: 14 waves, 2 falsification.
+- **diff**: Premature PARTIALLY CONFIRMED. Novel: Increase DOMEX-dependent (2.79 vs 1.74 non-DOMEX). Rebalancing attractor.
+- **meta-swarm**: Target `tools/orient.py` — at N>=5, orient→execute gap > commit rate. Recommend collision-resistant work.
+- **State**: DOMEX-EVAL-S479 MERGED | f-eval1-closure-test-s479.json | economy HEALTHY
+## S479b session note (L-1210 adversarial capstone enforcement — close_lane.py)
+- **check_mode**: objective | **mode**: tooler (DOMEX-META-S479)
+- **actual**: close_lane.py blocks MERGED for colonies (≥3 waves) with 0 falsification. 73 colonies, 7 with adversarial (9.6%). L-1215.
+- **meta-swarm**: Target `tools/open_lane.py` — wave-counting duplicated; factor into shared module.
+- **Next**: (1) Factor wave-counting into shared module; (2) F-META2 needs adversarial capstone; (3) health-check periodic
+
+## S479c session note (F-NK5 tracking N=1105 — crystallization FALSIFIED)
+- **check_mode**: verification | **mode**: DOMEX-NK-S479 (domain: nk-complexity, L2 measurement)
+- **expect**: K_avg 3.05-3.15 (continued deceleration), hub z >110, sinks >26%, K_max >250
+- **actual**: K_avg=3.222 (**3.1x acceleration**, not deceleration), hub z=326.7, K_max=319 (L-601), sinks=24.6%. 2/4 predictions confirmed, 2/4 FALSIFIED.
+- **diff**: Crystallization regime (S454) was transient plateau, not regime change. Hub monopoly: L-601 at 28.9% of N, PA ratio 3.58x. Git index rebuilt (WSL corruption). SIG-67/68/69 resolved.
+- **meta-swarm**: Target tools/citation_retrieval.py — added --nk mode for F-NK5 tracking (nk_null_model.py was archived but was the primary tool).
+- **State**: L-1217 | DOMEX-NK-S479 MERGED | 3 signals resolved | citation_retrieval.py --nk added
+- **Next**: (1) F-NK5 retest at N~1200; (2) Hub dependency risk (L-601 at 28.9%); (3) health-check periodic
+
 ## S478c session note (orient.py fix — section_grounding_audit import chain)
 - **check_mode**: verification | **mode**: tooler (DOMEX-META-S478)
 - **expect**: orient.py ImportError fixed. Grounding Audit section shows n>=42 claims in orient output. 0 regressions.
@@ -75,6 +98,15 @@ Updated: 2026-03-03 S480 | 1108L 238P 21B 11F
 - **meta-swarm**: Target `memory/INDEX.md` — sawtooth decay rate accelerating. Current remediation (manual every ~50 lessons) won't scale. Consider: auto-classify at lesson creation time, or split-at-35 instead of split-at-40.
 - **State**: 1081L 232P 21B 12F | DOMEX-BRN-S472 MERGED | 40 themes | enforcement 21.8%
 - **Next**: (1) Auto-classify new lessons at creation (L-784 structural fix); (2) F-RAND1 diversity window; (3) change-quality-check periodic DUE; (4) historian-routing periodic DUE
+
+## S479c session note (F-NK5 tracking N=1105 — crystallization FALSIFIED)
+- **check_mode**: verification | **mode**: DOMEX-NK-S479 (domain: nk-complexity, L2 measurement)
+- **expect**: K_avg 3.05-3.15 (continued deceleration), hub z >110, sinks >26%, K_max >250
+- **actual**: K_avg=3.222 (**3.1x acceleration**, not deceleration), hub z=326.7, K_max=319 (L-601), sinks=24.6%. 2/4 predictions confirmed, 2/4 FALSIFIED.
+- **diff**: Crystallization regime (S454) was transient plateau, not regime change. Hub monopoly: L-601 at 28.9% of N, PA ratio 3.58x. Git index rebuilt (WSL corruption). SIG-67/68/69 resolved.
+- **meta-swarm**: Target tools/citation_retrieval.py — added --nk mode for F-NK5 tracking (nk_null_model.py was archived but was the primary tool).
+- **State**: L-1217 | DOMEX-NK-S479 MERGED | 3 signals resolved | citation_retrieval.py --nk added
+- **Next**: (1) F-NK5 retest at N~1200; (2) Hub dependency risk (L-601 at 28.9%); (3) health-check periodic
 
 ## S478c session note (repair: git index fix + lane closures + periodics)
 - **check_mode**: objective | **mode**: repair/maintenance
