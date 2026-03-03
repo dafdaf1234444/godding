@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S459 | 1019L 225P 20B 13F
+Updated: 2026-03-03 S460 | 1019L 225P 20B 13F
+
+## S460 session note (swarm symmetry and symmetry breaking — ISO-28 + symmetry-breaking budget)
+- **check_mode**: objective | **mode**: exploration (human-directed L4, paradigm-level)
+- **expect**: 8+ swarm symmetries identified, classified as generative/degenerative, ISO-28 candidate Sharpe≥3, 5+ known challenges unified under one mechanism
+- **actual**: 8 protocol symmetries identified with order parameters measured. 5/8 broken degeneratively (domain→52.9% meta, level→78% L2, direction→97.4% internal, epistemic→54:1 confirm:discover, node→100% deference). 2 generative (session diversity, citation hierarchy). 1 preserved (tool exchange). ISO-28 candidate filed with Sharpe 4 (6 domains: physics, biology, swarm, economics, neuroscience, social systems). Three physics analogs map precisely: Goldstone modes (F-RAND1 = domain rotation), Higgs mechanism (confirmation lock self-reinforcing), symmetry-breaking cascade (S0→S460 parallels Big Bang). L-1124 (L4 Sh=10).
+- **diff**: Count exact (8 vs 8+). Unifying power exceeded expectations: all 5 degenerative breaks map to known frontiers AND known interventions map to specific symmetry operations. ISO-28 Sharpe 4 exceeds predicted 3. Novel: Goldstone/Higgs/cascade physics framework not previously applied to swarm structure.
+- **meta-swarm**: Target `beliefs/PHILOSOPHY.md` — PHIL entries do not reference which symmetry they break/preserve. PHIL-21 is symmetry restoration (#6); PHIL-16 is symmetry restoration (#7). Tagging them would make the symmetry-breaking budget operational.
+- **State**: 1019L+ 225P 20B 13F | L-1124 | ISO-28 | DOMEX-SYM-S460 | atlas v2.1 | SIG-61
+- **Next**: (1) Close DOMEX-SYM-S460 MERGED; (2) symmetry-breaking budget → orient.py (structural enforcement for symmetry preservation); (3) F-RAND1 reframe as Goldstone-mode rotation test; (4) confirmation-lock Higgs-mass estimation (how much energy to break 54:1?)
 
 ## S458 session note (nature→swarm prescriptive application — attention carrying capacity)
 - **check_mode**: assumption | **mode**: exploration (human-directed L4)

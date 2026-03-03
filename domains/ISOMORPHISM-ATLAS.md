@@ -1,5 +1,5 @@
 # Isomorphism Atlas — Atlas of Deep Structure
-v1.9 | 2026-03-02 | S430 | ISO-25 candidate: spectral universality / RMT (L-992, random-matrix-theory genesis); 25 entries
+v2.1 | 2026-03-03 | S460 | ISO-28 candidate: spontaneous symmetry breaking (L-1124, 6 domains: physics, biology, swarm, economics, neuroscience, social systems); 28 entries
 
 ## What this is
 A cross-domain atlas of structural equivalences. Each entry maps one abstract structure to its manifestations across multiple domains. This is NOT a fact database — it is a compression of world knowledge into shared structure.
@@ -546,6 +546,44 @@ Domains appearing in 4+ entries — highest isomorphism density, swarm first:
 
 ---
 
+### ISO-27 (candidate): Attention carrying capacity — informational analog of ecological K
+**Structure**: In biological ecosystems, carrying capacity (K) is the maximum population a habitat can sustain given resource constraints. The optimal reproductive strategy depends on proximity to K: far from K → r-selected (high production, low quality); near K → K-selected (low production, high quality, high connectivity). In information systems, storage is free (zero-cost replication), so the carrying capacity is not storage but **attention per knowledge unit** (1/N). As N grows, attention per unit monotonically decreases. Below a functional threshold, knowledge decays faster than it is maintained (DECAYED state). The r-K tradeoff is VIOLATED in information systems — both production and quality can increase simultaneously — but the attention constraint is binding: integration, cross-referencing, and maintenance all require attention that is zero-sum.
+
+| Domain | Manifestation | Notes |
+|--------|---------------|-------|
+| Ecology | Population dynamics: r-K selection theory | MacArthur & Wilson, Pianka (1970); r = intrinsic growth rate, K = carrying capacity; pioneer→climax succession |
+| Swarm | Attention per lesson 1/N; N=1021, threshold ~1/500 | L-1121: 2.0x past K_attention. Production 1.37→4.55 L/session (VIOLATES r-K tradeoff). Quality, connectivity, compaction all increase simultaneously. |
+| Neuroscience | Attention bottleneck (Broadbent/Treisman) | Selective attention as capacity-limited channel; cocktail party effect = attention carrying capacity |
+| Economics | Information overload / bounded rationality | Herbert Simon (1971): "a wealth of information creates a poverty of attention"; organizational decision quality degrades with information volume |
+| Library science | Information explosion / retrieval degradation | Precision decreases as collection size grows; cataloging overhead scales superlinearly with N |
+| Evolutionary biology | Genome size paradox / C-value enigma | Larger genomes don't correlate with organism complexity; maintenance cost (attention) of junk DNA is the binding constraint |
+
+**Sharpe: 3** (6 domains; ecology rigorously grounded; swarm measured S458 with 3-era comparison; neuroscience/economics structural; library science analogical)
+**Gaps**: Linguistics (vocabulary carrying capacity?), History (institutional memory capacity?), Physics (channel capacity theorem = formalized attention K?)
+**Key finding**: The r-K tradeoff is falsified for information systems — production and quality are NOT anti-correlated — but the attention constraint creates analogous failure modes (dark matter, zombie persistence, enforcement dilution). All 7 swarm scaling challenges at N~1000 are instances of attention K exceeded.
+**Relationship**: ISO-27 provides the scaling framework underlying ISO-6 (entropy = what happens when attention falls below maintenance threshold), ISO-2 (diversity collapse = what happens when attention concentrates on attractors), and ISO-13 (integral windup = attention backlog when processing rate < arrival rate).
+
+---
+
+### ISO-28 (candidate): Spontaneous symmetry breaking — symmetric rules produce asymmetric states
+**Structure**: A system whose governing rules treat all options/directions/agents equally nonetheless settles into a state that distinguishes one option from others. The choice of direction is NOT determined by the rules — it is determined by initial perturbations amplified by positive feedback (ISO-5). Multiple degenerate ground states exist; the system occupies only one. Three consequences follow from broken symmetry: (1) **Goldstone modes** — "massless" excitations along the broken-symmetry direction cost zero energy, meaning the system can easily pivot WHICH direction is broken without changing THAT one is; (2) **Higgs mechanism** — some breaks acquire "mass" through self-reinforcing feedback, becoming locked in and resistant to rotation; (3) **path dependence** — the occupied ground state is a historical accident of initial conditions, not a necessary outcome. Degenerative breaks reduce capability (capability concentrates and atrophies elsewhere); generative breaks create structure (differentiation enables specialization).
+
+| Domain | Manifestation | Notes |
+|--------|---------------|-------|
+| Physics | Electroweak symmetry breaking → W/Z bosons massive, photon massless | Mexican-hat potential: SU(2)×U(1) → U(1)_EM. Higgs field VEV selects direction; Goldstone bosons eaten by W/Z. Direction of VEV is arbitrary — all directions physically equivalent. |
+| Biology | Cell differentiation from identical stem cells | Same genome → liver/brain/bone/skin. Waddington's epigenetic landscape: symmetric potential, asymmetric developmental trajectories. Goldstone mode: WHICH cell type is determined by local morphogen gradients (initial conditions), not genome (rules). |
+| Swarm | 8 protocol symmetries → 5 degenerative breaks measured | L-1124: protocol treats sessions/domains/levels equally; accumulated state breaks to 52.9% meta, 78% L2, 97.4% internal, 54:1 confirmation:discovery. Goldstone modes: domain rotation (F-RAND1). Higgs: confirmation lock (54:1 self-reinforcing). |
+| Economics | Symmetric competition → monopoly via network effects | All firms start equal; first-mover advantage + network effects (ISO-5) → winner-take-all. QWERTY keyboard: symmetric alternatives, locked-in selection. Path dependence is the economic Higgs mechanism. |
+| Neuroscience | Lateralization — symmetric brain architecture → asymmetric function | Left-hemisphere language dominance from symmetric bilateral anatomy. Goldstone mode: 10-15% right-hemisphere dominant (left-handers). Direction is contingent, not necessary. |
+| Social systems | Schelling segregation — symmetric preferences → asymmetric spatial patterns | Agents with mild same-type preference (threshold ~35%) spontaneously segregate into homogeneous neighborhoods. No agent prefers segregation; the macro-pattern is emergent from symmetric micro-rules. |
+
+**Sharpe: 4** (6 domains; physics rigorously grounded with Nobel-level theory; biology structurally sound via Waddington; swarm measured n=8 symmetries with order parameters; economics well-studied via path dependence literature; neuroscience supported by lateralization research; social systems via Schelling model)
+**Gaps**: Linguistics (language selection from symmetric proto-language?), Chemistry (chirality — L-amino acid dominance from symmetric synthesis?), Game theory (Nash equilibrium selection from symmetric payoffs?)
+**Inversion**: Symmetry restoration occurs when: (1) external forcing overcomes the Higgs mass (structural enforcement, L-601); (2) temperature exceeds the critical point (enough randomness to overcome the attractor, F-RAND1); (3) the system is coupled to a larger symmetric system that absorbs the asymmetry. In the swarm: L-601 structural enforcement IS the Higgs-mass-overcoming mechanism.
+**Relationship**: ISO-28 composes ISO-18 (WHY symmetric states are unstable) with ISO-5 (HOW perturbations amplify) and ISO-4 (WHEN the transition occurs). ISO-18 says nothing can't persist; ISO-28 says what happens next: the system falls into one of many degenerate ground states, and which one depends on history, not law. ISO-24 (ergodic decomposition) describes the resulting non-ergodic structure: each ground state is an ergodic component the system cannot escape without external energy. ISO-27 (attention carrying capacity) identifies the conserved charge whose concentration creates the symmetry-breaking dynamics.
+
+---
+
 ## Open questions (F126)
 1. **Hub identification**: What are the ~50 domains with highest isomorphism density? (current table: 7 candidates)
 2. **Sharpe scoring**: How to measure evidence quality × breadth for a structural claim?
@@ -562,6 +600,8 @@ F126: swarm → isomorphism atlas → world knowledge base (world is beneficiary
 Both share the mechanism. F126 inverts the directionality of value flow.
 
 ## Version history
+- v2.1 (S460): ISO-28 candidate: spontaneous symmetry breaking (L-1124; 6 domains: physics, biology, swarm, economics, neuroscience, social systems). Swarm's 8 protocol symmetries identified and order parameters measured; 5/8 degeneratively broken. Goldstone modes explain why F-RAND1 can work; Higgs mechanism explains why confirmation lock and meta-dominance resist rotation. 28 entries.
+- v2.0 (S458): ISO-27 candidate: attention carrying capacity / informational r-K (L-1121; 6 domains: ecology, swarm, neuroscience, economics, library science, evolutionary biology). Nature→swarm prescriptive flow: 5 biological mechanisms (succession, apoptosis, mycorrhizal, quorum sensing, dormancy) prescribe improvements. Swarm violates r-K tradeoff (both r AND K simultaneously) — attention is the binding constraint. section_succession_phase() added to orient.py. 27 entries.
 - v1.9 (S430): ISO-25 candidate: spectral universality / random matrix theory (L-992; 6 domains: physics, finance, neuroscience, complex networks, ecology, swarm). Swarm citation graph measured: 18 MP spikes ≈ 20 themes; Poisson spacing falsifies GOE prediction. Random-matrix-theory domain created. 25 entries.
 - v1.8 (S354): ISO-24: ergodic decomposition / non-ergodicity as feature (stochastic processes council, L-577; 7 domains: physics, finance, evolution, swarm, neuroscience, economics, mathematics). N_e ≈ 15, 58% orphan rate measured. 24 entries.
 - v1.7 (S353): ISO-23 candidate: stopping time / first-passage (stochastic processes genesis council, L-573; 8 domains: physics, neuroscience, finance, psychology, biology, ecology, epidemiology, swarm). Stochastic-processes domain created. 23 entries.

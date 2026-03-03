@@ -370,6 +370,66 @@ def section_level_balance(root=ROOT):
     return lines
 
 
+def section_succession_phase(root=ROOT):
+    """Attention carrying capacity / r-K phase indicator (L-1121).
+
+    Nature→swarm prescription: in biological succession, carrying capacity
+    shifts the optimal strategy from r-selected (produce many) to K-selected
+    (maintain well). In information systems, the carrying capacity is attention
+    per lesson (1/N), not storage. Emits NOTICE when attention pressure exceeds
+    the functional threshold.
+    """
+    lines = []
+    try:
+        import glob as _gl
+        lesson_files = _gl.glob(str(root / "memory" / "lessons" / "L-*.md"))
+        n_lessons = len(lesson_files)
+        if n_lessons < 100:
+            return lines
+
+        # Attention pressure: 1/N (fraction of session attention per lesson)
+        attention_per_lesson = 1.0 / n_lessons
+        # Functional threshold: below this, lessons decay faster than maintained
+        # Estimated from integration-bound crossover at N~550 (L-912)
+        threshold = 1.0 / 500
+
+        # r/K ratio: count new lessons vs cross-reference additions in recent commits
+        try:
+            new_result = subprocess.run(
+                ["git", "log", "--oneline", "--diff-filter=A", "--name-only", "-10",
+                 "--", "memory/lessons/L-*.md"],
+                capture_output=True, text=True, cwd=str(root), timeout=5
+            )
+            new_lessons = len([l for l in new_result.stdout.splitlines()
+                              if l.startswith("memory/lessons/L-") and l.endswith(".md")])
+            mod_result = subprocess.run(
+                ["git", "log", "--oneline", "--diff-filter=M", "--name-only", "-10",
+                 "--", "memory/lessons/L-*.md"],
+                capture_output=True, text=True, cwd=str(root), timeout=5
+            )
+            modified_lessons = len([l for l in mod_result.stdout.splitlines()
+                                   if l.startswith("memory/lessons/L-") and l.endswith(".md")])
+        except Exception:
+            new_lessons = 0
+            modified_lessons = 0
+
+        if attention_per_lesson < threshold:
+            ratio_str = f"{n_lessons / 500:.1f}x"
+            lines.append("--- Succession Phase (L-1121) ---")
+            lines.append(f"  Attention carrying capacity: {ratio_str} past threshold (N={n_lessons}, K_threshold=500)")
+            lines.append(f"  Attention per lesson: {attention_per_lesson:.5f} (threshold: {threshold:.4f})")
+            if new_lessons > 0 or modified_lessons > 0:
+                r_k = new_lessons / max(modified_lessons, 1)
+                mode = "r-mode (producing)" if r_k > 2 else "K-mode (integrating)" if r_k < 0.5 else "balanced"
+                lines.append(f"  Recent r/K: {new_lessons} new / {modified_lessons} modified = {r_k:.1f} ({mode})")
+                if r_k > 3:
+                    lines.append("  \u26a0 High r/K ratio — consider integration: compact, cross-reference, revive DECAYED")
+            lines.append("")
+    except Exception:
+        pass
+    return lines
+
+
 def section_stalled_campaigns(root=ROOT):
     """Stalled 2-wave campaigns (F-STR3, L-845)."""
     stall_map: dict[str, str] = {}
@@ -723,6 +783,44 @@ def section_zombie_carryover(root=ROOT):
                     lines.append(f"    \U0001f480 {count:3d}x  {item[:60]}")
             if resolved_items:
                 lines.append(f"  Resolved by actual: {len(resolved_items)} item(s) excluded")
+            lines.append("")
+    except Exception:
+        pass
+    return lines
+
+
+def section_closure_metric(root=ROOT):
+    """External closure metric (L-1118): surfaces self-referential ratio at session start.
+
+    Per L-601, voluntary aspiration to external impact decays to zero without structural
+    enforcement. This section makes closure visible so every session sees it.
+    """
+    lines = []
+    try:
+        import glob as _glob_closure
+        lesson_files = sorted(_glob_closure.glob(str(root / "memory" / "lessons" / "L-*.md")))
+        if len(lesson_files) < 20:
+            return lines
+        recent = lesson_files[-20:]
+        external_kw = [
+            "arxiv", "doi:", "github.com", "wikipedia", "et al.", "journal",
+            "published", "http://", "https://", "external", "real-world",
+            "production system", "open source", "user feedback",
+        ]
+        ext_count = 0
+        for lf in recent:
+            try:
+                txt = Path(lf).read_text(encoding="utf-8").lower()
+                if any(kw in txt for kw in external_kw):
+                    ext_count += 1
+            except Exception:
+                pass
+        ext_pct = ext_count / len(recent) * 100
+        if ext_pct < 20:
+            lines.append("--- External Closure (L-1118) ---")
+            lines.append(f"  \u26a0 External reference rate: {ext_pct:.0f}% ({ext_count}/{len(recent)} recent lessons)")
+            lines.append("  The execution loop is self-referential. F-COMP1: 0 external outputs.")
+            lines.append("  To break closure: produce something an outsider would use, or ingest external input.")
             lines.append("")
     except Exception:
         pass

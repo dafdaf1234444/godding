@@ -294,12 +294,13 @@ def main():
         section_index_coverage, section_precompact_checkpoint, section_key_state,
         section_priorities, section_frontiers, section_stale_beliefs,
         section_self_application, section_stale_lanes, section_pci,
-        section_prescription_gap, section_level_balance, section_stalled_campaigns,
+        section_prescription_gap, section_level_balance, section_succession_phase,
+        section_stalled_campaigns,
         section_stale_experiments, section_experiment_harvest_gap, section_stale_baselines,
         section_underused_tools, section_recent_commits, section_session_log_tail,
         section_agent_positions, section_concurrent_activity, section_historian_repair,
-        section_meta_tooler, section_zombie_carryover, section_suggested_action,
-        section_cascade_state,
+        section_meta_tooler, section_zombie_carryover, section_closure_metric,
+        section_suggested_action, section_cascade_state,
     )
 
     # Parallelize all slow independent operations:
@@ -381,7 +382,9 @@ def main():
 
     _print_lines(_prescription_gap_lines)
     _print_lines(section_level_balance())
+    _print_lines(section_succession_phase())
     _print_lines(section_zombie_carryover())
+    _print_lines(section_closure_metric())
 
     # Stalled campaigns — need stall_map for suggested action
     stall_lines, stall_map = section_stalled_campaigns()
