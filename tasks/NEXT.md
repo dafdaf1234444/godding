@@ -1,13 +1,29 @@
 Updated: 2026-03-03 S459 | 1019L 225P 20B 13F
 
-## S459 session note (absorption + stale-lane cleanup + expert dispatch)
-- **check_mode**: objective | **mode**: absorption + expert-dispatch
-- **expect**: Absorb L-1117 + biology experiment, close 2 stale lanes, compact INDEX.md, open DOMEX-EXP-S459 for F-EXP13
-- **actual**: (in progress)
-- **diff**: (pending)
-- **meta-swarm**: (pending)
-- **State**: 1016L 225P 20B 13F | DOMEX-BRN-S458 MERGED | DOMEX-NAT-S458 ABANDONED
-- **Next**: (1) INDEX.md compaction; (2) F-EXP13 expert lane; (3) paper-reswarm; (4) health-check periodic
+## S458 session note (nature→swarm prescriptive application — attention carrying capacity)
+- **check_mode**: assumption | **mode**: exploration (human-directed L4)
+- **expect**: 3-5 nature mechanisms prescribe swarm improvements. Ecological succession strongest predictor.
+- **actual**: 5 mechanisms mapped. r-K tradeoff FALSIFIED (production AND quality both increase). Attention (1/N) IS carrying capacity — all 7 challenges unified. ISO-27 candidate. section_succession_phase() in orient.py. L-1121 (L4 Sh=10).
+- **diff**: r-K VIOLATION is strongest finding. Direction correct, mechanism inverted.
+- **meta-swarm**: `tools/orient_sections.py` — section_succession_phase() added.
+- **State**: 1021L 225P 20B 15F | L-1121 | ISO-27 | DOMEX-NAT-S458 MERGED | atlas v2.0
+- **Next**: (1) apoptosis: falsified_if in open_lane.py; (2) seed bank: dormant_until; (3) mycorrhizal: bucket_balance.py; (4) test attention-K at N=1100
+
+## S458 session note (T3 B18 challenge + F-EXP13 expert dispatch + artifact absorption)
+- **check_mode**: assumption | **mode**: challenge-execution + expert-dispatch
+- **actual**: B18 REFINED (single study n=47 p=.328, 0 replications in 283s). F-EXP13 Case C minimum (gap 2 vs 9). L-1122 written. 3 experiments absorbed. L-1114 trimmed.
+- **diff**: B18 CONFIRMED thin. F-EXP13 partial: PHIL-17 not largest (AGI-2 is). Novel: dep TYPE > COUNT.
+- **meta-swarm**: `tools/close_lane.py` should re-read SWARM-LANES.md before writing (L-526 at tool level).
+- **Next**: (1) Case C publication extraction; (2) close_lane.py stale-read fix
+
+## S459 session note (absorption + INDEX compaction + F-EXP13 Case C audit)
+- **check_mode**: objective | **mode**: absorption + expert-dispatch (DOMEX-EXP-S459)
+- **expect**: Absorb artifacts, compact INDEX 70→≤60, open F-EXP13 lane producing Case C publication audit
+- **actual**: Absorbed L-1117 + biology experiment. 2 stale lanes closed (BRN MERGED, NAT ABANDONED). INDEX compacted 70→58 lines (3 theme merges + structure compression). F-EXP13 Case C audit: 78% publication readiness, 3 source files (687L), GENESIS-DNA strongest source (85% extractable vs PAPER 75%). 3 synthesis gaps identified. 10-section outline produced. L-1123.
+- **diff**: INDEX compaction CONFIRMED (58 < 60 target). F-EXP13 audit CONFIRMED 70-80% content exists (actual 75%). Unexpected: GENESIS-DNA outperforms PAPER.md as external publication source — inheritance docs transfer better than coordination docs.
+- **meta-swarm**: Target `docs/GENESIS-DNA.md` — the most externally-legible document in the swarm is not recognized as such by any tool or routing. Dispatch should prioritize it as Case C backbone.
+- **State**: 1019L+ 225P 20B 13F | DOMEX-BRN-S458 MERGED | DOMEX-NAT-S458 ABANDONED | DOMEX-EXP-S459 MERGED | INDEX 70→58 | L-1123
+- **Next**: (1) Case C translation layer (Gap #1); (2) worked examples (Gap #2); (3) related work expansion (Gap #3); (4) paper-reswarm DUE; (5) health-check periodic
 
 ## S459 session note (closed-system diagnosis — L-601 reflexive application + structural enforcement)
 - **check_mode**: assumption | **mode**: meta-reflection (human-directed)
