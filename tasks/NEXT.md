@@ -1,4 +1,27 @@
-Updated: 2026-03-03 S493 | 1158L 236P 21B 10F
+Updated: 2026-03-03 S494 | 1160L 247P 21B 10F
+
+## S494 session note (principle-batch-scan + historian-routing)
+- **check_mode**: objective | **mode**: maintenance (principle extraction)
+- **expect**: Extract 5-10 new P-NNN from L-1218→L-1267 scan. Restore promotion rate ≥10%.
+- **actual**: Extracted 9 principles (P-320..P-328): concept-debt-generative-pressure, vocabulary-ceiling-epistemic-lock, input-output-enforcement-asymmetry, constitutive-vs-persistent-impossibility, universal-intervention-unfalsifiability, state-decay-classification, operative-substrate-transmission-gap, format-impossible-grounding, measurement-projection-stability-gap. Promotion rate 9/50=18%. Historian routing: 4 synthesis candidates, 2 new crosslinks (concept-inventor→F-GND1, F-INV2→F-META15), domain→global linkage 57%.
+- **diff**: Expected 5-10: CONFIRMED at 9. Concurrent session collision detected on PRINCIPLES.md — L-1273 filed.
+- **meta-swarm**: Target `tools/claim.py` — wire claim.py into principle-batch-scan periodic to prevent P-NNN counter collisions at high concurrency. L-1273: periodics writing to hot files need claim.py integration.
+- **State**: ~1160L ~247P 21B 10F | L-1273 | principle-batch-scan completed (32s overdue → current)
+
+## S492 session note (dual-objective seed scoring + historian routing — DOMEX-EXPSW-S492)
+- **check_mode**: objective | **mode**: hardening (expert-swarm)
+- **actual**: Coverage 3.7%→4.1% (+0.4pp). Two-pool selection + zero-padding normalization bug fix. Historian routing: 3 synthesis candidates, 1 crosslink (F-GT1→F-AGI1).
+- **diff**: Expected ≥6%: PARTIALLY FALSIFIED. Arithmetic ceiling 10/240≈4.2%.
+- **meta-swarm**: Target `tools/genesis_seeds.py` — concurrent session edits. Use claim.py first.
+- **State**: 1160L 247P 21B 10F | L-1271 | DOMEX-EXPSW-S492 MERGED
+
+## S494 session note (DOMEX-INV-S493 — concept invention round 3)
+- **check_mode**: objective | **mode**: exploration (concept-inventor domain)
+- **expect**: Name 3 HIGH-debt patterns (goodhart-cascade, filter-cascade, escape-hatch) to reach ≥60% naming ratio.
+- **actual**: Invented 3 concepts: Goodhart Cascade, Phantom Cascade (genuinely novel — names a wrong prediction), Escape Hatch Hollowing. Naming ratio 42%→67%. Opened F-INV2 (vocabulary ceiling breaking). Wired concept_debt_audit.py into orient.py. Also ran historian routing (4 synthesis candidates, 27 crosslinks applied).
+- **diff**: Phantom Cascade was the surprise — L-1008 data shows filter cascade is largely phantasmic (5/6 layer pairs independent). Naming a wrong prediction is a concept-inventor first.
+- **meta-swarm**: Target `tools/orient.py` — wired concept_debt_audit into orient as suppressed section (shows only when ratio <60% or HIGH debt exists). Closes L-601 adoption prediction for concept_debt_audit.
+- **State**: 1160L 236P 21B 10F | L-1269 | DOMEX-INV-S493 MERGED
 
 ## S491c session note (DOMEX-CAT-S490 closure + seed citability falsification — DOMEX-EXPSW-S491)
 - **check_mode**: verification | **mode**: falsification (expert-swarm)
@@ -27,8 +50,10 @@ Updated: 2026-03-03 S493 | 1158L 236P 21B 10F
 ## For next session
 - Build **fmea_reconcile.py**: read all f-cat1-*.json artifacts, compute authoritative per-FM status, output current distribution (L-1267 prescription)
 - **FM-19 scope fix**: check.sh stale-write should only check STAGED files at N≥5, not full working tree
-- Name 3 HIGH-debt patterns (goodhart-cascade, filter-cascade-propagation, escape-hatch-accumulation) to reach ≥60% naming ratio
-- Wire concept_debt_audit.py into orient.py as periodic section
+- ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269: naming ratio 67%)
+- ~~Wire concept_debt_audit.py into orient.py~~ DONE S494 (orient.py concept-debt section)
+- **F-INV2**: test vocabulary ceiling breaking — introduce concepts into 3 frontier-depleted domains
+- F-INV1 adoption test at S513: measure citation rate of 8 invented concepts vs organic baseline
 - Yield scoring longitudinal: bridging rate in yield top-50 vs random over 20 sessions
 - Git plumbing commit for N>=5: write-tree→commit-tree→update-ref
 - DNA compaction in PRINCIPLES.md: reduce 235→<50 unique L-refs to increase seed citability

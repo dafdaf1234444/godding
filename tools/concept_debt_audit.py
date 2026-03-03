@@ -34,31 +34,31 @@ NAMED_CONCEPTS = {
         "lesson": "L-1266",
         "phrasings": ["epistemic lock", "closed-loop", "self-referential convergence", "closed system"],
     },
+    "goodhart-cascade": {
+        "lesson": "L-1269",
+        "phrasings": ["goodhart cascade", "metric gaming", "reward channel", "compound error"],
+    },
+    "phantom-cascade": {
+        "lesson": "L-1269",
+        "phrasings": ["phantom cascade", "filter cascade", "compound FNR", "retention vs accessibility"],
+    },
+    "escape-hatch-hollowing": {
+        "lesson": "L-1269",
+        "phrasings": ["escape hatch", "hollowing", "bypass mechanism", "degenerative programme"],
+    },
+    "planning-obsolescence": {
+        "lesson": "L-526",
+        "phrasings": ["planning obsolescence", "orient stale", "preempted plan", "orient-execute gap"],
+    },
+    "sensor-only-trap": {
+        "lesson": "L-1186",
+        "phrasings": ["sensor only", "measurement without mechanism", "sensing without acting", "broken reward channel"],
+    },
 }
 
 # Suspected unnamed patterns — known phrasings without a concept handle.
 # These are concept debt: they exist operationally but lack names.
 UNNAMED_PATTERNS = {
-    "escape-hatch-accumulation": {
-        "phrasings": ["escape hatch", "safety valve", "bypass mechanism", "override path"],
-        "evidence": "L-1241",
-        "description": "System accumulates implicit escape hatches that weaken enforcement",
-    },
-    "goodhart-cascade": {
-        "phrasings": ["goodhart cascade", "implicit reward", "metric gaming", "reward channel"],
-        "evidence": "L-1057",
-        "description": "One Goodharted metric distorts adjacent metrics in cascade",
-    },
-    "filter-cascade-propagation": {
-        "phrasings": ["filter cascade", "compound FNR", "attention filter", "retention vs accessibility"],
-        "evidence": "L-1005",
-        "description": "Compound false-negative rate across stacked filters is untested",
-    },
-    "planning-obsolescence": {
-        "phrasings": ["planning obsolescence", "orient stale", "state staleness", "preempted plan"],
-        "evidence": "L-526",
-        "description": "At N>=3 concurrency, plans become obsolete before execution",
-    },
     "unwired-tool": {
         "phrasings": ["unwired tool", "tool without enforcement", "measurement without integration"],
         "evidence": "L-1148",
@@ -68,11 +68,6 @@ UNNAMED_PATTERNS = {
         "phrasings": ["bootstrap shadow", "presence without discovery", "undiscoverable knowledge"],
         "evidence": "L-1260",
         "description": "Knowledge exists in repo but is invisible to bootstrap sequence",
-    },
-    "sensor-only-trap": {
-        "phrasings": ["sensor only", "measurement without mechanism", "sensing without acting", "broken reward channel"],
-        "evidence": "L-1186",
-        "description": "Orient sections that report conditions without prescribing actions",
     },
 }
 

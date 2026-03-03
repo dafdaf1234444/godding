@@ -405,6 +405,30 @@ def main():
     _print_lines(section_fairness())
     _print_lines(section_self_inflation())
 
+    # Concept debt (F-INV1, L-1269)
+    try:
+        from concept_debt_audit import audit as _cda
+        import io, contextlib
+        _cda_buf = io.StringIO()
+        with contextlib.redirect_stdout(_cda_buf):
+            _cda_result = _cda(json_mode=False)
+        _named = _cda_result.get("named_concepts", 0)
+        _unnamed = _cda_result.get("unnamed_patterns", 0)
+        _total = _named + _unnamed
+        _ratio = _named / _total if _total > 0 else 0
+        _high = _cda_result.get("high_debt", 0)
+        if _ratio < 0.60 or _high > 0:
+            print(f"\n--- Concept Debt (F-INV1) ---")
+            print(f"  Naming ratio: {_ratio:.0%} ({_named}/{_total}) | HIGH/MEDIUM debt: {_high}")
+            if _high > 0:
+                for _pid, _info in sorted(_cda_result.get("unnamed", {}).items(),
+                                           key=lambda x: -x[1].get("ad_hoc_mentions", 0)):
+                    if _info.get("severity") in ("HIGH", "MEDIUM"):
+                        print(f"  ! {_pid}: {_info['ad_hoc_mentions']} mentions [{_info['severity']}]")
+            print(f"  Run: python3 tools/concept_debt_audit.py")
+    except Exception:
+        pass
+
     # Stalled campaigns — need stall_map for suggested action
     stall_lines, stall_map = section_stalled_campaigns()
     _print_lines(stall_lines)
