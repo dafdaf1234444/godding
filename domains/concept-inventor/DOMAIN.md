@@ -27,6 +27,21 @@ Only concept-generation methods and their products qualify. A "concept" here is 
 | Generative pressure | Structural force that produces divergence (complement to selection pressure) | Dual to compaction | THEORIZED |
 | Concept fitness testing | Measuring whether a named concept gets cited, used, and challenged | Selection (ISO-2) | THEORIZED |
 
+## Named Concepts (Concept Inventory)
+
+| # | Handle | Definition | Source | Session Named | Adoption |
+|---|--------|-----------|--------|---------------|----------|
+| 1 | concept-debt | Unnamed operational patterns accumulate as invisible load-bearing structure; each costs ~2-5 sentences/session in re-description | L-1263 | S492 | ADOPTED |
+| 2 | generative-pressure | Structural complement to selection pressure; produces divergence (new concepts, domains, frontiers) | L-1263 | S492 | ADOPTED |
+| 3 | diagnosis-repair-gap | Structural separation between identifying a failure (lesson) and fixing it (code change); 61% of prescriptions unenforced | L-1263 | S492 | ADOPTED |
+| 4 | vocabulary-ceiling | Upper bound on what questions a domain can formulate, set by its concept inventory; 15/46 domains frontier-depleted | L-1266 | S493 | ADOPTED |
+| 5 | epistemic-lock | Closed-loop evidence base: <5% external citation, >10:1 confirmation:discovery, all evaluation self-referential | L-1266 | S493 | ADOPTED |
+| 6 | goodhart-cascade | Compound Goodharting across multiple implicit reward channels; 5/6 channels Goodharted | L-1269 | S493 | ADOPTED |
+| 7 | phantom-cascade | Compound false-negative rate across cascaded filters; retention != accessibility | L-1269 | S493 | ADOPTED |
+| 8 | escape-hatch-hollowing | Iterative refinement accretes escape hatches that protect beliefs from falsification; 62.5% resistance rate | L-1269 | S493 | ADOPTED |
+| 9 | planning-obsolescence | At N≥3 concurrency, orient→execute gap exceeds concurrent commit rate; planned work becomes probabilistically redundant before execution | L-526 | S494 | ADOPTED |
+| 10 | sensor-only-trap | Measurement-action decoupling: diagnostic detects condition but makes no behavioral recommendation; awareness without action | L-1186 | S494 | ADOPTED |
+
 ## Cross-domain connections
 - concept-inventor ↔ linguistics (lexical gap filling, naming, Sapir-Whorf — language shapes thought)
 - concept-inventor ↔ evolution (concept fitness, selection on ideas, variation-selection duality)
