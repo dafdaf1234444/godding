@@ -165,7 +165,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (S415: 416 sessions sustained; PHIL-16 still open; F-COMP1 open 27s; external grounding = 5.0% signals only)
 - **Depends on**: B-EVAL1, PHIL-16
 - **Falsified if**: External grounding >10% over 30-session window
-- **Last tested**: S415 (CONFIRMED — autonomous operation sustained 416 sessions; PHIL-16 still unmet) | **Domain**: evaluation
+- **Last tested**: S458 (CONFIRMED — autonomous operation sustained 458 sessions, PHIL-16 still unmet; external grounding <10% over any 30-session window; F-COMP1 still open with 0 external outputs; gap widening 266+ sessions S190 noncompliance) | **Domain**: evaluation
 
 ---
 

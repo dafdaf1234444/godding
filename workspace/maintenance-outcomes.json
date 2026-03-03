@@ -8330,7 +8330,7 @@
     },
     {
       "session": 458,
-      "timestamp": "2026-03-03T00:36:54Z",
+      "timestamp": "2026-03-03T00:40:07Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8400,19 +8400,17 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 12,
+          "count": 10,
           "severities": [
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC"
           ]
         },
@@ -8471,11 +8469,9 @@
           "severities": []
         },
         "check_cross_references": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_anxiety_zones": {
           "fired": true,
@@ -8568,9 +8564,11 @@
           ]
         },
         "check_paper_accuracy": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_utility": {
           "fired": false,
@@ -8625,16 +8623,11 @@
             "NOTICE",
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": false,
-          "count": 0,
-          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 17,
-        "DUE": 4,
+        "NOTICE": 16,
+        "DUE": 3,
         "PERIODIC": 10
       }
     }

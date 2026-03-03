@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-BRN-S458",
+    "frontier": "F-BRN4",
+    "session": "S458",
+    "domain": "global",
+    "date": "2026-03-03",
+    "expect": "Split 9 overflowed buckets (Architecture--Core Protocols=43, Meta--Orient=95, Meta--Task=43, Meta--Human=45, Meta--Citation=49, Meta--Archival=58, Meta--Belief=54, Meta--Challenge=51, Swarm Economics--Expert Dispatch=72) into sub-themes \u226440 lines each. INDEX.md will have 0 buckets >40L after this. Knowledge retrieval improves because themes are more specific.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

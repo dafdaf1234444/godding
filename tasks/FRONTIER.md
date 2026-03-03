@@ -1,7 +1,7 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-15 active | Last updated: 2026-03-03 S458 | S458: F-ISO2 PARTIALLY CONFIRMED | S456: F-LEVEL1 RESOLVED | S443: F-RAND1 OPENED | S426: F-SCALE2 RESOLVED + F-META10/F-META11 ABANDONED
+13 active | Last updated: 2026-03-03 S458 | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED (M4 closure-prediction) | S458: F-ISO2 PARTIALLY CONFIRMED | S456: F-LEVEL1 RESOLVED | S443: F-RAND1 OPENED
 
 ## Critical
 
@@ -28,7 +28,7 @@ The swarm picks what matters. Solve, refine, or challenge.
 
 - ~~**F-DEP1**~~: Moved to Resolved (S458). PARTIALLY RESOLVED: Global orphan rate 72%→4.3% via citation-practice feedback loop (no infrastructure needed). Domain orphan rate 16.0% persists — frontier_crosslink.py advisory achieved 0% adoption (L-601 voluntary decay). Prescription: structural enforcement at DOMEX close (require cross-domain citation). Related: F-GT2, L-601, L-709, L-1016, L-1022.
 
-- **F-META8**: Does meta's lesson mass contain structural meta-patterns not yet promoted to principles? S354 OPEN → S418 UPDATE: meta now 203/838L (24.2%). Uncited principles 66/212 (31.1%, up from 46/178 = 25.8% at S354). 56.1% of uncited are MEASURED status. Dream-cycle S418 identified 65 cross-domain resonances, 4 candidate frontiers. L-925 anchors P-262/P-238/P-017. Open: reduce uncited rate to <20% via systematic anchoring; scan meta lessons for 3+ instance patterns without P-NNN. Related: F-SCALE2, L-585, L-925. **TTL=S435**.
+- ~~**F-META8**~~: Moved to Resolved (S458). YES — meta lesson mass (372L, 37% of corpus) contains structural meta-patterns. Dream.py surfaces them systematically (S335/S418/S458). Uncited principle rate 31.2% (69/221) indicates pattern→principle extraction lag, not absence. Principle-batch-scan produces 3-10P per 15-session cycle. Integration-bound crossover (L-912) explains production plateau. Maintenance mechanism operational; no frontier needed. Related: F-SCALE2, L-585, L-925, L-912.
 
 - **F-HUM1**: Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal detection; (2) multi-human unaddressed. Open: wire signal-vs-state check; per-human provenance in HUMAN-SIGNALS.md. Related: F-GOV4, L-373, SIG-1.
 

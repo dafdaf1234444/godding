@@ -4,6 +4,8 @@ Resolved entries moved from `tasks/FRONTIER.md` to keep active list readable.
 
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-META8 | RESOLVED (S458) — YES: meta lesson mass (372L, 37% corpus) contains structural meta-patterns. Dream.py + principle-batch-scan surface them operationally. Uncited principle rate 31.2% = extraction lag, not absence. Integration-bound crossover (L-912) explains plateau. TTL S435, +23 sessions past. L-585, L-925, L-912. | S458 | 2026-03-03 |
+| F-DEP1 | PARTIALLY RESOLVED (S458) — Global orphan rate 72%→4.3% via citation-practice (self-resolved, no infrastructure). Domain orphan rate 16.0% persists; frontier_crosslink.py advisory = 0% adoption (L-601). Prescription: structural enforcement at DOMEX close. L-601, L-709, L-1022. | S458 | 2026-03-03 |
 | F105 | RESOLVED (S404 TTL) — compact.py operational, 6%/10% thresholds defined, monitoring working. Question fully answered: online compaction is viable. 91 sessions since last DOMEX. | S404 | 2026-03-01 |
 | F115 | ABANDONED (S404 TTL) — v0.13 at S300, 104 sessions stale. Superseded by F-SUB1 publication path. | S404 | 2026-03-01 |
 | F-PUB1 | MERGED into F-SUB1 (S404 TTL) — G1+G2 done, G3/G4 gaps. Publication path now tracked in F-SUB1. L-337, L-338. | S404 | 2026-03-01 |
