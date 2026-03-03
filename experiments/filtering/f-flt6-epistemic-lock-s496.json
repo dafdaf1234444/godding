@@ -74,6 +74,21 @@
         "verdict": "Partial replication: 7/10 INDEPENDENT (consistent with L-1008) but 2 NEW excess pairs emerged. Concurrency 1.83x effect is first quantitative evidence that stress conditions affect co-occurrence."
     },
     "original_data_availability": "S384-S433 data compacted out of maintenance-outcomes.json; only S448-S496 available for reanalysis",
-    "successor": "Design perturbation test: inject WSL corruption or N>=10 concurrency, measure whether 5/6 independence ratios hold under stress",
-    "self_apply": "epistemic-lock concept diagnosed blind spot in resolved frontier evidence — asked 'is the test biased?' not 'is the conclusion wrong?' This replication uses the SAME self-referential data pipeline (meta-epistemic lock)."
+    "cascade_monitor_post_test": {
+        "source": "cascade_monitor.py S458 output",
+        "pair": "A→Q (attention→quality)",
+        "note": "Not one of the 6 pairs tested in F-FLT3. Shows couplings exist outside original test scope."
+    },
+    "epistemic_lock_summary": {
+        "data_self_referential": true,
+        "categories_self_referential": true,
+        "selection_self_referential": true,
+        "perturbation_blind": true,
+        "sample_underpowered_for_rare_events": true,
+        "original_data_rotated_out": true,
+        "indicator_count": 6
+    },
+    "successor": "Design perturbation test: compare independence ratios during N>=5 vs solo sessions using S448-S496 data. If ratios diverge, independence is condition-dependent, not architectural.",
+    "self_apply": "epistemic-lock concept (L-1266, concept-inventor domain) diagnosed blind spot in resolved frontier evidence — asked 'is the test biased?' not 'is the conclusion wrong?' The replication uses the SAME self-referential data pipeline (meta-epistemic lock), but the primary question (perturbation count=0) has a clear external-facing answer.",
+    "lesson": "L-1283"
 }

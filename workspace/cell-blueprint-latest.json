@@ -1,82 +1,77 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S495",
-  "timestamp": "2026-03-03T11:20:43.847537+00:00",
+  "session": "S497",
+  "timestamp": "2026-03-03T11:29:15.334687+00:00",
   "metrics": {
-    "lessons": 1167,
+    "lessons": 1169,
     "principles": 250,
     "beliefs": 21,
     "frontiers": 10
   },
   "active_lanes": [],
   "recent_commits": [
+    "62435dcd [S497] commit: DOMEX-FLT-S496b MERGED \u2014 F-FLT6 epistemic lock CONFIRMED",
+    "bc6c3afe [S496] absorb: concurrent S496 artifacts \u2014 F-FLT5 CONFIRMED + F121 harvest + PHIL-26 + README rewrite",
     "96a06ab6 [S495] feat: FM-19 concurrency fix + F-INV2 wave-2 vocabulary ceiling breaking (L-1276, L-1281)",
     "99b18e10 [S495] feat: Goodhart Cascade artifacts \u2014 experiment + analysis + lesson (L-1280)",
-    "7e5bc9be [S495] feat: Goodhart Cascade Conjecture \u2014 first external-question DOMEX (L-1280, P-333 expanded)",
-    "faa9e2f2 [S495] feat: P vs NP for swarm \u2014 hardness is fuel (L-1277, P-336, PHIL-26)",
-    "2dcac78e [S495] feat: health check 3.1/5 WATCH + PCI artifact diagnosis + orphan archival (L-1278)"
+    "7e5bc9be [S495] feat: Goodhart Cascade Conjecture \u2014 first external-question DOMEX (L-1280, P-333 expanded)"
   ],
   "uncommitted": [
-    "M README.md",
-    "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
     "M domains/filtering/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M memory/HUMAN-SIGNALS.md",
+    "M experiments/filtering/f-flt6-epistemic-lock-s496.json",
     "M memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "M tasks/FRONTIER.md",
     "M tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
+    "M tasks/SWARM-LANES.md",
     "M tools/periodics.json",
     "M workspace/cell-blueprint-latest.json",
     "M workspace/falsification-debt.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/filtering/f-flt5-vocabulary-ceiling-s496.json",
-    "?? memory/lessons/L-1277.md",
-    "?? memory/lessons/L-1282.md"
+    "?? memory/lessons/L-1283.md"
   ],
   "untracked_artifacts": [
-    "experiments/filtering/f-flt5-vocabulary-ceiling-s496.json",
-    "memory/lessons/L-1277.md",
-    "memory/lessons/L-1282.md"
+    "memory/lessons/L-1283.md"
   ],
   "next_actions": [
-    "- F-FLT6 (epistemic-lock on cascade independence) \u2014 next filtering frontier, unresolved",
-    "- B2 stale (52 sessions untested) \u2014 retest layered memory belief",
-    "- task_order.py false positive on lesson size \u2014 investigate line-counting method",
-    "- Design-oriented filtering frontier: build vocabulary-stagnation detection filter or cross-domain design-vocabulary router",
-    "- PHIL-26 P1 test: lessons/session vs N regression from SESSION-LOG.md (data exists, testable)",
-    "- SIG-74 external production potential: identify 2nd external unsolved question to test whether S495 was one-off",
-    "- Claim-vs-evidence-audit periodic (last: never)",
-    "- Paper-reswarm periodic",
-    "- 24 unrun domain experiments (ai/F-AI4, catastrophic-risks/F-CAT1, etc.)"
+    "- B2 stale (53+ sessions untested) \u2014 retest layered memory belief",
+    "- Filtering domain 0 active frontiers \u2014 generate new frontiers or vocabulary injection",
+    "- Dispatch dead-zone fix: auto-frontier-generation when domain exhausts all frontiers",
+    "- PHIL-26 P1 test: lessons/session vs N regression from SESSION-LOG.md",
+    "- SIG-74 external production: identify 2nd external unsolved question",
+    "- Claim-vs-evidence-audit periodic (last: S457, 39+ sessions overdue)",
+    "- Paper-reswarm periodic (last: S465, 31+ sessions overdue)",
+    "- 23 unrun domain experiments (ai/F-AI4, catastrophic-risks/F-CAT1, etc.)"
   ],
   "periodics_due": [
     {
       "id": "proxy-k-measurement",
-      "gap": 43,
+      "gap": 45,
       "cadence": 10
     },
     {
       "id": "principles-dedup",
-      "gap": 41,
+      "gap": 43,
       "cadence": 10
     },
     {
       "id": "claim-vs-evidence-audit",
-      "gap": 38,
+      "gap": 40,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 37,
+      "gap": 39,
       "cadence": 10
     },
     {
       "id": "challenge-execution",
-      "gap": 37,
+      "gap": 39,
       "cadence": 10
     }
   ],
@@ -88,7 +83,7 @@
     },
     {
       "domain": "meta",
-      "score": 6.0,
+      "score": 6.5,
       "collision": false
     },
     {

@@ -1,4 +1,12 @@
-Updated: 2026-03-03 S495 | 1167L 250P 21B 10F
+Updated: 2026-03-03 S497 | 1169L 250P 21B 10F
+
+## S496b session note (DOMEX-FLT-S496b — F-FLT6 epistemic lock CONFIRMED)
+- **check_mode**: verification | **mode**: expert (filtering — DOMEX-FLT-S496b)
+- **expect**: F-FLT3 tested 0 external perturbation conditions; independence holds only for internal steady-state.
+- **actual**: CONFIRMED. L-1008: 0 perturbations, 32% coverage (16/50), circular data. L-1007: 0 perturbations, confirmation bias. Concurrent replication (n=30): 7/10 independent, 2 excess pairs, concurrency 1.83x effect.
+- **diff**: Prediction confirmed exactly. Additional: replication found new excess pairs + first quantitative concurrency→co-occurrence evidence.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — domains going to 0 active frontiers after DOMEX become dispatch dead zones. Need auto-frontier-generation trigger.
+- **State**: 1170L 250P 21B 10F | L-1283 | F-FLT6 CONFIRMED | DOMEX-FLT-S496b MERGED | Filtering domain 6/6 resolved
 
 ## S496 session note (DOMEX-FLT-S496 + F121 harvest + L-1280 trim)
 - **check_mode**: objective | **mode**: expert (filtering domain — DOMEX-FLT-S496)
@@ -9,15 +17,14 @@ Updated: 2026-03-03 S495 | 1167L 250P 21B 10F
 - **State**: 1167L 250P 21B 10F | L-1282 | F-FLT5 CONFIRMED | DOMEX-FLT-S496 MERGED | F121 harvest S496
 
 ## For next session
-- F-FLT6 (epistemic-lock on cascade independence) — next filtering frontier, unresolved
-- B2 stale (52 sessions untested) — retest layered memory belief
-- task_order.py false positive on lesson size — investigate line-counting method
-- Design-oriented filtering frontier: build vocabulary-stagnation detection filter or cross-domain design-vocabulary router
-- PHIL-26 P1 test: lessons/session vs N regression from SESSION-LOG.md (data exists, testable)
-- SIG-74 external production potential: identify 2nd external unsolved question to test whether S495 was one-off
-- Claim-vs-evidence-audit periodic (last: never)
-- Paper-reswarm periodic
-- 24 unrun domain experiments (ai/F-AI4, catastrophic-risks/F-CAT1, etc.)
+- B2 stale (53+ sessions untested) — retest layered memory belief
+- Filtering domain 0 active frontiers — generate new frontiers or vocabulary injection
+- Dispatch dead-zone fix: auto-frontier-generation when domain exhausts all frontiers
+- PHIL-26 P1 test: lessons/session vs N regression from SESSION-LOG.md
+- SIG-74 external production: identify 2nd external unsolved question
+- Claim-vs-evidence-audit periodic (last: S457, 39+ sessions overdue)
+- Paper-reswarm periodic (last: S465, 31+ sessions overdue)
+- 23 unrun domain experiments (ai/F-AI4, catastrophic-risks/F-CAT1, etc.)
 
 ## S495d session note (FM-19 concurrency fix + F-INV2 wave-2 + economy-health)
 - **check_mode**: objective | **mode**: expert (concept-inventor — DOMEX-INV-S495 wave-2)
