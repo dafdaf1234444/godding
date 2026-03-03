@@ -29,7 +29,8 @@
       "registered_by": "S69",
       "last_session": "S454",
       "last_review_session": "S454",
-      "note": "S454: NULL confirmed (n=229, 100% scan). 0 near-duplicates. System deduplicates during normal operations. Cadence 15->50."
+      "note": "S454: NULL confirmed (n=229, 100% scan). 0 near-duplicates. System deduplicates during normal operations. Cadence 15->50.",
+      "last_reviewed": "S494"
     },
     {
       "id": "proxy-k-measurement",
@@ -176,7 +177,8 @@
       "last_review_session": "S494",
       "note": "S494: concurrent session added P-320..P-328 (9 new). Batch scan L-1218\u2192L-1267. 17 candidates found, top 9 written.",
       "last_run": "S494",
-      "last_date": "2026-03-03"
+      "last_date": "2026-03-03",
+      "last_reviewed": "S494"
     },
     {
       "id": "expectation-calibration",
