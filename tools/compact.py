@@ -185,29 +185,40 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
     if not lesson_files:
         return []
 
-    # Build citation map: count L-NNN refs across ALL project markdown files (excluding lesson files)
+    # Build citation map: count L-NNN refs across ALL project markdown files (including lessons)
+    # L-1163: excluding lessons caused false zero-cited reports — lesson-to-lesson citations matter
     # Use git ls-files for speed (rglob is 15s+ on WSL with 868 files; git index is ~0.3s)
     citation_counts: dict[str, int] = {}
     import subprocess as _sp
     _ls = _sp.run(["git", "ls-files", "*.md", "**/*.md"], capture_output=True, text=True, cwd=REPO_ROOT)
-    scan_paths = [
-        REPO_ROOT / p for p in _ls.stdout.splitlines()
-        if p and "lessons" not in Path(p).parts
-    ]
+    # Map lesson files to their own L-ID so we can exclude self-citations
+    _lesson_id_map: dict[str, str] = {}  # path -> L-NNN
+    scan_paths = []
+    for p in _ls.stdout.splitlines():
+        if not p:
+            continue
+        scan_paths.append(REPO_ROOT / p)
+        if "lessons" in Path(p).parts:
+            m = re.search(r"L-(\d+)", Path(p).name)
+            if m:
+                _lesson_id_map[str((REPO_ROOT / p).relative_to(REPO_ROOT))] = f"L-{m.group(1)}"
     cache = _load_citation_cache()
     cache_dirty = False
     for sp in scan_paths:
         key = str(sp.relative_to(REPO_ROOT))
         sha = _file_sha256(sp)
+        self_lid = _lesson_id_map.get(key)  # exclude self-citations
         if sha and cache.get(key, {}).get("sha256") == sha:
             for lid, cnt in cache[key].get("cites", {}).items():
-                citation_counts[lid] = citation_counts.get(lid, 0) + cnt
+                if lid != self_lid:
+                    citation_counts[lid] = citation_counts.get(lid, 0) + cnt
         else:
             text = _read(sp)
             file_cites: dict[str, int] = {}
             for match in re.finditer(r"\bL-(\d+)\b", text):
                 lid = f"L-{match.group(1)}"
-                citation_counts[lid] = citation_counts.get(lid, 0) + 1
+                if lid != self_lid:
+                    citation_counts[lid] = citation_counts.get(lid, 0) + 1
                 file_cites[lid] = file_cites.get(lid, 0) + 1
             if sha:
                 cache[key] = {"sha256": sha, "cites": file_cites}

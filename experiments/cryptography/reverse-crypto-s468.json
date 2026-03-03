@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-CRY-S468",
+    "frontier": "F-CRY3",
+    "session": "S468",
+    "domain": "cryptography",
+    "date": "2026-03-03",
+    "expect": "Reverse-crypto framing PARTIAL: directionality reversal structural; generative property breaks formal duality. 3+ novel insights from framing.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

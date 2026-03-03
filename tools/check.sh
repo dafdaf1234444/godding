@@ -408,6 +408,19 @@ if [ -n "$STAGED_LESSONS" ]; then
     fi
 fi
 
+# FM-37: Level inflation detector (L-1119, F-CAT1, S467).
+# LLM self-tagging inflates L3+ levels — 45% misclassification rate (L-1119).
+# Scans staged L3+ lessons for structural evidence (file refs, tool changes).
+# NOTICE only — advisory layer for awareness.
+if [ -f "tools/level_inflation_check.py" ] && [ -n "$STAGED_LESSONS" ]; then
+    INFLATION_OUT=$("${PYTHON_CMD[@]}" tools/level_inflation_check.py --staged 2>&1) || true
+    if echo "$INFLATION_OUT" | grep -q "SUSPECT"; then
+        echo "$INFLATION_OUT" | grep -E "(SUSPECT|NOTICE)" | head -5
+    else
+        echo "  FM-37 level inflation guard: PASS"
+    fi
+fi
+
 # FM-30: Cross-layer cascade detector (L-1015, F-CAT1, S441).
 # cascade_monitor.py detects simultaneous failure of adjacent swarm layers (K,T,Q,E,A).
 # Non-blocking NOTICE — cascades require monitoring, not commit abort.

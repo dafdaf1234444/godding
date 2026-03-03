@@ -1,0 +1,27 @@
+{
+  "experiment": "f-cat1-fm37-hardening-s467",
+  "frontier": "F-CAT1",
+  "session": "S467",
+  "domain": "catastrophic-risks",
+  "date": "2026-03-03",
+  "question": "Can FM-37 (LLM self-tagging inflation) be mitigated with automated structural evidence detection?",
+  "methodology": "Built level_inflation_check.py: regex-based heuristic scanning L3+ lessons for structural evidence markers (verb patterns, file path references). Calibrated L3 vs L4+ thresholds based on L-1119 criteria. Wired into check.sh as NOTICE-level pre-commit guard.",
+  "expect": "FM-37 moves UNMITIGATED to MINIMAL with 1+ automated defense layer. Detection tool identifies >=3 historical instances of level inflation.",
+  "actual": "48.3% of L3 lessons (42/87) flagged as suspect, consistent with L-1119 manual 45%. 0 L4+ false positives after calibration. Tool wired into check.sh (1 automated advisory layer). FM-37 UNMITIGATED to MINIMAL.",
+  "diff": "Expected >=3 historical instances; found 42 (14x more than minimum). Detection rate matches L-1119 manual baseline (48.3% vs 45%). L4+ false positive rate 0%.",
+  "findings": {
+    "total_lessons": 1057,
+    "l3_plus": 87,
+    "suspect": 42,
+    "suspect_pct": 48.3,
+    "l3_no_structural": 37,
+    "l3_measurement_heavy": 5,
+    "l4_without_evidence": 0,
+    "defense_layers_after": 1,
+    "fm37_status_before": "UNMITIGATED",
+    "fm37_status_after": "MINIMAL"
+  },
+  "verdict": "CONFIRMED",
+  "lesson": "L-1161",
+  "scan_perspectives": ["structural-evidence-detection", "pre-commit-enforcement"]
+}

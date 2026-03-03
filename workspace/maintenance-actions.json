@@ -1,34 +1,10 @@
 {
-  "session": 467,
-  "count": 7,
+  "session": 468,
+  "count": 1,
   "items": [
     {
       "priority": "DUE",
-      "message": "[human-signal-harvest] F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S431: L-994 authority paradox (SIG-54), 3 new patterns added, SIG-51-55 flagged as OPEN. (every ~5 sessions, last: S456)"
-    },
-    {
-      "priority": "DUE",
-      "message": "[lanes-compact] Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py). (every ~10 sessions, last: S444)"
-    },
-    {
-      "priority": "DUE",
-      "message": "[bayesian-calibration-audit] Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.159 at S432). 27 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py) (every ~10 sessions, last: S445)"
-    },
-    {
-      "priority": "DUE",
-      "message": "[fmea-audit] FMEA periodic coverage audit: run `python3 tools/check_fmea_audit.py --verbose` \u2014 cross-check periodics.json against FMEA defense layers. Detects undercounted periodic-backed layers (FM-30 case: cascade-monitor periodic S436 missed by S441 manual auditor). Report upgrade candidates. L-601: manual auditors miss pre-existing periodic registrations. (Built S445, L-1063 meta-target). (every ~10 sessions, last: S445)"
-    },
-    {
-      "priority": "DUE",
-      "message": "1 active domain-focused lane(s) missing domain-memory coordination tags (domain_sync/memory_target): DOMEX-META-S466b(domain_sync,memory_target)"
-    },
-    {
-      "priority": "DUE",
-      "message": "4 active dispatch lane(s) have no active coordinator lane: DOMEX-EXPSW-S465b, DOMEX-HS-S466, DOMEX-META-S466b, DOMEX-META-S467"
-    },
-    {
-      "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1050 vs actual 1052) \u2014 run python3 tools/sync_state.py"
+      "message": "Count drift in INDEX.md (L: stated 1057 vs actual 1058) \u2014 run python3 tools/sync_state.py"
     }
   ]
 }

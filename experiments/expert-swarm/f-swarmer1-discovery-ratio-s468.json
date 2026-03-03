@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S468",
+    "frontier": "F-SWARMER1",
+    "session": "S468",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "Discovery ratio 54:1 is inflated by soft confirmations. Audit 20 DOMEX lanes: predict >=5 are misclassified (PARTIAL called CONFIRMED). Corrected ratio <=30:1. Falsified if <3 misclassifications found or corrected ratio >40:1.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

@@ -217,10 +217,16 @@ def check_periodics() -> list[tuple[str, str]]:
         description = item.get("description", item_id)
         cadence = item.get("cadence_sessions", 10)
         last_raw = item.get("last_reviewed_session", 0)
+        last_session_raw = item.get("last_session", 0)
         try:
             last = int(str(last_raw).lstrip("S")) if last_raw else 0
         except (ValueError, TypeError):
             last = 0
+        try:
+            last2 = int(str(last_session_raw).lstrip("S")) if last_session_raw else 0
+        except (ValueError, TypeError):
+            last2 = 0
+        last = max(last, last2)
         if last > session:
             if not dirty:
                 results.append(("NOTICE", f"periodics marker {item_id} S{last} > session log S{session}"))

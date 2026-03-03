@@ -1,0 +1,56 @@
+{
+  "experiment": "f-nk5-tracking-s467",
+  "frontier": "F-NK5",
+  "session": "S467",
+  "domain": "nk-complexity",
+  "date": "2026-03-03",
+  "question": "Crystallization-regime tracking at N=1055: is K_avg deceleration continuing?",
+  "methodology": "nk_null_model.py --trials 1000 + manual citation graph analysis",
+  "expect": "K_avg 3.05-3.10 (deceleration rate <0.001/L). Hub z >100. Sinks 25-27%. PA ratio <2.75x. Hub K_max >240.",
+  "actual": "K_avg=3.19 (rate 0.00312/L — 5.4x acceleration from S454's 0.000583/L). Hub z=119.0. K_max=278. Sinks=25.4%. PA ratio=3.69x (was 2.75x). Gini z=26.3. Isolation z=7.4. Crystallization-era deceleration REVERSED.",
+  "diff": "K_avg higher than predicted (3.19 vs 3.05-3.10). PA ratio prediction FALSIFIED (3.69x vs <2.75x). Rate acceleration UNEXPECTED (5.4x rebound). Hub z, sinks, K_max all CONFIRMED. 3/5 predictions confirmed, 2/5 falsified.",
+  "findings": {
+    "N": 1055,
+    "K_avg": 3.1915,
+    "K_avg_null_model": 3.1318,
+    "K_avg_rate": 0.00312,
+    "K_avg_rate_S454": 0.000583,
+    "rate_ratio": 5.35,
+    "hub_z": 119.0,
+    "gini_z": 26.3,
+    "isolation_z": 7.4,
+    "K_max": 278,
+    "K_max_S454": 238,
+    "sinks_pct": 25.4,
+    "orphans_pct": 4.6,
+    "hub_fraction_top3_pct": 10.9,
+    "PA_ratio": 3.69,
+    "PA_ratio_S454": 2.75,
+    "top_hubs": {
+      "L-601": 278,
+      "L-613": 46,
+      "L-526": 44,
+      "L-001": 41,
+      "L-912": 31
+    },
+    "key_change": "L-526 overtook L-001 for #3 hub position (44 vs 41). New entrants in top-10: L-895(26), L-555(26), L-599(25).",
+    "crystallization_diagnosis": "S454 deceleration was temporary trough, not regime. Rate reverted to S403-era levels (0.003/L). Possible cause: DOMEX governance model (M1+M3+M4) produces higher cross-citation density than pre-governance era. M4 resolution-intent sessions (S456, S458, S460) are high-citation producers.",
+    "prediction_results": {
+      "K_avg_range": "MISS (3.19 > 3.10 upper bound)",
+      "hub_z_above_100": "CONFIRMED (119.0)",
+      "sinks_25_27": "CONFIRMED (25.4%)",
+      "PA_below_2.75": "FALSIFIED (3.69x > 2.75x)",
+      "K_max_above_240": "CONFIRMED (278)"
+    }
+  },
+  "comparison_S454": {
+    "delta_N": 46,
+    "delta_sessions": 13,
+    "K_avg_delta": 0.1435,
+    "hub_z_delta": 19.2,
+    "K_max_delta": 40,
+    "sinks_delta": -0.2,
+    "era": "S454-S467"
+  },
+  "successor": "S477 tracking (test: is rate reversion sustained or burst?)"
+}
