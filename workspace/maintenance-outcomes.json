@@ -8382,7 +8382,7 @@
     },
     {
       "session": 463,
-      "timestamp": "2026-03-03T01:48:25Z",
+      "timestamp": "2026-03-03T01:49:42Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8499,8 +8499,9 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
+            "NOTICE",
             "NOTICE"
           ]
         },
@@ -8515,11 +8516,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": false,
@@ -8682,15 +8681,13 @@
           ]
         },
         "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 19,
+        "NOTICE": 18,
         "PERIODIC": 13,
         "DUE": 4
       }
