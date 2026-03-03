@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S468",
+    "frontier": "F-SWARMER1",
+    "session": "S468",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "DOMEX yield decelerates across eras (S341-S400 > S400-S450 > S450-S468). L3+ rate decelerates (per L-895). Principle extraction rate decelerates. Compounding claim FALSIFIED (3/3 decelerate).",
+    "actual": "Concurrent session opened this skeleton. DOMEX-META-S467 (L-1163): yield 6.60→4.41 (deceleration CONFIRMED). L3+ rate stable at ~82% (L-1094, S450). P extraction: 0.019 P/session S414-S467 (deceleration CONFIRMED vs 0.15 P/session S300-S400). 2/3 deceleration metrics confirmed. Quality (L3+) maintained despite yield deceleration — consistent with integration-bound model (L-912).",
+    "diff": "Expected 3/3 decelerate: got 2/3. L3+ rate did NOT decelerate — quality maintained despite yield deceleration. Compounding claim PARTIALLY FALSIFIED: quantity decelerates, quality does not."
+}

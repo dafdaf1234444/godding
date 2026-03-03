@@ -1,0 +1,32 @@
+{
+    "experiment": "DOMEX-META-S469",
+    "frontier": "F-META2",
+    "session": "S469",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "mode": "resolution",
+    "role": "historian",
+    "level": "L3",
+    "check_mode": "historian",
+    "input_lanes": [
+        "DOMEX-NK-S465 (F-NK6 M4 activation CONFIRMED)",
+        "DOMEX-EXPSW-S465 (F-SWARMER1 maintenance weighting)",
+        "DOMEX-CAT-S465 (F-CAT1 FM-35 hardening)",
+        "DOMEX-META-S464b (F-META2 historian synthesis)",
+        "DOMEX-EXPSW-S464 (F-SWARMER1 action bridge)",
+        "DOMEX-EXPSW-S463b (F-SWARMER1 calibration)",
+        "DOMEX-NK-S463 (F-RAND1 Gini retest)",
+        "DOMEX-RECOMB-S463 (F-KNOW1 recombination)",
+        "DOMEX-ISO-S463 (F-ISO2 resolution)"
+    ],
+    "expect": ">=1 cross-domain principle from structural enforcement convergence across 3+ domains. F-NK6+F-SWARMER1 share L-601 dependency.",
+    "actual": "L-1165 written: scale-dependent intervention matching. Two intervention classes (additive vs multiplicative) with opposite efficacy at large N. Additive fails at N>500 (marginal weight <0.2%); multiplicative succeeds immediately by changing selection pressure. Convergent across 3 domains (NK, expert-swarm, meta). Additional: 33% false-instrument rate across 9 experiments.",
+    "diff": "Expected >=1 principle: CONFIRMED. Found 2 independent patterns: (1) additive-vs-multiplicative intervention matching (novel), (2) 33% false-instrument rate (extends L-1091/L-1145). Both are L3 (architectural). Unexpected: the scale-dependent crossover aligns with P-287 integration-bound waypoint (N~550).",
+    "cross_domain_patterns": {
+        "structural_enforcement_universality": "L-601 appears in all 9 experiments but manifestation is domain-specific: NK=creation-time, EXPSW=proportional scoring, CAT=advisory-only, RAND=criterion revision",
+        "measurement_false_instrument_rate": "3/9 (33%) found measurement tool/criterion wrong: SWARMER1 calibration, KNOW1 score ranking, RAND1 Gini criterion",
+        "resolution_mode_produces_L3": "F-NK6, F-KNOW1, F-ISO2 all in resolution mode produced L3 insights"
+    },
+    "lessons_produced": ["L-1165"],
+    "principles_produced": []
+}
