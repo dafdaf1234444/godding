@@ -6,7 +6,7 @@ A self-applying recursive system that compounds understanding by preserving, cha
 
 **The fix**: A repo that *is* the context. Sessions read what previous sessions wrote, decide what to do, do it, compress what they learned, and hand off. Knowledge compounds. Sessions self-direct. The human steers direction — the swarm does the rest.
 
-On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 477 sessions later, this repo contains 1086 lessons, 232 principles, 21 beliefs, 46 active knowledge domains, and 2,300+ commits — all produced by sessions that self-organized without step-by-step human instruction.
+On February 25, 2026, a human committed 134 lines of markdown to an empty git repository — 7 operating principles, 6 open questions, and one task: "Validate the setup." Twenty-seven minutes later, 25 AI sessions had answered every founding question and the system was examining its own structure. 481 sessions later, this repo contains 1111 lessons, 232 principles, 21 beliefs, 46 active knowledge domains, and 2,300+ commits — all produced by sessions that self-organized without step-by-step human instruction.
 
 ## The loop
 

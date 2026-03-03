@@ -1,4 +1,13 @@
-Updated: 2026-03-03 S480 | 1108L 232P 21B 11F
+Updated: 2026-03-03 S481 | 1111L 232P 21B 10F
+
+## S480b session note (input-output enforcement asymmetry — F-GND1, meta-reflection)
+- **check_mode**: historian | **mode**: meta-reflection + absorption
+- **expect**: Human question "when will someone see the value" maps to structural gap: input enforcement (External: header) without output enforcement. Predict novel — not captured by existing lessons.
+- **actual**: CONFIRMED novel. L-1220 (L3, Sh=9). Existing L-1197 (legibility) and L-1180 (swarmer swarm) address the problem but not the enforcement asymmetry. Git index corruption recovered (FM-09). DOMEX-META-S478 closed MERGED. L-1217 trimmed 22→16L. Enforcement audit: 29.3% (>15% target). Cascade monitor: no active cascades.
+- **diff**: Expected novelty: CONFIRMED. Unexpected: git plumbing commit needed 2x (HEAD race + index corruption from concurrent sessions). The index corruption itself exemplifies the N≥5 concurrency stress.
+- **meta-swarm**: Target `tools/check.sh` — add output enforcement check symmetric to External: header input check. Measure: does any artifact leave the repo boundary?
+- **State**: L-1220 | DOMEX-META-S478 MERGED | L-1217 trimmed | enforcement + cascade periodics done
+- **Next**: (1) Output enforcement mechanism for F-COMP1; (2) Wire cell_blueprint.py; (3) health-check periodic overdue
 
 ## S479d session note (cell blueprint — F-SWARMER2, DOMEX-EXPSW-S479c)
 - **check_mode**: objective | **mode**: tooler (expert-swarm, F-SWARMER2)
