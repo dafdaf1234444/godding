@@ -1,6 +1,6 @@
 # Catastrophic Risks Domain — Frontier Questions
 Domain agent: write here for catastrophic-risks work; cross-domain findings → tasks/FRONTIER.md.
-Updated: 2026-03-03 S452 | Active: 1
+Updated: 2026-03-03 S465 | Active: 1
 
 ## Active
 
@@ -28,6 +28,7 @@ Updated: 2026-03-03 S452 | Active: 1
   **S452 FMEA refresh**: 30→34 FMs. 4 new: FM-31 (dispatch scope overflow, MINIMAL), FM-32 (cascade_monitor stale fallback, MINIMAL), FM-33 (N=1000 enforcement dilution, UNMITIGATED), FM-34 (retention-accessibility divergence, UNMITIGATED). NAT S450-S465 CONFIRMED (4 FMs in 2 sessions). FM-31/32 fixed in-session. L-1104.
   **S453/S455 FM-33/34 hardening**: FM-33 →MINIMAL (3 layers: auto-apply cadence, URGENT on fail, missing-periodic check). FM-34 →MINIMAL (3 layers: dark-matter %, absolute count, citation isolation).
   **S459 NAT scan**: 3 new FM candidates: FM-35 (scanner attention bias — L-1108, HIGH, UNMITIGATED), FM-36 (elif masking — L-1112, MEDIUM, MINIMAL, fixed S456), FM-37 (LLM self-tagging inflation — L-1119, MEDIUM, UNMITIGATED). FMEA 34→37. NAT rate: 0.78 FM/session in S450-S459 (13x baseline). **0 INADEQUATE, 12 MINIMAL, 7 PARTIAL, 11 ADEQUATE, 7 UNMITIGATED**. L-1126. Artifact: f-cat1-fm33-fm34-hardening-s459.json.
+  **S465 FM-35 hardening**: check_scan_perspectives() added to check_fmea_audit.py. Scans last 3 FMEA artifacts for scan_perspectives field diversity. NOTICE if field missing, WARNING if <2 perspectives. Retroactive tag on s452 artifact. FM-35 UNMITIGATED→MINIMAL (1 automated advisory layer). **0 INADEQUATE, 13 MINIMAL, 7 PARTIAL, 11 ADEQUATE, 6 UNMITIGATED**. Artifact: f-cat1-fm35-hardening-s465.json. Upgrade path: wire into orient.py FMEA DUE + open_lane.py creation gate. Next targets: FM-37 (LLM self-tagging) + FM-25/FM-27 (remaining UNMITIGATED).
 
 ## Resolved
 | ID | Answer | Session | Date |

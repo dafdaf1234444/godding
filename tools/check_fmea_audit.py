@@ -97,6 +97,53 @@ def get_fm_status_from_artifact(artifact):
     return statuses
 
 
+def check_scan_perspectives():
+    """FM-35 defense: detect single-perspective FMEA scans (L-1108).
+
+    Scans all FMEA artifacts from the most recent NAT window and checks
+    for scan_perspectives metadata. Single-perspective scans miss ~50% of FMs.
+    Returns (perspective_count, perspectives_found, warning_message).
+    """
+    pattern = str(ROOT / "experiments/catastrophic-risks/f-cat1-fmea-s*.json")
+    files = sorted(glob.glob(pattern))
+    if len(files) < 2:
+        return 0, [], None
+
+    # Check last 3 FMEA artifacts (typical NAT window span)
+    recent = files[-3:]
+    perspectives = set()
+    missing_field = 0
+    for f in recent:
+        try:
+            with open(f) as fh:
+                data = json.load(fh)
+            sp = data.get("scan_perspectives") or data.get("data", {}).get("scan_perspectives")
+            if sp:
+                if isinstance(sp, list):
+                    perspectives.update(sp)
+                else:
+                    perspectives.add(str(sp))
+            else:
+                missing_field += 1
+        except (json.JSONDecodeError, IOError):
+            pass
+
+    warning = None
+    if missing_field == len(recent):
+        warning = (
+            f"FM-35 NOTICE: {len(recent)} recent FMEA artifacts lack scan_perspectives field. "
+            f"L-1108: single-scanner FMEA misses ~50% of FMs. "
+            f"Add scan_perspectives to FMEA experiment JSON."
+        )
+    elif len(perspectives) < 2:
+        warning = (
+            f"FM-35 WARNING: Only {len(perspectives)} scan perspective(s) in last {len(recent)} "
+            f"FMEA artifacts: {sorted(perspectives)}. L-1108: need ≥2 for adequate coverage."
+        )
+
+    return len(perspectives), sorted(perspectives), warning
+
+
 def run_audit(verbose=False):
     artifact, artifact_path = load_latest_fmea_artifact()
     if not artifact:
@@ -115,6 +162,13 @@ def run_audit(verbose=False):
     print(f"=== FMEA AUDIT — Periodic Coverage Cross-Check ===")
     print(f"Artifact: {Path(artifact_path).name}")
     print(f"Periodics: {len(periodics)} registered | FMs parsed: {len(fm_blocks)}")
+
+    # FM-35 scanner perspective check (L-1108)
+    n_persp, persp_list, persp_warning = check_scan_perspectives()
+    if persp_warning:
+        print(f"\n  {persp_warning}")
+    elif n_persp >= 2:
+        print(f"\n  FM-35 OK: {n_persp} scan perspectives detected: {persp_list}")
     print()
 
     periodic_hits = []

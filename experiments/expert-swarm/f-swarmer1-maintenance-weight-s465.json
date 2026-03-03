@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EXPSW-S465",
+    "frontier": "F-SWARMER1",
+    "session": "S465",
+    "domain": "expert-swarm",
+    "date": "2026-03-03",
+    "expect": "dispatch_scoring.py ucb1_score() reads maintenance-actions.json and applies domain modifiers: meta +0.5..+2.0 when DUE/URGENT items exist. Baseline: 0 maintenance influence on dispatch. Target: top-3 dispatch includes meta when URGENT items exist.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

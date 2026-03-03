@@ -1,0 +1,37 @@
+{
+    "experiment_id": "f-cat1-fm35-hardening-s465",
+    "experiment": "DOMEX-CAT-S465",
+    "frontier": "F-CAT1",
+    "session": "S465",
+    "lane": "DOMEX-CAT-S465",
+    "domain": "catastrophic-risks",
+    "date": "2026-03-03",
+    "check_mode": "objective",
+    "mode": "hardening",
+    "method": "Add scan_perspectives field checking to check_fmea_audit.py. Detect single-perspective FMEA scans structurally. Retroactively tag existing FMEA artifacts with perspective metadata.",
+    "prior_artifact": "experiments/catastrophic-risks/f-cat1-fm33-fm34-hardening-s459.json",
+    "expect": "FM-35 UNMITIGATED→MINIMAL with 1 automated defense layer (check_fmea_audit.py perspective diversity check). Check fires WARNING when <2 perspectives detected in last 3 FMEA artifacts.",
+    "actual": "check_scan_perspectives() added to check_fmea_audit.py. Scans last 3 FMEA artifacts for scan_perspectives field. Fires NOTICE when field missing, WARNING when <2 perspectives. Retroactive tag added to f-cat1-fmea-s452.json. Test: WARNING correctly fires (1 perspective, need ≥2). FM-35 UNMITIGATED→MINIMAL (1 automated advisory layer).",
+    "diff": "Matched expectation. The check is advisory (NOTICE/WARNING), not blocking — appropriate for meta-failure detection where false-positive blocking would reduce FMEA frequency. Future FMEA artifacts must include scan_perspectives field. Upgrade path to ADEQUATE: wire check into orient.py FMEA periodic DUE recommendation.",
+    "scan_perspectives": ["catastrophic-risks-meta-review"],
+    "data": {
+        "fm_id": "FM-35",
+        "fm_name": "Scanner attention-bias in FMEA discovery",
+        "severity": "HIGH",
+        "prior_status": "UNMITIGATED",
+        "new_status": "MINIMAL",
+        "defense_layers": [
+            {
+                "layer": 1,
+                "type": "automated-advisory",
+                "location": "check_fmea_audit.py:check_scan_perspectives()",
+                "mechanism": "Scan last 3 FMEA artifacts for scan_perspectives diversity. NOTICE if field missing, WARNING if <2 perspectives.",
+                "enforcement_level": "periodic (fmea-audit cadence)"
+            }
+        ],
+        "upgrade_path": "Layer 2: wire into orient.py so FMEA-refresh DUE includes multi-perspective requirement. Layer 3: open_lane.py gate — new FMEA lanes must declare attention_frame at creation.",
+        "evidence": "L-1108: 2 independent scans produced 0% overlap (8 FMs total, 4 per scan). Single-perspective underestimates by ~50%.",
+        "falsification": "Falsified if next 3 FMEA refreshes with declared diverse perspectives produce ≤same FM count as single-perspective scans (i.e., perspective diversity doesn't improve yield)."
+    },
+    "verdict": "FM-35 hardened UNMITIGATED→MINIMAL. Structural enforcement of multi-perspective FMEA scanning via check_fmea_audit.py. Advisory-level (appropriate for meta-failure — blocking would reduce FMEA frequency). Updated distribution: 0 INADEQUATE, 13 MINIMAL, 7 PARTIAL, 11 ADEQUATE, 6 UNMITIGATED (37 total)."
+}
