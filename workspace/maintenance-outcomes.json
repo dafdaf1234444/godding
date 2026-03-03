@@ -8280,7 +8280,7 @@
     },
     {
       "session": 455,
-      "timestamp": "2026-03-02T23:51:40Z",
+      "timestamp": "2026-03-03T00:07:20Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8348,19 +8348,16 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 15,
+          "count": 12,
           "severities": [
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -8412,11 +8409,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": false,
@@ -8573,12 +8568,17 @@
           "severities": [
             "DUE"
           ]
+        },
+        "check_unpushed": {
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 15,
-        "PERIODIC": 13,
-        "DUE": 4
+        "NOTICE": 14,
+        "PERIODIC": 12,
+        "DUE": 2
       }
     }
   ]

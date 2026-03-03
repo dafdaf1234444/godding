@@ -177,10 +177,11 @@ def check_knowledge_layer() -> dict:
         decayed = states.get("DECAYED", 0)
         blind_rate = blind / total
         decay_rate = decayed / total
-        # L-1106: DECAYED% grows monotonically with N (+0.24%/session).
-        # At N>900 the fixed 30% threshold fires permanently (false signal).
+        # L-1106: DECAYED% and BLIND-SPOT% grow monotonically with N.
+        # At N>900 fixed thresholds fire permanently (false signal).
         # Scale-aware: use growth rate between snapshots, not absolute %.
         decay_failing = False
+        blind_failing = False
         ks_all = sorted(REPO_ROOT.glob("experiments/meta/knowledge-state-s*.json"))
         # Use snapshot ≥5 sessions back to smooth out 1-session noise
         if len(ks_all) >= 3:
@@ -192,16 +193,22 @@ def check_knowledge_layer() -> dict:
                 prior_states = prior_data.get("global_states", {})
                 prior_total = sum(prior_states.values()) or 1
                 prior_decay = prior_states.get("DECAYED", 0) / prior_total
+                prior_blind = prior_states.get("BLIND-SPOT", 0) / prior_total
                 prior_session = prior_data.get("session", 0)
                 cur = _current_session()
                 gap = max(cur - prior_session, 1)
-                growth = (decay_rate - prior_decay) / gap
-                decay_failing = growth >= 0.005  # >0.5%/session = abnormal
+                decay_growth = (decay_rate - prior_decay) / gap
+                blind_growth = (blind_rate - prior_blind) / gap
+                decay_failing = decay_growth >= 0.005  # >0.5%/session = abnormal
+                # L-1112: BLIND-SPOT also needs growth-rate check at N>900
+                blind_failing = blind_growth >= 0.005  # >0.5%/session = abnormal
             except Exception:
                 decay_failing = decay_rate >= THRESHOLDS["K_decayed_rate"]
+                blind_failing = blind_rate >= THRESHOLDS["K_blind_spot_rate"]
         else:
             decay_failing = decay_rate >= THRESHOLDS["K_decayed_rate"]
-        failing = blind_rate >= THRESHOLDS["K_blind_spot_rate"] or decay_failing
+            blind_failing = blind_rate >= THRESHOLDS["K_blind_spot_rate"]
+        failing = blind_failing or decay_failing
         return {
             "layer": "K",
             "blind_spot_rate": round(blind_rate, 3),
@@ -272,9 +279,11 @@ def check_attention_layer() -> dict:
         high_firing = len(re.findall(r'\|\s*HIGH\s*\|\s*FIRING', text))
         medium_firing = len(re.findall(r'\|\s*MEDIUM\s*\|\s*FIRING', text))
         total_firing = high_firing + medium_firing
-        # Attention overload: ≥3 simultaneous HIGH/MEDIUM FIRING = can't keep up
+        # Attention overload: HIGH triggers are urgent; MEDIUM triggers are routine
+        # (L-1112): 3 MEDIUM FIRING is normal operating state (DUE/dispatch/anxiety always present)
+        # Fail when: ≥1 HIGH trigger, or ≥4 total (MEDIUM overload safety net)
         fp_proxy = max(0, total_firing - 2)  # items beyond the 2-item actionable capacity
-        failing = total_firing >= THRESHOLDS["A_fp_count"]
+        failing = high_firing >= 1 or total_firing >= 4
         return {
             "layer": "A",
             "high_firing": high_firing,

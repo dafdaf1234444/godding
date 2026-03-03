@@ -12,6 +12,18 @@
       "reason": "RESOLVED: confidence_tagger.py built and run. L-1000+ coverage 0%→100% (14 tagged). Tool now reusable for future batches.",
       "session": "S450",
       "date": "2026-03-02"
+    },
+    {
+      "canonical": "FM-34 hardening",
+      "reason": "RESOLVED: S455 hardened FM-34 — _check_retention_accessibility() added to N≥1000 waypoint. Three defense layers: dark matter %, absolute count, citation isolation.",
+      "session": "S456",
+      "date": "2026-03-03"
+    },
+    {
+      "canonical": "principles-dedup periodic",
+      "reason": "RESOLVED: S454 dedup completed (230→225), principles_dedup.py tool now built. Cadence changed to 50 sessions (6 prior nulls).",
+      "session": "S456",
+      "date": "2026-03-03"
     }
   ]
 }

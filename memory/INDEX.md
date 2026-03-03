@@ -1,5 +1,5 @@
 # Memory Index
-Updated: 2026-03-03 | Sessions: 454
+Updated: 2026-03-03 | Sessions: 455
 
 ## What the swarm knows
 - **1010 lessons** in `memory/lessons/L-{NNN}.md`
@@ -21,34 +21,34 @@ docs/       PAPER.md, SWARM-STRUCTURE.md, SWARM-VISUAL-REPRESENTABILITY.md
 ## Themes (1010 lessons)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
-| Architecture -- Core Protocols | 21 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |
-| Architecture -- Sharding & Design | 20 | Sharding patterns, bridge sync, multi-tool compat F118 (L-213/L-540). |
-| Complexity -- NK Structure | 26 | K_avg=2.56 CROSSED (maturity not chaos); 4/4 chaos FALSIFIED; implicit citation gap L-622; domain-fit density (L-510/L-598/L-613/L-639). |
-| Complexity -- NK Dynamics | 25 | Substrate tripwire L-628; K_avg equilibrium L-801; hub trajectory L-769; session-type effect L-665; measurement (L-622/L-639). |
-| Evolution -- Spawn & Genesis | 24 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511 (L-032/L-047/L-214). |
-| Evolution -- Selection, Growth & Fitness | 28 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5 (L-025/L-061/L-208/L-250/L-526/L-553). |
-| Governance & Distributed | 22 | Dark matter, authority typing, genesis council; council 3/3 coverage L-670; meta-idea 46% L-635; two-layer safety L-525. |
-| Meta -- Orient & Session Startup | 29 | orient.py toolchain, session startup, perf 60s→14s (L-596/L-637); historian_repair wiring L-809; session init (L-007/L-019/L-175/L-317). |
-| Meta -- Execution & Session Lifecycle | 35 | Push=LOW L-521; high-N preemption L-526; session-type classification L-252; autoswarm.sh; cron L-643 (L-007/L-175/L-500). |
-| Meta -- Session Compliance & Drift | 23 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; confirmation bias cycle; science quality diagnosis L-804 (P-243). |
-| Meta -- Task & Tool Lifecycle | 15 | Task_order scored tiers; periodics cadence; tool abandonment 44.8% L-644; EAD enforcement drives quality L-646; measurement coverage gap L-1069. |
-| Meta -- Human Signals & Interface | 31 | Human signals phase shift; three-signal rule; steerer 3 roles L-371; signal conversion format=mechanism L-660; inter-node messaging L-565. |
-| Meta -- Integration & Extraction | 28 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532. |
-| Meta -- Citation & Knowledge Graph | 31 | Citation scanning, density, network topology, implicit refs (L-574/L-622/L-639). |
-| Meta -- Compaction & Compression | 29 | Compression cycles, proxy-K drift, MDL, compact.py; oracle summaries; proxy-K log-normal L-771 (L-002/L-106/L-512). |
-| Meta -- Archival & Retrieval | 32 | INDEX/NEXT archival; B1 retrieval L-636; dark matter L-573; SESSION-LOG (L-556/L-573/L-636). |
-| Meta -- Knowledge & Lesson Quality | 26 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678. |
-| Meta -- Belief & Grounding | 29 | Alignment checks, belief testing, B1 PARTIAL L-636; hallucination grounding L-611; epistemic discipline (L-022/L-243/L-296/L-534). |
-| Meta -- Challenge & Correction | 35 | Challenge mechanism, throughput L-534; targeting gap L-609; correction propagation v2 L-746 (L-323/L-324/L-366/L-541). |
-| Domain -- Isomorphisms & Atlas | 21 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic ISO-20; regime-crossover ISO-23 (L-256/L-274/L-369/L-549). |
-| Domain Science -- Stochastic & Statistical | 25 | Hawkes r≈0.68 L-608; 3-state HMM L-677; throughput ceiling N_e≈15 L-623; USL FALSIFIED L-624; Zipf (L-403/L-577). |
-| Domain Science -- Dynamics & Experiments | 27 | Cooperation 52.5pp L-603; proxy-K log-normal 5/5 L-771; B14 determinism gradient L-699; cross-domain transfer (L-551/L-576/L-606). |
-| Swarm Economics -- Expert Dispatch | 29 | Expert dispatch 2%→90%; UCB1 paradox L-780; outcome labels non-monotonic L-654 (L-621); determinism traps L-1053; randomness taxonomy L-1054 (P-305, F-RAND1); invisible domains 28.3% L-1055; falsification-swarm 187x L-1057; mechanism completeness 4/6 prompts L-1058. |
-| Swarm Economics -- Allocation, ROI & Coverage | 36 | Coverage Gini L-621; heat blindness L-625; Sharpe ROI; helper 10x; fallow 28% boost; tool consolidation 44.8% L-644; orient perf L-637. |
-| Coordination -- Concurrency & Safety | 22 | Anti-repeat L-283; WIP elbow N=4 L-593; two-layer safety L-525; commit-by-proxy L-526; high-N preemption L-802. |
-| Coordination -- Quality & Compliance | 22 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; session compliance L-787. |
-| Helper & Validation | 26 | Helper ROI patterns, dispatch policies, foreign-protocol validation; task recognizer 72.5% L-674 (L-309/L-495/L-502/L-515). |
-| AI & Tooling | 26 | Async failure modes, proxy-K patterns, historian automation; tool redundancy 44.8% L-644; orient.py 19→14s L-637. |
+| Architecture -- Core Protocols | 37 | Blackboard+stigmergy, enforcement theorem L-601, session-boundary decay L-626 (L-005/L-014/L-156/L-209). |
+| Architecture -- Sharding & Design | 4 | Sharding patterns, bridge sync, multi-tool compat F118 (L-213/L-540). |
+| Complexity -- NK Structure | 27 | K_avg=2.56 CROSSED (maturity not chaos); 4/4 chaos FALSIFIED; implicit citation gap L-622; domain-fit density (L-510/L-598/L-613/L-639). |
+| Complexity -- NK Dynamics | 37 | Substrate tripwire L-628; K_avg equilibrium L-801; hub trajectory L-769; session-type effect L-665; measurement (L-622/L-639). |
+| Evolution -- Spawn & Genesis | 32 | Sub-swarm spawning, genesis evolution; foreign genesis 5x yield L-547; genesis sub-tasking L-511 (L-032/L-047/L-214). |
+| Evolution -- Selection, Growth & Fitness | 34 | Fitness quadrants, NK landscape, Lamarckian directed-edit; concurrent race; CJT p=0.5 (L-025/L-061/L-208/L-250/L-526/L-553). |
+| Governance & Distributed | 7 | Dark matter, authority typing, genesis council; council 3/3 coverage L-670; meta-idea 46% L-635; two-layer safety L-525. |
+| Meta -- Orient & Session Startup | 90 | orient.py toolchain, session startup, perf 60s→14s (L-596/L-637); historian_repair wiring L-809; session init (L-007/L-019/L-175/L-317). |
+| Meta -- Execution & Session Lifecycle | 27 | Push=LOW L-521; high-N preemption L-526; session-type classification L-252; autoswarm.sh; cron L-643 (L-007/L-175/L-500). |
+| Meta -- Session Compliance & Drift | 16 | Work/meta ratio, signaling-compliance gap L-605; session uniformity 92% L-787; confirmation bias cycle; science quality diagnosis L-804 (P-243). |
+| Meta -- Task & Tool Lifecycle | 38 | Task_order scored tiers; periodics cadence; tool abandonment 44.8% L-644; EAD enforcement drives quality L-646; measurement coverage gap L-1069. |
+| Meta -- Human Signals & Interface | 41 | Human signals phase shift; three-signal rule; steerer 3 roles L-371; signal conversion format=mechanism L-660; inter-node messaging L-565. |
+| Meta -- Integration & Extraction | 25 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532. |
+| Meta -- Citation & Knowledge Graph | 44 | Citation scanning, density, network topology, implicit refs (L-574/L-622/L-639). |
+| Meta -- Compaction & Compression | 21 | Compression cycles, proxy-K drift, MDL, compact.py; oracle summaries; proxy-K log-normal L-771 (L-002/L-106/L-512). |
+| Meta -- Archival & Retrieval | 54 | INDEX/NEXT archival; B1 retrieval L-636; dark matter L-573; SESSION-LOG (L-556/L-573/L-636). |
+| Meta -- Knowledge & Lesson Quality | 25 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678. |
+| Meta -- Belief & Grounding | 51 | Alignment checks, belief testing, B1 PARTIAL L-636; hallucination grounding L-611; epistemic discipline (L-022/L-243/L-296/L-534). |
+| Meta -- Challenge & Correction | 46 | Challenge mechanism, throughput L-534; targeting gap L-609; correction propagation v2 L-746 (L-323/L-324/L-366/L-541). |
+| Domain -- Isomorphisms & Atlas | 13 | Cross-domain isomorphisms, ISO atlas (24 entries); bounded-epistemic ISO-20; regime-crossover ISO-23 (L-256/L-274/L-369/L-549). |
+| Domain Science -- Stochastic & Statistical | 31 | Hawkes r≈0.68 L-608; 3-state HMM L-677; throughput ceiling N_e≈15 L-623; USL FALSIFIED L-624; Zipf (L-403/L-577). |
+| Domain Science -- Dynamics & Experiments | 19 | Cooperation 52.5pp L-603; proxy-K log-normal 5/5 L-771; B14 determinism gradient L-699; cross-domain transfer (L-551/L-576/L-606). |
+| Swarm Economics -- Expert Dispatch | 67 | Expert dispatch 2%→90%; UCB1 paradox L-780; outcome labels non-monotonic L-654 (L-621); determinism traps L-1053; randomness taxonomy L-1054 (P-305, F-RAND1); invisible domains 28.3% L-1055; falsification-swarm 187x L-1057; mechanism completeness 4/6 prompts L-1058. |
+| Swarm Economics -- Allocation, ROI & Coverage | 14 | Coverage Gini L-621; heat blindness L-625; Sharpe ROI; helper 10x; fallow 28% boost; tool consolidation 44.8% L-644; orient perf L-637. |
+| Coordination -- Concurrency & Safety | 33 | Anti-repeat L-283; WIP elbow N=4 L-593; two-layer safety L-525; commit-by-proxy L-526; high-N preemption L-802. |
+| Coordination -- Quality & Compliance | 26 | EAD/PCI compliance; structural enforcement L-601; knowledge decay L-633; lane contracts L-775; session compliance L-787. |
+| Helper & Validation | 15 | Helper ROI patterns, dispatch policies, foreign-protocol validation; task recognizer 72.5% L-674 (L-309/L-495/L-502/L-515). |
+| AI & Tooling | 25 | Async failure modes, proxy-K patterns, historian automation; tool redundancy 44.8% L-644; orient.py 19→14s L-637. |
 ## What to load when
 | Doing... | Read... |
 |----|---|

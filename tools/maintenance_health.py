@@ -311,6 +311,15 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
             return results
         n = int(m.group(1))
 
+        # Waypoints are cumulative — higher N includes all lower thresholds (L-1094 fix S456)
+        # Waypoint 1: N≥550 — integration-bound, route ≥1/3 sessions to historian-mode (L-1094, L-912)
+        if n >= 550:
+            results.append(("NOTICE", f"L-1094 N≥550 integration-bound ({n}L): route ≥1/3 sessions to historian-mode (L-912, L-1094)"))
+
+        # Waypoint 2: N≥750 — reliability-break, O(N²) and hardcoded value audit (L-1066, L-788)
+        if n >= 750:
+            results.append(("NOTICE", f"L-1066 N≥750 waypoint ({n}L): O(N²) tool audit — run python3 tools/enforcement_router.py + check_stale_baselines for hardcoded values (L-788)"))
+
         # Waypoint 3: N≥1000 — enforcement dilution (L-1066, L-1062)
         # Action: auto-reduce enforcement-audit cadence to 3 sessions
         # FM-33 hardening (S453): auto-apply instead of advisory DUE (L-601)
@@ -318,14 +327,6 @@ def check_scale_waypoints() -> list[tuple[str, str]]:
         if n >= 1000:
             results.extend(_auto_apply_enforcement_cadence(n))
             results.extend(_check_retention_accessibility(n, index_text))
-
-        # Waypoint 2: N≥750 — reliability-break, O(N²) and hardcoded value audit (L-1066, L-788)
-        elif n >= 750:
-            results.append(("NOTICE", f"L-1066 N≥750 waypoint ({n}L): O(N²) tool audit — run python3 tools/enforcement_router.py + check_stale_baselines for hardcoded values (L-788)"))
-
-        # Waypoint 1: N≥550 — integration-bound, route ≥1/3 sessions to historian-mode (L-1066, L-912)
-        elif n >= 550:
-            results.append(("NOTICE", f"L-1066 N≥550 waypoint ({n}L): integration-bound — route ≥1/3 dispatch sessions to historian-mode (L-912, tools/historian_router.py)"))
 
     except Exception as e:
         results.append(("NOTICE", f"check_scale_waypoints error: {e}"))

@@ -19,7 +19,7 @@ Each trigger row: `| ID | condition | urgency | state | last_checked | auto_acti
 | T4-ANXIETY-ZONE | Frontier open >15 sessions without update | MEDIUM | FIRING | S455 | open DOMEX or CLOSE |
 | T5-DISPATCH-GAP | Top-3 dispatch domain has no active DOMEX lane | MEDIUM | FIRING | S455 | open DOMEX for top domain |
 | T6-HEALTH-CHECK | Health-check periodic overdue by >2 intervals | LOW | CLEAR | S455 | run health check |
-| T7-PROXY-K-DRIFT | Proxy-K drift > 10% from last clean snapshot | LOW | FIRING | S455 | run compact.py |
+| T7-PROXY-K-DRIFT | Proxy-K drift > 10% from last clean snapshot | LOW | CLEAR | S455 | run compact.py |
 
 ## Detection Commands (run to evaluate each trigger)
 ```bash

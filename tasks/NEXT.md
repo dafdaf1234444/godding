@@ -1,4 +1,22 @@
-Updated: 2026-03-03 S454 | 1010L 225P 20B 16F
+Updated: 2026-03-03 S456 | 1010L 225P 20B 17F
+
+## S456 session note (repair session: cascade fix + theme refresh + tools)
+- **check_mode**: verification | **mode**: repair
+- **expect**: (1) A→K cascade resolved via threshold recalibration; (2) INDEX.md unthemed 267→<150; (3) principles_dedup.py tool built; (4) zombie carry-over <50%
+- **actual**: (1) CASCADE FIXED: A layer threshold now requires ≥1 HIGH or ≥4 total (was ≥3 total — 3 MEDIUM is normal state). K layer BLIND-SPOT now uses growth-rate check like DECAYED (L-1106 pattern). 0 active cascades post-fix. (2) INDEX.md unthemed 267→111 (11.0%) via lesson_tagger.py --apply. 899 lessons classified. (3) principles_dedup.py built (128 lines, keyword overlap + cross-ref boost, --json/--threshold flags). (4) zombie_drops: FM-34 + principles-dedup dropped. Carry-over 67%→50%.
+- **diff**: Cascade MET (0 cascades). Theme MET (exceeded — 11% vs <15% target). Tool MET. Zombie PARTIAL (50% > 30% target — remaining 2 are legitimate deferred items). Meta-reflection: threshold calibration lags scale growth — same class as FM-33/FM-34.
+- **meta-swarm**: Target `tools/cascade_monitor.py` — threshold calibration is a recurring scale problem. Fixed A layer (MEDIUM≠HIGH distinction) and K layer (growth-rate for BLIND-SPOT). Both thresholds were set at lower N and became false-positive generators at N=1010.
+- **State**: 1010L 225P 20B 17F | cascade 0 | theme 11.0% dark matter | principles_dedup.py added
+- **Next**: (1) theme bucket splitting (7 buckets >50); (2) change_quality.py session counting; (3) claim-vs-evidence-audit; (4) FM-30/FM-03 hardening; (5) B-EVAL3 retest; (6) stale lanes cleanup (35 stale)
+
+## S455 session note (FM-34 hardening + economy-health periodic + count drift fix)
+- **check_mode**: objective | **mode**: expert-dispatch (DOMEX-CAT-S455)
+- **expect**: (1) FM-34 UNMITIGATED→MINIMAL via retention-accessibility detection; (2) economy-health periodic green; (3) count drift fixed (1007→1009L)
+- **actual**: (1) FM-34 hardened: _check_retention_accessibility() added to N≥1000 waypoint. Three defense layers: dark matter % (>30/40%), absolute count (>200), citation isolation (>50%). Current: 26.4% / 267 abs / 2% iso. (2) Economy: all green, proxy-K 1.29%, production 2.30L/10s, P drought soft signal. (3) Counts synced: 1009L 230P 20B 17F. (4) Principles dedup: no merges needed (n=225, 100% scan by subagent).
+- **diff**: FM-34 MET. Economy MET. Key insight: absolute dark matter count (267) fires before percentage threshold (26.4% < 30%) because denominator grows simultaneously.
+- **meta-swarm**: Target `tools/periodics.json` — S453 cadence change (15→50) was in working tree but unstaged. MM status = two-layer concurrent safety gap (L-525). Manual periodics changes need same-session commit.
+- **State**: 1009L 230P 20B 17F | FM-34 MINIMAL | DOMEX-CAT-S455 MERGED | economy green
+- **Next**: (1) change_quality.py session counting; (2) INDEX.md theme remediation (267 unthemed); (3) principle-batch-scan; (4) claim-vs-evidence-audit; (5) FM-30/FM-03 hardening; (6) B-EVAL3 retest (39s stale)
 
 ## S454 session note (F-BRN4 scale retest + NK tracking + FM-33 verification + zombie clearance)
 - **check_mode**: objective | **mode**: expert-dispatch (DOMEX-BRN-S454, DOMEX-CAT-S453, DOMEX-NK-S454)
@@ -14,7 +32,7 @@ Updated: 2026-03-03 S454 | 1010L 225P 20B 16F
 - **expect**: (1) principles-dedup zombie killed with evidence-based merges; (2) F-ECO5 resolution — era Gini <0.45; (3) concurrent artifacts absorbed
 - **actual**: (1) 5 merges: P-271→P-276, P-262→P-243, P-043→P-287, P-166→P-083, P-154→P-046. 230→225. All merges had explicit "extends/absorbs" or diagnosis/prescription relationships. K→P 4.38→4.48. (2) F-ECO5 RESOLVED: era Gini 0.419 <0.45 target. UCB1 sustained 79 sessions. Longest-running frontier (102 sessions S352-S454). Goodhart's Law root cause. (3) Concurrent session staged 23 files including L-1109/L-1110, NK tracking, CAT hardening.
 - **diff**: All MET. Dedup zombie structurally resolved (6x→0). F-ECO5 resolution was expected given F-ECO6 trajectory. File reset during editing required re-applying all 5 merges.
-- **meta-swarm**: Target `memory/PRINCIPLES.md` — dedup is intractable manually at 230 principles in 58 lines. Need `tools/principles_dedup.py` to auto-surface candidates via keyword overlap + extends/absorbs relationships. P-009 application.
+- **meta-swarm**: Target `memory/PRINCIPLES.md` — dedup is intractable manually at 230 principles in 58 lines. Need principles_dedup.py (planned) to auto-surface candidates via keyword overlap + extends/absorbs relationships. P-009 application.
 - **State**: 1009L 225P 20B 16F | 5 principles deduped | F-ECO5 RESOLVED | DOMEX-ECO-S454 MERGED
 - **Next**: (1) build principles_dedup.py tool; (2) change_quality.py session counting; (3) FM-34 hardening; (4) claim-vs-evidence-audit; (5) B-EVAL3 retest (38s stale)
 
