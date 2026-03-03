@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S486",
-  "timestamp": "2026-03-03T05:53:45.436930+00:00",
+  "timestamp": "2026-03-03T05:54:46.714948+00:00",
   "metrics": {
-    "lessons": 1129,
+    "lessons": 1131,
     "principles": 236,
     "beliefs": 21,
     "frontiers": 10
@@ -13,18 +13,22 @@
       "lane": "DOMEX-STAT-S487",
       "status": "ACTIVE",
       "scope": "domains/statistics/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-EXPSW-S487",
+      "status": "ACTIVE",
+      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
+    "e3870c92 [S486] feat: social-media isomorphism validation \u2014 ISO-11 FALSIFIED, ISO-7 CONFIRMED (\u03b5-dispatch)",
     "b011239e [S486] feat: absorb 4 DOMEX lane closures + 3 lessons (L-1238..L-1240)",
     "15eaccc6 [S486] feat: Swiss Cheese FALSIFIED \u2014 ADEQUATE has 38% recurrence at N\u22655 (L-1237, F-CAT1)",
     "6b816b05 [S485] feat: F-PHY5 attractor interpretation + correction propagation + open_lane staleness fix",
-    "8a208d1a [S486] feat: cell blueprint \u2192 orient.py structural wiring (L-601, L-1184)",
-    "23a78b06 [S485] handoff: session note + count sync (1125L) + periodics update"
+    "8a208d1a [S486] feat: cell blueprint \u2192 orient.py structural wiring (L-601, L-1184)"
   ],
   "uncommitted": [
     "M README.md",
-    "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M domains/social-media/COLONY.md",
@@ -41,26 +45,25 @@
     "M memory/INDEX.md",
     "M memory/SESSION-LOG.md",
     "M tasks/NEXT.md",
-    "M workspace/cell-blueprint-latest.json",
-    "M workspace/falsification-debt.json"
+    "M tasks/SWARM-LANES.md",
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-actions.json"
   ],
   "untracked_artifacts": [
-    "experiments/meta/phil22-recursion-test-s487.json",
-    "experiments/statistics/f-stat1-verdict-stability-analysis-s487.py",
-    "experiments/statistics/f-stat1-verdict-stability-retest-s487.json",
+    "experiments/expert-swarm/f-swarmer2-blueprint-accuracy-s487.json",
     "memory/lessons/L-1238.md",
-    "memory/lessons/L-1239.md",
-    "memory/lessons/L-1241.md",
-    "memory/lessons/L-1242.md"
+    "memory/lessons/L-1239.md"
   ],
   "next_actions": [
+    "- Add falsifiability column to PHILOSOPHY.md claims table \u2014 DROP criteria for 13 PARTIALLY beliefs (L-1241)",
     "- orient.py --resume flag: skip sections where blueprint state is current (fast boot)",
     "- F-SWARMER2 adversarial capstone needed (5 waves, 0 falsification)",
-    "- Falsification debt: 3/3 skips consumed \u2014 next lane MUST be mode=falsification",
+    "- Falsification debt cleared (4/48 \u2192 5/49, 10.2% \u2014 still below 20% target)",
     "- Expert utilization still low (4.6% \u2192 target \u226515%)",
     "- scaling_model.py refit (stale at N=401)",
     "- 109 EXPIRED lessons \u2014 no automated archival exists",
-    "- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)"
+    "- change_quality.py: era-normalize baseline or raise production_bonus cap (L-1240)",
+    "- maintenance_drift.py _skip_kw: add example-context pattern to eliminate Layer 2 FPs"
   ],
   "periodics_due": [
     {
