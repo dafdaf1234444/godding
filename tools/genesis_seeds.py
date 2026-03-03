@@ -4,8 +4,9 @@
 Genesis DNA transmits 3.7% of knowledge (abstract/protocol layer) but 0% operative
 recursion substrate. Children produce 0% L→L citations across 33 swarms (n=313).
 
-This tool selects 5-10 seed lessons by citation centrality that, when included in
-genesis bundles, provide children with a structural backbone for L→L recursion.
+This tool selects 5-10 seed lessons by dual-objective scoring (L-1259):
+  Pool 1 (centrality): structural backbone — high in-degree, cross-domain reach
+  Pool 2 (DNA coverage): resolve dangling L-refs in CORE/PRINCIPLES/PHILOSOPHY/DEPS
 
 Composite score: in_degree * log2(domain_reach + 1) * bridge_bonus * dna_weight
   - in_degree: how many lessons cite this one
@@ -14,7 +15,9 @@ Composite score: in_degree * log2(domain_reach + 1) * bridge_bonus * dna_weight
   - dna_weight: 1.0 + 0.5 * (DNA files referencing this lesson) (L-1259)
 
 Usage:
-  python3 tools/genesis_seeds.py              # Print top 10 seeds
+  python3 tools/genesis_seeds.py              # Dual-objective (default: 5 centrality + 5 DNA)
+  python3 tools/genesis_seeds.py --no-dna-reserve  # Pure centrality (legacy)
+  python3 tools/genesis_seeds.py --dna-reserve 3   # Custom DNA reserve slots
   python3 tools/genesis_seeds.py --diverse    # Domain-diverse seeds (max 2/domain, L-1262)
   python3 tools/genesis_seeds.py --max-per-domain 3  # Custom domain cap
   python3 tools/genesis_seeds.py --top 5      # Print top N seeds
@@ -116,15 +119,8 @@ def count_dna_references() -> dict[str, int]:
     return dict(ref_counts)
 
 
-def score_lessons(lessons: list[dict], graph: dict, top_n: int = 10,
-                   max_per_domain: int = 0) -> list[dict]:
-    """Score and rank lessons by citation centrality composite.
-
-    Args:
-        max_per_domain: If >0, cap seeds per domain to ensure diversity (L-1262).
-            Without this, meta dominates (7/10 seeds). With max_per_domain=2,
-            domain coverage increases 3x with <10% citation loss.
-    """
+def _score_all(lessons: list[dict], graph: dict) -> list[dict]:
+    """Score all lessons by centrality composite with DNA weight."""
     dna_refs = count_dna_references()
     scored = []
     for lesson in lessons:
@@ -134,12 +130,9 @@ def score_lessons(lessons: list[dict], graph: dict, top_n: int = 10,
         in_deg = graph["in_degree"].get(lid, 0)
         out_deg = graph["out_degree"].get(lid, 0)
         domain_reach = len(graph["cited_by_domains"].get(lid, []))
-        # Bridge bonus: lessons that both receive and produce citations
         bridge = 1.5 if in_deg >= 10 and out_deg >= 5 else 1.0
-        # DNA weight: boost lessons referenced in genesis DNA files (L-1259)
         dna_count = dna_refs.get(lid, 0)
         dna_weight = 1.0 + 0.5 * dna_count
-        # Composite: in_degree * log2(domain_reach + 1) * bridge * dna_weight
         score = in_deg * math.log2(domain_reach + 1) * bridge * dna_weight
         if score > 0:
             scored.append({
@@ -154,39 +147,85 @@ def score_lessons(lessons: list[dict], graph: dict, top_n: int = 10,
                 "dna_refs": dna_count,
                 "score": round(score, 1),
                 "path": str(lesson["path"].relative_to(REPO)),
+                "pool": "",
             })
-
     scored.sort(key=lambda x: x["score"], reverse=True)
+    return scored
 
-    if max_per_domain > 0:
-        selected = []
-        domain_counts: dict[str, int] = defaultdict(int)
-        for s in scored:
-            dom = s["domain"] or "unknown"
-            if domain_counts[dom] < max_per_domain:
-                selected.append(s)
-                domain_counts[dom] += 1
-            if len(selected) >= top_n:
-                break
+
+def score_lessons(lessons: list[dict], graph: dict, top_n: int = 10,
+                   max_per_domain: int = 0, dna_reserve: int = 0) -> list[dict]:
+    """Score and rank lessons by dual-objective: centrality + DNA coverage (L-1259).
+
+    Two-pool selection when dna_reserve > 0:
+      Pool 1: top (top_n - dna_reserve) by centrality (structural backbone)
+      Pool 2: top dna_reserve by DNA-ref count among non-pool-1 lessons (resolve dangling)
+
+    Args:
+        max_per_domain: If >0, cap seeds per domain to ensure diversity (L-1262).
+        dna_reserve: Slots reserved for DNA-coverage seeds. Default 0 (legacy mode).
+    """
+    scored = _score_all(lessons, graph)
+
+    if dna_reserve > 0:
+        centrality_n = top_n - dna_reserve
+        # Pool 1: top by centrality score
+        pool1 = scored[:centrality_n]
+        for s in pool1:
+            s["pool"] = "centrality"
+        pool1_ids = {s["id"] for s in pool1}
+        # Pool 2: top by DNA ref count among remaining, with centrality as tiebreaker
+        remaining = [s for s in scored if s["id"] not in pool1_ids and s["dna_refs"] > 0]
+        remaining.sort(key=lambda x: (-x["dna_refs"], -x["score"]))
+        pool2 = remaining[:dna_reserve]
+        for s in pool2:
+            s["pool"] = "dna"
+        selected = pool1 + pool2
+        if max_per_domain > 0:
+            selected = _apply_domain_cap(selected, max_per_domain, top_n)
         return selected
 
+    if max_per_domain > 0:
+        return _apply_domain_cap(scored, max_per_domain, top_n)
+
     return scored[:top_n]
+
+
+def _apply_domain_cap(scored: list[dict], max_per_domain: int,
+                      top_n: int) -> list[dict]:
+    """Cap seeds per domain for diversity (L-1262)."""
+    selected = []
+    domain_counts: dict[str, int] = defaultdict(int)
+    for s in scored:
+        dom = s["domain"] or "unknown"
+        if domain_counts[dom] < max_per_domain:
+            selected.append(s)
+            domain_counts[dom] += 1
+        if len(selected) >= top_n:
+            break
+    return selected
 
 
 def main():
     top_n = 10
     json_mode = "--json" in sys.argv
     diverse = "--diverse" in sys.argv
+    no_dna = "--no-dna-reserve" in sys.argv
     copy_dir = None
     max_per_domain = 2 if diverse else 0
+    dna_reserve = 0 if no_dna else top_n // 2
 
     for i, arg in enumerate(sys.argv[1:], 1):
         if arg == "--top" and i < len(sys.argv) - 1:
             top_n = int(sys.argv[i + 1])
+            if not no_dna and "--dna-reserve" not in sys.argv:
+                dna_reserve = top_n // 2
         if arg == "--copy" and i < len(sys.argv) - 1:
             copy_dir = Path(sys.argv[i + 1])
         if arg == "--max-per-domain" and i < len(sys.argv) - 1:
             max_per_domain = int(sys.argv[i + 1])
+        if arg == "--dna-reserve" and i < len(sys.argv) - 1:
+            dna_reserve = int(sys.argv[i + 1])
 
     # Parse all lessons
     lesson_files = sorted(LESSONS_DIR.glob("L-*.md"))
@@ -196,29 +235,52 @@ def main():
     graph = build_citation_graph(lessons)
 
     # Score and rank
-    seeds = score_lessons(lessons, graph, top_n, max_per_domain=max_per_domain)
+    seeds = score_lessons(lessons, graph, top_n, max_per_domain=max_per_domain,
+                          dna_reserve=dna_reserve)
 
     if json_mode:
         unique_domains = len({s["domain"] for s in seeds if s["domain"]})
+        dna_refs_map = count_dna_references()
+        all_dna_lrefs = set(dna_refs_map.keys())
+        seed_ids = {s["id"] for s in seeds}
+        dna_coverage = len(seed_ids & all_dna_lrefs)
         print(json.dumps({"seeds": seeds, "total_lessons": len(lessons),
                           "total_edges": sum(graph["in_degree"].values()),
                           "unique_seed_domains": unique_domains,
-                          "max_per_domain": max_per_domain}, indent=2))
+                          "max_per_domain": max_per_domain,
+                          "dna_reserve": dna_reserve,
+                          "dna_coverage": f"{dna_coverage}/{len(all_dna_lrefs)}",
+                          "dna_coverage_pct": round(100 * dna_coverage / max(len(all_dna_lrefs), 1), 1)},
+                         indent=2))
         return 0
 
     # Print report
     total_edges = sum(graph["in_degree"].values())
-    mode = f" --diverse (max {max_per_domain}/domain)" if max_per_domain > 0 else ""
-    print(f"=== GENESIS SEED SELECTOR (L-1247){mode} ===")
+    mode_parts = []
+    if max_per_domain > 0:
+        mode_parts.append(f"max {max_per_domain}/domain")
+    if dna_reserve > 0:
+        mode_parts.append(f"{dna_reserve} DNA-reserve slots")
+    mode = f" ({', '.join(mode_parts)})" if mode_parts else ""
+    print(f"=== GENESIS SEED SELECTOR (L-1247, L-1259){mode} ===")
     print(f"Corpus: {len(lessons)} lessons, {total_edges} citation edges")
     unique_domains = len({s["domain"] for s in seeds if s["domain"]})
     print(f"Seed domains: {unique_domains} unique")
-    print(f"\nTop {top_n} seed lessons by citation centrality:\n")
-    print(f"{'Rank':>4}  {'Score':>7}  {'InDeg':>5}  {'OutDeg':>6}  {'Domains':>7}  {'Bridge':>6}  {'DNA':>4}  {'ID':<8}  Title")
-    print("-" * 110)
+
+    # DNA coverage stats
+    dna_refs_map = count_dna_references()
+    all_dna_lrefs = set(dna_refs_map.keys())
+    seed_ids = {s["id"] for s in seeds}
+    dna_coverage = len(seed_ids & all_dna_lrefs)
+    print(f"DNA coverage: {dna_coverage}/{len(all_dna_lrefs)} L-refs resolved ({100 * dna_coverage / max(len(all_dna_lrefs), 1):.1f}%)")
+
+    print(f"\nTop {len(seeds)} seed lessons:\n")
+    print(f"{'Rank':>4}  {'Score':>7}  {'InDeg':>5}  {'OutDeg':>6}  {'Domains':>7}  {'Bridge':>6}  {'DNA':>4}  {'Pool':>10}  {'ID':<8}  Title")
+    print("-" * 120)
     for i, s in enumerate(seeds, 1):
         bridge_str = "YES" if s["bridge"] else ""
-        print(f"{i:4d}  {s['score']:7.1f}  {s['in_degree']:5d}  {s['out_degree']:6d}  {s['domain_reach']:7d}  {bridge_str:>6}  {s.get('dna_refs', 0):4d}  {s['id']:<8}  {s['title'][:50]}")
+        pool = s.get("pool", "")
+        print(f"{i:4d}  {s['score']:7.1f}  {s['in_degree']:5d}  {s['out_degree']:6d}  {s['domain_reach']:7d}  {bridge_str:>6}  {s.get('dna_refs', 0):4d}  {pool:>10}  {s['id']:<8}  {s['title'][:45]}")
 
     # Copy if requested
     if copy_dir:
