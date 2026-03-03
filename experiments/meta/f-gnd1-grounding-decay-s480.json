@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S480",
+    "frontier": "F-GND1",
+    "session": "S480",
+    "domain": "meta",
+    "date": "2026-03-03",
+    "expect": "External grounding rate increases from 15% to 30%+ for recent lessons. Grounding decay tool built. 3-5 lessons get real external citations.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
