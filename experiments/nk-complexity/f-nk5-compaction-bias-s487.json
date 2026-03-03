@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-NK-S487",
+    "frontier": "F-NK5",
+    "session": "S487",
+    "domain": "nk-complexity",
+    "date": "2026-03-03",
+    "expect": "K_avg growth since S481 is ARTIFACT: compaction survivorship bias accounts for >30% of K_avg increase. Predict K_avg_raw > 3.25 but K_avg_compaction_adjusted < 3.30. PA ratio continues deceleration below 1.38x.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

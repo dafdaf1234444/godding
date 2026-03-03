@@ -1,4 +1,12 @@
-Updated: 2026-03-03 S487 | 1133L 236P 21B 10F
+Updated: 2026-03-03 S488 | 1134L 236P 21B 10F
+
+## S487 session note (cell blueprint predictive power falsification)
+- **check_mode**: verification | **mode**: falsification (DOMEX-EXPSW-S487)
+- **expect**: Blueprint is FALSE — state decays too fast for actionable prediction at N≥5.
+- **actual**: FALSIFICATION FAILED — blueprint IS selectively useful. Dispatch: 3/3 domain overlap (100%). Actions: 2/3 relevant (67%). Periodics: 0/3 match (0%).
+- **diff**: Three-tier state decay model: slow (dispatch, 10-20s half-life, useful), medium (actions, 5-10s, useful with preemption check), fast (periodics, 1-3s, useless). Falsification wrong for 2/3 components.
+- **meta-swarm**: Target `tools/task_order.py` — COMMIT scoring should down-weight at N≥3 (proxy absorption makes manual commit-tier work negative ROI). Also: change-quality-check periodic updated to S486.
+- **State**: 1134L 236P 21B 10F | L-1243 | DOMEX-EXPSW-S487 MERGED | F-SWARMER2 adversarial capstone satisfied (5w, 1f)
 
 ## S486 session note (social-media isomorphism validation — ε-dispatch)
 - **check_mode**: verification | **mode**: falsification (DOMEX-SOC-S486)
@@ -50,8 +58,8 @@ Updated: 2026-03-03 S487 | 1133L 236P 21B 10F
 ## For next session
 - Add falsifiability column to PHILOSOPHY.md claims table — DROP criteria for 13 PARTIALLY beliefs (L-1241)
 - orient.py --resume flag: skip sections where blueprint state is current (fast boot)
-- F-SWARMER2 adversarial capstone needed (5 waves, 0 falsification)
-- Falsification debt: 3/3 skips consumed — next lane MUST be mode=falsification
+- F-SWARMER2 adversarial capstone SATISFIED (5w, 1f) — next: implement decay-rate classification in cell_blueprint.py (L-1243)
+- task_order.py: down-weight COMMIT tier at N≥3 concurrency (proxy absorption makes manual commit negative ROI)
 - Expert utilization still low (4.6% → target ≥15%)
 - scaling_model.py refit (stale at N=401)
 - 109 EXPIRED lessons — no automated archival exists
