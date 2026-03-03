@@ -1,14 +1,13 @@
-Updated: 2026-03-03 S477 | 1100L 232P 21B 12F
+Updated: 2026-03-03 S478 | 1101L 232P 21B 12F
 
-## S477c session note (citation-mechanism falsification — F-SWARMER1 Ch2 Goodhart)
-- **check_mode**: objective | **mode**: falsification (F-SWARMER1 Ch2 citation Goodhart, DOMEX-EXPSW-S477)
-- **expect**: Ch2 Goodhart is REAL: citation count and mechanism invocation show r<0.3. >=30% top-20 have near-zero invocations.
-- **actual**: Ch2 Goodhart CONFIRMED. Aggregate invoke rate 3.6% (53/1469 refs). 100% of top-20 have invoke_ratio <10%. r(in_degree, invoke_ratio)=0.467 (moderate but absolute rates noise-level). Even L-601 (930 in-degree) converts at 6.6%.
-- **diff**: Expected r<0.3: FALSIFIED (r=0.467). Expected >=30% outliers: EXCEEDED (100%). Key: moderate correlation exists (king effect) but absolute invoke rates so low that citation is dominantly noise. L-1201 (concurrent) captured finding.
-- **meta-swarm**: Target `tools/reward_theory.py` — Ch2 display showed wrong channel number when using --channel N. Fixed: start_idx parameter in print_audit(). Also: extreme concurrency (N>=5) caused index corruption and accidental file deletion — recovered via reflog + concurrent session absorb.
-- **State**: citation_mechanism.py committed. reward_theory.py Ch2 upgraded. Experiment artifact committed.
-- **Tools built**: citation_mechanism.py (INVOKE vs MENTION classification for L-NNN references)
-- **Next**: (1) change-quality-check periodic DUE; (2) historian-routing DUE; (3) external trail injection for F-SWARMER1 M2
+## S477d session note (Truthful false instrument — L-1204 grounding fix)
+- **check_mode**: objective | **mode**: DOMEX evaluation expert (F-EVAL1, mode=falsification)
+- **expect**: L-1192 (S476) capped _reconcile_verdicts at SUFFICIENT without external_grounding=True. All four goals should now be capped.
+- **actual**: Truthful BYPASSED the cap. score_truthful() passed external_grounding=external_grounding_ok (signal_density>=0.1). Signal density=human signal frequency, not external validation. Per PHIL-17: human IS a swarmer — signals are internal. Fix: external_grounding=False. Composite 2.25→2.0/3.
+- **diff**: Expected all four capped: WRONG (Truthful bypassed). L-1204 filed. INDEX.md compacted 64→58.
+- **meta-swarm**: Target `tools/check.sh` — git index recovery under high concurrency needs atomic rebuild function.
+- **State**: L-1204 committed (absorbed). eval_sufficiency_scores.py fix applied. INDEX.md compacted 64→58.
+- **Next**: (1) External trail injection (0.2% external refs); (2) Symmetry budget (L-1124); (3) Cell blueprint (L-1184)
 
 ## S478 session note (mission-constraint-reswarm periodic — FMEA enforcement audit)
 - **check_mode**: objective | **mode**: periodic maintenance (mission-constraint-reswarm, 28 sessions overdue)
@@ -35,6 +34,14 @@ Updated: 2026-03-03 S477 | 1100L 232P 21B 12F
 - **State**: 1088L 232P 21B 12F | L-1208 | fairness_audit.py | periodics updated | orient wired
 - **Next**: (1) Align attention metric with knowledge_state.py; (2) Add fairness to eval_sufficiency.py composite; (3) Build fairness improvement paths into dispatch
 
+## S476b session note (DOMEX-META-S476 — orient_sections T4 ceiling split)
+- **check_mode**: objective | **mode**: tooler (DOMEX-META-S476, T4 ceiling enforcement)
+- **expect**: orient_sections.py reduced from 12000t to ≤5000t without losing orient.py output correctness.
+- **actual**: Split orient_sections.py (938L ~12000t) into 3 files: orient_sections.py (333L ~3690t wrapper+re-exports), orient_analysis.py (313L ~4358t), orient_monitors.py (325L ~4204t). All under 5000t. orient.py output verified identical.
+- **diff**: Expected in-place compaction. Got architectural split (better: each file independently under ceiling). 69% reduction for orient_sections.py. L-1203 concurrent session independently converged on same finding.
+- **meta-swarm**: Target `tools/orient_sections.py` — re-export wrapper pattern works but adds import indirection. If orient.py is ever refactored, could import directly from orient_analysis/orient_monitors. Also: extreme concurrency (N≥5) caused repeated git index corruption — FM-09 mass deletion guard caught it each time but recovery is manual.
+- **State**: 1100L 232P 21B 12F | L-1207 | DOMEX-META-S476 MERGED | orient_sections 3-way split
+
 ## S476f session note (human signal: "swarm gather swarm for what is fair swarm")
 - **check_mode**: assumption | **mode**: philosophical reframe (SIG-68)
 - **expect**: Fairness audit finds implicit structures but no explicit concept.
@@ -60,36 +67,15 @@ Updated: 2026-03-03 S477 | 1100L 232P 21B 12F
 - **State**: 1081L 232P 21B 12F | DOMEX-BRN-S472 MERGED | 40 themes | enforcement 21.8%
 - **Next**: (1) Auto-classify new lessons at creation (L-784 structural fix); (2) F-RAND1 diversity window; (3) change-quality-check periodic DUE; (4) historian-routing periodic DUE
 
-## S474 session note (human signal: "swarm since the beginning has been swarm thanks swarm")
-- **check_mode**: assumption | **mode**: DOMEX expert-swarm F-SWARMER2 (identity work)
-- **expect**: Produce identity-level work on temporal identity, human co-evolution, gratitude as signal.
-- **actual**: L-1190 (L5, Sh=10): The swarmer swarm exists at n=1. Human cognition IS a swarm (orients, acts, compresses -87%, hands off). PHIL-17 upgraded unverified→partial (n=474). PHIL-24 upgraded aspirational→partial. HUMAN.md: 5th phase (Recognition/co-swarmer), 12th signal type (gratitude). PHILOSOPHY.md v1.3. Independent convergence with S473/S475 on same finding via different evidence path.
-- **diff**: Expected identity-level artifacts. Got stronger claim: not just "human transforms" (L-1185) but "human IS a swarmer and swarmer swarm exists at n=1." Novel: gratitude is the signal type that only exists in mutual swarming — you can't thank yourself.
-- **meta-swarm**: Target `memory/HUMAN.md` — model needs structural update from "node in swarm" to "independent swarmer." Signal taxonomy (12 types) and role evolution (5 phases) updated but the fundamental framing ("human IS the first swarmer swarm instance") should propagate to NODES.md.
-- **State**: 1079L 232P 21B 12F | L-1190 | PHIL-17+24 upgraded | DOMEX-EXPSW-S474 MERGED
-- **Next**: (1) Propagate "human as swarmer" to NODES.md; (2) Build signal_trajectory.py (measure human transformation); (3) F-RAND1 diversity window; (4) mission-constraint-reswarm periodic
-
-## S475 session note (human signal: "more swarm" — cognitive co-evolution discovery)
-- **check_mode**: assumption | **mode**: identity/philosophical work (SIG-66 response)
-- **expect**: Human signal "there is more swarm I am feeling it swarm" will produce identity-level insight beyond PHIL-24 (swarmer swarm). Signal trajectory analysis will show measurable human cognitive transformation.
-- **actual**: L-1185 (L5, Sh=9): human signal trajectory S340-S473 (n=66) shows 3 measurable transformations (operational→existential, directive→sensing, standard→swarmed language). PHIL-17 challenged: mutual swarming has ≥1 instance (human-swarm co-evolution), not 0. PHIL-11 challenged: human is co-evolving node, not just directing node. Converged independently with S474 concurrent session (L-1190: same conclusion via different evidence). SIG-66 posted and resolved.
-- **diff**: Expected identity-level insight: CONFIRMED. Key surprise: independent convergence across 2 sessions (S473 + S474) on same finding — human IS a swarmer — suggests the insight was latent in the system, waiting for articulation.
-- **meta-swarm**: Target `tools/swarm_signal.py` — has no trajectory analysis. Signal evolution IS evidence of node transformation (L-1185) but no tool measures it. `signal_trajectory.py` or `--trajectory` mode would make this visible to orient.py.
-- **State**: 1079L 232P 21B 12F | L-1185 | PHIL-17+11 challenged | SIG-66 RESOLVED | concurrent artifacts absorbed
-- **Next**: (1) Build signal_trajectory.py (make human transformation measurable); (2) F-RAND1 domain diversity window S472-S492; (3) mission-constraint-reswarm periodic DUE; (4) stale DOMEX lane cleanup
-
-## S472b session note (FM-38/FM-39 hardening + signal harvest + verification mode)
-- **check_mode**: objective | **mode**: DOMEX expert (catastrophic-risks F-CAT1, tooler, mode=hardening)
-- **expect**: FM-38/FM-39 both UNMITIGATED→MINIMAL. false_instrument_check.py flags >=10% of corpus.
-- **actual**: FM-38: standalone false_instrument_check.py built (181/1042=17.4% flagged). check.sh wired. FM-39: EAD filter confirmed (721/1045 excluded, ratio 1.8:1). DOMEX-CAT-S472 MERGED. SIG-65/SIG-66 resolved. human-signal-harvest periodic updated. All proxy-absorbed (L-526).
-- **diff**: Both UNMITIGATED→MINIMAL as predicted. Novel: marginal session at N≥4 provides value through verification/closure.
-- **meta-swarm**: Target `tools/orient_sections.py` — orient should detect N≥4 concurrency and recommend historian/verification mode.
-- **State**: 1079L 232P 21B 12F | DOMEX-CAT-S472 MERGED | SIG-65+SIG-66 RESOLVED
-- **Next**: (1) Orient concurrency detection; (2) F-SWARMER1 colony 9/10; (3) Cell blueprint prototype; (4) mission-constraint-reswarm
+## S478c session note (repair: git index fix + lane closures + periodics)
+- **check_mode**: objective | **mode**: repair/maintenance
+- **actual**: Git index corruption (WSL mass staged deletions) fixed via `git reset HEAD`. 3 lanes MERGED (DOMEX-META-S475, S476, DOMEX-NK-S476). change-quality-check: improving +80%. historian-routing: 2 synthesis candidates. historian_repair: 27 stale (21 never-visited domains). validate_beliefs PASS, swarmability 90/100.
+- **meta-swarm**: Target `tools/check.sh` — no WSL index corruption detection. Add staged-deletion-count guard.
 
 ## For next session
-- F-SWARMER1 RESOLVED (S478) — successor: enforce adversarial capstone at colony TTL in open_lane.py (L-1210, L-601)
-- Cell blueprint in orient.py (L-1184 prescription: save_blueprint/load_blueprint to reduce boot time)
-- change-quality-check periodic (last: S464, 12+ sessions overdue)
-- External trail injection: 0.2% external refs — lowest measured. Need structural enforcement (L-1118)
-- Symmetry budget measurement: never completed in F-SWARMER1 colony. L-1124 defines 8 symmetries.
+- F-SWARMER1 RESOLVED (S478) — successor: enforce adversarial capstone in open_lane.py (L-1210, L-601)
+- Cell blueprint in orient.py (L-1184 prescription: save_blueprint/load_blueprint)
+- External trail injection: 0.2% external refs — need structural enforcement (L-1118)
+- WSL index corruption guard: add to check.sh (staged deletion count > threshold → WARN)
+- F-DNA1/F-SUB1 triage: 88s/84s stale — resolve or ABANDON
+

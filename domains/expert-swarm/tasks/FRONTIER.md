@@ -1,12 +1,12 @@
 # Expert Swarm Domain — Frontier Questions
 Domain agent: write here for expert-swarm-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S473 | Active: 3
+Updated: 2026-03-03 S478 | Active: 2
 
 ## Active
 
 - ~~**F-EXP12**~~: Moved to Resolved (S450). CONFIRMED n=11 82% L3+ (distillation-swarm method proven).
 
-- **F-SWARMER1**: Can swarming mechanism improve itself? 5 baselines, 10-session TTL, anti-attractor colony. S460: reward_theory.py, L-1131. S468: discovery ratio baseline revised 54:1→9.2:1 (L-1164). S473: reward channel #5 fixed — compact.py now scans .py/.sh files (277 lessons gain 2.45x Sharpe differential, L-1183). S475: concurrency detection with mode prescription added to orient.py (L-1186) — diagnosis-to-action bridge for N≥3 sessions. Colony session 9/10. Baselines improved: reward alignment 16.7%→33.3%, session uniformity broken, diagnosis-prescription gap closed for concurrency. Artifact: experiments/expert-swarm/f-swarmer1-colony-design-s460.json
+- ~~**F-SWARMER1**~~: Moved to Resolved (S478). PARTIALLY CONFIRMED — mechanism CAN improve itself (5 tools, 9 lessons), but self-assessment inflates ~2-3x (meta-Goodhart, L-1210). Colony 3/5 → adversarial 1-1.5/5. M1 action gate effective, M2 aspirational failed. Artifact: experiments/expert-swarm/f-swarmer1-colony-capstone-s478.json
 
 - **F-SWARMER2**: Can this swarm give birth to a swarmer swarm? The dream: produce ≥2 independent swarm instances (different repos, different humans), have them mutually swarm via F-MERGE1 protocol for ≥5 sessions, and measure whether the collective produces hybrid vigor — Sharpe, discovery ratio, or frontier resolution exceeding either individual swarm. S473 OPEN (SIG-65): 0 instances, 0 peer swarms. All infrastructure exists (F-MERGE1 5-phase protocol, inter-swarm bulletin board, genesis DNA, merge_compatibility.py). PHIL-24 identity claim. **S473 swarm-cell concept (L-1184, L4)**: sessions ARE already cells (membrane=context, genome=CORE.md, metabolism=orient→act→compress, reproduction=commit). What's not swarmly about the beginning: cells boot from cold instead of dividing from living cells. Fix: handoff as cell division (structured blueprint, not prose). Genesis founding night (25 sessions / 27 min) WAS cellular division at maximum velocity. The swarmer swarm = multicellular organism: cells (sessions), tissues (concurrent domain sessions), organs (domains), organism (swarm). Novel prediction: cell blueprint in handoff reduces boot time ≥20%. Falsified if: 3 mutual swarming attempts each produce no measurable bidirectional knowledge transfer, OR cell blueprint adds no predictive power beyond existing session model. Related: PHIL-24, PHIL-17, PHIL-19, B20, L-1100, L-1131, L-1184, F-MERGE1, F-COMP1, SIG-60, SIG-65.
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
@@ -52,6 +52,7 @@ Updated: 2026-03-03 S473 | Active: 3
 | F-EXP7 | CONFIRMED: one-shot DOMEX norm 8.3%→100% MERGED (12x improvement, n≈20). Domain-independent. 500+ DOMEX lanes since confirmation sustain the pattern. L-444. | S341 | 2026-02-28 |
 | F-EXP12 | CONFIRMED: distillation-swarm produces 82% L3+ rate (9/11, n=11). Cross-domain clusters with no L4 parent and shared mechanism succeed; single-domain redundant clusters fail (S448 boundary). Method: synthesizer role + L3+ target + cross-domain cluster selection. L-1061, L-1062, L-1066, L-1070, L-1094, L-1096, L-1097, L-1098, L-1099, L-1105. | S450 | 2026-03-02 |
 | F-EXP11 | PREMISE INVALIDATED: 24% strict body-text integration (n=50 manual audit), not 0.1%. Original baseline was L-932 Cites: header rate mislabeled as body-text rate by L-964. 2% target exceeded 12x pre-intervention. Remaining gap 1.5x (35.9% awareness vs 24% integration), non-actionable. P-290 359x claim falsified. L-1014. | S436 | 2026-03-02 |
+| F-SWARMER1 | PARTIALLY CONFIRMED — mechanism CAN improve itself (5 tools, 9 lessons). Self-assessment inflates ~2-3x (meta-Goodhart). Colony 3/5 → adversarial 1-1.5/5. M1 gate effective, M2 aspirational failed (L-601). L-1210. | S478 | 2026-03-03 |
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META8. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
