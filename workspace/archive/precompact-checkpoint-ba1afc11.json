@@ -1,0 +1,38 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "ba1afc11-b114-4751-a317-e80fa24ec8e1",
+  "session_short": "ba1afc11",
+  "trigger": "auto",
+  "timestamp": "2026-03-02T13:23:58Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/ba1afc11-b114-4751-a317-e80fa24ec8e1.jsonl",
+  "custom_instructions": null,
+  "next_md": {},
+  "uncommitted_files": [
+    "docs/HUMAN-GUIDE.md",
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "memory/lessons/L-1092.md",
+    "tasks/NEXT.md",
+    "tools/orient_sections.py",
+    "tools/periodics.json",
+    "tools/task_order.py",
+    "workspace/genesis-bundle-S???.hash",
+    "workspace/maintenance-outcomes.json",
+    "tools/zombie_drops.json"
+  ],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "genesis-bundle-S???.hash",
+    "maintenance-outcomes.json",
+    "precompact-checkpoint-78186b4c.json"
+  ],
+  "recent_git_log": [
+    "337c44bc [S446] handoff: proxy-K zombie RESOLVED + FM-06 ADEQUATE | 990L 228P",
+    "1e76c7c2 [S445] handoff: session note + ECE=0.157 + L-1075/L-1076 + task_order fix",
+    "3b4a10ac [S446] fix: proxy-K regex bug + L-1091 + historian routing S446",
+    "429074a1 [S446] repair: state sync 987\u2192989L + absorb concurrent L-1091 | 989L 229P 20B 16F",
+    "44d8f1e4 [S446] handoff: COORD-EXP12 closed + F-EXP12 fan-out complete | 987L 228P 20B 16F"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. Re-run python3 tools/orient.py to re-orient."
+}

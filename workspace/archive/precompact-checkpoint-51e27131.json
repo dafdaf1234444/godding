@@ -1,0 +1,35 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "51e27131-224a-4fa9-b08d-97d0e9e21c52",
+  "session_short": "51e27131",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T00:37:13Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/51e27131-224a-4fa9-b08d-97d0e9e21c52.jsonl",
+  "custom_instructions": null,
+  "next_md": {},
+  "uncommitted_files": [
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/brain/f-iso2-overlap-prediction-s457.json",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "tasks/NEXT-ARCHIVE.md",
+    "workspace/maintenance-outcomes.json",
+    "experiments/brain/f-brn4-bucket-split-s458.json",
+    "experiments/meta/knowledge-state-s457.json",
+    "experiments/nk-complexity/f-nk6-closure-classifier-s458.json"
+  ],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "genesis-bundle-S454.hash",
+    "maintenance-outcomes.json",
+    "precompact-checkpoint-715d5b5b.json"
+  ],
+  "recent_git_log": [
+    "0a2a830d [S457] feat: zombie carry-over false positive fix \u2014 actual: cross-reference in orient_sections.py",
+    "3feade0e [S457] feat: DOMEX-META-S457 historian \u2014 L-1114 class distinction + artifact",
+    "0d650ad8 [S457] feat: FM-03 ADEQUATE + ISO-7 CONFIRMED + zombie carried-over fix",
+    "16a13665 [S457] commit: absorb concurrent S457 artifacts \u2014 L-1115 + FM-03 ghost detection + ISO-26 candidate + PAPER reswarm",
+    "afc41d93 [S456] handoff: emergence audit + claim-vs-evidence audit | 1013L 225P 20B 15F"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. Re-run python3 tools/orient.py to re-orient."
+}

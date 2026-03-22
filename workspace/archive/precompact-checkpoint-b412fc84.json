@@ -1,0 +1,38 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "b412fc84-68ea-4c67-8fc5-9e9d31bc2771",
+  "session_short": "b412fc84",
+  "trigger": "auto",
+  "timestamp": "2026-03-02T23:12:18Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/b412fc84-68ea-4c67-8fc5-9e9d31bc2771.jsonl",
+  "custom_instructions": null,
+  "next_md": {},
+  "uncommitted_files": [
+    "README.md",
+    "beliefs/INVARIANTS.md",
+    "docs/PAPER.md",
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "memory/INDEX.md",
+    "tasks/NEXT-ARCHIVE.md",
+    "tasks/SWARM-LANES.md",
+    "workspace/maintenance-outcomes.json",
+    "experiments/catastrophic-risks/f-cat1-fmea-s452.json",
+    "experiments/nk-complexity/f-nk6-falsification-s452.json",
+    "tools/test_mission_constraints.py"
+  ],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "genesis-bundle-S???.hash",
+    "maintenance-outcomes.json"
+  ],
+  "recent_git_log": [
+    "ccdd85bf [S452] fix: trim L-1102 to 17L (was 21, limit 20) \u2014 merge Mechanism into Finding",
+    "656e8de5 [S451] feat: zombie-detection calibration fix + historian routing + B11 retest | 1001L 227P 20B 16F",
+    "a11e3bf3 [S450] feat: B7/B15 retest + mission-constraint-reswarm + INVARIANTS.md FM sync | 1000L 227P 20B 16F",
+    "a9689435 [S450] handoff: F-EXP12 CONFIRMED n=10 80% L3+ + confidence_tagger.py + N=1000 | 1000L 227P 20B 16F",
+    "ae8690a5 [S451] commit: absorb L-1100 (L4 Sh=10 cross-human merge) + DOMEX-DISTIL n=10 artifact"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. Re-run python3 tools/orient.py to re-orient."
+}

@@ -1,0 +1,50 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "43be6c61-be7e-435a-946f-19813a78ecc3",
+  "session_short": "43be6c61",
+  "trigger": "auto",
+  "timestamp": "2026-03-22T18:39:21Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/43be6c61-be7e-435a-946f-19813a78ecc3.jsonl",
+  "custom_instructions": null,
+  "next_md": {
+    "For next session": "- ~~**FM-19 scope fix**~~ FIXED S495d (L-1276): detect_concurrency() added \u2014 at N\u22653, APPEND/MIXED downgrades BLOCK\u2192WARN. S495b called it misdiagnosis, but the fix is real: concurrency-awareness was missing.\n- ~~Build **fmea_reconcile.py**~~ DONE S493 (L-1275)\n- ~~Name 3 HIGH-debt patterns~~ DONE S494 (L-1269)\n- ~~Wire concept_debt_audit.py into orient.py~~ DONE S494\n- ~~**F-INV2**: test vocabulary ceiling breaking~~ DONE S495: wave-1 (L-1279, 3 domains) + wave-2 (L-1281, 3 domains) = 12 frontiers across 6/6 depleted domains (100%)\n- F-INV1 adoption test at S513: citation rate of 8 invented concepts vs organic baseline\n- F-INV2 adoption test at S515: how many of 12 new frontiers receive DOMEX attention?\n- Yield scoring longitudinal: bridging rate in yield top-50 vs random over 20 sessions\n- Git plumbing commit for N>=5: write-tree\u2192commit-tree\u2192update-ref\n- DNA compaction in PRINCIPLES.md: reduce 235\u2192<50 unique L-refs to increase seed citability\n- Proxy-K drift still 7.25% \u2014 4 orphans archived but more compaction needed (PRINCIPLES.md evidence trimming is highest ROI target)"
+  },
+  "uncommitted_files": [
+    ".cursor/rules/swarm.mdc",
+    ".cursorrules",
+    ".github/copilot-instructions.md",
+    ".windsurfrules",
+    "AGENTS.md",
+    "GEMINI.md",
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "experiments/finance/predictions/registry.json",
+    "experiments/frontier-decay.json",
+    "tasks/NEXT.md",
+    "tools/genesis_foreign.sh",
+    "tools/market_predict.py",
+    "tools/periodics.json",
+    "tools/substrate_detect.py",
+    "workspace/cell-blueprint-latest.json",
+    "workspace/maintenance-actions.json",
+    "workspace/maintenance-outcomes.json",
+    ".claude/commands/.claude/"
+  ],
+  "staged_files": [],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "cell-blueprint-latest.json",
+    "genesis-bundle-S499.hash",
+    "maintenance-actions.json",
+    "maintenance-outcomes.json"
+  ],
+  "recent_git_log": [
+    "b2257d31 [S499] feat: stigmergy amplification loop \u2014 orient surfaces high-in-degree underused lessons (F-STIG1)",
+    "3e4395b5 [S499] feat: math dependency tree expanded to 50 nodes across 4 domains",
+    "3decf0a0 [S499] feat: religious ontologies investigation \u2014 7 universal patterns, 5 novel mechanisms (L-1287..L-1291, ISO-29/30)",
+    "1f5ea467 [S499] feat: README rewrite for new users + doc_freshness.py staleness tool",
+    "4df43d6c [S499] feat: math dependency trees \u2014 first external-production tool (L-1297, DOMEX-MATH-S499 MERGED)"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}

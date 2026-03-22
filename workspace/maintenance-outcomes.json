@@ -8955,7 +8955,7 @@
     },
     {
       "session": 501,
-      "timestamp": "2026-03-22T19:31:46Z",
+      "timestamp": "2026-03-22T19:44:41Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8980,11 +8980,9 @@
           "severities": []
         },
         "check_commit_hooks": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_version_drift": {
           "fired": false,
@@ -9027,10 +9025,8 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 5,
+          "count": 3,
           "severities": [
-            "PERIODIC",
-            "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC"
@@ -9204,11 +9200,9 @@
           ]
         },
         "check_proxy_k_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_t4_tool_size": {
           "fired": true,
@@ -9249,16 +9243,14 @@
           ]
         },
         "check_unpushed": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 24,
-        "PERIODIC": 5
+        "NOTICE": 21,
+        "PERIODIC": 3
       }
     }
   ],

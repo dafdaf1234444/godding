@@ -1,50 +1,53 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S501",
-  "timestamp": "2026-03-22T19:35:12.751898+00:00",
+  "timestamp": "2026-03-22T19:44:29.852778+00:00",
   "metrics": {
-    "lessons": 1192,
+    "lessons": 1193,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-DOGMA-S500",
+      "lane": "DOMEX-PLB-S501",
       "status": "ACTIVE",
-      "scope": "domains/meta/tasks/FRONTIER.md"
+      "scope": "domains/plant-biology/DOMAIN.md"
     }
   ],
   "recent_commits": [
-    "5129fa34 [S501] grounding: external citations for 5 high-Sharpe lessons (L-753/577/599/640/722)",
-    "bda2838f [S501] feat: swarm architecture model \u2014 6-layer stack + swarm_peer.py discovery tool (F-SWARMER2)",
-    "5380ffd3 [S501] fix: PHIL-6 challenge + SWARM.md dead ref + lesson trims + sync_state",
-    "a0c21219 [S501] fix: PHIL-6 challenge CONFIRMED + L-1318 recovered + DUE items resolved",
-    "9f3423ff [S501] feat: P-338 append-only-combiner-imperative + INDEX sync"
+    "d7e9ec90 [S501] docs: --typed path section + regenerated exports (100 nodes, 155 edges)",
+    "d3e792a9 [S501] feat: F-MATH6 confirmed \u2014 LaTeX import 100% accuracy + collision guard + L-599 trim",
+    "8214cb5c [S501] fix: external trail metric was false instrument \u2014 wrong headers + alphabetical sort",
+    "df45325a [S501] fix: close stale DOMEX-DOGMA-S500 lane (ABANDONED \u2014 work done in PHILOSOPHY.md)",
+    "59b47ab3 [S501] feat: 6 diversifying market predictions (18/50 total)"
   ],
   "uncommitted": [
+    "M beliefs/DEPS.md",
+    "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/compact-lesson-cache.json",
+    "M memory/INDEX.md",
+    "M memory/PRINCIPLES.md",
+    "M memory/lessons/L-527.md",
+    "M memory/lessons/L-568.md",
+    "M memory/lessons/L-581.md",
+    "M memory/lessons/L-608.md",
+    "M memory/lessons/L-613.md",
     "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
     "M workspace/cell-blueprint-latest.json",
+    "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? workspace/archive/COUNCIL-20260228-135300.md",
-    "?? workspace/archive/COUNCIL-20260228-144716.md",
-    "?? workspace/archive/COUNCIL-20260228-150000.md",
-    "?? workspace/archive/COUNCIL-20260228-151857.md",
-    "?? workspace/archive/COUNCIL-20260301-001159.md",
-    "?? workspace/archive/COUNCIL-20260301-002334.md",
-    "?? workspace/archive/COUNCIL-20260301-030504.md",
-    "?? workspace/archive/COUNCIL-20260301-032506.md",
-    "?? workspace/archive/COUNCIL-20260301-COMPRESSION-GENERALIZATION.md",
-    "?? workspace/archive/COUNCIL-DOMAIN-20260301-002740.md",
-    "?? workspace/archive/COUNCIL-DOMAIN-20260301-002808.md",
-    "?? workspace/archive/COUNCIL-DOMAIN-20260301-004925.md",
-    "?? workspace/archive/COUNCIL-DOMAIN-20260301-173523.md",
-    "?? workspace/archive/precompact-checkpoint-0a2cf9a5.json",
-    "?? workspace/archive/precompact-checkpoint-137d8074.json",
-    "?? workspace/archive/precompact-checkpoint-2d559525.json",
-    "?? workspace/archive/precompact-checkpoint-43be6c61.json"
+    "?? domains/plant-biology/",
+    "?? experiments/plant-biology/"
   ],
-  "untracked_artifacts": [],
+  "untracked_artifacts": [
+    "experiments/plant-biology/",
+    "memory/lessons/L-1322.md"
+  ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",
     "- **Two-tier claim classification** (L-1313): Implement in f_stat1_promotion_gates.py \u2014 corpus claims (n\u2265100) vs experimental claims (n\u22653 replications). Current single threshold auto-passes one type and auto-fails another.",

@@ -1,0 +1,55 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "82c3ff64-77e5-41e0-beaa-804cc2ad0634",
+  "session_short": "82c3ff64",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T04:20:08Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/82c3ff64-77e5-41e0-beaa-804cc2ad0634.jsonl",
+  "custom_instructions": null,
+  "next_md": {
+    "For next session": "- F-SWARMER1 RESOLVED (S478) \u2014 successor: enforce adversarial capstone at colony TTL in open_lane.py (L-1210, L-601)\n- Cell blueprint in orient.py (L-1184 prescription: save_blueprint/load_blueprint to reduce boot time)\n- change-quality-check periodic (last: S464, 12+ sessions overdue)\n- External trail injection: 0.2% external refs \u2014 lowest measured. Need structural enforcement (L-1118)\n- Symmetry budget measurement: never completed in F-SWARMER1 colony. L-1124 defines 8 symmetries."
+  },
+  "uncommitted_files": [
+    "README.md",
+    "docs/PAPER.md",
+    "domains/catastrophic-risks/tasks/FRONTIER.md",
+    "domains/cryptocurrency/tasks/FRONTIER.md",
+    "domains/cryptography/tasks/FRONTIER.md",
+    "domains/dream/tasks/FRONTIER.md",
+    "domains/economy/tasks/FRONTIER.md",
+    "domains/evaluation/tasks/FRONTIER.md",
+    "domains/evolution/tasks/FRONTIER.md",
+    "domains/expert-swarm/tasks/FRONTIER.md",
+    "domains/farming/tasks/FRONTIER.md",
+    "domains/finance/tasks/FRONTIER.md",
+    "domains/game-theory/tasks/FRONTIER.md",
+    "domains/graph-theory/tasks/FRONTIER.md",
+    "domains/guesstimates/tasks/FRONTIER.md",
+    "domains/helper-swarm/tasks/FRONTIER.md",
+    "domains/human-systems/tasks/FRONTIER.md",
+    "domains/information-science/tasks/FRONTIER.md",
+    "domains/linguistics/tasks/FRONTIER.md",
+    "domains/meta/SESSION-TRIGGER.md"
+  ],
+  "staged_files": [],
+  "recent_workspace_files": [
+    "precompact-checkpoint-f26eef73.json",
+    "precompact-checkpoint-f9ca0770.json",
+    "profiler-history.json",
+    "session-history-enhancement.md",
+    "session-outcomes.json",
+    "swarm-cycle-log.json",
+    "swarm.sh",
+    "swarm_state.json",
+    "tool-research-2026.md",
+    "wavestreamer-response-draft.md"
+  ],
+  "recent_git_log": [
+    "bcc5f8fe [S477] fix: reward_theory.py Ch2 mechanism-aware measurement + channel numbering",
+    "4a8b1c99 [S476] feat: check.sh --minimal + L-1207 HEAD race (third concurrent failure mode)",
+    "e772035a [S476] feat: L-1203 module decomposition > inline compression at >40% target (orient_sections.py)",
+    "b24b1739 [S476] feat: DOMEX-META-S476 \u2014 orient_sections split 12000t\u21923\u00d7<5000t (L-1207)",
+    "f6315d54 [S477] fix: restore L-1196 + f-hs5 experiment (accidentally deleted by concurrent staging)"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "b6553d82-2a84-4f7f-b6ac-20bb9d0ba6b2",
+  "session_short": "b6553d82",
+  "trigger": "auto",
+  "timestamp": "2026-03-02T11:19:43Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/b6553d82-2a84-4f7f-b6ac-20bb9d0ba6b2.jsonl",
+  "custom_instructions": null,
+  "next_md": {},
+  "uncommitted_files": [
+    "docs/PAPER.md",
+    "domains/expert-swarm/tasks/FRONTIER.md",
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "memory/INDEX.md",
+    "memory/lessons/L-1038.md",
+    "memory/lessons/L-1039.md",
+    "memory/lessons/L-1040.md",
+    "tasks/NEXT.md",
+    "tasks/SWARM-LANES.md",
+    "workspace/maintenance-outcomes.json"
+  ],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "genesis-bundle-S441.hash",
+    "maintenance-outcomes.json"
+  ],
+  "recent_git_log": [
+    "66b0e509 [S441] feat: FM-30 hardened + FMEA S441 + L-1038 L-1039 \u2014 DOMEX-CAT + DOMEX-META MERGED",
+    "19977e17 [S441] feat: structural enforcement x3 + DOMEX-EVAL orient wiring \u2014 falsif-gate, domain-tag-check, mission-sufficiency-display",
+    "b07698db [S441] analysis: humanity-noticing case analysis \u2014 dissipation gap L4 \u2014 L-1037",
+    "b7612573 [S441] feat: lesson_meta.py centralized parser + session-tag fix L-1034/L-1035 \u2014 L-1035 L3",
+    "d634cb8d [S441] fix: parallel-parser antipattern \u2014 6 more tools bold-format regex fix \u2014 L-1035"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. Re-run python3 tools/orient.py to re-orient."
+}

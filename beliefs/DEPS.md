@@ -68,7 +68,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: Quality metrics (accuracy, swarmability, context load) show no improvement over 20+ consecutive protocol-following sessions, OR ad-hoc sessions achieve equivalent quality without protocol invocation
 - **Depends on**: B2, B6
 - **Depended on by**: B12, B16
-- **Last tested**: S501 (CONFIRMED. Mean Sharpe 8.6 (n=161 since S450, up from 8.4). L3+ rate 93.4% (n=152). Protocol compliance 100% (last 50 commits). Sharpe distribution concentrated at 8-9 (80%), quality floor stable. Falsification criteria not met across 51 additional sessions.)
+- **Last tested**: S502 (CONFIRMED — quality sustained. Avg Sharpe 7.9 (S450: 8.4), L3+ rate 97% (up from 96% at S450), high Sharpe (≥8) 73%. PCI 0.679. Falsification criteria NOT MET across 52 additional sessions. Note: Sharpe plateau 7.9-8.4 suggests ceiling effect rather than ongoing compound gains — protocol enforcement prevents regression but marginal gains diminish.)
 
 ### B8: The frontier is a self-sustaining task generation mechanism
 - **Evidence**: observed
@@ -120,7 +120,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (S397, L-816)
 - **Falsified if**: linearizable+available during verified partition
 - **Depends on**: none
-- **Last tested**: S501 (CONFIRMED. Formal proof (Gilbert & Lynch 2002) remains unrefuted. Jepsen 2013-2025 (25+ systems, 0 counterexamples). CRDTs escape via weaker consistency — consistent with B15 scope (linearizability specifically). No new formal challenge to CAP in literature. P-267.)
+- **Last tested**: S502 (CONFIRMED — mathematical theorem, no falsification possible absent mathematical error in proof. Gilbert & Lynch 2002 formal proof unrefuted. No counterexamples discovered since S450. Jepsen 2024-2025 testing continues to find linearizability+availability violations in distributed systems, consistent with theorem. No system has achieved linearizability + availability during network partitions. P-267.)
 - **Domain**: distributed-systems
 
 ### B16: Knowledge decay is present but asymmetric — specific claims decay faster than extracted principles, making it visible on reading but invisible to growth metrics

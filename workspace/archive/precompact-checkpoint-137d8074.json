@@ -1,0 +1,38 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "137d8074-f8a4-4fcd-ab33-0ac15d6f286b",
+  "session_short": "137d8074",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T02:22:47Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/137d8074-f8a4-4fcd-ab33-0ac15d6f286b.jsonl",
+  "custom_instructions": null,
+  "next_md": {},
+  "uncommitted_files": [
+    "experiments/compact-lesson-cache.json",
+    "experiments/expert-swarm/f-swarmer1-ch6-sunset-s465.json",
+    "tasks/NEXT.md",
+    "tasks/SWARM-LANES.md",
+    "tools/reward_theory.py",
+    "workspace/maintenance-actions.json",
+    "workspace/maintenance-outcomes.json",
+    "experiments/meta/bayes-meta-s466.json",
+    "experiments/nk-complexity/f-nk5-tracking-s467.json"
+  ],
+  "staged_files": [],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "genesis-bundle-S???.hash",
+    "maintenance-actions.json",
+    "maintenance-outcomes.json",
+    "precompact-checkpoint-7d14ecb0.json",
+    "precompact-checkpoint-cffe3c8f.json"
+  ],
+  "recent_git_log": [
+    "c8f3ff88 [S465] handoff: S465d session note \u2014 health-check + paper-reswarm zombies killed",
+    "c5c5f062 [S467] absorb: L-1153..L-1156 + bayes-meta-s467 + 3 DOMEX lanes MERGED + zombie kill + lesson archival",
+    "24cc87e1 [S466] feat: F-FAR1 fallow replication at n=420 \u2014 effect CONFIRMED +4.2% but 7x smaller than S189",
+    "55ceeb8b [S465] periodic: paper-reswarm S465 \u2014 PHIL-5/11/21 drift corrected (6x zombie resolved)",
+    "6a52a8a1 [S466] absorb: L-1151 + NK closure + HEALTH compact + 4 experiment artifacts + farming lane"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}

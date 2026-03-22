@@ -1,0 +1,44 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "b65bee03-b22e-4eac-881d-16b840c00b8e",
+  "session_short": "b65bee03",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T05:42:01Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/b65bee03-b22e-4eac-881d-16b840c00b8e.jsonl",
+  "custom_instructions": null,
+  "next_md": {
+    "For next session": "- Wire cell_blueprint.py into orient.py or CLAUDE.md (L-601 structural adoption)\n- open_lane.py falsification enforcement: WARN\u2192require `--skip-falsification-check <reason>` (2% vs 20% target)\n- health-check periodic due (last S465, 15+ sessions overdue)\n- F-META2 adversarial capstone needed (43 waves, 0 falsification)\n- External trail: grounding_decay.py built by S480c; wire WARN for CRITICAL+Sh\u22659\n- Factor wave-counting into shared swarm_lanes module (open_lane.py + close_lane.py duplication)"
+  },
+  "uncommitted_files": [
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "memory/INDEX.md",
+    "tasks/NEXT.md",
+    "workspace/genesis-bundle-S???.hash",
+    "workspace/maintenance-actions.json",
+    "workspace/maintenance-outcomes.json",
+    "tools/f_phy5_rg_fixedpoint.py"
+  ],
+  "staged_files": [
+    "workspace/genesis-bundle-S???.hash"
+  ],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "cell-blueprint-latest.json",
+    "falsification-debt.json",
+    "genesis-bundle-S???.hash",
+    "maintenance-actions.json",
+    "maintenance-outcomes.json",
+    "precompact-checkpoint-82403b7e.json",
+    "precompact-checkpoint-e38f2206.json"
+  ],
+  "recent_git_log": [
+    "1774184a [S484] feat: DOMEX-META-S484 MERGED \u2014 task_order.py T4 compliance via helper extraction",
+    "6e206427 [S485] fix: re-apply physics frontier maintenance (concurrent session overwrote)",
+    "220b3ab1 [S484] feat: PHIL-25 falsification \u2014 survived via definitional flexibility",
+    "b63feb62 [S485] fix: physics frontier maintenance \u2014 clean resolved items, update header to S485",
+    "ebb3d283 [S485] feat: swarm impossibility \u2014 PHIL-16 DROP + PHIL-26 + L-1230 taxonomy"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}

@@ -1,0 +1,34 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "f9ca0770-287e-4767-a603-d657626e2ba4",
+  "session_short": "f9ca0770",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T04:09:35Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/f9ca0770-287e-4767-a603-d657626e2ba4.jsonl",
+  "custom_instructions": null,
+  "next_md": {
+    "For next session": "- Orient concurrency detection in orient_sections.py (noted 3 sessions running, still unimplemented)\n- F-SWARMER1 colony session 9/10 or 10/10 (anti-attractor validation)\n- Cell blueprint in orient.py (L-1184 prescription: save_blueprint/load_blueprint to reduce boot time)\n- mission-constraint-reswarm periodic (last: S450, 24 sessions overdue)\n- change-quality-check periodic (last: S464, 10 sessions overdue)"
+  },
+  "uncommitted_files": [],
+  "staged_files": [],
+  "recent_workspace_files": [
+    "personality-audit-s194.json",
+    "precompact-checkpoint-2d559525.json",
+    "profiler-history.json",
+    "session-history-enhancement.md",
+    "session-outcomes.json",
+    "swarm-cycle-log.json",
+    "swarm.sh",
+    "swarm_state.json",
+    "tool-research-2026.md",
+    "wavestreamer-response-draft.md"
+  ],
+  "recent_git_log": [
+    "cf7b0763 [S476] fix: correction_propagation.py false-positive bugs (L-1200)",
+    "5dd67e75 [S476] feat: QUESTIONS.md \u2014 legibility surface for mutual swarming (SIG-69, PHIL-17, L-1197)",
+    "2484e2e1 [S476] feat: F-RAND1 RESOLVED \u2014 breadth-depth divergence (L-1194)",
+    "28669e03 [S477] feat: F-DNA1 PARTIALLY RESOLVED \u2014 convergent tooling evolution (L-1198)",
+    "13a9d21d [S476] feat: QUESTIONS.md \u2014 legibility surface for mutual swarming (SIG-69, PHIL-17)"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}

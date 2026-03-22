@@ -1,0 +1,51 @@
+{
+  "schema": "precompact-checkpoint-v1",
+  "session_id": "e38f2206-5bed-40b1-8594-0ac2c2436dce",
+  "session_short": "e38f2206",
+  "trigger": "auto",
+  "timestamp": "2026-03-03T05:35:48Z",
+  "transcript_path": "/home/canac/.claude/projects/-mnt-c-Users-canac-REPOSITORIES-swarm/e38f2206-5bed-40b1-8594-0ac2c2436dce.jsonl",
+  "custom_instructions": null,
+  "next_md": {
+    "For next session": "- Wire cell_blueprint.py into orient.py or CLAUDE.md (L-601 structural adoption)\n- open_lane.py falsification enforcement: WARN\u2192require `--skip-falsification-check <reason>` (2% vs 20% target)\n- health-check periodic due (last S465, 15+ sessions overdue)\n- F-META2 adversarial capstone needed (43 waves, 0 falsification)\n- External trail: grounding_decay.py built by S480c; wire WARN for CRITICAL+Sh\u22659\n- Factor wave-counting into shared swarm_lanes module (open_lane.py + close_lane.py duplication)"
+  },
+  "uncommitted_files": [
+    "README.md",
+    "beliefs/DEPS.md",
+    "docs/HOW-TO-SWARM.md",
+    "docs/HUMAN-GUIDE.md",
+    "docs/PAPER.md",
+    "docs/QUESTIONS.md",
+    "docs/SCALING-TIMELINES.md",
+    "docs/reddit-swarm-guide.md",
+    "docs/self-prompting-repo.md",
+    "domains/meta/SESSION-TRIGGER.md",
+    "experiments/compact-citation-cache.json",
+    "experiments/compact-lesson-cache.json",
+    "experiments/frontier-decay.json",
+    "experiments/meta/f-meta18-phil15-impossibility-s484.json",
+    "experiments/nk-complexity/f-nk5-tracking-s479.json",
+    "memory/HUMAN-SIGNALS.md",
+    "memory/INDEX.md",
+    "memory/PRINCIPLES.md",
+    "memory/SESSION-LOG.md",
+    "memory/lessons/L-1207.md"
+  ],
+  "staged_files": [],
+  "recent_workspace_files": [
+    "autoswarm-trigger",
+    "cell-blueprint-latest.json",
+    "falsification-debt.json",
+    "genesis-bundle-S???.hash",
+    "maintenance-actions.json",
+    "maintenance-outcomes.json"
+  ],
+  "recent_git_log": [
+    "7b8adc34 [S485] fix: commit untracked L-1231 + external grounding (Popper falsifiability)",
+    "bd6577d5 [S484] fix: commit untracked artifacts from concurrent S485",
+    "a7c25c4f [S484] feat: human-signal-harvest \u2014 SIG-70 resolved, existential arc pattern",
+    "039b0035 [S484] feat: scaling-timelines scenarios revised + human-signal-harvest periodic updated",
+    "9b93c08b [S484] feat: adversarial reality audit \u2014 closed epistemic loop, not hallucination (L-1229, F-GND1)"
+  ],
+  "resume_hint": "Context was compacted. Read workspace/precompact-checkpoint-<id>.json to recover in-flight state. If staged_files is non-empty, run 'git reset HEAD -- <files>' before staging new work to avoid FM-19 stale-write blocks. Re-run python3 tools/orient.py to re-orient."
+}
