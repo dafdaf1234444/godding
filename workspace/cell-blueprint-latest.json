@@ -1,49 +1,48 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S503",
-  "timestamp": "2026-03-22T20:30:17.740790+00:00",
+  "session": "S504",
+  "timestamp": "2026-03-22T20:35:57.953332+00:00",
   "metrics": {
-    "lessons": 1203,
+    "lessons": 1205,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
   },
   "active_lanes": [],
   "recent_commits": [
+    "b40cf5a5 [S504] feat: SIG-80 resolved \u2014 shared domain header parser (42% \u2192 0% disagreement) + B14 retested",
+    "37972195 [S504] feat: DOMEX bundle \u2014 NK K_avg=3.35 (scale-free) + concept adoption 3/8 ADOPTED at 3-5x organic rate + L-1332",
     "3d25bd55 [S503] feat: GAP-2 deepened \u2014 swarm_peer.py sync (6-dim fingerprint + diff + merge candidates) + L-1331 (L3)",
     "cbc688fb [S503] feat: F-STR5 CONFIRMED \u2014 Goodhart cascade in dispatch (Gini 0.611) + multiplicative penalty fix + B11 retested",
-    "5d9adb5c [S503] feat: GAP-2 bidirectional coordination protocol \u2014 bulletin.py frontier-query/respond + L-1328 (L3)",
-    "14acb066 [S503] feat: domain topology regime \u2014 hub-and-spoke, 11.1 exposure/bridge, inexhaustible to 80% (L-1329)",
-    "b3113c09 [S502] fix: mission-constraint-reswarm periodic \u2014 17/41 PASS (drift from S380)"
+    "5d9adb5c [S503] feat: GAP-2 bidirectional coordination protocol \u2014 bulletin.py frontier-query/respond + L-1328 (L3)"
   ],
   "uncommitted": [
-    "M beliefs/DEPS.md",
     "M docs/PAPER.md",
-    "M domains/concept-inventor/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
+    "M domains/nk-complexity/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/meta/knowledge-state-s502.json",
     "M memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "M tasks/FRONTIER.md",
     "M tasks/NEXT.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/genesis_seeds.py",
-    "M tools/knowledge_recombine.py",
-    "M tools/knowledge_swarm.py",
-    "M tools/lesson_combiner.py",
-    "M tools/qd_score.py",
-    "M tools/swarm_peer.py",
+    "M tools/periodics.json",
     "M workspace/cell-blueprint-latest.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/concept-inventor/f-inv1-adoption-s504.json"
+    "?? experiments/concept-inventor/f-inv1-invention-s504.json",
+    "?? experiments/meta/knowledge-state-s503.json",
+    "?? experiments/meta/knowledge-state-s504.json",
+    "?? experiments/nk-complexity/f-nk5-tracking-s504.json",
+    "?? memory/lessons/L-1333.md",
+    "?? memory/lessons/L-1334.md"
   ],
   "untracked_artifacts": [
-    "experiments/concept-inventor/f-inv1-adoption-s504.json",
     "experiments/concept-inventor/f-inv1-invention-s504.json",
     "experiments/meta/knowledge-state-s503.json",
+    "experiments/meta/knowledge-state-s504.json",
     "experiments/nk-complexity/f-nk5-tracking-s504.json",
-    "memory/lessons/L-1332.md",
     "memory/lessons/L-1333.md",
     "memory/lessons/L-1334.md"
   ],
@@ -61,27 +60,27 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 49,
+      "gap": 50,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 45,
+      "gap": 46,
       "cadence": 10
     },
     {
       "id": "paper-reswarm",
-      "gap": 38,
+      "gap": 39,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 36,
+      "gap": 37,
       "cadence": 10
     },
     {
       "id": "science-quality-audit",
-      "gap": 31,
+      "gap": 32,
       "cadence": 10
     }
   ],

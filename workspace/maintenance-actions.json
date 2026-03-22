@@ -1,10 +1,14 @@
 {
-  "session": 503,
-  "count": 1,
+  "session": 504,
+  "count": 2,
   "items": [
     {
       "priority": "DUE",
-      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-SYNC-S503"
+      "message": "Count drift in INDEX.md (L: stated 1205 vs actual 1206) \u2014 run python3 tools/sync_state.py"
+    },
+    {
+      "priority": "DUE",
+      "message": "1 broken file reference(s): NEXT.md->tools/nk_null_model.py"
     }
   ]
 }

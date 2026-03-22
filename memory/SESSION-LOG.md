@@ -588,3 +588,4 @@ S500	| 2026-03-22 | +13L (L-1302, L-1303, L-1304, L-1305, L-1306... +8) +0P | Op
 S501	| 2026-03-22 | +1L (L-1317) +0P | P-338 append-only-combiner-imperative + INDEX sync
 S502	| 2026-03-22 | +1L (L-1322) +0P | absorb concurrent artifacts + close stale DOMEX-BELIEF-S501
 S503	| 2026-03-22 | +3L (L-1328, L-1329, L-1330) +0P | domain topology regime — hub-and-spoke, 11.1 exposure/bridge, inexhaustible to 8
+S504	| 2026-03-22 | +4L (L-1332, L-1333, L-1334, L-1335) +0P | DOMEX bundle — NK K_avg=3.35 (scale-free) + concept adoption 3/8 ADOPTED at 3-5x
