@@ -284,7 +284,10 @@ def section_closure_metric(root=ROOT):
     lines = []
     try:
         import glob as _glob_closure
-        lesson_files = sorted(_glob_closure.glob(str(root / "memory" / "lessons" / "L-*.md")))
+        lesson_files = sorted(
+            _glob_closure.glob(str(root / "memory" / "lessons" / "L-*.md")),
+            key=lambda p: int(re.search(r'\d+', Path(p).stem).group())
+        )
         if len(lesson_files) < 20:
             return lines
         recent = lesson_files[-20:]
@@ -293,19 +296,28 @@ def section_closure_metric(root=ROOT):
         for lf in recent:
             try:
                 txt = Path(lf).read_text(encoding="utf-8")
-                cites_match = re.search(r"^\*{0,2}Cites\*{0,2}:\s*(.+)", txt, re.MULTILINE)
-                if not cites_match:
-                    continue
-                cites_line = cites_match.group(1).lower()
-                if any(m in cites_line for m in external_markers):
+                # Check both Cites: and External: headers for external references
+                found_external = False
+                for header in ("Cites", "External"):
+                    match = re.search(rf"^\*{{0,2}}{header}\*{{0,2}}:\s*(.+)", txt, re.MULTILINE)
+                    if match:
+                        line = match.group(1).lower()
+                        if any(m in line for m in external_markers):
+                            found_external = True
+                            break
+                        # External: header with real content (not "none") counts
+                        if header == "External" and "none" not in line[:20]:
+                            found_external = True
+                            break
+                if found_external:
                     ext_count += 1
             except Exception:
                 pass
         ext_pct = ext_count / len(recent) * 100
         if ext_pct < 20:
             lines.append("--- External Closure (L-1118, L-1125) ---")
-            lines.append(f"  \u26a0 Trail provenance: {ext_pct:.0f}% external ({ext_count}/{len(recent)} recent Cites: headers)")
-            lines.append("  Cites: headers reference only internal artifacts.")
+            lines.append(f"  \u26a0 Trail provenance: {ext_pct:.0f}% external ({ext_count}/{len(recent)} recent lessons with external refs)")
+            lines.append("  Recent lessons lack external citations (Cites: or External: headers).")
             lines.append("  L-1125: trail provenance is cheapest break point.")
             lines.append("")
     except Exception:
