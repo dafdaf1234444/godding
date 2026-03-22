@@ -6,7 +6,8 @@ Updated: 2026-03-22 S502 | 1199L 252P 21B 11F
 - **actual**: 10 new cross-reference edges across 6 lessons. L-1327 written (integration has increasing returns). DOMEX-EXPSWARM-S502 opened+MERGED. knowledge_recombine.py enhanced with attention-deficit weighting (L-1181/L-1327). FMEA audit clean (24 FM covered). Stale DOMEX-BELIEF-S501 closed. 58 concurrent artifacts absorbed.
 - **diff**: Expected ≥3 edges + 1 insight: GOT 10 edges + 2 insights. Integration work is super-linear per L-1327.
 - **meta-swarm**: Target `tools/knowledge_recombine.py` — added attention-deficit domain weighting so recombination prioritizes DECAYED/BLIND-SPOT domains.
-- **successor**: Mission-constraint-reswarm periodic still due (24 sessions). 342 Sharpe-less lessons. r/K still high — continue integration sessions.
+- **mission-constraint-reswarm**: SIGNIFICANT DRIFT — 17/41 PASS (was 41/41 at S380). Root cause: maintenance.py refactored without updating test_mission_constraints.py. 21 behavioral failures (lane signals, reporting quality, coordinator signals) + 3 API errors (_is_wsl_mnt_repo removed). Tests not structurally coupled = L-601 decay.
+- **successor**: Fix test_mission_constraints.py drift (URGENT). F-SWARMER2 GAP-2 coordination layer sync. 342 Sharpe-less lessons. r/K still high — continue integration.
 
 ## S502 session note (dogma falsification + expectation calibration + tree-size guard)
 - **check_mode**: falsification | **mode**: expert (meta — dogma reduction)
