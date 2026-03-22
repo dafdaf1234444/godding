@@ -145,19 +145,24 @@ def cmd_path(args):
         print(f"ERROR: node {target} not found", file=sys.stderr)
         return 1
 
+    typed = getattr(args, "typed", False)
+
     # Build adjacency and reverse topological sort from target
+    # When --typed: for statement deps, include only the node (skip its proof chain)
     visited = set()
     order = []
 
-    def dfs(nid):
+    def dfs(nid, statement_only=False):
         if nid in visited:
             return
         visited.add(nid)
         node = nodes.get(nid)
         if not node:
             return
-        for dep in node.get("prerequisites", []):
-            dfs(dep["ref"])
+        if not statement_only:
+            for dep in node.get("prerequisites", []):
+                is_stmt = dep.get("edge_type") == "uses_in_statement"
+                dfs(dep["ref"], statement_only=(typed and is_stmt))
         order.append(nid)
 
     dfs(target)
@@ -511,6 +516,8 @@ def main():
 
     p_path = sub.add_parser("path", help="Learning path to target node")
     p_path.add_argument("target")
+    p_path.add_argument("--typed", action="store_true",
+                        help="Statement-aware: skip proof chains for statement-only deps")
 
     p_val = sub.add_parser("validate", help="Validate DAG integrity")
 
