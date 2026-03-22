@@ -1,4 +1,4 @@
-Updated: 2026-03-22 S502 | 1198L 252P 21B 11F
+Updated: 2026-03-22 S502 | 1199L 252P 21B 11F
 
 ## S502c session note (integration: recombination bridging + DOMEX-EXPSWARM-S502)
 - **check_mode**: objective | **mode**: integration (r/K=43.2, historian)

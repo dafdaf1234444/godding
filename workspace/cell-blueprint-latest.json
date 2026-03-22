@@ -1,45 +1,32 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S502",
-  "timestamp": "2026-03-22T19:52:32.727005+00:00",
+  "timestamp": "2026-03-22T19:54:06.254856+00:00",
   "metrics": {
-    "lessons": 1198,
+    "lessons": 1199,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
   },
   "active_lanes": [],
   "recent_commits": [
+    "86d084d3 [S502] feat: integration session \u2014 10 recombination edges + L-1327 + attention-weighted dispatch",
     "4a732f67 [S502] integration: 5 groundings + proxy-K compression + belief freshness 100%",
     "bed4753c [S502] integration: 5 groundings + proxy-K compression (-1938t) + belief freshness 100%",
     "cc80935b [S501] feat: expectation calibration L-1326 \u2014 91.3% directional, 7.1:1 underconfident (evaluation+expert-swarm worst)",
-    "55f0c29b [S502] feat: PHIL-2/5 dogma falsification tests + tree-size guard + calibration periodic (L-1322)",
-    "d8ff7d38 [S501] handoff: FM-40 diagnosis-repair detector + session notes"
+    "55f0c29b [S502] feat: PHIL-2/5 dogma falsification tests + tree-size guard + calibration periodic (L-1322)"
   ],
   "uncommitted": [
+    "M docs/PAPER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M memory/lessons/L-1129.md",
-    "M memory/lessons/L-1130.md",
-    "M memory/lessons/L-1131.md",
-    "M memory/lessons/L-1156.md",
-    "M memory/lessons/L-1181.md",
-    "M memory/lessons/L-1196.md",
-    "M tasks/NEXT-ARCHIVE.md",
+    "M experiments/meta/knowledge-state-s502.json",
+    "M memory/INDEX.md",
     "M tasks/NEXT.md",
-    "M tools/knowledge_recombine.py",
-    "M tools/periodics.json",
     "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/expert-swarm/recombination-bridge-s502.json",
-    "?? experiments/meta/knowledge-state-s502.json",
-    "?? memory/lessons/L-1327.md"
+    "M workspace/maintenance-outcomes.json"
   ],
-  "untracked_artifacts": [
-    "experiments/expert-swarm/recombination-bridge-s502.json",
-    "experiments/meta/knowledge-state-s502.json",
-    "memory/lessons/L-1327.md"
-  ],
+  "untracked_artifacts": [],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",
     "- **Two-tier claim classification** (L-1313): Implement in f_stat1_promotion_gates.py \u2014 corpus claims (n\u2265100) vs experimental claims (n\u22653 replications). Current single threshold auto-passes one type and auto-fails another.",
