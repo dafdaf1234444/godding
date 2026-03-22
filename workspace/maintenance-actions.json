@@ -1,5 +1,10 @@
 {
-  "session": 502,
-  "count": 0,
-  "items": []
+  "session": 503,
+  "count": 1,
+  "items": [
+    {
+      "priority": "DUE",
+      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-SYNC-S503"
+    }
+  ]
 }

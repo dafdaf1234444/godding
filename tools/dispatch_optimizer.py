@@ -109,18 +109,22 @@ def run(args: argparse.Namespace) -> None:
                    campaign_phase_fn=campaign_phase_wrapper)
         ucb1_results.sort(key=lambda x: x["score"], reverse=True)
 
-        # Concentration rebalancing (S499 bottleneck repair)
+        # Concentration rebalancing (S499 bottleneck repair, F-STR5 S503 fix)
+        # Problem: additive penalty (-3.4 for META) is insufficient against base
+        # scores of 30-50. Fix: multiplicative penalty scales with score magnitude.
         # meta +2.0 maint bonus + expert-swarm +2.0 self-dispatch = 57% lane share
-        # Progressive penalty for domains exceeding 10% historical share (P-264)
         CONCENTRATION_THRESHOLD = 0.10
-        CONCENTRATION_MULTIPLIER = 30.0
+        CONCENTRATION_DECAY_RATE = 3.0  # excess share × rate = penalty fraction
         total_n = sum(r.get("outcome_n", 0) for r in ucb1_results)
         if total_n > 20:
             for r in ucb1_results:
                 share = r.get("outcome_n", 0) / total_n
                 if share > CONCENTRATION_THRESHOLD:
                     excess = share - CONCENTRATION_THRESHOLD
-                    penalty = excess * CONCENTRATION_MULTIPLIER
+                    # Multiplicative: reduce score by fraction proportional to excess
+                    # 10% excess → 30% reduction, 15% excess → 45% reduction
+                    penalty_frac = min(excess * CONCENTRATION_DECAY_RATE, 0.60)
+                    penalty = r["score"] * penalty_frac
                     r["score"] -= penalty
                     r["concentration_penalty"] = round(penalty, 2)
                 else:

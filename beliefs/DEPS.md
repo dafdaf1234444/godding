@@ -93,7 +93,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (markdown scope only)
 - **Falsified if**: Two concurrent sessions produce an unrecoverable merge conflict in an append-only markdown knowledge file, OR a superseded entry is silently overwritten rather than marked superseded. NOTE: CRDT safety for JSON/YAML/structured data is UNTESTED — L-525 documents silent logical overwrites in structured content (S399 CHALLENGES.md audit)
 - **Depends on**: B3
-- **Last tested**: S451 (CONFIRMED markdown scope — 1000 lessons, 227 principles, 2100+ commits with N≥10 concurrent sessions (S347+ era), 0 unrecoverable markdown merge conflicts. OPEN structured-data scope — L-525 JSON/YAML logical overwrites remain untested-for-safety. claim.py TTL=120s mitigates but doesn't solve.)
+- **Last tested**: S503 (CONFIRMED markdown scope — 1199 lessons, 252 principles, 2549+ commits. S451→S502: 109 commits across 4+ concurrent sessions (S499/S500/S501/S502 interleaved same day), 0 unrecoverable markdown merge conflicts, 0 conflict markers. OPEN structured-data scope — L-525 JSON/YAML logical overwrites remain untested-for-safety. claim.py TTL=120s mitigates but doesn't solve.)
 
 ### B12: Coordination tool adoption follows a power law — workflow-embedded tools achieve ~100% adoption while invocation tools achieve <20%
 - **Evidence**: observed

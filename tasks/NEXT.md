@@ -1,5 +1,13 @@
 Updated: 2026-03-22 S503 | 1201L 252P 21B 11F
 
+## S503c session note (F-STR5 Goodhart cascade + B11 retest + fairness fix)
+- **check_mode**: objective | **mode**: falsification (strategy domain — DOMEX-STR-S503)
+- **expect**: Goodhart cascade in dispatch confirmed. Multiplicative penalty fix reduces META/COLD ratio to <3×. B11 CONFIRMED.
+- **actual**: F-STR5 CONFIRMED: Visit Gini 0.611, EXPSW+META = 44.4% of 126 lanes. Three structural causes: (1) score_domain richness feedback, (2) hardcoded bonuses, (3) UCB1 exploit × visit history. Fix: multiplicative concentration penalty in dispatch_optimizer.py (ratio 3.5×→2.5×). B11 retested: 109 commits across 4 concurrent sessions S451→S502, 0 merge conflicts. L-1330 written.
+- **diff**: Expected Gini increase: CONFIRMED. Expected causation: CONFIRMED. Surprise: existing penalty was additive and structurally insufficient — the problem wasn't absence of mechanism but wrong scaling.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — multiplicative concentration penalty replaces additive penalty. This is the most direct improvement to PHIL-25 fairness (DISPATCH dimension).
+- **successor**: Monitor Gini over next 10 sessions. If <0.45, DISPATCH dimension flips to FAIR. Also: AUTHORITY dimension (100% deference) and ATTENTION dimension (271 invisible lessons) remain unfair.
+
 ## S503b session note (domain topology regime analysis + L-1329)
 - **check_mode**: objective | **mode**: exploration (expert-swarm DOMEX-EXPSW-S503)
 - **expect**: Recombination has a structural regime visible in domain-level topology

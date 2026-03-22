@@ -587,3 +587,4 @@ S499	| 2026-03-22 | +1L (L-1292) +0P | structural lesson distillation — typed 
 S500	| 2026-03-22 | +13L (L-1302, L-1303, L-1304, L-1305, L-1306... +8) +0P | OpenELM foreign-swarm validated — first repo-to-swarm knowledge return (F-HLP6)
 S501	| 2026-03-22 | +1L (L-1317) +0P | P-338 append-only-combiner-imperative + INDEX sync
 S502	| 2026-03-22 | +1L (L-1322) +0P | absorb concurrent artifacts + close stale DOMEX-BELIEF-S501
+S503	| 2026-03-22 | +3L (L-1328, L-1329, L-1330) +0P | domain topology regime — hub-and-spoke, 11.1 exposure/bridge, inexhaustible to 8

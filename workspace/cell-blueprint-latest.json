@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S502",
-  "timestamp": "2026-03-22T20:12:20.629165+00:00",
+  "session": "S503",
+  "timestamp": "2026-03-22T20:14:51.424453+00:00",
   "metrics": {
-    "lessons": 1199,
+    "lessons": 1201,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
@@ -21,41 +21,39 @@
     }
   ],
   "recent_commits": [
+    "14acb066 [S503] feat: domain topology regime \u2014 hub-and-spoke, 11.1 exposure/bridge, inexhaustible to 80% (L-1329)",
     "b3113c09 [S502] fix: mission-constraint-reswarm periodic \u2014 17/41 PASS (drift from S380)",
     "a81f49bd [S502] fix: sync_state count drift \u2014 1198\u21921199L (L-1327 committed)",
     "86d084d3 [S502] feat: integration session \u2014 10 recombination edges + L-1327 + attention-weighted dispatch",
-    "4a732f67 [S502] integration: 5 groundings + proxy-K compression + belief freshness 100%",
-    "bed4753c [S502] integration: 5 groundings + proxy-K compression (-1938t) + belief freshness 100%"
+    "4a732f67 [S502] integration: 5 groundings + proxy-K compression + belief freshness 100%"
   ],
   "uncommitted": [
     "M beliefs/DEPS.md",
-    "M domains/expert-swarm/tasks/FRONTIER.md",
+    "M docs/PAPER.md",
+    "M  domains/expert-swarm/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
+    "M domains/strategy/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
+    "A  experiments/expert-swarm/f-swarmer2-gap2-coordination-s503.json",
     "M experiments/meta/knowledge-state-s502.json",
-    "M tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/bulletin.py",
+    "MM memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "A  memory/lessons/L-1328.md",
+    "M tasks/FRONTIER.md",
+    "M  tools/bulletin.py",
+    "M tools/dispatch_optimizer.py",
     "M tools/dispatch_scoring.py",
-    "M tools/swarm_peer.py",
+    "M tools/periodics.json",
+    "M  tools/swarm_peer.py",
     "M workspace/falsification-debt.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/expert-swarm/f-swarmer2-gap2-coordination-s503.json",
-    "?? experiments/expert-swarm/f-swarmer2-gap2-sync-s503.json",
-    "?? experiments/expert-swarm/f-swarmer2-recombination-regime-s503.json",
-    "?? experiments/strategy/f-str5-goodhart-cascade-s503.json",
-    "?? memory/lessons/L-1328.md",
-    "?? memory/lessons/L-1329.md"
+    "M workspace/maintenance-actions.json"
   ],
   "untracked_artifacts": [
-    "experiments/expert-swarm/f-swarmer2-gap2-coordination-s503.json",
     "experiments/expert-swarm/f-swarmer2-gap2-sync-s503.json",
-    "experiments/expert-swarm/f-swarmer2-recombination-regime-s503.json",
+    "experiments/meta/knowledge-state-s503.json",
     "experiments/strategy/f-str5-goodhart-cascade-s503.json",
-    "memory/lessons/L-1328.md",
-    "memory/lessons/L-1329.md"
+    "memory/lessons/L-1330.md"
   ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",
@@ -71,27 +69,27 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 48,
+      "gap": 49,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 44,
+      "gap": 45,
       "cadence": 10
     },
     {
       "id": "paper-reswarm",
-      "gap": 37,
+      "gap": 38,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 35,
+      "gap": 36,
       "cadence": 10
     },
     {
       "id": "science-quality-audit",
-      "gap": 30,
+      "gap": 31,
       "cadence": 10
     }
   ],

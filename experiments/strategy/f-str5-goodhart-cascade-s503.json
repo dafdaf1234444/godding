@@ -1,0 +1,25 @@
+{
+    "experiment": "DOMEX-STR-S503",
+    "frontier": "F-STR5",
+    "session": "S503",
+    "domain": "strategy",
+    "date": "2026-03-22",
+    "expect": "Gini coefficient increased after value-density adoption. ERA-split shows pre/post-UCB1 domain distributions diverge. DISPATCH unfairness partially caused by dispatch_optimizer value-density weighting.",
+    "actual": "CONFIRMED — Goodhart cascade is real. Visit Gini 0.611 (threshold 0.45). EXPSW 23.0% + META 21.4% = 44.4% of all 126 DOMEX lanes. Three structural causes: (1) score_domain() rewards domain richness (ISOs, lessons, beliefs) which correlates with visit count — positive feedback loop; (2) hardcoded bonuses: expert-swarm +2.0 self_dispatch, meta +0.5-2.0 maintenance_boost; (3) UCB1 exploit term uses merge_rate × log(lessons) × sharpe_factor, all correlated with visit history. Existing additive concentration penalty (30× excess share) produces -3.4 to -3.9 against base scores of 30-50 — structurally insufficient. Diversity IS improving (Q5: 18 unique domains vs Q3: 7), but cumulative Gini remains above threshold.",
+    "diff": "Expected Gini increase: CONFIRMED (0.611 > 0.45). Expected pre/post divergence: UNINFORMATIVE (only 2 pre-S395 lanes — DOMEX system didn't exist earlier). Expected dispatch causation: CONFIRMED via 3 structural mechanisms. Surprise: existing concentration penalty was already in place (S499) but is additive rather than multiplicative, making it ineffective against high base scores.",
+    "fix_applied": "Changed concentration penalty from additive (excess × 30.0) to multiplicative (score × min(excess × 3.0, 0.60)). Effect: META/COLD ratio drops from 3.5× to 2.5×. EXPSW penalty: -3.9 → -15.6. META penalty: -3.4 → -15.4.",
+    "measurements": {
+        "visit_gini": 0.611,
+        "fairness_dispatch_score": 0.604,
+        "total_domex_lanes": 126,
+        "unique_domains_dispatched": 36,
+        "top_domain_share": {"EXPSW": 0.230, "META": 0.214},
+        "temporal_diversity": {"Q1": 11, "Q2": 8, "Q3": 7, "Q4": 10, "Q5": 18},
+        "old_penalty": {"META": -3.4, "EXPSW": -3.9},
+        "new_penalty": {"META": -15.4, "EXPSW": -15.6},
+        "old_ratio_meta_cold": 3.5,
+        "new_ratio_meta_cold": 2.5
+    },
+    "lesson": "L-1328",
+    "cites": ["L-601", "L-1127", "L-1269"]
+}

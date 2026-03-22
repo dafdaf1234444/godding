@@ -331,7 +331,6 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["cooldown_penalty"] = 0.0
         r["saturation_penalty"] = 0.0
         r["exploration_boost"] = 0.0
-
         # Campaign wave scoring (F-STR3, L-755)
         cw = (campaign_waves or {}).get(dom, {})
         max_unresolved_wave = 0
