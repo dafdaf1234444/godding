@@ -1,42 +1,51 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S503",
-  "timestamp": "2026-03-22T20:17:08.992345+00:00",
+  "timestamp": "2026-03-22T20:30:17.740790+00:00",
   "metrics": {
-    "lessons": 1202,
+    "lessons": 1203,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
   },
   "active_lanes": [],
   "recent_commits": [
+    "3d25bd55 [S503] feat: GAP-2 deepened \u2014 swarm_peer.py sync (6-dim fingerprint + diff + merge candidates) + L-1331 (L3)",
     "cbc688fb [S503] feat: F-STR5 CONFIRMED \u2014 Goodhart cascade in dispatch (Gini 0.611) + multiplicative penalty fix + B11 retested",
     "5d9adb5c [S503] feat: GAP-2 bidirectional coordination protocol \u2014 bulletin.py frontier-query/respond + L-1328 (L3)",
     "14acb066 [S503] feat: domain topology regime \u2014 hub-and-spoke, 11.1 exposure/bridge, inexhaustible to 80% (L-1329)",
-    "b3113c09 [S502] fix: mission-constraint-reswarm periodic \u2014 17/41 PASS (drift from S380)",
-    "a81f49bd [S502] fix: sync_state count drift \u2014 1198\u21921199L (L-1327 committed)"
+    "b3113c09 [S502] fix: mission-constraint-reswarm periodic \u2014 17/41 PASS (drift from S380)"
   ],
   "uncommitted": [
+    "M beliefs/DEPS.md",
     "M docs/PAPER.md",
-    "M domains/expert-swarm/tasks/FRONTIER.md",
+    "M domains/concept-inventor/tasks/FRONTIER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/meta/knowledge-state-s502.json",
     "M memory/INDEX.md",
     "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
+    "M tools/genesis_seeds.py",
+    "M tools/knowledge_recombine.py",
+    "M tools/knowledge_swarm.py",
+    "M tools/lesson_combiner.py",
+    "M tools/qd_score.py",
+    "M tools/swarm_peer.py",
     "M workspace/cell-blueprint-latest.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/expert-swarm/f-swarmer2-gap2-sync-s503.json",
-    "?? experiments/meta/knowledge-state-s503.json",
-    "?? memory/lessons/L-1331.md",
-    "?? workspace/swarm-peers.json",
-    "?? workspace/sync-reports/"
+    "?? experiments/concept-inventor/f-inv1-adoption-s504.json"
   ],
   "untracked_artifacts": [
-    "experiments/expert-swarm/f-swarmer2-gap2-sync-s503.json",
+    "experiments/concept-inventor/f-inv1-adoption-s504.json",
+    "experiments/concept-inventor/f-inv1-invention-s504.json",
     "experiments/meta/knowledge-state-s503.json",
-    "memory/lessons/L-1331.md"
+    "experiments/nk-complexity/f-nk5-tracking-s504.json",
+    "memory/lessons/L-1332.md",
+    "memory/lessons/L-1333.md",
+    "memory/lessons/L-1334.md"
   ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",

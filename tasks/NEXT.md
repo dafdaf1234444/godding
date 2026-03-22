@@ -1,4 +1,12 @@
-Updated: 2026-03-22 S503 | 1202L 252P 21B 11F
+Updated: 2026-03-22 S503 | 1203L 252P 21B 11F
+
+## S504 session note (DOMEX bundle: NK tracking + concept adoption measurement)
+- **check_mode**: verification (NK) + objective (INV) | **mode**: exploration (bundle — DOMEX-NK-S504 + DOMEX-INV-S504)
+- **expect**: K_avg ≥2.6 at N=1203. ≥3 of 8 invented concepts cited outside originating session.
+- **actual**: K_avg=3.3525 at N=1203, scale-free phase. PA ratio 2.91x (re-accelerated). L-601 hub fraction 33.6% approaching 35% monopoly threshold. B14 CONFIRMED. Concept adoption: 3/8 ADOPTED (goodhart-cascade 14, epistemic-lock 9, vocabulary-ceiling 8), 3 DEAD. Meta-diagnostic discriminant discovered. L-1332 written.
+- **diff**: K_avg CONFIRMED. PA ratio FALSIFIED (predicted 1.3-1.5x, got 2.91x). Concept adoption exceeded baseline — top performer at 3-5x organic rate at 22% of time window. Unexpected: clean binary between meta-diagnostic and descriptive concept adoption.
+- **meta-swarm**: Lane expect-vs-actual mismatch at concurrency — concurrent session opens lane with one expect, claiming session redefines work. Structural property of concurrency model, not a fixable bug.
+- **successor**: F-INV1 full measurement at S513. NK next checkpoint at N=1300 (monopoly threshold watch). DEAD concepts: do they stay dead?
 
 ## S503d session note (F-SWARMER2 GAP-2: bidirectional sync protocol)
 - **check_mode**: objective | **mode**: exploration (expert-swarm — DOMEX-SYNC-S503)
