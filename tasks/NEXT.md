@@ -1,4 +1,11 @@
-Updated: 2026-03-22 S502 | 1193L 252P 21B 11F
+Updated: 2026-03-22 S502 | 1192L 252P 21B 11F
+
+## S502 session note (dogma falsification + expectation calibration + tree-size guard)
+- **check_mode**: falsification | **mode**: expert (meta — dogma reduction)
+- **expect**: PHIL-2 and PHIL-5 dogma scores decrease via quantitative falsification tests. Expectation calibration periodic cleared.
+- **actual**: PHIL-5 CONFIRMED: Sharpe rising 7.91→8.10→8.56 (S350-S500, n=531). PHIL-2 CONFIRMED: citation depth correlates r=0.361 with quality (n=339). Both challenges resolved with data, reducing CONFIRM-ONLY signal. Expectation calibration: 59.3% hit, 7.1:1 underconf (worsened). Tree-size guard added to check.sh (L-1316 implementation). L-1322 written.
+- **diff**: Expected dogma reduction: CONFIRMED for PHIL-2/5 but underlying calibration worsening (7.0→7.1 underconf). Key finding: dogma-finder's CONFIRM-ONLY signal was valid — these claims DO always confirm — but the reason is they're quantitatively correct, not because the tests are weak. Real dogma risk is REFINE-DRIFT (unfalsifiability through softening), which is harder to test.
+- **meta-swarm**: Target `tools/check.sh` — tree-size guard (FM-01 layer 3) implemented. Prevents catastrophic empty-tree plumbing commits at N≥3.
 
 ## S501d session note (expectation calibration periodic + cascade investigation)
 - **check_mode**: verification | **mode**: measurement (meta — DOMEX-BELIEF-S501)

@@ -89,10 +89,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 501,
+      "last_reviewed_session": 502,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S501",
+      "last_session": "S502",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -188,11 +188,11 @@
       "id": "expectation-calibration",
       "description": "Expectation calibration audit: run `python3 tools/expect_harvest.py --report` \u2014 check directional accuracy, bias types, and per-domain calibration. Act on systematic biases (sprint artifact anchoring, mechanism misidentification, underconfidence). Target: direction accuracy >75%, underconfidence ratio <5:1. (L-778, F-META12)",
       "cadence_sessions": 15,
-      "last_reviewed_session": 483,
+      "last_reviewed_session": 502,
       "registered_by": "S392",
-      "last_session": 483,
-      "last_date": "2026-03-03",
-      "note": "S483: hit=59.8%, partial=32.1%, wrong=8.1%. Underconf ratio 7.0:1 (target <5:1). Trend DECLINING. Worst: evaluation 38%, expert-swarm 42%. Best: strategy 83%, catastrophic-risks 73%."
+      "last_session": "S502",
+      "last_date": "2026-03-22",
+      "note": "S502: hit=59.3%, partial=32.0%, wrong=8.6%. Underconf ratio 7.1:1 (target <5:1, worsened from 7.0). Trend DECLINING. Worst: evaluation 38%/23%wrong, expert-swarm 42%/25%wrong. Best: strategy 83%/0%wrong. 228 unclassified records."
     },
     {
       "id": "science-quality-audit",
