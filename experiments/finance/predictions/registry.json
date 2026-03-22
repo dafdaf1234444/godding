@@ -231,11 +231,107 @@
       "outcome_price": null,
       "result": null,
       "score": null
+    },
+    {
+      "id": "PRED-0009",
+      "date": "2026-03-22",
+      "session": "S500",
+      "asset": "XLU",
+      "direction": "BULL",
+      "target": "+5% to +10%",
+      "timeframe": "3m",
+      "confidence": 0.65,
+      "thesis": "Utilities +10.2% YTD vs SPY -2.6%. AI data center electricity demand is secular tailwind. Defensive rotation into essential services insulated from trade disputes. Historical: utilities outperform in 4/5 stagflation years.",
+      "domains_applied": [
+        "evolution",
+        "control-theory",
+        "physics",
+        "psychology"
+      ],
+      "key_risk": "Risk-on reversal",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0010",
+      "date": "2026-03-22",
+      "session": "S500",
+      "asset": "XLV",
+      "direction": "BULL",
+      "target": "+3% to +8%",
+      "timeframe": "3m",
+      "confidence": 0.55,
+      "thesis": "Healthcare led all sectors Mar 10. Non-cyclical demand, insulated from trade disputes, AI diagnostics margin expansion. Second-choice defensive after utilities.",
+      "domains_applied": [
+        "evolution",
+        "psychology",
+        "game-theory",
+        "statistics"
+      ],
+      "key_risk": "Drug pricing reform",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0011",
+      "date": "2026-03-22",
+      "session": "S500",
+      "asset": "SPY/QQQ",
+      "direction": "BEAR",
+      "target": "SPY outperforms QQQ by 3-8%",
+      "timeframe": "3m",
+      "confidence": 0.65,
+      "thesis": "Relative value vs growth spread. Tech leadership regimes last 7-10 years then rotate. QQQ duration 2x SPY. In 4/5 rising-rate periods value outperformed growth.",
+      "domains_applied": [
+        "evolution",
+        "physics",
+        "information-science",
+        "history"
+      ],
+      "key_risk": "AI catalyst re-ignites QQQ",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0012",
+      "date": "2026-03-22",
+      "session": "S500",
+      "asset": "OIL",
+      "direction": "BULL",
+      "target": "WTI stays above 85 or reaches 110+",
+      "timeframe": "3m",
+      "confidence": 0.6,
+      "thesis": "WTI at 93-98 with Hormuz closed. Oil inventory drawdown ~2-3mbpd with no discharge mechanism. Historical: 1973 embargo (4.4mbpd removed) produced 300%+ price increase. Hormuz is 20mbpd transit.",
+      "domains_applied": [
+        "game-theory",
+        "physics",
+        "control-theory",
+        "history"
+      ],
+      "key_risk": "Ceasefire reopens Hormuz",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
     }
   ],
-  "next_id": 9,
+  "next_id": 13,
   "metadata": {
     "created": "2026-03-22T19:25:01.650612",
-    "updated": "2026-03-22T19:50:06.566197"
+    "updated": "2026-03-22T20:25:09.813235"
   }
 }
