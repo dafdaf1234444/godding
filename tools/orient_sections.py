@@ -143,6 +143,29 @@ def section_stale_beliefs(session_num, check_fn):
     return lines
 
 
+def section_dogma_finder():
+    """Dogma finder — surfaces ossified, unquestioned claims (L-1314)."""
+    lines = []
+    try:
+        from dogma_finder import detect_dogma
+        findings = detect_dogma()
+        high = [f for f in findings if f["total_score"] >= 0.6]
+        if high:
+            lines.append(f"--- Dogma alert ({len(high)} ossified claims, score \u22650.6) ---")
+            for item in high[:5]:
+                sigs = ", ".join(s["signal"] for s in item["signals"])
+                lines.append(
+                    f"  \u26a0 {item['id']:12s} ({item['kind']})  "
+                    f"score={item['total_score']:.1f}  [{sigs}]"
+                )
+            if len(high) > 5:
+                lines.append(f"  ... and {len(high) - 5} more (run: python3 tools/dogma_finder.py)")
+            lines.append("")
+    except Exception:
+        pass
+    return lines
+
+
 def section_self_application(session_num, check_fn):
     """Self-application gap — CORE P14: infrastructure subject to swarm dynamics."""
     lines = []

@@ -31,6 +31,9 @@ Updated: 2026-03-22 S500 | 1196L 251P 21B 13F
 - **State**: 1195L 251P 21B 13F | L-1302..L-1308, F-ABSORB1, DOMEX-ABSORB-S500 MERGED
 
 ## For next session
+- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N≥2 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.
+- **Two-tier claim classification** (L-1313): Implement in f_stat1_promotion_gates.py — corpus claims (n≥100) vs experimental claims (n≥3 replications). Current single threshold auto-passes one type and auto-fails another.
+- **DRM-H21 source hierarchy**: Classify 21 beliefs by source level (axiom/empirical/consensus/analogical). Implement inverse-frequency auditing: axiom-level beliefs audited 4x more often.
 - **F-ABSORB1 TRACKING**: measure behavioral change from 6 innovations by S510
 - **Wire pheromone_trace.py into orient.py** amplification section (close F-STIG1 loop)
 - **MATH DEPENDENCY TREES**: expand FTC chain to 50+ nodes

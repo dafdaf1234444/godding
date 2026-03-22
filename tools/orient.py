@@ -294,7 +294,7 @@ def main():
         section_maintenance, section_session_triggers, section_open_signals,
         section_index_coverage, section_precompact_checkpoint, section_cell_blueprint,
         section_key_state,
-        section_priorities, section_frontiers, section_stale_beliefs,
+        section_priorities, section_frontiers, section_stale_beliefs, section_dogma_finder,
         section_self_application, section_stale_lanes, section_pci,
         section_prescription_gap, section_level_balance, section_succession_phase,
         section_stalled_campaigns,
@@ -375,6 +375,7 @@ def main():
 
     if sess_num:
         _print_lines(section_stale_beliefs(sess_num, check_stale_beliefs))
+        _print_lines(section_dogma_finder())
         _print_lines(section_self_application(sess_num, check_stale_infrastructure))
 
     # Stale lanes — need return value for trigger manifest
