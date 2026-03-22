@@ -109,26 +109,48 @@ def parse_phil_claims() -> list[dict]:
 def parse_challenges() -> list[dict]:
     """Parse challenge entries from CHALLENGES.md and PHILOSOPHY.md."""
     challenges = []
-    for path in [CHALLENGES, PHIL]:
-        text = _read(path)
-        pat = re.compile(
-            r"\|\s*S(\d+)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|",
-            re.M,
-        )
-        for m in pat.finditer(text):
-            status_raw = m.group(6).strip()
-            status = "OPEN"
-            for s in ("CONFIRMED", "SUPERSEDED", "DROPPED", "RESOLVED"):
-                if s in status_raw.upper():
-                    status = s
-                    break
-            challenges.append({
-                "session": int(m.group(1)),
-                "target": m.group(2).strip(),
-                "challenge": m.group(3).strip()[:120],
-                "status": status,
-                "source": path.name,
-            })
+    # CHALLENGES.md: 6-column | Session | Target | Challenge | Evidence | Proposed | Status |
+    text = _read(CHALLENGES)
+    pat6 = re.compile(
+        r"\|\s*S(\d+)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|",
+        re.M,
+    )
+    for m in pat6.finditer(text):
+        status_raw = m.group(6).strip()
+        status = "OPEN"
+        for s in ("CONFIRMED", "SUPERSEDED", "DROPPED", "RESOLVED"):
+            if s in status_raw.upper():
+                status = s
+                break
+        challenges.append({
+            "session": int(m.group(1)),
+            "target": m.group(2).strip(),
+            "challenge": m.group(3).strip()[:120],
+            "status": status,
+            "source": CHALLENGES.name,
+        })
+    # PHILOSOPHY.md: 4-column | Claim | Session | Challenge | Status |
+    text = _read(PHIL)
+    pat4 = re.compile(
+        r"\|\s*(PHIL-\d+)\s*\|\s*S(\d+)\s*\|([^|]*)\|([^|]*)\|",
+        re.M,
+    )
+    for m in pat4.finditer(text):
+        status_raw = m.group(4).strip()
+        status = "OPEN"
+        for s in ("CONFIRMED", "SUPERSEDED", "DROPPED", "RESOLVED",
+                   "REFINED", "PERSISTENT", "CHALLENGE", "PARTIAL",
+                   "BASELINE", "OVERDUE", "DOWNGRADED", "EXECUTED"):
+            if s in status_raw.upper():
+                status = s
+                break
+        challenges.append({
+            "session": int(m.group(2)),
+            "target": m.group(1).strip(),
+            "challenge": m.group(3).strip()[:120],
+            "status": status,
+            "source": PHIL.name,
+        })
     return challenges
 
 

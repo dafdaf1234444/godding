@@ -377,6 +377,16 @@
       "registered_by": "S500",
       "last_session": "S500",
       "note": "Auto-generated for L-835 (Sharpe=8). Rule: Root cause: \"read SWARM.md for full protocol\" delegation fails when nodes don't "
+    },
+    {
+      "id": "phil-retest",
+      "description": "PHIL claim retest: run dogma_finder.py, select 2-3 highest-scoring PHIL claims, retest with external evidence or falsification attempt. L-1314: PHIL claims have no structural retest mechanism (beliefs have DEPS.md 'Last tested' field; PHIL has no equivalent). 18/22 PHIL claims scored >=0.6 dogma at S500. CONFIRM-ONLY pattern (challenges never DROPPED) is the primary signal. Target: reduce mean PHIL dogma score below 0.8.",
+      "cadence_sessions": 15,
+      "last_reviewed_session": "S500",
+      "registered_by": "S500",
+      "last_session": "S500",
+      "last_date": "2026-03-22",
+      "note": "S500: registered. dogma_finder.py parse_challenges() fixed to read PHILOSOPHY.md 4-column challenge table (was blind to all PHIL challenges). Top targets: PHIL-5 (1.60), PHIL-16 (1.60), PHIL-2 (1.60)."
     }
   ]
 }
