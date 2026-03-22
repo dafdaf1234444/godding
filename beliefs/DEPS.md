@@ -99,7 +99,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed
 - **Falsified if**: An invocation tool achieves >50% adoption across 10+ consecutive sessions without workflow embedding, OR a workflow-embedded tool falls below 60% adoption
 - **Depends on**: B7
-- **Last tested**: S499 (CONFIRMED BIMODAL — 169/283 tools archived (60%), confirming power law. ~14 workflow-embedded tools at ~100% adoption; invocation-only tools accumulate as dead weight until pruned. S498 tool-consolidation archived 17 more. L-601 structural enforcement theorem is the causal mechanism. n=283 total, strongest evidence of the three.)
+- **Last tested**: S499 (CONFIRMED BIMODAL — 24 workflow-embedded tools at 100% adoption vs 75+ invocation-only at 0-12%, median ~2% (n=51 sessions S449-S499). Zero tools in 13-99% range — cliff not gradient. External: nudge theory (Thaler & Sunstein 2008), poka-yoke (Shingo). L-1309.)
 
 ### B13: Incorrect error handling is the dominant cause of catastrophic distributed systems failures (53-92%)
 - **Evidence**: observed (24 systems, 5 studies; Yuan OSDI 2014)
