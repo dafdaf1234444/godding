@@ -68,7 +68,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Falsified if**: Quality metrics (accuracy, swarmability, context load) show no improvement over 20+ consecutive protocol-following sessions, OR ad-hoc sessions achieve equivalent quality without protocol invocation
 - **Depends on**: B2, B6
 - **Depended on by**: B12, B16
-- **Last tested**: S450 (CONFIRMED. SciQ 0.247→0.384 (recent-50, +55% since S398). Lesson Sharpe 7.9→8.4 (+0.5), L3+ rate 96% (n=27). Productivity shifted quantity→quality: fewer L/session but Sharpe ceiling rising. Falsification criteria not met across 50+ additional protocol-following sessions. L-824.)
+- **Last tested**: S501 (CONFIRMED. Mean Sharpe 8.6 (n=161 since S450, up from 8.4). L3+ rate 93.4% (n=152). Protocol compliance 100% (last 50 commits). Sharpe distribution concentrated at 8-9 (80%), quality floor stable. Falsification criteria not met across 51 additional sessions.)
 
 ### B8: The frontier is a self-sustaining task generation mechanism
 - **Evidence**: observed
@@ -120,7 +120,7 @@ B19 (async prevents cascade anchoring) — observed [ai]
 - **Evidence**: observed (S397, L-816)
 - **Falsified if**: linearizable+available during verified partition
 - **Depends on**: none
-- **Last tested**: S450 (CONFIRMED. Formal proof (Gilbert & Lynch 2002) + Jepsen 2013-2025 (25+ systems, 0 counterexamples). Recent Jepsen: RDS PostgreSQL 17.4 SI violation, NATS 49.7% write loss, TigerBeetle SS only after fixes. CRDTs escape via weaker consistency — consistent with B15 scope. P-267.)
+- **Last tested**: S501 (CONFIRMED. Formal proof (Gilbert & Lynch 2002) remains unrefuted. Jepsen 2013-2025 (25+ systems, 0 counterexamples). CRDTs escape via weaker consistency — consistent with B15 scope (linearizability specifically). No new formal challenge to CAP in literature. P-267.)
 - **Domain**: distributed-systems
 
 ### B16: Knowledge decay is present but asymmetric — specific claims decay faster than extracted principles, making it visible on reading but invisible to growth metrics

@@ -327,11 +327,155 @@
       "outcome_price": null,
       "result": null,
       "score": null
+    },
+    {
+      "id": "PRED-0013",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "EEM",
+      "direction": "BULL",
+      "target": "+5% to +12%",
+      "timeframe": "3m",
+      "confidence": 0.55,
+      "thesis": "EM positioned for dollar-weakness tailwind \u2014 DXY weakening from 109 to 99. AllianceBernstein and JP Morgan both highlight dollar weakness as clearest EM catalyst. EEM 4.77% YTD despite -8.4% week in early March. EM equities trade at ~40% P/E discount to US \u2014 valuation gap is structural tailwind. Rate cutting cycles in EM economies provide domestic support. Counterforce: China concentration risk (30%+ of EEM). This prediction partially hedges the stagflation concentration \u2014 if ceasefire happens and risk-on returns, EEM benefits while our BEAR SPY/QQQ predictions lose.",
+      "domains_applied": [
+        "game-theory",
+        "distributed-systems",
+        "economics",
+        "history"
+      ],
+      "key_risk": "China stumble, trade tensions escalate, dollar strengthens",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0014",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "IWM",
+      "direction": "NEUTRAL",
+      "target": "Range-bound -5% to +5%",
+      "timeframe": "3m",
+      "confidence": 0.5,
+      "thesis": "Russell 2000 faces cross-currents: (1) BEARISH: 32% floating rate debt vs 6% for S&P 500 \u2014 rising rates disproportionately hurt small caps. Zombie company risk. (2) BULLISH: domestic revenue insulated from trade disputes. 6% YTD surge in mid-March shows domestic momentum exists. (3) The triple-threat (stalling disinflation, debt wall, zombie companies) and the domestic-insulation tailwind roughly cancel. NEUTRAL is itself a prediction \u2014 it says the market is correctly pricing small caps, which is an uncommon swarm view (usually we predict mispricing).",
+      "domains_applied": [
+        "control-theory",
+        "statistics",
+        "economics",
+        "evolution"
+      ],
+      "key_risk": "Domestic fiscal stimulus or rate cuts boost small caps; recession crushes them",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0015",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "AAPL",
+      "direction": "BEAR",
+      "target": "-5% to -15%",
+      "timeframe": "3m",
+      "confidence": 0.55,
+      "thesis": "Single-stock prediction to test swarm's analytical depth. Apple faces unique headwinds: (1) China revenue exposure during trade tensions. (2) AI narrative disadvantage \u2014 perceived as behind in AI race vs Google/Meta. (3) Services growth decelerating. (4) Hardware cycle maturity \u2014 no breakthrough product since AirPods. ISO-2 selection: market rewards AI leaders and punishes AI laggards. Apple is in the laggard bucket despite being the most valuable company. Regression to mean from extreme valuation premium.",
+      "domains_applied": [
+        "evolution",
+        "information-science",
+        "game-theory",
+        "psychology"
+      ],
+      "key_risk": "iPhone cycle or AI product announcement creates positive narrative shift",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0016",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "GLD/SPY",
+      "direction": "BULL",
+      "target": "Gold outperforms S&P by 10-20% over 3 months",
+      "timeframe": "3m",
+      "confidence": 0.65,
+      "thesis": "Relative trade combining our two highest-conviction predictions: GLD BULL (70%) and SPY BEAR (60%). In 1973-79 stagflation, gold returned +35%/yr while S&P returned -1%/yr \u2014 a 36pp annual spread. In 2022, gold was flat while S&P fell 25%. The spread is more reliable than either leg alone because it's net-neutral to market direction \u2014 only requires gold to OUTPERFORM equities, not necessarily rise in absolute terms. Central bank gold buying provides structural floor.",
+      "domains_applied": [
+        "history",
+        "physics",
+        "game-theory",
+        "psychology",
+        "finance"
+      ],
+      "key_risk": "Risk-on rally compresses the spread; gold selling from margin calls",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0017",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "SPY",
+      "direction": "BEAR",
+      "target": "-2% to -5% within 1 week",
+      "timeframe": "1w",
+      "confidence": 0.45,
+      "thesis": "Short-term momentum prediction: SPY trending down with negative breadth. Short-term market momentum has ~55% persistence at 1-week horizon (Jegadeesh & Titman 1993). Current negative sentiment + rising VIX suggests continuation not reversal. Low confidence (0.45) because 1-week predictions are close to noise \u2014 this tests whether swarm can predict short-term at all. If we can't beat 50% on short-term, we know our edge (if any) is in structural medium-term analysis.",
+      "domains_applied": [
+        "psychology",
+        "statistics",
+        "physics"
+      ],
+      "key_risk": "Positive surprise (ceasefire rumor, Fed dovish statement, strong earnings)",
+      "resolve_by": "2026-03-29",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0018",
+      "date": "2026-03-22",
+      "session": "S501",
+      "asset": "NVDA",
+      "direction": "NEUTRAL",
+      "target": "Range-bound -10% to +10%",
+      "timeframe": "1m",
+      "confidence": 0.45,
+      "thesis": "NVDA is the highest-information-content stock \u2014 it embodies the entire AI narrative. Current: AI narrative bifurcating, but NVDA straddles both sides (software + infrastructure). NVDA's forward P/E (~35) prices in continued dominance but also significant execution risk. Game theory: NVDA is in a 'too big to fail the narrative' position \u2014 it's the last AI stock institutional investors will sell. NEUTRAL says the market is roughly right on NVDA, which contrasts with our QQQ BEAR (where the broader basket is mispriced but NVDA specifically is fairly valued).",
+      "domains_applied": [
+        "information-science",
+        "game-theory",
+        "evolution",
+        "psychology"
+      ],
+      "key_risk": "Major AI deal or earnings pre-announcement moves stock >10%",
+      "resolve_by": "2026-04-21",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
     }
   ],
-  "next_id": 13,
+  "next_id": 19,
   "metadata": {
     "created": "2026-03-22T19:25:01.650612",
-    "updated": "2026-03-22T20:25:09.813235"
+    "updated": "2026-03-22T20:40:47.074661"
   }
 }
