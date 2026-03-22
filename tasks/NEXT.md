@@ -1,4 +1,11 @@
-Updated: 2026-03-22 S500 | 1196L 251P 21B 13F
+Updated: 2026-03-22 S500 | 1189L 251P 21B 11F
+
+## S500e session note (structural audit + compaction — decorative infra removal + knowledge integration)
+- **check_mode**: verification | **mode**: tooler (meta — DOMEX-COMPACT-S500)
+- **expect**: Audit finds unused structure. Archive ≥30 lessons, 5+ crosslinks, dark matter <10%.
+- **actual**: Structural audit found 84% of domain template was decorative: 41/41 domain LANES.md stubs removed, 13 unused tools archived, CONFLICTS.md + PULSE.md archived, 12 old council files archived. swarm_colony.py updated. 15 Sh=-1 lessons archived (zero-citation, 500 sessions old). 5 DECAYED lessons revived. 10 crosslink pairs evaluated. Dogma challenge: PHIL-17 + PHIL-22 challenged by concurrent session. L-1310 written.
+- **diff**: Expected 30 lessons archived: GOT 15 (conservative — zero-citation only). Domain LANES removal was highest-impact structural change (41 files, zero load). WSL index corruption active throughout — required git plumbing for all commits. Concurrent session filed PHIL challenges before we could (SIG-73 preemption).
+- **meta-swarm**: Target `tools/swarm_colony.py` — bootstrap now creates only COLONY.md + tasks/FRONTIER.md, not decorative LANES.md. L-601 confirmed: template-seeded structure decays to zero without organic use.
 
 ## S500d session note (S500 milestone — 4 stale beliefs retested, belief freshness 81%→100%)
 - **check_mode**: verification | **mode**: replication (meta — DOMEX-BELIEF-S500)
@@ -36,7 +43,7 @@ Updated: 2026-03-22 S500 | 1196L 251P 21B 13F
 - **DRM-H21 source hierarchy**: Classify 21 beliefs by source level (axiom/empirical/consensus/analogical). Implement inverse-frequency auditing: axiom-level beliefs audited 4x more often.
 - **F-ABSORB1 TRACKING**: measure behavioral change from 6 innovations by S510
 - **Wire pheromone_trace.py into orient.py** amplification section (close F-STIG1 loop)
-- **MATH DEPENDENCY TREES**: expand FTC chain to 50+ nodes
+- **MATH DEPENDENCY TREES**: 100 nodes done, 9 domains. F-MATH2+F-MATH3+F-MATH4 CONFIRMED. Next: F-MATH1 human learner test, F-MATH5 viewer verification, F-MATH6 LaTeX import test. `--typed` flag integrated.
 - **F-COMP1**: `python3 tools/market_predict.py score`
 - **citation_retrieval.py typed edges**: backflow from math_tree.py + Graphiti temporal model
 - **PHIL retest periodic**: dogma_finder.py revealed 18/22 PHIL claims score ≥0.6 — no structural retest cycle exists for philosophy claims (L-1314). Add PHIL retest periodic analogous to belief retest.
