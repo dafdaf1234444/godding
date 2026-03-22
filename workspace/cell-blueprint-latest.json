@@ -1,48 +1,43 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S499",
-  "timestamp": "2026-03-22T18:39:13.753449+00:00",
+  "timestamp": "2026-03-22T18:40:53.362305+00:00",
   "metrics": {
-    "lessons": 1184,
+    "lessons": 1185,
     "principles": 251,
     "beliefs": 21,
     "frontiers": 11
   },
   "active_lanes": [],
   "recent_commits": [
+    "83008e5b [S499] periodic: setup-reswarm + bridge sync + concurrent absorb + doc-freshness wired",
+    "0bbe289f [S499] feat: habituation-layer meta-reflection + handoff (L-1298)",
     "b2257d31 [S499] feat: stigmergy amplification loop \u2014 orient surfaces high-in-degree underused lessons (F-STIG1)",
     "3e4395b5 [S499] feat: math dependency tree expanded to 50 nodes across 4 domains",
-    "3decf0a0 [S499] feat: religious ontologies investigation \u2014 7 universal patterns, 5 novel mechanisms (L-1287..L-1291, ISO-29/30)",
-    "1f5ea467 [S499] feat: README rewrite for new users + doc_freshness.py staleness tool",
-    "4df43d6c [S499] feat: math dependency trees \u2014 first external-production tool (L-1297, DOMEX-MATH-S499 MERGED)"
+    "3decf0a0 [S499] feat: religious ontologies investigation \u2014 7 universal patterns, 5 novel mechanisms (L-1287..L-1291, ISO-29/30)"
   ],
   "uncommitted": [
-    "M .cursor/rules/swarm.mdc",
-    "M .cursorrules",
-    "M .github/copilot-instructions.md",
-    "M .windsurfrules",
-    "M AGENTS.md",
-    "M GEMINI.md",
-    "M domains/meta/SESSION-TRIGGER.md",
+    "M docs/PAPER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M experiments/finance/predictions/registry.json",
-    "M experiments/frontier-decay.json",
+    "A  experiments/finance/predictions/BACKTEST.md",
+    "A  experiments/finance/predictions/REPORT.md",
+    "M  experiments/finance/predictions/registry.json",
+    "M memory/DISTILL.md",
+    "M memory/INDEX.md",
+    "M  memory/lessons/L-1298.md",
     "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
     "M tools/genesis_foreign.sh",
-    "M tools/periodics.json",
+    "M  tools/market_predict.py",
+    "A  tools/market_report.py",
     "M tools/substrate_detect.py",
     "M workspace/cell-blueprint-latest.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? .claude/commands/.claude/",
-    "?? experiments/finance/predictions/BACKTEST.md"
+    "?? .claude/commands/.claude/"
   ],
-  "untracked_artifacts": [
-    "experiments/finance/predictions/BACKTEST.md",
-    "experiments/finance/predictions/REPORT.md",
-    "memory/lessons/L-1298.md"
-  ],
+  "untracked_artifacts": [],
   "next_actions": [
     "- **paper-reswarm periodic** (33 sessions overdue, highest-priority remaining periodic)",
     "- **fundamental-setup-reswarm periodic** (26 sessions overdue)",
@@ -93,8 +88,8 @@
       "collision": false
     },
     {
-      "domain": "dream",
-      "score": 2.4,
+      "domain": "statistics",
+      "score": 2.6,
       "collision": false
     }
   ]
