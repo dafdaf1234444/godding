@@ -165,6 +165,94 @@ Fed funds rate history (FRED)
 
 ---
 
+## PRED-0006: BTC BULL (+15% to +30%, 3m)
+### Thesis pattern: Bitcoin decorrelates from risk assets during sovereign/currency-stress events
+
+**Supporting evidence:**
+| Period | Macro regime | BTC 3m return | SPY 3m return | Decorrelated? |
+|--------|-------------|---------------|---------------|---------------|
+| 2020 Q2-Q4 | Massive fiscal expansion | +170% | +20% | YES — BTC outperformed 8x |
+| 2023 Q1 | SVB banking crisis | +70% | +7% | YES — BTC rallied on bank-distrust |
+| 2024 Q1 | ETF approval + halving | +65% | +10% | Partial — both rallied but BTC 6x |
+
+**Counterevidence (CRITICAL):**
+| Period | Macro regime | BTC 3m return | Note |
+|--------|-------------|---------------|------|
+| 2022 Q2 | Fed hikes + risk-off | **-58%** | BTC correlated perfectly with QQQ; "digital gold" thesis failed |
+| 2021 Q2 | China mining ban | -40% | Regulatory risk crushed BTC specifically |
+| 2018 Q4 | Crypto winter | -45% | Internal crypto-market dynamics dominated macro |
+
+**Key distinction:** BTC decorrelates during FISCAL crises (banking, sovereign debt, currency)
+but RE-correlates during MONETARY TIGHTENING crises (Fed hiking). Current: Fed is ON HOLD (3.5-3.75%),
+not hiking. This favors decorrelation.
+**Calibration:** 0.55. The decorrelation thesis is sound for current regime (fiscal stress, not
+monetary tightening). But BTC is volatile enough that a -20% drawdown within any 3m period
+is structurally probable regardless of thesis.
+
+Sources: Bitcoin historical (coingecko.com), BTC-SPY correlation studies (Arcane Research),
+SVB banking crisis impact (CoinDesk), Fed rates (FRED)
+
+---
+
+## PRED-0007: DXY BEAR (-3% to -7%, 3m)
+### Thesis pattern: Dollar weakens when Fed is on hold during stagflation
+
+**Supporting evidence:**
+| Period | Fed stance | DXY 3m change | Macro regime |
+|--------|-----------|---------------|--------------|
+| 1977-1978 | On hold during inflation | -8% | Pre-Volcker stagflation |
+| 2004 Q1 | Low rates, fiscal deficit | -5% | Iraq war spending + trade deficit |
+| 2011 Q3 | Operation Twist (easing) | -4% | Post-crisis, fiscal expansion |
+
+**Counterevidence:**
+| Period | Fed stance | DXY change | Note |
+|--------|-----------|------------|------|
+| 2022 | Aggressive hiking | **+15%** | Rate differential drove massive DXY rally |
+| 2014-2015 | Tapering → hiking | +25% | Dollar strengthened on relative tightening |
+| Gulf War 1991 | Mixed | +3% | Short-term safe-haven bid for USD during conflict |
+
+**Key distinction:** DXY movement is driven primarily by RATE DIFFERENTIALS, not safe-haven flows.
+When Fed hikes (2022, 2014), DXY rallies regardless of geopolitics. When Fed holds or eases
+(1977, 2004, 2011), DXY weakens. Current: Fed ON HOLD at 3.5-3.75%, projecting one cut in 2026.
+ECB and others may hold or cut less, narrowing differential.
+**Risk:** If Hormuz crisis triggers USD repatriation (foreign holders selling assets for USD),
+short-term rally possible. But medium-term, fiscal deficit expansion from war spending is USD-negative.
+**Calibration:** 0.60. Rate differential argument is strong; timing risk from safe-haven flows.
+
+Sources: DXY historical (tradingview.com), Fed funds rate (FRED), Rate differentials (BIS)
+
+---
+
+## PRED-0008: VIX BULL (spike to 35-45, 3m)
+### Thesis pattern: VIX underprices tail risk during escalating military conflicts
+
+**Supporting evidence:**
+| Period | Trigger | VIX pre-event | VIX peak | Days to peak |
+|--------|---------|--------------|----------|--------------|
+| 2022 Feb-Mar | Russia-Ukraine invasion | 20 | 36 | 14 |
+| 2020 Feb-Mar | COVID pandemic | 15 | 82 | 30 |
+| 2011 Aug | US debt downgrade | 18 | 48 | 7 |
+| 2008 Sep-Oct | Lehman Brothers | 25 | 80 | 30 |
+
+**Counterevidence:**
+| Period | Trigger | VIX pre | VIX peak | Note |
+|--------|---------|---------|----------|------|
+| 2003 Iraq War | US invasion begins | 28 | 34 | VIX was already elevated; spike was modest |
+| 2019 Iran tensions | Soleimani assassination | 14 | 19 | Brief spike, quick decay — crisis contained |
+| 2014 Crimea | Russia annexation | 14 | 22 | Modest — crisis didn't escalate to supply disruption |
+
+**Pattern:** VIX spikes correlate with ECONOMIC MECHANISM of crisis, not geopolitical intensity.
+2022 Russia-Ukraine spiked VIX to 36 because of energy supply disruption. 2019 Soleimani had
+minimal VIX impact because no economic mechanism beyond brief oil spike.
+Current: Hormuz closure is 5x the supply disruption of Russia-Ukraine. Economic mechanism is present
+and escalating. VIX at 27 prices in ~1.7% daily moves, but 10mbpd supply loss is unprecedented.
+**Calibration:** 0.50. Timing VIX spikes is hard. Thesis is that VIX UNDERPRICES the current
+tail risk, but the spike could come from any catalyst — escalation, recession signal, or earnings miss.
+
+Sources: VIX historical (CBOE), Conflict-VIX studies (IMF WP), Oil supply disruption history (IEA)
+
+---
+
 ## Backtest Summary
 
 | Pred | Historical support | Historical failure cases | Honest confidence | Original |
@@ -174,7 +262,12 @@ Fed funds rate history (FRED)
 | PRED-0003 TLT BULL | Flight to safety works 3/4 | **2022 stagflation: -31%** | **0.40** | 0.55 |
 | PRED-0004 GLD BULL | Stagflation gold +19%/yr | 2022 Fed hikes -20% | 0.70 | 0.70 |
 | PRED-0005 QQQ BEAR | Rate rise + high CAPE = drawdown | 2023-24 AI narrative override | 0.60 | 0.60 |
+| PRED-0006 BTC BULL | Decorrelates in fiscal crises | **2022: -58% correlated with QQQ** | 0.55 | 0.55 |
+| PRED-0007 DXY BEAR | Weakens when Fed on hold + deficit | 2022 DXY +15% on rate diff | 0.60 | 0.60 |
+| PRED-0008 VIX BULL | Economic-mechanism crises spike VIX | 2003 Iraq: modest spike despite war | 0.50 | 0.50 |
 
-**Net calibration change:** Two predictions need confidence REDUCTION based on backtest.
-PRED-0002 XLE: 0.65→0.55 (recession risk underweighted).
-PRED-0003 TLT: 0.55→0.40 (2022 pattern directly contradicts thesis in stagflation).
+**Portfolio-level note:** 8 predictions, mean confidence 0.56. Directional bias: 5 bearish (SPY, QQQ, DXY)
+or inflation-hedge (GLD, BTC, XLE, VIX). Only XLE is bullish on a non-inflation asset. This portfolio
+is HEAVILY positioned for stagflation. If a peace deal reopens Hormuz, most predictions flip.
+That concentrated exposure is itself a risk — the Sanhedrin unanimity pattern (L-1289) applies
+to our OWN predictions.

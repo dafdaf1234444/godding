@@ -156,11 +156,86 @@
       "score": null,
       "baseline_price": 582.06,
       "baseline_date": "2026-03-20"
+    },
+    {
+      "id": "PRED-0006",
+      "date": "2026-03-22",
+      "session": "S499",
+      "asset": "BTC",
+      "direction": "BULL",
+      "target": "+15% to +30% from ~69000 to 79000-90000",
+      "timeframe": "3m",
+      "confidence": 0.55,
+      "thesis": "Bitcoin as digital gold thesis activates during sovereign-risk events. Hormuz closure is the largest oil supply disruption in history (10mbpd lost). Central banks are the buyer \u2014 China, India, Turkey accumulating gold AND bitcoin. ISO-4 phase transition: BTC held 68-76K range while SPY fell 5% and QQQ fell more \u2014 correlation breakdown signals regime change. Religious ontology insight (L-1289 unanimity-as-failure): consensus is bearish on risk assets but BTC is NOT behaving as a risk asset. DXY at 99-100 (weakening) favors non-dollar assets. Fed paralyzed in stagflation bind (3.5-3.75% rate, can't cut or hike). Historical: BTC +300% in 2020-2021 during massive fiscal/monetary expansion; current conditions are fiscal expansion + monetary hold = partial analog. Key risk: if BTC re-correlates with tech during a deeper selloff, the thesis breaks. Backtest: 2022 BTC -65% when it correlated with Nasdaq; 2020 BTC +300% when it decorrelated.",
+      "domains_applied": [
+        "finance",
+        "cryptography",
+        "physics",
+        "psychology",
+        "religion"
+      ],
+      "key_risk": "BTC re-correlates with tech stocks during risk-off cascade",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0007",
+      "date": "2026-03-22",
+      "session": "S499",
+      "asset": "DXY",
+      "direction": "BEAR",
+      "target": "-3% to -7% from ~100 to 93-97",
+      "timeframe": "3m",
+      "confidence": 0.6,
+      "thesis": "DXY peaked at 109 in Jan 2025, now at 99-100. Structural weakening: (1) Fed paralyzed \u2014 can't hike (recession) or cut (inflation), creating policy vacuum. (2) De-dollarization accelerating \u2014 central bank gold buying at record levels precisely because USD alternative-seeking is active. (3) Ijtihad/taqlid oscillation (L-1287 religion insight): forex markets are in precedent-following mode looking for 2022 analogs, but 2022 DXY rallied because Fed was hiking AGGRESSIVELY. Current Fed is ON HOLD \u2014 the dollar-strengthening mechanism is absent. (4) Fiscal deficit expansion funds war spending \u2014 USD supply increasing without demand increase. (5) ISO-6 institutional decay: USD reserve status shows erosion pattern consistent with hegemonic currency lifecycle. Backtest: 1970s stagflation DXY lost 25% over 5 years. 2022 DXY gained 15% because Fed hiked \u2014 mechanism was rates, not safe-haven. Current: rates flat, war costs mounting, allies diversifying. Counter: if Hormuz crisis escalates to direct US involvement requiring massive mobilization, short-term dollar could rally on repatriation flows.",
+      "domains_applied": [
+        "finance",
+        "economics",
+        "history",
+        "religion",
+        "game-theory"
+      ],
+      "key_risk": "Crisis escalation triggers dollar safe-haven repatriation flow",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
+    },
+    {
+      "id": "PRED-0008",
+      "date": "2026-03-22",
+      "session": "S499",
+      "asset": "VIX",
+      "direction": "BULL",
+      "target": "spike to 35-45 within 3 months from current ~27",
+      "timeframe": "3m",
+      "confidence": 0.5,
+      "thesis": "VIX at 27 is elevated but historically UNDERPRICES tail risk during active military conflicts. ISO-13 integral windup: Hormuz closure is accumulating economic damage (10mbpd supply loss) without discharge mechanism \u2014 no ceasefire in sight, no alternative supply route. The damage accumulates like debt (Hindu karma pattern, L-1287). VIX pricing assumes mean-reversion but the structural driver is non-mean-reverting \u2014 it is a step function (Hormuz open vs closed), not a cycle. Historical: 2008 VIX hit 80 (credit crisis); 2020 VIX hit 82 (COVID). Current: VIX 27 implies market prices ~1.7% daily moves. If Iran retaliates against Gulf infrastructure (escalation risk), VIX spikes to 40+ are probable. Unanimity-as-failure (L-1289): VIX has been trading in 20-30 range for weeks \u2014 market consensus is that volatility is contained. The Sanhedrin pattern says this consensus itself is suspicious. Confidence only 0.50 because timing VIX spikes is notoriously difficult \u2014 the thesis is directional, not timing-precise. Backtest: 2022 Russia-Ukraine VIX peaked at 36 then decayed \u2014 but Hormuz is a larger supply disruption than Russia-Ukraine.",
+      "domains_applied": [
+        "finance",
+        "physics",
+        "control-theory",
+        "religion",
+        "catastrophic-risks"
+      ],
+      "key_risk": "Ceasefire or Hormuz reopening collapses VIX back to 15-20",
+      "resolve_by": "2026-06-20",
+      "status": "OPEN",
+      "outcome_date": null,
+      "outcome_price": null,
+      "result": null,
+      "score": null
     }
   ],
-  "next_id": 6,
+  "next_id": 9,
   "metadata": {
     "created": "2026-03-22T19:25:01.650612",
-    "updated": "2026-03-22T19:25:26.991093"
+    "updated": "2026-03-22T19:50:06.566197"
   }
 }
