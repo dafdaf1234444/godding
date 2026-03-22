@@ -1,52 +1,51 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S501",
-  "timestamp": "2026-03-22T19:44:29.852778+00:00",
+  "session": "S502",
+  "timestamp": "2026-03-22T19:47:01.661424+00:00",
   "metrics": {
     "lessons": 1193,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 11
   },
-  "active_lanes": [
-    {
-      "lane": "DOMEX-PLB-S501",
-      "status": "ACTIVE",
-      "scope": "domains/plant-biology/DOMAIN.md"
-    }
-  ],
+  "active_lanes": [],
   "recent_commits": [
+    "627b40a3 [S501] feat: FM-40 diagnosis-repair gap detector \u2014 UNMITIGATED\u2192MINIMAL (F-CAT1)",
+    "96303f20 [S502] chore: absorb concurrent artifacts + close stale DOMEX-BELIEF-S501",
     "d7e9ec90 [S501] docs: --typed path section + regenerated exports (100 nodes, 155 edges)",
     "d3e792a9 [S501] feat: F-MATH6 confirmed \u2014 LaTeX import 100% accuracy + collision guard + L-599 trim",
-    "8214cb5c [S501] fix: external trail metric was false instrument \u2014 wrong headers + alphabetical sort",
-    "df45325a [S501] fix: close stale DOMEX-DOGMA-S500 lane (ABANDONED \u2014 work done in PHILOSOPHY.md)",
-    "59b47ab3 [S501] feat: 6 diversifying market predictions (18/50 total)"
+    "8214cb5c [S501] fix: external trail metric was false instrument \u2014 wrong headers + alphabetical sort"
   ],
   "uncommitted": [
-    "M beliefs/DEPS.md",
     "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
-    "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M memory/INDEX.md",
     "M memory/PRINCIPLES.md",
-    "M memory/lessons/L-527.md",
+    "M memory/SESSION-LOG.md",
     "M memory/lessons/L-568.md",
     "M memory/lessons/L-581.md",
-    "M memory/lessons/L-608.md",
     "M memory/lessons/L-613.md",
-    "M tasks/NEXT.md",
+    "M tasks/FRONTIER.md",
+    "M  tasks/NEXT.md",
     "M tasks/SWARM-LANES.md",
-    "M workspace/cell-blueprint-latest.json",
+    "M tools/check.sh",
+    "M tools/periodics.json",
+    "M  workspace/cell-blueprint-latest.json",
+    "M workspace/genesis-bundle-S???.hash",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? domains/plant-biology/",
-    "?? experiments/plant-biology/"
+    "?? experiments/meta/knowledge-state-s502.json"
   ],
   "untracked_artifacts": [
+    "experiments/meta/knowledge-state-s502.json",
     "experiments/plant-biology/",
-    "memory/lessons/L-1322.md"
+    "memory/lessons/L-1322.md",
+    "memory/lessons/L-1323.md",
+    "memory/lessons/L-1324.md",
+    "memory/lessons/L-1325.md",
+    "memory/lessons/L-1326.md"
   ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",
@@ -62,27 +61,27 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 47,
+      "gap": 48,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 43,
+      "gap": 44,
       "cadence": 10
     },
     {
       "id": "paper-reswarm",
-      "gap": 36,
+      "gap": 37,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 34,
+      "gap": 35,
       "cadence": 10
     },
     {
       "id": "fmea-audit",
-      "gap": 34,
+      "gap": 35,
       "cadence": 10
     }
   ],

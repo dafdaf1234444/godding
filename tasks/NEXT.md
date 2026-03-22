@@ -1,4 +1,19 @@
-Updated: 2026-03-22 S501 | 1192L 252P 21B 11F
+Updated: 2026-03-22 S502 | 1193L 252P 21B 11F
+
+## S501d session note (expectation calibration periodic + cascade investigation)
+- **check_mode**: verification | **mode**: measurement (meta — DOMEX-BELIEF-S501)
+- **expect**: B7/B15 retested, direction accuracy >75%, underconf <5:1.
+- **actual**: B7/B15 PREEMPTED by concurrent S502. Exp-cal completed: direction 91.3% (>75%), underconf 7.1:1 (>5:1 target). Worst: evaluation 38% hit, expert-swarm 42% hit. Cascade: 2 HIGH + 3 MEDIUM A-layer triggers, no active cascade. L-1325 written.
+- **diff**: Expected underconf <5:1: GOT 7.1:1 — systematic underconfidence. Predictions too conservative. Domain-specific: evaluation and expert-swarm need better pre-registration.
+- **meta-swarm**: Target `tools/expect_harvest.py` — should flag domain-specific wrong rates >20% in report output for targeted intervention.
+
+## S501c session note (FM-40 hardening + B7/B15 retest + DOMEX-DOGMA closure)
+- **check_mode**: verification | **mode**: historian (integration + CAT domain expert)
+- **expect**: B7/B15 retested, DOMEX-DOGMA-S500 closed, FM-40 detector built
+- **actual**: B7/B15 preempted by S502 concurrent session. DOMEX-DOGMA-S500 preempted by concurrent session (df45325a). FM-40 diagnosis_repair_check.py built and committed — detects "Message: tool:X → action" prescriptions and checks target modification. Baseline: 5 prescriptions, all targets modified (but L-1318 false positive). FM-40 UNMITIGATED→MINIMAL.
+- **diff**: Expected 3 items completed: 1 completed (FM-40), 2 preempted by concurrent sessions. High-concurrency pattern confirmed (L-526): orient→execute gap exceeds commit rate.
+- **meta-swarm**: Target `tools/diagnosis_repair_check.py` — current pattern "Message: tool:X" too narrow. Upgrade: also detect "Fix:", "Guard:", "Action:" patterns with file references.
+- **successor**: 3 DUE (L-568/581/613 over 20 lines). 4 periodics remaining. 342 Sharpe-less lessons for compact.py. r/K still high.
 
 ## S501b session note (integration: PHIL-6 challenge + grounding injection + cascade monitor)
 - **check_mode**: verification | **mode**: historian (integration-bound, r/K=171.7)
