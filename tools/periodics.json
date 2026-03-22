@@ -111,13 +111,13 @@
     {
       "id": "change-quality-check",
       "description": "Run python3 tools/change_quality.py: compare recent sessions vs. baseline on knowledge production + overhead. Flag WEAK sessions. A session rated WEAK 2+ consecutive times = root-cause diagnosis needed. (L-223). S486: 3/5 WEAK (S482/S483/S486), S484 STRONG. Long-term trend IMPROVING (+73%).",
-      "cadence_sessions": 5,
-      "last_reviewed_session": 486,
+      "cadence_sessions": 20,
+      "last_reviewed_session": "S499",
       "registered_by": "S178",
       "last": "S486",
       "last_session": 496,
       "last_run": "S487",
-      "note": "S487: 3/5 WEAK (S482/S483/S486). S484 STRONG (11 commits, 5L). Long-term +72%. Infrastructure sessions score 0 by design.",
+      "note": "S487: 3/5 WEAK (S482/S483/S486). S484 STRONG (11 commits, 5L). Long-term +72%. Infrastructure sessions score 0 by design. | S499 L-1294: cadence 5->20 (long-term +72%, stable trend. L-1294)",
       "last_date": "2026-03-03",
       "notes": "S486: 2/5 WEAK (S482/S483 consecutive \u2014 maintenance-mode artifact). Long-term IMPROVING +73%.",
       "last_note": "S496: 2/5 STRONG, 2/5 ON PAR, 1/5 WEAK. Long-term +58%."
@@ -143,12 +143,12 @@
     {
       "id": "economy-health",
       "description": "Swarm economy health check: run `python3 tools/economy_expert.py` \u2014 report on production velocity, proxy-K drift, Sharpe ratio, lane throughput, and helper ROI. Act on any WARN/URGENT/TRIGGER output (L-286, domains/economy/).",
-      "cadence_sessions": 10,
-      "last_reviewed_session": 491,
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S499",
       "registered_by": "S188",
       "last_session": "S491",
       "last_run": "S491",
-      "note": "S491: HEALTHY (SIG-72). Proxy-K drift 4.4%, lane throughput 93%, 0 blocked. Tracker not updated by running session \u2014 corrected S495.",
+      "note": "S491: HEALTHY (SIG-72). Proxy-K drift 4.4%, lane throughput 93%, 0 blocked. Tracker not updated by running session \u2014 corrected S495. | S499 L-1294: cadence 10->25 (HEALTHY since S491. L-1294)",
       "last_date": "2026-03-03"
     },
     {
@@ -229,12 +229,12 @@
       "id": "enforcement-audit",
       "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422, 10.0% at S444 \u2014 dilution active). See L-843, L-846, L-1062, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601. L-1062: cadence 10\u21925\u21923 (enforcement dilution, L-1066 N\u22651000 waypoint at S448).",
       "cadence_sessions": 3,
-      "last_reviewed_session": 480,
+      "last_reviewed_session": "S499",
       "registered_by": "S401",
       "last_session": 496,
       "last_run": "S489",
       "last_date": "2026-03-03",
-      "note": "S489: Rate 30.2% (target >15% ACHIEVED). 104 actionable aspirational. 5 WIRABLE.",
+      "note": "S489: Rate 30.2% (target >15% ACHIEVED). 104 actionable aspirational. 5 WIRABLE. | S499 L-1294: cadence 3->20 (target achieved 32.4% >> 15%. L-1294: prune met-target periodics)",
       "last_note": "S496: enforcement 32.4% (up from 10.0% at S444). Top gaps: L-1100/L-1190 Sh=10. 104 actionable prescriptions."
     },
     {
@@ -250,11 +250,11 @@
     {
       "id": "historian-routing",
       "description": "Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage).",
-      "cadence_sessions": 5,
-      "last_reviewed_session": 480,
+      "cadence_sessions": 15,
+      "last_reviewed_session": "S499",
       "registered_by": "L-996",
       "last_session": "S494",
-      "note": "S494: 4 synthesis candidates, 1 crosslink applied (F-GT1\u2192F-AGI1), B2 stale 51s, 4 anxiety-zone frontiers, 17 domain DOMEX gaps (16 never-visited). No auto-repairs.",
+      "note": "S494: 4 synthesis candidates, 1 crosslink applied (F-GT1\u2192F-AGI1), B2 stale 51s, 4 anxiety-zone frontiers, 17 domain DOMEX gaps (16 never-visited). No auto-repairs. | S499 L-1294: cadence 5->15 (low yield per run (4 candidates). L-1294)",
       "last_run": "S494",
       "last_note": "S464: ran historian_router.py (3 candidates), frontier_crosslink.py (11 links), historian_repair.py (28 stale items, 4 stale frontiers). F-RAND1 Gini criterion falsified by Monte Carlo n=1000.",
       "last_date": "2026-03-03"
@@ -292,31 +292,32 @@
     {
       "id": "fmea-reconcile",
       "description": "FMEA reconciliation: run `python3 tools/fmea_reconcile.py` \u2014 reconcile FM statuses across all artifacts (41 FMs, 34 artifacts, 6 artifact types). Detects tracking drift, internal inconsistencies, and new FM candidates from text extraction. L-1274: FMEA aggregate counts unreliable without periodic reconciliation. L-601: without periodic enforcement, voluntary usage decays to <3%.",
-      "cadence_sessions": 10,
-      "last_reviewed_session": 498,
+      "cadence_sessions": 30,
+      "last_reviewed_session": "S499",
       "registered_by": "S498",
       "last_session": "S498",
       "last_date": "2026-03-03",
-      "note": "S498: wired as periodic per S494d meta-swarm target. Last manual run S494d: 41 FMs, 1 formal inconsistency, 2 tracking gaps, 2 new candidates."
+      "note": "S498: wired as periodic per S494d meta-swarm target. Last manual run S494d: 41 FMs, 1 formal inconsistency, 2 tracking gaps, 2 new candidates. | S499 L-1294: cadence 10->30 (brand new S498, low yield. L-1294)"
     },
     {
       "id": "correction-propagation",
       "description": "Correction propagation audit: run `python3 tools/correction_propagation.py` \u2014 detect falsified lessons with uncorrected citers. Act on HIGH-priority gaps (content-dependent citations). Track correction rate trend. Target: 0 HIGH gaps, correction rate >80%. L-1132: append-only systems select measurement over correction; structural surfacing breaks the trap. (L-1132, L-1097, F-IC1)",
-      "cadence_sessions": 15,
-      "last_reviewed_session": 484,
+      "cadence_sessions": 30,
+      "last_reviewed_session": "S499",
       "registered_by": "S464",
       "last_session": "S484",
       "last_date": "2026-03-03",
-      "note": "S484: 0 HIGH priority gaps. Correction rate 60%. 10 uncorrected citations (6 LOW, 4 MEDIUM). No urgent action needed."
+      "note": "S484: 0 HIGH priority gaps. Correction rate 60%. 10 uncorrected citations (6 LOW, 4 MEDIUM). No urgent action needed. | S499 L-1294: cadence 15->30 (0 HIGH gaps, rate 60%. L-1294)"
     },
     {
       "id": "knowledge-swarm",
       "description": "Knowledge self-organization: run `python3 tools/knowledge_swarm.py --json` \u2014 revive DECAYED items, flag EXPIRED lessons, propose crosslinks, detect orphaned principles. Target: DECAYED <25%, BLIND-SPOT <12%, EXPIRED <8%. Feeds domain gaps to dispatch_scoring.py UCB1 knowledge-gap bonus.",
-      "cadence_sessions": 10,
-      "last_reviewed_session": 464,
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S499",
       "registered_by": "S457",
       "last_session": "S480",
-      "last_date": "2026-03-03"
+      "last_date": "2026-03-03",
+      "note": " | S499 L-1294: cadence 10->25 (no urgent issues since S480. L-1294)"
     },
     {
       "id": "grounding-injection",

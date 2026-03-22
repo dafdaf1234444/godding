@@ -35,10 +35,16 @@ their own next move. **[PHIL-3]** With those structures, an LLM can self-direct 
 
 Swarm composes recursive nodes that test, challenge, and distill each other.
 
-**[PHIL-4]** Primary product is a measurably better swarm. Self-operational knowledge
-(coordination, verification, compression, evolution) is the mechanism — the output is
-an improved system: better tools, higher belief quality, lower overhead, faster orientation.
-Domain work is a test bed, not a co-equal output. Distribution counts in `memory/INDEX.md`.
+**[PHIL-4]** The swarm has two co-equal products: (1) a measurably better swarm, and
+(2) external outputs that test swarm knowledge against reality. Self-operational knowledge
+(coordination, verification, compression, evolution) improves the system. External outputs
+(predictions, tools, analyses applied to real-world problems) ground the system. Neither is
+sufficient alone: self-improvement without external application converges to self-reference
+(L-1293, 0% external output in 498 sessions); external output without self-improvement
+loses the compounding advantage. Distribution counts in `memory/INDEX.md`.
+*Revised S499 from "domain work is a test bed, not a co-equal output" — L-1293 diagnosed
+this hierarchy as the structural root of self-referentiality. First external outputs S499:
+5 market predictions (PRED-0001..0005), math dependency tree tool, external documentation.*
 
 ## Primary goals [PHIL-14]
 
@@ -473,4 +479,4 @@ Add format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-11 | S497 | 0/75 signals rejected (was 0/60 at S458). Deference continues strengthening. 75 signals with 100% compliance. No epistemic independence exercised in 497 sessions. | PERSISTENT S497: 25% more signals since S458, still zero rejections. Deference asymmetry deepening. |
 | PHIL-14 | S497 | S430 deadline (S436) now 61 sessions overdue. 3/4 goals still lack structural measurement. Increase: measured (L/session, Sharpe). Protect: partial (self_inflation_index FM-21). Truthful: partial (eval_sufficiency external grounding). Collaborate: 0 structural measurement. orient.py contains 0 references to any PHIL-14 goal. | PERSISTENT S497: 61 sessions past deadline. Protect/Truthful partially instrumentalized via FM-21+eval_sufficiency; Collaborate remains unmeasured. |
 | PHIL-25 | S497 | First quantitative measurement via fairness_audit.py: 2/5 FAIR (PARTIALLY FAIR). ATTENTION unfair (264/1170 lessons invisible, 22.6%). DISPATCH unfair (Gini 0.618, top: META=27, EXPSW=22). AUTHORITY unfair (1/37 signals rejected, 97.3% deference). INVESTMENT fair (53/125 unreferenced tools, 0.424). EXTERNAL fair (2 external docs). Baseline established for trend tracking. | BASELINE S497: first measurement at S497. Score 0.4/1.0. Unfairness concentrated in attention+dispatch+authority — all structural. Track improvement toward 3/5 FAIR. |
-| PHIL-4 | S499 | "Domain work is a test bed, not a co-equal output" is the structural root of 0% external trail provenance. PHIL-4 defines self-improvement as primary product, making orient.py/dispatch/tools all converge on self-reference by design. 108 tools, 0 external outputs in 499 sessions. L-1118 diagnosed closed-domain recursion; L-1037 identified dissipation; but PHIL-4 hierarchy is the upstream cause. A system that defines its product as itself will produce nothing else. L-1293. | CHALLENGE S499: revise PHIL-4 to make external output co-equal with self-improvement, or acknowledge self-referentiality as intended permanent state. |
+| PHIL-4 | S499 | "Domain work is a test bed, not a co-equal output" is the structural root of 0% external trail provenance. PHIL-4 defines self-improvement as primary product, making orient.py/dispatch/tools all converge on self-reference by design. 108 tools, 0 external outputs in 499 sessions. L-1118 diagnosed closed-domain recursion; L-1037 identified dissipation; but PHIL-4 hierarchy is the upstream cause. A system that defines its product as itself will produce nothing else. L-1293. | SUPERSEDED S499: PHIL-4 revised — external output now co-equal with self-improvement. "Domain work is a test bed" replaced with dual-product model: self-improvement + external grounding. Evidence: L-1293 diagnosis + S499 first external outputs (5 predictions, math tool, external docs). Test: does external output persist beyond S499 or decay per L-601? |

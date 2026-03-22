@@ -1,43 +1,59 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S499",
-  "timestamp": "2026-03-22T18:40:53.362305+00:00",
+  "timestamp": "2026-03-22T18:48:09.652145+00:00",
   "metrics": {
-    "lessons": 1185,
-    "principles": 251,
+    "lessons": 1186,
+    "principles": 250,
     "beliefs": 21,
     "frontiers": 11
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-BELIEF-S499",
+      "status": "ACTIVE",
+      "scope": "domains/nk-complexity/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-DREAM-S499",
+      "status": "ACTIVE",
+      "scope": "experiments/dream/"
+    }
+  ],
   "recent_commits": [
+    "605a106a [S499] feat: comprehensive human belief systems atlas \u2014 20+ systems, 10 universals, 5 conflict axes (L-1299)",
+    "6f98ccd6 [S499] handoff: README rewrite + doc-freshness + setup-reswarm + bridge sync",
+    "575971fc [S499] feat: historical backtest + visible dashboard for market predictions",
     "83008e5b [S499] periodic: setup-reswarm + bridge sync + concurrent absorb + doc-freshness wired",
-    "0bbe289f [S499] feat: habituation-layer meta-reflection + handoff (L-1298)",
-    "b2257d31 [S499] feat: stigmergy amplification loop \u2014 orient surfaces high-in-degree underused lessons (F-STIG1)",
-    "3e4395b5 [S499] feat: math dependency tree expanded to 50 nodes across 4 domains",
-    "3decf0a0 [S499] feat: religious ontologies investigation \u2014 7 universal patterns, 5 novel mechanisms (L-1287..L-1291, ISO-29/30)"
+    "0bbe289f [S499] feat: habituation-layer meta-reflection + handoff (L-1298)"
   ],
   "uncommitted": [
+    "D  .claude/commands/swarm.md",
+    "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
+    "M domains/dream/tasks/FRONTIER.md",
+    "M domains/mathematics/manifest.json",
+    "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "A  experiments/finance/predictions/BACKTEST.md",
-    "A  experiments/finance/predictions/REPORT.md",
-    "M  experiments/finance/predictions/registry.json",
-    "M memory/DISTILL.md",
+    "M experiments/proxy-k-log.json",
     "M memory/INDEX.md",
-    "M  memory/lessons/L-1298.md",
+    "M memory/PRINCIPLES.md",
+    "A  memory/lessons/L-1301.md",
+    "M tasks/NEXT-ARCHIVE.md",
     "M tasks/NEXT.md",
     "M tasks/SWARM-LANES.md",
-    "M tools/genesis_foreign.sh",
-    "M  tools/market_predict.py",
-    "A  tools/market_report.py",
-    "M tools/substrate_detect.py",
+    "M  tools/genesis_foreign.sh",
+    "M tools/periodics.json",
+    "M  tools/substrate_detect.py",
     "M workspace/cell-blueprint-latest.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? .claude/commands/.claude/"
+    "M  workspace/genesis-bundle-S499.hash"
   ],
-  "untracked_artifacts": [],
+  "untracked_artifacts": [
+    "experiments/dream/dream-session6-s499.json",
+    "experiments/nk-complexity/b12-retest-s499.json",
+    "memory/lessons/L-1300.md"
+  ],
   "next_actions": [
     "- **paper-reswarm periodic** (33 sessions overdue, highest-priority remaining periodic)",
     "- **fundamental-setup-reswarm periodic** (26 sessions overdue)",
