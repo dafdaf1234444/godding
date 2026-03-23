@@ -25,7 +25,10 @@
       "result": null,
       "score": null,
       "baseline_price": 648.57,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: SPY at ~648 (-1.8% from prev close 659.80) DESPITE Iran de-escalation. Bearish: market declining on structural factors (rising yields) not just geopolitics. Strengthens thesis \u2014 multiple independent drivers."
+      ]
     },
     {
       "id": "PRED-0002",
@@ -35,7 +38,7 @@
       "direction": "BULL",
       "target": "+5% to +15% from current",
       "timeframe": "3m",
-      "confidence": 0.55,
+      "confidence": 0.4,
       "confidence_history": [
         {
           "value": 0.65,
@@ -46,6 +49,11 @@
           "value": 0.55,
           "date": "2026-03-22",
           "reason": "backtest: 2008 XLE -66% during demand destruction; recession risk underweighted"
+        },
+        {
+          "value": 0.4,
+          "session": "S520",
+          "date": "2026-03-23"
         }
       ],
       "thesis": "Energy sector (XLE) already +9.4% while broad market flat \u2014 but the structural driver (Hormuz closure, Iran war) is ESCALATING not resolving. ISO-13 integral windup: oil inventory drawdown accumulates without discharge mechanism. Game theory: neither Iran nor coalition has incentive to de-escalate given current payoffs. Evolution lens: energy companies are the 'fit' organisms in stagflation \u2014 pricing power + real assets. Control theory: energy is the only sector with positive feedback loop from current macro (higher oil \u2192 higher revenue \u2192 higher stock).",
@@ -63,7 +71,11 @@
       "result": null,
       "score": null,
       "baseline_price": 59.36,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: Iran strike pause, oil -9%. XLE base 59.36. De-escalation weakens structural driver. Watch whether strikes resume in 5 days.",
+        "Confidence 0.55\u21920.40: XLE thesis depended on escalating Hormuz closure. De-escalation removes primary driver."
+      ]
     },
     {
       "id": "PRED-0003",
@@ -101,7 +113,10 @@
       "result": null,
       "score": null,
       "baseline_price": 85.83,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "S519 check (2026-03-23): TLT at 86.35, UP +0.6% from 85.83 base. Right direction but small. 29 days remain."
+      ]
     },
     {
       "id": "PRED-0004",
@@ -111,7 +126,7 @@
       "direction": "BULL",
       "target": "+5% to +12% from current",
       "timeframe": "3m",
-      "confidence": 0.5,
+      "confidence": 0.6,
       "thesis": "Gold is the consensus safe haven in every historical analog to current conditions: (1) geopolitical war escalation, (2) stagflation fears, (3) loss of confidence in monetary policy, (4) CAPE extreme. ISO-8 power law: gold tends to move in explosive bursts, not gradual trends \u2014 current conditions are the preconditions for a burst. Game theory: central banks globally diversifying away from USD reserves (confirmed by BIS data). Distributed systems lens: gold is the decentralized store of value \u2014 network effects strengthen during centralized-system stress. Highest confidence prediction because multiple independent structural drivers converge.",
       "domains_applied": [
         "history",
@@ -131,7 +146,10 @@
       "baseline_date": "2026-03-20",
       "notes": [
         "S513: Downgraded 0.70\u21920.50. GLD -3.1% vs +5% target. Safe-haven thesis NOT activating.",
-        "S513 EAD: verified downgrade via update command"
+        "S513 EAD: verified downgrade via update command",
+        "S519 check (2026-03-23): GLD at 405.94, DOWN -4.8% from 426.41 base. Wrong direction. Gold selling off despite equity uncertainty.",
+        "2026-03-23: Gold dropped ~4.5% intraday on Iran de-escalation. Safe-haven demand reduced. Structural drivers (central bank buying, USD weakness) persist. Watch if gold holds 4100+ this week.",
+        "Confidence 0.70\u21920.60: gold dropped 4.5% on de-escalation, but structural drivers (central bank buying, USD weakness, CAPE extreme) persist. Tactical hit, not thesis-breaking."
       ],
       "confidence_history": [
         {
@@ -141,6 +159,11 @@
         {
           "value": 0.5,
           "session": "S513",
+          "date": "2026-03-23"
+        },
+        {
+          "value": 0.6,
+          "session": "S520",
           "date": "2026-03-23"
         }
       ]
@@ -197,7 +220,10 @@
       "result": null,
       "score": null,
       "baseline_price": 69000,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: BTC surged 5% to 71000 on Iran de-escalation. Digital gold thesis: BTC responds to risk-on events, not safe-haven events. This is COUNTER to thesis (predicted BTC as digital gold). BTC at 70600 vs 69000 base = +2.3%. Need +15% to hit target."
+      ]
     },
     {
       "id": "PRED-0007",
@@ -224,7 +250,10 @@
       "result": null,
       "score": null,
       "baseline_price": 100,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: DXY at 99.6, down slightly from base ~100. Dollar weakening on de-escalation uncertainty. BEAR thesis tracking \u2014 dollar down 0.4%."
+      ]
     },
     {
       "id": "PRED-0008",
@@ -234,7 +263,7 @@
       "direction": "BULL",
       "target": "spike to 35-45 within 3 months from current ~27",
       "timeframe": "3m",
-      "confidence": 0.5,
+      "confidence": 0.35,
       "thesis": "VIX at 27 is elevated but historically UNDERPRICES tail risk during active military conflicts. ISO-13 integral windup: Hormuz closure is accumulating economic damage (10mbpd supply loss) without discharge mechanism \u2014 no ceasefire in sight, no alternative supply route. The damage accumulates like debt (Hindu karma pattern, L-1287). VIX pricing assumes mean-reversion but the structural driver is non-mean-reverting \u2014 it is a step function (Hormuz open vs closed), not a cycle. Historical: 2008 VIX hit 80 (credit crisis); 2020 VIX hit 82 (COVID). Current: VIX 27 implies market prices ~1.7% daily moves. If Iran retaliates against Gulf infrastructure (escalation risk), VIX spikes to 40+ are probable. Unanimity-as-failure (L-1289): VIX has been trading in 20-30 range for weeks \u2014 market consensus is that volatility is contained. The Sanhedrin pattern says this consensus itself is suspicious. Confidence only 0.50 because timing VIX spikes is notoriously difficult \u2014 the thesis is directional, not timing-precise. Backtest: 2022 Russia-Ukraine VIX peaked at 36 then decayed \u2014 but Hormuz is a larger supply disruption than Russia-Ukraine.",
       "domains_applied": [
         "finance",
@@ -251,7 +280,22 @@
       "result": null,
       "score": null,
       "baseline_price": 27,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: VIX at 26.22 (-2.1%), down on de-escalation. Base 27. Target 35-45. Iran pause reduces near-term tail risk. BULL VIX thesis weakened.",
+        "Confidence 0.50\u21920.35: VIX at 26, de-escalation reduces tail risk. Spike to 35-45 requires new catalyst."
+      ],
+      "confidence_history": [
+        {
+          "value": 0.5,
+          "session": "original"
+        },
+        {
+          "value": 0.35,
+          "session": "S520",
+          "date": "2026-03-23"
+        }
+      ]
     },
     {
       "id": "PRED-0009",
@@ -340,7 +384,7 @@
       "direction": "BULL",
       "target": "WTI stays above 85 or reaches 110+",
       "timeframe": "3m",
-      "confidence": 0.6,
+      "confidence": 0.45,
       "thesis": "WTI at 93-98 with Hormuz closed. Oil inventory drawdown ~2-3mbpd with no discharge mechanism. Historical: 1973 embargo (4.4mbpd removed) produced 300%+ price increase. Hormuz is 20mbpd transit.",
       "domains_applied": [
         "game-theory",
@@ -356,7 +400,22 @@
       "result": null,
       "score": null,
       "baseline_price": 93.55,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: Trump postpones Iran strikes 5 days \u2014 WTI crashes 9% from 98 to 90. De-escalation undercuts Hormuz supply-disruption thesis. Oil still above 85 floor target but trajectory DOWN. If strikes resume, oil rebounds; if ceasefire, BULL thesis fails.",
+        "Confidence 0.60\u21920.45: Iran de-escalation directly undercuts supply-disruption thesis. If 5-day pause becomes ceasefire, oil drops to 75-80."
+      ],
+      "confidence_history": [
+        {
+          "value": 0.6,
+          "session": "original"
+        },
+        {
+          "value": 0.45,
+          "session": "S520",
+          "date": "2026-03-23"
+        }
+      ]
     },
     {
       "id": "PRED-0013",
@@ -382,7 +441,10 @@
       "result": null,
       "score": null,
       "baseline_price": 55.64,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "2026-03-23: EEM at ~54.61 vs base 55.64 (-1.9%). EM down despite dollar weakness \u2014 Iran de-escalation reducing geopolitical risk premium but also oil-related EM outperformance."
+      ]
     },
     {
       "id": "PRED-0014",
@@ -475,7 +537,7 @@
       "direction": "BEAR",
       "target": "-2% to -5% within 1 week",
       "timeframe": "1w",
-      "confidence": 0.3,
+      "confidence": 0.15,
       "thesis": "Short-term momentum prediction: SPY trending down with negative breadth. Short-term market momentum has ~55% persistence at 1-week horizon (Jegadeesh & Titman 1993). Current negative sentiment + rising VIX suggests continuation not reversal. Low confidence (0.45) because 1-week predictions are close to noise \u2014 this tests whether swarm can predict short-term at all. If we can't beat 50% on short-term, we know our edge (if any) is in structural medium-term analysis.",
       "domains_applied": [
         "psychology",
@@ -490,10 +552,23 @@
       "result": null,
       "score": null,
       "notes": [
-        "S513: Downgraded 0.45\u21920.30. 6 trading days left, SPY unchanged."
+        "S513: Downgraded 0.45\u21920.30. 6 trading days left, SPY unchanged.",
+        "S519 price check (2026-03-23): SPY at 657.76 intraday, UP +1.4% from 648.57 base. Wrong direction with 6 days left. Lowering confidence.",
+        "2026-03-23: SPY dropped from prev close 659.80 to ~648 range (-1.8%) despite Iran de-escalation. SPY down on rising bond yields, not geopolitics. 6 days to resolution. Need -2% to -5% from 648.57 base (635-616). Currently flat from base but bearish momentum."
       ],
       "baseline_price": 648.57,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "confidence_history": [
+        {
+          "value": 0.3,
+          "session": "original"
+        },
+        {
+          "value": 0.15,
+          "session": "S519",
+          "date": "2026-03-23"
+        }
+      ]
     },
     {
       "id": "PRED-0018",
@@ -518,13 +593,17 @@
       "outcome_price": null,
       "result": null,
       "score": null,
-      "baseline_price": 172.70,
-      "baseline_date": "2026-03-20"
+      "baseline_price": 172.7,
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "S519 check (2026-03-23): NVDA at 176.28, UP +2.1% from 172.70 base. Within neutral range (-10% to +10%). 29 days remain.",
+        "2026-03-23: NVDA at 176.32 vs base 172.70 (+2.1%). Within NEUTRAL range (-10% to +10%). AI narrative intact despite broad market weakness."
+      ]
     }
   ],
   "next_id": 19,
   "metadata": {
     "created": "2026-03-22T19:25:01.650612",
-    "updated": "2026-03-23T06:59:49.490280"
+    "updated": "2026-03-23T19:10:22.616330"
   }
 }

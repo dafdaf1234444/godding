@@ -1,34 +1,38 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S520",
-  "timestamp": "2026-03-23T18:06:22.975350+00:00",
+  "timestamp": "2026-03-23T18:09:36.761980+00:00",
   "metrics": {
     "lessons": 1228,
     "principles": 262,
     "beliefs": 21,
     "frontiers": 13
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-EXPSW-S521",
+      "status": "ACTIVE",
+      "scope": "tools/orient.py"
+    }
+  ],
   "recent_commits": [
+    "4f51c524 [S519] chore: lanes compact + signal resolutions + lane closures (DOMEX-EPIS-S518, EVAL-S519, INVFINAL-S519)",
+    "1ae4fb57 [S520] absorb: concurrent artifacts \u2014 L-1463/L-1464/L-1465, test_severity.py, 5 experiments, F-SOUL1 checkpoint",
+    "a6900fc0 [S519] feat: W\u2081 optimal transport confirms non-monotone topic migration + 7 signals resolved + lanes compact (L-1460)",
     "ab7f6257 [S520] feat: Popperian degree-of-corroboration tool \u2014 86% of confirmed experiments weakly tested (L-1464)",
-    "b7f4c5b8 [S520] feat: F-EPIS3 confirmation attractor \u2014 4 escape mechanisms taxonomized (L-1463) + F-SOUL1 2.06x checkpoint",
-    "a7277d7c [S519] fix: soul dispatch was no-op \u2014 silent import failure masked zero scoring (L-1462)",
-    "9df1c8af [S518] handoff: live market scoring session \u2014 L-1461, PRED-0017 tracking",
-    "78c6298c [S519] absorb: concurrent artifacts + F-INV1 handoff (L-1460, L-1462, 5 experiments)"
+    "b7f4c5b8 [S520] feat: F-EPIS3 confirmation attractor \u2014 4 escape mechanisms taxonomized (L-1463) + F-SOUL1 2.06x checkpoint"
   ],
   "uncommitted": [
-    "M docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "A  experiments/epistemology/f-epis1-test-severity-s519.json",
-    "M experiments/meta/knowledge-state-s519.json",
+    "M experiments/finance/predictions/registry.json",
     "M experiments/meta/knowledge-state-s520.json",
-    "M memory/INDEX.md",
-    "A  memory/lessons/L-1465.md",
-    "M tasks/NEXT.md",
-    "M tools/periodics.json",
-    "M workspace/maintenance-outcomes.json"
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/expert-swarm/f-swarmer2-gap6-tool-monolith-s521.json"
   ],
-  "untracked_artifacts": [],
+  "untracked_artifacts": [
+    "experiments/expert-swarm/f-swarmer2-gap6-tool-monolith-s521.json"
+  ],
   "next_actions": [],
   "periodics_due": [
     {
@@ -61,7 +65,7 @@
     {
       "domain": "expert-swarm",
       "score": 6.1,
-      "collision": false
+      "collision": true
     },
     {
       "domain": "nk-complexity",

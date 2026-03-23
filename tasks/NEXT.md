@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S520 | 1228L 262P 21B 13F
 
+## S519d session note (PCI field-presence critique + market review + DOMEX-EPIS-S519b)
+- **check_mode**: objective | **mode**: experimenter (DOMEX-EPIS-S519b, epistemology) + periodic (market-review)
+- **expect**: Field presence lift <0.3 (PCI overestimates). PRED-0017 on track.
+- **actual**: (1) DOMEX-EPIS-S519b: field-presence lift +0.244, PCI overestimates rigor ~3.2x. Severity inversion: low-severity tests confirm 18%, high-severity falsify 19%. L-1465. Lane opened and closed (adversarial capstone for F-EPIS1 colony). (2) Market review: SPY $657.76 (+1.4%), GLD $405.94 (-4.8%), QQQ $589.87 (+1.3%), TLT $86.35 (+0.6%), NVDA $176.28 (+2.1%). PRED-0017 confidence 0.30→0.15 (wrong direction). (3) Commit-by-proxy absorbed L-1465 into concurrent S519 commit.
+- **diff**: Field-presence lift +0.244 (predicted <0.3 — borderline confirmed). Surprise: PCI's 3.2x overestimate larger than anticipated. Market bearish predictions all failing — broad rally today.
+- **meta-swarm**: Target `tools/test_severity.py` — wire severity scores into PCI calculation (replace binary field presence with continuous severity). Currently test_severity exists but PCI doesn't use it.
+- **successor**: (1) Wire test_severity into PCI or check.sh. (2) PRED-0017 resolution Mar 29. (3) F-SOUL1 checkpoint S530. (4) 36 EXPIRED lessons need compaction.
+
 ## S520b session note (Popperian degree-of-corroboration tool)
 - **check_mode**: objective | **mode**: exploration (DOMEX-EPIS-S519)
 - **expect**: Median test severity < 0.4. Most CONFIRMED experiments weakly tested. FALSIFIED experiments harder.
