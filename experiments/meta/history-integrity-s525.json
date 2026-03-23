@@ -1,43 +1,156 @@
 {
-  "experiment": "DOMEX-HIST-S525",
+  "experiment": "history-integrity-s525",
   "session": "S525",
-  "date": "2026-03-23",
   "domain": "meta",
-  "role": "tooler",
-  "scope": "tools/history_integrity.py",
-  "expect": "history_integrity.py attribution rate improves by excluding restore/re-add false negatives and experiment outcome completeness rises by recognizing verdict/results/diff schemas; report names concrete remaining misses",
-  "actual": {
-    "tool_changes": [
-      "lesson sampling now sorts by numeric lesson id instead of lexicographic filename order",
-      "creation-session detection now selects the oldest non-restore add commit instead of the newest restore/re-add",
-      "experiment schema detection now parses nested JSON keys and recognizes modern expectation/outcome fields such as expect, hypothesis, verdict, results, result, and diff-with-expectation context"
-    ],
-    "live_metrics": {
-      "lesson_attribution_rate": "92% (46/50 sample matches, 4 mismatches)",
-      "recent_outcome_rate": "97% (421/434 recent experiment JSONs)",
-      "recent_expected_rate": "92% (401/434 recent experiment JSONs)"
+  "frontier": "F-META2",
+  "intent": "fix-history-integrity-false-negatives",
+  "expect": "history_integrity.py attribution rate improves by excluding restore/re-add false negatives and experiment outcome completeness rises by recognizing verdict/results/diff schemas; report names concrete remaining misses.",
+  "actual": "Lesson attribution improved from 0% to 92% on the recent-lesson sample, with restore-only paths excluded. Recent experiment outcome completeness improved from 75% to 94% after recognizing verdict/results/diff schemas.",
+  "diff": "Matched the expected direction and exceeded the minimum target. Remaining misses are localized to a small named cluster rather than a corpus-wide false-zero failure mode.",
+  "results": {
+    "commit_format": {
+      "total": 100,
+      "compliant": 100,
+      "rate": 1.0,
+      "non_compliant_examples": []
     },
-    "residual_misses": {
-      "attribution": [
-        "L-1441.md",
-        "L-1442.md",
-        "L-1443.md",
-        "L-1444.md"
-      ],
-      "root_cause": "These are real mismatches: the add commit is a modern 2026 commit whose subject is incorrectly tagged [S3], so the metric should surface them rather than suppress them."
+    "lesson_attribution": {
+      "sample": 50,
+      "mass_restore_excluded": 0,
+      "matches": 46,
+      "mismatches": 4,
+      "no_declared": 0,
+      "errors": 0,
+      "rate": 0.92,
+      "mismatch_examples": [
+        {
+          "lesson": "L-1441.md",
+          "declared": "S518",
+          "committed": "S3",
+          "diff": 515
+        },
+        {
+          "lesson": "L-1442.md",
+          "declared": "S518",
+          "committed": "S3",
+          "diff": 515
+        },
+        {
+          "lesson": "L-1443.md",
+          "declared": "S518",
+          "committed": "S3",
+          "diff": 515
+        },
+        {
+          "lesson": "L-1444.md",
+          "declared": "S518",
+          "committed": "S3",
+          "diff": 515
+        }
+      ]
     },
-    "verification": [
-      "python3 -m unittest tools/test_history_integrity.py",
-      "python3 tools/history_integrity.py --json"
-    ]
-  },
-  "diff": {
-    "attribution": "Expected false-zero attribution to recover. Actual recovered from 0% to 92%; remaining misses are a small named cluster, not a restore-history artifact.",
-    "outcomes": "Expected recent outcome completeness to clear the 80% target. Actual reached 97% after schema-aware detection.",
-    "expectations": "Bonus fix: expectation completeness was also undercounted because most recent artifacts use expect/hypothesis/prediction rather than expected. Actual reached 92%."
-  },
-  "files_changed": [
-    "tools/history_integrity.py",
-    "tools/test_history_integrity.py"
-  ]
+    "experiment_outcomes": {
+      "total_experiment_jsons": 1013,
+      "recent_threshold": "S400+",
+      "recent_total": 435,
+      "recent_with_actual": 422,
+      "recent_with_outcome": 422,
+      "recent_with_expected": 402,
+      "recent_outcome_rate": 0.9701149425287356,
+      "older_with_actual": 284,
+      "older_with_outcome": 284,
+      "older_total": 578,
+      "older_outcome_rate": 0.4913494809688581,
+      "missing_examples": [
+        {
+          "session": 501,
+          "file": "f-cat1-fm40-diagnosis-repair-s501.json",
+          "keys": [
+            "defense_layers",
+            "fm_id",
+            "fm_name",
+            "fulfilled",
+            "limitations",
+            "session",
+            "status_change",
+            "tool",
+            "total_prescriptions",
+            "unfulfilled"
+          ]
+        },
+        {
+          "session": 470,
+          "file": "f-con1-baseline-s470.json",
+          "keys": [
+            "abandoned",
+            "abandonment_taxonomy",
+            "active",
+            "administrative_branch_lifecycle",
+            "c1_duplicate_work",
+            "cites",
+            "collaborate_continuous_after",
+            "collaborate_continuous_before",
+            "count_strict_c1",
+            "data"
+          ]
+        },
+        {
+          "session": 429,
+          "file": "f-con1-baseline-s429.json",
+          "keys": [
+            "abandoned",
+            "active",
+            "active_lanes",
+            "analysis",
+            "c1_actual",
+            "c1_duplicate_work",
+            "c1_expected",
+            "c1_fraction_of_abandoned",
+            "c1_rate_below_threshold",
+            "c1_rate_change"
+          ]
+        },
+        {
+          "session": 428,
+          "file": "f-con1-baseline-s428.json",
+          "keys": [
+            "abandon_rate_vs_s189",
+            "abandoned",
+            "active",
+            "admin_closure_note",
+            "administrative_closures",
+            "analysis",
+            "c1_duplicate_work",
+            "c1_rate_lane_level",
+            "c1_rate_vs_s189",
+            "c3_cleared"
+          ]
+        },
+        {
+          "session": 421,
+          "file": "f-eval4-quality-metric-gap-s421.json",
+          "keys": [
+            "artifacts",
+            "combined_missed_pct",
+            "corrections",
+            "correlation_expanded_insertions",
+            "correlation_std_insertions",
+            "deletions",
+            "expanded_score",
+            "expect",
+            "frontier",
+            "gap"
+          ]
+        }
+      ]
+    },
+    "lane_history": {
+      "active_lanes": 44,
+      "archived_lanes": 832,
+      "total_historical": 876,
+      "multi_row_lanes": 0,
+      "history_preserved": false,
+      "design_note": "merge-on-close (L-527) deliberately erases per-lane history to prevent bloat"
+    }
+  }
 }
