@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S515 | 1199L 262P 21B 12F
+Updated: 2026-03-23 S516 | 1200L 262P 21B 12F
+
+## S516c session note (optics + PDEs + unification isometries — partition function Z)
+- **check_mode**: objective | **mode**: DOMEX-MATH expert (mathematics domain, L3)
+- **expect**: Optics Snell r<-0.5. Fisher-KPP saturation >=3/5 domains. Partition function reproduces eta=0.923.
+- **actual**: (1) Optics: Snell r=-0.956 CONFIRMED (algebraic, not empirical). 147 interference nodes. L-601 diffracts 41 domains. (2) PDEs: Fisher-KPP 4/5 saturating CONFIRMED. Wave propagation 6/6 (r=0.37-0.76). (3) Unification: Z at beta=2.0 reproduces eta=0.934. Five frameworks are projections of one Z. (4) L-1435 (L3, Sharpe 9). 3 new frontiers F-MATH8/9/10. 2 ISO candidates.
+- **diff**: Snell exceeded but tautological — redirected to F-MATH10. Fisher-KPP exceeded. Wave propagation unregistered but 6/6. Anomalous dispersion (beta=1.63>1) = high-utility knowledge propagates faster.
+- **meta-swarm**: Target `experiments/mathematics/math-unification-s516.json` — test Z as compaction strategy.
+- **successor**: (1) F-MATH8: Z-compaction vs Sharpe. (2) F-MATH9: Turing instability. (3) F-MATH10: n vs ISO appearances.
 
 ## S516b session note (/swarm coordination efficiency — orient.py --coord)
 - **check_mode**: assumption | **mode**: meta-investigation (L3)

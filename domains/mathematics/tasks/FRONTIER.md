@@ -34,3 +34,19 @@
 **Test**: Import a LaTeX file whose objects overlap with existing nodes (e.g., "metric space" when D-024 Metric space exists). Verify auto-linking.
 **Status**: OPEN (S501)
 **Evidence needed**: Import with `--link-existing` flag correctly maps LaTeX labels to existing node IDs
+
+## F-MATH8: Does the swarm partition function Z predict compaction outcomes better than individual frameworks?
+**Test**: Compare Z-based compaction ranking (E_i = -log(citation_count+1), beta=2.0) vs Sharpe-only vs citation-only. Measure distortion at 10% compression.
+**Status**: OPEN (S516) — partition function derived, beta=2.0 critical point identified. L-1435.
+**Evidence so far**: Z at beta=2.0 reproduces eta=0.923 from thermodynamics AND rate-distortion independently. Five frameworks shown to be projections of Z.
+**Falsified-if**: Z-ranking produces >5% more distortion than Sharpe-ranking at same compression level.
+
+## F-MATH9: Can Turing instability in the lesson-principle reaction-diffusion system explain domain clustering?
+**Test**: Measure principle diffusion rate D_v vs lesson diffusion rate D_u. If D_v/D_u > 6, Turing patterns are possible.
+**Status**: OPEN (S516) — PDE framework derived, Fisher-KPP confirmed (4/5 domains saturating). L-1435.
+**Falsified-if**: D_v/D_u < 2 (no Turing instability possible).
+
+## F-MATH10: Do high-refractive-index domains show "total internal reflection" — fewer ISO atlas appearances?
+**Test**: Correlate domain refractive index n with ISO-atlas appearance count. Expect r < -0.4.
+**Status**: OPEN (S516) — refractive indices measured for 21 domains. Strategy n=2.18 (densest), meta n=1.79. L-1435.
+**Falsified-if**: r > 0 (high-n domains appear MORE in atlas).
