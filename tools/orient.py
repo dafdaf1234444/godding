@@ -472,9 +472,11 @@ def main():
     _hi_soul_data = _human_impact_result
     if _hi_soul_data:
         print(f"\n--- Human Impact (F-SOUL1, SIG-81) ---")
+        _hi_ci = _hi_soul_data.get("benefit_ratio_ci")
+        _hi_ci_str = f" CI:[{_hi_ci['lower']}x,{_hi_ci['upper']}x]" if isinstance(_hi_ci, dict) else ""
         print(f"  {_hi_soul_data['good_pct']}% GOOD / {_hi_soul_data['bad_pct']}% BAD / "
               f"{_hi_soul_data['neutral_pct']}% NEUTRAL | "
-              f"benefit ratio {_hi_soul_data['human_benefit_ratio']}x (target >3.0x)")
+              f"benefit ratio {_hi_soul_data['human_benefit_ratio']}x{_hi_ci_str} (target >3.0x)")
         for _sp in _hi_soul_data.get("selection_pressure", [])[:2]:
             print(f"    \u2192 {_sp}")
         print(f"  Run: python3 tools/human_impact.py")

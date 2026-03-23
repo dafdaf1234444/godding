@@ -1,0 +1,34 @@
+{
+  "experiment": "DOMEX-SOUL-CI-S508",
+  "frontier": "F-SOUL1",
+  "session": "S508",
+  "domain": "meta",
+  "date": "2026-03-23",
+  "expect": "Benefit ratio 1.05x CI spans 1.0 (NOT significant). Skeptical-empiricist steerer validated.",
+  "actual": "Benefit ratio 1.95x (updated classifier). CI [1.63x, 2.37x], significant=true. Ratio does not span 1.0. Skeptical-empiricist partially validated — prior 1.02x was indeed unstable (moved to 1.95x after concurrent classifier updates), but current measurement IS significant.",
+  "diff": "Expected non-significant: FALSIFIED. Ratio changed from 1.05x to 1.95x between orient.py run and tool execution — concurrent session updated GOOD/BAD classifiers. CI is now [1.63x, 2.37x], does NOT span 1.0. The skeptical-empiricist's critique was correct AT the time but the classifier was also wrong.",
+  "method": "Bootstrap resampling (n=10000, seed=42, 95% CI). Classification: 326 GOOD, 167 BAD, 746 NEUTRAL out of 1239 lessons. CI computed by resampling classification labels and computing good/bad ratio.",
+  "tool_changes": {
+    "human_impact.py": [
+      "Added _bootstrap_ratio_ci() returning structured dict {lower, upper, significant}",
+      "Removed duplicate string-returning version from concurrent session (L-1371)",
+      "Added CI display in print_report, orient_summary, and orient.py integration"
+    ],
+    "orient.py": "Added CI display to human impact section",
+    "dispatch_scoring.py": "Added L-1354 citation to soul boost comment",
+    "check.sh": "Fixed L-1318→L-1319 citation (enforcement wiring)"
+  },
+  "enforcement_audit": {
+    "rate": "29.3% structural",
+    "wired_this_session": ["L-1319 (citation fix in check.sh)", "L-1354 (citation addition in dispatch_scoring.py)"],
+    "finding": "L-1319 was already structurally wired but misattributed as L-1318 — enforcement router classified it ASPIRATIONAL. Citation fix promotes it to STRUCTURAL."
+  },
+  "nk_monopoly_check": {
+    "L601_hub_fraction": "34.9% (428/1228)",
+    "threshold_35pct": "below (0.3485)",
+    "recent_50_rate": "46.0% (23/50) — accelerating",
+    "hub_gap_ratio": "9.2x (up from 7.6x at L-1347)",
+    "finding": "Monopoly acceleration confirmed. Q5 at 53.6% vs Q4 22.4%."
+  },
+  "lesson": "L-1371"
+}

@@ -320,7 +320,8 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["score"] += maint_boost
         r["maintenance_boost"] = round(maint_boost, 3)
 
-        # Soul-informed human benefit weighting (F-SOUL1 Phase 2, SIG-81)
+        # Soul-informed human benefit weighting (F-SOUL1 Phase 2, SIG-81, L-1354)
+        # L-1354: benefit_ratio is dispatch allocation, not lesson quality.
         # Domains producing more human-good knowledge get a boost;
         # domains with net-negative human impact get a mild penalty.
         soul_boost = 0.0

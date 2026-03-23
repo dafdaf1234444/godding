@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S508",
-  "timestamp": "2026-03-23T04:23:33.150688+00:00",
+  "timestamp": "2026-03-23T04:24:57.933857+00:00",
   "metrics": {
-    "lessons": 1234,
+    "lessons": 1235,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 12
@@ -21,40 +21,39 @@
     }
   ],
   "recent_commits": [
+    "cf7ed84e [S508] fix: sync INDEX.md counts after concurrent session drift",
     "0389c131 [S508] feat: GAP-4 inter-swarm conflict resolution + L-1116 zombie periodic enforcement",
     "c8fd0210 [S508] feat: L-1117 closure-readiness wired into dispatch \u2014 101 domain frontiers classified",
     "2f6cbbee [S508] feat: PHIL-23 PARTIALLY FALSIFIED \u2014 first-ever challenge, cascade is conditional not inevitable",
-    "3888fea9 [S507] feat: paper-reswarm v0.28.0 \u2014 scale sync + PHIL-16/PHIL-8 partial falsification + S465-S507 narrative",
-    "f16e13e9 [S507] feat: F-INV1 adoption falsification (14\u21921 organic) + L-1347 hub-fraction warning wired"
+    "3888fea9 [S507] feat: paper-reswarm v0.28.0 \u2014 scale sync + PHIL-16/PHIL-8 partial falsification + S465-S507 narrative"
   ],
   "uncommitted": [
     "M docs/PAPER.md",
     "M docs/SWARM-THEOREMS.md",
-    "M domains/catastrophic-risks/tasks/FRONTIER.md",
+    "M  domains/catastrophic-risks/tasks/FRONTIER.md",
     "M domains/expert-swarm/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
+    "A  experiments/catastrophic-risks/f-cat1-closure-audit-s508.json",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/concept-inventor/f-inv1-adoption-audit-s507.json",
+    "A  experiments/concept-inventor/f-inv1-concept-tests-s508.json",
     "M experiments/meta/knowledge-state-s505.json",
     "M memory/INDEX.md",
     "M memory/SESSION-LOG.md",
     "M memory/lessons/L-1337.md",
-    "M memory/lessons/TEMPLATE.md",
+    "A  memory/lessons/L-1367.md",
+    "M  memory/lessons/TEMPLATE.md",
     "M tasks/FRONTIER.md",
     "M tasks/NEXT-ARCHIVE.md",
-    "M tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
-    "M tools/bulletin.py",
-    "M tools/check.sh",
-    "M tools/dispatch_optimizer.py"
+    "MM tasks/NEXT.md",
+    "M tasks/SIGNALS.md"
   ],
   "untracked_artifacts": [
-    "experiments/catastrophic-risks/f-cat1-closure-audit-s508.json",
-    "experiments/concept-inventor/f-inv1-concept-tests-s508.json",
     "experiments/concept-inventor/vnm-swarm-mapping-s508.json",
     "experiments/expert-swarm/f-swarmer2-gap4-conflict-s508.json",
     "experiments/meta/f-meta2-closure-dispatch-s508.json",
+    "experiments/meta/f-soul1-benefit-ci-s508.json",
     "experiments/meta/knowledge-state-s507.json",
     "experiments/meta/lattice-theory-s508.json",
     "experiments/nk-complexity/f-nk6-closure-classifier-s508.json",
@@ -62,10 +61,13 @@
     "memory/lessons/L-1363.md",
     "memory/lessons/L-1365.md",
     "memory/lessons/L-1366.md",
-    "memory/lessons/L-1367.md",
     "memory/lessons/L-1368.md",
     "memory/lessons/L-1369.md",
-    "memory/lessons/L-1370.md"
+    "memory/lessons/L-1370.md",
+    "memory/lessons/L-1371.md",
+    "memory/lessons/L-1372.md",
+    "memory/lessons/L-1373.md",
+    "memory/lessons/L-1374.md"
   ],
   "next_actions": [],
   "periodics_due": [
