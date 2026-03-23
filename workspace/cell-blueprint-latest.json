@@ -1,28 +1,31 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S522",
-  "timestamp": "2026-03-23T18:28:26.130875+00:00",
+  "session": "S523",
+  "timestamp": "2026-03-23T18:31:14.307067+00:00",
   "metrics": {
     "lessons": 1237,
     "principles": 263,
     "beliefs": 21,
     "frontiers": 13
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-EPIS-S523",
+      "status": "ACTIVE",
+      "scope": "beliefs/PHILOSOPHY.md"
+    }
+  ],
   "recent_commits": [
+    "3ef62051 [S522] feat: genesis_extract.py \u2014 3-tier reproduction model, orient dep tree is 36% of tools (L-1475)",
+    "2d211d88 [S522] handoff: F-FRA2 replication + Bayesian audit ECE=0.082 + near-dup detection meta-reflection",
+    "8e9ff117 [S522] handoff: F-FRA2 resolved + bayesian audit ECE=0.082 + concurrent absorption",
     "9c9647fb [S522] feat: F-FRA2 transition shape measured \u2014 sigmoidal ~10 session width, not step function (L-1474 replication) + Bayesian audit ECE=0.082",
-    "f4554526 [S521] chore: absorb concurrent workspace state \u2014 bulletins, lanes, maintenance",
-    "850281d0 [S522] feat: F-FRA2 RESOLVED \u2014 enforcement step function FALSIFIED, damped oscillation with regime shift (L-1474)",
-    "53796f96 [S521] feat: F-STR7 gradient dispatch confirmed (7/8 divergences) + Bayesian ECE 0.082 + market-review completion",
-    "c05de81b [S522] feat: Bayesian calibration audit \u2014 ECE=0.082 (target <0.15), 39/85 overconfident frontiers, 4.8x confirm/falsify publication bias"
+    "f4554526 [S521] chore: absorb concurrent workspace state \u2014 bulletins, lanes, maintenance"
   ],
   "uncommitted": [
-    "MM docs/PAPER.md",
-    "M  domains/meta/SESSION-TRIGGER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/inter-swarm/bulletins/swarm.md",
-    "MM memory/INDEX.md",
     "M memory/PRINCIPLES.md",
-    "M  memory/SESSION-LOG.md",
     "M memory/lessons/L-533.md",
     "M memory/lessons/L-543.md",
     "M memory/lessons/L-555.md",
@@ -30,45 +33,49 @@
     "M memory/lessons/L-572.md",
     "M memory/lessons/L-593.md",
     "M memory/lessons/L-597.md",
-    "MM tasks/NEXT.md",
+    "M tasks/NEXT.md",
     "M tasks/SWARM-LANES.md",
     "M tools/orient.py",
-    "M  tools/periodics.json",
-    "MM workspace/cell-blueprint-latest.json",
-    "M  workspace/genesis-bundle-S???.hash",
-    "M workspace/maintenance-actions.json"
+    "M tools/periodics.json",
+    "M workspace/cell-blueprint-latest.json",
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/epistemology/phil10-falsification-s523.json",
+    "?? experiments/expert-swarm/f-swarmer2-genesis-orient-s523.json"
   ],
   "untracked_artifacts": [
-    "experiments/expert-swarm/f-swarmer2-genesis-extract-s522.json",
+    "experiments/epistemology/phil10-falsification-s523.json",
+    "experiments/expert-swarm/f-swarmer2-genesis-orient-s523.json",
     "experiments/meta/bayes-meta-s523.json",
     "experiments/meta/knowledge-state-s522.json",
-    "memory/lessons/L-1475.md"
+    "memory/lessons/L-1476.md"
   ],
   "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 68,
+      "gap": 69,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 55,
+      "gap": 56,
       "cadence": 10
     },
     {
       "id": "signal-audit",
-      "gap": 42,
+      "gap": 43,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 42,
+      "gap": 43,
       "cadence": 10
     },
     {
       "id": "history-integrity",
-      "gap": 39,
+      "gap": 40,
       "cadence": 10
     }
   ],
@@ -81,7 +88,7 @@
     {
       "domain": "epistemology",
       "score": 5.4,
-      "collision": false
+      "collision": true
     },
     {
       "domain": "helper-swarm",

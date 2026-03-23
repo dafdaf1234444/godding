@@ -154,8 +154,11 @@ def check_underused_core_tools(log_text, window_sessions=20):
     return _impl(log_text, CORE_SWARM_TOOLS, window_sessions)
 
 def check_foreign_staged_deletions():
-    from orient_checks import check_foreign_staged_deletions as _impl
-    _impl(ROOT)
+    try:
+        from orient_checks import check_foreign_staged_deletions as _impl
+        _impl(ROOT)
+    except (ImportError, ModuleNotFoundError):
+        pass  # graceful degradation for daughter bundles (L-1467)
 
 def check_git_object_health():
     from orient_checks import check_git_object_health as _impl
@@ -178,8 +181,11 @@ def check_experiment_harvest_gap(threshold: int = 5) -> list:
     return _impl(ROOT, _hcache, threshold)
 
 def check_active_claims():
-    from orient_checks import check_active_claims as _impl
-    _impl(ROOT)
+    try:
+        from orient_checks import check_active_claims as _impl
+        _impl(ROOT)
+    except (ImportError, ModuleNotFoundError):
+        pass  # graceful degradation for daughter bundles (L-1467)
 
 def check_stale_baselines(current_session: int, stale_threshold: int = 50) -> list:
     from orient_checks import check_stale_baselines as _impl
@@ -310,8 +316,14 @@ def main():
         section_trace_amplification,
         section_complexity_phase,
     )
-    from external_grounding_check import section_grounding_decay
-    from closeable_frontiers import section_closeable_frontiers
+    try:
+        from external_grounding_check import section_grounding_decay
+    except (ImportError, ModuleNotFoundError):
+        section_grounding_decay = lambda: []
+    try:
+        from closeable_frontiers import section_closeable_frontiers
+    except (ImportError, ModuleNotFoundError):
+        section_closeable_frontiers = lambda *a, **kw: []
 
     # Parallelize ALL slow independent operations (S506 perf fix):
     # At N=1211, sequential total was ~135s. Parallelizing brings wall time to ~30s.
@@ -338,8 +350,11 @@ def main():
         _futures['stale_exp'] = _pool.submit(check_stale_experiments)
         _futures['exp_harvest'] = _pool.submit(check_experiment_harvest_gap)
         # self_app needs session_num which we don't have yet — use orient_checks directly
-        from orient_checks import check_stale_infrastructure as _check_infra_impl
-        _futures['self_app'] = _pool.submit(lambda: _check_infra_impl(500, ROOT, CORE_SWARM_TOOLS, _hcache, 50))
+        try:
+            from orient_checks import check_stale_infrastructure as _check_infra_impl
+            _futures['self_app'] = _pool.submit(lambda: _check_infra_impl(500, ROOT, CORE_SWARM_TOOLS, _hcache, 50))
+        except (ImportError, ModuleNotFoundError):
+            _futures['self_app'] = _pool.submit(lambda: [])
         # Inline slow sections
         _futures['grounding_decay'] = _pool.submit(section_grounding_decay)
         def _run_human_impact():

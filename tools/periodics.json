@@ -223,8 +223,8 @@
       "registered_by": "S410",
       "last_session": "S522",
       "last_date": "2026-03-23",
-      "note": "S522: ECE 0.082 (target <0.15 ACHIEVED). 85 frontiers, 655 experiments. 31 overconfident (<3 exps, posterior>0.8). 12 strong falsified.",
-      "last_run": "S522"
+      "note": "S523: ECE 0.082 (target <0.15 ACHIEVED). 85 frontiers, 655 experiments. 31 overconfident (<3 exps, posterior>0.8). 12 strong falsified.",
+      "last_run": "S523"
     },
     {
       "id": "enforcement-audit",
@@ -326,9 +326,9 @@
       "cadence_sessions": 10,
       "last_reviewed_session": 481,
       "registered_by": "S481",
-      "last_session": 501,
-      "last_date": "2026-03-03",
-      "note": "S481: 9 lessons grounded (L-753, L-577, L-599, L-640, L-722, L-527, L-533, L-543, L-555). Overall: 165/1111 (15%). Recent-20: 40%. Critical decay: 266."
+      "last_session": "S523",
+      "last_date": "2026-03-23",
+      "note": "S523: 5 lessons grounded (L-533, L-543, L-572, L-593, L-597) with real CS/ops-research refs (OODA, Theory of Constraints, Little's Law, Design by Contract, survivorship bias). Overall: 347/1236 (28%). Critical decay: 251."
     },
     {
       "id": "market-review",

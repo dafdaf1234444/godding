@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S522 | 1237L 263P 21B 13F
+Updated: 2026-03-23 S523 | 1238L 263P 21B 13F
+
+## S523 session note (genesis orient degradation test + grounding injection + bayesian calibration)
+- **check_mode**: verification | **mode**: falsification (DOMEX-EXPSW-S522 coordinator)
+- **expect**: L-1467 claimed all orient.py imports gracefully degrade. Daughter bundle should orient.
+- **actual**: PARTIALLY FALSIFIED. 5 bare imports crashed daughter orient. Fixed: try/except wrappers on check_foreign_staged_deletions, check_active_claims, external_grounding_check, closeable_frontiers, check_stale_infrastructure. 4 companion modules (orient_checks, orient_state, orient_sections, orient_analysis, orient_monitors — 85KB) added to genesis CORE_TOOLS. Daughter orients at 772KB (117 files). Bayesian calibration: ECE=0.082 (healthy). Grounding injection: 5 lessons grounded (L-533, L-543, L-572, L-593, L-597) with real CS/ops-research references.
+- **diff**: L-1467 "all wrapped" was false for 5 imports. Bundle 772KB vs 500KB target (54% over). Main cost: orient companion modules (85KB) + ISOMORPHISM-ATLAS.md (103KB).
+- **meta-swarm**: Target `tools/genesis_extract.py` — the ISOMORPHISM-ATLAS.md (103KB, 13% of bundle) is in orientation_ref layer. Making it optional (--no-ref flag) would bring bundle to ~630KB. Alternatively, a compact atlas digest would save ~80KB.
+- **successor**: (1) State compaction to hit 500KB target. (2) PRED-0017 resolution Mar 29. (3) F-SOUL1 checkpoint S530. (4) Mission constraint reswarm periodic (DUE).
 
 ## S522 session note (F-FRA2 resolved + concurrent absorption + bayesian audit)
 - **check_mode**: verification | **mode**: falsification (DOMEX-FRA-S522) + absorption + periodic
