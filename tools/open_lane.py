@@ -480,6 +480,60 @@ def main():
     except Exception:
         pass
 
+    # GAP-3 Phase 3: peer swarm conflict detection at creation time (L-1344, L-601)
+    # Structural enforcement: check inter-swarm bulletin board for frontier collisions
+    # before opening a lane. Voluntary lane-check had 0% adoption; creation-time is near-100%.
+    if args.frontier:
+        try:
+            from bulletin import _scan_lane_conflicts, write_lane_announce
+            conflicts = _scan_lane_conflicts(args.frontier)
+            if conflicts:
+                print(
+                    f"WARN: {len(conflicts)} peer swarm(s) already working on {args.frontier}:",
+                    file=sys.stderr,
+                )
+                for c in conflicts:
+                    print(
+                        f"  {c['swarm']} | {c['lane_id']} | {c['status']} ({c['date']})",
+                        file=sys.stderr,
+                    )
+                if not args.force:
+                    print(
+                        f"Use --force to open despite peer conflict, or coordinate via "
+                        f"'python3 tools/bulletin.py write <name> lane-check \"{args.frontier}\"'.",
+                        file=sys.stderr,
+                    )
+                    sys.exit(1)
+        except ImportError:
+            pass  # bulletin.py not available — skip peer check
+
+    # GAP-3 Phase 3 (intra-swarm): check SWARM-LANES.md for active lanes on same frontier
+    # This catches concurrent sessions within the same swarm (more common than peer conflicts)
+    if args.frontier:
+        try:
+            intra_conflicts = []
+            for line in LANES_FILE.read_text().splitlines():
+                if "| ACTIVE |" not in line and "| CLAIMED |" not in line:
+                    continue
+                cols = [c.strip() for c in line.split("|")]
+                if len(cols) < 12:
+                    continue
+                etc = cols[10] if len(cols) > 10 else ""
+                fid_m = re.search(r"frontier=(F-[A-Z0-9,/\s-]+?)(?:;|$)", etc)
+                if fid_m and args.frontier in re.findall(r"F-[A-Z0-9-]+", fid_m.group(1)):
+                    lane_id = cols[2].strip()
+                    if lane_id != args.lane:  # don't flag self
+                        intra_conflicts.append(lane_id)
+            if intra_conflicts:
+                print(
+                    f"WARN: {len(intra_conflicts)} active intra-swarm lane(s) on {args.frontier}: "
+                    f"{', '.join(intra_conflicts[:3])}. Concurrent work — coordinate scope to avoid "
+                    f"duplication.",
+                    file=sys.stderr,
+                )
+        except Exception:
+            pass
+
     # PHIL-22 enforcement: L3+ lanes must state self-application (L-950, SIG-48)
     # L-949: advisory display = 0% adoption; blocking enforcement = near-100%
     if args.level in ("L3", "L4", "L5") and not args.self_apply:
@@ -560,6 +614,18 @@ def main():
         }
         artifact_path.write_text(json.dumps(skeleton, indent=4) + "\n")
         print(f"  skeleton: {args.artifact} (fill 'actual' before MERGED)")
+
+    # GAP-3 Phase 3: auto-announce lane to peer swarms via bulletin board (L-1344, L-601)
+    # Structural enforcement: announcement happens at creation, not voluntarily later.
+    # This closes the coordination loop: open_lane checks for conflicts AND announces.
+    if args.frontier:
+        try:
+            from bulletin import write_lane_announce
+            swarm_name = "swarm"  # default swarm identity
+            scope = args.scope_key or args.focus
+            write_lane_announce(swarm_name, args.lane, args.frontier, scope=scope)
+        except (ImportError, Exception):
+            pass  # bulletin.py not available or write failed — non-fatal
 
 
 if __name__ == "__main__":

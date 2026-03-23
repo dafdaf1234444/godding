@@ -1,48 +1,42 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S510",
-  "timestamp": "2026-03-23T05:25:27.162728+00:00",
+  "timestamp": "2026-03-23T05:30:56.779028+00:00",
   "metrics": {
-    "lessons": 1154,
+    "lessons": 1156,
     "principles": 254,
     "beliefs": 21,
     "frontiers": 12
   },
-  "active_lanes": [
-    {
-      "lane": "DOMEX-THERMO-S510",
-      "status": "ACTIVE",
-      "scope": "domains/thermodynamics/tasks/FRONTIER.md"
-    }
-  ],
+  "active_lanes": [],
   "recent_commits": [
+    "371ed4a0 [S510] feat: F-FORE1 calibration mapping \u2014 18 predictions, effective N=7, correlation neglect identified",
     "dc841375 [S510] fix: absorb 93 ghost lessons + concurrent artifacts (reactivation.py, 3 lessons, 7 experiments)",
     "a6e44bbb [S509] fix: session handoff note + domain count update (52 domains)",
     "2b85e40a [S509] fix: NEXT.md session note for PHIL-16 decomposition handoff",
-    "cffadded [S509] feat: health check 3.6/5 + DECAYED revival (5 lessons, 6 citations) + r/K alert wiring",
-    "0421cb71 [S509] feat: PHIL-16 decomposed into 16a (grounded) + 16b (aspirational, deadline S600)"
+    "cffadded [S509] feat: health check 3.6/5 + DECAYED revival (5 lessons, 6 citations) + r/K alert wiring"
   ],
   "uncommitted": [
-    "M docs/PAPER.md",
-    "M experiments/epistemology/f-epis1-mapping-s510.json",
-    "M memory/INDEX.md",
-    "M memory/SESSION-LOG.md",
+    "MM docs/PAPER.md",
+    "M domains/expert-swarm/tasks/FRONTIER.md",
+    "M  experiments/epistemology/f-epis1-mapping-s510.json",
+    "A  experiments/thermodynamics/f-thermo1-entropy-s510.json",
+    "MM memory/INDEX.md",
+    "A  memory/lessons/L-1390.md",
     "M tasks/FRONTIER.md",
-    "M tasks/NEXT.md",
-    "M tasks/SWARM-LANES.md",
+    "MM tasks/NEXT.md",
+    "M  tasks/SWARM-LANES.md",
+    "M tools/open_lane.py",
     "M tools/periodics.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/forecasting/",
-    "?? experiments/thermodynamics/",
-    "?? memory/lessons/L-1390.md",
-    "?? memory/lessons/L-1391.md"
+    "MM workspace/cell-blueprint-latest.json",
+    "M  workspace/maintenance-actions.json",
+    "M  workspace/maintenance-outcomes.json",
+    "?? experiments/expert-swarm/f-swarmer2-gap3p3-s510.json",
+    "?? memory/lessons/L-1392.md"
   ],
   "untracked_artifacts": [
-    "experiments/forecasting/",
-    "experiments/thermodynamics/",
-    "memory/lessons/L-1390.md",
-    "memory/lessons/L-1391.md"
+    "experiments/expert-swarm/f-swarmer2-gap3p3-s510.json",
+    "memory/lessons/L-1392.md"
   ],
   "next_actions": [],
   "periodics_due": [
