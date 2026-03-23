@@ -1,10 +1,14 @@
 {
   "session": 519,
-  "count": 1,
+  "count": 2,
   "items": [
     {
       "priority": "DUE",
-      "message": "F119 learning-quality gap: tracked deltas without knowledge-state update (NEXT/SESSION-LOG/INDEX/FRONTIER/PRINCIPLES/lessons)"
+      "message": "1 active domain-focused lane(s) missing domain-memory coordination tags (domain_sync/memory_target): DOMEX-EPIS-S519(domain_sync,memory_target)"
+    },
+    {
+      "priority": "DUE",
+      "message": "2 active dispatch lane(s) have no active coordinator lane: DOMEX-EPIS-S519, DOMEX-EPIS-S520"
     }
   ]
 }

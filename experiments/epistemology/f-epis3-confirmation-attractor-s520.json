@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EPIS-S520",
+    "frontier": "F-EPIS3",
+    "session": "S520",
+    "domain": "epistemology",
+    "date": "2026-03-23",
+    "expect": "0/3 PHIL claims dropped. Confirmation attractor holds. Internal metrics encode identity priors that prevent genuine falsification.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

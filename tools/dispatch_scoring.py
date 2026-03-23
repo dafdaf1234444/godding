@@ -69,6 +69,10 @@ def _load_soul_weights():
     a dispatch boost. Converts soul extraction into structural selection pressure.
     """
     try:
+        import sys, os
+        tools_dir = os.path.dirname(os.path.abspath(__file__))
+        if tools_dir not in sys.path:
+            sys.path.insert(0, tools_dir)
         from human_impact import scan_lessons, extract_soul
         results = scan_lessons()
         soul = extract_soul(results)

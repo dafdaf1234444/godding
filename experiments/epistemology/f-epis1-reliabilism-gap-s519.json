@@ -1,0 +1,54 @@
+{
+  "experiment": "DOMEX-EPIS-S518",
+  "frontier": "F-EPIS1",
+  "session": "S519",
+  "date": "2026-03-23",
+  "question": "Is the reliabilism gap (process reliability tracking) real and measurable?",
+  "method": "Statistical analysis of S517 process-reliability data: test whether method-level falsification rates are uniform across Confidence categories, or whether selection bias concentrates falsification in 2/8 categories",
+  "prediction": "Falsification is concentrated in measured/unknown; other methods have implausibly perfect reliability due to non-testing",
+  "falsification": "All 8 methods with n>=10 have non-zero falsification rates, or P(0 falsified) > 0.05 for all perfect-reliability methods",
+  "results": {
+    "total_lessons": 1386,
+    "total_falsified": 33,
+    "base_rate": 0.024,
+    "methods_with_n_gte_10": 8,
+    "methods_with_any_falsification": 2,
+    "methods_with_zero_falsification": 6,
+    "falsification_concentration": "33/33 (100%) in measured + unknown",
+    "statistical_tests": {
+      "observed": {
+        "n": 175,
+        "falsified": 0,
+        "expected": 4.2,
+        "p_zero": 0.015,
+        "verdict": "STATISTICALLY IMPLAUSIBLE (p<0.05)"
+      },
+      "theorized": {
+        "n": 107,
+        "falsified": 0,
+        "expected": 2.5,
+        "p_zero": 0.076,
+        "verdict": "borderline (p=0.076)"
+      },
+      "verified": {
+        "n": 69,
+        "falsified": 0,
+        "expected": 1.6,
+        "p_zero": 0.190,
+        "verdict": "plausible"
+      }
+    },
+    "domain_reliability": {
+      "nk-complexity": {"n": 64, "falsified": 7, "reliability": 0.891},
+      "security": {"n": 17, "falsified": 2, "reliability": 0.882},
+      "meta": {"n": 327, "falsified": 3, "reliability": 0.991},
+      "expert-swarm": {"n": 86, "falsified": 1, "reliability": 0.988}
+    },
+    "parsing_artifacts": 8,
+    "parsing_artifact_lessons": 10
+  },
+  "verdict": "CONFIRMED. The reliabilism gap is real: the swarm's falsification process has statistically significant selection bias. 100% of falsifications concentrate in 2/8 method categories. 'observed' (n=175) has implausibly perfect reliability (p=0.015). This means reported reliability (0.976) is inflated — lessons labeled 'observed' or 'theorized' are systematically shielded from empirical testing. Additionally, 8 confidence labels are parsing artifacts.",
+  "key_finding": "Reliability is a property of the testing process, not the knowledge. The swarm reports 97.6% overall reliability, but this conflates tested (measured/unknown: 97.3%/95.1%) with untested (observed/theorized/verified: 100%/100%/100%). True reliability unknown for 371 lessons (26.8%) that have never been subjected to falsification attempts.",
+  "lesson": "L-1460",
+  "predecessor": "experiments/epistemology/process-reliability-s517.json"
+}

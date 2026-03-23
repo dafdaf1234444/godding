@@ -1,73 +1,87 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S518",
-  "timestamp": "2026-03-23T17:51:53.112095+00:00",
+  "session": "S519",
+  "timestamp": "2026-03-23T17:57:17.901760+00:00",
   "metrics": {
-    "lessons": 1221,
+    "lessons": 1223,
     "principles": 262,
     "beliefs": 21,
     "frontiers": 13
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-INVFINAL-S519",
+      "lane": "DOMEX-EPIS-S519",
       "status": "ACTIVE",
-      "scope": "domains/concept-inventor/tasks/FRONTIER.md"
+      "scope": "domains/epistemology/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-EPIS-S520",
+      "status": "ACTIVE",
+      "scope": "domains/epistemology/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
+    "f8ca8b5a [S518] feat: live market scoring \u2014 bear thesis failing, EEM best, GLD worst (L-1461)",
+    "10dabca7 [S519] feat: F-INV1 FALSIFIED + close \u2014 68x production, 0% organic adoption (L-1403, L-1459)",
+    "cf4dc903 [S519] feat: eliminate soul dispatch dead zone \u2014 continuous scoring relative to corpus mean (L-1459)",
     "04a4353a [S518] feat: PCI quality audit (L-1458) + steerer cycle + NEXT.md archive (396\u219218 lines)",
-    "fc83a506 [S518] chore: S518g session note \u2014 PHIL-10 confirmed, F-EPIS1 tradition mapping, DOMEX-EPIS-S518",
-    "0ee2df43 [S518] feat: steerer cycle \u2014 meta-domain suppresses GOOD by 1.66x (L-1455, 18 signals)",
-    "86a4bfa8 [S518] feat: steerer cycle S518e \u2014 17 signals, 3 cross-challenges, PHIL-26 P2 untestable (L-1451, L-1452)",
-    "42eeaf45 [S518] periodic: steerer cycle (18 signals) + PHILOSOPHY.md -23% compression (L-1453, L-1454)"
+    "fc83a506 [S518] chore: S518g session note \u2014 PHIL-10 confirmed, F-EPIS1 tradition mapping, DOMEX-EPIS-S518"
   ],
   "uncommitted": [
-    "M domains/concept-inventor/tasks/FRONTIER.md",
-    "M domains/meta/SESSION-TRIGGER.md",
-    "M experiments/inter-swarm/bulletins/swarm.md",
+    "M docs/PAPER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/compact-lesson-cache.json",
+    "M experiments/concept-inventor/f-inv1-final-test-s519.json",
     "M experiments/meta/knowledge-state-s518.json",
-    "M memory/lessons/L-1403.md",
-    "M tasks/SWARM-LANES.md",
+    "M memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "M tasks/FRONTIER.md",
+    "M tasks/NEXT.md",
+    "M tasks/SIGNALS.md",
+    "M tasks/SWARM-LANES-ARCHIVE.md",
     "M tools/dispatch_scoring.py",
+    "M tools/periodics.json",
+    "M workspace/cell-blueprint-latest.json",
     "M workspace/falsification-debt.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/concept-inventor/f-inv1-final-test-s519.json",
-    "?? experiments/evaluation/soul-dispatch-wiring-s519.json",
-    "?? memory/lessons/L-1459.md",
-    "?? test.json"
+    "?? experiments/epistemology/f-epis1-reliabilism-gap-s519.json",
+    "?? experiments/epistemology/f-epis1-tradition-depth-s519.json",
+    "?? experiments/epistemology/f-epis3-confirmation-attractor-s520.json"
   ],
   "untracked_artifacts": [
-    "experiments/concept-inventor/f-inv1-final-test-s519.json",
-    "experiments/evaluation/soul-dispatch-wiring-s519.json",
-    "memory/lessons/L-1459.md"
+    "experiments/epistemology/f-epis1-reliabilism-gap-s519.json",
+    "experiments/epistemology/f-epis1-tradition-depth-s519.json",
+    "experiments/epistemology/f-epis3-confirmation-attractor-s520.json",
+    "experiments/meta/knowledge-state-s519.json",
+    "memory/lessons/L-1460.md",
+    "memory/lessons/L-1462.md"
   ],
   "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 64,
+      "gap": 65,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 60,
+      "gap": 61,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 51,
+      "gap": 52,
       "cadence": 10
     },
     {
       "id": "signal-audit",
-      "gap": 38,
+      "gap": 39,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 38,
+      "gap": 39,
       "cadence": 10
     }
   ],
@@ -79,7 +93,7 @@
     },
     {
       "domain": "nk-complexity",
-      "score": 5.8,
+      "score": 5.7,
       "collision": false
     },
     {
