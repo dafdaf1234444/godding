@@ -2,24 +2,24 @@
   "session": 515,
   "stale_window": 50,
   "global_states": {
-    "ACTIVE": 435,
-    "DECAYED": 480,
+    "ACTIVE": 439,
+    "DECAYED": 479,
+    "MUST-KNOW": 415,
     "BLIND-SPOT": 158,
-    "MUST-KNOW": 411,
     "SHOULD-KNOW": 123
   },
   "domain_profiles": {
     "unknown": {
       "ACTIVE": 19,
-      "DECAYED": 103,
-      "BLIND-SPOT": 10,
-      "MUST-KNOW": 28
+      "DECAYED": 102,
+      "MUST-KNOW": 29,
+      "BLIND-SPOT": 10
     },
     "meta": {
-      "MUST-KNOW": 151,
+      "MUST-KNOW": 153,
       "BLIND-SPOT": 43,
       "DECAYED": 121,
-      "ACTIVE": 94,
+      "ACTIVE": 95,
       "SHOULD-KNOW": 15
     },
     "information-science": {
@@ -31,7 +31,7 @@
     },
     "nk-complexity": {
       "DECAYED": 27,
-      "MUST-KNOW": 30,
+      "MUST-KNOW": 31,
       "BLIND-SPOT": 6,
       "ACTIVE": 11,
       "SHOULD-KNOW": 1
@@ -131,7 +131,7 @@
       "DECAYED": 7,
       "BLIND-SPOT": 1,
       "MUST-KNOW": 12,
-      "ACTIVE": 15,
+      "ACTIVE": 14,
       "SHOULD-KNOW": 2
     },
     "claude-code": {
@@ -174,7 +174,7 @@
     "expert-swarm": {
       "DECAYED": 24,
       "MUST-KNOW": 37,
-      "ACTIVE": 24,
+      "ACTIVE": 25,
       "BLIND-SPOT": 8,
       "SHOULD-KNOW": 3
     },
@@ -298,7 +298,7 @@
     },
     "concept-inventor": {
       "MUST-KNOW": 7,
-      "ACTIVE": 14,
+      "ACTIVE": 15,
       "SHOULD-KNOW": 2
     },
     "religion": {
@@ -322,23 +322,24 @@
       "MUST-KNOW": 1,
       "SHOULD-KNOW": 0
     },
+    "mathematics": {
+      "ACTIVE": 2,
+      "SHOULD-KNOW": 0
+    },
     "cross-domain": {
       "MUST-KNOW": 15,
       "ACTIVE": 156,
       "DECAYED": 40,
       "BLIND-SPOT": 63
     },
-    "mathematics": {
-      "SHOULD-KNOW": 0
-    },
     "global": {
       "SHOULD-KNOW": 3
     }
   },
-  "revival_rate": 18.92147587511826,
-  "revival_per_session": 0.37842951750236525,
-  "total_items": 1484,
-  "total_lessons": 1189,
+  "revival_rate": 19.110690633869442,
+  "revival_per_session": 0.38221381267738885,
+  "total_items": 1491,
+  "total_lessons": 1196,
   "total_principles": 274,
   "total_beliefs": 21,
   "frontier_count": 123,
@@ -400,19 +401,19 @@
   "hypotheses": [
     {
       "hypothesis": "SHOULD-KNOW > ACTIVE in \u226530% of domains",
-      "result": "34/49 domains (69.4%)",
+      "result": "34/50 domains (68.0%)",
       "pass": true,
       "threshold": "\u226530%"
     },
     {
       "hypothesis": "DECAYED\u2192ACTIVE transitions < 1% per session",
-      "result": "0.38% per session (cumulative 18.9% over 50s window)",
+      "result": "0.38% per session (cumulative 19.1% over 50s window)",
       "pass": true,
       "threshold": "<1%"
     },
     {
       "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
-      "result": "5/5 different (gap-ranked: ['claude-code', 'mathematics', 'protocol-engineering', 'cryptocurrency', 'guesstimates'], UCB1: ['expert-swarm', 'concept-inventor', 'nk-complexity', 'catastrophic-risks', 'meta'])",
+      "result": "5/5 different (gap-ranked: ['claude-code', 'protocol-engineering', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: ['concept-inventor', 'expert-swarm', 'nk-complexity', 'catastrophic-risks', 'meta'])",
       "pass": true,
       "threshold": "\u22652/5"
     }

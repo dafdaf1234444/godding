@@ -2,10 +2,10 @@
   "session": 518,
   "stale_window": 50,
   "global_states": {
-    "ACTIVE": 421,
+    "ACTIVE": 428,
     "DECAYED": 497,
-    "MUST-KNOW": 420,
-    "BLIND-SPOT": 168,
+    "MUST-KNOW": 421,
+    "BLIND-SPOT": 167,
     "SHOULD-KNOW": 126
   },
   "domain_profiles": {
@@ -19,7 +19,7 @@
       "MUST-KNOW": 153,
       "BLIND-SPOT": 43,
       "DECAYED": 123,
-      "ACTIVE": 95,
+      "ACTIVE": 96,
       "SHOULD-KNOW": 15
     },
     "information-science": {
@@ -130,8 +130,8 @@
     "evaluation": {
       "DECAYED": 7,
       "BLIND-SPOT": 1,
-      "MUST-KNOW": 12,
-      "ACTIVE": 14,
+      "MUST-KNOW": 13,
+      "ACTIVE": 17,
       "SHOULD-KNOW": 2
     },
     "claude-code": {
@@ -174,8 +174,8 @@
     "expert-swarm": {
       "DECAYED": 24,
       "MUST-KNOW": 38,
-      "ACTIVE": 27,
-      "BLIND-SPOT": 8,
+      "ACTIVE": 29,
+      "BLIND-SPOT": 7,
       "SHOULD-KNOW": 3
     },
     "physics": {
@@ -311,7 +311,7 @@
       "SHOULD-KNOW": 0
     },
     "epistemology": {
-      "ACTIVE": 5,
+      "ACTIVE": 6,
       "MUST-KNOW": 1,
       "SHOULD-KNOW": 3
     },
@@ -343,10 +343,10 @@
       "SHOULD-KNOW": 3
     }
   },
-  "revival_rate": 18.596171376481312,
-  "revival_per_session": 0.37192342752962626,
-  "total_items": 1506,
-  "total_lessons": 1211,
+  "revival_rate": 18.77848678213309,
+  "revival_per_session": 0.3755697356426618,
+  "total_items": 1513,
+  "total_lessons": 1218,
   "total_principles": 274,
   "total_beliefs": 21,
   "frontier_count": 126,
@@ -408,19 +408,19 @@
   "hypotheses": [
     {
       "hypothesis": "SHOULD-KNOW > ACTIVE in \u226530% of domains",
-      "result": "34/50 domains (68.0%)",
+      "result": "33/50 domains (66.0%)",
       "pass": true,
       "threshold": "\u226530%"
     },
     {
       "hypothesis": "DECAYED\u2192ACTIVE transitions < 1% per session",
-      "result": "0.37% per session (cumulative 18.6% over 50s window)",
+      "result": "0.38% per session (cumulative 18.8% over 50s window)",
       "pass": true,
       "threshold": "<1%"
     },
     {
       "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
-      "result": "5/5 different (gap-ranked: ['claude-code', 'protocol-engineering', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: ['expert-swarm', 'concept-inventor', 'nk-complexity', 'catastrophic-risks', 'stochastic-processes'])",
+      "result": "5/5 different (gap-ranked: ['protocol-engineering', 'claude-code', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: ['expert-swarm', 'concept-inventor', 'nk-complexity', 'catastrophic-risks', 'stochastic-processes'])",
       "pass": true,
       "threshold": "\u22652/5"
     }
@@ -881,12 +881,6 @@
       "domain": "meta",
       "title": "Two-tier experiment outcome enforcement: TBD=ERROR (skeleton",
       "age": 89
-    },
-    {
-      "id": "L-1000",
-      "domain": "expert-swarm",
-      "title": "P2P colony coordination is structurally operational via git ",
-      "age": 87
     },
     {
       "id": "L-1004",

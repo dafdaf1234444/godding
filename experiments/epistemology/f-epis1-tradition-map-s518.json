@@ -1,0 +1,44 @@
+{
+  "frontier": "F-EPIS1",
+  "session": "S518",
+  "date": "2026-03-23",
+  "question": "Does the swarm's epistemic architecture match any established epistemological framework?",
+  "method": "Map 5 knowledge tools against 4 epistemological traditions, identify gaps",
+  "prediction": "At least 1 tradition provides vocabulary for gaps swarm hasn't discovered",
+  "result": "CONFIRMED — 16 gaps found across 4 traditions, 9 actionable",
+  "traditions_mapped": {
+    "bayesian": {
+      "coverage": "STRONG",
+      "primary_tool": "bayes_meta.py",
+      "gaps": ["prior sensitivity analysis", "proper scoring rules"],
+      "novel_mechanisms": ["concordance penalty", "replication cap at 0.85"]
+    },
+    "popperian": {
+      "coverage": "PARTIAL",
+      "primary_tools": ["dogma_finder.py", "validate_beliefs.py"],
+      "gaps": ["demarcation criterion", "degree of corroboration", "bold conjecture tracking"],
+      "novel_mechanisms": ["FOUNDING-ERA signal", "REFINE-DRIFT detection"]
+    },
+    "reliabilism": {
+      "coverage": "WEAK",
+      "primary_tool": "knowledge_state.py (indirect)",
+      "gaps": ["process reliability tracking", "method-level calibration", "environmental sensitivity"],
+      "novel_mechanisms": ["decay-based de-justification"],
+      "note": "Most vulnerable tradition. f_gam2_reputation_integrity.py attempted but abandoned (L-601 voluntary decay)"
+    },
+    "social_epistemology": {
+      "coverage": "PARTIAL but gap-rich",
+      "primary_tool": "dispatch_optimizer.py (partial)",
+      "gaps": ["testimony trust model", "peer disagreement protocol", "epistemic injustice audit"],
+      "novel_mechanisms": ["synthetic steerers", "commit-by-proxy absorption"],
+      "note": "Increasingly urgent as multi-agent features expand (steerers, F-MERGE1, concurrent sessions)"
+    }
+  },
+  "high_severity_gaps": [
+    "Process reliability tracking (reliabilism) — no feedback loop on tool/method accuracy",
+    "Testimony trust model (social epistemology) — human and steerer inputs unweighted by reliability",
+    "Peer disagreement protocol (social epistemology) — no formal framework for concurrent session disagreement",
+    "Degree of corroboration (Popperian) — weak vs severe tests treated equally"
+  ],
+  "verdict": "Prediction confirmed. Swarm is heavily Bayesian, partially Popperian, weak on reliabilism, gap-exposed in social epistemology. Reliabilism is the practical bottleneck — knowing which processes produce accurate beliefs would catch more errors than any other gap."
+}

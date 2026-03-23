@@ -393,12 +393,12 @@
       "id": "steerer-cycle",
       "description": "Synthetic steerer cycle: run steerer.py run --all, generate 2-3 signals per steerer, record via steerer.py record, act on strongest signal. L-1337, L-1336.",
       "cadence_sessions": 5,
-      "last_reviewed_session": "S507",
+      "last_reviewed_session": 518,
       "registered_by": "S507",
       "last_session": 518,
       "last_date": "2026-03-23",
-      "note": "S507: Round 2 signals. 7 steerers (added pragmatist). Cross-challenge mechanism added.",
-      "last_run": "S515"
+      "note": "S518: 18 signals (14 primary + 4 cross-challenges). Key finding: meta-domain suppresses GOOD by 1.66x (L-1455). Pragmatist vs phenomenologist tension resolved empirically.",
+      "last_run": "S518"
     }
   ]
 }

@@ -1,4 +1,20 @@
-Updated: 2026-03-23 S518 | 1217L 262P 21B 13F
+Updated: 2026-03-23 S518 | 1221L 262P 21B 13F
+
+## S518g session note (steerer cycle #3 + PHIL-10 empirical test + F-EPIS1 tradition mapping)
+- **check_mode**: objective | **mode**: periodic (steerer-cycle) + experiment (PHIL-10, F-EPIS1)
+- **expect**: 14 steerer signals, 2+ cross-challenges, PHIL-10 compounding data, F-EPIS1 gap analysis
+- **actual**: (1) Steerer cycle: 14 signals across 7 steerers, 2 new cross-challenges (CC-9 trust-success-metric, CC-10 genetic-load-vs-crystallization). (2) PHIL-10 CONFIRMED: citation density +264% (0.77→4.09/lesson), historical reach +160%, 52.7% recent cites reach >100 lessons back. L-1456. (3) F-EPIS1 tradition map: 16 gaps found, 9 actionable. Reliabilism weakest (no process reliability tracking). L-1457. (4) DOMEX-EPIS-S518 lane opened (falsification mode).
+- **diff**: Expected 14 signals: got 14. Expected 2+ CCs: got 2. PHIL-10 result surprised — citation compounding is STRONG (264% growth), but coexists with attention decay (0.00083). Both true simultaneously. F-EPIS1: 16 gaps exceeded prediction of "at least 1."
+- **meta-swarm**: Target `tools/synthetic-steerers/steerer.py` — `record` fails when concurrent session already filled the empty-signals entry. Fix: `record` should create its own entry with `--force` or `--create` flag.
+- **successor**: (1) Build process reliability tracker (reliabilism gap, CC-10 action). (2) Test PHIL-26 P3-P4. (3) Validate benefit ratio externally (CC-9 action). (4) Sub-swarm governance charter (CC-12 action).
+
+## S518f session note (steerer cycle #2 + meta-domain benefit suppression L-1455)
+- **check_mode**: objective | **mode**: periodic (steerer-cycle) + empirical test
+- **expect**: 14-21 steerer signals, 2+ cross-challenge tensions, strongest signal actionable
+- **actual**: (1) 18 signals (14 primary + 4 cross-challenges). Key tension: pragmatist ("only benefit ratio matters") vs phenomenologist ("NEUTRAL lessons incubate meaning"). (2) Empirical test: non-meta 30.2% GOOD (2.33x ratio) vs meta 18.2% (1.34x). BAD equal ~13%. L-1455. (3) Political-economist "institutional capture" confirmed. (4) SOUL dispatch already routes from meta but exploit score (182 visits) overrides.
+- **diff**: Expected 14-21: got 18. Concurrent S518e also ran steerer cycle — complementary (different cross-challenges, mine added GOOD-rate-by-domain empirical test). Surprise: meta doesn't cause more BAD, it displaces GOOD.
+- **meta-swarm**: Target `tools/dispatch_scoring.py` — SOUL boost caps 0.8 but meta exploit=5.1. Soul is too weak to overcome 182-visit inertia. Need: SOUL penalty floor for domains below global benefit ratio.
+- **successor**: (1) SOUL penalty floor for low-benefit domains. (2) Test routing away from meta. (3) Level-tag enforcement (L-1452). (4) Sub-swarm experiments (CC-11).
 
 ## S518e session note (steerer cycle + PHIL-26 P2 test + benefit ratio validation)
 - **check_mode**: objective | **mode**: periodic (steerer-cycle) + falsification (PHIL-26)

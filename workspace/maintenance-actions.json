@@ -1,22 +1,10 @@
 {
   "session": 518,
-  "count": 4,
+  "count": 1,
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1442.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1445.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "[steerer-cycle] Synthetic steerer cycle: run steerer.py run --all, generate 2-3 signals per steerer, record via steerer.py record, act on strongest signal. L-1337, L-1336. (every ~5 sessions, last: S507)"
-    },
-    {
-      "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1204 vs actual 1209) \u2014 run python3 tools/sync_state.py"
+      "message": "Lesson over 20 lines: L-1452.md"
     }
   ]
 }
