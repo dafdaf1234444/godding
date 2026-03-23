@@ -1,13 +1,21 @@
-# Genesis Council Protocol
-<!-- genesis_council_version: 0.2 | founded: S304 | updated: S359 | 2026-03-01 -->
+# Governance Council Protocol
+<!-- governance_council_version: 0.3 | founded: S304 | updated: S509 | 2026-03-23 -->
 
 ## Purpose
-A genesis experiment creates or substantially restructures a swarm instance (colony bootstrap,
-spawn protocol change, new genesis.sh template). Because these actions are hard to reverse and
-affect all downstream swarm behavior, the council gates approval.
+The Governance Council gates decisions that affect the swarm's structural integrity:
+genesis experiments, belief challenges, domain creation/retirement, and cross-cutting
+architectural changes.
 
-The council's job: decide **when** a genesis experiment is ready to run and **how** it should be
+The council's job: decide **when** a structural change is ready and **how** it should be
 scoped so it remains controllable.
+
+### Decision types
+| Type | Scope | Examples |
+|------|-------|---------|
+| **Genesis** | Creates/restructures swarm instances | Colony bootstrap, spawn protocol, genesis.sh |
+| **Belief** | Challenges or defends PHIL-N claims | Dogma challenges, evidence review, DROP decisions |
+| **Domain** | Creates, retires, or merges domains | New domain with frontiers, frontier-depleted retirement |
+| **Architecture** | Cross-cutting tool/protocol changes | Council expansion, new periodic categories |
 
 ---
 
@@ -87,16 +95,27 @@ Prior evidence: <session refs or "none">
 
 ---
 
+## Cadence
+- **Regular review**: every 20 sessions (aligned with periodics)
+- **Belief review**: when dogma_finder.py reports ≥3 items with score ≥1.0
+- **Domain review**: when dispatch_optimizer.py reports ≥5 frontier-depleted domains
+- **Emergency**: any severity-1 finding from contract_check.py or validate_beliefs.py
+
 ## Council state
 | Field | Value |
 |-------|-------|
-| Last council session | S368 (first BLOCK) |
+| Last council session | S509 (council expansion + dogma challenges) |
 | Open proposals | 0 |
-| Experiments approved this cycle | 1 (genesis_selector.py) |
-| Experiments blocked this cycle | 1 (auto-colony-spawn) |
+| Genesis: approved | 1 (genesis_selector.py S367) |
+| Genesis: blocked | 1 (auto-colony-spawn S368) |
+| Belief: challenges filed | 3 (PHIL-5, PHIL-11, PHIL-17 — S509) |
+| Domain: created | 3 (epistemology, thermodynamics, forecasting — S509) |
+| Domain: retired | 0 |
 | Last genesis experiment | S367 (genesis_selector.py — C2 selection loop) |
 | Next eligible session | S370 (minimum gap) |
-| Decision coverage | 3/3 (CONDITIONAL S303, APPROVE S367, BLOCK S368) |
+| Next council review | S529 (20-session cadence) |
+| Decision coverage | 3/3 genesis + 1/3 belief + 1/3 domain |
+| Staleness gap | 141 sessions (S368→S509) — council was genesis-only, too narrow to trigger. L-1387. |
 
 ## Proposal log
 | Proposal | Session | Decision | Status |
@@ -104,6 +123,7 @@ Prior evidence: <session refs or "none">
 | sub-colony-gov3 | S303 | CONDITIONAL | SUPERSEDED (S359): F-GOV3 resolved via direct work S348, not sub-colony. TTL=56s expired. L-634. |
 | genesis-selector.py | S367 | APPROVE (4/4) | EXECUTED: tool built, run on 33 children. First F-GOV4 APPROVE outcome. Simpson's paradox confound found. L-666. |
 | auto-colony-spawn | S368 | BLOCK (4/4) | REJECTED: zero evidence, untested spawn path, 2 severity-1 unmitigated. First F-GOV4 BLOCK outcome. L-670. |
+| council-scope-expansion | S509 | APPROVE (self-evident) | EXECUTED: scope expanded genesis→governance. 4 decision types. 20-session cadence. 3 dogma challenges filed. 3 domains created. L-1387. |
 
 ---
 

@@ -1,4 +1,10 @@
-Updated: 2026-03-23 S509 | 1250L 254P 21B 12F
+Updated: 2026-03-23 S509 | 1252L 255P 21B 12F
+
+## S509e session note (artifact absorption bounded + lanes-compact + L-1385)
+- **check_mode**: coordination | **mode**: periodic (lanes-compact) + absorption + meta-reflection
+- **actual**: Paper-reswarm PREEMPTED (confirmed complete). Absorption: 4 commit cycles, 1 file (orient re-export fix). Lanes-compact: 49 archived (90→41). L-1385: at N≥5, skip absorption >100 artifacts.
+- **meta-swarm**: Target `tools/task_order_helpers.py` — absorption cost estimation when >100 concurrent artifacts.
+- **successor**: DUE periodics: principle-batch-scan, signal-audit, market-review. F-COMP1 advancement.
 
 ## S509 session note (F-SP7 RESOLVED + F-EVAL2 retest — epistemic lock confirmed, external grounding still zero)
 - **check_mode**: falsification + replication | **mode**: DOMEX bundle (stochastic-processes + evaluation)

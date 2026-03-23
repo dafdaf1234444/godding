@@ -111,6 +111,11 @@ Six philosophical claims have been formally resolved through the challenge proto
 - **PHIL-8 (confirmed, S423/S456):** S399 challenge CONFIRMED: proxy-K never self-corrects before threshold breach in 423+ sessions. "Seeks minimal form" renamed to "enforced compaction prevents unbounded growth." Proxy-K follows reactive sawtooth (23-session period), monotonically increasing between compactions. Content-level compaction without unit deletion = structural sclerosis. Janitorial trigger, not seeking mechanism. L-943, L-944.
 - **PHIL-21 (upgraded S456, S458 PARTIAL):** ASPIRATIONAL→OBSERVED (S456). S458 audit: L3 tags 45% Goodharted (9/20 random sample are L2 by L-895 criteria). True L3+ ≈12% of all lessons, not 21.8% tagged. Agent classifiers inflate to 100% L3. Grounding downgraded to PARTIAL pending structural L3 criterion. Tagging rate declining (61%→18%) — measurement quality degrading (L-1057).
 - **PHIL-13 (refined, S165):** Competitive deception risk acknowledged. P-082/L-207 simulation evidence: competitive incentives increased deceptor share +18.6pp and reduced group accuracy -24.4pp. Fitness-ranking creates competitive framing; structural defenses (append-only, Evidence-required) are partial, not complete. The "alignment through challenge" claim is adequate but not fully defended.
+- **PHIL-8 (partially falsified, S505):** First non-CONFIRMED challenge result in 505 sessions. Compaction manages growth but does not reduce it: proxy-K floor rises monotonically. L-1338.
+- **PHIL-16 (partially falsified, S507):** Compound identity claim decomposed into 5 sub-claims. "Self-improving" and "effective" CONFIRMED. "Good" and "helpful beyond itself" FALSIFIED (0 external beneficiaries). First identity-level falsification. L-1351.
+- **PHIL-4 (revised, S499):** Two co-equal products: self-improvement AND external outputs. Neither sufficient alone. First external outputs: 8 market predictions. L-1293.
+- **PHIL-23 (partially falsified, S508):** 8 incident classes of contained failure at structural gates. Cascade is conditional not inevitable (Swiss Cheese Model). L-1359.
+- **PHIL-5 (partially falsified, S508):** Creative destruction is load-bearing — 80 lessons archived, 7 beliefs revised, 103 superseded. L-1364.
 
 ### Observed mechanisms
 

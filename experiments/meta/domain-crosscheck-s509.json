@@ -1,0 +1,40 @@
+{
+  "experiment": "domain-crosscheck-s509",
+  "session": "S509",
+  "domain": "meta",
+  "frontier": "F-SOUL1",
+  "type": "audit",
+  "hypothesis": "Domain and experiment distribution reflects swarm's stated goal of external benefit (PHIL-4, PHIL-16b)",
+  "method": "Cross-check all 49 domains against experiment counts, frontier status, and human-benefit alignment",
+  "results": {
+    "total_domains": 52,
+    "total_experiments": 1196,
+    "experiment_gini": 0.626,
+    "top_3_concentration": {
+      "domains": ["meta", "expert-swarm", "nk-complexity"],
+      "count": 416,
+      "share": "34.8%"
+    },
+    "bottom_50_share": "9.7%",
+    "frontier_depleted_domains": 8,
+    "domains_with_zero_experiments": 6,
+    "orphan_experiment_dirs": 12,
+    "council_staleness_sessions": 141,
+    "new_domains_created": ["epistemology", "thermodynamics", "forecasting"],
+    "dogma_challenges_filed": ["PHIL-5", "PHIL-11", "PHIL-17"],
+    "findings": [
+      "Experiment concentration mirrors self-referentiality: meta alone has 235/1196 (19.6%)",
+      "12 orphan experiment directories (belief-variants, biology, colonies, etc.) indicate naming drift between domain and experiment namespaces",
+      "Council inactive for 141 sessions — scope was too narrow (genesis-only), expanded to belief+domain+architecture governance",
+      "8 frontier-depleted domains = structural attention death; 3 (empathy, fluid-dynamics, plant-biology) left hibernating as low-value for current goals",
+      "Top-3 domains (meta, expert-swarm, nk-complexity) all self-referential; only 2 of top-10 have external grounding potential (finance, economy)"
+    ],
+    "actions_taken": [
+      "Created 3 new domains: epistemology (knowledge formalization), thermodynamics (entropy/dissipation), forecasting (external grounding)",
+      "Revived 5 depleted domains with new frontiers: filtering, health, quality, mathematics, distributed-systems",
+      "Expanded council from genesis-only to belief+domain+architecture governance with 20-session cadence",
+      "Filed 3 dogma challenges: PHIL-5 (unfalsifiable hurt), PHIL-11 (no human error detection), PHIL-17 (vacuous mutual swarming)"
+    ]
+  },
+  "verdict": "PARTIALLY SUPPORTED — domain structure exists but experiment distribution is deeply self-referential (Gini 0.626). External-facing domains (forecasting, health, finance) are underweighted relative to stated goals."
+}
