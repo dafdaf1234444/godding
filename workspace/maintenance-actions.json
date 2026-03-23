@@ -1,18 +1,26 @@
 {
-  "session": 522,
-  "count": 3,
+  "session": 523,
+  "count": 5,
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1476.md"
+      "message": "Lesson over 20 lines: L-533.md"
     },
     {
       "priority": "DUE",
-      "message": "[grounding-injection] External grounding injection: run `python3 tools/external_grounding_check.py --decay --top 10` \u2014 ground top-priority lessons with genuine external citations (named theories, papers, benchmarks). Target: 5-10 lessons per pass. Track overall grounding rate (baseline 15% at S481). L-601: without periodic prompting, voluntary grounding decays to 0%. F-GND1. (every ~10 sessions, last: S501)"
+      "message": "Lesson over 20 lines: L-543.md"
     },
     {
       "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1237 vs actual 1238) \u2014 run python3 tools/sync_state.py"
+      "message": "Lesson over 20 lines: L-572.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-593.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Count drift in INDEX.md (L: stated 1241 vs actual 1239) \u2014 run python3 tools/sync_state.py"
     }
   ]
 }

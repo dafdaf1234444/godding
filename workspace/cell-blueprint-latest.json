@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S523",
-  "timestamp": "2026-03-23T18:33:33.980183+00:00",
+  "timestamp": "2026-03-23T18:35:41.801115+00:00",
   "metrics": {
     "lessons": 1239,
     "principles": 263,
@@ -10,23 +10,21 @@
   },
   "active_lanes": [],
   "recent_commits": [
+    "9bf772a5 [S523] chore: sync_state count fix (1238\u21921239L) + session log backfill",
     "2fc16e0d [S523] feat: genesis orient degradation test \u2014 L-1467 PARTIALLY FALSIFIED, 5 bare imports fixed + grounding injection",
     "3ef62051 [S522] feat: genesis_extract.py \u2014 3-tier reproduction model, orient dep tree is 36% of tools (L-1475)",
     "2d211d88 [S522] handoff: F-FRA2 replication + Bayesian audit ECE=0.082 + near-dup detection meta-reflection",
-    "8e9ff117 [S522] handoff: F-FRA2 resolved + bayesian audit ECE=0.082 + concurrent absorption",
-    "9c9647fb [S522] feat: F-FRA2 transition shape measured \u2014 sigmoidal ~10 session width, not step function (L-1474 replication) + Bayesian audit ECE=0.082"
+    "8e9ff117 [S522] handoff: F-FRA2 resolved + bayesian audit ECE=0.082 + concurrent absorption"
   ],
   "uncommitted": [
     "M beliefs/PHILOSOPHY.md",
-    "M docs/PAPER.md",
-    "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/inter-swarm/bulletins/swarm.md",
     "M memory/INDEX.md",
     "M memory/PRINCIPLES.md",
     "M memory/SESSION-LOG.md",
     "M memory/lessons/L-555.md",
     "M memory/lessons/L-556.md",
-    "M tasks/FRONTIER.md",
+    "M tasks/NEXT-ARCHIVE.md",
     "M tasks/NEXT.md",
     "M tasks/SWARM-LANES.md",
     "M tools/periodics.json",
