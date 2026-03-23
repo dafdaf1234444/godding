@@ -221,6 +221,14 @@ def run(args: argparse.Namespace) -> None:
                     results[0], results[rand_idx] = results[rand_idx], results[0]
                     epsilon_note = (f"⚡ ε-dispatch (ε={epsilon}): swapped top domain to "
                                    f"'{results[0]['domain']}' (was '{results[rand_idx]['domain']}')")
+            # ISO-33 stochastic falsification (L-1373, von Neumann minimax):
+            # When falsification rate is below 20% target, assign mode=falsification
+            # to the top domain with probability = (target - actual) / target.
+            # Mixed strategies are game-theoretically optimal for adversarial testing.
+            falsif_note = None
+            if len(results) > 0:
+                falsif_note = _stochastic_falsification(results, current_session)
+
             results_limited = results if args.all or args.domain else results[:10]
             for r in results:
                 if r["domain"] == "meta":
@@ -232,6 +240,8 @@ def run(args: argparse.Namespace) -> None:
                 return
             if epsilon_note:
                 print(f"\n{epsilon_note}")
+            if falsif_note:
+                print(f"\n{falsif_note}")
             _print_ucb1_output(results, results_limited, active_lanes, session_merged,
                                current_session, campaign_waves,
                                auto_fix=getattr(args, "fix", False))
@@ -394,6 +404,8 @@ def _print_ucb1_output(results, results_limited, active_lanes, session_merged,
                 icon = {"CLOSEABLE": "🟢", "APPROACHING": "🟡", "NEEDS_WORK": "⚪", "BLOCKED": "🛑"}.get(v, "")
                 closure = f" {icon} [{v} {s}/10]"
             print(f"         → {r['top_frontier'][:72]}{closure}")
+        if r.get("recommended_mode"):
+            print(f"         🎯 Recommended mode: {r['recommended_mode']} (ISO-33 minimax)")
         if r.get("reward_intent"):
             print(f"         Reward: {r['reward_intent']}")
         if r.get("recombination_targets"):
@@ -459,27 +471,12 @@ def _print_ucb1_output(results, results_limited, active_lanes, session_merged,
     _print_maintenance_actions(auto_fix=auto_fix)
 
 
-def _print_falsification_advisory(results, current_session):
-    """Surface falsification candidates and debt status (F-META18, P-243).
-
-    The 0% falsification rate (1/749 lanes total) is caused by:
-    1. No suggestion mechanism — agents don't know WHAT to falsify
-    2. Zero-cost bypass in open_lane.py
-    3. No dispatch benefit for falsification lanes
-    This function addresses cause #1 by surfacing testable claims.
-    """
-    debt_path = Path(__file__).resolve().parent.parent / "workspace" / "falsification-debt.json"
-    try:
-        debt = json.loads(debt_path.read_text())
-    except (OSError, json.JSONDecodeError):
-        debt = {"consecutive_skips": 0, "total_skips": 0}
-
-    # Count recent falsification rate
-    lanes_file = Path(__file__).resolve().parent.parent / "tasks" / "SWARM-LANES.md"
-    archive_file = Path(__file__).resolve().parent.parent / "tasks" / "SWARM-LANES-ARCHIVE.md"
+def _get_recent_falsif_rate(current_session: int) -> tuple[int, int]:
+    """Count recent falsification lanes vs total lanes in last 20 sessions."""
     recent_falsif = 0
     recent_total = 0
-    for lf in (lanes_file, archive_file):
+    base = Path(__file__).resolve().parent.parent
+    for lf in (base / "tasks" / "SWARM-LANES.md", base / "tasks" / "SWARM-LANES-ARCHIVE.md"):
         if not lf.exists():
             continue
         for line in lf.read_text().splitlines():
@@ -498,7 +495,57 @@ def _print_falsification_advisory(results, current_session):
             etc = cols[10] if len(cols) > 10 else ""
             if "; mode=falsification" in etc or etc.startswith("mode=falsification"):
                 recent_falsif += 1
+    return recent_falsif, recent_total
 
+
+def _stochastic_falsification(results: list[dict], current_session: int) -> str | None:
+    """ISO-33 minimax: stochastically recommend falsification mode (L-1373).
+
+    When falsification rate is below 20% target, recommend mode=falsification
+    for the top dispatched domain with probability proportional to the deficit.
+    Uses session-seeded RNG for reproducibility.
+    """
+    import random as _random
+
+    FALSIF_TARGET = 0.20
+    recent_falsif, recent_total = _get_recent_falsif_rate(current_session)
+    if recent_total == 0:
+        return None
+    rate = recent_falsif / recent_total
+    if rate >= FALSIF_TARGET:
+        return None  # Quota met
+
+    # Probability of recommending falsification = (target - actual) / target
+    # At 0% rate: prob = 1.0. At 15%: prob = 0.25. At 20%: prob = 0.0.
+    prob = min((FALSIF_TARGET - rate) / FALSIF_TARGET, 0.5)  # cap at 50%
+
+    rng = _random.Random(current_session * 7919)  # different seed from ε-greedy
+    if rng.random() < prob:
+        # Assign falsification mode to top domain
+        target = results[0]
+        target["recommended_mode"] = "falsification"
+        return (f"🎯 ISO-33 minimax dispatch: mode=falsification recommended for "
+                f"'{target['domain']}' (falsif rate {rate:.0%} < {FALSIF_TARGET:.0%} target, "
+                f"p={prob:.2f})")
+    return None
+
+
+def _print_falsification_advisory(results, current_session):
+    """Surface falsification candidates and debt status (F-META18, P-243).
+
+    The 0% falsification rate (1/749 lanes total) is caused by:
+    1. No suggestion mechanism — agents don't know WHAT to falsify
+    2. Zero-cost bypass in open_lane.py
+    3. No dispatch benefit for falsification lanes
+    This function addresses cause #1 by surfacing testable claims.
+    """
+    debt_path = Path(__file__).resolve().parent.parent / "workspace" / "falsification-debt.json"
+    try:
+        debt = json.loads(debt_path.read_text())
+    except (OSError, json.JSONDecodeError):
+        debt = {"consecutive_skips": 0, "total_skips": 0}
+
+    recent_falsif, recent_total = _get_recent_falsif_rate(current_session)
     rate = recent_falsif / recent_total if recent_total > 0 else 0
     if rate >= 0.20:
         return  # Quota met, no advisory needed

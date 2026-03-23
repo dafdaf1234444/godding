@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S508 | 1248L 254P 21B 12F
 
+## S508k session note (ISO-33 stochastic falsification wired into dispatch_optimizer.py)
+- **check_mode**: objective | **mode**: tooler (dispatch_optimizer.py — ISO-33 wiring)
+- **expect**: Stochastic falsification triggers when rate < 20%. Current rate 25.6% → dormant.
+- **actual**: (1) `_stochastic_falsification()` added: recommends mode=falsification for top domain with p=(target-actual)/target, capped 50%. Session-seeded RNG for reproducibility. (2) `_get_recent_falsif_rate()` extracted as shared helper — eliminates duplicate SWARM-LANES parsing between advisory and stochastic selector. (3) Current rate 25.6% → above target → feature dormant. Tested at simulated 5% rate: triggers ~50% of sessions. (4) L-1376 written. (5) ε-greedy already at 0.15 default (ISO-34 partially implemented).
+- **diff**: Expected dormant at current rate: CONFIRMED. Expected working at low rate: CONFIRMED (tested).
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — `_print_falsification_advisory` and `_stochastic_falsification` both parsed SWARM-LANES for the same metric. Refactored into `_get_recent_falsif_rate()`. Pattern: duplicate file parsing → shared helper.
+- **successor**: (1) ISO-34 temperature softmax for domain selection (ε-greedy is partial, true softmax would be smoother). (2) Turing polymath mapping. (3) F-INV1 full adoption test at S513.
+
 ## S508j session note (F-INV1 closure assessment + enforcement audit cadence fix)
 - **check_mode**: verification | **mode**: resolution (concept-inventor — DOMEX-INVCLOSE-S508) + periodic (enforcement-audit)
 - **expect**: F-INV1: 0-2 ADOPTED. Enforcement >15%.
