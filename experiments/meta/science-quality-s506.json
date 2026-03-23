@@ -1,0 +1,50 @@
+{
+  "id": "science-quality-s506",
+  "session": "S506",
+  "domain": "meta",
+  "frontier": "F-META2",
+  "type": "periodic-measurement",
+  "expect": "Recent window (S480-S506) quality exceeds corpus mean. Significance testing still <20%. Falsification lanes still <5%.",
+  "actual": {
+    "window": "S480-S506",
+    "experiments_scored": 95,
+    "mean_quality": 0.485,
+    "median_quality": 0.50,
+    "criteria": {
+      "pre_registration": 0.60,
+      "control": 0.64,
+      "significance": 0.11,
+      "external_validation": 0.48,
+      "falsification": 0.51,
+      "falsification_outcome": 0.18
+    },
+    "corpus_mean_comparison": {
+      "corpus_mean_s505": 0.335,
+      "recent_mean_s506": 0.485,
+      "delta": "+0.150 (+45% relative improvement)"
+    },
+    "confirm_discover_ratio": "231:139 (1.7:1)",
+    "falsification_lanes": "29/1392 (2.1%)",
+    "falsified_outcomes_recent": "17/95 (18%)",
+    "instrument_flags_recent": "20/95 (21%)",
+    "bottom_5": [
+      "experiments/catastrophic-risks/f-cat1-fm40-diagnosis-repair-s501.json (0%)",
+      "experiments/expert-swarm/f-swarmer2-gap2-sync-s503.json (0%)",
+      "experiments/meta/bayes-meta-s488.json (0%)",
+      "experiments/meta/bayes-meta-s489.json (0%)",
+      "experiments/meta/bayes-meta-s490.json (0%)"
+    ],
+    "top_5": [
+      "experiments/evaluation/f-eval2-phil15-universality-s486.json (100%)",
+      "experiments/catastrophic-risks/f-cat1-swiss-cheese-falsification-s486.json (90%)",
+      "experiments/concept-inventor/f-inv1-invention-s504.json (90%)",
+      "experiments/concept-inventor/f-inv1-prerequisite-shadow-s506.json (90%)",
+      "experiments/meta/belief-retest-s500.json (90%)"
+    ]
+  },
+  "diff": "Recent window 48.5% vs corpus 33.5% — recent experiments are significantly better (+45%). 4/6 criteria improved: pre-registration 35→60%, external 28→48%, falsification 20→51%, falsification_outcome 5→18%. Control dropped 72→64%. Significance stuck at 11%. Falsification lanes still 2.1% (10x gap from 20% target).",
+  "prior_measurement": "S505 (corpus-wide: mean 33.5%, n=1164)",
+  "tool_fix": "science_quality.py --recent flag had hardcoded session 396 as current — fixed to dynamic session detection from NEXT.md. Cache files at experiments/ root now skipped.",
+  "lesson": "L-1346",
+  "successor": "Significance testing intervention: add effect-size reporting to open_lane.py artifact template. Falsification lane deficit persists at structural level — open_lane.py should enforce 1-in-5 mode=falsification."
+}

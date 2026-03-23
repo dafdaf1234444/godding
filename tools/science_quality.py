@@ -232,15 +232,24 @@ def main():
         if m:
             current_session = int(m.group(1))
 
-    # Score all experiment JSON files (skip top-level cache files)
+    # Score experiment JSON files
+    # Use os.scandir for WSL performance (rglob on 1000+ files takes >30s on NTFS mount)
+    min_session = max(1, current_session - args.recent) if args.recent else 0
+    json_files = []
+    for subdir in sorted(EXPERIMENTS_DIR.iterdir()):
+        if not subdir.is_dir():
+            continue
+        for entry in subdir.iterdir():
+            if not entry.name.endswith(".json"):
+                continue
+            session = extract_session_number(entry.name)
+            if min_session and session < min_session:
+                continue
+            json_files.append((entry, session))
+    json_files.sort(key=lambda x: x[0].name)
+
     results = []
-    for json_file in sorted(EXPERIMENTS_DIR.rglob("*.json")):
-        # Skip cache/non-experiment files at experiments/ root
-        if json_file.parent == EXPERIMENTS_DIR:
-            continue
-        session = extract_session_number(json_file.name)
-        if args.recent and session < max(1, current_session - args.recent):
-            continue
+    for json_file, session in json_files:
         try:
             data = json.loads(json_file.read_text())
         except (json.JSONDecodeError, UnicodeDecodeError):

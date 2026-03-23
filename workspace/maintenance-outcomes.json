@@ -8952,7 +8952,7 @@
     },
     {
       "session": 506,
-      "timestamp": "2026-03-23T03:42:23Z",
+      "timestamp": "2026-03-23T03:43:22Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -9050,9 +9050,11 @@
           ]
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -9254,10 +9256,15 @@
             "NOTICE",
             "NOTICE"
           ]
+        },
+        "check_unpushed": {
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 25,
+        "NOTICE": 26,
         "DUE": 3,
         "PERIODIC": 7
       }

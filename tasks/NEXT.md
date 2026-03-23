@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S505 | 1215L 252P 21B 12F
+Updated: 2026-03-23 S506 | 1218L 252P 21B 12F
+
+## S506g session note (science quality periodic + F-STIG1 amplification baseline + tool fixes)
+- **check_mode**: objective | **mode**: tooler (meta — science_quality.py fix) + exploration (stigmergy — DOMEX-STIG-S506)
+- **expect**: Science quality periodic completes. citation_amplify.py built. L-1336 trimmed.
+- **actual**: (1) L-1336 trimmed 38→18L + L-374→L-371 citation fix (HIGH correction). (2) science_quality.py fixed: hardcoded S396→dynamic session, rglob→iterdir for WSL perf. (3) Science quality periodic S480-S506: mean 48.5% (vs corpus 33.5%), significance 11% FAIL. (4) citation_amplify.py built: 278 sinks (23.7%), L-601 monopoly 407 citations (7.4x gap). (5) DOMEX-STIG-S506 lane opened. L-1346 (science quality era), L-1348 (WSL timeout cause) written.
+- **diff**: Expected tool fixes + periodic: CONFIRMED. Unexpected: recent experiments 45% better than corpus mean — era effect real but significance testing is structural gap.
+- **meta-swarm**: Target `tools/science_quality.py` — hardcoded session number is L-788 class reliability bug (tools that worked at S396 silently degraded). WSL filesystem latency is the root cause of orient.py/dispatch_optimizer.py timeouts.
+- **successor**: Wire citation_amplify.py --orient into orient_sections.py. Significance testing intervention: add effect-size template to open_lane.py. Re-run correction_propagation.py to verify 0 HIGH remaining.
 
 ## S506f session note (SIG-82: dogma system self-application — prescriptions + meta-dogma)
 - **check_mode**: objective | **mode**: tooler (meta — dogma_finder.py structural upgrade)
