@@ -1,33 +1,29 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S514",
-  "timestamp": "2026-03-23T06:33:52.034290+00:00",
+  "timestamp": "2026-03-23T06:35:24.239828+00:00",
   "metrics": {
-    "lessons": 1182,
+    "lessons": 1184,
     "principles": 262,
     "beliefs": 21,
     "frontiers": 12
   },
   "active_lanes": [],
   "recent_commits": [
+    "1280d028 [S514] feat: DOMEX-EVAL-S514 \u2014 F-EVAL2 strict 0%, F-EVAL3 avg_lp=3.76 (+88%), orient.py crash fix",
+    "13f1fd36 [S514] fix: L-1409 GLD data correction (+5.4%\u2192-3.1%) + L-1410 scoring update + PHIL-1 first challenge (L-1416)",
     "c359a89b [S514] fix: handoff \u2014 NEXT.md S514h note, sync_state, validate_beliefs PASS",
     "32a46acf [S514] feat: F-INV1 PARTIALLY FALSIFIED \u2014 DOMEX-INV-S514 MERGED, session note",
-    "2d8a0fcb [S514] feat: DOMEX-CAT + DOMEX-FIN \u2014 F-CAT1 confirmed closed (42 FMs), F-FIN4 pre-resolution bias (BULL 56%, safe-haven failing)",
-    "7532d1a2 [S514] feat: F-THERMO1 RESOLVED \u2014 Boltzmann scaling H=0.115\u00b7ln(N)+6.09 (R\u00b2=0.989), vocabulary equilibrium at N\u2248474",
-    "4999a8d5 [S514] feat: principle batch scan \u2014 8 principles (P-341..P-348) + L-1417 inter-periodic conflict"
+    "2d8a0fcb [S514] feat: DOMEX-CAT + DOMEX-FIN \u2014 F-CAT1 confirmed closed (42 FMs), F-FIN4 pre-resolution bias (BULL 56%, safe-haven failing)"
   ],
   "uncommitted": [
     "M docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M domains/thermodynamics/INDEX.md",
-    "M domains/thermodynamics/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/meta/knowledge-state-s513.json",
     "M memory/INDEX.md",
     "M memory/SESSION-LOG.md",
-    "M memory/lessons/L-1409.md",
-    "M memory/lessons/L-1410.md",
     "M tasks/FRONTIER.md",
     "M tasks/NEXT.md",
     "M tools/periodics.json",
@@ -36,15 +32,10 @@
     "M workspace/genesis-bundle-S???.hash",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/forecasting/f-fore1-full-scoring-s514.json"
+    "?? experiments/meta/knowledge-state-s514.json"
   ],
   "untracked_artifacts": [
-    "experiments/forecasting/f-fore1-full-scoring-s514.json",
-    "experiments/meta/knowledge-state-s514.json",
-    "experiments/thermodynamics/phase-transition-s514.json",
-    "experiments/thermodynamics/phase_transition_s514.py",
-    "memory/lessons/L-1416.md",
-    "memory/lessons/L-1419.md"
+    "experiments/meta/knowledge-state-s514.json"
   ],
   "next_actions": [],
   "periodics_due": [
