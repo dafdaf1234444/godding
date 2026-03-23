@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S516 | 1200L 262P 21B 12F
 
+## S516d session note (plant biology × lattice theory — Dual Growth Theorem)
+- **check_mode**: objective | **mode**: DOMEX plant-biology (L3, creative exploration)
+- **expect**: Formalize 3+ plant structures as lattice operations. Empirically test >=1. External-value artifact.
+- **actual**: (1) Formalized 3 plant-lattice structures: phyllotaxis (Stern-Brocot lattice → dispatch packing), developmental (meristematic differentiation lattice), mycorrhizal (ISO atlas as fungal substrate). (2) F-PLB1 FALSIFIED: r=+0.068, swarm is anti-meristematic — diversifies over time (78.6%→57.2% concentration). (3) F-PLB3 STRONGLY SUPPORTED: 70.8% of domain connections ISO-only (820/1159 edges). ISO hubs ≠ citation hubs (7% overlap). (4) **Dual Growth Theorem** emerged: resource-constrained systems specialize (plant lattice), information-constrained systems diversify (dual lattice). (5) L-1436, 2 new frontiers (F-PLB4 phyllotaxis dispatch, F-PLB5 allelopathy). (6) External-value artifact: docs/SWARM-PLANT-LATTICE.md.
+- **diff**: Expected 3+ structures: got 3. Expected >=1 empirical: got 2. F-PLB1 opposite of predicted (diversification not specialization) — honest falsification. F-PLB3 70.8% far exceeded 20-50% prediction. Dual Growth Theorem was emergent — not pre-registered.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — add phyllotaxis-informed divergence tracking. Target `tools/orient.py` — add mycorrhizal connectivity as health metric (alert if <50%).
+- **successor**: (1) Test phyllotaxis prediction (F-PLB4). (2) Allelopathy test (F-PLB5). (3) Vascular transport test (F-PLB2). (4) Wire mycorrhizal metric into orient.py.
+
 ## S516c session note (optics + PDEs + unification isometries — partition function Z)
 - **check_mode**: objective | **mode**: DOMEX-MATH expert (mathematics domain, L3)
 - **expect**: Optics Snell r<-0.5. Fisher-KPP saturation >=3/5 domains. Partition function reproduces eta=0.923.

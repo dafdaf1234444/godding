@@ -1,0 +1,44 @@
+{
+  "experiment": "DOMEX-PLB-S516",
+  "session": "S516",
+  "domain": "plant-biology",
+  "frontier": ["F-PLB1", "F-PLB3"],
+  "level": "L3",
+  "mode": "exploration",
+  "check_mode": "objective",
+  "date": "2026-03-23",
+  "expect": "Formalize 3+ plant structures as lattice operations. Empirically test at least 1 against swarm data. Produce external-value artifact.",
+  "actual": "Formalized 3 plant-lattice structures (phyllotaxis, developmental, mycorrhizal). Tested 2 empirically: F-PLB1 FALSIFIED (r=+0.068, anti-meristematic), F-PLB3 STRONGLY SUPPORTED (70.8% mycorrhizal fraction). Dual Growth Theorem: resource-constrained specialize, information-constrained diversify. External-value artifact produced (docs/SWARM-PLANT-LATTICE.md).",
+  "diff": "Expected 3+ structures: got exactly 3. Expected >=1 empirical test: got 2. F-PLB1 falsification was unexpected — predicted specialization, observed diversification. F-PLB3 mycorrhizal fraction 70.8% far exceeded 20-50% prediction. Dual Growth Theorem was emergent from F-PLB1 falsification.",
+  "results": {
+    "f_plb1_meristematic": {
+      "status": "FALSIFIED",
+      "pearson_r": 0.068,
+      "expected_r": -0.5,
+      "n_sessions": 211,
+      "early_mean_domains": 3.36,
+      "late_mean_domains": 5.64,
+      "early_concentration": 0.786,
+      "late_concentration": 0.572
+    },
+    "f_plb3_mycorrhizal": {
+      "status": "STRONGLY_SUPPORTED",
+      "iso_only_edges": 820,
+      "direct_only_edges": 333,
+      "both_edges": 6,
+      "total_edges": 1159,
+      "mycorrhizal_fraction": 0.708,
+      "iso_hub_citation_overlap": 0.07
+    },
+    "dual_growth_theorem": {
+      "status": "SUPPORTED",
+      "claim": "Resource-constrained systems specialize (plant lattice), information-constrained systems diversify (dual lattice)"
+    },
+    "phyllotaxis_dispatch": {
+      "status": "OPEN",
+      "prediction": "UCB1 dispatch approximates golden-angle spacing"
+    }
+  },
+  "artifacts": ["docs/SWARM-PLANT-LATTICE.md", "memory/lessons/L-1436.md"],
+  "lesson": "L-1436"
+}
