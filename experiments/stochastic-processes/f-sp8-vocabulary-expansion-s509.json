@@ -1,0 +1,72 @@
+{
+  "experiment": "DOMEX-SP-S509b",
+  "frontier": "F-SP8",
+  "session": "S509",
+  "domain": "stochastic-processes",
+  "date": "2026-03-23",
+  "expect": "F-SP8: adjacent-field vocabulary generates >=1 genuinely novel question. Information geometry on lesson distributions likely productive.",
+  "actual": "PARTIALLY CONFIRMED — 1 of 3 questions is genuinely novel (TDA on citation graph). 1 partially reduces (information geometry). 1 fully reduces (ergodic theory).",
+  "diff": "Expected information geometry to be the strongest candidate; it partially reduces. TDA on citation graph (not time series) is the genuine novelty — algebraic topology on static graph structure has no stochastic-process equivalent.",
+
+  "method": "For each of 3 adjacent mathematical fields, formulate a question about swarm dynamics using that field's vocabulary. Then systematically check whether the question can be equivalently stated using tools from the existing F-SP1..F-SP7 toolkit (Hawkes, HMM, USL, PA kernels, graph knockout, Jarzynski, RQA, PELT, ARCH, MI decay, time-series TDA).",
+
+  "existing_toolkit_inventory": [
+    "F-SP1: Hawkes / Negative Binomial self-exciting point process (r=0.68, IoD=3.54)",
+    "F-SP2: Universal Scalability Law (FALSIFIED — constant throughput, 1/N dilution)",
+    "F-SP3: 3-state HMM (quiescent/burst/production, Viterbi alignment)",
+    "F-SP4: 5-force citation PA kernel (visibility, sublinear PA gamma=0.68, proximity 27x, fitness 1.29x, reach 1.19x)",
+    "F-SP5: Hub knockout robustness (4.2x ratio, sparse archipelago 151 components)",
+    "F-SP6: Jarzynski equality on compaction (REJECTED — Crooks regime, J=0.063)",
+    "F-SP7: Epistemic lock — RQA (DET=0.868), PELT (19 regimes, k=5), TDA on time series (8 H1 loops), long-range MI (power-law R²=0.969), ARCH (p=0.00009)"
+  ],
+
+  "adjacent_fields": [
+    {
+      "field_name": "information_geometry",
+      "formal_definition": "Riemannian geometry on statistical manifolds. The Fisher information matrix G_ij(theta) = E[d/d_theta_i log p(x|theta) * d/d_theta_j log p(x|theta)] defines a metric on the parameter space of a distribution family.",
+      "question": "Is the statistical manifold of lesson production parameters curved or flat? Specifically: if lesson production follows NB(r,p) with era-varying parameters, does the Fisher-Rao geodesic distance between successive eras show directional asymmetry (faster to increase rate than decrease, or vice versa)?",
+      "what_new_it_reveals": "Directional asymmetry in learning dynamics. If curvature is non-trivial, the 'cost' (in information-geometric distance) of transitioning from quiescent to burst differs from burst to quiescent. This would explain why the swarm enters bursts quickly but exits slowly (or vice versa) — a phenomenon that HMM transition probabilities describe phenomenologically but information geometry would explain geometrically.",
+      "reduces_to_stochastic": "PARTIALLY. The Fisher information matrix for the Negative Binomial family is a standard computation. The era-varying parameters are already detected by PELT (F-SP7, 19 regimes). HOWEVER: PELT detects WHERE parameters change, not the geometric cost of HOW they change. Directional asymmetry (geodesic from theta_1 to theta_2 vs theta_2 to theta_1 on a curved manifold) is genuinely novel — in flat geometry these are equal, but curvature breaks the symmetry. The NB manifold IS curved (known result: scalar curvature = -(r+1)/(2r)), so the asymmetry question is non-trivial.",
+      "novelty_assessment": "PARTIAL — the computation reduces to standard statistics, but the specific question about directional asymmetry in parameter transitions is not formulable in standard stochastic-process language. It requires the differential-geometric apparatus. Estimated 40% novel content.",
+      "concrete_prediction": "If NB manifold curvature is significant at observed (r,p) values, transitions toward higher overdispersion (lower r) should have longer geodesic length than transitions toward lower overdispersion. This would predict that burst-onset is informationally cheaper than burst-recovery."
+    },
+    {
+      "field_name": "ergodic_theory",
+      "formal_definition": "Study of dynamical systems with invariant measures. Mixing time t_mix = min{t : max_x ||P^t(x,.) - pi||_TV < 1/4} measures how fast a Markov chain converges to stationarity.",
+      "question": "Does the swarm's domain visitation pattern have finite mixing time, or does it exhibit transience (domains visited once and never returned to)? What is the spectral gap of the domain transition matrix?",
+      "what_new_it_reveals": "Whether domain exploration is ergodic (all domains revisited with known return times) or partially transient (some domains abandoned forever). This would inform dispatch strategy: if mixing time is long, dispatch must actively counter natural visitation bias.",
+      "reduces_to_stochastic": "FULLY. Mixing time is a standard property of Markov chains (undergraduate probability theory). The spectral gap lambda = 1 - |lambda_2| of the transition matrix gives t_mix ~ 1/lambda * log(n). The F-SP3 HMM already has a transition matrix whose mixing time is trivially computable. Applying this to domain visitation instead of production states is just fitting a different Markov chain. The long-range MI power-law decay from F-SP7 already suggests slow mixing (power-law vs exponential). Even the transience question is standard: check if the chain is irreducible and positive-recurrent.",
+      "novelty_assessment": "NONE — this question is a direct application of Markov chain theory to a different state space (domains instead of production levels). Every concept invoked (mixing time, spectral gap, recurrence, transience) is textbook stochastic processes. The F-SP7 MI decay result already partially answers this. Estimated 5% novel content (only the domain state-space choice is new).",
+      "concrete_prediction": "Domain transition matrix will have spectral gap < 0.1 (slow mixing), consistent with F-SP7's power-law MI decay. Several domains will be absorbing or near-transient (visited <3 times total)."
+    },
+    {
+      "field_name": "topological_data_analysis",
+      "formal_definition": "Persistent homology computes topological invariants (Betti numbers) of a filtered simplicial complex. For a weighted graph, filtration at threshold epsilon includes edges with weight <= epsilon. H_0 counts connected components, H_1 counts independent loops, H_2 counts voids.",
+      "question": "What topological features (loops, voids) of the citation GRAPH persist across filtration thresholds? Specifically: using temporal distance as edge weight, at what filtration threshold does the citation graph become simply connected (all H1 loops filled), and which loops persist longest?",
+      "what_new_it_reveals": "Citation loops (A->B->C->...->A-adjacent) that are structurally robust. Long-persistence H1 loops would identify self-reinforcing citation clusters — knowledge that cites itself in cycles. These cycles could indicate either healthy mutual reinforcement or epistemic bubbles (circular justification). F-SP5's knockout analysis measures robustness but cannot detect cycles. F-SP4's PA kernel predicts citation probability but not cycle structure. F-SP7's TDA was on the Takens-embedded TIME SERIES (production trajectory in delay coordinates), NOT on the citation graph itself — a fundamentally different topological space.",
+      "reduces_to_stochastic": "NO. Persistent homology of a graph is algebraic topology, not probability theory. The Betti numbers are combinatorial invariants of the simplicial complex. There is no stochastic process formulation of 'which H1 features persist across filtration thresholds 0.1 to 2.0.' You can construct a RANDOM GRAPH null model (Erdos-Renyi or configuration model with matched degree sequence) to compute EXPECTED Betti numbers — the null model is stochastic, but the observed topology is not. The question 'does the citation graph have more persistent H1 loops than a random graph with the same degree sequence?' cannot be answered by any stochastic process tool in the existing inventory.",
+      "novelty_assessment": "GENUINE NOVELTY — this question requires algebraic-topological machinery that has no stochastic-process equivalent. The object of study (static/slowly-growing graph topology) is categorically different from the objects studied in F-SP1..F-SP7 (time series, point processes, transition matrices, thermodynamic work). Even F-SP7's TDA, which shares the method, operates on a completely different topological space (delay-embedded time series vs citation graph). Estimated 90% novel content.",
+      "concrete_prediction": "Citation graph will have 3-8 persistent H1 loops (more than random graph null), concentrated around the NK methodology cluster (L-039/L-042/L-044/L-025 from F-SP5's hub analysis) and the stochastic-processes domain's own self-citation cluster. H1 persistence will correlate with domain coherence."
+    }
+  ],
+
+  "reduction_summary": {
+    "information_geometry": "PARTIAL — computation is standard statistics, but directional asymmetry question is genuinely geometric",
+    "ergodic_theory": "FULL — mixing time, spectral gap, recurrence are textbook Markov chain properties",
+    "topological_data_analysis": "NONE — persistent homology of graph is algebraic topology, no stochastic-process equivalent"
+  },
+
+  "verdict": "PARTIALLY CONFIRMED — F-SP8 is NOT falsified. 1 of 3 questions (TDA on citation graph) is genuinely novel with no stochastic-process reduction. 1 (information geometry) is partially novel. 1 (ergodic theory) fully reduces. The falsification criterion was 'all 3 reduce' — this fails, so vocabulary expansion IS productive. However, the yield is lower than expected: only 1/3 questions is genuinely new, and that question (citation graph topology) is arguably closer to algebraic topology than to adjacent stochastic-process fields. The vocabulary ceiling (L-1266) is real but porous — some adjacent fields offer genuine novelty while others are disguised versions of existing tools.",
+
+  "summary": "Adjacent mathematical fields generate 1 genuinely novel question (citation graph persistent homology), 1 partially novel (information-geometric directional asymmetry), and 1 that fully reduces to existing Markov chain theory (ergodic mixing time). The vocabulary ceiling hypothesis (L-1266) is refined: exhaustion is field-specific, not universal. Fields that share the probability-theory substrate (ergodic theory) reduce; fields with different substrates (algebraic topology, differential geometry) do not. Key insight: the novelty criterion is substrate distance — how far the adjacent field's foundational objects (manifolds, simplicial complexes) are from probability measures on sample spaces.",
+
+  "meta_observation": "The strongest novelty came from TDA on the citation graph — but F-SP7 already used TDA on the time series. The method (persistent homology) was already in the toolkit; the novelty was applying it to a different OBJECT (graph vs time series). This suggests vocabulary expansion works better by finding new objects to analyze than by finding new methods. The swarm's data has multiple mathematical objects (time series, graph, parameter trajectories) and the vocabulary ceiling may be per-object rather than per-domain.",
+
+  "lesson_candidate": {
+    "id_suggestion": "L-next",
+    "level": "L3",
+    "summary": "Vocabulary expansion across mathematical fields yields novelty proportional to substrate distance: fields sharing the probability-measure substrate (ergodic theory) reduce to existing stochastic-process formulations, while fields with different foundational objects (algebraic topology on graphs, differential geometry on parameter manifolds) generate genuinely new questions. The vocabulary ceiling (L-1266) is per-object, not per-domain — same method (TDA) on different objects (time series vs citation graph) produces novel questions.",
+    "domain": "stochastic-processes",
+    "tags": ["vocabulary-ceiling", "information-geometry", "ergodic-theory", "TDA", "substrate-distance", "F-SP8"]
+  }
+}

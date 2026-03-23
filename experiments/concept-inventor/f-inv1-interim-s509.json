@@ -1,0 +1,269 @@
+{
+    "experiment": "DOMEX-INV-S509",
+    "frontier": "F-INV1",
+    "session": "S509",
+    "domain": "concept-inventor",
+    "date": "2026-03-23",
+    "method": "Grep each concept handle in memory/lessons/ (including archive/). Classify each citing lesson as concept-inventor-domain (self-referential) or organic (non-inventor domain). Threshold: ADOPTED >=10, EMERGING 3-9, DEAD <3. Organic adoption = concept used in lesson NOT about concept invention.",
+    "expect": "0 ADOPTED. Top 3 (vocabulary-ceiling, epistemic-lock, goodhart-cascade) still EMERGING. No change from S508 closure assessment.",
+    "actual": "0 ADOPTED. vocabulary-ceiling=6 (top), epistemic-lock=6, goodhart-cascade=5. 3 EMERGING. 19 DEAD (0-2 citations). 2 FALSIFIED (prerequisite-shadow, fork-finality per L-1361/L-1340). Mean citation 1.88. Organic adoption: 3 concepts (vocabulary-ceiling, epistemic-lock, benefit-blindness) appear in non-inventor lessons.",
+    "diff": "vs S508 closure: vocabulary-ceiling 5->6, epistemic-lock 5->6, goodhart-cascade 4->5. Marginal gain (+1 each for top 2). No concept crossed ADOPTED threshold (>=10). Trajectory: at +0.06 citations/session average, top concept needs ~67 more sessions to reach 10. F-INV1 heading toward PARTIALLY FALSIFIED.",
+    "concepts": [
+        {
+            "name": "concept-debt",
+            "round": "R1 (S492)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1334"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "generative-pressure",
+            "round": "R1 (S492)",
+            "lesson_citations": 0,
+            "citing_lessons": [],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "diagnosis-repair-gap",
+            "round": "R1 (S492)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1334", "L-1279"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "vocabulary-ceiling",
+            "round": "R2 (S493)",
+            "lesson_citations": 6,
+            "citing_lessons": ["L-1376(archive)", "L-1332", "L-1353", "L-1282", "L-1281", "L-1279"],
+            "organic_lessons": ["L-1282 (filtering domain)"],
+            "organic_adoption": true,
+            "status": "EMERGING"
+        },
+        {
+            "name": "epistemic-lock",
+            "round": "R2 (S493)",
+            "lesson_citations": 6,
+            "citing_lessons": ["L-1376(archive)", "L-1332", "L-1353", "L-1283(archive)", "L-1281", "L-1279"],
+            "organic_lessons": ["L-1283 (filtering domain)"],
+            "organic_adoption": true,
+            "status": "EMERGING"
+        },
+        {
+            "name": "goodhart-cascade",
+            "round": "R2 (S493)",
+            "lesson_citations": 5,
+            "citing_lessons": ["L-1376(archive)", "L-1332", "L-1353", "L-1281", "L-1279"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "EMERGING"
+        },
+        {
+            "name": "phantom-cascade",
+            "round": "R2 (S493)",
+            "lesson_citations": 0,
+            "citing_lessons": [],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "escape-hatch-hollowing",
+            "round": "R2 (S493)",
+            "lesson_citations": 0,
+            "citing_lessons": [],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "planning-obsolescence",
+            "round": "R2b (S494)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1272"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "sensor-only-trap",
+            "round": "R2b (S494)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1279", "L-1272"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "retention-drift",
+            "round": "R3 (S504)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1339", "L-1334"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "temporal-mismatch",
+            "round": "R3 (S504)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1339", "L-1334"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "maturity-trap",
+            "round": "R3 (S504)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1339", "L-1334"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "substrate-mismatch",
+            "round": "R4 (S505)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1339"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "hub-dependency",
+            "round": "R4 (S505)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1339"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "scale-inversion",
+            "round": "R4 (S505)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1339"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "phloem-gradient",
+            "round": "R4b (S505)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1332", "L-1340"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD",
+            "note": "Tested real but weaker than predicted (1.87x not 3x, L-1340)"
+        },
+        {
+            "name": "fork-finality",
+            "round": "R4b (S505)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1332", "L-1340"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "FALSIFIED",
+            "note": "Null result in same-session test (L-1340)"
+        },
+        {
+            "name": "prerequisite-shadow",
+            "round": "R4b (S505)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1332", "L-1361"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "FALSIFIED",
+            "note": "1.1pp vs 20pp expected — FALSIFIED (L-1361)"
+        },
+        {
+            "name": "runtime-graft",
+            "round": "R4b (S505)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1332"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "benefit-blindness",
+            "round": "R5 (S507)",
+            "lesson_citations": 2,
+            "citing_lessons": ["L-1360(archive)", "L-1355"],
+            "organic_lessons": ["L-1360 (evaluation/meta domain — direct repair follow-up)"],
+            "organic_adoption": true,
+            "status": "DEAD",
+            "note": "L-1360 is evaluation/meta domain but was a direct repair of L-1355 (concept-inventor). Borderline organic."
+        },
+        {
+            "name": "self-referential-gravity",
+            "round": "R5 (S507)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1355"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "transfer-gap",
+            "round": "R5 (S507)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1355"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        },
+        {
+            "name": "soul-ceiling",
+            "round": "R5 (S507)",
+            "lesson_citations": 1,
+            "citing_lessons": ["L-1355"],
+            "organic_lessons": [],
+            "organic_adoption": false,
+            "status": "DEAD"
+        }
+    ],
+    "summary": {
+        "total_invented": 24,
+        "adopted_gte10": 0,
+        "emerging_3to9": 3,
+        "dead_lt3": 19,
+        "falsified": 2,
+        "mean_citation_rate": 1.88,
+        "median_citation_rate": 1.5,
+        "top_3": ["vocabulary-ceiling (6)", "epistemic-lock (6)", "goodhart-cascade (5)"],
+        "organic_adoption_count": 3,
+        "organic_adopters": ["vocabulary-ceiling in L-1282 (filtering)", "epistemic-lock in L-1283 (filtering)", "benefit-blindness in L-1360 (evaluation/meta, borderline)"],
+        "best_round": "R2 (S493) — meta-diagnostic concepts",
+        "worst_rounds": "R4-R5 — structural/topological/soul concepts (1.0-1.3 mean citations)",
+        "citation_inflation_note": "S508 interim reported vocabulary-ceiling=5, epistemic-lock=5 using different counting method. This measurement includes archive/ lessons. All counts are lesson-file-only (no experiment JSONs, no domain frontiers)."
+    },
+    "verdict_trajectory": "PARTIALLY FALSIFIED trending. 0/24 ADOPTED after 17 sessions (S492-S509). Top concept at 6/10 = 60% of threshold. Organic baseline expects 1 concept at >=10 per 20 sessions. Invented concepts at 0 ADOPTED in 17 sessions. Invention produces 24x MORE concepts but none that CHANGE BEHAVIOR (cross >=10 threshold). 33 sessions remain to S542 — would need +4 citations on vocabulary-ceiling to reach threshold, requiring 0.12 citations/session (current rate ~0.35/session for top concept). Mathematically possible but requires organic adoption acceleration that shows no sign of occurring.",
+    "gap_to_threshold": {
+        "current_session": "S509",
+        "deadline_session": "S542",
+        "sessions_remaining": 33,
+        "best_concept": "vocabulary-ceiling",
+        "best_concept_citations": 6,
+        "citations_needed_for_adopted": 4,
+        "required_rate_per_session": 0.12,
+        "observed_rate_per_session": 0.35,
+        "note": "0.35/session is the TOTAL rate for vocabulary-ceiling over 16 sessions, but most citations are self-referential (concept-inventor domain). Organic rate is ~0.06/session (1 organic citation in 16 sessions). At organic rate, would need 67 more sessions — well past S542 deadline."
+    },
+    "key_findings": [
+        "0 ADOPTED, unchanged from S508. Trajectory is flat.",
+        "Only 3 concepts have ANY organic (non-inventor-domain) adoption: vocabulary-ceiling, epistemic-lock, benefit-blindness.",
+        "Even organic adoptions are shallow: 1 lesson each, in closely related domains (filtering used vocabulary-ceiling/epistemic-lock from concept-inventor vocabulary-breaking work).",
+        "R3-R5 concepts (12 total) have 0 organic citations combined. All their citations are within concept-inventor domain lessons.",
+        "2 concepts empirically falsified (fork-finality, prerequisite-shadow) — a 8.3% falsification rate.",
+        "The S508 key insight holds: meta-diagnostic concepts are the only class with any organic adoption. Descriptive labels and structural mechanisms die.",
+        "Invention rate is 24/17 = 1.41 concepts/session vs ~1/20 organic. Production is 28x organic rate. Adoption is 0x organic rate."
+    ]
+}

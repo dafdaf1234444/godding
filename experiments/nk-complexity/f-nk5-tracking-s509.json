@@ -1,0 +1,40 @@
+{
+  "experiment": "DOMEX-NK-S509",
+  "frontier": "F-NK5",
+  "session": "S509",
+  "domain": "nk-complexity",
+  "date": "2026-03-23",
+  "expect": "K_avg 3.3-3.5 (continuing deceleration). Hub L-601 at 350-400. Sinks declining.",
+  "actual": {
+    "N": 1150,
+    "E": 3194,
+    "K_avg": 2.778,
+    "hub_top5": {
+      "L-601": 354,
+      "L-526": 49,
+      "L-912": 42,
+      "L-613": 42,
+      "L-599": 32
+    },
+    "L601_unique_citing": 354,
+    "sinks": 321,
+    "sink_pct": 27.9,
+    "gini": 0.670,
+    "orphans": 106,
+    "orphan_pct": 9.2,
+    "recent_50_avg_outdegree": 3.72,
+    "recent_50_median_outdegree": 4.0
+  },
+  "diff": "K_avg FALSIFIED (2.778 vs 3.3-3.5). L-601 CONFIRMED (354). Sinks FALSIFIED (27.9% vs declining). Large-batch archival (107 lessons) caused 14% K_avg regression by removing 405 edges.",
+  "comparison_s481": {
+    "N_delta": "+36 (1114->1150, +3.2%)",
+    "E_delta": "-405 (3599->3194, -11.3%)",
+    "K_avg_delta": "-0.447 (3.225->2.778, -13.9%)",
+    "L601_delta": "+27 (327->354, +8.3%)",
+    "sink_delta": "+3.0pp (24.9%->27.9%)",
+    "gini_delta": "+0.023 (0.647->0.670)"
+  },
+  "key_finding": "Large-batch archival makes K_avg non-monotonic. Archived lessons had above-avg degree; removal severs edges in both directions. Production rate healthy (3.72 edges/L recent). Live subgraph tracking diverges from historical truth.",
+  "successor": "Dual-graph tracking: live K_avg + historical K_avg (including archived Cites: headers)",
+  "cites": ["L-1224", "L-1012", "L-801", "L-665", "L-613"]
+}

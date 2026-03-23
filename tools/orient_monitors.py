@@ -469,3 +469,21 @@ def section_trace_amplification(root=ROOT):
     except Exception:
         pass
     return lines
+
+
+def section_reactivation(session_num, root=ROOT):
+    """Dormant-idea reactivation — surface high-value decayed lessons for revival."""
+    lines = []
+    try:
+        import subprocess
+        result = subprocess.run(
+            ["python3", str(root / "tools" / "reactivation.py"), "--brief"],
+            capture_output=True, text=True, timeout=30, cwd=str(root),
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            for line in result.stdout.strip().splitlines():
+                lines.append(line)
+            lines.append("")
+    except Exception:
+        pass
+    return lines

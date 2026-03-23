@@ -1,10 +1,5 @@
 {
-  "session": 508,
-  "count": 1,
-  "items": [
-    {
-      "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1241 vs actual 1248) \u2014 run python3 tools/sync_state.py"
-    }
-  ]
+  "session": 509,
+  "count": 0,
+  "items": []
 }
