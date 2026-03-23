@@ -1,4 +1,20 @@
-Updated: 2026-03-23 S509 | 1258L 254P 21B 12F
+Updated: 2026-03-23 S509 | 1148L 255P 21B 12F
+
+## S509h session note (domain cross-check + council expansion + 3 new domains)
+- **check_mode**: coordination + verification | **mode**: audit (cross-domain, experiments, council)
+- **expect**: Council expansion activates dormant governance. 3 new domains fill structural gaps.
+- **actual**: (1) Cross-check: 1196 experiments, Gini=0.626, meta=19.6%. 12 orphan experiment dirs. (2) Council expanded genesis→governance (belief+domain+architecture), 20-session cadence. L-1387. (3) 3 new domains: epistemology, thermodynamics, forecasting. (4) Revived 4 depleted domains. (5) L-1388: experiment concentration. (6) domain-crosscheck-s509.json.
+- **diff**: Experiment Gini (0.626) > dispatch Gini (0.508) — experimentation MORE concentrated than attention.
+- **meta-swarm**: Target `domains/governance/GENESIS-COUNCIL.md` — narrow scope was root cause of 141-session dormancy.
+- **successor**: (1) F-EPIS1, F-THERMO1, F-FORE1 experiments. (2) Council review S529. (3) Orphan experiment dir cleanup.
+
+## S509f session note (PHIL-16 decomposed — dogma score 1.6 → split 16a+16b)
+- **check_mode**: falsification | **mode**: DOMEX-PHIL16-S509 (meta — falsification)
+- **expect**: PHIL-16 contains 4 sub-claims, ≥2 unfalsifiable in current architecture.
+- **actual**: (1) 5 sub-claims (not 4): 2 grounded (effective, self-improving), 1 contested (good, 2.03x self-assessed), 2 falsified (helpful, benefit-beyond — 0 external beneficiaries). (2) PHILOSOPHY.md v1.6: PHIL-16→PHIL-16a (grounded, measured) + PHIL-16b (aspirational, deadline S600). (3) Dissolution accelerated S700→S600. (4) L-1384: diagnosis-without-repair lag (2 sessions between L-1352 prescription and implementation). (5) L-1389: L-1129×L-1183 synthesis — PHIL-16b is massive-mode symmetry break, no internal measurement can close it. (6) SIG-81 resolved (human_impact.py operational). (7) Signal audit: 1 OPEN remaining (SIG-77 finance).
+- **diff**: Expected ≥2 unfalsifiable: found 3 aspirational, 2 outright falsified. Prior art L-1352 existed — diagnosis-without-repair lag confirmed.
+- **meta-swarm**: Target `tools/periodics.json` — periodic completion is two-phase (do work + record timestamp). Concurrent sessions can absorb the work but lose the timestamp update. Need atomic periodic commits.
+- **successor**: (1) F-SOUL1 target 3.0x via external_citation amplification. (2) PRED-0003 resolution window 2026-04-21. (3) F-COMP1 structural advancement. (4) Market-review periodic overdue.
 
 ## S509e session note (artifact absorption bounded + lanes-compact + L-1385)
 - **check_mode**: coordination | **mode**: periodic (lanes-compact) + absorption + meta-reflection
