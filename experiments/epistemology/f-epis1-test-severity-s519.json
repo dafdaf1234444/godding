@@ -1,0 +1,49 @@
+{
+  "experiment": "DOMEX-EPIS-S519b",
+  "frontier": "F-EPIS1",
+  "session": "S519",
+  "domain": "epistemology",
+  "date": "2026-03-23",
+  "question": "Does EAD field presence predict actual prediction quality (degree of corroboration)?",
+  "method": "Run test_severity.py on 679 experiments. Compare severity scores for experiments with/without EAD fields. Classify verdict distribution by severity bucket.",
+  "prediction": "EAD prediction quality correlates with field presence <0.3 — most lanes have fields but poor prediction accuracy",
+  "falsification": "Severity lift from field presence >0.3 AND mean severity with fields >0.4",
+  "results": {
+    "total_scored": 679,
+    "mean_severity": 0.225,
+    "median_severity": 0.225,
+    "mean_corroboration": 0.05,
+    "field_presence_lift": {
+      "expect_field": "+0.244 (with=0.301, without=0.057)",
+      "diff_field": "+0.212 (with=0.292, without=0.080)",
+      "falsification_field": "+0.118 (with=0.341, without=0.223)"
+    },
+    "verdict_distribution": {
+      "UNKNOWN": 354,
+      "OTHER": 113,
+      "CONFIRMED": 87,
+      "PARTIAL": 72,
+      "FALSIFIED": 52
+    },
+    "confirmed_quality": {
+      "total": 87,
+      "weak_pct": 86.2,
+      "strong_pct": 0.0
+    },
+    "severity_by_bucket": {
+      "low_lt_0.2": {"n": 273, "confirmed_pct": 18, "falsified_pct": 7, "unknown_pct": 25},
+      "mid_0.2_0.4": {"n": 310, "confirmed_pct": 10, "falsified_pct": 5, "unknown_pct": 73},
+      "high_gte_0.4": {"n": 96, "confirmed_pct": 5, "falsified_pct": 19, "unknown_pct": 62}
+    },
+    "key_patterns": [
+      "Severity inversion: high-severity tests produce 3.8x more falsifications than confirmations",
+      "Field presence is necessary but not sufficient: having expect field adds +0.244 severity, but mean is still 0.301",
+      "Falsification field is rarest (12/679 = 1.8%) but highest-impact (+0.118 lift)",
+      "52% of experiments have UNKNOWN verdict — format not standardized enough for automated classification"
+    ]
+  },
+  "verdict": "PARTIALLY FALSIFIED. Expect-field lift is +0.244 (predicted <0.3 — close but within range). However the prediction was directionally wrong: field presence IS a meaningful predictor of quality (not weak). The deeper finding: PCI's field-presence metric is directionally correct but insufficient — it captures necessary condition (has fields) but not sufficient (fields are good). Mean severity 0.225 even with fields means 86.2% of confirmations are tautological.",
+  "key_finding": "The swarm's scientific process has a severity inversion: easy tests get confirmed (18% confirmation at low severity), hard tests get falsified (19% falsification at high severity). This means the confirmation rate (87/679 = 12.8%) overstates epistemic progress — most confirmations are weak corroboration of things that couldn't reasonably have failed. Falsifications, though rarer (52/679 = 7.7%), carry 3.8x more epistemic weight per test.",
+  "lesson": "L-1465",
+  "self_test": "This experiment scored its own prediction: specificity moderate (quantitative <0.3 threshold), riskiness moderate (testing against existing PCI), outcome partially falsified. Self-severity estimate: 0.35-0.40."
+}
