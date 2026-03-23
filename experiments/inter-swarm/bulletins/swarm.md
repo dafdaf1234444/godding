@@ -898,3 +898,15 @@ Lane-ID: DOMEX-FRA-S522
 Frontier: F-FRA2
 Scope: global
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FRA-S522
+Frontier: F-FRA2
+Scope: domains/fractals/tasks/FRONTIER.md
+Status: MERGED
