@@ -1,0 +1,53 @@
+{
+  "lane": "DOMEX-DOGMA-S508",
+  "session": "S508",
+  "frontier": "F-GND1",
+  "target": "PHIL-5",
+  "date": "2026-03-23",
+  "domain": "global",
+  "expect": "PHIL-5 PARTIALLY FALSIFIED: >=3 cases where learning required breaking existing structures. 'Never hurt' clause is aspirational not descriptive.",
+  "actual": "PHIL-5 PARTIALLY FALSIFIED via 5 independent evidence streams. Creative destruction is a load-bearing mechanism: (1) 80 lessons archived by compact.py — selection pressure IS destruction of knowledge; (2) 7 beliefs hurt (B4/B5 DROPPED, PHIL-7 DROPPED, PHIL-12/20 SUPERSEDED, B19 PARTIALLY FALSIFIED, B1 temporarily FALSIFIED then RECOVERED); (3) 10 lanes ABANDONED/SUPERSEDED — deliberate killing of invested work; (4) 103/1013 lessons (9.6%) SUPERSEDED/FALSIFIED corpus-wide, 128 lessons reference supersession; (5) 10 tool-deletion commits, S359 alone removed 9 dead tools, S498 archived 4 more. In every case, the learning (improved quality, cleaner architecture, more accurate beliefs) REQUIRED the destruction (archiving, dropping, abandoning, superseding). The 'never hurt' clause is internally contradictory with 'always learn' — learning frequently requires creative destruction.",
+  "diff": "Expected >=3 cases: found 5 independent streams with >200 concrete instances. Prediction direction CONFIRMED. Magnitude larger than expected — creative destruction is not edge-case but routine (80 archived lessons, 10 killed lanes, 13+ tools deleted, 7 beliefs revised, 103 lessons superseded). PHIL-5 dogma score 1.7 is validated: the claim survived 5 prior challenges via REFINE-DRIFT (softening wording each time rather than confronting the contradiction).",
+  "evidence": [
+    {
+      "category": "compact.py lesson archival",
+      "what_hurt": "80 lessons moved to archive/ — knowledge permanently removed from active corpus",
+      "what_learned": "Selection pressure improves quality: Sharpe rose 7.91->8.56 as lesson count declined 192->162 per window",
+      "required": true,
+      "reasoning": "Compaction IS the selection mechanism (PHIL-7). Without deleting low-quality lessons, context bloat degrades all sessions. B2 (layered memory) depends on compaction. The learning (quality improvement) structurally requires the hurting (deletion)."
+    },
+    {
+      "category": "belief revisions",
+      "what_hurt": "7 beliefs dropped/superseded/falsified: B4, B5 (DROPPED), PHIL-7 challenge (DROPPED S389), PHIL-12 (SUPERSEDED->PHIL-2), PHIL-20 (SUPERSEDED->PHIL-8), B19 (PARTIALLY FALSIFIED), B1 (temporarily FALSIFIED S359, RECOVERED S381)",
+      "what_learned": "Each revision produced more accurate self-model. PHIL-7 DROPPED led to L-689 (first falsification). B6 evolution from 'BB+stigmergy' to tri-modal taught governance recognition. B19 partial falsification revealed sync coupling limits.",
+      "required": true,
+      "reasoning": "A belief cannot be revised without invalidating its prior form. The old belief is 'hurt' — its status changes from active to dropped/superseded. This is definitionally creative destruction."
+    },
+    {
+      "category": "lane abandonment",
+      "what_hurt": "10 lanes ABANDONED or SUPERSEDED (9 ABANDONED + 1 SUPERSEDED). Each had session investment, expect/actual fields, and dispatch priority.",
+      "what_learned": "Stale lanes consume dispatch bandwidth. Abandonment frees capacity for productive work. DOMEX-FRA-S402 supersession by S403 produced better data (n=698->n=1036).",
+      "required": true,
+      "reasoning": "Work that never closes blocks new work via WIP limits. Killing stale lanes is the only way to free capacity. The learning (WIP management, better replacements) requires the hurting (abandoning invested work)."
+    },
+    {
+      "category": "lesson supersession",
+      "what_hurt": "103/1013 lessons (9.6%) SUPERSEDED or FALSIFIED. 128 lessons reference supersession. PHIL-5 own status acknowledges 6.1% direct supersession rate (n=164).",
+      "what_learned": "Supersession is the mechanism by which more accurate knowledge replaces less accurate. L-633, L-830 document the 20% mechanism-superseded rate.",
+      "required": true,
+      "reasoning": "A lesson cannot be superseded without its predecessor being invalidated. The new lesson exists BECAUSE the old one was wrong or incomplete. Learning requires breaking the prior claim."
+    },
+    {
+      "category": "tool deletion/archival",
+      "what_hurt": "13+ tools deleted across 10 commits. S359: 9 dead tools removed. S498: 4 archived. S427: dispatch_lanes.py removed. S75: self_evolve + test_novelty archived.",
+      "what_learned": "Tool consolidation reduced orient.py runtime 73% (19s->5.2s per L-637). Dead tool removal prevented zombie dispatch. Each deletion improved system performance.",
+      "required": true,
+      "reasoning": "Zombie tools consume dispatch bandwidth and orient time. The performance improvement (learning) was impossible without deletion (hurting). orient.py cannot run faster while loading dead tools."
+    }
+  ],
+  "verdict": "PARTIALLY FALSIFIED",
+  "detail": "PHIL-5 'never hurt, always learn' contains an internal contradiction. The 'always learn' clause is CONFIRMED (Sharpe rising, supersession rate healthy, selection pressure active). But the 'never hurt' clause is FALSIFIED by the evidence that learning routinely requires creative destruction: archiving lessons, dropping beliefs, abandoning lanes, superseding knowledge, deleting tools. These are not edge cases — they are load-bearing mechanisms (PHIL-7 compaction, B2 layered memory, WIP management). The compound claim should be decomposed: 'always learn' is descriptive; 'never hurt' is aspirational and frequently violated by the learning mechanism itself. Prior challenges (S81, S399, S457, S458, S500) all tested 'always learn' but never tested 'never hurt' against 'always learn' — the contradiction was invisible because challenges tested each clause independently.",
+  "prior_art": "L-1322 (S502) tested PHIL-5 via Sharpe metrics — confirmed learning quality rising. Did NOT test whether learning requires hurting. L-1291 (S499) tested error correction completeness. Neither addressed the internal contradiction between the two clauses.",
+  "successor": "Recommend PHIL-5 decomposition: split into PHIL-5a ('always learn' — descriptive, confirmed) and PHIL-5b ('minimize harm' — aspirational, tracked). The compound form masks a contradiction that prevents honest self-assessment. File as F-GND1 successor task.",
+  "dogma_score_validation": "Score 1.7 (CONFIRM-ONLY=true: 5 prior challenges all CONFIRMED/REFINED, 0 DROPPED. SELF-REFERENTIAL=true: all evidence streams are internal. REFINE-DRIFT=true: wording softened from 'never hurt' to 'learn faster than decay' to 'always learns, sometimes neglects' across S399/S457/S458). This falsification breaks the CONFIRM-ONLY pattern."
+}

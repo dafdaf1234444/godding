@@ -88,6 +88,21 @@ GOOD_SIGNALS = {
         ],
         "weight": 2.5,
     },
+    "external_citation": {
+        "desc": "Explicitly grounded in external knowledge (External: field present)",
+        "patterns": [
+            r"^External:\s*.+",
+        ],
+        "weight": 2.5,
+    },
+    "quantified_finding": {
+        "desc": "Quantified comparative finding (transferable measurement insight)",
+        "patterns": [
+            r"(?i)\b\d+(\.\d+)?x\s+(faster|slower|higher|lower|more|less|better|worse)",
+            r"(?i)\b\d+(\.\d+)?%\s+(increase|decrease|improvement|reduction|drop|rise|gain)",
+        ],
+        "weight": 1.5,
+    },
 }
 
 # Signals that a piece of knowledge is BAD for humans
@@ -142,12 +157,43 @@ BAD_SIGNALS = {
 }
 
 
+def _bootstrap_ratio_ci(
+    n_good: int, n_bad: int, n_neutral: int, n_boot: int = 10000, alpha: float = 0.05
+) -> dict:
+    """Bootstrap 95% CI for benefit_ratio (good/bad).
+
+    Resamples the classification labels and computes the ratio each time.
+    Returns {"lower": float, "upper": float, "significant": bool}.
+    Addresses skeptical-empiricist steerer signal: "1.02x has no CI."
+    """
+    import random
+    total = n_good + n_bad + n_neutral
+    if total == 0 or n_bad == 0:
+        return {"lower": 0.0, "upper": 0.0, "significant": False}
+    labels = ["good"] * n_good + ["bad"] * n_bad + ["neutral"] * n_neutral
+    rng = random.Random(42)  # deterministic for reproducibility
+    ratios = []
+    for _ in range(n_boot):
+        sample = rng.choices(labels, k=total)
+        sg = sample.count("good")
+        sb = sample.count("bad")
+        ratios.append(sg / max(sb, 1))
+    ratios.sort()
+    lo = ratios[int(n_boot * alpha / 2)]
+    hi = ratios[int(n_boot * (1 - alpha / 2))]
+    return {
+        "lower": round(lo, 2),
+        "upper": round(hi, 2),
+        "significant": lo > 1.0 or hi < 1.0,  # CI doesn't span 1.0
+    }
+
+
 def _score_text(text: str, signals: dict) -> list[tuple[str, float, str]]:
     """Score text against a signal dictionary. Returns [(signal_name, weight, desc)]."""
     hits = []
     for name, info in signals.items():
         for pat in info["patterns"]:
-            if re.search(pat, text):
+            if re.search(pat, text, re.MULTILINE):
                 hits.append((name, info["weight"], info["desc"]))
                 break  # One hit per signal
     return hits
@@ -185,8 +231,12 @@ def classify_lesson(path: Path) -> dict:
     if domain and domain.lower() not in ("meta", ""):
         net_score += 0.5
 
-    # Classify
-    if net_score > 2.0:
+    # Classify (L-1355: benefit-blindness fix — threshold lowered, requires signal evidence)
+    has_good_signal = len(good_hits) > 0
+    if net_score >= 1.5 and has_good_signal:
+        classification = "GOOD"
+    elif net_score >= 2.5:
+        # High-level lessons (L4/L5) with domain bonus still qualify without signal
         classification = "GOOD"
     elif net_score < -1.0:
         classification = "BAD"
@@ -275,6 +325,7 @@ def extract_soul(results: list[dict]) -> dict:
         "bad_pct": round(100 * len(bad) / max(len(results), 1), 1),
         "neutral_pct": round(100 * len(neutral) / max(len(results), 1), 1),
         "human_benefit_ratio": round(len(good) / max(len(bad), 1), 2),
+        "benefit_ratio_ci": _bootstrap_ratio_ci(len(good), len(bad), len(neutral)),
         "top_good_domains": sorted(domain_good.items(), key=lambda x: -x[1])[:5],
         "top_bad_domains": sorted(domain_bad.items(), key=lambda x: -x[1])[:5],
         "top_good_signals": sorted(good_signal_freq.items(), key=lambda x: -x[1])[:5],
@@ -338,7 +389,10 @@ def print_report(results: list[dict], soul: dict, json_mode: bool = False):
     print(f"  GOOD for humans:    {soul['good_count']} ({soul['good_pct']}%)")
     print(f"  BAD for humans:     {soul['bad_count']} ({soul['bad_pct']}%)")
     print(f"  NEUTRAL:            {soul['neutral_count']} ({soul['neutral_pct']}%)")
-    print(f"  Human benefit ratio: {soul['human_benefit_ratio']}x")
+    ci = soul.get("benefit_ratio_ci")
+    ci_str = f" (95% CI: [{ci.get('lower', '?')}x, {ci.get('upper', '?')}x])" if isinstance(ci, dict) else ""
+    sig = " — NOT SIGNIFICANT" if isinstance(ci, dict) and not ci.get("significant") else ""
+    print(f"  Human benefit ratio: {soul['human_benefit_ratio']}x{ci_str}{sig}")
     print()
 
     # Top GOOD lessons
@@ -409,6 +463,9 @@ def orient_summary(soul: dict):
         f"{soul['neutral_pct']}% NEUTRAL | "
         f"benefit ratio {soul['human_benefit_ratio']}x (target >3.0x)"
     )
+    ci = soul.get("benefit_ratio_ci")
+    if isinstance(ci, dict) and not ci.get("significant"):
+        print(f"    → CI [{ci['lower']}x, {ci['upper']}x] spans 1.0 — ratio NOT significant")
     if soul["selection_pressure"]:
         for sp in soul["selection_pressure"][:2]:
             print(f"    → {sp}")

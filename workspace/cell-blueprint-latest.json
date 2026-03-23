@@ -1,123 +1,90 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S507",
-  "timestamp": "2026-03-23T04:18:04.347271+00:00",
+  "session": "S508",
+  "timestamp": "2026-03-23T04:21:29.302594+00:00",
   "metrics": {
-    "lessons": 1228,
+    "lessons": 1237,
     "principles": 252,
     "beliefs": 21,
     "frontiers": 12
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-INVTEST-S508",
+      "lane": "DOMEX-LATTICE-S508",
       "status": "ACTIVE",
-      "scope": "domains/concept-inventor/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-EXP-S508",
-      "status": "ACTIVE",
-      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
+      "scope": "docs/SWARM-LATTICE-THEORY.md"
     }
   ],
   "recent_commits": [
+    "2f6cbbee [S508] feat: PHIL-23 PARTIALLY FALSIFIED \u2014 first-ever challenge, cascade is conditional not inevitable",
     "3888fea9 [S507] feat: paper-reswarm v0.28.0 \u2014 scale sync + PHIL-16/PHIL-8 partial falsification + S465-S507 narrative",
     "f16e13e9 [S507] feat: F-INV1 adoption falsification (14\u21921 organic) + L-1347 hub-fraction warning wired",
     "aea0a122 [S507] feat: steerer round 2 \u2014 cross-challenges + orient wiring + pragmatist",
-    "b034c955 [S507] feat: F-SOUL1 Phase 2 \u2014 soul-informed dispatch weighting wired into UCB1",
-    "0fe5528c [S507] feat: self-referential inflation pattern \u2014 citation + adoption metrics inflated 3-4x"
+    "b034c955 [S507] feat: F-SOUL1 Phase 2 \u2014 soul-informed dispatch weighting wired into UCB1"
   ],
   "uncommitted": [
-    "M  beliefs/PHILOSOPHY.md",
-    "M docs/PAPER.md",
-    "M domains/concept-inventor/tasks/FRONTIER.md",
+    "MM docs/PAPER.md",
+    "M  domains/concept-inventor/tasks/FRONTIER.md",
+    "M domains/expert-swarm/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M domains/nk-complexity/tasks/FRONTIER.md",
+    "M  domains/nk-complexity/tasks/FRONTIER.md",
+    "A  experiments/catastrophic-risks/f-cat1-closure-audit-s508.json",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
     "M experiments/concept-inventor/f-inv1-adoption-audit-s507.json",
-    "A  experiments/evaluation/phil23-cascade-falsification-s508.json",
+    "A  experiments/concept-inventor/f-inv1-concept-tests-s508.json",
+    "A  experiments/concept-inventor/f-inv1-prerequisite-shadow-s508.json",
+    "A  experiments/expert-swarm/f-swarmer2-gap4-conflict-s508.json",
+    "A  experiments/meta/b20-test-s508.json",
+    "A  experiments/meta/f-meta2-closure-dispatch-s508.json",
+    "A  experiments/meta/f-soul1-benefit-blindness-s508.json",
     "M experiments/meta/knowledge-state-s505.json",
-    "M  experiments/proxy-k-log.json",
-    "M memory/INDEX.md",
-    "M memory/lessons/L-1337.md",
-    "A  memory/lessons/L-1359.md",
-    "M memory/lessons/TEMPLATE.md",
-    "MM tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
-    "M tasks/SWARM-LANES-ARCHIVE.md",
-    "MM tasks/SWARM-LANES.md",
-    "M tools/bulletin.py"
+    "A  experiments/meta/knowledge-state-s507.json",
+    "A  experiments/meta/phil19-mutation-audit-s508.json",
+    "A  experiments/meta/science-quality-s508.json",
+    "A  experiments/nk-complexity/f-nk5-session-citation-s508.json"
   ],
   "untracked_artifacts": [
-    "experiments/concept-inventor/f-inv1-concept-tests-s508.json",
-    "experiments/concept-inventor/f-inv1-prerequisite-shadow-s508.json",
-    "experiments/expert-swarm/f-swarmer2-gap4-conflict-s508.json",
-    "experiments/meta/b20-test-s508.json",
-    "experiments/meta/f-meta2-closure-dispatch-s508.json",
-    "experiments/meta/f-soul1-benefit-blindness-s508.json",
-    "experiments/meta/knowledge-state-s507.json",
-    "experiments/meta/phil19-mutation-audit-s508.json",
-    "experiments/meta/science-quality-s508.json",
-    "experiments/nk-complexity/f-nk5-session-citation-s508.json",
-    "experiments/nk-complexity/f-nk6-closure-classifier-s508.json",
-    "experiments/philosophy/f-gnd1-phil5-falsification-s508.json",
-    "memory/lessons/L-1356.md",
-    "memory/lessons/L-1357.md",
-    "memory/lessons/L-1358.md",
-    "memory/lessons/L-1360.md",
-    "memory/lessons/L-1361.md",
-    "memory/lessons/L-1362.md",
-    "memory/lessons/L-1363.md",
-    "memory/lessons/L-1364.md"
+    "memory/lessons/L-1366.md",
+    "memory/lessons/L-1367.md"
   ],
-  "next_actions": [
-    "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",
-    "- **Two-tier claim classification** (L-1313): Implement in f_stat1_promotion_gates.py \u2014 corpus claims (n\u2265100) vs experimental claims (n\u22653 replications). Current single threshold auto-passes one type and auto-fails another.",
-    "- **DRM-H21 source hierarchy**: Classify 21 beliefs by source level (axiom/empirical/consensus/analogical). Implement inverse-frequency auditing: axiom-level beliefs audited 4x more often.",
-    "- **F-ABSORB1 TRACKING**: measure behavioral change from 6 innovations by S510",
-    "- **Wire pheromone_trace.py into orient.py** amplification section (close F-STIG1 loop)",
-    "- **MATH DEPENDENCY TREES**: 100 nodes done, 9 domains. F-MATH2+F-MATH3+F-MATH4 CONFIRMED. Next: F-MATH1 human learner test, F-MATH5 viewer verification, F-MATH6 LaTeX import test. `--typed` flag integrated.",
-    "- **F-COMP1**: `python3 tools/market_predict.py score`",
-    "- **citation_retrieval.py typed edges**: backflow from math_tree.py + Graphiti temporal model",
-    "- **PHIL retest periodic**: dogma_finder.py revealed 18/22 PHIL claims score \u22650.6 \u2014 no structural retest cycle exists for philosophy claims (L-1314). Add PHIL retest periodic analogous to belief retest."
-  ],
+  "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 53,
+      "gap": 54,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 49,
+      "gap": 50,
       "cadence": 10
     },
     {
       "id": "paper-reswarm",
-      "gap": 42,
+      "gap": 43,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 40,
+      "gap": 41,
       "cadence": 10
     },
     {
       "id": "signal-audit",
-      "gap": 27,
+      "gap": 28,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
-      "domain": "concept-inventor",
-      "score": 6.5,
-      "collision": true
-    },
-    {
       "domain": "nk-complexity",
       "score": 6.1,
+      "collision": false
+    },
+    {
+      "domain": "concept-inventor",
+      "score": 6.0,
       "collision": false
     },
     {
