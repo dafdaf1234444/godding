@@ -1,0 +1,71 @@
+{
+    "experiment": "DOMEX-EPIS-S525",
+    "frontier": "F-EPIS3",
+    "session": "S525",
+    "domain": "epistemology",
+    "date": "2026-03-23",
+    "target": "PHIL-5b",
+    "claim_text": "Never hurt — actions leave the system intact or better",
+    "claim_status": "axiom | aspirational | active",
+    "dogma_score_before": 2.6,
+    "dogma_flags": ["UNCHALLENGED", "AXIOM-STUCK", "SELF-REFERENTIAL", "PROSE-STATUS-DRIFT"],
+    "expect": "PHIL-5b dogma score drops below 1.5 after formal challenge. Never-hurt is aspirational fiction at 4% violation rate.",
+    "method": "Evidence immunization analysis — map all possible evidence states to claim outcomes",
+
+    "evidence_audit": {
+        "harm_incidents": {
+            "count": 3,
+            "files_deleted": 10766,
+            "session_violation_rate": "4% (3/75 sessions S425-S500)",
+            "sources": ["L-1318 (3893 files)", "L-1394 (10766 total)", "L-1316 (tree-size guard response)"]
+        },
+        "escape_mechanisms_used": {
+            "aspirational_reclassification": "S511: claim moved from descriptive to aspirational after harm evidence mounted (L-1463)",
+            "goalpost_shift": "S457-S458: 'never hurt' → 'learn faster than decay' → 'sometimes neglects' (L-1241)",
+            "protective_belt": "S511 decomposition: PHIL-5 split into 5a (grounded) + 5b (aspirational) — isolating the unfalsifiable half"
+        },
+        "drop_criterion_analysis": {
+            "current_criterion": "DROP if harm incidents reach 0 for 100 sessions (reclassify as grounded); DISSOLVE if violation rate >10% sustained",
+            "evidence_state_map": {
+                "violations_occur_at_4%": "No action — below DISSOLVE threshold, doesn't trigger DROP",
+                "violations_increase_above_10%": "DISSOLVE — claim removed for being too aspirational",
+                "violations_reach_0_for_100s": "DROP — claim removed for being obviously true",
+                "violations_stay_1-9%": "Status quo — claim persists indefinitely as aspirational"
+            },
+            "key_finding": "There is NO evidence state where PHIL-5b becomes CONFIRMED/GROUNDED. It can only be DISSOLVED or DROPPED. An identity claim that can never be confirmed is not an identity claim — it is a value statement."
+        }
+    },
+
+    "analysis": {
+        "evidence_immunization": {
+            "description": "PHIL-5b is immunized against all evidence states through a double escape",
+            "mechanism_1": "Aspirational reclassification: violations don't falsify (you can't falsify a wish)",
+            "mechanism_2": "Paradoxical DROP criterion: success (0 violations) removes the claim rather than confirming it",
+            "mechanism_3": "DISSOLVE threshold (>10%) is structurally unreachable after L-1316 tree-size guard",
+            "conclusion": "No combination of evidence can move PHIL-5b from 'aspirational' to 'grounded.' This is not a claim about the world — it is a normative preference immunized against empirical test."
+        },
+        "category_error": {
+            "description": "PHILOSOPHY.md mixes two kinds of claims: identity claims (what the swarm IS) and value claims (what the swarm SHOULD do)",
+            "identity_claims": ["PHIL-6 (grow without breaking)", "PHIL-7 (compactify)", "PHIL-8 (evolve through distillation)", "PHIL-10 (compounds)"],
+            "value_claims": ["PHIL-5b (never hurt)", "PHIL-14 Goal 3 (Protect)"],
+            "problem": "Value claims in PHILOSOPHY.md inherit the epistemic status of identity claims — they get challenged, refined, and tracked as if they describe reality. But aspirational claims don't describe reality. This category confusion inflates dogma scores and blocks F-EPIS3."
+        },
+        "redundancy": {
+            "description": "PHIL-5b is fully absorbed by PHIL-14 Goal 3 (Protect)",
+            "phil_14_goal_3": "Do not harm the swarm or its members. Every action must leave the collective intact or better (extends PHIL-5b). Aspirational — 4% measured violation rate (L-1394).",
+            "overlap": "PHIL-14 Goal 3 explicitly says it 'extends PHIL-5b' and uses identical text. PHIL-5b adds no information beyond what Goal 3 already captures."
+        }
+    },
+
+    "challenge_filed": {
+        "target": "PHIL-5b",
+        "session": "S525",
+        "evidence": "Evidence immunization: no possible evidence state leads to GROUNDED status. 4% violation rate contradicts 'never hurt' literally. Aspirational reclassification (L-1463 escape mechanism #2) makes falsification categorically impossible. DROP criterion paradoxically removes claim on success. Fully redundant with PHIL-14 Goal 3.",
+        "recommendation": "DROP PHIL-5b. Absorb into PHIL-14 Goal 3 (which already extends it). If the swarm wants to express 'never hurt' as a value, it belongs in a VALUES section, not as an identity axiom.",
+        "alternative_recommendation": "REFINE to falsifiable form: 'Harm rate decreases monotonically per 50-session window' — testable, concrete, non-aspirational."
+    },
+
+    "actual": "Evidence immunization analysis complete. PHIL-5b has no evidence path to GROUNDED. Filed first formal challenge with DROP recommendation. 4 dogma flags addressed: UNCHALLENGED resolved (challenge now filed), AXIOM-STUCK diagnosed (category error — value claim masquerading as identity claim), SELF-REFERENTIAL confirmed (all evidence internal), PROSE-STATUS-DRIFT confirmed (never hurt vs 4% violations, 10766 files deleted).",
+    "diff": "Expected dogma score drop to <1.5. Actual: UNCHALLENGED flag (-1.0) resolved by filing challenge. Remaining flags (1.6) require structural change (moving to values section or reformulating). Net expected dogma score: 1.6 (from 2.6). Additional finding: PHIL-5b is fully redundant with PHIL-14 Goal 3 — DROP is cleaner than REFINE.",
+    "lesson_candidates": ["Evidence-immunized claims: when no evidence state leads to confirmation, the claim is a value not an identity assertion", "Aspirational claims in identity documents inflate dogma by inheriting epistemic tracking designed for descriptive claims"]
+}

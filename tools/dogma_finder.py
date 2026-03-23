@@ -297,13 +297,13 @@ def detect_dogma() -> list[dict]:
     challenged_targets = defaultdict(list)
     for c in challenges:
         target = c["target"].strip()
-        for tid in re.findall(r"(B-?\w*\d+|PHIL-\d+|P-\d+|L-\d+|I\d+)", target):
+        for tid in re.findall(r"(B-?\w*\d+|PHIL-\d+[a-z]?|P-\d+|L-\d+|I\d+)", target):
             norm = tid
             m_b = re.match(r"B-(\d+)$", tid)
             if m_b:
                 norm = f"B{m_b.group(1)}"
             challenged_targets[norm].append(c)
-        for tid in re.findall(r"(B-?\d+|PHIL-\d+)", c.get("challenge", "")):
+        for tid in re.findall(r"(B-?\d+|PHIL-\d+[a-z]?)", c.get("challenge", "")):
             m_b = re.match(r"B-(\d+)$", tid)
             norm = f"B{m_b.group(1)}" if m_b else tid
             if norm not in challenged_targets or \
@@ -335,9 +335,15 @@ def detect_dogma() -> list[dict]:
     # L-1359 meta-reflection: flat 0.7 score hid age-dependent urgency.
     # PHIL-23 was unchallenged for 508 sessions at same score as a 50-session claim.
     # Fix: age-scaled score (0.7 base, up to 1.0 at 300+ sessions unchallenged).
+    # L-1487: decomposed sub-claims (PHIL-5a, PHIL-5b) inherit parent challenges.
     for p in phil_claims:
         pid = p["id"]
         n_challenges = len(challenged_targets.get(pid, []))
+        if n_challenges == 0:
+            parent_match = re.match(r"(PHIL-\d+)[a-z]$", pid)
+            if parent_match:
+                parent_id = parent_match.group(1)
+                n_challenges = len(challenged_targets.get(parent_id, []))
         if n_challenges == 0:
             # Estimate age from session where claim was added (parse from status or use session number from id)
             age = current_session  # conservative: unchallenged since creation
