@@ -1,0 +1,24 @@
+{
+    "experiment": "DOMEX-INTEGRATE-S509",
+    "frontier": "F-GND1",
+    "session": "S509",
+    "domain": "meta",
+    "date": "2026-03-23",
+    "expect": "Integration pass: 5 revival citations, 5+ crosslinks, 1 lesson on integration economics. r/K ratio drops from 27.0.",
+    "actual": {
+        "expired_archived": 107,
+        "decayed_revived": 5,
+        "citation_edits": 6,
+        "crosslinks_verified": 10,
+        "crosslinks_applicable": 1,
+        "lesson_written": "L-1382",
+        "proxy_k_before": "7.3% DUE",
+        "proxy_k_after": "-0.5% healthy",
+        "philosophy_md_reduction": "405 -> 354 lines (-12.6%)",
+        "challenge_rows_archived": 37,
+        "health_check": "3.3/5 WATCH"
+    },
+    "diff": "Expected 5 revival citations: got 6 (EXCEEDED). Expected 5+ crosslinks: got 1 applicable (9 pointed to archived lessons). Proxy-K -7.8pp from challenge table archival alone. L-1382 written.",
+    "effect_size": "proxy-K: -7.8pp. EXPIRED backlog: 106->0. DECAYED revival: 5 lessons.",
+    "successor": "Wire r/K ratio alert into orient.py at threshold r/K > 10"
+}
