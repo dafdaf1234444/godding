@@ -28,6 +28,7 @@ from orient_monitors import (  # noqa: F401
     section_grounding_audit, section_self_inflation,
     section_trace_amplification,
     section_reactivation,
+    section_complexity_phase,
 )
 
 from pathlib import Path

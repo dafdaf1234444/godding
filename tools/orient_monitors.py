@@ -487,3 +487,49 @@ def section_reactivation(session_num, root=ROOT):
     except Exception:
         pass
     return lines
+
+
+def section_complexity_phase(root=ROOT):
+    """Complexity theory measurement — phase, small-world, percolation (L-1430)."""
+    lines = []
+    try:
+        result = subprocess.run(
+            ["python3", str(root / "tools" / "complexity_measure.py"), "--json"],
+            capture_output=True, text=True, timeout=60, cwd=str(root),
+        )
+        if result.returncode == 0 and result.stdout.strip():
+            data = json.loads(result.stdout)
+            crit = data.get("criticality", {})
+            sw = data.get("small_world", {})
+            perc = data.get("percolation", {})
+            deg = data.get("degree_distribution", {})
+            cc = data.get("clustering_coefficient", 0)
+            pl = data.get("avg_path_length", 0)
+
+            phase = crit.get("phase", "?")
+            k_avg = crit.get("k_avg", 0)
+            sigma = sw.get("sigma", 0)
+            vuln = perc.get("vulnerability_ratio", 0)
+            iso = deg.get("isolated_nodes", 0)
+            n = max(deg.get("n_nodes", 1), 1)
+
+            lines.append("--- Complexity Phase (L-1430) ---")
+            lines.append(
+                f"  Phase: {phase} | k_avg={k_avg:.2f} | "
+                f"small-world \u03c3={sigma:.1f} | C={cc:.3f} | L={pl:.1f}"
+            )
+            lines.append(
+                f"  Percolation: random={perc.get('random_threshold', 0):.0%} "
+                f"targeted={perc.get('targeted_threshold', 0):.0%} "
+                f"vulnerability={vuln:.1f}x | "
+                f"isolated={iso} ({iso/n:.0%})"
+            )
+            recs = data.get("recommendations", [])
+            high = [r for r in recs if r.get("priority") == "HIGH"]
+            for r in high[:1]:
+                lines.append(f"  \u26a0 {r['area']}: {r['recommendation'][:100]}")
+            lines.append("  Run: python3 tools/complexity_measure.py")
+            lines.append("")
+    except Exception:
+        pass
+    return lines
