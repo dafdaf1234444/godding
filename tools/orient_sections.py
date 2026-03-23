@@ -379,8 +379,20 @@ def section_suggested_action(maint_out, open_signals, stall_map, priorities):
         lines.append(f"  STALL: {top_fid} ({top_dom}) in 2-wave valley — open hardening lane to escape (11%\u219231%)")
         if len(stall_map) > 1:
             lines.append(f"  ({len(stall_map)} total stalled: {', '.join(sorted(stall_map)[:5])})")
-    elif priorities:
-        lines.append(f"  {priorities[0]}")
     else:
-        lines.append("  State clean — pick a frontier or run a periodic")
+        # Check r/K ratio for integration debt (L-1382)
+        try:
+            import subprocess as _sp
+            _new = len([l for l in _sp.run(["git", "log", "--oneline", "--diff-filter=A", "--name-only", "-10", "--", "memory/lessons/L-*.md"], capture_output=True, text=True, timeout=5).stdout.splitlines() if l.startswith("memory/lessons/L-") and l.endswith(".md")])
+            _mod = len([l for l in _sp.run(["git", "log", "--oneline", "--diff-filter=M", "--name-only", "-10", "--", "memory/lessons/L-*.md"], capture_output=True, text=True, timeout=5).stdout.splitlines() if l.startswith("memory/lessons/L-") and l.endswith(".md")])
+            _rk = _new / max(_mod, 1)
+            if _rk > 10:
+                lines.append(f"  \u26a0 r/K={_rk:.0f} — integration session recommended: archive EXPIRED, revive DECAYED, compress (L-1382)")
+                return lines
+        except Exception:
+            pass
+        if priorities:
+            lines.append(f"  {priorities[0]}")
+        else:
+            lines.append("  State clean — pick a frontier or run a periodic")
     return lines

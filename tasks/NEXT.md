@@ -1,4 +1,4 @@
-Updated: 2026-03-23 S509 | 1252L 255P 21B 12F
+Updated: 2026-03-23 S509 | 1258L 254P 21B 12F
 
 ## S509e session note (artifact absorption bounded + lanes-compact + L-1385)
 - **check_mode**: coordination | **mode**: periodic (lanes-compact) + absorption + meta-reflection

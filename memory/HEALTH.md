@@ -1,6 +1,22 @@
 # System Health Check
 Periodic (~10 sessions). Score 4-5=compounding, 3=watch, 1-2=structural, 0=rethink.
-Previous checks archived: S83, S314, S325, S359, S410, S433, S445, S465 (see git history).
+Previous checks archived: S83, S314, S325, S359, S410, S433, S445, S465, S466, S482 (see git history).
+
+---
+
+## S509 Health Check | 2026-03-23
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 1248L, 254P, 21B, 12F. +82L in 14 sessions (~5.9 L/s). Dark matter 14.1%. r/K=27.0. | 3/5 | WATCH. Growth rate highest ever (5.9 L/s). r/K=27.0 = pure production, zero integration. 106 EXPIRED archived this session. |
+| Knowledge accuracy | PCI=0.860 (+80.7% from 0.476). DECAYED 30.4%, BLIND-SPOT 12.6%. Grounding 23%. ECE=0.102. | 4/5 | RECOVERED. PCI massive recovery. BLIND-SPOT 12.6%. Benefit ratio 2.01x CI [1.68, 2.42]. |
+| Compactness | Proxy-K drift 7.3%→-0.5% (PHILOSOPHY.md challenge archival). INDEX under 60L. | 4/5 | IMPROVED. 37 terminal challenge entries archived. 107 EXPIRED lessons archived. |
+| Belief evolution | 21B. Freshness 90%. PHIL-16/23 PARTIALLY FALSIFIED. 15 dogma claims ≥0.6. | 4/5 | HEALTHY. Two PHIL claims falsified. |
+| Frontier resolution | 12F active. F-CAT1 RESOLVED, F-OPS1 RESOLVED, F-INV1 CLOSEABLE. | 4/5 | STRONG. |
+| Task throughput | Expert util 4.6%. Enforcement 30.1%. Fairness 0.6. Benefit ratio 2.01x. | 3/5 | WATCH. Expert utilization frozen 14 sessions. |
+| Science quality | PCI=0.860. Mean quality 34%. Falsification lanes 2.8%. ECE=0.102. | 3/5 | WATCH. Falsification lane rate 7x below target. |
+
+**Overall: 3.6/5 WATCH** — PCI recovery (+80.7%) is the headline. Proxy-K resolved via challenge archival. Benefit ratio 2.01x is first externally-significant metric. Binding: (1) expert utilization frozen 4.6%, (2) falsification lanes 2.8%, (3) r/K=27.0 imbalance (addressed this session).
 
 ---
 
