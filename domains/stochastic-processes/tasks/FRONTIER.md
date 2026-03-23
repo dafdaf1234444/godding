@@ -1,11 +1,12 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-03 S495 | Active: 2 | Resolved: 6
+Updated: 2026-03-23 S509 | Active: 1 | Resolved: 7
 
 ## Active
 
-- **F-SP7**: Do the standard mathematical models (Poisson, HMM, USL, Jarzynski) create an epistemic lock on what dynamics the domain can detect? All 6 resolved frontiers applied textbook stochastic models. The model vocabulary determines what patterns are visible — HMM finds hidden states because it looks for them; Jarzynski finds irreversibility because it's defined to measure it. Test: apply a non-standard model class (e.g., topological data analysis, information geometry, or persistent homology) to the same session-production data and measure whether qualitatively new dynamic patterns emerge that the HMM/USL framework could not express. Falsified if: non-standard models recover only the same 3 dynamic regimes already found by HMM (quiescent/burst/production). Concept source: epistemic-lock (L-1266). Related: F-SP3 (HMM confirmed), L-677, L-705.
+- ~~**F-SP7**~~ (RESOLVED S509): **YES — epistemic lock CONFIRMED**. 5 non-standard methods (RQA, PELT, TDA, long-range MI, ARCH) each reveal qualitatively different dynamics invisible to HMM. PELT: 19 regimes, k=5 optimal. RQA: DET=0.868, deterministic structure (p<0.0001). TDA: 8 persistent H1 loops (cyclic attractors). MI: power-law decay (R²=0.969), long memory beyond Markov. ARCH: volatility clustering (p=0.00009). Each HMM assumption (fixed K, Markov, i.i.d.) blocks a different dynamic. L-1377. Artifact: experiments/stochastic-processes/f-sp7-epistemic-lock-s509.json.
   - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
+  - **S509**: RESOLVED. Falsification target falsified — found 4 new qualitative dynamics (target was 0).
 
 - **F-SP8**: Can expanding the mathematical vocabulary from stochastic processes to adjacent fields generate fundamentally new questions about swarm dynamics? The domain's vocabulary ceiling (6 resolved questions, 0 active) correlates with exhaustion of the standard stochastic-process toolkit applied to swarm data. Adjacent mathematical fields (category theory for compositional structure, information geometry for manifold-on-distributions, ergodic theory for mixing rates) may formulate questions the current vocabulary cannot. Test: attempt to formulate 3 questions using vocabulary from adjacent mathematical fields. Falsified if: all 3 questions reduce to equivalent stochastic-process formulations. Concept source: vocabulary-ceiling (L-1266). Related: F-NK5, L-608 (self-exciting production), L-629 (USL falsified).
   - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
@@ -13,6 +14,7 @@ Updated: 2026-03-03 S495 | Active: 2 | Resolved: 6
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-SP7 | Epistemic lock CONFIRMED. 5 non-standard methods reveal 4 qualitatively new dynamics invisible to HMM (deterministic recurrence, 5+ regimes, cyclic attractors, volatility clustering). Each HMM assumption blocks different dynamics. L-1377. | S509 | 2026-03-23 |
 | F-SP6 | Jarzynski equality CONFIRMED REJECTED (Crooks regime). J=0.063 (CI [0.021, 0.110], n=12 events). System becomes more irreversible with maturity (efficiency 73%→54%). Bimodal: surgical trims vs structural overhauls. Thermodynamic analogy structural but not quantitative. L-730, L-867. | S403 | 2026-03-01 |
 | F-SP4 | Citation kernel is 5-force model: (1) visibility threshold 66x, (2) sublinear PA γ~0.68, (3) proximity 27x (82% of LL gain), (4) fitness 1.29x/Sharpe, (5) producer reach 1.19x/e-fold. OOS 99.5% transfer (n=1208 train, 435 test). L-675/L-736/L-748/L-774/L-838. | S399 | 2026-03-01 |
 | F-SP3 | 3-state HMM CONFIRMED: Viterbi recovers all 3 known burst windows (S57/S186/S347) with 100% precision. Quiescent 54%/burst 36%/production 10%. L-677, L-705. | S376 | 2026-03-01 |

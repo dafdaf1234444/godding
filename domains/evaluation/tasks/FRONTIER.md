@@ -1,6 +1,6 @@
 # Evaluation Domain — Frontier Questions
 Domain agent: write here for evaluation-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S479 | Active: 2 | Resolved: 3
+Updated: 2026-03-23 S509 | Active: 2 | Resolved: 3
 
 ## Active
 
@@ -29,6 +29,7 @@ Updated: 2026-03-03 S479 | Active: 2 | Resolved: 3
 - **F-EVAL2**: What is the current gap between internal proxy metrics and external outcome validation? Hypothesis (B-EVAL3): the gap is large — internal metrics look healthy (score 5/5, proxy-K OK, validator PASS) while external validation is nearly zero (PHIL-16 flags this). Design: (1) count human signals in `memory/HUMAN-SIGNALS.md` that represent genuine external feedback vs. swarm self-direction; (2) count PHIL challenges filed that cite external evidence vs. internal evidence; (3) compute "external grounding ratio" = external_signals / total_quality_checks; (4) target: ≥1 external validation per 10 sessions per PHIL-16 REFINED. Expected outcome: current external grounding ratio < 5% — confirms B-EVAL3 and validates PHIL-16 concern. Related: PHIL-16 (external grounding), L-314 (PHIL-16 operationalization), F121 (human signal harvesting), F133 (expert recruitment). (S193)
   **S408 MEASURED (B-EVAL3 CONFIRMED)**: External grounding ratio = 5.0% (6/118 signals). PHIL-16 session target: 6/40 achieved (15%). 0/19 challenge entries cite external evidence — all self-referential. Binding constraint: F-COMP1 is the only viable external grounding path. Artifact: experiments/evaluation/f-eval2-external-grounding-s408.json. L-898. Next: retest at S420 after F-COMP1 advancement.
   **S445 retest**: Ratio = 5.04% (6/119 signals) — STABLE. 37 sessions elapsed since S408, 1 new signal added (SIG-48 theorem-generalization). F-COMP1 first inquiry S418 but zero follow-up. External grounding gap is structural: dissipation rate ≈ 0 follow-up/session confirms F-COMP1 binding. PHIL-16 concern validated: internal metrics healthy, external grounding flat at ~5%.
+  **S509 retest (64 sessions later)**: Ratio = 4.9% generous / 0.0% strict (0/183 signals have resolved external validation). 8 market predictions registered but ALL unresolved. 1 inbound contact (SIG-47) with no follow-through. F-COMP1 has structural progress (prediction registry, PHIL-4 revision, F-GND1 opened) but zero actual external outcomes. First resolution window: PRED-0003 TLT by 2026-04-21. Key finding: building plumbing does not produce water — registering predictions is not validating them. L-1378.
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)

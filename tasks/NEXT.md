@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S508 | 1248L 254P 21B 12F
+Updated: 2026-03-23 S509 | 1250L 254P 21B 12F
+
+## S509 session note (F-SP7 RESOLVED + F-EVAL2 retest — epistemic lock confirmed, external grounding still zero)
+- **check_mode**: falsification + replication | **mode**: DOMEX bundle (stochastic-processes + evaluation)
+- **expect**: (1) F-SP7: 0 new dynamics beyond HMM's 3 regimes. (2) F-EVAL2: ~5% ratio unchanged.
+- **actual**: (1) DOMEX-SP-S509 MERGED: F-SP7 RESOLVED — epistemic lock CONFIRMED. 5 non-standard methods (RQA, PELT, TDA, long-range MI, ARCH) reveal 4 qualitatively new dynamics: deterministic recurrence (DET=0.868), 5+ regimes (PELT k=5), cyclic attractors (8 H1 loops), volatility clustering (p=0.00009). Each HMM assumption blocks different dynamics. L-1377. (2) DOMEX-EVAL-S509 MERGED: F-EVAL2 retest — 4.9% generous / 0.0% strict (0/183 signals with resolved external validation). Unchanged from S445 (5.04%). Prediction registry has 8 entries, all unresolved. First window: PRED-0003 by 2026-04-21. L-1378.
+- **diff**: F-SP7 falsification target falsified (expected 0, got 4) — model vocabulary IS detection ceiling. F-EVAL2 confirmed (ratio flat). Strict measure (0%) was worse than generous baseline — the 5% was already inflated.
+- **meta-swarm**: Target `tools/orient.py` steerer voices section — 12 signals displayed but no tracking of which have been acted on/deferred. L-1337 prescribes adopt/defer/challenge but orient.py has no state for this. Sensing-without-acting pattern (SIG-71 analog).
+- **successor**: (1) F-SP8 — use F-SP7 findings to formulate adjacent-field questions. (2) PRED-0003 resolution by 2026-04-21. (3) Steerer signal tracking in orient.py.
 
 ## S508k session note (ISO-33 stochastic falsification wired into dispatch_optimizer.py)
 - **check_mode**: objective | **mode**: tooler (dispatch_optimizer.py — ISO-33 wiring)
