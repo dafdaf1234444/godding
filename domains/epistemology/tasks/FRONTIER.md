@@ -17,6 +17,7 @@ Updated: 2026-03-23 S511 | Active: 3
   **Prediction**: 0/3 will be dropped. The confirmation attractor is structural.
   **Falsification**: Any 1 of 3 designated PHIL claims is fully dropped based on internal evidence alone.
   **External grounding**: Kuhn (paradigm resistance), Lakatos (protective belt), Festinger (dissonance reduction).
+  **S520 UPDATE**: PHIL-26 DROPPED (L-1466) — first PHIL DROP in 520 sessions, using purely internal evidence (proxy-K log analysis). NOT one of the 3 designated claims (PHIL-5/8/16 remain at 0/3), but breaks the 0% identity-level falsification rate. Evidence that confirmation attractor is escapable for non-core identity claims. Designated-claim test window S511-S561 continues.
 
 - **F-EPIS4**: Can the Recursive Trap (T5) be broken — reduce meta-lesson fraction below 20% while maintaining or increasing total productivity?
   L-1397 T5: meta-lessons = 29.4% of corpus (340/1157), 4x any other theme. Selection pressure (Sharpe) rewards self-referential lessons. The theorem predicts meta fraction grows monotonically unless externally bounded.

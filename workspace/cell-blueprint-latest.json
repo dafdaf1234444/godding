@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S520",
-  "timestamp": "2026-03-23T18:12:08.035623+00:00",
+  "timestamp": "2026-03-23T18:12:56.844162+00:00",
   "metrics": {
-    "lessons": 1228,
+    "lessons": 1229,
     "principles": 262,
     "beliefs": 21,
     "frontiers": 13
@@ -13,6 +13,11 @@
       "lane": "DOMEX-FORE-S520",
       "status": "ACTIVE",
       "scope": "domains/forecasting/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-NK-S521",
+      "status": "ACTIVE",
+      "scope": "domains/nk-complexity/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
@@ -24,32 +29,33 @@
   ],
   "uncommitted": [
     "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
+    "M domains/epistemology/tasks/FRONTIER.md",
     "M domains/expert-swarm/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
+    "A  experiments/finance/f-fin4-market-review-s520.json",
+    "MM experiments/finance/predictions/registry.json",
     "M experiments/inter-swarm/bulletins/swarm.md",
     "M experiments/meta/knowledge-state-s520.json",
     "M memory/HUMAN-SIGNALS.md",
+    "M memory/INDEX.md",
+    "A  memory/lessons/L-1468.md",
+    "M tasks/NEXT.md",
     "M tasks/SWARM-LANES.md",
-    "M tools/periodics.json",
+    "M  tools/periodics.json",
+    "MM workspace/cell-blueprint-latest.json",
     "M workspace/falsification-debt.json",
     "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/epistemology/f-phil26-p3p4-test-s520.json",
-    "?? experiments/expert-swarm/f-swarmer2-gap6-tool-monolith-s521.json",
-    "?? experiments/finance/f-fin4-market-review-s520.json",
-    "?? experiments/forecasting/f-fore1-scoring-s520.json",
-    "?? memory/lessons/L-1466.md",
-    "?? memory/lessons/L-1467.md",
-    "?? memory/lessons/L-1468.md"
+    "?? experiments/epistemology/f-phil26-p3p4-test-s520.json"
   ],
   "untracked_artifacts": [
     "experiments/epistemology/f-phil26-p3p4-test-s520.json",
     "experiments/expert-swarm/f-swarmer2-gap6-tool-monolith-s521.json",
-    "experiments/finance/f-fin4-market-review-s520.json",
     "experiments/forecasting/f-fore1-scoring-s520.json",
+    "experiments/nk-complexity/f-nk5-tracking-s521.json",
     "memory/lessons/L-1466.md",
-    "memory/lessons/L-1467.md",
-    "memory/lessons/L-1468.md"
+    "memory/lessons/L-1467.md"
   ],
   "next_actions": [],
   "periodics_due": [
@@ -88,7 +94,7 @@
     {
       "domain": "nk-complexity",
       "score": 5.8,
-      "collision": false
+      "collision": true
     },
     {
       "domain": "epistemology",

@@ -8959,7 +8959,7 @@
     },
     {
       "session": 520,
-      "timestamp": "2026-03-23T18:10:27Z",
+      "timestamp": "2026-03-23T18:13:11Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8972,9 +8972,11 @@
           "severities": []
         },
         "check_mission_constraints": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_runtime_portability": {
           "fired": false,
@@ -9027,7 +9029,7 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 17,
+          "count": 16,
           "severities": [
             "PERIODIC",
             "PERIODIC",
@@ -9040,7 +9042,6 @@
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
-            "DUE",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -9061,9 +9062,11 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -9180,11 +9183,9 @@
           "severities": []
         },
         "check_claim_gc": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_correction_propagation": {
           "fired": false,
@@ -9262,9 +9263,9 @@
         }
       },
       "totals": {
-        "NOTICE": 21,
-        "PERIODIC": 16,
-        "DUE": 1
+        "DUE": 2,
+        "NOTICE": 20,
+        "PERIODIC": 16
       }
     }
   ],

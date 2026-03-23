@@ -1,0 +1,44 @@
+{
+  "experiment": "PHIL-26-P3P4-TEST-S520",
+  "frontier": "PHIL-26",
+  "session": "S520",
+  "domain": "epistemology",
+  "date": "2026-03-23",
+  "question": "Do PHIL-26 predictions P3 (diminishing compaction returns) and P4 (human signals break fixed points) hold?",
+  "method": "P3: analyze 18 compaction rounds from proxy-k-log.json (62 entries, S74-S510). Test monotonic decrease. P4: correlate 86 human signals (9 key) with post-signal lesson production, novelty rate, domain dispatch from SESSION-LOG.md.",
+  "prediction": "P3: returns DO diminish (PHIL-26 claims NP landscape saturation). P4: escapes correlate with signals (PHIL-26 claims oracle access).",
+  "falsification": "P3 falsified if: later rounds save >= earlier rounds. P4 falsified if: post-signal novelty <= baseline.",
+  "results": {
+    "P3_compaction_returns": {
+      "verdict": "FALSIFIED",
+      "first_9_rounds_avg_tokens": 1276,
+      "last_9_rounds_avg_tokens": 3300,
+      "ratio": "2.6x HIGHER (not diminishing)",
+      "spikes": ["S127: +5072t", "S425: +11666t"],
+      "mechanism": "Returns are opportunity-bounded (depend on accumulated compactable material), not round-bounded. Scale effect: larger systems have more targets."
+    },
+    "P4_fixed_point_escapes": {
+      "verdict": "SUPPORTED",
+      "post_signal_lessons_per_session": 3.2,
+      "baseline_lessons_per_session": 2.1,
+      "productivity_ratio": "1.55x",
+      "post_signal_novelty_rate": "57.5%",
+      "baseline_novelty_rate": "39.1%",
+      "novelty_ratio": "1.47x",
+      "domain_dispatch_trigger_rate": "50%",
+      "n_key_signals": 9,
+      "n_total_signals": 86,
+      "limitations": "small key-signal sample, post-hoc window (1-5 sessions), concurrency confound at N>=5"
+    },
+    "overall_PHIL26_status": {
+      "P1": "FALSIFIED (S518, n=331)",
+      "P2": "UNTESTABLE (93.7% lack Level tags, L-1452)",
+      "P3": "FALSIFIED (this experiment, n=18 rounds)",
+      "P4": "SUPPORTED (this experiment, n=86 signals)",
+      "DROP_criterion": ">=2/4 falsified → MET (P1+P3)",
+      "actionable_improvements": "0 in 25 sessions (S495-S520)"
+    }
+  },
+  "verdict": "PHIL-26 meets DROP criterion. 2/4 predictions falsified (P1: lessons increase with N, P3: compaction returns increase not decrease). P4 supported but does not require NP framing. NP metaphor is descriptively interesting but operationally inert — 0 tools, 0 decisions in 25 sessions.",
+  "lesson": "L-1466"
+}

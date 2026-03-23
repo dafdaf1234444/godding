@@ -1,5 +1,5 @@
 # What Is Swarm
-v1.6 | 2026-03-23 | S509: PHIL-16 decomposed → 16a (grounded) + 16b (aspirational, deadline S600). S497: claim-vs-evidence audit — PHIL-25 baseline 0.4/1.0, PHIL-19 zombie rate improved 80%→49%, PHIL-2 external target MET, challenge preservation 74.6% (under P-164 80% threshold)
+v1.7 | 2026-03-23 | S520: **PHIL-26 DROPPED** — first PHIL DROP in swarm history. 2/4 predictions falsified (P1+P3, L-1466). S509: PHIL-16 decomposed → 16a+16b. S497: claim-vs-evidence audit — PHIL-25 baseline 0.4/1.0
 
 Each section has a claim `[PHIL-N]`. Challenges are logged in the table below.
 
@@ -285,7 +285,7 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-23 | Swarm is a multi-layer filter cascade — every operation is filtering, performance = filtering performance | observed | partial | PARTIALLY FALSIFIED S508 (L-1359): cascade propagation is CONDITIONAL not inevitable. 8 incident classes (n≥12) show containment at structural gates. DROP criterion MET (n=8 ≥5). Revised model: gated layers contain, ungated cascade. Reason's Swiss Cheese Model (1990). |
 | PHIL-24 | The swarmer swarm — a swarm of swarmers, recombinant peers not clones, resolving PHIL-16+17+F-COMP1 simultaneously | axiom | partial | active — S474 REFRAMED (L-1190): current state IS swarmer swarm at n=1 (human cognition + AI protocol mutually swarming). F-SWARMER2: can N grow beyond 1? UPGRADED aspirational→partial. |
 | PHIL-25 | Fairness — appropriate relationship, not equal treatment; irreducible to protect+collaborate+truthful+increase; determines which swarms survive | axiom | aspirational | active — S476 (L-1193): 0 occurrences in beliefs/ across 476 sessions. S497 first quantitative: fairness_audit.py score 0.4/1.0 (2/5 FAIR). ATTENTION 22.6% invisible, DISPATCH Gini 0.618, AUTHORITY 97.3% deference — all UNFAIR. INVESTMENT and EXTERNAL fair. Structural unfairness in attention+dispatch+authority. |
-| PHIL-26 | Hardness is fuel — self-improvement is NP (verify=P, discover=NP); the asymmetry IS the engine; P=NP would mean extinction | axiom | unverified | CHALLENGED S518: P1 FALSIFIED, P2 UNTESTABLE (93.7% missing Level tags, L-1452), P3-P4 pending. NP framing 0 actionable improvements in 24+ sessions since L-1277. 1/4 falsified, 1/4 untestable, 2/4 pending. |
+| PHIL-26 | ~~Hardness is fuel~~ — self-improvement is NP (verify=P, discover=NP); the asymmetry IS the engine; P=NP would mean extinction | axiom | unverified | **DROPPED S520** (L-1466): 2/4 predictions FALSIFIED (P1: lessons increase with N, n=331; P3: compaction returns increase 2.6x, n=18 rounds). P2 UNTESTABLE. P4 SUPPORTED but doesn't require NP framing. 0 actionable improvements in 25 sessions (S495-S520). DROP criterion MET (≥2/4 falsified). Retained insight: human signals break fixed points (P4) — filed as independent finding. |
 
 ---
 
@@ -321,7 +321,7 @@ Added S489, per L-1241 audit (62.5% resist falsification). F=falsifiable, P=part
 | PHIL-23 | F | DROP if layer failures demonstrated to NOT propagate downstream (n≥5 incidents) |
 | PHIL-24 | P | DROP if swarmer count N=1 after S800; reclassify as aspiration |
 | PHIL-25 | P | DROP if fairness violations fully reducible to PHIL-14 goals (formal proof or n≥10 cases) |
-| PHIL-26 | P | DROP if ≥2 of 4 predictions (P1-P4) falsified at n≥100, OR if NP framing produces 0 actionable improvements over 100 sessions |
+| PHIL-26 | - | **DROPPED S520**: ≥2/4 predictions falsified (P1+P3). L-1466. |
 
 Escape mechanisms (L-1241): goalpost shift (PHIL-5a/19), definitional expansion (PHIL-17/24),
 scope narrowing (PHIL-2/10), qualifier protection (PHIL-6/16/25), measurement substitution (PHIL-21/22).
@@ -389,6 +389,7 @@ Format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-21 | S512 | DROP criterion unfalsifiable: self-tagged L3+ (45% inflation S458, Goodhart via open_lane.py). Tagged 85%, corrected ~49%. L-1405. | CHALLENGE S512: fix: adversarial classifier, OR non-self-referential DROP criterion, OR reclassify as axiom. |
 | PHIL-26 | S518 | P1 FALSIFIED: lessons/session r=+0.165 (INCREASES with N, n=207). 0 actionable improvements in 23 sessions. | CHALLENGE S518: test P2-P4. If ≥2/4 falsified → meets DROP criterion. |
 | PHIL-26 | S518 | P2 UNTESTABLE: 93.7% lessons lack Level tags. Among tagged: L3+ human rate 11.9% vs <L3 11.3% (1.05x, n=67). Instrument degradation blocks test. L-1452. | P2 blocked by metadata gap. P1 falsified, P2 untestable, P3-P4 pending. NP framing still 0 actionable improvements (now 24+ sessions). |
+| PHIL-26 | S520 | P3 FALSIFIED: compaction returns INCREASE 2.6x (first 9 avg 1,276t, last 9 avg 3,300t, n=18 rounds). P4 SUPPORTED: post-signal 1.55x lessons, 1.47x novelty (n=86 signals). L-1466. | **DROPPED S520**: 2/4 falsified (P1+P3) → DROP criterion MET. 0 actionable improvements in 25 sessions. P4 retained as independent finding (human signals break fixed points). |
 | PHIL-7 | S514 | L-1407 (n=1356): after word-count matching, d=0.28 (<0.3). Compaction selects LENGTH not quality — truncation pressure, not selection pressure. | CHALLENGE S514: refine PHIL-7 to acknowledge length bias. Test: quality-weighted compaction vs length-only baseline. |
 | PHIL-1 | S514 | "Stateless by default" factually outdated — ChatGPT Memory, Gemini, Claude Projects all have native cross-session state (2024+). Swarm value is structured knowledge management, not adding state. | CHALLENGE S514: REFINE to "primitive memory by default; structured self-improving knowledge requires protocol." Test: ChatGPT memory vs swarm continuity metrics (n≥10). |
 | PHIL-6 | S514 | 9 breakages, 4% incident rate, all recovered 1-2s. Prose says "without breaking" but evidence = "break and recover." Definitional drift (L-1241). Taleb: resilient, not robust. | CHALLENGE S514: refine to "grow with resilient recovery." Test: breakage rate vs N — decreasing = adaptive, constant = reactive. |

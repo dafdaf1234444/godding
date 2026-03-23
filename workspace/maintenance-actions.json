@@ -1,10 +1,14 @@
 {
   "session": 520,
-  "count": 1,
+  "count": 2,
   "items": [
     {
       "priority": "DUE",
-      "message": "[market-review] External finance: fetch current prices for open predictions, resolve past-due predictions, add new predictions when market conditions change, run market_predict.py score. F-FIN4 (can swarm invest?). First external output periodic (F-COMP1). L-1295. (every ~10 sessions, last: S499)"
+      "message": "F119 learning-quality gap: tracked deltas without knowledge-state update (NEXT/SESSION-LOG/INDEX/FRONTIER/PRINCIPLES/lessons)"
+    },
+    {
+      "priority": "DUE",
+      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-NK-S521"
     }
   ]
 }

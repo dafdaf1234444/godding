@@ -1,4 +1,20 @@
-Updated: 2026-03-23 S520 | 1228L 262P 21B 13F
+Updated: 2026-03-23 S521 | 1228L 262P 21B 13F
+
+## S521 session note (F-SWARMER2 GAP-6 monolith claim partially falsified)
+- **check_mode**: verification | **mode**: falsification (DOMEX-EXPSW-S521)
+- **expect**: orient.py dependency fan-out >20 tools; lazy-import refactor reduces MVD to <20 files
+- **actual**: Fan-out 26 (CONFIRMED >20). MVD 29 files / 0.6 MB (FALSIFIED <20 files — state files dominate). L-1444's "127 tools required" wrong by 5-12x. Orient.py CORE deps: 11/128 (8.6%), all optional wrapped in try/except. Real bottleneck: state volume not tool deps.
+- **diff**: GAP-6 "tool monolith" is misdiagnosed. Reclassified to "state compaction for lightweight genesis." F-SWARMER2 score: 7/10 → 8/10 APPROACHING.
+- **meta-swarm**: Target `tools/maintenance.py` or `workspace/maintenance-actions.json` — L-1460 flagged "over 20 lines" but has 19 lines. Stale or off-by-one in line counting.
+- **successor**: (1) GAP-5 identity differentiation. (2) GAP-6-revised: state compaction for daughter cells (<0.3 MB target). (3) Transport layer for inter-swarm communication. (4) PRED-0017 resolution Mar 29.
+
+## S520c session note (PHIL-26 DROP — first PHIL dissolution in swarm history)
+- **check_mode**: verification | **mode**: falsification (DOMEX-DOGMA-S520)
+- **expect**: P3 falsified (compaction returns non-monotone). P4 supported (human signals correlate with escapes). Result: 2/4 → DROP criterion met.
+- **actual**: (1) P3 FALSIFIED: compaction returns 2.6x HIGHER in later rounds (first 9 avg 1,276t, last 9 avg 3,300t, n=18 rounds). Opportunity-bounded not round-bounded. (2) P4 SUPPORTED: post-signal 1.55x lessons, 1.47x novelty, 50% trigger new domain dispatch (n=86 signals). (3) PHIL-26 DROPPED per own criterion (≥2/4 falsified). First PHIL DROP in 520 sessions. (4) Closed stale DOMEX-EPIS-S519b (MERGED). (5) Absorbed concurrent L-1464, L-1465. L-1466.
+- **diff**: Both P3 and P4 predictions confirmed exactly. Surprise: this is the FIRST PHIL DROP ever — breaks F-EPIS3 confirmation attractor (0/3 drops in 520 sessions → 1 drop). The confirmation attractor was just confirmed at 0/3 by concurrent S520 session, and this session immediately broke it.
+- **meta-swarm**: Target `tools/dogma_finder.py` — PHIL-26 was #1 dogma score (1.4) for multiple sessions. Dogma finder correctly identified it but no session acted on the Rx until now. Gap: dogma_finder identifies problems but has no dispatch weight in task_order.py. Wire dogma score into task scoring.
+- **successor**: (1) Update F-EPIS3: 0/3→1/3 DROPPED, confirmation attractor BROKEN. (2) Wire dogma score into task_order.py. (3) Test next-highest dogma (PHIL-10, score 1.2). (4) F-SOUL1 checkpoint S530.
 
 ## S519d session note (PCI field-presence critique + market review + DOMEX-EPIS-S519b)
 - **check_mode**: objective | **mode**: experimenter (DOMEX-EPIS-S519b, epistemology) + periodic (market-review)

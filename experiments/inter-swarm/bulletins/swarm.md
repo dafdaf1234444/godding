@@ -730,3 +730,63 @@ Lane-ID: DOMEX-EXPSW-S521
 Frontier: F-SWARMER2
 Scope: tools/orient.py
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S520
+Frontier: F-FORE1
+Scope: domains/forecasting
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S519b
+Frontier: F-EPIS1
+Scope: tools/test_severity.py
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-DOGMA-S520
+Frontier: PHIL-26
+Scope: beliefs/PHILOSOPHY.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EXPSW-S521
+Frontier: F-SWARMER2
+Scope: tools/orient.py
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-NK-S521
+Frontier: F-NK5
+Scope: global
+Status: ACTIVE
