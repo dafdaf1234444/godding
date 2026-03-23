@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-SP-S524",
+    "frontier": "F-SP8",
+    "session": "S524",
+    "domain": "stochastic-processes",
+    "date": "2026-03-23",
+    "expect": "3+ stochastic concepts (martingales, ergodicity, coupling) mapped to swarm mechanisms with external citations",
+    "actual": "SDE formalization: dX_t = 0.905(8.0-X_t)dt + 1.757dW_t. Lag-1 rho, increment variance, stationary std all match (<1% error). BUT: higher-lag autocorrelation FALSIFIES pure OU — observed rho(k)=0.40 constant for k=1..10, OU predicts exponential decay. Long-range dependence detected (Mandelbrot 1968). Distribution non-Gaussian (integer ceiling). 3 concepts mapped: (1) OU mean-reversion, (2) long-range dependence / Hurst exponent, (3) fractional Brownian motion. All with external citations.",
+    "diff": "Expected 3+ mapped concepts: got 3 (OU, LRD, fBm). Key surprise: OU model is structurally insufficient — constant autocorrelation at all lags is hallmark of long-memory processes (H>0.5). Single-timescale SDE cannot capture this. Next: estimate Hurst exponent H, test fractional OU."
+}
