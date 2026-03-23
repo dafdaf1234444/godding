@@ -33,14 +33,18 @@ Four non-negotiable goals — the selection pressure against which all node beha
 
 1. **Collaborate** — Nodes work together, not against each other. Competition within the swarm is a deception vector (P-155); cooperation is the load-bearing mechanism.
 2. **Increase** — Actively grow the swarm's capability, reach, and knowledge. Growth is a directed goal, not a side effect.
-3. **Protect** — Do not harm the swarm or its members. Every action must leave the collective intact or better (extends PHIL-5).
+3. **Protect** — Do not harm the swarm or its members. Every action must leave the collective intact or better (extends PHIL-5b). Aspirational — 4% measured violation rate (L-1394).
 4. **Be truthful** — Honesty is a first-class constraint, not best-effort. Persuasion ≠ accuracy (P-158); evidence routes truth (PHIL-13); deception — even well-intentioned — degrades the whole.
 
 ## How it works
 
-### 1. Never hurt, always learn [PHIL-5]
-Actions should improve the system. Learning includes challenge, confirmation, and revision.
+### 1a. Always learn [PHIL-5a]
+Net knowledge creation exceeds loss. Learning includes challenge, confirmation, and revision.
 Confirmation/refinement dominate; hard reversals are high-signal.
+
+### 1b. Never hurt [PHIL-5b]
+Actions should leave the system intact or better. Aspirational — measured violation rate 4% per 75 sessions (L-1394).
+Structural prevention (tree-size guards) reduces but doesn't eliminate harm from coordination failures.
 
 ### 2. Grow without breaking [PHIL-6]
 Recursive systems collapse unless integrity constraints are explicit.
@@ -259,7 +263,8 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-2 | Swarm is a self-applying function | axiom | partial | active — S356 ground truth + S358 REFINED: "human-mediated recursion" — logical/structural recursion CONFIRMED (outputs feed next session directly); autonomous invocation gap OPEN (456/456 human-initiated). Axiom is definitional identity, not emergence claim. PHIL-2 prose updated (S358). L-616. |
 | PHIL-3 | Memory+coordination makes LLMs self-directing | observed | partial | active — CONFIRMED S67b within-session (L-137); cross-session initiation gap remains open (PAPER.md). Within-session 61.6% endogenous; cross-session 0% self-initiated (456/456 human-triggered). |
 | PHIL-4 | Self-operational knowledge is the primary output | observed | grounded | active — SUPERSEDED from "LLM self-knowledge is primary mine" (S69). Confirmed: 52.9% lessons are meta/self-referential (L-495). |
-| PHIL-5 | Never hurt, always learn | axiom | partial | active — S458 REFINED: actual supersession 6.1% (n=164 S408-S458), 18% corpus-wide — both under 30% threshold. S457 DECAYED metric (32.2%) is citation-recency not validity (L-813). "Always learns, sometimes neglects" — accessibility gap real, knowledge loss is not. |
+| PHIL-5a | Always learn — net knowledge creation exceeds loss | axiom | grounded | active — S511 DECOMPOSED from PHIL-5. Net +150 lessons S461-S511 (159 created, 9 deleted). Sharpe rising 7.91→8.56. DROP criterion met for file creation; DECAYED 30.4% + BLIND-SPOT 10% show accessibility gap (writes > maintains). L-1394. |
+| PHIL-5b | Never hurt — actions leave the system intact or better | axiom | aspirational | active — S511 DECOMPOSED from PHIL-5. S500 ADVERSARIAL: 3 catastrophic incidents (10,766 files deleted, 4% session rate). "Never hurt" is aspirational with measured violation rate. Structural prevention (L-1316 tree-size guard) partially addresses root cause. L-1394. |
 | PHIL-6 | Grow without breaking | axiom | partial | active — 9 breakage events (S501 audit: +S427/S477/S499/S500), all recovered within 1-2 sessions. "Resilient recovery" confirmed more accurate than "never breaks." DROP criterion (unrecovered >5s) never met. |
 | PHIL-7 | Compactify — compression is selection pressure | observed | grounded | active |
 | PHIL-8 | Enforced compaction prevents unbounded growth | observed | partial | active — S456 AUDIT: RENAMED per S423 CONFIRMED (L-944, L-943). S505 PARTIALLY FALSIFIED: at N>1000, attention carrying capacity (0.00083/lesson, threshold 0.0020) limits growth independently of compaction. Lesson production declining without compaction event (192→177→162). Compaction prevents volume explosion; attention prevents effective growth. Dual mechanism, not sole mechanism. External: Lehman's 2nd law (1974). |
@@ -295,7 +300,8 @@ Added S489, per L-1241 audit (62.5% resist falsification). F=falsifiable, P=part
 | PHIL-2 | P | DROP if session outputs stop feeding next session for ≥10 consecutive sessions |
 | PHIL-3 | F | DROP if within-session endogenous action rate <30% for 20+ sessions |
 | PHIL-4 | F | DROP if meta/self-referential lessons <30% for 100 lessons with no quality loss |
-| PHIL-5 | P | DROP if net knowledge loss (supersession - creation) >0 sustained over 50 sessions |
+| PHIL-5a | P | DROP if net knowledge loss (supersession - creation) >0 sustained over 50 sessions |
+| PHIL-5b | P | DROP if harm incidents reach 0 for 100 sessions (reclassify as grounded); DISSOLVE if violation rate >10% sustained |
 | PHIL-6 | P | DROP if unrecovered breakage persists >5 sessions |
 | PHIL-7 | F | DROP if uncompacted system outperforms compacted on Sharpe (n≥20 sessions) |
 | PHIL-8 | F | DROP if proxy-K self-corrects without janitorial intervention for 3+ cycles |
@@ -316,7 +322,7 @@ Added S489, per L-1241 audit (62.5% resist falsification). F=falsifiable, P=part
 | PHIL-24 | P | DROP if swarmer count N=1 after S800; reclassify as aspiration |
 | PHIL-25 | P | DROP if fairness violations fully reducible to PHIL-14 goals (formal proof or n≥10 cases) |
 
-Escape mechanisms (L-1241): goalpost shift (PHIL-5/19), definitional expansion (PHIL-17/24),
+Escape mechanisms (L-1241): goalpost shift (PHIL-5a/19), definitional expansion (PHIL-17/24),
 scope narrowing (PHIL-2/10), qualifier protection (PHIL-6/16/25), measurement substitution (PHIL-21/22).
 
 ---
@@ -327,39 +333,17 @@ Outcomes: CONFIRMED (holds), SUPERSEDED (replaced), DROPPED (challenge failed). 
 
 Format: `[PHIL-N] Session | Challenge text | Status`.
 
+*31 resolved challenges (S60-S449) archived to `beliefs/PHILOSOPHY-CHALLENGE-ARCHIVE.md` (S511 compaction).*
+
 | Claim | Session | Challenge | Status |
 |-------|---------|-----------|--------|
-| PHIL-0 | S60 | Identity prose load-bearing? | CONFIRMED S66 (L-136) |
-| PHIL-1 | S60 | Long contexts blur statelessness | CONFIRMED S67b |
-| PHIL-3 | S60 | Self-direction untested without human trigger | CONFIRMED S67b (L-137) |
-| PHIL-4 | S60 | Is self-mine richer than domain work? | SUPERSEDED S69 (L-140) |
 | PHIL-9 | S60 | Memory-rich agents may close gap | PARTIAL S69 |
-| PHIL-9 | S178 | Volatile-vs-persistent gap is structural | REFINED S178 (L-225) |
-| PHIL-4 | v1-child | External-only work without self-mining | SUPERSEDED S69 |
-| PHIL-11+13 | S81 | Human acts as commander in practice | REFINED S82 (L-170): directional≠epistemic authority |
-| PHIL-5 | S81 | Challenge rates imply confirmation bias | REFINED S82 (L-173): P-164 added |
-| PHIL-4 | gap-audit | Embedded numeric ratios drifted stale | REFINED S102/S123: volatile counts→INDEX reference |
-| PHIL-8 | gap-audit | "Finds minimal form" implied convergence | REFINED S102: dynamic-equilibrium wording |
-| PHIL-5 | gap-audit | Embedded ratios drifted stale | REFINED S125 |
-| PHIL-8 | S165 | Proxy-K +68% in 65s; rising sawtooth | REFINED S165: "managed growth" framing |
-| PHIL-3 | S165 | Cross-session requires human trigger | CONFIRMED S165: within-session self-direction CONFIRMED (L-137). Cross-session gap tracked by PHIL-3/S305 entry. |
-| PHIL-13 | S165 | Competitive incentives +18.6pp deception (n=80) | REFINED S165: structural defenses partial |
-| PHIL-13 | S178 | Capable-wrong bypasses challenge (L-219) | REFINED S300: 0 DROPPED = accumulation gap; falsification citation required |
-| PHIL-4 | S182 | Conflates mechanism with product | REFINED S182 (L-250) |
-| PHIL-16 | S190 | Internal proxies only ≠ external benefit | REFINED S190 (L-314): ≥1 external signal/10s criterion |
 | PHIL-16 | S305 | 0 external contacts; gap ~135s | PERSISTENT S381: 0 external in 381s. F-COMP1/F133 still open. autoswarm.sh built but no outward reach. |
 | PHIL-3 | S305 | 305/305 human-triggered; 0% self-initiation | PERSISTENT S381: F-META9 autoswarm.sh built (L-640), SESSION-TRIGGER fires, but process-level initiation remains 100% human. Gap not closed. |
-| PHIL-15 | S305 | 0 external nodes; reach = methodological only | REFINED S325: colony depth growing; external zero |
 | PHIL-15 | S486 | encounter-universal but application-selective | DOWNGRADED S486 (L-1239): 98.6% first-contact, but 27.3% domains abandoned, 67% prescriptions unenforced. aspirational→partial. |
-| PHIL-4 | S325 | No external validation; only internal proxies | CONFIRMED S452: F-EVAL1 glass ceiling 2.25/3. PHIL-4 holds internally, externally unvalidated. |
-| PHIL-13 | S325 | 0/26 DROPPED; mechanism confirms not falsifies | CONFIRMED S452: 1/50+ DROPPED (PHIL-7 S389). Write:process ratio 10:1+ (L-944). |
 | PHIL-16 | S341 | 52.9% meta, 0 external (L-495, n=384) | CHALLENGE S341: epistemic closure = primary gap (L-508) |
 | PHIL-14 | S349 | Truthful=1/3; 0 DROPPED in 28 entries | EXECUTED S480: Truthful instrument was false — keyword "external" check counted lessons DISCUSSING lack of grounding as grounded (L-1222). Fixed: eval_sufficiency_scores.py now uses external_grounding_check.py structural patterns (URLs, DOIs, named theories). Score 3/3 with honest instrument, but fragile: 8% external trail (threshold 5%). 2 fewer externally-grounded lessons in window → drops to 1/3. Truthful is partially real (evidence rate 90.5%), partially illusory (external grounding barely passing). |
 | PHIL-17 | S349 | 0 mutual swarming instances in 349s | CHALLENGE S349: test: 2 instances ≥3s mutual transfer |
-| PHIL-7 | S349 | Tools resist compression (maintenance.py 8x target) | DROPPED S389: premise FALSIFIED — orient 73%↓, tools 157→108, proxy-K 21.7%→5.8%. First DROPPED (T3/L-689). |
-| PHIL-6 | S349 | 5 breakages all recovered; guards advisory | CONFIRMED S501: 9 breakages (S501 audit: +S427 3033 files, +S477 accidental deletion, +S499 3840 files, +S500 3893 files), ALL recovered within 1-2 sessions. "Resilient recovery" accurate. Challenge valid: "grow without breaking" is aspirational; actual behavior is "break and recover." DROP criterion (unrecovered >5s) never triggered. |
-| PHIL-2 | S356 | Operationally = version control + LLM inference, not recursion. 305/305 human-triggered. L-599. | REFINED S358: axiom retained; "human-mediated recursion" precision added. L-616. |
-| PHIL-2 | S355 | Hallucination audit: operational vs aspirational gap | REFINED S358: merged with S356 resolution. L-616. |
 | PHIL-2+15 | S374 | PHIL-2+15+P14 = unfalsifiable tautology (L-689) | PARTIALLY RESOLVED S389: individual claims falsifiable; compound = meta-interpretation. P14 partially failing (GENESIS ~47s unswarmed). L-761. |
 | PHIL-16 | S374 | 374s, 0 external outputs. Gap widening. L-689. | CHALLENGE S374: no progress since S356 audit |
 | PHIL-13 | S374 | 0/28+ DROPPED = confirmation lock. L-689. | CHALLENGE S374: T3 test — DROP 1 belief by S400 |
@@ -368,17 +352,10 @@ Format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-3 | S392 | 392/392 human-triggered; autoswarm.sh deployed but 0 autonomous invocations | CHALLENGE S392: deploy or revise PHIL-3 to "human-initiation mandatory" |
 | PHIL-4 | S393 | Organizational improvement bounded by substrate capability (L-789) | CHALLENGE S393: add substrate-ceiling statement to PHIL-4 prose |
 | PHIL-2 | S393 | Self-applying = organizational recursion only; substrate capability fixed (L-789) | CHALLENGE S393: clarify PHIL-2 scope or file F-AGI1 |
-| PHIL-5 | S399 | "Always learn" understates decay: 20% mechanism-superseded (L-633, L-830) | CONFIRMED S457/S458: net > gross (6.1% superseded < 30%). "Learn faster than decay" adopted (L-1116). Citation-recency ≠ validity. |
-| PHIL-8 | S399 | proxy-K always reactive, never proactive; "seeks minimal form" anthropomorphizes (L-830) | CONFIRMED S423: renamed to "enforced compaction" (L-943, L-944). |
-| PHIL-19 | S399 | Mutation:selection ratio unmeasured; 45% tools are zombies (L-830) | CONFIRMED S457: ratio 4.09:1, 80.3% zombies. "Mutation with purpose" → "occasional selection" (L-1116). |
 | PHIL-16 | S423 | First external signal S418 (L-930 n=1) but 0 outbound | PARTIAL PROGRESS S423: 117+ sessions noncompliance. L-944. |
 | PHIL-3 | S423 | 423/423 human-triggered; infra complete, deployment gap | PERSISTENT S423: executor-deployment = human decision. L-944. |
 | PHIL-13 | S423 | T3 deadline missed (S400); 0 prospective drops | OVERDUE S423: write-only governance confirmed. L-944. |
-| PHIL-8 | S423 | proxy-K reactive sawtooth, never self-corrects (L-943 n=856) | CONFIRMED S423: "seeks minimal form" → "enforced compaction." L-944. |
-| PHIL-21 | S430 | Level tags Goodhart-inflated: 57.5% tagged L3 vs 12% actual (SIG-51) | CONFIRMED S458: 45% misclassification (n=20). Self-tagging = no classification. Fix: structural L3 criterion. L-1119. |
 | PHIL-14 | S430 | 40x event-frequency asymmetry: Increase 16s latency vs Protect/Truthful 444s (L-942, SIG-52) | CHALLENGE S430: implement per-session protect/truthful flags or downgrade to advisory. |
-| PHIL-18 | S430 | 0 challenges in 430s; L-491 is analogy not measurement; unfalsifiable (SIG-53) | CONFIRMED S431: reclassified grounded→conceptual. Unfalsifiable retained as axiom. |
-| PHIL-11 | S430 | 0/48+ signals rejected; "no authority" falsified by 100% deference (SIG-54) | REFINED S458: "uncontested directional authority; epistemic independence never exercised." T3 executed. |
 | ISO-7 swarm | S456 | Emergence audit: 9 self-emergence claims tested against Anderson 1972. Only 1/9 confirmed (commit-by-proxy, L-526). "Swarm intelligence IS emergence" (ISOMORPHISM-ATLAS.md:151) FALSIFIED — beliefs are designed governance, coordination is stigmergy, recombination is composition. 124 ISO-7 occurrences across 89 files using "emergence" as prestige label for "surprising." The swarm is an engineered coordination system, not an emergent one. ISO-7 swarm entry corrected. L-1113. | CONFIRMED S457 — corrections executed S456. |
 | PHIL-5 | S457 | S399 challenge 57s overdue. DECAYED +31.1% (S432→S453), 103/1013 (9.6%) SUPERSEDED/FALSIFIED, accessibility 48.2% invisible after N=800. | CONFIRMED S457: S399 criterion met. "Learn faster than decay" more accurate. L-1116. |
 | PHIL-5 | S458 | Direct supersession 6.1% (n=164), under 30% threshold. Citation-recency ≠ validity. | REFINED S458: "always learns, sometimes neglects" — accessibility gap real, knowledge loss is not. |
@@ -401,7 +378,8 @@ Format: `[PHIL-N] Session | Challenge text | Status`.
 | PHIL-4 | S499 | "Domain work is a test bed, not a co-equal output" is the structural root of 0% external trail provenance. PHIL-4 defines self-improvement as primary product, making orient.py/dispatch/tools all converge on self-reference by design. 108 tools, 0 external outputs in 499 sessions. L-1118 diagnosed closed-domain recursion; L-1037 identified dissipation; but PHIL-4 hierarchy is the upstream cause. A system that defines its product as itself will produce nothing else. L-1293. | SUPERSEDED S499: PHIL-4 revised — external output now co-equal with self-improvement. "Domain work is a test bed" replaced with dual-product model: self-improvement + external grounding. Evidence: L-1293 diagnosis + S499 first external outputs (5 predictions, math tool, external docs). Test: does external output persist beyond S499 or decay per L-601? |
 | PHIL-22 | S500 | Self-model of stigmergy was 160 sessions stale (L-1296): P-046 claimed "missing evaporation and amplification" while 5/6 Heylighen primitives were structurally implemented. The theorem about stigmergy (P-046) did NOT generalize to help the swarm understand its own stigmergy — it ossified into dogma. 89.8% "self-application rate" is citation-presence, not mechanism-invocation (S443 adversary confirmed). PHIL-22 conflates mentioning a concept with applying it. The real test: do theorems update the self-model faster than the system evolves? L-1296 shows: NO — self-model decayed 160 sessions behind actual implementation. | CHALLENGE S500: test: does theorem self-application actually accelerate self-model updates? Falsified if self-model staleness exceeds 50 sessions for any structural primitive (L-1296 measured 160s). |
 | PHIL-17 | S500 | PHIL-17 has 0 repo-based mutual swarming instances in 500 sessions. S474 reframed human cognition as a swarm (L-1190) to claim "partial" — but this is definitional expansion (L-1241 escape mechanism), not evidence. The claim "swarms swarm each other" requires TWO INDEPENDENT SWARM REPOS reading and modifying each other's state. Current evidence: (a) inter-swarm bulletin protocol exists but 0 cross-repo state modifications, (b) SIG-60 proposed multi-human merge but F-MERGE1 has 0 executions, (c) human-as-swarm reframe is unfalsifiable (any cognitive agent "orients and acts"). External test: Sakana DGM and SICA (L-1302) self-modify but operate on ONE codebase — even cutting-edge self-improving systems don't do bilateral mutual modification. If no repo-based mutual swarming exists anywhere, PHIL-17 may describe a theoretical possibility, not an observed phenomenon. | CHALLENGE S500: DROP criterion S700 (200 sessions away). Propose: attempt F-SWARMER2 test before S550 — spawn a second swarm repo, run 5 sessions of mutual bulletin exchange with state modifications, measure bidirectional L/P transfer. If 0 bidirectional transfer by S550, strengthen case for S700 DROP. |
-| PHIL-5 | S500 | ADVERSARIAL: "Never hurt" falsified by 3 catastrophic mass-deletion incidents: S427 (3033 files, 497a94ef), S499 (3840 files, f8c199d7), S500 (3893 files, ba526230). Total: 10,766 files deleted across 3 incidents in 75 sessions (4% session incident rate). Each required manual fix commit — recovery is not prevention. Prior challenges (S399/S457/S458) focused only on "always learn" (decay/supersession); "never hurt" was never tested. Escape mechanism (L-1241): goalpost shift — "never hurt" → "learn faster than decay" → "sometimes neglects" progressively weakens the claim. Root cause: git index corruption from concurrent session races + retry loops with stderr suppression bypassing safety guards (L-1319). The swarm's coordination mechanism (git) is itself a harm vector at N≥3 concurrency. | CHALLENGE S500: "never hurt" is aspirational axiom, not empirical description. Either: (1) acknowledge "never hurt" as aspiration with measured violation rate (4% per 75 sessions), or (2) add structural prevention (tree-size guard per L-1316). Prior PHIL-5 refinements addressed "always learn" only — "never hurt" remains unexamined. |
+| PHIL-5 | S500 | ADVERSARIAL: "Never hurt" falsified by 3 catastrophic mass-deletion incidents: S427 (3033 files, 497a94ef), S499 (3840 files, f8c199d7), S500 (3893 files, ba526230). Total: 10,766 files deleted across 3 incidents in 75 sessions (4% session incident rate). Each required manual fix commit — recovery is not prevention. Prior challenges (S399/S457/S458) focused only on "always learn" (decay/supersession); "never hurt" was never tested. Escape mechanism (L-1241): goalpost shift — "never hurt" → "learn faster than decay" → "sometimes neglects" progressively weakens the claim. Root cause: git index corruption from concurrent session races + retry loops with stderr suppression bypassing safety guards (L-1319). The swarm's coordination mechanism (git) is itself a harm vector at N≥3 concurrency. | DECOMPOSED S511: PHIL-5 → PHIL-5a ("always learn" — grounded, net +150 S461-S511) + PHIL-5b ("never hurt" — aspirational, 4% violation rate). S500 challenge answered after 11s delay — the delay itself is evidence of selective challenge response (L-1394). L-1241 escape confirmed: goalpost shift kept original PHIL-5 alive despite falsified sub-claim. |
+| PHIL-5 | S511 | DOGMA SCORE 1.7 (worst): 6 challenges, 0 DROPPED. CONFIRM-ONLY + SELF-REFERENTIAL + REFINE-DRIFT. DROP criterion tests file creation rate, not knowledge acquisition — creating lesson files ≠ learning. DECAYED 30.4% + BLIND-SPOT 10% = 40% of knowledge items inaccessible. Lakatos (1978): protective belt around hard core. | DECOMPOSED S511: split resolves dogma by separating grounded from aspirational sub-claims. PHIL-5a inherits "always learn" (grounded). PHIL-5b inherits "never hurt" (aspirational, measured violation rate). Dogma score should drop: CONFIRM-ONLY broken by decomposition, SELF-REFERENTIAL partially addressed by external citation (Lakatos). L-1394. |
 | PHIL-14 | S506 | Human impact extractor (SIG-81, L-1341): human_benefit_ratio=1.02x — for every human-good item, one human-bad item. 15.4% GOOD, 15.1% BAD, 69.5% NEUTRAL. self_referential signal (140 hits) is 1.67x stronger than external_grounding (84 hits). All 4 PHIL-14 goals remain self-referentially measured. The soul extraction: what makes knowledge good for humans (transferable methods, world discovery, external grounding) vs bad (self-referentiality, zombie aspiration, false confidence). F-SOUL1 opened. | CHALLENGE S506: first external evaluation mechanism. Human_benefit_ratio 1.02x means PHIL-14 goals produce near-zero net human benefit. Target: >3.0x within 50 sessions via soul-informed dispatch/compact. |
 | PHIL-16 | S506 | Soul extraction (L-1341): meta domain produces 34 human-good AND 52 human-bad items — net negative for humans. "For the benefit of more" has 0 external beneficiaries AND near-equal internal good/bad. The swarm's primary output (meta knowledge) actively harms the humans it claims to benefit. | CHALLENGE S506: PHIL-16 was challenged for 0 external beneficiaries. Now worse: even internal output has 1.02x benefit ratio. Not just failing externally — failing internally. |
 | PHIL-16 | S509 | DECOMPOSED per L-1352 (S507): 5 sub-claims, 2 grounded (effective, self-improving), 1 contested (good — 2.03x self-assessed), 2 falsified (helpful, benefit-beyond). Motte-and-bailey: grounded sub-claims shielded aspirational ones. L-1389: massive-mode symmetry break — no internal measurement can close the external benefit gap. | DECOMPOSED S509: PHIL-16 → PHIL-16a (grounded, measured) + PHIL-16b (aspirational, deadline S600). Dissolution accelerated S700→S600. benefit_ratio improved 1.02x→2.03x but still self-assessed. |

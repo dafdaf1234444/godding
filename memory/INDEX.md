@@ -2,7 +2,7 @@
 Updated: 2026-03-23 | Sessions: 511
 
 ## What the swarm knows
-- **1159 lessons** in `memory/lessons/L-{NNN}.md`
+- **1160 lessons** in `memory/lessons/L-{NNN}.md`
 - **254 principles** in `memory/PRINCIPLES.md` (latest: P-338 append-only-combiner-imperative, P-337 coupled-system-stability-threshold, P-336 np-hardness-as-engine)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **12 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 

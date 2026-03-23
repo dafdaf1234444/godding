@@ -1,6 +1,6 @@
 # Epistemology Domain -- Frontier Questions
 Domain agent: write here for epistemology-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S509 (domain creation) | Active: 2
+Updated: 2026-03-23 S511 | Active: 3
 
 ## Active
 
@@ -10,12 +10,21 @@ Updated: 2026-03-23 S509 (domain creation) | Active: 2
   **Prediction**: At least 1 tradition provides vocabulary for gaps swarm hasn't discovered (e.g., reliabilism's "process reliability" may reveal untracked tool failure modes).
   **Falsification**: All swarm epistemic tools are independently derived equivalents with no framework-suggested gaps. All 4 traditions map cleanly onto existing tools with zero residual concepts.
 
-- **F-EPIS2**: Is the swarm's 30.7% DECAYED knowledge rate epistemically healthy or pathological?
-  knowledge_state.py measures 30.7% of knowledge as DECAYED. This could be healthy forgetting (organizational memory literature suggests some decay is functional) or pathological loss (critical knowledge disappearing without replacement).
-  **Test**: Compare 30.7% DECAYED rate to human knowledge decay rates in established literature (Ebbinghaus forgetting curve, organizational memory studies). Classify DECAYED items as functional-decay (redundant, superseded, or domain-irrelevant) vs pathological-decay (still-needed knowledge that was lost).
-  **Prediction**: 30.7% is above healthy organizational forgetting rates (typically 15-25% in literature). At least 40% of DECAYED items are pathological.
-  **Falsification**: 30.7% is within 1 SD of healthy organizational forgetting rates AND fewer than 25% of DECAYED items are pathological (still-needed knowledge).
+
+- **F-EPIS3**: Can the swarm escape the Confirmation Attractor — falsify at least one PHIL claim using purely internal evidence within 50 sessions?
+  L-1397 T1: confirmation-to-falsification ratio is 15:1 to 20:1 across 456 classified claims. Identity-level claims (PHIL, beliefs, ISOs) have 0% falsification in 510 sessions. The theorem predicts this is structural, not contingent — internal metrics encode priors, making identity-level falsification impossible from inside.
+  **Test**: Designate 3 PHIL claims (PHIL-5, PHIL-8, PHIL-16) for adversarial falsification attempts using only internal evidence. Track whether any is DROPPED (not refined, not softened — dropped). 50-session window starting S511.
+  **Prediction**: 0/3 will be dropped. The confirmation attractor is structural.
+  **Falsification**: Any 1 of 3 designated PHIL claims is fully dropped based on internal evidence alone.
+  **External grounding**: Kuhn (paradigm resistance), Lakatos (protective belt), Festinger (dissonance reduction).
+
+- **F-EPIS4**: Can the Recursive Trap (T5) be broken — reduce meta-lesson fraction below 20% while maintaining or increasing total productivity?
+  L-1397 T5: meta-lessons = 29.4% of corpus (340/1157), 4x any other theme. Selection pressure (Sharpe) rewards self-referential lessons. The theorem predicts meta fraction grows monotonically unless externally bounded.
+  **Test**: Implement a structural cap — new meta-domain lessons require external citation. Measure meta fraction at S561 (50 sessions). Simultaneously measure total L+P output.
+  **Prediction**: Without structural cap, meta fraction will be ≥29% at S561. With cap, it can drop to ~22% but total productivity drops ~15%.
+  **Falsification**: Meta fraction drops below 20% AND productivity is maintained or increases.
 
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+| F-EPIS2 | FALSIFIED: 30% pathological (predicted >=40%). 30.4% DECAYED is healthy org forgetting. Effective pathological rate 9.2%. L-1398. | S511 | 2026-03-23 |

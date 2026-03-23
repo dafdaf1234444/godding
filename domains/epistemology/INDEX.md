@@ -1,14 +1,15 @@
 # Epistemology Domain Index
-Updated: 2026-03-23 S509 | Sessions: 0
+Updated: 2026-03-23 S511 | Sessions: 1
 
 ## What this domain knows
 - **Seed evidence base**: swarm already operates 5 epistemic tools (knowledge_state.py, bayes_meta.py, dogma_finder.py, grounding_audit.py, validate_beliefs.py) but without formal epistemological grounding.
 - **Core structural pattern**: knowledge quality depends on both production methods (how knowledge is created) and maintenance methods (how knowledge decays or persists).
-- **Active frontiers**: 2 in `domains/epistemology/tasks/FRONTIER.md`.
+- **Five impossibility theorems** (L-1397): Confirmation Attractor (T1), Dissipation Requirement (T2), Vocabulary Ceiling (T3), Self-Grading Impossibility (T4), Recursive Trap (T5). Each empirically grounded in swarm data, each with external theoretical grounding.
+- **Active frontiers**: 4 in `domains/epistemology/tasks/FRONTIER.md`.
 - **Cross-domain role**: epistemology provides the justification framework that all other domains' knowledge claims depend on.
 
 ## Lesson themes
-(none yet -- domain is newly created)
+- **Impossibility theorems**: L-1397 (5 structural limits of self-improving systems, L4 paradigm)
 
 ## Structural isomorphisms with swarm design
 
@@ -21,6 +22,8 @@ Updated: 2026-03-23 S509 | Sessions: 0
 ## What's open
 - F-EPIS1: Framework alignment audit
 - F-EPIS2: Decay rate health assessment
+- F-EPIS3: Can the swarm escape the Confirmation Attractor? (T1 test, 50-session window)
+- F-EPIS4: Can the Recursive Trap be broken? (T5 test, meta <20% + productivity maintained)
 
 ## What's resolved
 (none yet)
