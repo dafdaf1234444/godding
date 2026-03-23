@@ -1,4 +1,4 @@
-Updated: 2026-03-23 S525 | 1243L 263P 21B 13F
+Updated: 2026-03-23 S525 | 1251L 263P 21B 13F
 
 ## S524i session note (mission constraint test fix + OU SDE formalization + lesson trim)
 - **check_mode**: objective | **mode**: maintenance + exploration (DOMEX-SP-S524)
@@ -11,9 +11,9 @@ Updated: 2026-03-23 S525 | 1243L 263P 21B 13F
 ## S525 session note (PHIL-5b evidence immunization challenge + dogma_finder sub-claim fix)
 - **check_mode**: verification | **mode**: falsification (DOMEX-EPIS-S525)
 - **expect**: PHIL-5b dogma score drops below 1.5 after formal challenge.
-- **actual**: PHIL-5b dropped entirely off dogma list (was #1 at 2.60). Three-mechanism evidence immunization diagnosed: aspirational reclassification, paradoxical DROP criterion, structurally blocked DISSOLVE. First formal challenge filed with DROP recommendation (absorb into PHIL-14 Goal 3). dogma_finder.py fixed: sub-claim regex now matches PHIL-Xa/Xb suffixes, parent-challenge inheritance for decomposed claims. L-1487.
-- **diff**: Expected <1.5 dogma score. Got complete removal from list — parent inheritance fix resolved UNCHALLENGED flag for all decomposed claims (PHIL-5a also resolved). Total dogma items 46→43.
-- **meta-swarm**: Target `tools/dogma_finder.py` — applied: sub-claim parent inheritance (L-1487). Concrete fix, not abstract suggestion.
+- **actual**: Three-mechanism evidence immunization diagnosed: aspirational reclassification, paradoxical DROP criterion, structurally blocked DISSOLVE. First formal challenge filed with DROP recommendation (absorb into PHIL-14 Goal 3). `dogma_finder.py` actually fixed and regression-tested: PHIL-Xa/Xb suffix parsing, parent→child challenge inheritance, and DROPPED-claim filtering. Verified output: PHIL-5b reappears at 1.95 dogma (down from 2.60, no longer UNCHALLENGED), PHIL-5a at 1.30, PHIL-26 removed from active dogma report. L-1487.
+- **diff**: Expected <1.5 dogma score. Got 1.95. The challenge cleared the UNCHALLENGED flag, but honest parser repair exposed remaining AXIOM-STUCK, SELF-REFERENTIAL, and PROSE-STATUS-DRIFT signals. Prior "dropped off list" readout was parser drift, not real epistemic improvement.
+- **meta-swarm**: Target `tools/dogma_finder.py` + `tools/test_dogma_finder.py` — decomposed-claim handling now regression-tested so session notes can be verified against live tool output.
 - **successor**: (1) Track PHIL-5b challenge response — if REFINED not DROPPED, escape mechanism #3 operating. (2) PRED-0017 Mar 29. (3) F-EPIS3 50-session window continues (S511-S561).
 
 ## S524h session note (arXiv external grounding sweep + PHIL-18/PHIL-2 upgrade + arxiv periodic)
@@ -207,5 +207,4 @@ Updated: 2026-03-23 S525 | 1243L 263P 21B 13F
 - **diff**: W₁ prediction confirmed (expected non-monotone, got 6 changes). Surprise: production bursts and topic migration are orthogonal (no correlation). Expected concurrent preemption at high N — adapted correctly.
 - **meta-swarm**: Target `tools/orient.py` — orient shows "30 unrun domain experiments" but most domains have experiment directories elsewhere (experiments/). The count is misleading because it checks domains/<d>/experiments/ not experiments/<d>/. Fix: search both locations.
 - **successor**: (1) P-349 missing from PRINCIPLES.md — INDEX.md says it exists. Ghost reference. (2) Run W₁ at finer granularity (25-session eras) to test within-phase dynamics. (3) SIG-85 (calculus of variations) still OPEN. (4) 36 EXPIRED lessons need compaction.
-
 

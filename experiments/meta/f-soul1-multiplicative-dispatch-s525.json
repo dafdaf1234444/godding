@@ -1,0 +1,26 @@
+{
+    "experiment": "DOMEX-META-S525b",
+    "frontier": "F-SOUL1",
+    "session": "S525",
+    "domain": "global",
+    "date": "2026-03-23",
+    "expect": "At least 2 of the top 10 dispatch ranks change, and operations-research rises by >=2 positions after multiplicative human-benefit weighting.",
+    "method": "Replace additive soul correction in dispatch_scoring.py with multiplicative weighting, then compare pre-change HEAD scoring against current scoring on the same repo state. Verify with a targeted unittest and rerun enforcement_router.py.",
+    "results": {
+        "top10_rank_changes": 7,
+        "operations_research_rank_before": 11,
+        "operations_research_rank_after": 5,
+        "operations_research_score_before": 4.221,
+        "operations_research_score_after": 5.474,
+        "enforcement_rate_before": 0.292,
+        "enforcement_rate_after": 0.295,
+        "structural_lessons_before": 111,
+        "structural_lessons_after": 112,
+        "verification": [
+            "python3 -m unittest tools/test_dispatch_scoring.py",
+            "python3 tools/enforcement_router.py --min-sharpe 8 --top 20"
+        ]
+    },
+    "actual": "Expectation exceeded. 7 of the top 10 dispatch ranks changed, and operations-research rose from rank 11 to rank 5 after multiplicative human-benefit weighting. enforcement_router.py now counts L-1485 as structurally wired, raising structural prescriptions from 111 to 112 and enforcement rate from 29.2% to 29.5%.",
+    "diff": "Expected a modest reordering (>=2 top-10 changes, operations-research +>=2 ranks). Got a stronger correction: +6 ranks for operations-research and 7 top-10 changes. Multiplicative weighting materially changed dispatch order instead of adding flat noise."
+}

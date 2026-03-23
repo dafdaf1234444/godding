@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-F119-S525",
+    "frontier": "F119",
+    "session": "S525",
+    "domain": "global",
+    "date": "2026-03-23",
+    "expect": "Mission-constraint regressions pass again when tests patch maintenance.py wrapper symbols; no false negatives from extracted modules.",
+    "actual": "Mission constraints regression suite passes 41/41, and both bash quick-check plus PowerShell fallback now execute it.",
+    "diff": "Expected wrapper-symbol repair. Actual fix was smaller: align with the current maintenance_signals test contract and move the suite into the quick gate so F119 drift is caught pre-commit."
+}

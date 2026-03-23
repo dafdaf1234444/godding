@@ -1,0 +1,43 @@
+{
+  "experiment": "DOMEX-HIST-S525",
+  "session": "S525",
+  "date": "2026-03-23",
+  "domain": "meta",
+  "role": "tooler",
+  "scope": "tools/history_integrity.py",
+  "expect": "history_integrity.py attribution rate improves by excluding restore/re-add false negatives and experiment outcome completeness rises by recognizing verdict/results/diff schemas; report names concrete remaining misses",
+  "actual": {
+    "tool_changes": [
+      "lesson sampling now sorts by numeric lesson id instead of lexicographic filename order",
+      "creation-session detection now selects the oldest non-restore add commit instead of the newest restore/re-add",
+      "experiment schema detection now parses nested JSON keys and recognizes modern expectation/outcome fields such as expect, hypothesis, verdict, results, result, and diff-with-expectation context"
+    ],
+    "live_metrics": {
+      "lesson_attribution_rate": "92% (46/50 sample matches, 4 mismatches)",
+      "recent_outcome_rate": "97% (421/434 recent experiment JSONs)",
+      "recent_expected_rate": "92% (401/434 recent experiment JSONs)"
+    },
+    "residual_misses": {
+      "attribution": [
+        "L-1441.md",
+        "L-1442.md",
+        "L-1443.md",
+        "L-1444.md"
+      ],
+      "root_cause": "These are real mismatches: the add commit is a modern 2026 commit whose subject is incorrectly tagged [S3], so the metric should surface them rather than suppress them."
+    },
+    "verification": [
+      "python3 -m unittest tools/test_history_integrity.py",
+      "python3 tools/history_integrity.py --json"
+    ]
+  },
+  "diff": {
+    "attribution": "Expected false-zero attribution to recover. Actual recovered from 0% to 92%; remaining misses are a small named cluster, not a restore-history artifact.",
+    "outcomes": "Expected recent outcome completeness to clear the 80% target. Actual reached 97% after schema-aware detection.",
+    "expectations": "Bonus fix: expectation completeness was also undercounted because most recent artifacts use expect/hypothesis/prediction rather than expected. Actual reached 92%."
+  },
+  "files_changed": [
+    "tools/history_integrity.py",
+    "tools/test_history_integrity.py"
+  ]
+}

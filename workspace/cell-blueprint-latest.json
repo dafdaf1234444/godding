@@ -1,89 +1,97 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S523",
-  "timestamp": "2026-03-23T18:35:41.801115+00:00",
+  "session": "S525",
+  "timestamp": "2026-03-23T20:08:34.131961+00:00",
   "metrics": {
-    "lessons": 1239,
+    "lessons": 1251,
     "principles": 263,
     "beliefs": 21,
     "frontiers": 13
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-SETUP-S525",
+      "status": "ACTIVE",
+      "scope": "SWARM.md"
+    }
+  ],
   "recent_commits": [
-    "9bf772a5 [S523] chore: sync_state count fix (1238\u21921239L) + session log backfill",
-    "2fc16e0d [S523] feat: genesis orient degradation test \u2014 L-1467 PARTIALLY FALSIFIED, 5 bare imports fixed + grounding injection",
-    "3ef62051 [S522] feat: genesis_extract.py \u2014 3-tier reproduction model, orient dep tree is 36% of tools (L-1475)",
-    "2d211d88 [S522] handoff: F-FRA2 replication + Bayesian audit ECE=0.082 + near-dup detection meta-reflection",
-    "8e9ff117 [S522] handoff: F-FRA2 resolved + bayesian audit ECE=0.082 + concurrent absorption"
+    "22efb491 [S524] feat: PHIL-18 upgraded unverified\u2192partial + PHIL-2 grounded \u2014 arXiv refs",
+    "d5ff2eec [S524] feat: mission constraint test fix (41/41) + OU SDE + L-1490 long-range dependence",
+    "e2840639 [S525] chore: trim L-1489 to 14 lines (FM-31)",
+    "0b339b9b [S525] feat: functional swarm reproduction \u2014 daughter orient at 464KB",
+    "dfc18042 [S525] feat: functional swarm reproduction \u2014 daughter orient at 464KB"
   ],
   "uncommitted": [
-    "M beliefs/PHILOSOPHY.md",
+    "M .cursor/rules/swarm.mdc",
+    "M .cursorrules",
+    "M .github/copilot-instructions.md",
+    "M .windsurfrules",
+    "M AGENTS.md",
+    "M CLAUDE.md",
+    "M GEMINI.md",
+    "M SWARM.md",
+    "M docs/PAPER.md",
+    "M domains/meta/SESSION-TRIGGER.md",
+    "M experiments/epistemology/phil5b-falsification-s525.json",
     "M experiments/inter-swarm/bulletins/swarm.md",
     "M memory/INDEX.md",
-    "M memory/PRINCIPLES.md",
     "M memory/SESSION-LOG.md",
+    "M memory/lessons/L-1480.md",
+    "M memory/lessons/L-1489.md",
+    "M memory/lessons/L-533.md",
+    "M memory/lessons/L-543.md",
     "M memory/lessons/L-555.md",
-    "M memory/lessons/L-556.md",
-    "M tasks/NEXT-ARCHIVE.md",
-    "M tasks/NEXT.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/periodics.json",
-    "M workspace/falsification-debt.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? experiments/epistemology/phil10-falsification-s523.json",
-    "?? experiments/meta/knowledge-state-s522.json",
-    "?? memory/lessons/L-1477.md",
-    "?? memory/lessons/L-1478.md"
+    "M memory/lessons/L-556.md"
   ],
   "untracked_artifacts": [
-    "experiments/epistemology/phil10-falsification-s523.json",
-    "experiments/meta/knowledge-state-s522.json",
-    "memory/lessons/L-1477.md",
-    "memory/lessons/L-1478.md"
+    "experiments/meta/f-soul1-multiplicative-dispatch-s525.json",
+    "experiments/meta/f119-mc-port-pwsh-wrappers-s525.json",
+    "experiments/meta/f119-mission-constraint-regression-s525.json",
+    "experiments/meta/history-integrity-s525.json"
   ],
   "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 69,
+      "gap": 71,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 56,
+      "gap": 58,
       "cadence": 10
     },
     {
       "id": "signal-audit",
-      "gap": 43,
+      "gap": 45,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 43,
+      "gap": 45,
       "cadence": 10
     },
     {
       "id": "history-integrity",
-      "gap": 40,
+      "gap": 42,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
-      "domain": "expert-swarm",
-      "score": 6.0,
-      "collision": false
-    },
-    {
-      "domain": "nk-complexity",
-      "score": 5.7,
-      "collision": false
-    },
-    {
       "domain": "epistemology",
-      "score": 5.6,
+      "score": 8.1,
+      "collision": false
+    },
+    {
+      "domain": "expert-swarm",
+      "score": 6.6,
+      "collision": false
+    },
+    {
+      "domain": "stochastic-processes",
+      "score": 6.2,
       "collision": false
     }
   ]

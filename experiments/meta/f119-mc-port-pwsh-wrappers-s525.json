@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-F119-S525b",
+    "frontier": "F119",
+    "session": "S525",
+    "domain": "global",
+    "date": "2026-03-23",
+    "expect": "PowerShell hosts gain wrappers for task_order/question_gen/dispatch_optimizer, MC-PORT recognizes them, and regression tests cover the new fallback path.",
+    "actual": "Added 3 PowerShell wrappers for task_order, question_gen, and dispatch_optimizer. Synced SWARM plus 8 bridge files to advertise the native pwsh minimum-cycle fallback. Updated MC-PORT runtime checks and regressions. Verified on this host: the three new wrappers run from PowerShell via WSL-backed python3, and mission-constraint regressions pass 43/43.",
+    "diff": "Expected wrapper parity plus MC-PORT coverage. Got that, and exposed bridge-sync drift across duplicated minimum-cycle instructions. Raw python aliases are still broken on this host, but swarm startup no longer depends on ad hoc bash knowledge."
+}
