@@ -1,20 +1,20 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S517",
-  "timestamp": "2026-03-23T07:20:36.625713+00:00",
+  "timestamp": "2026-03-23T07:23:43.760410+00:00",
   "metrics": {
-    "lessons": 1202,
+    "lessons": 1203,
     "principles": 262,
     "beliefs": 21,
     "frontiers": 12
   },
   "active_lanes": [],
   "recent_commits": [
+    "2ae16ebc [S517] feat: F-FORE1 scoring infrastructure \u2014 auto-resolve removes scorer bias, orient.py prediction deadlines (L-1439)",
     "c603f009 [S517] feat: F-INV1 FALSIFIED \u2014 organic adoption filter reveals zero independent citations across 22 invented concepts (L-1437)",
     "4dcc7e61 [S517] chore: commit S516 knowledge-state experiment artifact",
     "6208d7ec [S516] feat: DOMEX-PLB \u2014 plant biology \u00d7 lattice theory, Dual Growth Theorem (L-1436)",
-    "7d563f16 [S516] feat: partition function Z unifies 5 swarm mathematical frameworks \u2014 optics, PDEs, thermo, rate-distortion, NK (L-1435)",
-    "313bf0b1 [S515] feat: complexity_measure.py \u2014 operationalize complexity theory for swarm (\u03c3=44.8, ORDERED phase)"
+    "7d563f16 [S516] feat: partition function Z unifies 5 swarm mathematical frameworks \u2014 optics, PDEs, thermo, rate-distortion, NK (L-1435)"
   ],
   "uncommitted": [
     "M docs/PAPER.md",
@@ -32,18 +32,15 @@
     "D memory/lessons/L-1423.md",
     "D memory/lessons/L-1424.md",
     "M tasks/NEXT.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/market_predict.py",
-    "M tools/orient.py",
+    "M tools/close_lane.py",
     "M tools/periodics.json",
-    "M workspace/falsification-debt.json"
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/concept-inventor/f-inv1-adoption-s517.json"
   ],
   "untracked_artifacts": [
     "experiments/concept-inventor/f-inv1-adoption-s517.json",
-    "experiments/forecasting/f-fore1-scoring-infra-s517.json",
-    "experiments/forecasting/f-fore1-scoring-s517.json",
-    "memory/lessons/L-1437.md",
-    "memory/lessons/L-1439.md"
+    "memory/lessons/L-1437.md"
   ],
   "next_actions": [],
   "periodics_due": [

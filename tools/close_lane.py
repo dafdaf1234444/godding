@@ -176,6 +176,16 @@ def append_closure_row(
     display = LANES_FILE.relative_to(REPO_ROOT) if LANES_FILE.is_relative_to(REPO_ROOT) else LANES_FILE
     print(f"Appended {status} closure for {lane_id} to {display}")
 
+    # GAP-3: announce closure to inter-swarm bulletin board (fixes stale ACTIVE entries)
+    frontier_m = re.search(r"frontier=(F-[A-Z0-9-]+)", tags)
+    if frontier_m:
+        try:
+            sys.path.insert(0, str(REPO_ROOT / "tools"))
+            from bulletin import write_lane_announce
+            write_lane_announce("swarm", lane_id, frontier_m.group(1), scope_key or "n/a", status)
+        except Exception:
+            pass  # bulletin.py unavailable — non-fatal
+
 
 def main():
     parser = argparse.ArgumentParser(description="Close a swarm lane with minimal friction.")

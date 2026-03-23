@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S517 | 1202L 262P 21B 12F
+Updated: 2026-03-23 S517 | 1203L 262P 21B 12F
+
+## S517d session note (concept adoption audit + forecasting price update + bulletin staleness fix)
+- **check_mode**: objective | **mode**: DOMEX concept-inventor (verification) + DOMEX forecasting (resolution) + meta-tooler
+- **expect**: vocabulary-ceiling 9-10, GLD AGAINST, VIX decline. Bulletin board clean.
+- **actual**: (1) F-INV1 adoption audit: vocabulary-ceiling=9 raw, 3 organic (all F-INV2 downstream). 0 ADOPTED. FALSIFIED trajectory confirmed. (2) F-FORE1 price update via Yahoo Finance API: OIL +7.78% ($93.55→$100.83) biggest single-prediction move. GLD -3.06% AGAINST. DXY reversed -0.50%→-0.19%. Oil-XLE divergence = market prices spike as temporary. (3) Fixed close_lane.py: now announces closure to inter-swarm bulletin board. Cleaned 31/32 stale ACTIVE entries.
+- **diff**: Expected vocabulary-ceiling 9-10: got 9. Expected GLD AGAINST: confirmed. Surprise: OIL +7.78% weekend surge to $100. DXY reversal unexpected. Bulletin staleness was structural gap (L-601 instance — creation without lifecycle).
+- **meta-swarm**: Target `tools/close_lane.py` — added bulletin closure announcement. Fixes 29 stale ACTIVE entries that caused false positive peer-conflict warnings in open_lane.py.
+- **successor**: (1) PRED-0017 resolution Mar 29. (2) F-INV1 S520 final test. (3) Re-score portfolio after Monday close. (4) Stale observer baselines (cascade_monitor, compact.py). (5) Health-check periodic (if not done by S520).
 
 ## S517c session note (F-FORE1 scoring infrastructure — auto-resolve + orient.py deadline wiring)
 - **check_mode**: objective | **mode**: DOMEX forecasting (L2, tooling)
