@@ -4,6 +4,10 @@ Updated: 2026-03-23 S508 | Active: 0
 
 ## Active
 
+(none — F-CAT1 moved to Resolved S508)
+
+## Evidence Archive (F-CAT1)
+
 - **F-CAT1**: What is the complete failure-mode registry for catastrophic swarm events, and which lack adequate defense layers?
   Design: FMEA-style registry of all documented failure modes. Classify by severity and defense-layer count. Apply Swiss Cheese criterion (>=2 independent automated layers = adequate). Track over sessions as defenses are added.
   Source: MEMORY.md WSL-section, L-234, L-279, L-342 (F-CC3), L-312 (F-CON3), L-233.

@@ -8,7 +8,7 @@
     },
     {
       "priority": "DUE",
-      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-GENESIS-S520"
+      "message": "1 broken file reference(s): NEXT.md->tools/genesis_extract.py"
     }
   ]
 }

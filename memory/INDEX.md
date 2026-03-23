@@ -1,8 +1,8 @@
 # Memory Index
-Updated: 2026-03-23 | Sessions: 521
+Updated: 2026-03-23 | Sessions: 522
 
 ## What the swarm knows
-- **1231 lessons** in `memory/lessons/L-{NNN}.md`
+- **1237 lessons** in `memory/lessons/L-{NNN}.md`
 - **262 principles** in `memory/PRINCIPLES.md` (latest: P-349 variational-trajectory-optimization from L-1431; P-341..P-348 S514 batch scan)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **13 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 
@@ -34,7 +34,7 @@ Updated: 2026-03-23 | Sessions: 521
 | Meta -- Signal Processing & Routing | 39 | Signal conversion L-660, broadcast routing L-1073, format evolution L-874, three-signal rule, inter-node L-565, signal-to-structural L-1142, self-questioning L-1045. |
 | Meta -- Human Interaction & Authority | 12 | On-ramp L-1092, authority paradox L-994, trust calibration L-858, steerer 3 roles L-371, learn-and-teach L-1052. |
 | Meta -- Integration & Extraction | 28 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532; K→P bottleneck L-1162. |
-| Meta -- Citation Graph Topology | 32 | Hubs, giant component 98.6% L-937, preferential attachment, domain linkage L-958, 2-hop coverage L-967, recombination-as-M3 L-1139. |
+| Meta -- Citation Graph Topology | 33 | Hubs, giant component 98.6% L-937, preferential attachment, domain linkage L-958, 2-hop coverage L-967, recombination-as-M3 L-1139, L-601 hub monopoly 35% L-1470. |
 | Meta -- Cross-Domain Citation & Metrics | 14 | Cross-domain rates 3 definitions L-954, spectral universality L-997, implicit refs (L-574/L-622/L-639). |
 | Meta -- Compaction & Compression | 23 | Compression cycles, proxy-K drift, MDL, compact.py; oracle summaries; proxy-K log-normal L-771; orphan FP L-1159; swarm as compressor L-1046 (L-002/L-106/L-512). |
 | Meta -- Archival & Dark Matter | 40 | INDEX decay L-1111, dark matter L-573/L-1168/L-1169, SESSION-LOG L-979, retention vs accessibility L-1096. |
@@ -42,7 +42,7 @@ Updated: 2026-03-23 | Sessions: 521
 | Meta -- Knowledge & Lesson Quality | 27 | Lesson scoring, QC tools, near-duplicate detection L-309; redundancy audit L-615; decay mechanism-first L-633; Simpson's paradox L-678; yield trajectory L-1163; principle-citation recursion L-1242. |
 | Domain -- Concept Invention | 2 | Concept debt (unnamed patterns as load-bearing structure) L-1263; vocabulary ceiling + epistemic lock L-1266; generative pressure; diagnosis-repair gap; concept_debt_audit.py tool. |
 | Meta -- Belief Testing & Verification | 39 | EAD corrections L-833, grounding checks L-611, epistemic discipline, hallucination grounding, falsification-swarm L-1057, emergence audit L-1113 (L-022/L-243/L-296/L-534). |
-| Meta -- Evaluation & Mission Scoring | 22 | Eval metrics L-928, sufficiency composite, truthfulness audit L-813, mission scoring (L-636/L-1056), underconfidence 8.1:1 L-1133, C1 baseline L-1171. |
+| Meta -- Evaluation & Mission Scoring | 23 | Eval metrics L-928, sufficiency composite, truthfulness audit L-813, mission scoring (L-636/L-1056), underconfidence 8.1:1 L-1133, C1 baseline L-1171, prediction calibration Brier=random L-1469. |
 | Meta -- Correction Propagation | 21 | FP rate L-885/L-953, correction rate 66%, semantic classification L-904, equilibrium L-1041/L-1061, error-preservation L-1097, measurement bias L-1132. |
 | Meta -- Challenge & Belief Auditing | 21 | Challenge mechanism L-534, claim-vs-evidence L-944, PHIL audits, escalation L-866, zombie periodic L-1116. |
 | Meta -- Governance & Compliance Audit | 21 | Targeting gap L-609, claim inflation L-1119, elif masking L-1112, FM-37 level inflation L-1161. |

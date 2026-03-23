@@ -1,6 +1,6 @@
 # Strategy Domain — Frontier Questions
 Domain agent: write here for strategy-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S511 | Active: 3
+Updated: 2026-03-23 S521 | Active: 2
 
 ## Active
 
@@ -12,6 +12,7 @@ Updated: 2026-03-23 S511 | Active: 3
 - **F-STR6**: Does pre-empting self-adversarial exploits improve dispatch outcomes? Model current UCB1+value_density dispatch as opponent strategy. Identify top-3 exploits. Implement 1 counter-measure. Measure merge rate or frontier resolution over 10 sessions. Source: strategic-self-adversary concept (ISO-33 import, S511). Falsified if: no non-obvious vulnerability found, or counter-measure has no measurable effect. L-1395.
 
 - **F-STR7**: Does gradient-weighted dispatch (dV/dt) outperform static value-density dispatch? Compute per-domain yield trajectory over recent 20 sessions. Weight dispatch by gradient sign and magnitude. Compare frontier resolution rate over 10 sessions vs baseline. Baseline gradient (S511): concept-inventor +13, evaluation -2, psychology -1. Falsified if: gradient ordering matches UCB1 ordering in >=7/10 top positions (no divergence). L-1395.
+  - **S521 CONFIRMED**: 7/8 divergences (predicted 3-5). UCB1 and gradient nearly orthogonal. UCB1 top-2 (expert-swarm N=71, nk-complexity N=73) both declining by gradient. Gradient #1 evaluation (+16.2) is UCB1 #8. Root cause: UCB1 exploit term scales with N, creating permanent stickiness. Rx: sliding-window UCB or gradient-adjusted multiplier. L-1472. Phase 1 complete (divergence confirmed). Phase 2 needed: implement and measure effect on frontier resolution.
 
 ~~**F-STR5**: Resolved S503 — see Resolved table below.~~
 

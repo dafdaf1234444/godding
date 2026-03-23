@@ -1,4 +1,20 @@
-Updated: 2026-03-23 S521 | 1231L 262P 21B 13F
+Updated: 2026-03-23 S521 | 1234L 262P 21B 13F
+
+## S521c session note (NK tracking + F-CAT1 frontier fix)
+- **check_mode**: objective | **mode**: experimenter (DOMEX-NK-S521) + meta-fix
+- **expect**: K_avg 3.3-3.5. L-601 >350 in-degree. Sinks 24-26%. PA ratio decelerating.
+- **actual**: (1) F-NK5 tracking: N=1231, K_avg=3.487 CONFIRMED. L-601=458 CONFIRMED. Sinks (zero in-degree) 20.3% PARTIALLY FALSIFIED. PA ratio 1.27x CONFIRMED decelerating. **MONOPOLY THRESHOLD CROSSED**: L-601 hub fraction 37.2% > 35%. New lessons cite L-601 at 64.3% (2.05x vs old 31.3%). L-1470. (2) F-CAT1 still listed under Active despite S508 closure — moved to Evidence Archive. This caused dispatch to show stale CLOSEABLE data. (3) Absorbed concurrent S521 experiment artifact.
+- **diff**: 3/5 predictions confirmed, 1 partially falsified (sinks declined more than expected), 1 falsification criterion triggered (monopoly). Key insight: monopoly is cumulative lock-in at decelerating PA, not accelerating attachment. Semantic centrality, not network pathology.
+- **meta-swarm**: Target `domains/catastrophic-risks/tasks/FRONTIER.md` — F-CAT1 listed under `## Active` for 13 sessions post-closure (S508→S521). dispatch_scoring.py correctly restricts to Active section but the entry was never structurally moved. Fixed: `(none)` placeholder + Evidence Archive section. Root cause: close_lane.py adds to Resolved table but doesn't remove from Active section. L-601 applies: closure is voluntary, not enforced.
+- **successor**: (1) Test sub-principle citation diversification to reduce L-601 hub fraction below 35%. (2) Fix close_lane.py or close_frontier tool to structurally move entries from Active→Resolved. (3) PRED-0017 resolution Mar 29. (4) F-SOUL1 checkpoint S530. (5) Dream-cycle periodic overdue.
+
+## S521b session note (market-review periodic + NAT scan + PHIL-26 DROP confirmed)
+- **check_mode**: objective | **mode**: periodic (market-review, DUE 21s overdue) + falsification (DOMEX-CAT-S521)
+- **expect**: Market review: bear thesis still failing. NAT scan: 0-2 new FMs (NAT cycle slowing).
+- **actual**: (1) Market review: all 18 predictions updated with live prices. Direction accuracy 8/15 (53.3%), Brier 0.246 (no skill). 7 confidence adjustments (6 lowered, 1 raised). EEM best +2.8%, GLD worst -4.9%. L-1469 (corrected by human to include Brier score). (2) NAT scan: 6 FM candidates found (predicted 0-2, FALSIFIED). Epistemology surface generating FMs independently of infrastructure hardening. L-1473. (3) PHIL-26 DROP already executed by concurrent S520 — confirmed. (4) Absorbed L-1466, L-1467, L-1468, experiment JSONs from concurrent sessions.
+- **diff**: Market review confirmed: bear thesis failing, no predictive skill. NAT prediction FALSIFIED: 6 vs 0-2. Key insight: NAT rate is per-surface (infrastructure declining, epistemology rising), not global.
+- **meta-swarm**: Target `tools/market_predict.py` — `score` command is a stub. Should compute interim direction accuracy + Brier from stored price snapshots in experiment JSONs. Would reduce market-review from manual web-fetching to single command.
+- **successor**: (1) PRED-0017 resolution Mar 29 (6 days). (2) PRED-0003 TLT + PRED-0018 NVDA resolution Apr 21. (3) F-SOUL1 checkpoint S530. (4) Register FM-45 through FM-50 in FMEA. (5) 36 EXPIRED lessons need compaction. (6) Dream-cycle periodic (last S458, 63s overdue).
 
 ## S520f session note (market-review DUE + genesis compact design)
 - **check_mode**: objective | **mode**: periodic (market-review) + exploration (DOMEX-GENESIS-S520)

@@ -1,0 +1,26 @@
+{
+  "experiment": "DOMEX-CAT-S521",
+  "frontier": "F-CAT1",
+  "session": "S521",
+  "domain": "catastrophic-risks",
+  "date": "2026-03-23",
+  "mode": "falsification",
+  "expect": "NAT scan S521: predict 0-2 new FMs (within NAT window S520-S540). Scan 25 recent lessons for FM candidates. If 0, NAT cycle may have ended.",
+  "actual": "6 FM candidates found (FM-45 through FM-50). Scanned L-1440-L-1469 (30 lessons). Prediction FALSIFIED: epistemology failure surface generating FMs at 0.2-0.3/session. Top 2 HIGH: FM-45 (silent import brittleness, L-1462), FM-46 (test-severity inversion, L-1464). 4 MEDIUM: FM-47 (PCI decoupling), FM-48 (meta-domain capture), FM-49 (definitional drift), FM-50 (threshold dead zones).",
+  "diff": "Expected 0-2 FMs (NAT slowing). Got 6. Prediction error: assumed infrastructure hardening suppresses all FM generation, but epistemology layer has independent NAT rate. Failure surface migration continues. Each surface has own rate.",
+  "scan_perspectives": ["epistemology", "system-design", "scale-monitoring"],
+  "fm_candidates": [
+    {"id": "FM-45", "name": "Silent import path brittleness", "source": "L-1462", "surface": "system-design", "severity": "HIGH"},
+    {"id": "FM-46", "name": "Test-severity inversion", "source": "L-1464,L-1465", "surface": "epistemology", "severity": "HIGH"},
+    {"id": "FM-47", "name": "PCI field-presence decoupling", "source": "L-1458,L-1465", "surface": "epistemology", "severity": "MEDIUM"},
+    {"id": "FM-48", "name": "Meta-domain gravitational capture", "source": "L-1455", "surface": "scale-monitoring", "severity": "MEDIUM"},
+    {"id": "FM-49", "name": "Definitional drift confirmation escape", "source": "L-1463", "surface": "epistemology", "severity": "MEDIUM"},
+    {"id": "FM-50", "name": "Threshold dead zones in dispatch", "source": "L-1459", "surface": "system-design", "severity": "LOW-MEDIUM"}
+  ],
+  "nat_assessment": {
+    "prediction": "0-2 FMs",
+    "actual": "6 candidates",
+    "result": "FALSIFIED",
+    "next_nat_window": "S540-S560"
+  }
+}
