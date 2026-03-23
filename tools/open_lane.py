@@ -450,6 +450,36 @@ def main():
                 print(msg, file=sys.stderr)
                 sys.exit(1)
 
+    # L-1347 hub-fraction warning: detect L-601 monopoly in recent lessons
+    # At 40% hub fraction, preferential attachment is self-reinforcing.
+    # Warn when creating lanes, so authors consider citing next-tier hubs directly.
+    try:
+        lessons_dir = REPO_ROOT / "memory" / "lessons"
+        if lessons_dir.exists():
+            recent_lessons = sorted(lessons_dir.glob("L-*.md"), key=lambda p: p.stat().st_mtime, reverse=True)[:50]
+            l601_count = 0
+            cites_count = 0
+            for lf in recent_lessons:
+                text = lf.read_text(encoding="utf-8", errors="replace")
+                for line in text.splitlines():
+                    if line.startswith("Cites:") or line.startswith("**Cites**:"):
+                        cites_count += 1
+                        if "L-601" in line:
+                            l601_count += 1
+                        break
+            if cites_count >= 10:
+                hub_pct = l601_count / cites_count
+                if hub_pct > 0.30:
+                    alt_hubs = "L-526, L-912, L-613, L-599"
+                    print(
+                        f"NOTICE: L-601 hub concentration {hub_pct:.0%} in recent {cites_count} lessons "
+                        f"(>{30}% threshold, L-1347). Consider citing specific sub-principles "
+                        f"({alt_hubs}) directly instead of L-601 when applicable.",
+                        file=sys.stderr,
+                    )
+    except Exception:
+        pass
+
     # PHIL-22 enforcement: L3+ lanes must state self-application (L-950, SIG-48)
     # L-949: advisory display = 0% adoption; blocking enforcement = near-100%
     if args.level in ("L3", "L4", "L5") and not args.self_apply:

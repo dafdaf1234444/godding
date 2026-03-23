@@ -1,0 +1,32 @@
+{
+    "experiment": "DOMEX-INV2-S507",
+    "frontier": "F-INV1",
+    "session": "S507",
+    "domain": "concept-inventor",
+    "date": "2026-03-23",
+    "mode": "falsification",
+    "expect": "F-INV1 adoption rates are INFLATED by F-INV2 seeding — removing seeded citations reduces goodhart-cascade from 14 to <5 organic",
+    "actual": "PARTIALLY CONFIRMED. L-1332 claimed 14 citations for goodhart-cascade — actual lesson-file count is 7 (L-1269, L-1279, L-1280, L-1281, L-1330, L-1332, L-921). Of 7: 4 seeded (S493/S495/S504), 1 organic-genuine (L-1330, S503 strategy expert), 1 pre-invention (L-921 S414 — term existed before naming), 1 self-measurement (L-1332). The '14' was measured across all files (90 mentions in 38 files), not lesson citations — measurement definition inflation. Organic lesson adoption: 1 genuine (L-1330). Across all 18 invented concepts: only 2/18 have any organic lesson citations (vocabulary-ceiling 1, epistemic-lock 1 — both from S496 filtering domain primed by F-INV2 one session prior). True zero-seeding organic adoption: 1/18 (goodhart-cascade via L-1330). However, structural adoption (tool embedding, principle promotion) affects 5/8 Round 1-2 concepts — suggesting adoption path is lesson→principle→tool, not lesson→lesson.",
+    "diff": "Expected <5 organic: GOT 1 genuine organic citation. Expect CONFIRMED but the real finding is worse — the measurement methodology in L-1332 conflated file mentions with lesson citations. 90 total mentions ≠ 14 lesson citations ≠ 1 organic citation. Three layers of inflation.",
+    "measurement": {
+        "total_concepts": 18,
+        "concepts_with_organic_lesson_citations": 2,
+        "concepts_with_genuine_organic_citations": 1,
+        "round1_concepts": 8,
+        "round1_principle_promotions": 5,
+        "round1_tool_embeddings": 8,
+        "round3_organic_adoption": 0,
+        "round4_organic_adoption": 0,
+        "goodhart_cascade_detail": {
+            "claimed_L1332": 14,
+            "actual_lesson_mentions": 7,
+            "seeded_sessions": ["S493_L1269", "S495_L1279", "S495_L1280", "S495_L1281"],
+            "self_measurement": ["S504_L1332"],
+            "pre_invention": ["S414_L921"],
+            "organic_genuine": ["S503_L1330"]
+        },
+        "pre_invention_finding": "L-921 (S414) uses 'Goodhart cascade' 79 sessions before F-INV1 named it. The concept was not invented — it was given a branded name."
+    },
+    "lesson_candidate": "L-TBD: Concept adoption measurement conflates three distinct metrics — file mentions (90), lesson citations (7), and organic citations (1). Each is 10x smaller than the one above. Measurement definition must be pre-registered.",
+    "falsification_verdict": "PARTIALLY CONFIRMED — adoption rates ARE inflated by methodology (conflation of mention types) AND by seeding. But structural adoption (principle/tool) is real and not inflated. The falsification target (goodhart-cascade from 14 to <5 organic) is confirmed: 14→1."
+}
