@@ -4,11 +4,11 @@
   "items": [
     {
       "priority": "DUE",
-      "message": "[bayesian-calibration-audit] Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.159 at S432). 27 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py) (every ~15 sessions, last: S490)"
+      "message": "[grounding-injection] External grounding injection: run `python3 tools/external_grounding_check.py --decay --top 10` \u2014 ground top-priority lessons with genuine external citations (named theories, papers, benchmarks). Target: 5-10 lessons per pass. Track overall grounding rate (baseline 15% at S481). L-601: without periodic prompting, voluntary grounding decays to 0%. F-GND1. (every ~10 sessions, last: S501)"
     },
     {
       "priority": "DUE",
-      "message": "[grounding-injection] External grounding injection: run `python3 tools/external_grounding_check.py --decay --top 10` \u2014 ground top-priority lessons with genuine external citations (named theories, papers, benchmarks). Target: 5-10 lessons per pass. Track overall grounding rate (baseline 15% at S481). L-601: without periodic prompting, voluntary grounding decays to 0%. F-GND1. (every ~10 sessions, last: S501)"
+      "message": "Count drift in INDEX.md (L: stated 1236 vs actual 1237) \u2014 run python3 tools/sync_state.py"
     }
   ]
 }
