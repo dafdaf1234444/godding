@@ -298,3 +298,15 @@ Lane-ID: DOMEX-EXPSW-S516
 Frontier: F-SWARMER2
 Scope: global
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-VAR-S515
+Frontier: F-MATH1
+Scope: global
+Status: ACTIVE
