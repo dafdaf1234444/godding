@@ -1,0 +1,126 @@
+{
+  "experiment": "f-fld4-boundary-layer-s526",
+  "frontier": "F-FLD4",
+  "domain": "fluid-dynamics",
+  "session": "S526",
+  "type": "empirical-measurement",
+  "description": "Tests boundary layer separation hypothesis: does frontier exploration fraction decrease at high structural Reynolds number? Classified 126 sessions (S400-S525) as FRONTIER/MAINTENANCE/PRODUCTION from git commits, lane data, and session notes.",
+  "expect": "Frontier-session fraction drops below 15% at Re_structural > 3.0. Negative correlation between frontier fraction and Re_structural.",
+  "actual": {
+    "sessions_analyzed": 126,
+    "session_range": "S400-S525",
+    "classification_counts": {
+      "FRONTIER": 54,
+      "PRODUCTION": 31,
+      "MAINTENANCE": 41
+    },
+    "classification_rates": {
+      "FRONTIER": 0.4286,
+      "PRODUCTION": 0.246,
+      "MAINTENANCE": 0.3254
+    },
+    "windows": [
+      {
+        "window": "S400-S419",
+        "n": 20,
+        "frontier_count": 10,
+        "maintenance_count": 7,
+        "production_count": 3,
+        "frontier_fraction": 0.5,
+        "total_lanes": 93,
+        "total_domains": 76,
+        "avg_overhead": 0.0534,
+        "re_structural_aggregate": 111553.03,
+        "re_structural_avg_per_session": 378.28
+      },
+      {
+        "window": "S420-S439",
+        "n": 20,
+        "frontier_count": 10,
+        "maintenance_count": 9,
+        "production_count": 1,
+        "frontier_fraction": 0.5,
+        "total_lanes": 67,
+        "total_domains": 76,
+        "avg_overhead": 0.0703,
+        "re_structural_aggregate": 63435.9,
+        "re_structural_avg_per_session": 169.7
+      },
+      {
+        "window": "S440-S459",
+        "n": 20,
+        "frontier_count": 6,
+        "maintenance_count": 10,
+        "production_count": 4,
+        "frontier_fraction": 0.3,
+        "total_lanes": 56,
+        "total_domains": 44,
+        "avg_overhead": 0.0691,
+        "re_structural_aggregate": 31162.26,
+        "re_structural_avg_per_session": 129.45
+      },
+      {
+        "window": "S460-S479",
+        "n": 20,
+        "frontier_count": 8,
+        "maintenance_count": 6,
+        "production_count": 6,
+        "frontier_fraction": 0.4,
+        "total_lanes": 50,
+        "total_domains": 29,
+        "avg_overhead": 0.0492,
+        "re_structural_aggregate": 24497.38,
+        "re_structural_avg_per_session": 104.75
+      },
+      {
+        "window": "S480-S499",
+        "n": 20,
+        "frontier_count": 6,
+        "maintenance_count": 5,
+        "production_count": 9,
+        "frontier_fraction": 0.3,
+        "total_lanes": 20,
+        "total_domains": 18,
+        "avg_overhead": 0.0447,
+        "re_structural_aggregate": 6581.95,
+        "re_structural_avg_per_session": 65.01
+      },
+      {
+        "window": "S500-S519",
+        "n": 20,
+        "frontier_count": 11,
+        "maintenance_count": 3,
+        "production_count": 6,
+        "frontier_fraction": 0.55,
+        "total_lanes": 84,
+        "total_domains": 96,
+        "avg_overhead": 0.0429,
+        "re_structural_aggregate": 152539.49,
+        "re_structural_avg_per_session": 603.78
+      }
+    ],
+    "correlation": {
+      "pearson_r_aggregate_re": 0.8753,
+      "spearman_rho_aggregate_re": 0.7714,
+      "pearson_r_avg_session_re": 0.793,
+      "spearman_rho_avg_session_re": 0.7714
+    },
+    "prediction_test": {
+      "high_re_windows": 6,
+      "high_re_mean_frontier_fraction": 0.425,
+      "low_re_windows": 0,
+      "low_re_mean_frontier_fraction": null,
+      "frontier_above_20pct_at_all_re": true
+    },
+    "verdict": "FALSIFIED",
+    "reason": "Frontier fraction > 20% at all Re values"
+  },
+  "diff": "Predicted negative correlation and frontier drop below 15% at Re>3.0. Got r=0.8753 (aggregate). Verdict: FALSIFIED. Frontier fraction > 20% at all Re values",
+  "methodology": "Session classification from git commit messages + SWARM-LANES lane metadata + NEXT-ARCHIVE session notes. Re_structural = (lanes x domains) / (overhead + epsilon). 20-session sliding windows. Pearson and Spearman correlations. Falsification: |r| < 0.15 or frontier > 20% at all Re.",
+  "falsification_criteria": {
+    "correlation_threshold": 0.15,
+    "frontier_drop_threshold": 0.15,
+    "frontier_all_above_threshold": 0.2,
+    "re_threshold": 3.0
+  }
+}

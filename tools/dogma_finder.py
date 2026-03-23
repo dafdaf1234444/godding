@@ -46,6 +46,7 @@ PHIL = REPO / "beliefs" / "PHILOSOPHY.md"
 CHALLENGES = REPO / "beliefs" / "CHALLENGES.md"
 PRINCIPLES = REPO / "memory" / "PRINCIPLES.md"
 LESSONS_DIR = REPO / "memory" / "lessons"
+PHIL_ID_RE = r"PHIL-\d+[a-z]*"
 
 
 def _read(path: Path) -> str:
@@ -53,6 +54,30 @@ def _read(path: Path) -> str:
         return path.read_text(encoding="utf-8", errors="replace")
     except Exception:
         return ""
+
+
+def _phil_base_id(phil_id: str) -> str:
+    """Collapse decomposed PHIL claim IDs (for example PHIL-5b -> PHIL-5)."""
+    match = re.match(r"^(PHIL-\d+)[a-z]+$", phil_id, re.I)
+    return match.group(1) if match else phil_id
+
+
+def _inherit_parent_entries(
+    index: dict[str, list], phil_claims: list[dict]
+) -> dict[str, list]:
+    """Propagate parent PHIL claim evidence/challenges to decomposed sub-claims."""
+    inherited = defaultdict(list)
+    for key, entries in index.items():
+        inherited[key].extend(entries)
+    for claim in phil_claims:
+        child_id = claim["id"]
+        parent_id = _phil_base_id(child_id)
+        if parent_id == child_id:
+            continue
+        for entry in index.get(parent_id, []):
+            if entry not in inherited[child_id]:
+                inherited[child_id].append(entry)
+    return inherited
 
 
 # ---------------------------------------------------------------------------
@@ -94,14 +119,22 @@ def parse_phil_claims() -> list[dict]:
     """Parse PHIL-N claims from PHILOSOPHY.md."""
     text = _read(PHIL)
     claims = []
-    # Match both **[PHIL-N]** (inline) and [PHIL-N] (section header) formats
-    pat = re.compile(r"(?:\*\*)?(?:\[PHIL-(\d+)\])(?:\*\*)?\s*(.+?)(?=\n\n|\n(?:\*\*)?(?:\[PHIL-)|\Z)", re.S)
+    # Match both `**[PHIL-N]** statement` and `### heading [PHIL-Na]` formats.
+    pat = re.compile(
+        rf"(?ms)^(?P<header>.*?\[(?P<id>{PHIL_ID_RE})\].*)\n"
+        rf"(?P<body>.*?)(?=^(?:##\s|.*\[{PHIL_ID_RE}\].*)|\Z)",
+    )
     for m in pat.finditer(text):
-        phil_id = int(m.group(1))
-        content = m.group(2).strip()
-        stmt = content.split("\n")[0].strip()
+        phil_id = m.group("id")
+        header = m.group("header").strip()
+        body = m.group("body").strip()
+        stmt = re.sub(rf"\[{PHIL_ID_RE}\]", "", header)
+        stmt = stmt.replace("**", "").strip()
+        stmt = re.sub(r"^#+\s*", "", stmt)
+        stmt = re.sub(r"^\d+[a-z]?\.\s*", "", stmt)
+        content = "\n".join(part for part in (stmt, body) if part).strip()
         claims.append({
-            "id": f"PHIL-{phil_id}",
+            "id": phil_id,
             "statement": stmt,
             "content": content,
             "kind": "philosophy",
@@ -111,26 +144,43 @@ def parse_phil_claims() -> list[dict]:
     table_claims = {}
     for line in text.splitlines():
         m = re.match(
-            r"\|\s*PHIL-(\d+)\s*\|([^|]*)\|([^|]*)\|([^|]*)\|([^|]*)\|",
+            rf"\|\s*(?P<id>{PHIL_ID_RE})\s*\|(?P<claim>[^|]*)\|(?P<type>[^|]*)\|"
+            rf"(?P<grounding>[^|]*)\|(?P<status>[^|]*)\|",
             line.strip(),
         )
         if m:
-            pid = f"PHIL-{m.group(1).strip()}"
-            table_claim_text = m.group(2).strip()
-            claim_type = m.group(3).strip()
-            grounding = m.group(4).strip()
+            pid = m.group("id").strip()
+            table_claim_text = m.group("claim").strip()
+            claim_type = m.group("type").strip()
+            grounding = m.group("grounding").strip()
             # Only accept entries from the Claims table (has valid type values)
             if claim_type in ("axiom", "observed"):
                 table_claims[pid] = {
                     "table_claim": table_claim_text,
                     "type": claim_type,
                     "grounding": grounding,
-                    "status": m.group(5).strip(),
+                    "status": m.group("status").strip(),
                 }
+    existing_ids = {claim["id"] for claim in claims}
+    for pid, table_data in table_claims.items():
+        if pid in existing_ids:
+            continue
+        claims.append({
+            "id": pid,
+            "statement": table_data["table_claim"],
+            "content": table_data["table_claim"],
+            "kind": "philosophy",
+            **table_data,
+        })
     for c in claims:
         if c["id"] in table_claims:
             c.update(table_claims[c["id"]])
-    return claims
+    return [
+        claim
+        for claim in claims
+        if not any(s in claim.get("status", "").upper()
+                   for s in ("DROPPED", "SUPERSEDED"))
+    ]
 
 
 def parse_challenges() -> list[dict]:
@@ -159,7 +209,7 @@ def parse_challenges() -> list[dict]:
     # PHILOSOPHY.md: 4-column | Claim | Session | Challenge | Status |
     text = _read(PHIL)
     pat4 = re.compile(
-        r"\|\s*(PHIL-\d+)\s*\|\s*S(\d+)\s*\|([^|]*)\|([^|]*)\|",
+        rf"\|\s*({PHIL_ID_RE})\s*\|\s*S(\d+)\s*\|([^|]*)\|([^|]*)\|",
         re.M,
     )
     for m in pat4.finditer(text):
@@ -297,18 +347,19 @@ def detect_dogma() -> list[dict]:
     challenged_targets = defaultdict(list)
     for c in challenges:
         target = c["target"].strip()
-        for tid in re.findall(r"(B-?\w*\d+|PHIL-\d+[a-z]?|P-\d+|L-\d+|I\d+)", target):
+        for tid in re.findall(rf"(B-?\w*\d+|{PHIL_ID_RE}|P-\d+|L-\d+|I\d+)", target):
             norm = tid
             m_b = re.match(r"B-(\d+)$", tid)
             if m_b:
                 norm = f"B{m_b.group(1)}"
             challenged_targets[norm].append(c)
-        for tid in re.findall(r"(B-?\d+|PHIL-\d+[a-z]?)", c.get("challenge", "")):
+        for tid in re.findall(rf"(B-?\d+|{PHIL_ID_RE})", c.get("challenge", "")):
             m_b = re.match(r"B-(\d+)$", tid)
             norm = f"B{m_b.group(1)}" if m_b else tid
             if norm not in challenged_targets or \
                c not in challenged_targets[norm]:
                 challenged_targets[norm].append(c)
+    challenged_targets = _inherit_parent_entries(challenged_targets, phil_claims)
 
     findings = []
 
@@ -339,11 +390,6 @@ def detect_dogma() -> list[dict]:
     for p in phil_claims:
         pid = p["id"]
         n_challenges = len(challenged_targets.get(pid, []))
-        if n_challenges == 0:
-            parent_match = re.match(r"(PHIL-\d+)[a-z]$", pid)
-            if parent_match:
-                parent_id = parent_match.group(1)
-                n_challenges = len(challenged_targets.get(parent_id, []))
         if n_challenges == 0:
             # Estimate age from session where claim was added (parse from status or use session number from id)
             age = current_session  # conservative: unchallenged since creation
@@ -389,8 +435,9 @@ def detect_dogma() -> list[dict]:
     phil_types = {p["id"]: p.get("type", "").lower() for p in phil_claims}
     target_outcomes = defaultdict(list)
     for c in challenges:
-        for tid in re.findall(r"(B-?\w+\d+|PHIL-\d+|P-\d+)", c["target"]):
+        for tid in re.findall(rf"(B-?\w+\d+|{PHIL_ID_RE}|P-\d+)", c["target"]):
             target_outcomes[tid].append(c["status"])
+    target_outcomes = _inherit_parent_entries(target_outcomes, phil_claims)
     for tid, outcomes in target_outcomes.items():
         resolved = [o for o in outcomes if o != "OPEN"]
         if len(resolved) >= 2:
@@ -451,7 +498,7 @@ def detect_dogma() -> list[dict]:
     for c in challenges:
         if "REFINE" in c.get("status", "").upper() or \
            "REFINED" in c.get("challenge", "").upper():
-            for tid in re.findall(r"(B-?\w+\d+|PHIL-\d+|P-\d+)", c["target"]):
+            for tid in re.findall(rf"(B-?\w+\d+|{PHIL_ID_RE}|P-\d+)", c["target"]):
                 refine_counts[tid] += 1
     for tid, count in refine_counts.items():
         if count >= 2:
