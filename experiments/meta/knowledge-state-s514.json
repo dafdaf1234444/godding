@@ -411,7 +411,7 @@
     },
     {
       "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
-      "result": "5/5 different (gap-ranked: ['claude-code', 'mathematics', 'protocol-engineering', 'cryptocurrency', 'guesstimates'], UCB1: ['thermodynamics', 'filtering', 'expert-swarm', 'nk-complexity', 'concept-inventor'])",
+      "result": "5/5 different (gap-ranked: ['claude-code', 'protocol-engineering', 'mathematics', 'cryptocurrency', 'guesstimates'], UCB1: ['thermodynamics', 'filtering', 'expert-swarm', 'nk-complexity', 'concept-inventor'])",
       "pass": true,
       "threshold": "\u22652/5"
     }
