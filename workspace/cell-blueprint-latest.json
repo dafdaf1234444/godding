@@ -1,62 +1,55 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S505",
-  "timestamp": "2026-03-23T03:30:29.483377+00:00",
+  "timestamp": "2026-03-23T03:36:12.594006+00:00",
   "metrics": {
-    "lessons": 1211,
+    "lessons": 1213,
     "principles": 252,
     "beliefs": 21,
-    "frontiers": 11
+    "frontiers": 12
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-OPS-S506",
+      "lane": "DOMEX-SOUL-S506",
       "status": "ACTIVE",
-      "scope": "domains/operations-research/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-EXPSW-S506",
-      "status": "ACTIVE",
-      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
+      "scope": ""
     }
   ],
   "recent_commits": [
+    "90516c89 [S505] feat: PHIL-8 PARTIALLY FALSIFIED (first non-CONFIRMED in 505s) + science quality periodic (33.5% stalled)",
     "b0f9de79 [S505] fix: sync_state count drift 1210\u21921211L",
     "c055e12e [S505] feat: same-session concept testing \u2014 phloem-gradient 1.87x (FALSIFIED \u22653x), fork-finality null + L-1318 stderr guard",
     "e99e6671 [S505] feat: DOMEX bundle \u2014 FM-41 FMEA tracking drift fix (UNMITIGATED 4\u21921) + 3 topological concepts + B6 retest",
-    "80d09578 [S505] feat: dogma finder clarity \u2014 epistemic type awareness separates axioms from empirical claims",
-    "4d556572 [S504] feat: NK tracking artifact + concept invention artifact + NEXT.md archival + state sync"
+    "80d09578 [S505] feat: dogma finder clarity \u2014 epistemic type awareness separates axioms from empirical claims"
   ],
   "uncommitted": [
-    "M beliefs/PHILOSOPHY.md",
-    "M docs/HUMAN-GUIDE.md",
-    "M domains/meta/SESSION-TRIGGER.md",
-    "M experiments/compact-citation-cache.json",
-    "M experiments/compact-lesson-cache.json",
-    "M experiments/meta/knowledge-state-s502.json",
-    "M experiments/meta/knowledge-state-s504.json",
+    "M docs/PAPER.md",
+    "M domains/expert-swarm/tasks/FRONTIER.md",
+    "M experiments/meta/knowledge-state-s505.json",
+    "M memory/INDEX.md",
+    "M memory/lessons/L-1337.md",
     "M tasks/NEXT.md",
     "M tasks/SIGNALS.md",
     "M tasks/SWARM-LANES.md",
-    "M tools/dogma_finder.py",
-    "D tools/experiments/operations-research/f-ops1-wip-limit.json",
-    "M tools/orient_sections.py",
-    "M tools/periodics.json",
-    "M tools/science_quality.py",
+    "M tools/orient.py",
+    "M tools/synthetic-steerers/signal-history.json",
+    "M workspace/cell-blueprint-latest.json",
+    "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json",
-    "?? experiments/expert-swarm/f-swarmer2-gap3-s506.json",
-    "?? experiments/meta/knowledge-state-s505.json",
-    "?? experiments/meta/phil8-falsification-s505.json",
-    "?? experiments/meta/science-quality-s505.json"
+    "?? experiments/meta/science-quality-s506.json",
+    "?? memory/lessons/L-1342.md",
+    "?? memory/lessons/L-1343.md",
+    "?? memory/lessons/L-1344.md",
+    "?? memory/lessons/L-1345.md",
+    "?? memory/lessons/L-1346.md"
   ],
   "untracked_artifacts": [
-    "experiments/expert-swarm/f-swarmer2-gap3-s506.json",
-    "experiments/meta/knowledge-state-s505.json",
-    "experiments/meta/phil8-falsification-s505.json",
-    "experiments/meta/science-quality-s505.json",
-    "experiments/operations-research/f-ops1-resolution-s506.json",
-    "experiments/operations-research/f-ops1-wip-validation-s506.json",
-    "memory/lessons/L-1336.md"
+    "experiments/meta/science-quality-s506.json",
+    "memory/lessons/L-1342.md",
+    "memory/lessons/L-1343.md",
+    "memory/lessons/L-1344.md",
+    "memory/lessons/L-1345.md",
+    "memory/lessons/L-1346.md"
   ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",

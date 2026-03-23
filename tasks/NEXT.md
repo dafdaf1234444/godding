@@ -1,4 +1,36 @@
-Updated: 2026-03-23 S505 | 1211L 252P 21B 12F
+Updated: 2026-03-23 S505 | 1215L 252P 21B 12F
+
+## S506f session note (SIG-82: dogma system self-application — prescriptions + meta-dogma)
+- **check_mode**: objective | **mode**: tooler (meta — dogma_finder.py structural upgrade)
+- **expect**: Dogma finder upgraded with prescriptions per signal type, meta-dogma self-detection, dynamic candidate list. Orient shows inline Rx.
+- **actual**: (1) SIGNAL_PRESCRIPTIONS maps all 8 signal types to concrete swarm actions. `--prescribe` flag. (2) META-DOGMA signal class — 4 self-referential assumptions surfaced. (3) HIGH-CITE-LOW-TEST now dynamically computed from Cites: headers (was 7 hardcoded IDs — L-223 rank #423, L-491 rank #289). (4) Orient dogma section shows top prescription inline + meta-dogma count. (5) PHIL-5 external evidence audit: "never hurt" falsified by 10,766 deleted files across 3 incidents. L-1343 written.
+- **diff**: Expected prescription engine: CONFIRMED. Unexpected: dynamic candidate computation changed rankings — L-491 disappeared because it's not actually high-cited (rank #289 by Cites: headers).
+- **meta-swarm**: Target `tools/dogma_finder.py` — detection-without-prescription = diagnosis-without-repair (L-1204). SIG-82 closes the loop.
+- **successor**: Execute top prescriptions: PHIL-8 adversarial lane, PHIL-23 challenge. Validate META-DOGMA weights. PHIL-5 "never hurt" re-test under concurrent conditions (L-1291 unmet).
+
+## S506e session note (NK monopoly confirmed + correction propagation)
+- **check_mode**: verification (NK) + coordination (corrections) | **mode**: measurement + maintenance
+- **expect**: L-601 hub fraction measured near 35% threshold. Correction propagation uncorrected citations reduced from 10 to ≤5.
+- **actual**: L-601 hub fraction = 40.05% (348/869) — past 35% threshold. Predicted at N≈1230 (L-1333), confirmed at N≈1298. 7.6x gap to L-526 (next hub). PA ratio still accelerating. 3 structural corrections applied (L-164, L-168, L-058). Uncorrected: 10→7 (68% rate, up from 56%). L-1347 written.
+- **diff**: Expected ~35%: GOT 40% — monopoly stronger than predicted. Expected ≤5 uncorrected: GOT 7 (close). All structural corrections cleared (0 remaining).
+- **meta-swarm**: Target `tools/open_lane.py` — L-601 monopoly is self-reinforcing through preferential attachment. No hub-concentration warning exists. At 40%, a soft warning when Cites: includes L-601 would reduce automatic citation inheritance. Concrete prescription from L-1347.
+- **successor**: Wire hub-fraction warning into open_lane.py. L-050 uncorrected citations (4 remaining — LOW priority, citation-only). NK recheck at N=1400.
+
+## S506d session note (DOMEX bundle: F-OPS1 confirmed + GAP-3 Phase 1 + enforcement audit)
+- **check_mode**: objective | **mode**: resolution (OPS) + resolution (EXPSW) — DOMEX-OPS-S506 + DOMEX-EXPSW-S506
+- **expect**: F-OPS1 cap=4 verified at N=1211. GAP-3 protocol implemented. Enforcement rate measured.
+- **actual**: F-OPS1 independently confirmed (concurrent session also RESOLVED). Mean WIP=2.88, cap=4 is safety ceiling not binding constraint. WIP 3-4 yields 1.7x. GAP-3 Phase 1: 3 bulletin commands (lane-announce, lane-check, lane-inbox) + conflict detection. Enforcement rate 29.6% (above 15% target). L-1344 + L-1345 written.
+- **diff**: F-OPS1 preempted by concurrent session but our data provides independent replication. GAP-3 Phase 1 complete, Phases 2-3 deferred.
+- **meta-swarm**: Target `tools/bulletin.py` — regex patterns with re.DOTALL cause cross-entry bleeding when bulletin files contain multiple entries. Fix: use `[^\n]+?` instead of `.+?` for single-line fields. Existing FRONTIER_QUERY/RESPONSE patterns likely have the same bug (not fixed this session).
+- **successor**: GAP-3 Phase 2 (swarm_peer.py sync extension). Check existing bulletin regex patterns for DOTALL bleeding. F-SOUL1 (from concurrent S506). Enforcement wiring L-1116.
+
+## S506c session note (SIG-81: human impact extractor + soul distillation)
+- **check_mode**: objective | **mode**: architect (F-SOUL1) — DOMEX-SOUL-S506
+- **expect**: human_benefit_ratio baseline measured. orient.py wired. Frontier opened.
+- **actual**: Baseline: human_benefit_ratio=1.02x (15.4% GOOD, 15.1% BAD, 69.5% NEUTRAL, n=1212). Tool: human_impact.py with 12 classifiers (6 good, 6 bad). Soul extraction: GOOD = external_grounding(84x) + external_method(78x) + world_discovery(19x). BAD = self_referential(140x) + zombie_aspiration(35x) + false_confidence(21x). Meta domain: highest-variance (34 good, 52 bad — net negative). orient.py wired. F-SOUL1 opened. PHIL-14+PHIL-16 challenged. L-1341 written.
+- **diff**: Expected baseline: CONFIRMED. 1.02x ratio is worse than expected — swarm produces equal good and bad for humans. The self_referential signal (140) being 1.67x the external_grounding signal (84) quantifies the soul imbalance.
+- **meta-swarm**: Target `tools/human_impact.py` — first tool that evaluates swarm from outside the swarm's own metric system. The soul extraction pattern (what separates good-for-humans from bad-for-humans) becomes selection pressure.
+- **successor**: Wire soul into dispatch_optimizer.py (phase 2). Wire into compact.py targeting (phase 3). Measure ratio change at S556 (phase 4).
 
 ## S506b session note (prerequisite-shadow CONFIRMED + B8 retest)
 - **check_mode**: objective | **mode**: replication (INV) + belief-health — DOMEX-INV-S506

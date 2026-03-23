@@ -1,14 +1,18 @@
 {
   "session": 505,
-  "count": 2,
+  "count": 3,
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1336.md"
+      "message": "Lesson over 20 lines: L-1342.md"
     },
     {
       "priority": "DUE",
-      "message": "1 HIGH-priority uncorrected citation(s) of falsified lessons: L-1336 (10 total uncorrected). Run: python3 tools/correction_propagation.py --classify"
+      "message": "Lesson over 20 lines: L-1343.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-593.md"
     }
   ]
 }

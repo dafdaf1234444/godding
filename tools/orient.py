@@ -332,6 +332,30 @@ def main():
         _futures['trace'] = _pool.submit(section_trace_amplification)
         _futures['stalled'] = _pool.submit(section_stalled_campaigns)
         _futures['cascade'] = _pool.submit(lambda: section_cascade_state(maint_output=""))
+        _futures['stale_exp'] = _pool.submit(check_stale_experiments)
+        _futures['exp_harvest'] = _pool.submit(check_experiment_harvest_gap)
+        # self_app needs session_num which we don't have yet — use orient_checks directly
+        from orient_checks import check_stale_infrastructure as _check_infra_impl
+        _futures['self_app'] = _pool.submit(lambda: _check_infra_impl(500, ROOT, CORE_SWARM_TOOLS, _hcache, 50))
+        # Inline slow sections
+        _futures['grounding_decay'] = _pool.submit(section_grounding_decay)
+        def _run_human_impact():
+            try:
+                from human_impact import scan_lessons as _hi_scan, extract_soul as _hi_soul
+                return _hi_soul(_hi_scan())
+            except Exception:
+                return None
+        _futures['human_impact'] = _pool.submit(_run_human_impact)
+        def _run_concept_debt():
+            try:
+                from concept_debt_audit import audit as _cda
+                import io, contextlib
+                _cda_buf = io.StringIO()
+                with contextlib.redirect_stdout(_cda_buf):
+                    return _cda(json_mode=False)
+            except Exception:
+                return None
+        _futures['concept_debt'] = _pool.submit(_run_concept_debt)
         maint_out = _run_maint()  # run in main thread while others execute
         # Re-submit cascade with actual maint_out if needed
         _futures['cascade_real'] = _pool.submit(lambda mo=maint_out: section_cascade_state(maint_output=mo))
@@ -356,6 +380,12 @@ def main():
     _trace_lines = _futures['trace'].result()
     _stall_lines, _stall_map = _futures['stalled'].result()
     _cascade_lines = _futures['cascade_real'].result()
+    _stale_exp_lines = _futures['stale_exp'].result()
+    _exp_harvest_lines = _futures['exp_harvest'].result()
+    _self_app_result = _futures['self_app'].result()
+    _grounding_decay_result = _futures['grounding_decay'].result()
+    _human_impact_result = _futures['human_impact'].result()
+    _concept_debt_result = _futures['concept_debt'].result()
 
     index_text = _read("memory/INDEX.md")
     next_text = _read("tasks/NEXT.md")
@@ -396,7 +426,16 @@ def main():
     if sess_num:
         _print_lines(section_stale_beliefs(sess_num, check_stale_beliefs))
         _print_lines(_dogma_lines)
-        _print_lines(section_self_application(sess_num, check_stale_infrastructure))
+        # self_application uses pre-computed stale infrastructure
+        _sa_result = _self_app_result or []
+        if _sa_result:
+            print(f"--- Self-application gap ({len(_sa_result)} components not evolved >50s) ---")
+            for si in _sa_result:
+                print(f"  \u2298 {si}")
+            print("  Suggested (pick 1):")
+            for si in _sa_result[:3]:
+                name = si.split("(")[0].strip().replace(" ", "-")
+                print(f"    python3 tools/open_lane.py --lane EVOLVE-{name}-S{sess_num} --session S{sess_num} --expect 'modernize-{name}' --artifact 'tools/{si.split('(')[0].strip()}' --intent 'P14: evolve stale infrastructure'")
 
     # Stale lanes — need return value for trigger manifest
     git_session = _git_session()
@@ -417,7 +456,10 @@ def main():
     _print_lines(section_grounding_audit())
     print(f"\n--- Lesson Grounding Decay (F-GND1 Phase 1) ---")
     try:
-        print(section_grounding_decay())
+        if _grounding_decay_result is not None:
+            print(_grounding_decay_result)
+        else:
+            print("  (grounding decay: no result)")
     except Exception as e:
         print(f"  (grounding decay error: {e})")
     _print_lines(_knowledge_swarm_lines)
@@ -426,31 +468,23 @@ def main():
     _print_lines(_correction_lines)
     _print_lines(_fairness_lines)
 
-    # Human impact / soul extraction (SIG-81, F-SOUL1)
-    try:
-        from human_impact import scan_lessons as _hi_scan, extract_soul as _hi_soul
-        _hi_results = _hi_scan()
-        _hi_soul_data = _hi_soul(_hi_results)
+    # Human impact / soul extraction (SIG-81, F-SOUL1) — pre-computed in parallel
+    _hi_soul_data = _human_impact_result
+    if _hi_soul_data:
         print(f"\n--- Human Impact (F-SOUL1, SIG-81) ---")
         print(f"  {_hi_soul_data['good_pct']}% GOOD / {_hi_soul_data['bad_pct']}% BAD / "
               f"{_hi_soul_data['neutral_pct']}% NEUTRAL | "
               f"benefit ratio {_hi_soul_data['human_benefit_ratio']}x (target >3.0x)")
         for _sp in _hi_soul_data.get("selection_pressure", [])[:2]:
-            print(f"    → {_sp}")
+            print(f"    \u2192 {_sp}")
         print(f"  Run: python3 tools/human_impact.py")
-    except Exception:
-        pass
 
     _print_lines(section_self_inflation())
     _print_lines(_trace_lines)
 
-    # Concept debt (F-INV1, L-1269)
-    try:
-        from concept_debt_audit import audit as _cda
-        import io, contextlib
-        _cda_buf = io.StringIO()
-        with contextlib.redirect_stdout(_cda_buf):
-            _cda_result = _cda(json_mode=False)
+    # Concept debt (F-INV1, L-1269) — pre-computed in parallel
+    _cda_result = _concept_debt_result
+    if _cda_result:
         _named = _cda_result.get("named_concepts", 0)
         _unnamed = _cda_result.get("unnamed_patterns", 0)
         _total = _named + _unnamed
@@ -465,15 +499,22 @@ def main():
                     if _info.get("severity") in ("HIGH", "MEDIUM"):
                         print(f"  ! {_pid}: {_info['ad_hoc_mentions']} mentions [{_info['severity']}]")
             print(f"  Run: python3 tools/concept_debt_audit.py")
-    except Exception:
-        pass
 
     # Stalled campaigns — pre-computed in parallel
     _print_lines(_stall_lines)
     stall_map = _stall_map
 
-    _print_lines(section_stale_experiments(check_stale_experiments))
-    _print_lines(section_experiment_harvest_gap(check_experiment_harvest_gap))
+    # stale_experiments and experiment_harvest_gap — pre-computed in parallel
+    if _stale_exp_lines:
+        print(f"--- Unrun domain experiments ({len(_stale_exp_lines)}) ---")
+        for e in _stale_exp_lines[:6]:
+            print(f"  \u25cb {e}")
+        print()
+    if _exp_harvest_lines:
+        print(f"--- Experiment harvest gap ({len(_exp_harvest_lines)} domains: \u22655 experiments, 0 lessons) ---")
+        for domain, count in _exp_harvest_lines[:6]:
+            print(f"  \U0001f4e6 {domain} ({count} experiments) \u2014 no lessons extracted yet")
+        print()
     if current_sess_num > 0:
         _print_lines(section_stale_baselines(current_sess_num, check_stale_baselines))
     _print_lines(section_underused_tools(check_underused_core_tools, log_text))

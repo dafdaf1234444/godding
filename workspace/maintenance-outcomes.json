@@ -8942,7 +8942,7 @@
     },
     {
       "session": 505,
-      "timestamp": "2026-03-23T03:33:14Z",
+      "timestamp": "2026-03-23T03:37:11Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -8988,8 +8988,10 @@
         },
         "check_lessons": {
           "fired": true,
-          "count": 2,
+          "count": 4,
           "severities": [
+            "DUE",
+            "DUE",
             "DUE",
             "NOTICE"
           ]
@@ -9013,8 +9015,9 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 5,
+          "count": 6,
           "severities": [
+            "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -9037,11 +9040,9 @@
           ]
         },
         "check_swarm_coordinator": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -9158,11 +9159,9 @@
           "severities": []
         },
         "check_claim_gc": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_correction_propagation": {
           "fired": false,
@@ -9227,30 +9226,26 @@
           "severities": []
         },
         "check_memory_md_size": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_scale_waypoints": {
           "fired": true,
-          "count": 4,
+          "count": 3,
           "severities": [
-            "NOTICE",
             "NOTICE",
             "NOTICE",
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": false,
-          "count": 0,
-          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 25,
-        "DUE": 2,
-        "PERIODIC": 5
+        "NOTICE": 24,
+        "DUE": 3,
+        "PERIODIC": 6
       }
     }
   ],
