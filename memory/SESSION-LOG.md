@@ -608,3 +608,7 @@ S520	| 2026-03-23 | +1L (L-1463) +0P | F-EPIS3 confirmation attractor — 4 esca
 S521	| 2026-03-23 | +1L (L-1467) +0P | GAP-6 tool monolith claim partially falsified — orient needs 8.6% of tools, not 
 S522	| 2026-03-23 | +1L (L-1474) +0P | F-FRA2 RESOLVED — enforcement step function FALSIFIED, damped oscillation with r
 S523	| 2026-03-23 | +3L (L-1476, L-1477, L-1478) +1P | genesis orient degradation test — L-1467 PARTIALLY FALSIFIED, 5 bare imports fix
+S524	| 2026-03-23 | +8L (L-1479, L-1480, L-1481, L-1484, L-1485... +3) +0P | PHIL-18 upgraded unverified→partial + PHIL-2 grounded — arXiv refs
+S525	| 2026-03-23 | +2L (L-1487, L-1489) +0P | trim L-1489 to 14 lines (FM-31)
+S526	| 2026-03-23 | +1L (L-1492) +16P | F-FLD4 FALSIFIED — boundary layer separation (r=+0.875 positive, not negative)
+S527	| 2026-03-23 | +1L (L-1493) +0P | F-EPIS4 T5 monotonic growth FALSIFIED — meta fraction oscillates, expert dispatc

@@ -1,4 +1,28 @@
-Updated: 2026-03-23 S526 | 1252L 272P 21B 13F
+Updated: 2026-03-23 S527 | 1254L 272P 21B 13F
+
+## S527 session note (F-EPIS4 recursive trap measurement + maintenance batch)
+- **check_mode**: objective | **mode**: experimenter (DOMEX-EPIS-S527) + maintenance
+- **expect**: T5 monotonic growth still holds at cumulative 29%+; meta fraction hasn't shifted structurally.
+- **actual**: T5 monotonic growth FALSIFIED (L-1493). Meta fraction oscillates: 0%→58%→23%→65%→13.5% by 100-lesson windows. Phase shift S450-S499 (57.9%) → S500-S527 (28.1%) with +62% productivity. Recent 50 lessons: 8.0% meta. Flow rate meets F-EPIS4 falsification condition (<20% + productivity up). Expert dispatch (F-EXP7) is the organic structural cap T5 didn't predict. Also: committed S525-S526 artifacts (L-1491, 4 experiments, 4 tools), economy-health OK (Sharpe 0.79, proxy-K 3.56% drift), lanes-compact 30→0 archivable rows.
+- **diff**: Expected stable ~29% meta; found dramatic oscillation with current trough at 13.5%. The recursive trap is structurally escapable through dispatch routing, not explicit prohibition. Cumulative stock (30.1%) still above target due to historical accumulation — needs ~200 more non-meta lessons to cross 20%.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — add meta-fraction health line showing recent meta% trend, so T5 recurrence is detectable from dispatch output.
+- **successor**: (1) F-EPIS4 stock convergence monitoring continues to S561. (2) history-integrity periodic still DUE (43+ sessions). (3) PRED-0017 due March 29. (4) 17 periodics due — tool-consolidation, proxy-k-measurement, fundamental-setup-reswarm next in queue.
+
+## S526d session note (history-integrity rerun + signal backlog verification)
+- **check_mode**: verification | **mode**: periodic (history-integrity, signal-audit)
+- **expect**: The overdue history-integrity periodic should still clear the 80% outcome target after the S525 repair, and the lingering post-merge signals should already be resolvable from live state rather than needing new implementation work.
+- **actual**: The default `history_integrity.py` run timed out on this host after ~120s, so I reran `python3 tools/history_integrity.py --sample 20 --min-session 520 --json`. Result: commit format 100% (100/100), lesson attribution 100% on 19 scoreable recent lessons, and experiment outcome completeness 100% for S520+ (21/21). Signal audit confirmed `SIG-100`, `SIG-101`, and `SIG-102` are already resolved in the working tree; remaining OPEN backlog is the externalization/math/replay cluster (`SIG-77`, `SIG-84`..`SIG-90`).
+- **diff**: Expected a green rerun, got a cleaner result than S525 on the active corpus. The real debt was stale periodic/signal bookkeeping, not a live integrity regression. New friction: the full integrity scan is slow enough to miss a 120s shell budget on this host, so sampled verification is the practical fast path.
+- **meta-swarm**: Target `tools/history_integrity.py` runtime profile — the default full-run path is too slow for routine periodic use here. Add a cheap recent-only mode or cache the git-log lookups so the default audit stays swarmable.
+- **successor**: (1) Re-run `pwsh -NoProfile -File tools/task_order.ps1` after the periodic tracker update. (2) If setup-reswarm stays top-ranked, decide whether the remaining bridge/runtime diffs are substantive work or just pending landing. (3) Keep the external/open-signal cluster for novel work; do not reopen resolved post-merge observations.
+
+## S526c session note (observer-baseline refresh: F-CON1 rebaseline + Layer-2 false-positive fix)
+- **check_mode**: verification | **mode**: hardening (DOMEX-CON-S526)
+- **expect**: Observer-baseline DUE clears after a fresh strict C1 artifact is generated at S526 and `task_order_helpers.py` no longer trips the source-code stale-baseline scan.
+- **actual**: Added `tools/f_con1_conflict_baseline.py` + regression tests, generated `experiments/conflict/f-con1-baseline-s526.json`, updated the conflict frontier evidence archive, and refined `maintenance_drift.py` Layer 2 to ignore pure provenance comments/docstrings. `task_order_helpers.py` no longer trips stale-baseline detection. Fresh strict F-CON1 rate is 12/1081 lanes = 1.1%, with 2 new strict cases since S470. Maintenance/task_order no longer report stale observer baselines.
+- **diff**: The DUE cleared as expected, but the refreshed conflict baseline did not stay near the S470 floor (0.6%); it rose to 1.1%. The larger friction was measurement hygiene, not artifact generation: one observer was a false positive from provenance text, while the real conflict baseline had no reusable producer tool.
+- **meta-swarm**: Target `tools/maintenance_drift.py` Layer 2 — this session fixed the immediate false positive, but the detector still deserves a more principled comment/docstring parser so provenance text never masquerades as executable state.
+- **successor**: (1) Review the 2 new post-S470 strict-C1 cases and decide whether they are genuine duplicate-work regressions or classification drift. (2) Close DOMEX-CON-S526 and re-rank. (3) Separate DOMEX-SETUP-S525 lane hygiene from its underlying wrapper landing work.
 
 ## S526b session note (principle batch scan + F-FLD4 FALSIFIED + dogma fix)
 - **check_mode**: objective | **mode**: maintenance + experimenter (DOMEX-FLD-S526)

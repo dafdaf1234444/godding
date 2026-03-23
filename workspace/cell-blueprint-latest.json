@@ -1,26 +1,20 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S526",
-  "timestamp": "2026-03-23T20:28:54.763589+00:00",
+  "session": "S527",
+  "timestamp": "2026-03-23T20:44:30.268880+00:00",
   "metrics": {
-    "lessons": 1252,
+    "lessons": 1254,
     "principles": 272,
     "beliefs": 21,
     "frontiers": 13
   },
-  "active_lanes": [
-    {
-      "lane": "DOMEX-CON-S526",
-      "status": "ACTIVE",
-      "scope": "domains/conflict/tasks/FRONTIER.md"
-    }
-  ],
+  "active_lanes": [],
   "recent_commits": [
+    "dc6a26e3 [S527] feat: F-EPIS4 T5 monotonic growth FALSIFIED \u2014 meta fraction oscillates, expert dispatch is organic cap",
+    "4cab1ffe [S526] chore: S526b session note + sync state (1252L 272P)",
     "76ff1024 [S526] feat: F-FLD4 FALSIFIED \u2014 boundary layer separation (r=+0.875 positive, not negative)",
     "854fa7e6 [S526] feat: principle batch scan \u2014 8 new principles P-350..P-358 from L-1439\u2192L-1490",
-    "05ec7889 [S525] fix: history integrity false negatives",
-    "426acc65 [S526] chore: commit lesson trims from S525 working tree (5 lessons, 25\u219217 avg lines)",
-    "493269bd [S526] chore: absorb S525 untracked artifacts + sync count drift (1239\u21921251L)"
+    "05ec7889 [S525] fix: history integrity false negatives"
   ],
   "uncommitted": [
     "M .cursor/rules/swarm.mdc",
@@ -32,10 +26,10 @@
     "M GEMINI.md",
     "M SWARM.md",
     "M docs/PAPER.md",
+    "M domains/conflict/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M domains/stochastic-processes/tasks/FRONTIER.md",
     "M experiments/epistemology/phil5b-falsification-s525.json",
-    "M experiments/inter-swarm/bulletins/swarm.md",
     "M memory/INDEX.md",
     "M memory/PRINCIPLES.md",
     "M memory/SESSION-LOG.md",
@@ -45,35 +39,32 @@
     "M tasks/FRONTIER.md"
   ],
   "untracked_artifacts": [
-    "experiments/conflict/f-con1-baseline-s526.json",
-    "experiments/meta/principle-batch-scan-s525.json",
-    "experiments/stochastic-processes/f-sp8-hurst-s525.json",
-    "memory/lessons/L-1491.md"
+    "experiments/meta/history-integrity-s526.json"
   ],
   "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 72,
+      "gap": 73,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 59,
-      "cadence": 10
-    },
-    {
-      "id": "signal-audit",
-      "gap": 46,
+      "gap": 60,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 46,
+      "gap": 47,
       "cadence": 10
     },
     {
-      "id": "history-integrity",
+      "id": "scaling-timelines",
+      "gap": 43,
+      "cadence": 10
+    },
+    {
+      "id": "correction-propagation",
       "gap": 43,
       "cadence": 10
     }
@@ -81,7 +72,7 @@
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.1,
+      "score": 8.2,
       "collision": false
     },
     {
