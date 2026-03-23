@@ -44,10 +44,12 @@ LANE_ABBREV_TO_DOMAIN: dict[str, str] = {
     "CRYPTOGRAPHY": "cryptography",
     "THERMO": "thermodynamics", "FLT": "filtering", "FORE": "forecasting",
     "EPIS": "epistemology", "INV": "concept-inventor", "EXPSW": "expert-swarm",
-    "DOGMA": "meta",
+    "DOGMA": "meta", "MATH": "mathematics", "VAR": "mathematics",
     "PRO": "protocol-engineering", "README": "meta",
     "SCHED": "meta", "PRIORITY": "meta", "UNIVERSALITY": "meta",
     "PERSONALITY": "psychology",
+    "PLB": "plant-biology", "PLANTLATTICE": "plant-biology",
+    "LATTICE": "mathematics",
 }
 
 COUNCIL_TOPIC_TO_DOMAIN: dict[str, str] = {

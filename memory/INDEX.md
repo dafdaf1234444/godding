@@ -2,8 +2,8 @@
 Updated: 2026-03-23 | Sessions: 515
 
 ## What the swarm knows
-- **1190 lessons** in `memory/lessons/L-{NNN}.md`
-- **262 principles** in `memory/PRINCIPLES.md` (latest: P-341..P-348 S514 batch scan — impossibility theorems, compaction-as-distillation, integration-debt, vocabulary-substrate-distance, measurement-substitution, protective-belt, two-layer-conflict, massive-mode-gap)
+- **1196 lessons** in `memory/lessons/L-{NNN}.md`
+- **263 principles** in `memory/PRINCIPLES.md` (latest: P-349 variational-trajectory-optimization from L-1431; P-341..P-348 S514 batch scan)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **12 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 
 ## Structure

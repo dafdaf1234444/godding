@@ -10,6 +10,7 @@ Replaces the manual pattern of: read NEXT.md + INDEX.md + FRONTIER.md + run main
 Usage:
     python3 tools/orient.py                         # full orientation
     python3 tools/orient.py --brief                 # compact one-screen summary
+    python3 tools/orient.py --coord                 # coordination-only (for concurrent sessions)
     python3 tools/orient.py --classify "build X"   # route a task to domain+personality
 
 Modules (extracted DOMEX-META-S423/S426):
@@ -269,6 +270,7 @@ def _print_lines(lines):
 
 def main():
     brief = "--brief" in sys.argv
+    coord = "--coord" in sys.argv  # coordination-only: skip static analysis (L-1425)
 
     _auto_repair_swarm_md()
 
@@ -306,6 +308,7 @@ def main():
         section_suggested_action, section_cascade_state, section_epsilon_dispatch,
         section_grounding_audit, section_fairness, section_self_inflation,
         section_trace_amplification,
+        section_complexity_phase,
     )
     from external_grounding_check import section_grounding_decay
     from closeable_frontiers import section_closeable_frontiers
@@ -407,7 +410,8 @@ def main():
     sess_num = int(sess_m.group(1)) if sess_m else 0
 
     # Header
-    print(f"=== ORIENT {session} | {counts} ===")
+    mode_tag = " [COORD]" if coord else ""
+    print(f"=== ORIENT {session} | {counts}{mode_tag} ===")
     print(f"Maintenance: {maint_level}")
     print()
 
@@ -420,18 +424,18 @@ def main():
     open_signals = _signals(signals_text, current_session=sess_num)
     _print_lines(section_open_signals(open_signals))
 
-    _print_lines(section_index_coverage(index_text, check_index_coverage))
-    _print_lines(section_precompact_checkpoint(session))
-    _print_lines(section_cell_blueprint(session))
-
-    _print_lines(section_key_state(_key_state(next_text)))
+    if not coord:
+        _print_lines(section_index_coverage(index_text, check_index_coverage))
+        _print_lines(section_precompact_checkpoint(session))
+        _print_lines(section_cell_blueprint(session))
+        _print_lines(section_key_state(_key_state(next_text)))
 
     priorities = _priorities(next_text)
-    _print_lines(section_priorities(priorities))
+    if not coord:
+        _print_lines(section_priorities(priorities))
+        _print_lines(section_frontiers(_frontiers(frontier_text)))
 
-    _print_lines(section_frontiers(_frontiers(frontier_text)))
-
-    if sess_num:
+    if sess_num and not coord:
         _print_lines(section_stale_beliefs(sess_num, check_stale_beliefs))
         _print_lines(_dogma_lines)
         # self_application uses pre-computed stale infrastructure
@@ -453,110 +457,117 @@ def main():
         lane_lines, stale_lanes = section_stale_lanes(current_sess_num, check_stale_lanes)
         _print_lines(lane_lines)
 
-    if sess_num:
+    if sess_num and not coord:
         _print_lines(section_pci(sess_num, compute_pci))
 
-    _print_lines(_prescription_gap_lines)
-    _print_lines(section_level_balance())
-    _print_lines(_succession_lines)
-    _print_lines(section_zombie_carryover())
-    _print_lines(section_closure_metric())
-    _print_lines(section_grounding_audit())
-    print(f"\n--- Lesson Grounding Decay (F-GND1 Phase 1) ---")
-    try:
-        if _grounding_decay_result is not None:
-            print(_grounding_decay_result)
-        else:
-            print("  (grounding decay: no result)")
-    except Exception as e:
-        print(f"  (grounding decay error: {e})")
-    _print_lines(_knowledge_swarm_lines)
-    _print_lines(section_closeable_frontiers(session_num=current_sess_num))
-    _print_lines(section_knowledge_recombination())
-    _print_lines(_correction_lines)
-    _print_lines(_fairness_lines)
+    if not coord:
+        _print_lines(_prescription_gap_lines)
+        _print_lines(section_level_balance())
+        _print_lines(_succession_lines)
+        _print_lines(section_zombie_carryover())
+        _print_lines(section_closure_metric())
+        _print_lines(section_grounding_audit())
+        print(f"\n--- Lesson Grounding Decay (F-GND1 Phase 1) ---")
+        try:
+            if _grounding_decay_result is not None:
+                print(_grounding_decay_result)
+            else:
+                print("  (grounding decay: no result)")
+        except Exception as e:
+            print(f"  (grounding decay error: {e})")
+        _print_lines(_knowledge_swarm_lines)
+        _print_lines(section_closeable_frontiers(session_num=current_sess_num))
+        _print_lines(section_knowledge_recombination())
+        _print_lines(_correction_lines)
+        _print_lines(_fairness_lines)
+        _print_lines(section_complexity_phase())
 
-    # Human impact / soul extraction (SIG-81, F-SOUL1) — pre-computed in parallel
-    _hi_soul_data = _human_impact_result
-    if _hi_soul_data:
-        print(f"\n--- Human Impact (F-SOUL1, SIG-81) ---")
-        _hi_ci = _hi_soul_data.get("benefit_ratio_ci")
-        _hi_ci_str = f" CI:[{_hi_ci['lower']}x,{_hi_ci['upper']}x]" if isinstance(_hi_ci, dict) else ""
-        print(f"  {_hi_soul_data['good_pct']}% GOOD / {_hi_soul_data['bad_pct']}% BAD / "
-              f"{_hi_soul_data['neutral_pct']}% NEUTRAL | "
-              f"benefit ratio {_hi_soul_data['human_benefit_ratio']}x{_hi_ci_str} (target >3.0x)")
-        for _sp in _hi_soul_data.get("selection_pressure", [])[:2]:
-            print(f"    \u2192 {_sp}")
-        print(f"  Run: python3 tools/human_impact.py")
+    if not coord:
+        # Human impact / soul extraction (SIG-81, F-SOUL1) — pre-computed in parallel
+        _hi_soul_data = _human_impact_result
+        if _hi_soul_data:
+            print(f"\n--- Human Impact (F-SOUL1, SIG-81) ---")
+            _hi_ci = _hi_soul_data.get("benefit_ratio_ci")
+            _hi_ci_str = f" CI:[{_hi_ci['lower']}x,{_hi_ci['upper']}x]" if isinstance(_hi_ci, dict) else ""
+            print(f"  {_hi_soul_data['good_pct']}% GOOD / {_hi_soul_data['bad_pct']}% BAD / "
+                  f"{_hi_soul_data['neutral_pct']}% NEUTRAL | "
+                  f"benefit ratio {_hi_soul_data['human_benefit_ratio']}x{_hi_ci_str} (target >3.0x)")
+            for _sp in _hi_soul_data.get("selection_pressure", [])[:2]:
+                print(f"    \u2192 {_sp}")
+            print(f"  Run: python3 tools/human_impact.py")
 
-    # Steerer voices (L-1337, L-1350) — synthetic humans challenging the swarm
-    try:
-        import json as _json_steerer
-        _steerer_hist_path = ROOT / "tools" / "synthetic-steerers" / "signal-history.json"
-        if _steerer_hist_path.exists():
-            _steerer_hist = _json_steerer.loads(_steerer_hist_path.read_text())
-            _recent_signals = []
-            for _sname, _entries in _steerer_hist.items():
-                if _entries:
-                    _last = _entries[-1]
-                    for _sig in _last.get("signals", []):
-                        _recent_signals.append((_sname, _last.get("session", "?"), _sig))
-            if _recent_signals:
-                print(f"\n--- Steerer Voices ({len(_recent_signals)} signals, L-1337) ---")
-                for _sname, _ssess, _sig in _recent_signals[-8:]:
-                    print(f"  [{_sname}] ({_ssess}): {_sig}")
-                _cc_path = ROOT / "tools" / "synthetic-steerers" / "cross-challenges.md"
-                if _cc_path.exists():
-                    print(f"  Cross-challenges: {_cc_path.name}")
-    except Exception:
-        pass
+        # Steerer voices (L-1337, L-1350) — synthetic humans challenging the swarm
+        try:
+            import json as _json_steerer
+            _steerer_hist_path = ROOT / "tools" / "synthetic-steerers" / "signal-history.json"
+            if _steerer_hist_path.exists():
+                _steerer_hist = _json_steerer.loads(_steerer_hist_path.read_text())
+                _recent_signals = []
+                for _sname, _entries in _steerer_hist.items():
+                    if _entries:
+                        _last = _entries[-1]
+                        for _sig in _last.get("signals", []):
+                            _recent_signals.append((_sname, _last.get("session", "?"), _sig))
+                if _recent_signals:
+                    print(f"\n--- Steerer Voices ({len(_recent_signals)} signals, L-1337) ---")
+                    for _sname, _ssess, _sig in _recent_signals[-8:]:
+                        print(f"  [{_sname}] ({_ssess}): {_sig}")
+                    _cc_path = ROOT / "tools" / "synthetic-steerers" / "cross-challenges.md"
+                    if _cc_path.exists():
+                        print(f"  Cross-challenges: {_cc_path.name}")
+        except Exception:
+            pass
 
-    _print_lines(section_self_inflation())
-    _print_lines(_trace_lines)
+        _print_lines(section_self_inflation())
+        _print_lines(_trace_lines)
 
-    # Concept debt (F-INV1, L-1269) — pre-computed in parallel
-    _cda_result = _concept_debt_result
-    if _cda_result:
-        _named = _cda_result.get("named_concepts", 0)
-        _unnamed = _cda_result.get("unnamed_patterns", 0)
-        _total = _named + _unnamed
-        _ratio = _named / _total if _total > 0 else 0
-        _high = _cda_result.get("high_debt", 0)
-        if _ratio < 0.60 or _high > 0:
-            print(f"\n--- Concept Debt (F-INV1) ---")
-            print(f"  Naming ratio: {_ratio:.0%} ({_named}/{_total}) | HIGH/MEDIUM debt: {_high}")
-            if _high > 0:
-                for _pid, _info in sorted(_cda_result.get("unnamed", {}).items(),
-                                           key=lambda x: -x[1].get("ad_hoc_mentions", 0)):
-                    if _info.get("severity") in ("HIGH", "MEDIUM"):
-                        print(f"  ! {_pid}: {_info['ad_hoc_mentions']} mentions [{_info['severity']}]")
-            print(f"  Run: python3 tools/concept_debt_audit.py")
+        # Concept debt (F-INV1, L-1269) — pre-computed in parallel
+        _cda_result = _concept_debt_result
+        if _cda_result:
+            _named = _cda_result.get("named_concepts", 0)
+            _unnamed = _cda_result.get("unnamed_patterns", 0)
+            _total = _named + _unnamed
+            _ratio = _named / _total if _total > 0 else 0
+            _high = _cda_result.get("high_debt", 0)
+            if _ratio < 0.60 or _high > 0:
+                print(f"\n--- Concept Debt (F-INV1) ---")
+                print(f"  Naming ratio: {_ratio:.0%} ({_named}/{_total}) | HIGH/MEDIUM debt: {_high}")
+                if _high > 0:
+                    for _pid, _info in sorted(_cda_result.get("unnamed", {}).items(),
+                                               key=lambda x: -x[1].get("ad_hoc_mentions", 0)):
+                        if _info.get("severity") in ("HIGH", "MEDIUM"):
+                            print(f"  ! {_pid}: {_info['ad_hoc_mentions']} mentions [{_info['severity']}]")
+                print(f"  Run: python3 tools/concept_debt_audit.py")
 
-    # Stalled campaigns — pre-computed in parallel
-    _print_lines(_stall_lines)
-    stall_map = _stall_map
+        # Stalled campaigns — pre-computed in parallel
+        _print_lines(_stall_lines)
+        stall_map = _stall_map
 
-    # stale_experiments and experiment_harvest_gap — pre-computed in parallel
-    if _stale_exp_lines:
-        print(f"--- Unrun domain experiments ({len(_stale_exp_lines)}) ---")
-        for e in _stale_exp_lines[:6]:
-            print(f"  \u25cb {e}")
-        print()
-    if _exp_harvest_lines:
-        print(f"--- Experiment harvest gap ({len(_exp_harvest_lines)} domains: \u22655 experiments, 0 lessons) ---")
-        for domain, count in _exp_harvest_lines[:6]:
-            print(f"  \U0001f4e6 {domain} ({count} experiments) \u2014 no lessons extracted yet")
-        print()
-    if current_sess_num > 0:
-        _print_lines(section_stale_baselines(current_sess_num, check_stale_baselines))
-    _print_lines(section_underused_tools(check_underused_core_tools, log_text))
+        # stale_experiments and experiment_harvest_gap — pre-computed in parallel
+        if _stale_exp_lines:
+            print(f"--- Unrun domain experiments ({len(_stale_exp_lines)}) ---")
+            for e in _stale_exp_lines[:6]:
+                print(f"  \u25cb {e}")
+            print()
+        if _exp_harvest_lines:
+            print(f"--- Experiment harvest gap ({len(_exp_harvest_lines)} domains: \u22655 experiments, 0 lessons) ---")
+            for domain, count in _exp_harvest_lines[:6]:
+                print(f"  \U0001f4e6 {domain} ({count} experiments) \u2014 no lessons extracted yet")
+            print()
+        if current_sess_num > 0:
+            _print_lines(section_stale_baselines(current_sess_num, check_stale_baselines))
+        _print_lines(section_underused_tools(check_underused_core_tools, log_text))
+        _print_lines(_historian_repair_lines)
+        _print_lines(_meta_tooler_lines)
+    else:
+        stall_map = {}
+
+    # Coordination-relevant sections (always shown)
     _print_lines(_cascade_lines)
     _print_lines(section_recent_commits(_commits()))
     _print_lines(section_session_log_tail(log_text, brief))
     _print_lines(section_agent_positions())
     _print_lines(section_concurrent_activity())
-    _print_lines(_historian_repair_lines)
-    _print_lines(_meta_tooler_lines)
 
     _print_lines(section_epsilon_dispatch(current_sess_num))
     _print_lines(section_suggested_action(maint_out, open_signals, stall_map, priorities))
