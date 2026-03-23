@@ -1,2 +1,0 @@
-[console_scripts]
-nk-analyze = nk_analyze.cli:main

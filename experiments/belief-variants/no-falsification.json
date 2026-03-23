@@ -1,7 +1,0 @@
-{
-  "variant": "no-falsification",
-  "description": "Remove falsification requirement from beliefs",
-  "hypothesis": "Without falsification, beliefs accumulate faster but accuracy decreases",
-  "spawned": "2026-02-26",
-  "child_dir": "<swarm-repo>/experiments/children/belief-no-falsification"
-}

@@ -1,3 +1,0 @@
-"""
-Specific data provider implementations.
-"""

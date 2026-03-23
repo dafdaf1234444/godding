@@ -1,7 +1,0 @@
-{
-  "variant": "no-modes",
-  "description": "Remove session modes \u2014 flat structure",
-  "hypothesis": "Without modes, sessions are more flexible but less structured",
-  "spawned": "2026-02-26",
-  "child_dir": "<swarm-repo>/experiments/children/belief-no-modes"
-}
