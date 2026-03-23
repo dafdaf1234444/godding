@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S518",
-  "timestamp": "2026-03-23T17:32:20.172344+00:00",
+  "timestamp": "2026-03-23T17:34:39.752789+00:00",
   "metrics": {
     "lessons": 1213,
     "principles": 262,
@@ -10,35 +10,36 @@
   },
   "active_lanes": [],
   "recent_commits": [
+    "c29e494a [S518] absorb: concurrent artifacts \u2014 L-1447/L-1448 genesis sub-swarm + knowledge-state + count sync",
     "f18a56cb [S518] fix: refresh stale observer baselines \u2014 cascade_monitor.py S435\u2192S518, compact.py S427\u2192S518",
     "991eb208 [S518] feat: PHIL-26 P1 falsified + stochastic vocab expansion + CAT stability + enforcement wiring (L-1443)",
     "d41a1311 [S518] explore: child swarm discovery bulletin \u2014 seed monoculture blind spot (L-013)",
-    "571d4530 [S3] skeptic: challenge belief \u2014 L-013",
-    "67b3d7dc [S518] feat: swarm_combiner.py \u2014 5-phase cross-lineage merge protocol now executable (F-MERGE1, L-1440)"
+    "571d4530 [S3] skeptic: challenge belief \u2014 L-013"
   ],
   "uncommitted": [
-    "MM docs/PAPER.md",
     "M domains/expert-swarm/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "A  experiments/colonies/genesis-subswarm-s518.json",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "A  experiments/expert-swarm/f-swarmer2-s518.json",
-    "A  experiments/genesis-subswarm-s518-results.json",
     "M experiments/inter-swarm/bulletins/swarm.md",
     "M experiments/meta/knowledge-state-s513.json",
     "M experiments/meta/knowledge-state-s515.json",
-    "A  experiments/meta/knowledge-state-s518.json",
-    "MM memory/INDEX.md",
     "D memory/lessons/L-1423.md",
     "D memory/lessons/L-1424.md",
-    "A  memory/lessons/L-1447.md",
-    "A  memory/lessons/L-1448.md",
-    "MM tasks/NEXT.md",
-    "M  tools/genesis_seeds.py",
-    "A  tools/swarm_test.py"
+    "M  memory/lessons/L-1447.md",
+    "M  memory/lessons/L-1448.md",
+    "M tools/synthetic-steerers/cross-challenges.md",
+    "M tools/synthetic-steerers/signal-history.json",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/expert-swarm/f-swarmer2-s518.json",
+    "?? experiments/meta/knowledge-state-s518.json",
+    "?? test.json"
   ],
-  "untracked_artifacts": [],
+  "untracked_artifacts": [
+    "experiments/expert-swarm/f-swarmer2-s518.json",
+    "experiments/meta/knowledge-state-s518.json"
+  ],
   "next_actions": [],
   "periodics_due": [
     {

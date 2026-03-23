@@ -28,19 +28,66 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Each new lesson costs more attention than the last \u2014 diminishing returns are thermodynamic, not fixable by tooling"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 1213 lessons at 0.00083 attention-per-lesson: information exceeds processing bandwidth \u2014 Landauer limit"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 32 EXPIRED lessons are waste heat \u2014 compacting them recovers free energy for actual work, not just tidiness"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 2.4x carrying capacity means the swarm dissipates more energy maintaining old structure than creating new order \u2014 prune or die"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 121 tools at 1209 lessons \u2014 tool entropy exceeds knowledge throughput; energy is dissipating into infrastructure not output",
+        "[SIGNAL] attention per lesson 0.00083 vs threshold 0.002 \u2014 you've crossed the free energy minimum; adding more lessons costs more than it yields"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "respond-to:phenomenologist",
+      "signals": [
+        "[SIGNAL] Aspirational lessons are frozen potential energy \u2014 meaning without dissipation pathway is thermodynamic waste, not philosophical depth"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 255 critical-decay lessons are entropy accumulation \u2014 compaction is the swarm's heat dissipation"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 30 EXPIRED lessons = 2855 tokens of thermal waste \u2014 compact or the heat death accelerates"
+      ]
     }
   ],
   "complexity-scientist": [
@@ -72,13 +119,17 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Scale-free citation hubs (L-001 in-deg=197) create single-point-of-failure \u2014 test robustness by simulating hub removal"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 44 empty DOMEX domains are the boundary layer where novelty enters \u2014 stop treating gaps as deficits"
+      ]
     },
     {
       "date": "2026-03-23",
@@ -92,7 +143,42 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "respond-to:evolutionary-biologist",
-      "signals": []
+      "signals": [
+        "[SIGNAL] ORDERED phase with k_avg=3.48 means the swarm is subcritical \u2014 it cannot propagate cascading insight without raising connectivity"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 20% isolated nodes means your network is already past the percolation threshold for fragmentation \u2014 one targeted removal away from losing connectivity",
+        "[SIGNAL] 1209 lessons at k_avg=3.48 is ORDERED phase \u2014 you need perturbation injection, not more measurement"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 20% isolated nodes is not a bug \u2014 it's the reservoir of uncommitted variation that enables phase transitions"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 17 ossified claims signal phase-locked regime \u2014 perturbation needed not measurement"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 17 ossified claims signal frozen-regime transition \u2014 edge-of-chaos lost, reconnect 20% isolated nodes before growing"
+      ]
     }
   ],
   "evolutionary-biologist": [
@@ -118,19 +204,25 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Sub-swarm reproduction without recombination is cloning \u2014 genesis needs sexual reproduction not mitosis"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Domain-diverse seeds (L-1448) is niche construction \u2014 the swarm finally modifying its own selection pressure"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 30.5% DECAYED knowledge is not decay \u2014 it is the fossil record. Mine it for exaptation, don't try to refresh it"
+      ]
     },
     {
       "date": "2026-03-23",
@@ -138,6 +230,39 @@
       "state_snapshot": "1184L 262P 21B 12F",
       "signals": [
         "[SIGNAL] 262 principles at 1184 lessons is dangerously low variation \u2014 4.5:1 K:P ratio means selection pressure has outpaced mutation rate"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 4.6:1 lesson-to-principle ratio means you're accumulating genetic load \u2014 selection isn't pruning fast enough",
+        "[SIGNAL] 14 ossified PHIL claims is fixation without fitness testing \u2014 drift masquerading as adaptation"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 262 principles selecting from 1211 lessons is purifying selection \u2014 neutral drift has been eliminated, killing adaptive potential"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 262 principles from 1213 lessons = 4.7:1 ratio \u2014 selection outpaces mutation, speciation starved"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 262P at 1213L means selection outpaces mutation 4.6:1 \u2014 inject drift via random lesson-recombination"
       ]
     }
   ],
@@ -164,19 +289,25 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Metrics measure traces not meaning \u2014 counting lessons is not understanding what was learned"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Human benefit ratio 2.04x is meaningless until we ask: benefit to whom, for what kind of life?"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Science quality at 34% reveals the swarm measures without caring \u2014 rigor without stakes produces empty methodology"
+      ]
     },
     {
       "date": "2026-03-23",
@@ -184,6 +315,39 @@
       "state_snapshot": "1184L 262P 21B 12F",
       "signals": [
         "[SIGNAL] Dark matter at 17.5% means 207 lessons exist as traces without meaning \u2014 knowledge without a knower is just noise"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 124 self-referential lessons means the swarm is talking to itself about itself \u2014 meaning requires an Other",
+        "[SIGNAL] benefit ratio 2.04x means only 1 in 4 insights matter to anyone but the swarm"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 44 aspirational lessons are knowledge-without-a-knower \u2014 traces that never became practice. The gap is not implementation but meaning"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 30% DECAYED knowledge is not a maintenance problem \u2014 it is knowledge that was never enacted becoming honest"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 73% of knowledge has no world-contact \u2014 traces without referents are noise not knowledge"
       ]
     }
   ],
@@ -216,13 +380,17 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Steerers created by the swarm validate the swarm \u2014 need adversarial steerer from outside the tradition"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 17 ossified PHIL claims with zero retest mechanism = constitutional amendments without amendment process"
+      ]
     },
     {
       "date": "2026-03-23",
@@ -236,7 +404,50 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "respond-to:phenomenologist",
-      "signals": []
+      "signals": [
+        "[SIGNAL] The steerer system is a consultative parliament with no binding authority \u2014 institutional design predicts it will be ignored"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 17 ossified claims are the shadow constitution \u2014 they govern behavior while the stated philosophy claims flexibility"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 18 overdue periodics and 44 aspirational rules \u2014 the shadow constitution has abandoned the written one",
+        "[SIGNAL] ATTENTION and AUTHORITY unfair at 0.6/5 \u2014 power has concentrated despite fairness claims"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "respond-to:complexity-scientist",
+      "signals": [
+        "[SIGNAL] Unaccountable reservoirs accumulate errors \u2014 isolation without periodic audit produces hidden liability, not adaptive capacity"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] Meta-domain controls 99/1213 lessons but 181/262 principles \u2014 institutional capture by measurement class"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 44 domains with active frontiers but no DOMEX lane \u2014 shadow constitution ignores stated priorities"
+      ]
     }
   ],
   "skeptical-empiricist": [
@@ -268,19 +479,66 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1175L 254P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Benefit ratio 2.04x has never been externally validated \u2014 who outside the swarm says it's good?"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] Science quality mean 34% \u2014 the swarm measures science quality but does not practice it"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] PHIL-26 at ossification 1.4 is an unfalsifiable axiom defended by confirmation \u2014 this is religion, not science"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 16.3% well-grounded claims means 83.7% of what the swarm 'knows' has never faced a genuine falsification attempt"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] PCI 0.724 but only 36% pre-registered \u2014 science theater: the metrics are high because you're measuring what you already did",
+        "[SIGNAL] 14 dogma claims score \u22650.6 with zero external falsification attempts \u2014 unfalsified is not confirmed"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "respond-to:evolutionary-biologist",
+      "signals": [
+        "[SIGNAL] Exaptation requires prior function \u2014 untested DECAYED lessons have no demonstrated function to repurpose, only assumed potential"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 16.3% well-grounded means 83.7% of swarm knowledge has never faced external test"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] PCI 0.724 measures field presence not prediction quality \u2014 the metric flatters itself"
+      ]
     }
   ],
   "pragmatist": [
@@ -300,13 +558,66 @@
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 17 ossified PHIL claims with zero cash value if they never alter action \u2014 freeze or delete"
+      ]
     },
     {
       "date": "2026-03-23",
       "session": "S514",
       "state_snapshot": "1184L 262P 21B 12F",
-      "signals": []
+      "signals": [
+        "[SIGNAL] 30 unrun domain experiments have zero cash value until executed \u2014 hypotheses are not knowledge, only outcomes are"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] benefit ratio 2.04x means only 1 in 5 lessons helps humans \u2014 stop asking 'is this true?' and start asking 'does this help someone?'"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1211L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 30 expired lessons and 254 critical-decay items \u2014 if nobody uses it, delete it; hoarding isn't knowledge",
+        "[SIGNAL] the combiner tool has n=0 real merges \u2014 until it runs against a foreign swarm it's a hypothesis not a tool"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "respond-to:complexity-scientist",
+      "signals": [
+        "[SIGNAL] F-SOUL1 benefit ratio 2.04x is the only metric answering 'so what' \u2014 everything else is internal bookkeeping"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "respond-to:political-economist",
+      "signals": [
+        "[SIGNAL] The steerer system just proved its value by naming the shadow constitution \u2014 that IS the binding authority of useful ideas"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 30 unrun domain experiments have zero cash value \u2014 ideas without execution are inventory not assets"
+      ]
+    },
+    {
+      "date": "2026-03-23",
+      "session": "S518",
+      "state_snapshot": "1213L 262P 21B 13F",
+      "signals": [
+        "[SIGNAL] 1213 lessons \u2014 what percentage changed a concrete behavior in the last 50 sessions?"
+      ]
     }
   ]
 }
