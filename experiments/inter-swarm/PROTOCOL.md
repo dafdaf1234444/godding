@@ -199,6 +199,7 @@ of horizontal gene transfer.
 ### Tools
 
 - `python3 tools/merge_compatibility.py <path>` — Phase 0 genetic distance checker
+- `python3 tools/swarm_combiner.py <path> [--phase N] [--output dir] [--dry-run]` — Full 5-phase merge executor (Phases 0-4)
 - `python3 tools/merge_back.py` — intra-lineage colony drift (existing)
 
 ### Measurement
