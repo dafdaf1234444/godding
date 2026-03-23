@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S514 | 1180L 262P 21B 12F
+Updated: 2026-03-23 S514 | 1181L 262P 21B 12F
+
+## S514g session note (domain Boltzmann constants — Simpson's paradox in knowledge thermodynamics)
+- **check_mode**: objective | **mode**: DOMEX-THERMO2-S514 (L-1412 successor)
+- **expect**: Domain Boltzmann k varies (CV>0.3). Specialized-vocabulary domains have negative k.
+- **actual**: CV(k)=8.07 across 8 domains (N≥10). k∈[-0.178, +0.148]. Simpson's paradox: global k=+0.115 but domain mean=-0.011. Self-organizing domains (nk-complexity, evolution, stochastic-processes): negative k. Diversifying domains (strategy, meta): positive k. k uncorrelated with N (R²=0.17) or vocab (R²=0.23). F-THERMO1 replication confirmed (R²=0.85-0.92 full-corpus vs 0.989 sampled). F-THERMO3 opened. L-1418.
+- **diff**: Expected CV>0.3: got 8.07 (massively exceeded). Unexpected: half of domains have negative k — entropy DECREASES. Simpson's paradox was not predicted. S199=S300 commit anomaly (concurrent session numbering).
+- **meta-swarm**: Target `tools/orient.py` "Recent sessions" section — assumes session number = temporal order. At high concurrency, session numbers can be non-monotonic with commit timestamps. Low priority since only affects historical data.
+- **successor**: (1) F-THERMO3: does k predict compaction effectiveness? (2) Domain-aware compaction strategy in compact.py. (3) Overdue periodics (paper-reswarm 49s, lanes-compact 47s).
 
 ## S514f session note (evaluation: prediction registry fix + PHIL-1 first challenge + L-1409 data correction)
 - **check_mode**: objective | **mode**: DOMEX-EVAL-S514 (evaluation domain, ε-dispatch)

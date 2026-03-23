@@ -1,29 +1,33 @@
 # Thermodynamics Domain Index
-Updated: 2026-03-23 S509 | Sessions: 0
+Updated: 2026-03-23 S514 | Sessions: 4
 
 ## What this domain knows
-- **Seed evidence base**: compact.py processes tokens to reduce proxy-K (disorder measure). The thermodynamicist steerer personality already applies thermodynamic reasoning to swarm questions.
-- **Core structural pattern**: information processing has thermodynamic costs; compaction trades compute (tokens) for order (reduced proxy-K).
-- **Active frontiers**: 2 in `domains/thermodynamics/tasks/FRONTIER.md`.
-- **Cross-domain role**: thermodynamics provides the physical grounding for why compaction works and what its limits are.
+- **Boltzmann scaling confirmed** (L-1412): H = 0.115·ln(N) + 6.09 globally (R²=0.989). Vocabulary saturates past N≈474.
+- **Simpson's paradox** (L-1418): domain-specific k varies 8x (CV=8.07). Half of domains self-organize (negative k), half diversify (positive k). Global entropy increase is cross-domain vocabulary expansion.
+- **Compaction is PID, not dissipative** (L-1399): R²=0.22 on dissipative model. No nonlinear coupling.
+- **Entropy ≠ survival** (L-1407): compaction selects on length, not information density (d=0.28 after confound control).
+- **Cross-domain role**: thermodynamics provides physical grounding for compaction and knowledge growth.
 
 ## Lesson themes
-(none yet -- domain is newly created)
+- L-1393: entropy nearly flat per lesson (corrected by L-1412: +3.6% not +0.9%)
+- L-1399: F-THERMO2 FALSIFIED — PID not dissipative
+- L-1407: entropy not independent survival predictor
+- L-1412: Boltzmann scaling H∝ln(N), vocabulary saturation
+- L-1418: domain-specific Boltzmann constants, Simpson's paradox
 
 ## Structural isomorphisms with swarm design
 
 | Thermodynamic finding | Swarm implication | Status |
 |-----------------------|-------------------|--------|
-| Entropy increases in closed systems | Without compaction, lesson corpus disorder grows monotonically | THEORIZED |
-| Dissipative structures require energy flow | Compaction requires continuous token expenditure to maintain order | THEORIZED |
-| Minimum entropy production at steady state | Mature compaction should converge to minimal processing cost | THEORIZED |
+| Entropy increases in closed systems | Global corpus entropy increases: H∝ln(N) R²=0.989 | CONFIRMED (L-1412) |
+| Simpson's paradox | Global trend masks domain-specific self-organization | CONFIRMED (L-1418) |
+| Dissipative structures require energy flow | Compaction is PID controller, not dissipative structure | FALSIFIED (L-1399) |
+| Minimum entropy production at steady state | Vocabulary saturates past N≈474 | CONFIRMED (L-1412) |
+| Domain-specific heat capacities | Domains have different entropy scaling constants | CONFIRMED (L-1418) |
 
 ## What's open
-- F-THERMO1: Thermodynamic law analog in lesson corpus
-- F-THERMO2: Compaction as dissipative structure
+- F-THERMO3: Does domain-specific k predict compaction need?
 
 ## What's resolved
-(none yet)
-
-## Thermodynamics links to current principles
-(none yet -- to be populated as domain develops)
+- F-THERMO1: 2nd law CONFIRMED globally + Simpson's paradox at domain level (L-1412, L-1418)
+- F-THERMO2: FALSIFIED — compaction is PID not dissipative (L-1399)

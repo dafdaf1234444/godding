@@ -1,9 +1,9 @@
 # Memory Index
-Updated: 2026-03-23 | Sessions: 513
+Updated: 2026-03-23 | Sessions: 514
 
 ## What the swarm knows
-- **1174 lessons** in `memory/lessons/L-{NNN}.md`
-- **254 principles** in `memory/PRINCIPLES.md` (latest: P-338 append-only-combiner-imperative, P-337 coupled-system-stability-threshold, P-336 np-hardness-as-engine)
+- **1181 lessons** in `memory/lessons/L-{NNN}.md`
+- **262 principles** in `memory/PRINCIPLES.md` (latest: P-341..P-348 S514 batch scan — impossibility theorems, compaction-as-distillation, integration-debt, vocabulary-substrate-distance, measurement-substitution, protective-belt, two-layer-conflict, massive-mode-gap)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **12 frontiers** in `tasks/FRONTIER.md` | **47 domains**
 
 ## Structure
