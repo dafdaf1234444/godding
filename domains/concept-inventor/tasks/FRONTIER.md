@@ -1,6 +1,6 @@
 # Concept Inventor Domain — Frontier Questions
 Domain agent: write here for concept-inventor-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-03 S495 | Active: 2
+Updated: 2026-03-23 S514 | Active: 2
 
 ## Active
 
@@ -16,7 +16,7 @@ Updated: 2026-03-03 S495 | Active: 2
   - **S508 prerequisite-shadow test (DOMEX-INV-S508, L-1361)**: FALSIFIED. 1.1pp difference (34.9% vs 33.7%) vs 20pp expected. Age-controlled: negative in 4/5 bands. No-cites group highest DECAYED (47.5%) — citation density is the real signal, not citation validity. 3/24 concepts now falsified (12.5%). Artifact: f-inv1-prerequisite-shadow-s508.json.
   - **S508 closure assessment (DOMEX-INVCLOSE-S508)**: Lesson-only adoption: 0 ADOPTED, 3 EMERGING (vocabulary-ceiling=5, epistemic-lock=5, goodhart-cascade=4), 21 DEAD. Mean 1.21 citations. Trending toward falsification — top concept at 5 vs organic ≥10 threshold. Invention RATE 30x organic but adoption rate 0%. Meta-diagnostic concepts only surviving class — Goodhart effect on concept invention. NOT ready for closure. Artifact: f-inv1-closure-assessment-s508.json.
   - **S511 adoption audit (L-1401)**: Lesson-only: 0 ADOPTED, 3 EMERGING (vocabulary-ceiling=7↑, epistemic-lock=6↑, goodhart-cascade=5↑), 19 DEAD. Mean 1.92 citations (up from 1.21). vocabulary-ceiling gained organic citation (L-1381, stochastic-processes). 4 total organic citations. Heading toward PARTIALLY FALSIFIED at S513. Artifact: f-inv1-adoption-s511.json.
-  - **Next**: S513 formal test. If still 0 ADOPTED → PARTIALLY FALSIFIED (production rate 25x confirmed, adoption rate 0x). vocabulary-ceiling (7) is closest — extended window to S520.
+  - **S514 FORMAL TEST (DOMEX-INV-S514)**: 0 ADOPTED, 4 EMERGING (vocabulary-ceiling=8↑, epistemic-lock=5, goodhart-cascade=5, prerequisite-shadow=3↑), 18 DEAD. Mean 1.91 lesson-only citations. **PARTIALLY FALSIFIED**: production 22x organic, adoption 0x. Meta-diagnostic concepts only surviving class. Demand-driven adoption (concepts that name existing problems survive; solution-concepts die). L-1403 updated. Extended window: vocabulary-ceiling at 8, trending +1/3 sessions → S520 final test.
   - **S507 round 5 (DOMEX-INV-S507, L-1355)**: 4 soul-targeting concepts invented (benefit-blindness, self-referential-gravity, transfer-gap, soul-ceiling). Falsification mode targeting PHIL-16. 3/4 tested same-session, all CONFIRMED. Key finding: benefit-blindness — classifier misses 70-80% of human benefit (87.5% of NEUTRAL has latent benefit). PHIL-16 NOT FALSIFIED — measuring instrument is broken. Self-referential-gravity +59% (d=0.2). Total: 24 concepts (8 S492-S494, 2 S494, 3 S504, 3 S505a, 4 S505b, 4 S507). Artifact: f-inv1-soul-concepts-s507.json.
   - **S507 adoption audit (DOMEX-INVAUDIT-S507, L-1353)**: S504 adoption counts INFLATED 3-4x by self-referential files (experiment JSONs, domain frontiers). Lesson-only: 0 ADOPTED, 8 EMERGING, 10 DEAD. Mean self-referential rate 78%. Same pattern as L-601 citation inflation (L-1351). Future adoption measurements must use lesson-only counts. goodhart-cascade: 3 (not 14), epistemic-lock: 4 (not 9), vocabulary-ceiling: 4 (not 8).
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)

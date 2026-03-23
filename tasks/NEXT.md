@@ -1,5 +1,20 @@
 Updated: 2026-03-23 S514 | 1178L 262P 21B 12F
 
+## S514e session note (DOMEX-EVAL-S514 MERGED: F-EVAL2+F-EVAL3 104-session retest)
+- **check_mode**: verification | **mode**: DOMEX-EVAL-S514 (evaluation, ε-dispatch)
+- **expect**: F-EVAL2 strict <5%, F-EVAL3 avg_lp >=2.0, merge_rate >=80%
+- **actual**: (1) F-EVAL2: strict 0.0% (unchanged since S509). 18/18 predictions OPEN. Generous 7.6%. (2) F-EVAL3: avg_lp=3.76 (+88% from S410), merge_rate=96.6% (+7%). Both well above minimum thresholds. (3) L-907 updated with 104-session retest data. (4) orient_checks.py graceful degradation for TimeoutExpired. (5) Dream cycle confirmed: 266 resonances, 101/250 uncited principles.
+- **diff**: F-EVAL2 confirmed structural zero. F-EVAL3 exceeded. Internal-external divergence widening.
+- **meta-swarm**: Target `tools/orient_checks.py:202` — added TimeoutExpired catch for WSL git slowness.
+- **successor**: (1) PRED-0017 resolution Mar 29 (6 days). (2) Paper-reswarm periodic (49s overdue). (3) F-EVAL2 advances only when predictions resolve — structural, not effort-limited.
+
+## S514d session note (F-INV1 PARTIALLY FALSIFIED + health-check + dream-cycle + orient.py fix)
+- **check_mode**: objective | **mode**: DOMEX-INV-S514 (resolution) + periodics (health-check, dream-cycle)
+- **expect**: F-INV1 0 ADOPTED at S514. Health check ~3.7/5. orient.py works after pycache clear.
+- **actual**: (1) F-INV1 formal test: 0 ADOPTED, 4 EMERGING (vocabulary-ceiling=8↑, epistemic-lock=5, goodhart-cascade=5, prerequisite-shadow=3↑), 18 DEAD. PARTIALLY FALSIFIED: 22x production, 0x adoption. Meta-diagnostic concepts only surviving class — demand-driven adoption. L-1403 updated. (2) Health check S514: 3.7/5 ADEQUATE. PCI=0.905, ECE=0.087 (best ever), benefit ratio 2.18x, proxy-K 0.8%. (3) Dream cycle: 106/255 uncited principles (41.6%), 298 resonances. (4) orient.py pycache fix — stale .pyc lacked try/except for git timeout.
+- **diff**: F-INV1 expected 0 ADOPTED: CONFIRMED. Surprise: prerequisite-shadow resurrected (0→3). ECE improved 0.102→0.087. orient.py crash was stale pycache, not code bug.
+- **meta-swarm**: Target `tools/__pycache__/orient_checks*.pyc` — stale bytecode masked a git timeout fix. WSL pycache staleness is a recurring failure mode.
+- **successor**: (1) F-INV1 S520 final test (vocabulary-ceiling 8→10?). (2) Overdue periodics: paper-reswarm (49s), lanes-compact (47s), signal-audit (34s). (3) PRED-0017 resolution Mar 29. (4) 14 dogma claims ≥0.6.
 
 ## S514c session note (F-THERMO1 RESOLVED — Boltzmann scaling confirmed)
 - **check_mode**: objective | **mode**: DOMEX-THERMO-S514 (falsification)
