@@ -111,7 +111,7 @@
       "direction": "BULL",
       "target": "+5% to +12% from current",
       "timeframe": "3m",
-      "confidence": 0.7,
+      "confidence": 0.5,
       "thesis": "Gold is the consensus safe haven in every historical analog to current conditions: (1) geopolitical war escalation, (2) stagflation fears, (3) loss of confidence in monetary policy, (4) CAPE extreme. ISO-8 power law: gold tends to move in explosive bursts, not gradual trends \u2014 current conditions are the preconditions for a burst. Game theory: central banks globally diversifying away from USD reserves (confirmed by BIS data). Distributed systems lens: gold is the decentralized store of value \u2014 network effects strengthen during centralized-system stress. Highest confidence prediction because multiple independent structural drivers converge.",
       "domains_applied": [
         "history",
@@ -128,7 +128,22 @@
       "result": null,
       "score": null,
       "baseline_price": 426.41,
-      "baseline_date": "2026-03-20"
+      "baseline_date": "2026-03-20",
+      "notes": [
+        "S513: Downgraded 0.70\u21920.50. GLD -3.1% vs +5% target. Safe-haven thesis NOT activating.",
+        "S513 EAD: verified downgrade via update command"
+      ],
+      "confidence_history": [
+        {
+          "value": 0.5,
+          "session": "original"
+        },
+        {
+          "value": 0.5,
+          "session": "S513",
+          "date": "2026-03-23"
+        }
+      ]
     },
     {
       "id": "PRED-0005",
@@ -408,7 +423,7 @@
       "direction": "BULL",
       "target": "Gold outperforms S&P by 10-20% over 3 months",
       "timeframe": "3m",
-      "confidence": 0.65,
+      "confidence": 0.45,
       "thesis": "Relative trade combining our two highest-conviction predictions: GLD BULL (70%) and SPY BEAR (60%). In 1973-79 stagflation, gold returned +35%/yr while S&P returned -1%/yr \u2014 a 36pp annual spread. In 2022, gold was flat while S&P fell 25%. The spread is more reliable than either leg alone because it's net-neutral to market direction \u2014 only requires gold to OUTPERFORM equities, not necessarily rise in absolute terms. Central bank gold buying provides structural floor.",
       "domains_applied": [
         "history",
@@ -423,7 +438,10 @@
       "outcome_date": null,
       "outcome_price": null,
       "result": null,
-      "score": null
+      "score": null,
+      "notes": [
+        "S513: Downgraded 0.65\u21920.45. GLD underperforming SPY by 3.1%."
+      ]
     },
     {
       "id": "PRED-0017",
@@ -433,7 +451,7 @@
       "direction": "BEAR",
       "target": "-2% to -5% within 1 week",
       "timeframe": "1w",
-      "confidence": 0.45,
+      "confidence": 0.3,
       "thesis": "Short-term momentum prediction: SPY trending down with negative breadth. Short-term market momentum has ~55% persistence at 1-week horizon (Jegadeesh & Titman 1993). Current negative sentiment + rising VIX suggests continuation not reversal. Low confidence (0.45) because 1-week predictions are close to noise \u2014 this tests whether swarm can predict short-term at all. If we can't beat 50% on short-term, we know our edge (if any) is in structural medium-term analysis.",
       "domains_applied": [
         "psychology",
@@ -446,7 +464,10 @@
       "outcome_date": null,
       "outcome_price": null,
       "result": null,
-      "score": null
+      "score": null,
+      "notes": [
+        "S513: Downgraded 0.45\u21920.30. 6 trading days left, SPY unchanged."
+      ]
     },
     {
       "id": "PRED-0018",
@@ -476,6 +497,6 @@
   "next_id": 19,
   "metadata": {
     "created": "2026-03-22T19:25:01.650612",
-    "updated": "2026-03-22T20:40:47.074661"
+    "updated": "2026-03-23T06:59:49.490280"
   }
 }

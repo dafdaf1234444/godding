@@ -6,6 +6,7 @@ Usage:
         --timeframe 1m --confidence 0.65 --thesis "..." --domains "physics,control-theory"
     python3 tools/market_predict.py resolve --id PRED-0001 --outcome-price 5600 --result CORRECT
     python3 tools/market_predict.py score
+    python3 tools/market_predict.py update --id PRED-0004 --confidence 0.50 --note "S513: downgrade"
     python3 tools/market_predict.py list [--open | --resolved]
 """
 import argparse
@@ -185,6 +186,42 @@ def score(_args):
             print(f"    {d}: {acc:.0%} ({s['total']} predictions)")
 
 
+def update(args):
+    """Update confidence and/or add note to an existing prediction."""
+    reg = load_registry()
+    pred = next((p for p in reg["predictions"] if p["id"] == args.id), None)
+    if not pred:
+        print(f"ERROR: {args.id} not found")
+        sys.exit(1)
+    if pred["status"] != "OPEN":
+        print(f"WARNING: {args.id} already {pred['status']}")
+
+    changes = []
+    if args.confidence is not None:
+        old_conf = pred["confidence"]
+        pred["confidence"] = args.confidence
+        # Track confidence history
+        if "confidence_history" not in pred:
+            pred["confidence_history"] = [{"value": old_conf, "session": "original"}]
+        pred["confidence_history"].append({
+            "value": args.confidence,
+            "session": args.session or "unknown",
+            "date": datetime.now().strftime("%Y-%m-%d"),
+        })
+        changes.append(f"confidence {old_conf:.2f}→{args.confidence:.2f}")
+
+    if args.note:
+        pred.setdefault("notes", []).append(args.note)
+        changes.append("note added")
+
+    if not changes:
+        print("Nothing to update. Use --confidence and/or --note.")
+        return
+
+    save_registry(reg)
+    print(f"Updated {args.id}: {', '.join(changes)}")
+
+
 def list_preds(args):
     reg = load_registry()
     preds = reg["predictions"]
@@ -238,6 +275,12 @@ def main():
 
     sub.add_parser("score", help="Show scorecard")
 
+    upd_p = sub.add_parser("update", help="Update confidence/notes for a prediction")
+    upd_p.add_argument("--id", required=True)
+    upd_p.add_argument("--confidence", type=float, help="New confidence (0.0-1.0)")
+    upd_p.add_argument("--note", help="Note to append")
+    upd_p.add_argument("--session", default=None)
+
     list_p = sub.add_parser("list", help="List predictions")
     list_p.add_argument("--open", action="store_true")
     list_p.add_argument("--resolved", action="store_true")
@@ -249,6 +292,8 @@ def main():
         resolve(args)
     elif args.command == "score":
         score(args)
+    elif args.command == "update":
+        update(args)
     elif args.command == "list":
         list_preds(args)
     else:

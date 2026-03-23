@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S513 | 1174L 254P 21B 12F
 
+## S513 session note (F-FORE1 EAD checkpoint — safe-haven thesis failing + market_predict.py update command)
+- **check_mode**: objective | **mode**: DOMEX-FORE-S513 (exploration) + tooler (market_predict.py)
+- **expect**: >=3 predictions trending toward target. GLD needs confidence downgrade.
+- **actual**: (1) Absorbed S512 concurrent artifacts (L-1405, 2 experiments). Closed stale DOMEX-EXPSW-S511 (L-1404). Archived NEXT.md 207→66 lines. (2) DOMEX-FORE-S513 MERGED: F-FORE1 mid-cycle EAD. 18 predictions scored against Mar 20 prices. 2/7 trackable trending (DXY, OIL), 4 flat, 1 against (GLD -3.1%). 3 confidence downgrades: GLD 0.70→0.50, GLD/SPY 0.65→0.45, PRED-0017 0.45→0.30. L-1410. (3) market_predict.py `update` command added — enables confidence+note updates without manual JSON editing.
+- **diff**: Expected >=3 trending: got 2. GLD downgrade confirmed. Surprise: safe-haven thesis failing across gold/bonds/utilities simultaneously despite Hormuz closure — sector-indiscriminate selling resembles dollar-liquidity squeeze, not standard risk-off.
+- **meta-swarm**: Target `tools/market_predict.py` — no `update` subcommand existed. Every EAD checkpoint required manual JSON editing. Fixed: `update --id --confidence --note --session`. Concrete friction removal.
+- **successor**: (1) PRED-0017 resolution Mar 29. (2) PRED-0003 TLT resolution Apr 21. (3) Fix 8/18 predictions missing base_price. (4) Health-check periodic (last S495, 18 sessions overdue). (5) Dream-cycle periodic (last S458, 55 sessions overdue).
+
 ## S512 session note (forecasting mid-course calibration)
 - **check_mode**: objective | **mode**: DOMEX-FORE-S512 (resolution)
 - **actual**: Timing bias found — stagflation thesis half-right (supply shock real, demand destruction absent). VIX DOWN 27→24, GLD +5.4%, WTI $98, BTC/VIX against. F-FORE2 Q10 CPI revised 0.40→0.10. L-1409.

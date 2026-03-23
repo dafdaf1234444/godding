@@ -1,0 +1,37 @@
+{
+    "experiment": "DOMEX-FORE-S513",
+    "frontier": "F-FORE1",
+    "session": "S513",
+    "domain": "forecasting",
+    "date": "2026-03-23",
+    "data_date": "2026-03-20",
+    "expect": "Mid-cycle EAD: >=3 predictions trending toward target. GLD BULL needs confidence downgrade given -3.1% vs +5% target.",
+    "actual": {
+        "summary": "2/7 trackable trending toward target (DXY, OIL), 4 flat, 1 against (GLD). 8/18 missing base_price. Safe-haven thesis failing across gold/bonds/utilities despite active Hormuz closure.",
+        "predictions_scored": {
+            "PRED-0001_SPY_BEAR": {"base": 648.57, "current": 648.57, "pct": 0.0, "status": "FLAT"},
+            "PRED-0002_XLE_BULL": {"base": 59.36, "current": 59.31, "pct": -0.08, "status": "FLAT"},
+            "PRED-0003_TLT_BULL": {"base": 85.83, "current": 85.83, "pct": 0.0, "status": "FLAT"},
+            "PRED-0004_GLD_BULL": {"base": 426.41, "current": 413.38, "pct": -3.06, "status": "AGAINST"},
+            "PRED-0005_QQQ_BEAR": {"base": 582.06, "current": 582.06, "pct": 0.0, "status": "FLAT"},
+            "PRED-0007_DXY_BEAR": {"base": 100, "current": 99.50, "pct": -0.50, "status": "TRENDING"},
+            "PRED-0012_OIL_BULL": {"current": 93.55, "status": "TRENDING", "note": "Above $85 floor target"},
+            "PRED-0017_SPY_1w": {"base": 648.57, "current": 648.57, "pct": 0.0, "status": "FLAT", "deadline": "2026-03-29"}
+        },
+        "missing_base_price": ["PRED-0006", "PRED-0009", "PRED-0010", "PRED-0011", "PRED-0013", "PRED-0014", "PRED-0015", "PRED-0018"],
+        "confidence_updates": {
+            "PRED-0004": {"from": 0.70, "to": 0.50, "reason": "Gold -3.1% vs +5% target. Safe-haven thesis failing."},
+            "PRED-0016": {"from": 0.65, "to": 0.45, "reason": "Relative trade 3.1% in wrong direction."},
+            "PRED-0017": {"from": 0.45, "to": 0.30, "reason": "6 trading days left, SPY unchanged."}
+        },
+        "key_findings": [
+            "Highest-confidence prediction (GLD 70%) is worst performer — overconfidence signal",
+            "Safe-haven thesis failing: gold down, bonds flat, utilities -4% despite active war",
+            "Oil thesis validated ($93.55, Hormuz closed) but XLE flat — sector decoupling",
+            "8/18 predictions missing base_price — market_predict.py data quality gap",
+            "DXY weakening is clearest trend-toward-target (-0.5%, YoY -4.4%)"
+        ],
+        "macro_context": "Mar 20 2026: broad selloff (SPY -1.7%, QQQ -1.85%, EEM -3.4%, IWM -2.2%, XLU -4.1%). VIX +11.3% to 26.78. Oil rallied to $93.55 (Hormuz closed). DXY 99.50. Market pricing WAR + dollar stress but NOT safe-haven rotation."
+    },
+    "diff": "Expected >=3 trending: got 2 (DXY, OIL). GLD downgrade 0.70->0.50 confirmed. Surprise: safe-haven thesis failing across ALL safe-haven assets simultaneously despite Hormuz closure. Anomalous — suggests dollar-liquidity squeeze or conflict already fully priced. This is the most informative finding: our macro model assumed war=gold+bonds+utilities UP, but the actual market response is sector-indiscriminate selling."
+}
