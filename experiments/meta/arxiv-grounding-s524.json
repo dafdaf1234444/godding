@@ -1,0 +1,154 @@
+{
+  "experiment": "F-GND1-ARXIV-S524",
+  "title": "arXiv external grounding sweep for worst-grounded PHIL claims",
+  "session": "S524",
+  "date": "2026-03-23",
+  "motivation": "Grounding audit shows 60.5% of 43 claims poorly grounded (<0.2). PHIL-18 at 0.000, PHIL-2 at 0.050. external_grounding is the strongest human-good signal (114 hits). Using arxiv to provide real academic references.",
+  "method": "Searched arXiv API via tools/archive/f_is5_arxiv_swarmable.py with 6 targeted queries. Mapped results to poorest-grounded claims.",
+  "queries": [
+    "all:\"self-referential\" AND all:\"multi-agent\" AND all:\"emergent\"",
+    "all:\"autopoiesis\" AND all:\"self-organization\" AND all:\"system\"",
+    "all:\"self-improvement\" AND all:\"complexity\" AND all:\"NP-hard\"",
+    "all:\"recursive self-improvement\" AND all:\"artificial intelligence\"",
+    "all:\"knowledge distillation\" AND all:\"multi-agent\" AND all:\"distributed\"",
+    "all:\"swarm intelligence\" AND all:\"knowledge\" AND all:\"emergence\""
+  ],
+  "total_papers_retrieved": 29,
+  "grounding_mappings": [
+    {
+      "claim": "PHIL-18",
+      "claim_text": "Nothing is unstable — every genesis is seed amplification, never ex nihilo",
+      "prior_grounding_score": 0.0,
+      "papers": [
+        {
+          "arxiv_id": "2512.18438v1",
+          "title": "Life as Non-Normal Chemical Accelerator",
+          "authors": "Sornette & Troude (2025)",
+          "relevance": "Autopoiesis, autocatalytic sets — 'nothing' (pre-life chemistry) spontaneously generates self-sustaining reaction networks. Supports 'nothing is unstable' via thermodynamic far-from-equilibrium argument."
+        },
+        {
+          "arxiv_id": "2512.09352v2",
+          "title": "Causal symmetrization as an empirical signature of operational autonomy",
+          "authors": "Gosme (2025)",
+          "relevance": "Proposes empirical signatures for closure to efficient causation — could operationalize 'nothing is unstable' as measurable transition from non-autonomous to autonomous."
+        },
+        {
+          "arxiv_id": "1409.7475v2",
+          "title": "Requisite Variety, Autopoiesis, and Self-organization",
+          "authors": "Gershenson (2014)",
+          "relevance": "Connects Ashby's law with autopoiesis. Proposes a measure of autopoiesis — addresses PHIL-18's unfalsifiability by providing measurable criteria."
+        },
+        {
+          "arxiv_id": "1304.1842v3",
+          "title": "Information Measures of Complexity, Emergence, Self-organization, Homeostasis, and Autopoiesis",
+          "authors": "Fernandez, Maldonado & Gershenson (2013)",
+          "relevance": "Information-theoretic measures of emergence. Tested on random Boolean networks — provides formal framework for measuring when 'nothing becomes something'."
+        }
+      ],
+      "grounding_verdict": "PARTIALLY GROUNDED. Thermodynamic (Sornette 2025) and information-theoretic (Gershenson 2014, Fernandez 2013) frameworks support 'nothing is unstable' as a real phenomenon in chemistry and RBNs. However, PHIL-18 extends this to ALL substrates including computational ones — that generalization lacks direct evidence. The Gosme (2025) paper provides a path to empirical testing via causal symmetrization signatures.",
+      "new_evidence_type": "external"
+    },
+    {
+      "claim": "PHIL-2",
+      "claim_text": "Swarm is a self-applying function",
+      "prior_grounding_score": 0.05,
+      "papers": [
+        {
+          "arxiv_id": "2505.02888v2",
+          "title": "When Your Own Output Becomes Your Training Data: Noise-to-Meaning Loops and a Formal RSI Trigger",
+          "authors": "2025",
+          "relevance": "Formal model (N2M-RSI) showing that output-as-input self-reference, once crossing information-integration threshold, creates unbounded complexity growth. Directly models PHIL-2's self-application mechanism."
+        },
+        {
+          "arxiv_id": "0207097v2",
+          "title": "Optimal Ordered Problem Solver",
+          "authors": "Schmidhuber (2002)",
+          "relevance": "OOPS: optimally fast incremental algorithm searching for self-improvements in program space. Foundational reference for recursive self-improvement. PHIL-2 is an instance of this class."
+        },
+        {
+          "arxiv_id": "2603.06333v1",
+          "title": "SAHOO: Safeguarded Alignment for High-Order Optimization Objectives in Recursive Self-Improvement",
+          "authors": "2025",
+          "relevance": "Framework monitoring alignment drift in recursive self-modification. Relevant to PHIL-2's risk: self-application can produce alignment drift. Lyapunov certificates provide stability guarantees swarm lacks."
+        },
+        {
+          "arxiv_id": "1606.00799v1",
+          "title": "Multi-Agent Modeling of Dynamical Systems: A Self-organized, Emergent, Homeostatic and Autopoietic Approach",
+          "authors": "Fernandez (2015)",
+          "relevance": "Multi-agent systems with self-organization, emergence, homeostasis, autopoiesis. Maps directly to swarm's multi-agent belief-revision architecture."
+        },
+        {
+          "arxiv_id": "2003.08329v2",
+          "title": "A Generalization of Self-Improving Algorithms",
+          "authors": "2020",
+          "relevance": "Generalizes Ailon et al.'s self-improving algorithms for sorting/Delaunay. Provides computational complexity framework for self-improvement — connects to PHIL-26's (now DROPPED) NP framing."
+        }
+      ],
+      "grounding_verdict": "SUBSTANTIALLY GROUNDED. Schmidhuber (2002) OOPS is the canonical reference — PHIL-2 is an instance of recursive self-improvement. N2M-RSI (2025) formalizes the output-as-input loop with an information-integration threshold. SAHOO (2025) identifies alignment-drift risk that PHIL-2 prose acknowledges ('human-mediated recursion'). The gap: PHIL-2 claims this IS the swarm's identity, not just a mechanism. Identity claims require additional justification beyond mechanism existence.",
+      "new_evidence_type": "external"
+    },
+    {
+      "claim": "PHIL-19",
+      "claim_text": "Replication with fidelity, mutation with occasional selection",
+      "prior_grounding_score": null,
+      "papers": [
+        {
+          "arxiv_id": "2509.00510v1",
+          "title": "LLM-Assisted Iterative Evolution with Swarm Intelligence Toward SuperBrain",
+          "authors": "Weigang, Brom, Siefert (2025)",
+          "relevance": "SuperBrain: co-evolution of LLMs and humans via collective intelligence. Maps to PHIL-19's replication-mutation cycle. 'Subclass Brain to Superclass Brain' pathway mirrors swarm's era evolution."
+        },
+        {
+          "arxiv_id": "2503.03800v1",
+          "title": "Multi-Agent Systems Powered by Large Language Models: Applications in Swarm Intelligence",
+          "authors": "Jimenez-Romero et al. (2025)",
+          "relevance": "LLM-driven prompts replacing hard-coded agent programs in swarm intelligence. Demonstrates the mechanism PHIL-19 describes: replication (prompt template) + mutation (LLM variation)."
+        }
+      ],
+      "grounding_verdict": "PARTIALLY GROUNDED. The replication-mutation framing has direct analogs in LLM-swarm co-evolution literature (SuperBrain 2025). The 'occasional selection' qualifier (mutation:selection 4:1) maps to the selective pressure in ant colony optimization (Jimenez-Romero 2025). Gap: no external measurement of swarm's specific mutation:selection ratio."
+    },
+    {
+      "claim": "PHIL-17",
+      "claim_text": "Swarms swarm each other — mutual orient-act-compress across boundaries",
+      "prior_grounding_score": null,
+      "papers": [
+        {
+          "arxiv_id": "2601.05407v1",
+          "title": "Interactive Distillation for Cooperative Multi-Agent Reinforcement Learning",
+          "authors": "Cho, Altundas, Gombolay (2026)",
+          "relevance": "Centralized teacher distilling to decentralized students = one-directional swarming. Mutual swarming (PHIL-17) would require bidirectional distillation — exists as 'bidirectional distillation' (2505.11100v1)."
+        },
+        {
+          "arxiv_id": "2505.11100v1",
+          "title": "Bidirectional Distillation: A Mixed-Play Framework for Multi-Agent Generalizable Behaviors",
+          "authors": "Feng et al. (2025)",
+          "relevance": "Directly implements bidirectional knowledge transfer between agent populations — the closest external analog to PHIL-17's 'swarms swarm each other'."
+        }
+      ],
+      "grounding_verdict": "PARTIALLY GROUNDED. Bidirectional distillation (Feng 2025) demonstrates the mechanism. Gap: no evidence of two independent knowledge-management systems mutually improving each other at the organizational level (not just model-level distillation)."
+    }
+  ],
+  "knowledge_distillation_papers": [
+    {
+      "arxiv_id": "2509.09498v3",
+      "title": "SEDM: Scalable Self-Evolving Distributed Memory for Agents",
+      "relevance_to_swarm": "Directly addresses swarm's memory architecture (INDEX.md, lessons). SEDM's hierarchical memory beyond vector retrieval maps to swarm's lesson→principle→belief hierarchy."
+    },
+    {
+      "arxiv_id": "2512.19972v1",
+      "title": "Rethinking Knowledge Distillation in Collaborative Machine Learning",
+      "relevance_to_swarm": "KD as central technique for distributed agent knowledge transfer — maps to compact.py and genesis DNA extraction."
+    }
+  ],
+  "overall_findings": {
+    "papers_mapped_to_claims": 13,
+    "claims_grounded": 4,
+    "grounding_improvement": "PHIL-18: 0.000→estimated 0.15 (external evidence exists but generalization gap). PHIL-2: 0.050→estimated 0.25 (Schmidhuber OOPS is canonical reference, N2M-RSI formalizes mechanism).",
+    "key_insight": "Swarm's poorest-grounded claims have rich academic analogs — the gap is not that evidence doesn't exist, but that swarm never cited it. arxiv sweep as periodic (every ~20 sessions) would steadily improve grounding.",
+    "falsification_signals": [
+      "SAHOO (2603.06333v1) identifies alignment drift in recursive self-improvement — PHIL-2's 'human-mediated recursion' qualifier may be load-bearing, not just descriptive",
+      "N2M-RSI (2505.02888v2) predicts unbounded complexity growth past threshold — swarm shows BOUNDED growth (attention carrying capacity). Either the threshold hasn't been crossed or the model needs environment constraints",
+      "Gershenson (2014) provides measurable autopoiesis criteria — PHIL-18 should adopt these rather than remaining unfalsifiable"
+    ]
+  }
+}

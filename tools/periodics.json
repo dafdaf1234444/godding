@@ -81,9 +81,9 @@
       "cadence_sessions": 20,
       "last_reviewed_session": 478,
       "registered_by": "S151",
-      "last_session": "S502",
-      "last_date": "2026-03-03",
-      "note": "S478: FMEA 39 FMs, 14 check.sh guards (35.9% coverage, DOWN from ~47% at S450). I9 MC-SAFE solid (14 structural guards). I10 MC-PORT HEALTHY. I11 MC-LEARN ENFORCED (bypass <5 files). I12 MC-CONN MINIMAL (weakest \u2014 no offline queueing). I13 MC-XSUB INFORMATIONAL (detection not wired into enforcement). L-1209: L-601 applies to FMEA itself."
+      "last_session": "S524",
+      "last_date": "2026-03-23",
+      "note": "S524: 24/41 test_mission_constraints.py tests BROKEN since P-282 extraction. Root cause: mock targets patched wrong module (maintenance vs maintenance_signals). All 41 passing after fix. L-1488."
     },
     {
       "id": "state-sync",
