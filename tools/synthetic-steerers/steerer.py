@@ -12,6 +12,8 @@ Usage:
   python3 tools/synthetic-steerers/steerer.py run --all     # all steerers generate signals
   python3 tools/synthetic-steerers/steerer.py history <name> # show steerer's signal history
   python3 tools/synthetic-steerers/steerer.py create <name> # scaffold a new steerer
+  python3 tools/synthetic-steerers/steerer.py record <name> "sig1" "sig2"  # record signals
+  python3 tools/synthetic-steerers/steerer.py respond <name> <target>      # cross-pollinate
 
 Design (L-1336 inverse law): steerers produce SHORT directional signals (3–15 words),
 not long analysis. The swarm decomposes; the steerer directs.
@@ -59,7 +61,7 @@ def list_steerers():
     files = sorted(STEERER_DIR.glob("*.md"))
     steerers = []
     for f in files:
-        if f.name == "README.md":
+        if f.name in ("README.md", "cross-challenges.md"):
             continue
         s = load_steerer(f.stem)
         steerers.append(s)
@@ -92,17 +94,31 @@ def read_swarm_state():
     """Read minimal swarm state for steerer context."""
     state = {}
 
-    # Current metrics from INDEX.md first line
+    # Current metrics from INDEX.md — extract counts like "1220L 252P 21B 12F"
     idx = REPO_ROOT / "memory" / "INDEX.md"
     if idx.exists():
-        first_line = idx.read_text().split("\n")[0]
-        state["index_header"] = first_line
+        import re
+        text = idx.read_text()
+        counts = {}
+        # Look for patterns like "**1220 lessons**", "**252 principles**", etc.
+        for m in re.finditer(r'\*\*(\d+)\s+(lessons|principles|beliefs|frontiers)\*\*', text):
+            num, kind = m.group(1), m.group(2)
+            tag = {"lessons": "L", "principles": "P", "beliefs": "B", "frontiers": "F"}[kind]
+            counts[tag] = num
+        if counts:
+            parts = []
+            for tag in ["L", "P", "B", "F"]:
+                if tag in counts:
+                    parts.append(f"{counts[tag]}{tag}")
+            state["index_header"] = " ".join(parts)
+        else:
+            state["index_header"] = "unknown"
 
     # Open frontiers
     frontiers = REPO_ROOT / "tasks" / "FRONTIER.md"
     if frontiers.exists():
         lines = frontiers.read_text().split("\n")
-        open_f = [l for l in lines if "OPEN" in l and l.startswith("| F")]
+        open_f = [l for l in lines if "OPEN" in l and l.lstrip("- ~").startswith("**F")]
         state["open_frontiers"] = open_f[:10]
 
     # Philosophy claims
@@ -233,6 +249,78 @@ created: {datetime.now().strftime('%Y-%m-%d')}
     print(f"Edit it, then run: python3 tools/synthetic-steerers/steerer.py run {name}")
 
 
+def record_signals(name, signals):
+    """Record signals into the most recent history entry for a steerer."""
+    history = load_history()
+    entries = history.get(name, [])
+    if not entries:
+        print(f"ERROR: no history entries for '{name}'. Run the steerer first.")
+        sys.exit(1)
+
+    # Find the most recent entry with an empty signals array
+    target = None
+    for i in range(len(entries) - 1, -1, -1):
+        if not entries[i].get("signals"):
+            target = i
+            break
+
+    if target is None:
+        print(f"ERROR: no empty-signals entry found for '{name}'. Run the steerer first to create one.")
+        sys.exit(1)
+
+    entries[target]["signals"] = list(signals)
+    history[name] = entries
+    save_history(history)
+    print(f"Recorded {len(signals)} signal(s) for '{name}' (entry {entries[target]['date']} {entries[target].get('session', '?')}):")
+    for sig in signals:
+        print(f"  -> {sig}")
+
+
+def respond_to_steerer(name, target_name):
+    """Show steerer `name` the signals from steerer `target_name` and prompt for a response."""
+    s = load_steerer(name)
+    t = load_steerer(target_name)
+    history = load_history()
+
+    # Get target's most recent non-empty signals
+    target_entries = history.get(target_name, [])
+    target_signals = []
+    for entry in reversed(target_entries):
+        if entry.get("signals"):
+            target_signals = entry["signals"]
+            break
+
+    if not target_signals:
+        print(f"ERROR: '{target_name}' has no recorded signals to respond to.")
+        sys.exit(1)
+
+    print(f"\n{'='*60}")
+    print(f"CROSS-POLLINATION: {name} responds to {target_name}")
+    print(f"{'='*60}")
+    print(f"\n## {target_name}'s signals ({t.get('tradition', 'unknown')}):")
+    for sig in target_signals:
+        print(f"  -> {sig}")
+    print(f"\n## {name}'s worldview ({s.get('tradition', 'unknown')}):")
+    print(f"  {s['body'][:300]}...")
+    print(f"\n## Prompt")
+    print(f"  You are {name} ({s.get('tradition', '')}). You just heard these signals from")
+    print(f"  {target_name} ({t.get('tradition', '')}). Generate 1-2 response signals (3-15 words).")
+    print(f"  Respond to their framing from YOUR worldview. Agree, challenge, or reframe.")
+    print(f"  Format: one signal per line, prefixed with [SIGNAL]")
+    print()
+
+    # Record that this cross-pollination was initiated
+    if name not in history:
+        history[name] = []
+    history[name].append({
+        "date": datetime.now().strftime("%Y-%m-%d"),
+        "session": f"S{_current_session()}",
+        "state_snapshot": f"respond-to:{target_name}",
+        "signals": []  # filled in by the session
+    })
+    save_history(history)
+
+
 def _current_session():
     """Best-effort session number from NEXT.md."""
     try:
@@ -251,8 +339,9 @@ def _current_session():
 
 def main():
     parser = argparse.ArgumentParser(description="Synthetic steerer engine")
-    parser.add_argument("command", choices=["list", "run", "history", "create"])
+    parser.add_argument("command", choices=["list", "run", "history", "create", "record", "respond"])
     parser.add_argument("name", nargs="?", default=None)
+    parser.add_argument("signals", nargs="*", default=[])
     parser.add_argument("--all", action="store_true")
     args = parser.parse_args()
 
@@ -262,7 +351,7 @@ def main():
         if args.all:
             files = sorted(STEERER_DIR.glob("*.md"))
             for f in files:
-                if f.name == "README.md":
+                if f.name in ("README.md", "cross-challenges.md"):
                     continue
                 run_steerer(f.stem)
         elif args.name:
@@ -279,6 +368,16 @@ def main():
             create_steerer(args.name)
         else:
             print("Usage: steerer.py create <name>")
+    elif args.command == "record":
+        if args.name and args.signals:
+            record_signals(args.name, args.signals)
+        else:
+            print('Usage: steerer.py record <name> "<signal1>" "<signal2>" ...')
+    elif args.command == "respond":
+        if args.name and args.signals:
+            respond_to_steerer(args.name, args.signals[0])
+        else:
+            print("Usage: steerer.py respond <name> <target-name>")
 
 
 if __name__ == "__main__":

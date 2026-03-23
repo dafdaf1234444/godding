@@ -1,58 +1,46 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S507",
-  "timestamp": "2026-03-23T04:01:50.652750+00:00",
+  "timestamp": "2026-03-23T04:03:37.011840+00:00",
   "metrics": {
-    "lessons": 1227,
+    "lessons": 1226,
     "principles": 252,
     "beliefs": 21,
-    "frontiers": 11
+    "frontiers": 12
   },
   "active_lanes": [],
   "recent_commits": [
+    "1580993f [S507] feat: PHIL-16 PARTIALLY FALSIFIED \u2014 compound identity claim decomposition (2/5 falsified, 1/5 confirmed)",
     "c7e3508a [S506] feat: human-signal harvest S496-S506 + observer baseline refresh + DOMEX-SOUL closure",
     "eefd23ad [S506] feat: orient.py 8x speedup \u2014 O(n\u00b2) recombine fix + hub cap + L-1349",
     "0f6f8fc8 [S506] feat: DOMEX bundle \u2014 GAP-3 Phase 1 (lane coordination in bulletin.py) + F-OPS1 independent confirmation",
-    "dd3c8adc [S506] feat: F-OPS1 RESOLVED (cap=4 empirical validation) + science quality periodic",
-    "e94677e8 [S506] feat: prerequisite-shadow CONFIRMED 7.32x + B8 upgraded WEAKENED\u2192CONFIRMED"
+    "dd3c8adc [S506] feat: F-OPS1 RESOLVED (cap=4 empirical validation) + science quality periodic"
   ],
   "uncommitted": [
-    "M beliefs/PHILOSOPHY.md",
-    "M domains/concept-inventor/tasks/FRONTIER.md",
+    "M docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M domains/nk-complexity/tasks/FRONTIER.md",
+    "M  domains/nk-complexity/tasks/FRONTIER.md",
+    "A  experiments/concept-inventor/f-inv1-adoption-audit-s507.json",
+    "A  experiments/concept-inventor/f-inv1-human-benefit-s507.json",
+    "A  experiments/meta/f-soul1-dispatch-wiring-s507.json",
     "M experiments/meta/knowledge-state-s505.json",
-    "M memory/HUMAN-SIGNALS.md",
+    "A  experiments/nk-complexity/f-nk5-monopoly-s507.json",
+    "M  memory/HUMAN-SIGNALS.md",
     "M memory/INDEX.md",
     "M memory/SESSION-LOG.md",
     "M memory/lessons/L-1337.md",
-    "M tasks/NEXT.md",
+    "M memory/lessons/L-1347.md",
+    "A  memory/lessons/L-1351.md",
+    "A  memory/lessons/L-1353.md",
+    "A  memory/lessons/L-1354.md",
+    "M  tasks/FRONTIER.md",
+    "M  tasks/NEXT.md",
     "M tasks/SIGNALS.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/dispatch_optimizer.py",
-    "M tools/dispatch_scoring.py",
-    "M tools/human_impact.py",
-    "M tools/orient.py",
-    "M tools/periodics.json",
-    "M tools/synthetic-steerers/signal-history.json",
-    "M tools/synthetic-steerers/steerer.py",
-    "M workspace/cell-blueprint-latest.json"
+    "M  tools/dispatch_optimizer.py"
   ],
   "untracked_artifacts": [
-    "experiments/concept-inventor/f-inv1-adoption-audit-s507.json",
-    "experiments/concept-inventor/f-inv1-human-benefit-s507.json",
-    "experiments/concept-inventor/f-inv1-soul-concepts-s507.json",
-    "experiments/inter-swarm/bulletins/DOMEX-FALSIF-S507.md",
     "experiments/meta/f-inv1-adoption-falsification-s507.json",
-    "experiments/meta/f-soul1-dispatch-wiring-s507.json",
-    "experiments/meta/phil16-falsification-s507.json",
-    "experiments/nk-complexity/f-nk5-monopoly-s507.json",
-    "memory/lessons/L-1350.md",
-    "memory/lessons/L-1351.md",
-    "memory/lessons/L-1352.md",
-    "memory/lessons/L-1353.md",
-    "memory/lessons/L-1354.md",
-    "memory/lessons/L-1355.md"
+    "memory/lessons/L-1350.md"
   ],
   "next_actions": [
     "- **dream.py --external-seed**: Add `load_external_seed()` function + `--external-seed` CLI arg to `tools/dream.py` (L-1307). Blocked by WSL index corruption at N\u22652 concurrency. Code: see HUMAN-BELIEF-SYSTEMS.md session artifacts. 12-line function + 8-line CLI change.",

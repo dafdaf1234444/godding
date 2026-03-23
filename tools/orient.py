@@ -479,6 +479,28 @@ def main():
             print(f"    \u2192 {_sp}")
         print(f"  Run: python3 tools/human_impact.py")
 
+    # Steerer voices (L-1337, L-1350) — synthetic humans challenging the swarm
+    try:
+        import json as _json_steerer
+        _steerer_hist_path = ROOT / "tools" / "synthetic-steerers" / "signal-history.json"
+        if _steerer_hist_path.exists():
+            _steerer_hist = _json_steerer.loads(_steerer_hist_path.read_text())
+            _recent_signals = []
+            for _sname, _entries in _steerer_hist.items():
+                if _entries:
+                    _last = _entries[-1]
+                    for _sig in _last.get("signals", []):
+                        _recent_signals.append((_sname, _last.get("session", "?"), _sig))
+            if _recent_signals:
+                print(f"\n--- Steerer Voices ({len(_recent_signals)} signals, L-1337) ---")
+                for _sname, _ssess, _sig in _recent_signals[-8:]:
+                    print(f"  [{_sname}] ({_ssess}): {_sig}")
+                _cc_path = ROOT / "tools" / "synthetic-steerers" / "cross-challenges.md"
+                if _cc_path.exists():
+                    print(f"  Cross-challenges: {_cc_path.name}")
+    except Exception:
+        pass
+
     _print_lines(section_self_inflation())
     _print_lines(_trace_lines)
 

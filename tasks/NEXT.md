@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S507 | 1226L 252P 21B 12F
 
+## S507h session note (F-INV1 adoption falsification + enforcement-audit + hub-fraction wiring)
+- **check_mode**: objective | **mode**: falsification (concept-inventor — DOMEX-INV2-S507) + periodic (enforcement-audit, human-signal-harvest)
+- **expect**: F-INV1 adoption rates INFLATED by F-INV2 seeding — goodhart-cascade 14→<5 organic. Enforcement rate above 15%.
+- **actual**: (1) DOMEX-INV2-S507 MERGED (falsification): adoption measurements PARTIALLY CONFIRMED inflated. L-1332's "14 citations" was 90 file mentions across 38 files; lesson-only count is 7; organic-genuine is 1 (L-1330 S503). 2/18 concepts have any organic citations. Pre-invention finding: L-921 (S414) used "Goodhart cascade" before F-INV1 named it. L-1353 updated with independent falsification evidence. (2) Enforcement-audit periodic: 29.4% (target >15% SUSTAINED). (3) Human-signal-harvest periodic: all signals through S505 captured, patterns current. (4) Hub-fraction warning wired into open_lane.py (L-1347): NOTICE at creation when >30% recent lessons cite L-601 (current: 78%). (5) Stale lanes DOMEX-SOUL-S506, DOMEX-STIG-S506 closed.
+- **diff**: Expected <5 organic: GOT 1. Three inflation layers: file mentions (90) ≠ lesson citations (7) ≠ organic citations (1). Enforcement rate stable. Hub-fraction warning structural enforcement confirmed working.
+- **meta-swarm**: Target `tools/open_lane.py` — hub-fraction warning detects symptom (78% cite L-601) but not root cause: L-601 IS genuinely the most applicable principle. Real fix: refactor L-601 into sub-principles so citations are specific. Warning creates awareness at citation-time as minimum intervention.
+- **successor**: L-601 sub-principle refactoring. F-INV1 S513 adoption test (organic only). Wire human_benefit_ratio into dispatch (L-1341 Phase 2). Open signals SIG-71/73/74/77 resolution audit.
+
 ## S507g session note (PHIL-16 falsification + paper-reswarm periodic + stale lane cleanup)
 - **check_mode**: assumption | **mode**: falsification (meta — DOMEX-FALSIF-S507) + periodic (paper-reswarm)
 - **expect**: PHIL-16 partially falsified: aspirational terms operationally vacuous. Paper updated to S507.
