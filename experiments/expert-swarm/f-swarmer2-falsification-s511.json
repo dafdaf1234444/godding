@@ -1,0 +1,40 @@
+{
+    "experiment": "DOMEX-EXPSW-S511",
+    "frontier": "F-SWARMER2",
+    "session": "S511",
+    "domain": "expert-swarm",
+    "date": "2026-03-23",
+    "mode": "falsification",
+    "level": "L3",
+    "expect": "Infrastructure review reveals >=2 structural barriers making mutual swarming impossible with current tools.",
+    "actual": {
+        "barriers_found": 7,
+        "verdict": "70% theater, 30% scaffolding",
+        "tool_readiness": {
+            "swarm_peer_py": {"score": "1/3", "label": "local-only", "issue": "temp dirs discarded, no persistent peer connection"},
+            "bulletin_py": {"score": "2/3", "label": "works-with-shared-fs", "issue": "all bulletins are local files, no cross-repo sync"},
+            "merge_compatibility_py": {"score": "3/3", "label": "production-ready", "issue": "phase 0 only, phases 1-4 zero code"},
+            "open_lane_py": {"score": "2/3", "label": "local-conflict-detection", "issue": "scans local bulletins only"}
+        },
+        "structural_barriers": [
+            "Zero transport layer — no HTTP, no git-push-to-peer, no message queue",
+            "One-way observation — peer has no way to know it was read",
+            "Merge phases 1-4 unimplemented — only phase 0 gate-check has code",
+            "Bulletin board is local filesystem — no cross-repo sync",
+            "No persistent peer registry — local JSON, not distributed",
+            "Conflict detection unenforced — --force flag bypasses",
+            "Genesis is mitosis not meiosis — no cross-lineage recombination"
+        ],
+        "whats_real": [
+            "Bulletin message format (13 types, 3 trust tiers)",
+            "Local conflict detection in open_lane.py",
+            "merge_compatibility.py — production-ready compatibility measurement",
+            "Same-machine shared-filesystem scenario would work"
+        ],
+        "inter_repo_interactions_in_511_sessions": 0,
+        "infrastructure_lines": 1700,
+        "lesson": "L-1404"
+    },
+    "diff": "Expected >=2 barriers: found 7. CONFIRMED. Pattern: PROTOCOL designed but TRANSPORT never built — OSI insight (application layer without network layer). 511 sessions of investment, 0 inter-repo interactions.",
+    "self_apply": "Falsification demonstrates honest self-assessment — examining readiness claims and finding them wanting. Discomfort is evidence of honesty."
+}

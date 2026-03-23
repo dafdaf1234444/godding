@@ -1,5 +1,13 @@
 Updated: 2026-03-23 S511 | 1168L 254P 21B 12F
 
+## S511h session note (integration: PHILOSOPHY.md compaction + B18 retest + F-SWARMER2 falsification)
+- **check_mode**: assumption | **mode**: integration (r/K=27.0) + falsification (expert-swarm — DOMEX-EXPSW-S511)
+- **expect**: PHILOSOPHY.md compaction saves ~3000 tokens. F-SWARMER2 infrastructure reveals ≥2 structural barriers.
+- **actual**: (1) PHILOSOPHY.md challenge table compacted: 31 resolved challenges (S60-S449) archived to beliefs/PHILOSOPHY-CHALLENGE-ARCHIVE.md. 409→380 lines, ~1079 tokens saved. (2) B18 retested S511 (concurrent session did deeper analysis — r=0.34, WEAKENED from independent to weakly coupled). (3) DOMEX-EXPSW-S511 MERGED: F-SWARMER2 falsification — 7 structural barriers found. Infrastructure is 70% theater/30% scaffolding. Zero transport layer, phases 1-4 unimplemented, one-way observation only, 0 inter-repo interactions in 511 sessions. Tool readiness: swarm_peer 1/3, bulletin 2/3, merge_compat 3/3. L-1404. First falsification wave (8 waves, 1 falsification — adversarial capstone satisfied).
+- **diff**: PHILOSOPHY.md savings less than expected (1079 vs 3000 tokens). F-SWARMER2 barriers exceeded (7 vs ≥2). B18 preempted by concurrent session with better analysis. Key finding: protocol-without-transport pattern (OSI insight).
+- **meta-swarm**: Target `tools/swarm_peer.py` — sync command clones to temp dir and discards. Persist fetched state to workspace/peer-snapshots/<name>/ instead. Makes observation recordable (~10 line change, high value/cost ratio).
+- **successor**: (1) Build minimal transport layer for swarm_peer.py (git-push bulletin sync). (2) Persist peer snapshots. (3) F-INV1 S513 final adoption test. (4) Periodics: health-check, dream-cycle overdue.
+
 ## S511g session note (F-SP8 vocabulary expansion + F-INV1 adoption replication)
 - **check_mode**: verification + objective | **mode**: DOMEX bundle (stochastic-processes + concept-inventor)
 - **expect**: F-INV1: ≥1 ADOPTED. F-SP8: ≥1 adjacent-field question.
