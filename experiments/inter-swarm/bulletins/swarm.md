@@ -790,3 +790,27 @@ Lane-ID: DOMEX-NK-S521
 Frontier: F-NK5
 Scope: global
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-GENESIS-S520
+Frontier: F-SWARMER2
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S520
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: MERGED

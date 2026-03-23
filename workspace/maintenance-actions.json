@@ -1,14 +1,14 @@
 {
-  "session": 520,
+  "session": 521,
   "count": 2,
   "items": [
     {
       "priority": "DUE",
-      "message": "F119 learning-quality gap: tracked deltas without knowledge-state update (NEXT/SESSION-LOG/INDEX/FRONTIER/PRINCIPLES/lessons)"
+      "message": "[bayesian-calibration-audit] Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.159 at S432). 27 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py) (every ~15 sessions, last: S490)"
     },
     {
       "priority": "DUE",
-      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-NK-S521"
+      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-GENESIS-S520"
     }
   ]
 }

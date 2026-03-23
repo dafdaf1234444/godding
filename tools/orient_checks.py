@@ -164,6 +164,15 @@ def check_stale_experiments(ROOT, _hcache=None):
                 or "experiments/" in line
                 or re.search(r"\.json\b", line) is not None
             )
+            # Also check experiments/<domain>/ for matching experiment files (S519c fix)
+            if not has_run_evidence:
+                exp_dir = ROOT / "experiments" / domain
+                if exp_dir.exists():
+                    fid_lower = eid.lower().replace("-", "")
+                    for ef in exp_dir.iterdir():
+                        if ef.is_file() and fid_lower in ef.name.lower().replace("-", ""):
+                            has_run_evidence = True
+                            break
             if has_run_evidence:
                 seen.add(eid)
                 continue

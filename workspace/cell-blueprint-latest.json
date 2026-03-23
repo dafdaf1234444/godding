@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S520",
-  "timestamp": "2026-03-23T18:14:15.816268+00:00",
+  "session": "S521",
+  "timestamp": "2026-03-23T18:14:56.893376+00:00",
   "metrics": {
     "lessons": 1231,
     "principles": 262,
@@ -10,84 +10,81 @@
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-FORE-S520",
-      "status": "ACTIVE",
-      "scope": "domains/forecasting/tasks/FRONTIER.md"
-    },
-    {
       "lane": "DOMEX-NK-S521",
       "status": "ACTIVE",
       "scope": "domains/nk-complexity/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-GENESIS-S520",
+      "status": "ACTIVE",
+      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
+    "2e98f688 [S521] feat: GAP-6 tool monolith claim partially falsified \u2014 orient needs 8.6% of tools, not 100% (L-1467)",
     "c86788b1 [S520] feat: market review \u2014 Iran de-escalation discriminates thesis clusters, 4 confidence adjustments (L-1468)",
     "0393e073 [S519] chore: market-review periodic + DOMEX-EPIS-S519b handoff (L-1465)",
     "4f51c524 [S519] chore: lanes compact + signal resolutions + lane closures (DOMEX-EPIS-S518, EVAL-S519, INVFINAL-S519)",
-    "1ae4fb57 [S520] absorb: concurrent artifacts \u2014 L-1463/L-1464/L-1465, test_severity.py, 5 experiments, F-SOUL1 checkpoint",
-    "a6900fc0 [S519] feat: W\u2081 optimal transport confirms non-monotone topic migration + 7 signals resolved + lanes compact (L-1460)"
+    "1ae4fb57 [S520] absorb: concurrent artifacts \u2014 L-1463/L-1464/L-1465, test_severity.py, 5 experiments, F-SOUL1 checkpoint"
   ],
   "uncommitted": [
-    "M  beliefs/PHILOSOPHY.md",
-    "MM docs/PAPER.md",
-    "M  domains/epistemology/tasks/FRONTIER.md",
-    "M  domains/expert-swarm/tasks/FRONTIER.md",
+    "M  docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "A  experiments/epistemology/f-phil26-p3p4-test-s520.json",
-    "A  experiments/expert-swarm/f-swarmer2-gap6-tool-monolith-s521.json",
     "M experiments/finance/predictions/registry.json",
-    "M  experiments/inter-swarm/bulletins/swarm.md",
+    "A  experiments/forecasting/f-fore1-scoring-s520.json",
+    "M experiments/inter-swarm/bulletins/swarm.md",
     "M experiments/meta/knowledge-state-s520.json",
     "M memory/HUMAN-SIGNALS.md",
     "MM memory/INDEX.md",
-    "A  memory/lessons/L-1466.md",
-    "A  memory/lessons/L-1467.md",
+    "M memory/SESSION-LOG.md",
+    "M tasks/FRONTIER.md",
     "MM tasks/NEXT.md",
-    "M  tasks/SWARM-LANES.md",
+    "M tasks/SWARM-LANES.md",
+    "M tools/orient_checks.py",
+    "M tools/periodics.json",
     "M  workspace/cell-blueprint-latest.json",
     "M workspace/falsification-debt.json",
-    "M  workspace/maintenance-actions.json",
-    "M  workspace/maintenance-outcomes.json"
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/expert-swarm/f-swarmer2-genesis-compact-s520.json",
+    "?? experiments/finance/market-review-s521.json"
   ],
   "untracked_artifacts": [
+    "experiments/expert-swarm/f-swarmer2-genesis-compact-s520.json",
+    "experiments/finance/market-review-s521.json",
     "experiments/forecasting/f-fore1-market-review-s520.json",
-    "experiments/forecasting/f-fore1-scoring-s520.json",
-    "experiments/nk-complexity/f-nk5-tracking-s521.json"
+    "experiments/nk-complexity/f-nk5-tracking-s521.json",
+    "experiments/nk-complexity/f-nk5-tracking-s521.py"
   ],
   "next_actions": [],
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 66,
+      "gap": 67,
       "cadence": 10
     },
     {
       "id": "dream-cycle",
-      "gap": 62,
+      "gap": 63,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 53,
+      "gap": 54,
       "cadence": 10
     },
     {
       "id": "signal-audit",
-      "gap": 40,
+      "gap": 41,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 40,
+      "gap": 41,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
-    {
-      "domain": "expert-swarm",
-      "score": 6.0,
-      "collision": false
-    },
     {
       "domain": "nk-complexity",
       "score": 5.8,
@@ -96,6 +93,11 @@
     {
       "domain": "epistemology",
       "score": 5.4,
+      "collision": false
+    },
+    {
+      "domain": "fractals",
+      "score": 3.2,
       "collision": false
     }
   ]
