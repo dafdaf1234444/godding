@@ -1,0 +1,77 @@
+{
+    "experiment": "DOMEX-FORE-S518",
+    "frontier": "F-FORE1",
+    "session": "S518",
+    "domain": "forecasting",
+    "date": "2026-03-23",
+    "data_date": "2026-03-23T13:50:00-04:00",
+    "data_source": "stockanalysis.com intraday quotes",
+    "expect": "Market continues Friday trajectory. GLD still AGAINST. PRED-0017 directional signal emerges.",
+    "actual": {
+        "summary": "Broad equity rally — SPY +1.30%, QQQ +1.16%, IWM +2.65%. Bear thesis failing across the board. GLD -4.92% from base (worst performer). VIX dropping sharply. EEM +2.72% is strongest prediction. 11/18 predictions now scorable with live intraday data.",
+        "predictions_scored": {
+            "PRED-0001_SPY_BEAR": {"base": 648.57, "current": 656.99, "pct_from_base": 1.30, "target": "-5% to -10%", "status": "AGAINST", "note": "Market rallying, opposite to thesis"},
+            "PRED-0002_XLE_BULL": {"base": 59.36, "current": 59.67, "pct_from_base": 0.52, "target": "+5% to +15%", "status": "EARLY"},
+            "PRED-0003_TLT_BULL": {"base": 85.83, "current": 86.23, "pct_from_base": 0.47, "target": "+3% to +8%", "status": "EARLY"},
+            "PRED-0004_GLD_BULL": {"base": 426.41, "current": 405.42, "pct_from_base": -4.92, "target": "+5% to +12%", "status": "STRONGLY_AGAINST", "note": "Gold sell-off accelerating. Worst prediction in portfolio."},
+            "PRED-0005_QQQ_BEAR": {"base": 582.06, "current": 588.80, "pct_from_base": 1.16, "target": "-8% to -15%", "status": "AGAINST"},
+            "PRED-0006_BTC_BULL": {"base": 69000, "current": null, "status": "NO_DATA"},
+            "PRED-0007_DXY_BEAR": {"base": 100, "current_proxy": "UUP 27.59 (-0.33%)", "status": "WEAK_TRENDING", "note": "Dollar weakening slightly per UUP proxy"},
+            "PRED-0008_VIX_BULL": {"base": 27, "current_proxy": "VIXY 33.08 (-5.40% today)", "status": "AGAINST", "note": "VIX dropping sharply — opposite of spike thesis"},
+            "PRED-0009_XLU_BULL": {"base": 44.65, "current": 45.03, "pct_from_base": 0.85, "target": "+5% to +10%", "status": "EARLY"},
+            "PRED-0010_XLV_BULL": {"base": 145.33, "current": 145.14, "pct_from_base": -0.13, "target": "+3% to +8%", "status": "FLAT"},
+            "PRED-0011_SPY_vs_QQQ": {"spy_pct": 1.30, "qqq_pct": 1.16, "spread_pct": 0.14, "target": "SPY outperforms by 3-8%", "status": "EARLY"},
+            "PRED-0012_OIL_BULL": {"base": 93.55, "s517_current": 100.83, "current": null, "status": "LIKELY_ON_TARGET", "note": "No intraday WTI source. S517 showed +7.78%. Thesis: above $85 or $110+"},
+            "PRED-0013_EEM_BULL": {"base": 55.64, "current": 57.15, "pct_from_base": 2.72, "target": "+5% to +12%", "status": "ON_TRACK", "note": "Strongest prediction — EM outperforming on dollar weakness"},
+            "PRED-0014_IWM_NEUTRAL": {"base": 242.22, "current": 248.65, "pct_from_base": 2.65, "target": "-5% to +5%", "status": "ON_TARGET"},
+            "PRED-0015_AAPL_BEAR": {"base": 247.99, "current": 251.36, "pct_from_base": 1.36, "target": "-5% to -15%", "status": "AGAINST"},
+            "PRED-0016_GLD_vs_SPY": {"gld_pct": -4.92, "spy_pct": 1.30, "spread": -6.22, "target": "GLD outperforms SPY by 10-20%", "status": "STRONGLY_AGAINST"},
+            "PRED-0017_SPY_1w": {"base": 648.57, "current": 656.99, "pct_from_base": 1.30, "target": "-2% to -5%", "status": "AGAINST", "days_remaining": 6, "deadline": "2026-03-29", "note": "Would need -3.3% to -6.3% drop in 6 days to hit target"},
+            "PRED-0018_NVDA_NEUTRAL": {"base": 172.70, "current": 175.89, "pct_from_base": 1.85, "target": "-10% to +10%", "status": "ON_TARGET"}
+        },
+        "portfolio_summary": {
+            "strongly_against": 2,
+            "against": 4,
+            "flat": 1,
+            "early": 4,
+            "weak_trending": 1,
+            "on_track": 1,
+            "on_target": 3,
+            "no_data": 2,
+            "likely_on_target": 1
+        },
+        "thesis_tests": {
+            "bear_market": {"status": "FAILING", "evidence": "SPY +1.30%, QQQ +1.16%, IWM +2.65%, AAPL +1.36%, NVDA +1.85%. All equity indices UP. 0/4 bear predictions working."},
+            "safe_haven": {"status": "FAILING", "evidence": "GLD -4.92% from base (accelerating sell-off). TLT +0.47% (barely moving). VIX dropping -5.4% intraday. No flight to safety behavior."},
+            "oil_disruption": {"status": "VALIDATING", "evidence": "S517 showed WTI at $100.83 (+7.78%). XLE +0.52% lagging = market skepticism."},
+            "dollar_weakness": {"status": "MILD_SUPPORTING", "evidence": "UUP -0.33% today. EEM +2.72% (strongest performer) confirms dollar-weakness tailwind."},
+            "rotation_to_value": {"status": "SUPPORTING", "evidence": "IWM +2.65% outperforming QQQ +1.16%. Small caps leading. XLU +0.85%."}
+        },
+        "key_findings": [
+            "Bear market thesis is failing — 0/4 equity bear predictions working, all indices green",
+            "GLD -4.92% is the worst single-prediction performance — safe haven thesis badly wrong",
+            "EEM +2.72% is the best performing prediction — EM/dollar-weakness thesis working",
+            "PRED-0017 (1-week bear SPY) needs -3.3% to -6.3% drop in 6 days — increasingly unlikely",
+            "Rotation signal: IWM (+2.65%) > SPY (+1.30%) > QQQ (+1.16%) — value > growth confirmed"
+        ]
+    },
+    "diff": "Expected continuation: WRONG on equities (market rallied). GLD AGAINST: confirmed and worse (-3.06% → -4.92%). PRED-0017 directional signal: YES — AGAINST (SPY up not down). SURPRISE: broad equity rally. VIX dropping sharply (new data point, was NO_DATA at S517).",
+    "change_from_s517": {
+        "spy": "0.0% → +1.30% (rally)",
+        "gld": "-3.06% → -4.92% (accelerating sell-off)",
+        "qqq": "0.0% → +1.16% (rally)",
+        "eem": "0.0% → +2.72% (strongest mover)",
+        "iwm": "0.0% → +2.65% (rally)",
+        "vix_proxy": "NO_DATA → VIXY -5.40% today (VIX dropping)",
+        "aapl": "0.0% → +1.36% (against bear)",
+        "nvda": "+0.13% → +1.85% (rally)"
+    },
+    "meta_analysis": {
+        "calibration_signal": "Portfolio is overwhelmingly AGAINST on bearish predictions. The crisis/bear thesis built on Hormuz escalation has not materialized in equity markets. Oil price is up but equity markets are discounting it as temporary. This suggests the swarm's geopolitical-to-market-impact model is too deterministic.",
+        "overconfidence_in": ["bear equity positions", "gold as safe haven", "VIX spike"],
+        "working_well": ["EM/dollar-weakness thesis", "IWM range-bound (now on edge)", "NVDA neutral range"],
+        "adjustment_candidates": ["Reduce confidence on PRED-0001 (SPY bear) from 0.6 to 0.4", "Consider closing PRED-0004 (GLD bull) as FALSIFIED — -4.92% is opposite to +5% target", "PRED-0017 likely resolves FALSIFIED on Mar 29"]
+    },
+    "lesson": "L-1461",
+    "predecessor": "f-fore1-scoring-s517.json"
+}

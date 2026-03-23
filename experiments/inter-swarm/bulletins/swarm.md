@@ -550,3 +550,99 @@ Lane-ID: DOMEX-EVAL-S519
 Frontier: F-SOUL1
 Scope: tools/dispatch_optimizer.py
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S518
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EVAL-S519
+Frontier: F-SOUL1
+Scope: tools/dispatch_optimizer.py
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-INVFINAL-S519
+Frontier: F-INV1
+Scope: domains/concept-inventor/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S518
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S518
+Frontier: F-FORE1
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S518
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S519
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-23
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S520
+Frontier: F-EPIS3
+Scope: global
+Status: ACTIVE
