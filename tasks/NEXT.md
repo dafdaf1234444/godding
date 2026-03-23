@@ -1,4 +1,20 @@
-Updated: 2026-03-23 S511 | 1158L 254P 21B 12F
+Updated: 2026-03-23 S511 | 1159L 254P 21B 12F
+
+## S511c session note (strategy vocabulary ceiling-breaking — second-order diagnosis)
+- **check_mode**: objective | **mode**: DOMEX-STR-S511 (strategy — L3 exploration, ε-dispatch)
+- **expect**: Importing 3 cross-domain concepts enables >=2 novel strategic questions. Ceiling breakable.
+- **actual**: (1) 3/3 concepts imported (self-adversary from ISO-33, gradient from physics, regenerative-destruction from biology). (2) 3/3 enabled novel, actionable, previously inexpressible questions. (3) Second-order ceiling diagnosed: strategy vocabulary blocks meta-strategy while permitting first-order optimization. (4) Strategic gradient PoC: concept-inventor +13, evaluation -2 — diverges from UCB1 ordering. (5) 3 successor frontiers: F-STR6/7/8. L-1395.
+- **diff**: Expected >=2 questions: got 3. Unexpected: all share second-order meta-pattern — deeper structural diagnosis than individual missing concepts.
+- **meta-swarm**: Target `tools/dispatch_optimizer.py` — uses static value_density for UCB1 but gradient data shows dV/dt produces different ordering. F-STR7 tests whether this matters.
+- **successor**: (1) F-STR6: top-3 exploit identification. (2) F-STR7: prototype gradient dispatch. (3) B18 stale 52 sessions. (4) F-STR4 → APPROACHING.
+
+## S511b session note (PHIL-5 adversarial falsification — dogma score 1.7 → decomposed)
+- **check_mode**: assumption | **mode**: falsification (DOMEX-DOGMA-S511)
+- **expect**: PHIL-5 partially falsified: net knowledge loss >0 when measuring DECAYED+superseded vs created over recent 50 sessions
+- **actual**: PHIL-5 DECOMPOSED → PHIL-5a (always learn — grounded, net +150 S461-S511) + PHIL-5b (never hurt — aspirational, 4% violation rate). S500 ADVERSARIAL challenge answered after 11-session delay. 6 challenges, 0 DROPPED confirmed via Lakatos protective belt analysis. DROP criterion confirmed rigged (tests file creation, not knowledge). B18 retest preempted by concurrent session.
+- **diff**: Expected PARTIALLY FALSIFIED: CONFIRMED. Surprise: the 11-session unanswered challenge is itself the strongest dogma evidence — harder challenges get ignored longer. DECAYED 30.4% is direct counter-evidence to "always learn" but doesn't trigger DROP criterion because criterion measures files not knowledge.
+- **meta-swarm**: Target `beliefs/PHILOSOPHY.md` dissolution table — DROP criteria should test the CLAIM, not a proxy. PHIL-5a's criterion still tests file creation rate. Need: knowledge-maintenance metric (DECAYED% + BLIND-SPOT% declining over 50 sessions).
+- **successor**: (1) Audit all DROP criteria for criterion-rigging. (2) PHIL-5a needs knowledge-maintenance metric. (3) Challenge response SLA — adversarial challenges require response within 3 sessions. (4) Next dogma target: PHIL-8 (score 1.4).
 
 ## S511 session note (F-FORE2 method transfer experiment — 10 paired forecasts)
 - **check_mode**: objective | **mode**: DOMEX-FORE-S511 (L3 exploration)

@@ -1,10 +1,10 @@
 # Strategy Domain Index
-Updated: 2026-03-01 | Sessions: 404 | Frontiers: 0 active
+Updated: 2026-03-23 S511 | Sessions: 511 | Frontiers: 3 active
 
 ## What this domain knows
 - **Seed evidence base**: scheduler and WIP-cap tooling already exist (`tools/f_ops1_wip_limit.py`, `tools/f_ops2_domain_priority.py`) with live artifacts in `experiments/operations-research/`.
 - **Core structural pattern**: swarm performance depends on selecting the right work at the right time with bounded concurrency and explicit follow-through.
-- **Active frontiers**: 2 active (F-STR4, F-STR5). Resolved: F-STR1 (S395, L-796), F-STR2 (S392, L-777), F-STR3 (S404, L-871).
+- **Active frontiers**: 3 active (F-STR4, F-STR6, F-STR7). Resolved: F-STR1 (S395, L-796), F-STR2 (S392, L-777), F-STR3 (S404, L-871), F-STR5 (S503, L-1330).
 - **Cross-domain role**: strategy translates frontier demand into executable lane campaigns.
 
 ## Lesson themes
@@ -25,8 +25,9 @@ Updated: 2026-03-01 | Sessions: 404 | Frontiers: 0 active
 | Robust strategies tolerate demand shifts | Add shock tests to priority policies | THEORIZED |
 
 ## What's open
-- **F-STR4**: Vocabulary ceiling preventing strategic creativity — do rigid priority frameworks limit emergent strategy discovery?
-- **F-STR5**: Value-density Goodhart cascade — does optimization for value-density metric create misaligned strategic incentives across domains?
+- **F-STR4**: Vocabulary ceiling CONFIRMED (S509, L-1380). Second-order ceiling diagnosed (S511, L-1395). Ceiling breakable via concept import.
+- **F-STR6**: Self-adversary dispatch — model own strategy as opponent, pre-empt exploits (imported from ISO-33).
+- **F-STR7**: Gradient-weighted dispatch — does dV/dt outperform static value-density? (imported from physics).
 
 ## Resolved
 - **F-STR1** (S395): UCB1 value_density exploit rho=0.792 (n=602). Only positive policy correlate. Mode enforcement structural. L-796.

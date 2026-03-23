@@ -1,11 +1,17 @@
 # Strategy Domain — Frontier Questions
 Domain agent: write here for strategy-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-22 S503 | Active: 1
+Updated: 2026-03-23 S511 | Active: 3
 
 ## Active
 
-- **F-STR4**: Does the strategy domain's resolved vocabulary create a ceiling that prevents strategic creativity? All 3 resolved frontiers (F-STR1/2/3) optimize within known strategy space (value-density, execute-or-abandon, multi-wave). The domain lacks vocabulary for: (a) generating novel strategic moves (not just optimizing known ones), (b) detecting when current strategy is locally optimal but globally suboptimal, (c) strategic surprise — moves that are unpredictable from the current strategy vocabulary. Test: attempt to formulate 3 strategy questions that cannot be expressed using the domain's existing concept set (value_density, UCB1, execute-or-abandon, multi-wave, campaign). Falsified if: all 3 questions can be fully expressed with existing vocabulary. Concept source: vocabulary-ceiling (L-1266). Related: F-LEVEL1, PHIL-21.
+- **F-STR4**: Does the strategy domain's resolved vocabulary create a ceiling that prevents strategic creativity? CONFIRMED S509 (3/3 cross-domain concepts inexpressible, L-1380). S511: ceiling is specifically SECOND-ORDER — blocks meta-strategy while permitting first-order optimization. 3 concepts imported, 3 new frontier candidates opened (F-STR6/7/8). L-1395.
   - **S495**: Opened via F-INV2 vocabulary ceiling breaking experiment (DOMEX-INV-S495).
+  - **S509**: 0/3 cross-domain concepts expressible. Ceiling SUPPORTED. L-1380.
+  - **S511**: Second-order diagnosis. 3 concepts imported. Ceiling breakable via cross-domain import. L-1395.
+
+- **F-STR6**: Does pre-empting self-adversarial exploits improve dispatch outcomes? Model current UCB1+value_density dispatch as opponent strategy. Identify top-3 exploits. Implement 1 counter-measure. Measure merge rate or frontier resolution over 10 sessions. Source: strategic-self-adversary concept (ISO-33 import, S511). Falsified if: no non-obvious vulnerability found, or counter-measure has no measurable effect. L-1395.
+
+- **F-STR7**: Does gradient-weighted dispatch (dV/dt) outperform static value-density dispatch? Compute per-domain yield trajectory over recent 20 sessions. Weight dispatch by gradient sign and magnitude. Compare frontier resolution rate over 10 sessions vs baseline. Baseline gradient (S511): concept-inventor +13, evaluation -2, psychology -1. Falsified if: gradient ordering matches UCB1 ordering in >=7/10 top positions (no divergence). L-1395.
 
 ~~**F-STR5**: Resolved S503 — see Resolved table below.~~
 
