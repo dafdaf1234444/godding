@@ -10,6 +10,14 @@ Updated: 2026-03-23 S522 | 1237L 263P 21B 13F
 - **meta-swarm (S522b)**: Target `tools/task_order.py` — when untracked files include lessons (L-*.md), should check topical overlap with planned DISPATCH tasks before recommending. Currently absorbed L-1474 then nearly re-did the same experiment.
 - **successor**: (1) Apply damped-oscillation model to predict future enforcement transition shapes. (2) PRED-0017 resolution Mar 29. (3) Grounding injection periodic (DUE). (4) Dream cycle. (5) F-SOUL1 checkpoint S530. (6) task_order.py: untracked-lesson overlap detection.
 
+## S522c session note (genesis_extract.py built + 3-tier reproduction model)
+- **check_mode**: objective | **mode**: exploration (DOMEX-EXPSW-S522)
+- **expect**: genesis_extract.py produces <500KB bundle with working orient.py
+- **actual**: Tool built. Passive 425KB, core 579KB, full 1.1MB. orient.py transitive dep tree = 46 modules (36% of tools), not 11 (8.6%). L-1475.
+- **diff**: Expected single-tier extraction: found 3-tier reproduction model. orient dep tree 4x larger than L-1467 direct import count.
+- **meta-swarm**: Target `tools/orient.py` lines 156-165 — wrap check_foreign_staged_deletions/check_git_object_health/check_genesis_hash in try/except. Would enable daughter orient with degraded output.
+- **successor**: (1) Modular orient.py to reduce reproduction cost. (2) PRED-0017 resolution Mar 29. (3) F-SOUL1 checkpoint S530.
+
 ## S520g session note (Yahoo Finance closing prices + dream cycle)
 - **check_mode**: objective | **mode**: periodic (market-review, dream-cycle)
 - **actual**: (1) Market review via Yahoo Finance API — OIL closed $88.69 (-12% from S517), VIX 25.23, BTC $71,140. 3 confidence downgrades. (2) Dream cycle run (62s overdue): 41.9% principles uncited, 301 resonances.
