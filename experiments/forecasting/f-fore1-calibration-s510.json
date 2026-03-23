@@ -1,0 +1,154 @@
+{
+  "session": "S510",
+  "timestamp": "2026-03-23T06:24:41.406611",
+  "lane": "DOMEX-FORE-S510",
+  "frontier": "F-FORE1",
+  "experiment_type": "calibration_mapping",
+  "prediction_portfolio": {
+    "total": 18,
+    "direction_distribution": {
+      "BEAR": 6,
+      "BULL": 10,
+      "NEUTRAL": 2
+    },
+    "mean_confidence": 0.561,
+    "confidence_range": [
+      0.4,
+      0.7
+    ],
+    "confidence_distribution": {
+      "below_50": 3,
+      "50_60": 7,
+      "60_70": 7,
+      "above_70": 1
+    },
+    "effective_independent_n": 7,
+    "correlation_clusters": {
+      "stagflation": 4,
+      "safe_haven": 3,
+      "defensive_rotation": 3,
+      "relative_value": 1,
+      "single_stock": 2,
+      "macro_directional": 3,
+      "short_term": 1
+    }
+  },
+  "bayesian_updating": {
+    "predictions_with_updates": 2,
+    "updates": [
+      {
+        "id": "PRED-0002",
+        "asset": "XLE",
+        "initial": 0.65,
+        "final": 0.55,
+        "delta": -0.09999999999999998,
+        "reason": "backtest: 2008 XLE -66% during demand destruction; recession risk underweighted"
+      },
+      {
+        "id": "PRED-0003",
+        "asset": "TLT",
+        "initial": 0.55,
+        "final": 0.4,
+        "delta": -0.15000000000000002,
+        "reason": "backtest: 2022 TLT -31% during stagflation; current regime resembles 2022 not 2020; yields RISING despite equity weakness"
+      }
+    ],
+    "mean_revision_magnitude": 0.125,
+    "direction": "downward",
+    "finding": "All 3 revisions were DOWNWARD \u2014 backtesting made predictions less confident. This is the correct direction for calibration (initial estimates tend overconfident)."
+  },
+  "superforecasting_mapping": {
+    "technique_usage": {
+      "reference_class": "7/18 (39%)",
+      "outside_view": "7/18 (39%)",
+      "bayesian_update": "2/18 (11%)",
+      "decomposition": "18/18 (100%)",
+      "hedging": "18/18 (100%)",
+      "calibration_awareness": "5/18 (28%)"
+    },
+    "tetlock_score": 0.528,
+    "strengths": [
+      "hedging (100%): every prediction identifies explicit key_risk",
+      "decomposition (100%): every prediction uses 3+ domain lenses",
+      "outside_view (67%): frequent historical analog usage"
+    ],
+    "weaknesses": [
+      "bayesian_update (17%): only 3/18 revised after initial estimate",
+      "calibration_awareness (28%): few explicitly reason about their own limits",
+      "reference_class (33%): base rate usage inconsistent"
+    ]
+  },
+  "bias_assessment": {
+    "biases_detected": {
+      "overconfidence": false,
+      "directional_clustering": true,
+      "narrative_coherence": true,
+      "anchoring": false,
+      "correlation_neglect": true
+    },
+    "critical_bias": "narrative_coherence + correlation_neglect: 18 predictions but only ~7 independent bets due to shared stagflation thesis. Portfolio diversity is lower than it appears.",
+    "calibration_risk": "If the stagflation thesis is wrong (ceasefire, Fed pivot), ~12/18 predictions fail simultaneously. This would produce a Brier score of ~0.4-0.5 (badly miscalibrated)."
+  },
+  "domain_application": {
+    "domain_frequency": {
+      "physics": 12,
+      "psychology": 11,
+      "game-theory": 9,
+      "control-theory": 8,
+      "evolution": 8,
+      "history": 7,
+      "finance": 5,
+      "statistics": 4,
+      "information-science": 4,
+      "religion": 3,
+      "economics": 3,
+      "distributed-systems": 2,
+      "cryptography": 1,
+      "catastrophic-risks": 1
+    },
+    "unique_domains_used": 14,
+    "mean_domains_per_prediction": 4.3
+  },
+  "internal_vs_external_comparison": {
+    "internal_ece": 0.102,
+    "internal_n": 72,
+    "external_n": 18,
+    "external_ece": "PENDING (0 resolutions)",
+    "structural_differences": [
+      "Internal predictions are about swarm-controllable outcomes (frontiers). External are about world events \u2014 no causal influence.",
+      "Internal confidence is calibrated against historical frontier resolution rates. External has no track record.",
+      "Internal predictions are domain-specific. External predictions cluster around one macro thesis.",
+      "Internal median confidence ~0.7 (72 frontiers). External mean confidence 0.55 \u2014 the swarm is more uncertain about external events, which may be appropriate."
+    ],
+    "hypothesis": "If internal ECE=0.102 transfers to external, Brier score should be ~0.22. If it doesn't transfer (domain-specific calibration only), Brier score will be ~0.35+."
+  },
+  "resolution_timeline": {
+    "first_resolution": {
+      "id": "PRED-0017",
+      "asset": "SPY 1w",
+      "due": "2026-03-29",
+      "note": "PAST DUE \u2014 should be resolved"
+    },
+    "second_resolution": {
+      "id": "PRED-0003",
+      "asset": "TLT",
+      "due": "2026-04-21"
+    },
+    "third_resolution": {
+      "id": "PRED-0018",
+      "asset": "NVDA",
+      "due": "2026-04-21"
+    },
+    "bulk_resolution": "2026-06-20 (15 predictions)"
+  },
+  "actionable_findings": [
+    "PRED-0017 (SPY 1w, due 2026-03-29) is PAST DUE \u2014 resolve immediately with actual price data",
+    "Correlation neglect: 18 predictions but ~7 independent bets. Add 3-5 predictions ANTI-correlated with stagflation thesis",
+    "Bayesian updating rate (17%) is too low \u2014 superforecasters update ~weekly. Schedule systematic review for all OPEN predictions",
+    "Reference class usage (33%) should be higher \u2014 add explicit base rates to each prediction",
+    "Missing: no prediction about interest rates directly (10Y yield), despite being central to thesis"
+  ],
+  "expect": "Internal ECE already at 0.102. External predictions: mean confidence 0.50-0.55. Brier decomposition: low resolution but good calibration.",
+  "actual": "Mean confidence 0.553. Effective N=7 (correlation neglect). 5 superforecasting techniques mapped; hedging/decomposition strong, updating/base-rates weak. 1 prediction PAST DUE. Critical bias: narrative coherence \u2014 portfolio is one big stagflation bet.",
+  "diff": "Expected mean confidence 0.50-0.55: GOT 0.553 (CONFIRMED). Expected good calibration: CONTESTED \u2014 correlation neglect means effective sample size is ~7 not 18. Resolution quality depends on one macro thesis being right or wrong, not on prediction-by-prediction calibration."
+}

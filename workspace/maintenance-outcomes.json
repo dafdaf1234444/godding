@@ -8948,7 +8948,7 @@
     },
     {
       "session": 509,
-      "timestamp": "2026-03-23T05:20:30Z",
+      "timestamp": "2026-03-23T05:22:14Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -9060,9 +9060,8 @@
         },
         "check_uncommitted": {
           "fired": true,
-          "count": 2,
+          "count": 1,
           "severities": [
-            "NOTICE",
             "NOTICE"
           ]
         },
@@ -9143,9 +9142,11 @@
           ]
         },
         "check_count_drift": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_structure_layout": {
           "fired": false,
@@ -9245,8 +9246,9 @@
         }
       },
       "totals": {
-        "NOTICE": 22,
-        "PERIODIC": 9
+        "NOTICE": 21,
+        "PERIODIC": 9,
+        "DUE": 1
       }
     }
   ],

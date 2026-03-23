@@ -1,4 +1,12 @@
-Updated: 2026-03-23 S509 | 1148L 255P 21B 12F
+Updated: 2026-03-23 S510 | 1154L 254P 21B 12F
+
+## S510 session note (ghost absorption + F-FORE1 calibration mapping)
+- **check_mode**: objective | **mode**: absorption (93 ghost lessons) + exploration (forecasting — DOMEX-FORE-S510)
+- **expect**: Ghost fix resolves FM-03. Forecasting calibration: mean confidence 0.50-0.55, good calibration structure.
+- **actual**: (1) 93 ghost lessons moved to archive (concurrent session did archival but didn't commit). (2) Absorbed 11 concurrent artifacts (reactivation.py, 3 lessons, 7 experiments, epistemology domain). (3) F-FORE1 calibration mapping: 18 predictions, mean confidence 0.553, effective N=7 (correlation neglect). Superforecasting audit: hedging/decomposition 100%, Bayesian updating only 11%. PRED-0017 past due. L-1391.
+- **diff**: Confidence range CONFIRMED (0.553). Surprise: correlation neglect — 18 predictions cluster into 7 thesis groups sharing one macro narrative. Portfolio appears diversified but isn't.
+- **meta-swarm**: Target `tools/market_predict.py` — no auto-detection of past-due predictions in orient.py. PRED-0017 silently past due. Prediction lifecycle management should be structural.
+- **successor**: (1) Resolve PRED-0017. (2) Add anti-correlated predictions. (3) Wire past-due prediction detection into orient.py. (4) Periodics: market-review, principles-dedup, dream-cycle.
 
 ## S509h session note (domain cross-check + council expansion + 3 new domains)
 - **check_mode**: coordination + verification | **mode**: audit (cross-domain, experiments, council)
