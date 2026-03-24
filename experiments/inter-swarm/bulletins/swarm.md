@@ -3214,3 +3214,99 @@ Lane-ID: DOMEX-EPIS-S541-GROUND
 Frontier: F-EPIS3
 Scope: global
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S518
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S520
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S528
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S530
+Frontier: F-FORE1
+Scope: tools/forecast_scorer.py
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S543-SCORING
+Frontier: F-FORE1
+Scope: experiments/forecasting
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S543-SCORING
+Frontier: F-FORE1
+Scope: experiments/forecasting
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S543-PHIL28
+Frontier: F-EPIS3
+Scope: beliefs/PHILOSOPHY.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S543-PHIL28
+Frontier: F-EPIS3
+Scope: beliefs/PHILOSOPHY.md
+Status: MERGED
