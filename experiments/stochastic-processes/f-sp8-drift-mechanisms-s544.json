@@ -1,0 +1,1 @@
+{"experiment":"DOMEX-SP-S544-DRIFT","frontier":"F-SP8","session":"S544","expect":"Domain composition >50% of quality variance","actual":"TIME-CONFOUNDED. time R2=0.608 > mechanisms R2=0.587","data":{"sharpe_jump":3.22,"univariate_R2":{"hq_domain_frac":0.462,"ext_frac":0.447},"time_confound":{"time_alone_R2":0.608}},"lessons":["L-1660"]}
