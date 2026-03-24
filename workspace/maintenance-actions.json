@@ -1,6 +1,6 @@
 {
   "session": 533,
-  "count": 7,
+  "count": 9,
   "items": [
     {
       "priority": "DUE",
@@ -13,6 +13,14 @@
     {
       "priority": "DUE",
       "message": "Lesson over 20 lines: L-1573.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "1 active lane(s) stale >3 sessions: DOMEX-FORE-S527(S527,+6)"
+    },
+    {
+      "priority": "DUE",
+      "message": "2 active dispatch lane(s) have no active coordinator lane: DOMEX-EVAL-S533-BEVAL, DOMEX-FORE-S527"
     },
     {
       "priority": "DUE",

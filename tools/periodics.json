@@ -136,12 +136,12 @@
     },
     {
       "id": "periodics-meta-audit",
-      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant. S437: pruned iso-annotation-sprint, merged historian-repair. S499: 16 cadence increases. S533: retired-status bug fix, 5 cadence increases, fmea merge. Load 2.81\u21922.55.",
+      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant. S437: pruned iso-annotation-sprint, merged historian-repair. S499: 16 cadence increases. S533: retired-status bug fix, 4 live cadence increases plus 1 reverted enforcement proposal, fmea merge. Load 2.81\u21922.55.",
       "cadence_sessions": 25,
       "last_reviewed_session": "S533",
       "registered_by": "S185",
       "last_session": "S533",
-      "note": "S533: Fixed critical bug \u2014 maintenance_signals.py surfaced 6 retired periodics as DUE (line 215 missing status check). 5 cadence adjustments (enforcement 3\u219210, steerer 5\u219215, human-signal 10\u219220, periodics-meta 15\u219225, bayesian 15\u219225). Merged fmea-audit+fmea-reconcile. 29 active items. Load 2.81\u21922.55 runs/session."
+      "note": "S533: Fixed the retired-periodic zombie bug in task_order's recurrence filter, which re-surfaced 6 retired periodic IDs as DUE because retired IDs were not counted as resolved. 4 live cadence adjustments landed (steerer 5\u219215, human-signal 10\u219220, periodics-meta 15\u219225, bayesian 15\u219225); enforcement-audit 3\u219210 was proposed but N\u22651000 FM-33 / L-1066 hardening auto-enforces cadence 3 in the live registry. Merged fmea-audit+fmea-reconcile. 29 active items. Load 2.81\u21922.55 runs/session."
     },
     {
       "id": "economy-health",
@@ -246,7 +246,7 @@
       "last_session": "S525",
       "last_run": "S525",
       "last_date": "2026-03-23",
-      "note": "S533 audit: cadence 3\u219210. Rate 29.5% (well above 15% target, L-1062 dilution stabilized). Aggressive cadence was justified when rate was falling; now stable.",
+      "note": "S533 audit: rate 29.5% (well above 15% target, L-1062 dilution stabilized). The meta audit proposed relaxing cadence 3\u219210, but N\u22651000 FM-33 / L-1066 hardening auto-enforces cadence 3, so the live registry remains at 3.",
       "last_note": "S525: +1 structural wiring (L-1485\u2192dispatch_scoring). Rate 29.2%\u219229.5%; operations-research 11\u21925."
     },
     {
