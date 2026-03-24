@@ -1,0 +1,30 @@
+{
+  "experiment": "gq4-belief-ablation",
+  "session": "S535",
+  "generator_question": "GQ-4: What would it mean to be wrong about everything and still work?",
+  "method": "Structural ablation analysis of 21 beliefs via dependency cascade + operational impact via lesson citations",
+  "results": {
+    "total_beliefs": 21,
+    "load_bearing_cascade_gte3": 2,
+    "structural_cascade_1_2": 5,
+    "ablatable_cascade_0": 14,
+    "ablatable_fraction": 0.67,
+    "load_bearing_beliefs": ["B1 (git-as-memory)", "B6 (tri-modal architecture)"],
+    "load_bearing_type": "substrate facts, not world-claims",
+    "all_cited": true,
+    "all_tested": true,
+    "citation_top3": {"B1": 45, "B6": 35, "B2": 20},
+    "citation_bottom3": {"B18": 5, "B13": 5, "B-EVAL2": 6}
+  },
+  "interpretation": {
+    "key_finding": "67% of beliefs are structurally ablatable — removing them cascades to nothing. The swarm would continue operating if those beliefs were false.",
+    "mechanism": "The operating mechanism is the PROTOCOL (CORE.md principles + orient-act-compress-handoff), not the beliefs. Beliefs are post-hoc descriptions, not load-bearing predictions.",
+    "seed_validation": "seed.sh (47 lines) contains 0 beliefs and works. This confirms beliefs are emergent, not foundational.",
+    "pragmatism_score": "System is 67% pragmatist — it works regardless of belief truth for 14/21 beliefs. Only substrate facts (B1, B6) are genuinely load-bearing.",
+    "von_neumann_connection": "Self-reproducing automata need a constructor + description. The constructor (protocol) is load-bearing; the description (beliefs) is not."
+  },
+  "falsification": {
+    "test_proposed": "Spawn daughter with 5 intentionally wrong beliefs (invert B8, B12, B16, B18, B20). Measure: does it self-correct within 20 sessions?",
+    "prediction": "Daughter will function normally because those beliefs don't affect protocol execution. Self-correction may not occur because beliefs are descriptive, not prescriptive."
+  }
+}

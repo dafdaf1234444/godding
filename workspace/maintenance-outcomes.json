@@ -615,7 +615,7 @@
     },
     {
       "session": 536,
-      "timestamp": "2026-03-24T06:34:24Z",
+      "timestamp": "2026-03-24T06:35:32Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -633,9 +633,11 @@
           "severities": []
         },
         "check_runtime_portability": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_commit_hooks": {
           "fired": false,
@@ -683,9 +685,8 @@
         },
         "check_periodics": {
           "fired": true,
-          "count": 6,
+          "count": 5,
           "severities": [
-            "PERIODIC",
             "PERIODIC",
             "PERIODIC",
             "PERIODIC",
@@ -706,9 +707,11 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -721,12 +724,9 @@
           "severities": []
         },
         "check_uncommitted": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "NOTICE",
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_handoff_staleness": {
           "fired": false,
@@ -739,11 +739,9 @@
           "severities": []
         },
         "check_state_header_sync": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_cross_references": {
           "fired": false,
@@ -911,9 +909,9 @@
         }
       },
       "totals": {
-        "NOTICE": 22,
-        "PERIODIC": 6,
-        "DUE": 1
+        "NOTICE": 20,
+        "PERIODIC": 5,
+        "DUE": 2
       }
     }
   ]

@@ -61,6 +61,41 @@ def _load_maintenance_urgency():
 _maintenance_urgency = _load_maintenance_urgency()
 
 
+def _load_integration_backlog():
+    """Load the latest integration-backlog analysis for proactive meta dispatch pressure.
+
+    L-1588: coarse DUE counts miss the actual integration backlog. The unreferenced-tools
+    analysis already measures actionable wiring/archival debt, so dispatch can use it
+    directly instead of waiting for threshold-triggered maintenance notices alone.
+    """
+    pattern = str(Path("workspace") / "unreferenced-tools-analysis-s*.json")
+    files = sorted(glob.glob(pattern))
+    if not files:
+        return {"session": -1, "true_unreferenced": 0, "wire_count": 0, "archive_count": 0}
+    try:
+        with open(files[-1]) as f:
+            data = json.load(f)
+        session_value = data.get("session", -1)
+        if isinstance(session_value, str) and session_value.upper().startswith("S"):
+            session = int(re.sub(r"[^0-9]", "", session_value) or "-1")
+        elif isinstance(session_value, int):
+            session = session_value
+        else:
+            session = -1
+        summary = data.get("summary", {})
+        return {
+            "session": session,
+            "true_unreferenced": int(summary.get("true_unreferenced", 0) or 0),
+            "wire_count": int(summary.get("wire_count", 0) or 0),
+            "archive_count": int(summary.get("archive_count", 0) or 0),
+        }
+    except Exception:
+        return {"session": -1, "true_unreferenced": 0, "wire_count": 0, "archive_count": 0}
+
+
+_integration_backlog = _load_integration_backlog()
+
+
 def _load_soul_weights():
     """Load per-domain human benefit scores from human_impact.py (F-SOUL1 Phase 2).
 
@@ -107,6 +142,22 @@ _soul_mean_ratio = _compute_soul_mean()
 MAINT_DUE_BOOST_PER_ITEM = 0.5      # meta domain boost per DUE item
 MAINT_URGENT_BOOST_PER_ITEM = 1.0   # meta domain boost per URGENT item
 MAINT_BOOST_CAP = 2.0               # maximum maintenance boost
+
+# Integration backlog constants (L-1588)
+INTEGRATION_TRUE_UNREF_THRESHOLD = 32
+INTEGRATION_TRUE_UNREF_WEIGHT = 0.01
+INTEGRATION_WIRE_WEIGHT = 0.04
+INTEGRATION_ARCHIVE_WEIGHT = 0.02
+INTEGRATION_BOOST_CAP = 1.5
+INTEGRATION_STALE_AFTER = 10
+
+# Concentration penalty constants (F-COL1, L-1587 — anti-mediocrity selection)
+# When a domain captures too much dispatch share with below-median quality,
+# apply a penalty. Prevents the degenerative spiral where the most accessible
+# domain crowds out specialists. Structural enforcement per L-601.
+CONCENTRATION_SHARE_THRESHOLD = 0.10   # domain must hold >10% of total lanes
+CONCENTRATION_PENALTY_SCALE = 2.0      # penalty per 1% above threshold
+CONCENTRATION_PENALTY_CAP = 3.0        # max penalty
 
 
 # Heuristic mode constants (shared with dispatch_optimizer.py display)
@@ -370,6 +421,28 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["score"] += maint_boost
         r["maintenance_boost"] = round(maint_boost, 3)
 
+        # Integration backlog modifier (L-1588)
+        # Maintenance DUE counts are reactive and coarse. When the meta-tooler analysis
+        # reports a large fresh backlog, add proactive pressure so dispatch sees the real
+        # integration debt before it degrades into repeated maintenance alarms.
+        integration_boost = 0.0
+        ib = _integration_backlog
+        if dom == "meta" and ib.get("session", -1) >= 0:
+            age = max(current_session - ib["session"], 0)
+            if age < INTEGRATION_STALE_AFTER:
+                freshness = 1.0 - (age / INTEGRATION_STALE_AFTER)
+                true_unreferenced = max(
+                    0, ib.get("true_unreferenced", 0) - INTEGRATION_TRUE_UNREF_THRESHOLD
+                )
+                base_boost = (
+                    true_unreferenced * INTEGRATION_TRUE_UNREF_WEIGHT
+                    + min(ib.get("wire_count", 0), 15) * INTEGRATION_WIRE_WEIGHT
+                    + min(ib.get("archive_count", 0), 15) * INTEGRATION_ARCHIVE_WEIGHT
+                )
+                integration_boost = min(base_boost * freshness, INTEGRATION_BOOST_CAP)
+        r["score"] += integration_boost
+        r["integration_boost"] = round(integration_boost, 3)
+
         # Soul-informed human benefit weighting (F-SOUL1 Phase 2, SIG-81, L-1455)
         # L-1485: additive corrections do not fix multiplicative Goodhart.
         # Weight the full score by human-benefit ratio instead of adding a flat nudge.
@@ -387,6 +460,29 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["score"] *= soul_multiplier
         r["soul_multiplier"] = round(soul_multiplier, 3)
         r["soul_boost"] = round(r["score"] - pre_soul_score, 3)
+
+        # Concentration penalty — anti-mediocrity selection (F-COL1, L-1587)
+        # If a domain holds >10% of total dispatches AND its quality (exploit score)
+        # is below median, penalize proportionally. Prevents the degenerative spiral
+        # where accessible-but-average domains crowd out specialist work.
+        concentration_penalty = 0.0
+        if total_dispatches > 10 and n > 0:
+            share = n / total_dispatches
+            if share > CONCENTRATION_SHARE_THRESHOLD:
+                # Only penalize if quality is below median exploit
+                median_exploit = sorted(
+                    [rr.get("ucb1_exploit", 0) for rr in results
+                     if rr.get("ucb1_exploit") is not None]
+                )
+                med_val = median_exploit[len(median_exploit) // 2] if median_exploit else 0
+                if r.get("ucb1_exploit", 0) < med_val:
+                    excess_pct = (share - CONCENTRATION_SHARE_THRESHOLD) * 100
+                    concentration_penalty = min(
+                        excess_pct * CONCENTRATION_PENALTY_SCALE,
+                        CONCENTRATION_PENALTY_CAP
+                    )
+                    r["score"] -= concentration_penalty
+        r["concentration_penalty"] = round(concentration_penalty, 3)
 
         # Adjacency bonus — neighborhood spillover (F-CITY1, L-1510)
         # Domains adjacent to high-scoring domains get a boost, creating

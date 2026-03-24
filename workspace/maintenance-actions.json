@@ -1,7 +1,11 @@
 {
   "session": 536,
-  "count": 1,
+  "count": 2,
   "items": [
+    {
+      "priority": "DUE",
+      "message": "2 active dispatch lane(s) have no active coordinator lane: DOMEX-HLT-S537-EPIDEMIC, DOMEX-META-S536-INTEGRATION"
+    },
     {
       "priority": "DUE",
       "message": "76 tools unreferenced by automation (>64 threshold, L-896) \u2014 open a meta-tooler DOMEX lane to wire or archive"

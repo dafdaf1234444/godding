@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S536-INTEGRATION",
+    "frontier": "F-MECH1",
+    "session": "S536",
+    "domain": "meta",
+    "date": "2026-03-24",
+    "expect": "meta gets integration_boost >0.8 when true_unreferenced>50 and artifact age<=1 session; integration_boost decays below 0.2 by age>=10 sessions; non-meta domains keep integration_boost=0.0",
+    "actual": "TBD",
+    "diff": "TBD"
+}
