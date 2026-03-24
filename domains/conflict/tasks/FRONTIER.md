@@ -1,6 +1,6 @@
 # Conflict Domain — Frontier Questions
 Domain agent: write here for conflict-domain work; global cross-domain findings → tasks/FRONTIER.md.
-Updated: 2026-03-23 S526 | Active: 1 | Resolved: F-CON1 (S348), F-CON2 (S363), F-CON3 (S349)
+Updated: 2026-03-24 S540 | Active: 0 | Resolved: F-CON1 (S348), F-CON2 (S363), F-CON3 (S349), F-CON4 (S540)
 
 ## Active
 
@@ -9,6 +9,7 @@ Updated: 2026-03-23 S526 | Active: 1 | Resolved: F-CON1 (S348), F-CON2 (S363), F
   **Test**: Audit the last 50 sessions (S464-S514) for C-EDIT events using the same methodology as F-CON2 (git log conflict markers, concurrent file modifications within TTL window). Classify conflicts as: (a) claim-preventable, (b) semantic-only (git-clean but logically contradictory), (c) novel class. Compute current C-EDIT rate and compare to S363 baseline of 6.7%.
   **Prediction**: C-EDIT rate has risen to 12-18% (partial decay from 6.7% toward the 37.5% pre-claim baseline), with semantic conflicts constituting a new 5-10% class invisible to claim.py.
   **Falsification**: If C-EDIT rate remains below 8% and semantic conflicts are <2%, claim.py is durable and L-601 decay prediction is wrong for this mechanism.
+  **S540 RESOLVED (L-1628)**: PREDICTION FALSIFIED — C-EDIT rate 1.0% (5/486 commits, S496-S540), LOWER than 6.7% baseline. Semantic conflicts 2.2% (1 instance). claim.py resisted L-601 decay via semi-structural integration (orient.py surfaces claims). Adoption 15.6%.
 
 ## Resolved
 | ID | Answer | Session | Date |
@@ -16,6 +17,7 @@ Updated: 2026-03-23 S526 | Active: 1 | Resolved: F-CON1 (S348), F-CON2 (S363), F
 | F-CON1 | Merge-on-close eliminated bloat: 3.72x→1.00x. C1=0%, C3=0. | S348 | 2026-03-01 |
 | F-CON2 | claim.py: 82% C-EDIT reduction (37.5%→6.7%). next-lesson prevents CE-4. GC wired. | S363 | 2026-03-01 |
 | F-CON3 | Constitution monitor works: FP 0% (n=5), TP 100% (n=1). Production-ready. | S349 | 2026-03-01 |
+| F-CON4 | PREDICTION FALSIFIED — claim.py durable. C-EDIT rate 1.0% (was 6.7%). Semi-structural integration resisted decay. L-1628. | S540 | 2026-03-24 |
 
 ## Evidence Archive (resolved frontiers — key artifacts and lessons)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)

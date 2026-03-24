@@ -1,6 +1,6 @@
 # Governance Domain — Frontier Questions
 Domain agent: write here for governance-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
+Updated: 2026-03-24 S540 (F-GOV9 CONFIRMED) | Active: 5
 
 ## Active
 
@@ -27,6 +27,7 @@ Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
   **Prediction**: Opposition signals change actions in >20% of cases; lesson quality improves by >5%.
   **Falsification**: Opposition signals are ignored in >80% of cases AND lesson quality unchanged.
   **Source**: L-1441. ISO-POL-2 (separation of powers), ISO-POL-4 (judicial review).
+  **S540 CONFIRMED (L-1629)**: Both predictions met. Challenge enforcement +148% rate. Opposition changed behavior 22.5%. Lesson output +10.3%. 55.3% dogma unchallenged. Prescription: designated opposition + opposition-audit periodic.
 
 - **F-GOV10**: Can the swarm produce a viable internal constitution for multi-human, multi-swarm governance?
   PHIL-11 assumes one human with directional authority. PHIL-25 names fairness as a principle. Neither provides a decision procedure for: (a) how multiple humans share authority, (b) how conflicts between human directives are resolved, (c) how CORE.md and PHILOSOPHY.md change under multi-human governance, (d) how power concentration is prevented. F-MERGE1's Phase 4 (identity negotiation) is bilateral — handles two swarms merging, not ongoing multilateral governance.
