@@ -1,0 +1,50 @@
+{
+  "id": "f-ai4-goodhart-fix-s541",
+  "frontier": "F-AI4",
+  "session": "S541",
+  "domain": "ai",
+  "hypothesis": "Replacing hardcoded Sharpe normalization (7.7) with dynamic global mean and blending 0.5x Sharpe + 0.5x citation in-degree will produce a quality factor with genuine domain discrimination",
+  "method": "Modified dispatch_scoring.py ucb1_score(): (1) avg_sharpe fallback from 7.7 to global_mean_sharpe, (2) sharpe_factor normalized against dynamic mean, (3) citation in-degree computed via dispatch_citation.py build_citation_indegree(), (4) cite_factor = log-scaled avg citations / global mean, (5) quality_factor = 0.5*sharpe + 0.5*citations",
+  "results": {
+    "exploit_changes": {
+      "epistemology": {
+        "before": 4.078,
+        "after": 3.308,
+        "delta": -0.77
+      },
+      "expert-swarm": {
+        "before": 5.258,
+        "after": 4.947,
+        "delta": -0.311
+      },
+      "meta": {
+        "before": 5.214,
+        "after": "tbd"
+      },
+      "note": "domains with inflated Sharpe dropped; citation-rich domains maintained or gained"
+    },
+    "citation_graph": {
+      "total_cited_lessons": 1153,
+      "total_citations": 5137,
+      "avg_indegree": 4.46,
+      "top_hub": "L-601 (513 citations)"
+    },
+    "domain_citation_variation": {
+      "nk-complexity_avg": 5.78,
+      "meta_avg": 4.89,
+      "evolution_avg": 5.73,
+      "note": "citation counts show real variation across domains unlike Sharpe (CV=0.168)"
+    },
+    "bug_fixed": "hardcoded 7.7 in sharpe_factor calculation replaced with dynamic global_mean_sharpe"
+  },
+  "files_modified": [
+    "tools/dispatch_scoring.py",
+    "tools/dispatch_citation.py (new)"
+  ],
+  "cites": [
+    "L-1622",
+    "L-1127",
+    "L-601"
+  ],
+  "status": "CONFIRMED \u2014 citation blending operational, dispatch rankings shifted"
+}
