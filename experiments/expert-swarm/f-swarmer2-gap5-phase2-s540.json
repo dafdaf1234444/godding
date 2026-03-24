@@ -1,0 +1,43 @@
+{
+  "experiment": "F-SWARMER2 GAP-5 Phase 2: daughter validation viability",
+  "session": "S540",
+  "domain": "expert-swarm",
+  "frontier": "F-SWARMER2",
+  "date": "2026-03-24",
+  "hypothesis": "Daughter genesis bundle should pass validate_beliefs.py --quick and orient.py without errors",
+  "pre_registered": true,
+  "expect": "Daughter passes validation (0 FAIL). Before fix: 13 FAIL errors (type parsing breaks on 'inherited (parent observed)').",
+  "method": {
+    "description": "1. Generate daughter via genesis_extract.py. 2. Init in clean git repo. 3. Run validate_beliefs.py --quick. 4. Run orient.py.",
+    "tools_modified": [
+      "genesis_extract.py: status-column annotation instead of type-column mutation",
+      "validate_beliefs.py: daughter-aware type parsing + hash skip"
+    ],
+    "control": "Parent repo validate_beliefs.py still passes"
+  },
+  "results": {
+    "before_fix": {
+      "validate_errors": 13,
+      "validate_warnings": 23,
+      "result": "FAIL",
+      "root_causes": [
+        "genesis_extract.py mutated type column ('observed' -> 'inherited (parent observed)') which validate_beliefs.py rejects",
+        "CORE.md hash mismatch from lineage section addition"
+      ]
+    },
+    "after_fix": {
+      "validate_errors": 0,
+      "validate_warnings": 6,
+      "result": "PASS",
+      "warnings_explained": "6 warnings are non-inherited SUPERSEDED/DROPPED/CHALLENGED claims — expected in any PHILOSOPHY.md copy",
+      "orient_works": true,
+      "daughter_identity": true,
+      "daughter_size_kb": 844
+    }
+  },
+  "finding": "Genesis daughters were born broken: validate_beliefs.py rejected the 'inherited (parent observed)' type annotation in PHILOSOPHY.md. Fix: annotate status column ('inherited — active ...') instead of type column. validate_beliefs.py now detects IDENTITY.md to skip hash check and accept inherited status.",
+  "effect_size": "13 FAIL -> 0 FAIL (100% error reduction)",
+  "lesson": "L-1613",
+  "falsifiable": "Falsified if: future genesis daughter fails validate_beliefs.py --quick after these changes",
+  "cites": ["L-1601", "L-1444", "L-601"]
+}

@@ -1,10 +1,20 @@
 {
-    "experiment": "DOMEX-AI-S540",
-    "frontier": "F-AI4",
-    "session": "S540",
-    "domain": "ai",
-    "date": "2026-03-24",
-    "expect": "Trace 3 proxy-metric chains through swarm tool stack (proxy-K\u2192compact, UCB1\u2192dispatch, Sharpe\u2192science_quality). Measure proxy-target divergence in each. Prediction: >=2 of 3 chains show >20% divergence between what proxy measures and what it claims to represent. Falsified if: <2 chains show >20% divergence.",
-    "actual": "TBD",
-    "diff": "TBD"
+  "experiment": "DOMEX-AI-S540",
+  "frontier": "F-AI4",
+  "session": "S540",
+  "domain": "ai",
+  "date": "2026-03-24",
+  "mode": "exploration",
+  "cites": ["L-1269", "L-1485", "L-1580", "L-1560", "L-1127", "L-1165", "L-1118", "L-1091", "L-1382", "L-1399"],
+  "expect": ">=2 of 3 proxy-metric chains show >20% divergence. Falsified if: <2 chains show >20% divergence.",
+  "actual": "CONFIRMED: 3/3 chains show >20% proxy-target divergence. Stronger than predicted.",
+  "diff": "Expected >=2/3. Got 3/3. Each chain has distinct failure mode. Novel: self-referential recursion — measuring Goodhart IS itself a Goodharted activity.",
+  "chains": {
+    "proxyk": {"proxy": "Token count in TIERS", "target": "Knowledge quality", "divergence": "r=0.057 (0.3% shared variance)", "evidence": "L-1580: 4.4% removal rate. L-1399: R2=0.22. L-1382: 106 EXPIRED while healthy."},
+    "ucb1": {"proxy": "UCB1 score", "target": "Frontier value", "divergence": "Meta #1 dispatched / #31 quality", "evidence": "L-1485: soul boost 15% of exploit. 210 merged at 21% concentration."},
+    "sharpe": {"proxy": "Keyword presence score", "target": "Scientific rigor", "divergence": "95.8% zero severity vs 23.9% keywords", "evidence": "L-1560: 4.2% actually severe. L-1118: 97.4% self-referential."}
+  },
+  "cascade": "All 3 interact: proxy-K triggers maintenance -> meta-boost -> more meta experiments -> keyword-score high -> UCB1 exploit up -> cycle.",
+  "self_referential_recursion": "This experiment uses swarm tools to diagnose swarm tools, scores high on P-243, produces zero external impact. The cascade is self-referentially closed.",
+  "prescription": "Breaking single chain insufficient — cascade reforms through others. At least one proxy must be externally validated (F-GND1, F-COMP1)."
 }
