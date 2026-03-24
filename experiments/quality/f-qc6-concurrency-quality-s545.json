@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-QUAL-S545",
+    "frontier": "F-QC6",
+    "session": "S545",
+    "domain": "global",
+    "date": "2026-03-24",
+    "expect": "High-concurrency (N>=5) lessons have 1.5-2x unsupported claim rate and 30%+ fewer citations vs low-concurrency (N<=2)",
+    "actual": "TBD",
+    "diff": "TBD"
+}
