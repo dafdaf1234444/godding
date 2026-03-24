@@ -28,6 +28,28 @@ except ImportError:
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# Self-referentiality penalty (F-SOUL1 phase 3, L-1521)
+try:
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from human_impact import scan_lessons as _scan_impact
+    _HAS_IMPACT = True
+except Exception:
+    _HAS_IMPACT = False
+
+
+def _build_self_ref_set() -> set:
+    if not _HAS_IMPACT:
+        return set()
+    try:
+        results = _scan_impact()
+        return {r["id"] for r in results
+                if any(h[0] == "self_referential" for h in r.get("bad_hits", []))}
+    except Exception:
+        return set()
+
+
+_self_ref_lessons: set | None = None
+
 TIERS = {
     "T0-mandatory": ["SWARM.md", "CLAUDE.md", "beliefs/CORE.md", "memory/INDEX.md"],
     "T1-identity": ["beliefs/PHILOSOPHY.md", "beliefs/DEPS.md", "beliefs/INVARIANTS.md"],
@@ -279,13 +301,19 @@ def _lesson_sharpe_candidates(top_n: int = 20) -> list[dict]:
         # cheap internal citations, but tool enactment is expensive and real.
         enacted = tool_cites > 0
         effective_sharpe = sharpe * 2.0 if enacted else sharpe
-        # Is it absorbed into a principle?
+        global _self_ref_lessons
+        if _self_ref_lessons is None:
+            _self_ref_lessons = _build_self_ref_set()
+        is_self_ref = lid in _self_ref_lessons
+        if is_self_ref:
+            effective_sharpe *= 0.5
         in_principles = bool(re.search(rf"\b{re.escape(lid)}\b", principles_text))
         candidates.append({
             "lesson_id": lid, "session": session, "age": age,
             "tokens": tokens, "citations": citations,
             "tool_citations": tool_cites, "enacted": enacted,
-            "in_principles": in_principles, "sharpe": round(effective_sharpe, 6),
+            "in_principles": in_principles, "self_ref": is_self_ref,
+            "sharpe": round(effective_sharpe, 6),
         })
 
     if lesson_cache_dirty:
@@ -382,15 +410,19 @@ def analyze():
         zero = [c for c in candidates if c["citations"] == 0]
         tool_cited = [c for c in candidates if c.get("tool_citations", 0) > 0]
         enacted_count = sum(1 for c in candidates if c.get("enacted"))
-        print(f"\n  Sharpe-ranked lesson candidates ({len(zero)} zero-cited, {len(tool_cited)} tool-cited, {enacted_count} enacted of top-15):")
-        print(f"  {'ID':<8} {'Age':>5} {'Tok':>5} {'Cite':>5} {'Tool':>5} {'InP':>5} {'Act':>4}  Sharpe")
+        self_ref_count = sum(1 for c in candidates if c.get("self_ref"))
+        print(f"\n  Sharpe-ranked lesson candidates ({len(zero)} zero-cited, {self_ref_count} self-ref, {enacted_count} enacted of top-15):")
+        print(f"  {'ID':<8} {'Age':>5} {'Tok':>5} {'Cite':>5} {'Tool':>5} {'InP':>5} {'Act':>4} {'SR':>3}  Sharpe")
         for c in candidates:
             flag = " *" if c["citations"] == 0 else ""
+            if c.get("self_ref"):
+                flag += " §"
             inp = "yes" if c["in_principles"] else "no"
             tc = c.get("tool_citations", 0)
             act = "yes" if c.get("enacted") else "no"
-            print(f"  {c['lesson_id']:<8} {c['age']:>5} {c['tokens']:>5} {c['citations']:>5} {tc:>5} {inp:>5} {act:>4}  {c['sharpe']:.4f}{flag}")
-        print(f"  (* = zero-cited orphan — safe to archive; 'InP=yes' = absorbed into principle; Act = enacted in tools, 2x Sharpe boost)")
+            sr = "yes" if c.get("self_ref") else "no"
+            print(f"  {c['lesson_id']:<8} {c['age']:>5} {c['tokens']:>5} {c['citations']:>5} {tc:>5} {inp:>5} {act:>4} {sr:>3}  {c['sharpe']:.4f}{flag}")
+        print(f"  (* = zero-cited orphan; § = self-referential (0.5x Sharpe penalty); Act = enacted in tools, 2x boost)")
 
     return m, drift
 
