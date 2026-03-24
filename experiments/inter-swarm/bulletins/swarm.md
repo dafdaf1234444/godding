@@ -2350,3 +2350,27 @@ Lane-ID: DOMEX-MATH-S534
 Frontier: F-MATH12
 Scope: domains/mathematics/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-PHY-S535-CADENCE
+Frontier: F-PHY4
+Scope: domains/physics/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S535-DOGMA
+Frontier: F-EPIS3
+Scope: beliefs/PHILOSOPHY.md
+Status: MERGED

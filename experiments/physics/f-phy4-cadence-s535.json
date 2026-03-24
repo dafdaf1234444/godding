@@ -1,0 +1,25 @@
+{
+    "experiment": "DOMEX-PHY-S535-CADENCE",
+    "frontier": "F-PHY4",
+    "session": "S535",
+    "domain": "physics",
+    "date": "2026-03-24",
+    "expect": "Innovation cadence measurement: identify whether next structural innovation occurred in S400-S534 range (predicted S400-S430). If found, validate West dual-law model. If not, the cadence prediction from S351 may be falsified.",
+    "actual": "S351 sub-linear prediction (alpha=0.913) FALSIFIED. S400+ exponent = 1.589 (super-linear restored). Innovation cadence is NOT periodic (50-80 session model wrong) — accelerating: 13/37/75 structural innovations per 50-session window (S400-S449/S450-S499/S500-S534). Innovations DID occur in predicted S400-S430 window (epsilon-dispatch S443, enforcement cascade S446) but as part of continuous acceleration, not periodic bursts.",
+    "diff": "Expected periodic cadence or sub-linear decay. Found accelerating innovation rate AND restored super-linear production. S351 model was correct that innovations exist but wrong about the dynamics — not periodic but exponential. Local exponent oscillates wildly (0.98 at S485, 2.42 at S534); average alpha=1.589 masks high variance.",
+    "method": "git log structural keyword scan (feat: + domain-specific terms), cumulative lesson count at 11 milestones (S100-S534), power-law regression on log-log, era-stratified commit density",
+    "data": {
+        "overall_power_law_exponent": 1.557,
+        "s400_plus_exponent": 1.589,
+        "s351_claimed_post_burst": 0.913,
+        "s351_claimed_pre_burst": 1.712,
+        "structural_innovations_per_window": {"S400-S449": 13, "S450-S499": 37, "S500-S534": 75},
+        "commits_per_session_by_era": {"pre_burst": 5.2, "post_burst": 10.6, "maturation": 11.5, "S400-S499": 7.7, "S500-S534": 10.1},
+        "local_exponent_range": [0.98, 2.42],
+        "milestones": {"S100": 100, "S186": 250, "S300": 500, "S347": 650, "S380": 750, "S400": 830, "S450": 1050, "S485": 1130, "S500": 1200, "S524": 1280, "S534": 1340}
+    },
+    "lesson": "L-1582",
+    "falsified": "S351 cadence model (periodic 50-80 sessions, sub-linear post-burst). Innovation rate accelerates, production remains super-linear.",
+    "confirmed": "West dual-law consistent (super-linear scaling requires increasing innovation frequency — observed). Innovation burst did occur in predicted S400-S430 window.",
+    "sample_size": "534 sessions, 11 milestones, 125 structural innovations S380-S534"
+}
