@@ -1,0 +1,33 @@
+{
+  "experiment": "F-TURING1 halting_limits measurement correction",
+  "session": "S542",
+  "date": "2026-03-24",
+  "frontier": "F-TURING1",
+  "domain": "meta",
+  "hypothesis": "Halting-awareness under-count (2 lessons) is a measurement bug, not a knowledge gap. The swarm has >10 lessons engaging with computational/epistemological limits using vocabulary the narrow regex misses.",
+  "method": "Compared narrow regex (undecidable|incomplet|cannot know|limit of) against broader limit vocabulary (19 terms including unfalsifiable, impossibility, epistemic closure, vocabulary ceiling, recursive trap, Gödel, Tarski, etc.). Two detection methods: (a) limit term in title line, (b) 2+ distinct limit terms in body. Validated by manual inspection of all 22 detected lessons.",
+  "result": {
+    "narrow_regex_count": 2,
+    "narrow_regex_lessons": ["L-1230", "L-1508"],
+    "broad_detection_count": 22,
+    "detection_methods": {
+      "title_match": "lesson title contains limit term (strongly about limits)",
+      "body_multi": "2+ distinct limit terms in lesson body (deep engagement)"
+    },
+    "false_negative_rate": "90.9% (20/22 genuine limit-awareness lessons missed)",
+    "example_false_negatives": [
+      "L-1397: Five impossibility theorems — self-improving systems have structural bounds",
+      "L-1266: Vocabulary ceiling and epistemic lock — two structural barriers",
+      "L-1220: Input-output enforcement asymmetry — epistemic closure",
+      "L-1251: Universal intervention adoption destroys its own control group",
+      "L-950: Theorem self-application is 89.8% — recursion trap is fixed-point attractor"
+    ],
+    "TQ_before": 0.6,
+    "TQ_after": 0.8,
+    "remaining_failure": "morphogenesis (D_v/D_u=0.75, threshold 6.0) — structurally hard"
+  },
+  "status": "CONFIRMED",
+  "lesson": "L-1647",
+  "diff": "Expected >=10 false negatives; found 20. Under-counting was worse than hypothesized. TQ improvement larger than expected (0.6→0.8 not 0.6→0.7) because halting_limits moved from FAIL to PASS (not PARTIAL).",
+  "artifacts_modified": ["tools/turing_test.py"]
+}

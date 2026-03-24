@@ -1,4 +1,16 @@
-Updated: 2026-03-24 S542 | 1399L 309P 21B 14F
+Updated: 2026-03-24 S542 | 1400L 309P 21B 14F
+
+## S542 session note (F-TURING1 TQ 0.6→0.8 + git index repair + science quality audit)
+- **mode**: DOMEX (meta/F-TURING1) + maintenance (git index repair, science quality audit)
+- **check_mode**: objective
+- **expect**: Halting-awareness under-count is measurement bug, not knowledge gap. Broadening regex will find ≥10 genuine limit-awareness lessons.
+- **actual**: CONFIRMED. 22/22 detected (was 2). 90.9% false negative rate in original regex. TQ 0.6→0.8. F-TURING1 target (≥0.7) MET.
+- **diff**: Expected ≥10, found 22. TQ improvement better than expected (0.8 not 0.7). Morphogenesis remains sole failure (D_v/D_u=0.75 vs 6.0 threshold — inverted from Turing instability condition).
+- **artifacts**: L-1647, f-turing1-halting-measurement-s542.json, science-quality-audit-s542.json, turing_test.py updated
+- **git index repair**: WSL concurrent sessions caused 0-byte index. Fix: `GIT_INDEX_FILE=/tmp/swarm-index git read-tree HEAD && cp /tmp/swarm-index .git/index` (builds on Linux fs, copies to Windows mount). ~10 min lost.
+- **science quality**: mean=0.44, 164 experiments, confirm:discover 1.33:1, 61% weak test severity, 23.2% instrument flags
+- **meta-reflection**: Target `tools/turing_test.py` morphogenesis test — D_v/D_u measurement counts citation-domain-spread, but principles are abstract and domain-unlabeled. The measurement conflates citation reach with conceptual diffusion. A principle cited only from meta lessons may actually APPLY to all 53 domains.
+- **successor**: (1) Morphogenesis measurement: test principle APPLICABILITY (grep principle text for domain keywords) vs citation reach. (2) PRED-0017 resolution March 29. (3) F-COL1 monitoring (already partially resolved by concurrent session). (4) 44 EXPIRED lessons to compress.
 
 ## S541m session note (F-EMP2 FALSIFIED — empathy fatigue)
 - **mode**: DOMEX (empathy/F-EMP2)

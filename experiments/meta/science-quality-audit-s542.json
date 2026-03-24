@@ -1,0 +1,220 @@
+{
+  "session": "S542",
+  "mode": "periodic",
+  "tool": "science_quality.py",
+  "recent_arg": 20,
+  "n_experiments": 164,
+  "mean_quality": 0.4401006097560976,
+  "median_quality": 0.4495,
+  "criteria_means": {
+    "pre_registration": 0.4878048780487805,
+    "control": 0.6524390243902439,
+    "significance": 0.11890243902439024,
+    "external_validation": 0.4146341463414634,
+    "falsification": 0.3597560975609756,
+    "falsification_outcome": 0.10365853658536585
+  },
+  "confirm_discover_ratio": "296:222",
+  "skipped_no_ead": 744,
+  "falsification_lanes": "94/1594",
+  "falsification_outcome_rate": 0.104,
+  "falsification_outcome_count": 17,
+  "instrument_flags": 38,
+  "instrument_flag_rate": 0.232,
+  "mean_test_severity": 0.16,
+  "sessions_observed": [
+    522,
+    523,
+    524,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    532,
+    533,
+    534,
+    535,
+    536,
+    537,
+    538,
+    539,
+    540,
+    541,
+    542
+  ],
+  "bottom_5": [
+    {
+      "file": "experiments/meta/bayes-meta-s522.json",
+      "session": 522,
+      "scores": {
+        "pre_registration": 0.0,
+        "control": 0.0,
+        "significance": 0.0,
+        "external_validation": 0.0,
+        "falsification": 0.0,
+        "falsification_outcome": 0.0,
+        "test_severity": 0.0,
+        "total": 0.0
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/meta/bayes-meta-s523.json",
+      "session": 523,
+      "scores": {
+        "pre_registration": 0.0,
+        "control": 0.0,
+        "significance": 0.0,
+        "external_validation": 0.0,
+        "falsification": 0.0,
+        "falsification_outcome": 0.0,
+        "test_severity": 0.0,
+        "total": 0.0
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/meta/dispatch-no-collision-s541.json",
+      "session": 541,
+      "scores": {
+        "pre_registration": 0.0,
+        "control": 0.0,
+        "significance": 0.0,
+        "external_validation": 0.0,
+        "falsification": 0.0,
+        "falsification_outcome": 0.0,
+        "test_severity": 0.0,
+        "total": 0.0
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/meta/ead-prediction-quality-s529.json",
+      "session": 529,
+      "scores": {
+        "pre_registration": 0.0,
+        "control": 0.0,
+        "significance": 0.0,
+        "external_validation": 0.0,
+        "falsification": 0.0,
+        "falsification_outcome": 0.0,
+        "test_severity": 0.0,
+        "total": 0.0
+      },
+      "instrument_valid": false,
+      "instrument_flags": [
+        "orphan_measurement: actual has data but no expect/hypothesis declared"
+      ]
+    },
+    {
+      "file": "experiments/meta/enforcement-wire-targets-s529.json",
+      "session": 529,
+      "scores": {
+        "pre_registration": 0.0,
+        "control": 0.0,
+        "significance": 0.0,
+        "external_validation": 0.0,
+        "falsification": 0.0,
+        "falsification_outcome": 0.0,
+        "test_severity": 0.0,
+        "total": 0.0
+      },
+      "instrument_valid": false,
+      "instrument_flags": [
+        "orphan_measurement: actual has data but no expect/hypothesis declared"
+      ]
+    }
+  ],
+  "top_5": [
+    {
+      "file": "experiments/ai/f-ai4-goodhart-cascade-s540.json",
+      "session": 540,
+      "scores": {
+        "pre_registration": 1.0,
+        "control": 1.0,
+        "significance": 0.5,
+        "external_validation": 1.0,
+        "falsification": 1.0,
+        "falsification_outcome": 1.0,
+        "test_severity": 0.66,
+        "total": 1.0
+      },
+      "instrument_valid": false,
+      "instrument_flags": [
+        "vague_hypothesis: expect has no quantifiable metric but actual does"
+      ]
+    },
+    {
+      "file": "experiments/nk-complexity/f-nk5-concurrency-citation-s528.json",
+      "session": 528,
+      "scores": {
+        "pre_registration": 1.0,
+        "control": 0.0,
+        "significance": 1.0,
+        "external_validation": 1.0,
+        "falsification": 1.0,
+        "falsification_outcome": 1.0,
+        "test_severity": 1.0,
+        "total": 1.0
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/health/f-hlt4-operational-filter-s537.json",
+      "session": 537,
+      "scores": {
+        "pre_registration": 1.0,
+        "control": 1.0,
+        "significance": 0.0,
+        "external_validation": 1.0,
+        "falsification": 1.0,
+        "falsification_outcome": 1.0,
+        "test_severity": 0.33,
+        "total": 0.9495
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/epistemology/phil13-authority-falsification-s529.json",
+      "session": 529,
+      "scores": {
+        "pre_registration": 1.0,
+        "control": 1.0,
+        "significance": 0.0,
+        "external_validation": 1.0,
+        "falsification": 1.0,
+        "falsification_outcome": 1.0,
+        "test_severity": 0.33,
+        "total": 0.9495
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    },
+    {
+      "file": "experiments/epistemology/phil13-independence-test-s529.json",
+      "session": 529,
+      "scores": {
+        "pre_registration": 1.0,
+        "control": 1.0,
+        "significance": 0.0,
+        "external_validation": 1.0,
+        "falsification": 1.0,
+        "falsification_outcome": 1.0,
+        "test_severity": 0.33,
+        "total": 0.9495
+      },
+      "instrument_valid": true,
+      "instrument_flags": []
+    }
+  ],
+  "weak_severity_count": 100,
+  "weak_severity_rate": 0.61
+}

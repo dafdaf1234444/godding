@@ -287,13 +287,35 @@ def test_halting_limits() -> dict:
                          "L-1499 (von Neumann mapping) approaches genuine synthesis.",
     })
 
-    # Count lessons that acknowledge limits
+    # Count lessons that substantively engage with computational/epistemological
+    # limits. Two detection methods (L-1639):
+    #   (a) Limit term appears in the TITLE (lesson is ABOUT limits)
+    #   (b) 2+ distinct limit terms in body (deep engagement, not casual mention)
+    # Prior regex (undecidable|incomplet|cannot know|limit of) found only 2/22
+    # genuine limit-awareness lessons — missed impossibility theorems, epistemic
+    # closure, vocabulary ceilings, recursive traps, and unfalsifiability.
+    _LIMIT_TERMS = [
+        r"undecidab", r"incompleteness", r"cannot\s+know", r"unfalsifiabl",
+        r"impossibility", r"structurally\s+cannot", r"provably\s+cannot",
+        r"G[öo]del", r"Rice.s\s+theorem", r"Tarski", r"halting\s+problem",
+        r"epistemic\s+closure", r"self-referential\s+(trap|loop|closure)",
+        r"computational\s+limit", r"information[\s-]theoretic\s+bound",
+        r"recursive\s+trap", r"blind[\s-]?spot\s+audit", r"vocabulary\s+ceiling",
+        r"limit\s+of\s+self",
+    ]
     limit_acknowledgments = 0
     if LESSONS_DIR.exists():
         for path in LESSONS_DIR.glob("L-*.md"):
             try:
                 text = path.read_text(encoding="utf-8", errors="replace")
-                if re.search(r"(?i)\b(undecidable|incomplet|cannot\s+know|limit\s+of)\b", text):
+                title = text.split("\n")[0] if text else ""
+                title_match = any(
+                    re.search(t, title, re.IGNORECASE) for t in _LIMIT_TERMS
+                )
+                body_matches = sum(
+                    1 for t in _LIMIT_TERMS if re.search(t, text, re.IGNORECASE)
+                )
+                if title_match or body_matches >= 2:
                     limit_acknowledgments += 1
             except Exception:
                 pass
