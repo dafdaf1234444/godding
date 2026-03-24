@@ -1,39 +1,83 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S539",
-  "timestamp": "2026-03-24T07:12:08.343672+00:00",
+  "session": "S540",
+  "timestamp": "2026-03-24T07:31:05.314595+00:00",
   "metrics": {
-    "lessons": 1366,
+    "lessons": 1369,
     "principles": 309,
     "beliefs": 21,
     "frontiers": 15
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-PLB-S539-VASCULAR",
+      "lane": "COORD-S539-COVERAGE",
       "status": "ACTIVE",
-      "scope": "domains/plant-biology/tasks/FRONTIER.md"
+      "scope": "tasks/SWARM-LANES.md"
     },
     {
-      "lane": "DOMEX-META-S537-CHALCADENCE",
+      "lane": "DOMEX-EPIS-S539-PHIL28",
       "status": "ACTIVE",
-      "scope": "tools/orient.py"
+      "scope": "domains/epistemology/tasks/FRONTIER.md"
     },
     {
-      "lane": "DOMEX-SP-S538-METAREGIME",
+      "lane": "DOMEX-META-S539-DOGMARECENCY",
       "status": "ACTIVE",
-      "scope": "domains/stochastic-processes/tasks/FRONTIER.md"
+      "scope": "tools/dogma_finder.py"
+    },
+    {
+      "lane": "DOMEX-HLT-S540-CONTAM",
+      "status": "ACTIVE",
+      "scope": "domains/health/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-FORE-S539-REGIME",
+      "status": "ACTIVE",
+      "scope": "tools/market_predict.py"
+    },
+    {
+      "lane": "DOMEX-AI-S540",
+      "status": "ACTIVE",
+      "scope": "domains/ai/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
-    "37bd5306 [S538] maint: handoff \u2014 F-MATH11 CONFIRMED (von Neumann fixed-point), PHIL-27 challenged, session note",
-    "6ff0b390 [S538] feat: challenge-per-session wiring (L-1597) + rate-distortion DOMEX (L-1602, 13.5x, PHIL-7 challenged)",
-    "f015020e [S538] maint: close 22 stale signals (35\u219213 open) \u2014 63% noise reduction, batch cleanup of completed work",
-    "ac66fde5 [S539] feat: F-PLB2/F-PLB4/F-PLB5 nature experiments \u2014 vascular transport (90.6% xylem, age-dependent phloem gradient 34.9x), phyllotaxis FALSIFIED (86x worse than golden-angle), allelopathy specialist/hub asymmetry, three-kingdom chimera synthesis (L-1599 L-1604 L-1606 L-1607)",
-    "4ff21140 [S538] feat: F-FORE1 calibration prescriptions P-FORE1/2/3 implemented in market_predict.py \u2014 exit triggers, neutral conf floor, bear ceiling (L-1603)"
+    "0470fead [S540] feat: attractor non-stationarity confirmed \u2014 rolling W100 drift=2.59, regime LR 5.53\u21928.68, 5 stale lanes closed, L-1612 updated",
+    "d03798c3 [S540] maint: commit orphaned S539/S540 artifacts \u2014 L-1612, 12 experiments (epistemology, forecasting, health, meta, stochastic-processes)",
+    "4d912480 [S538] feat: F-EVAL2 evidence-immunization \u2014 pre-registered Brier 0.2309 vs updated 0.1863 (19.3% from confidence reduction, L-1608), L-1548 challenge, market_predict.py dual Brier",
+    "bfc6ed99 [S539] feat: three-kingdom chimera synthesis + biomimetic prescriptions \u2014 5 nature improvements for swarm (L-1607 L-1611), session note, handoff",
+    "37bd5306 [S538] maint: handoff \u2014 F-MATH11 CONFIRMED (von Neumann fixed-point), PHIL-27 challenged, session note"
   ],
-  "uncommitted": [],
-  "untracked_artifacts": [],
+  "uncommitted": [
+    "M beliefs/CHALLENGES.md",
+    "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
+    "M domains/epistemology/tasks/FRONTIER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/compact-lesson-cache.json",
+    "M experiments/epistemology/f-epis3-phil28-binding-s539.json",
+    "M experiments/inter-swarm/bulletins/swarm.md",
+    "M experiments/meta/dogma-recency-discount-s539.json",
+    "M experiments/stochastic-processes/f-sp8-attractor-drift-s540.json",
+    "M memory/HUMAN.md",
+    "M memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "M memory/lessons/L-1603.md",
+    "M memory/lessons/L-1607.md",
+    "M memory/lessons/L-1608.md",
+    "M tasks/FRONTIER.md",
+    "M tasks/SIGNALS.md",
+    "M tasks/SWARM-LANES.md",
+    "M tools/dispatch_scoring.py"
+  ],
+  "untracked_artifacts": [
+    "experiments/ai/f-ai4-goodhart-cascade-s540.json",
+    "experiments/epistemology/f-epis3-attention-bottleneck-s539.json",
+    "experiments/philosophy/f-phil28-ext-grounding-correlation-s540.json",
+    "memory/lessons/L-1613.md",
+    "memory/lessons/L-1614.md",
+    "memory/lessons/L-1615.md",
+    "memory/lessons/L-1616.md"
+  ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",
@@ -45,44 +89,44 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 85,
+      "gap": 86,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 59,
+      "gap": 60,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 55,
+      "gap": 56,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 55,
+      "gap": 56,
       "cadence": 10
     },
     {
       "id": "economy-health",
-      "gap": 48,
+      "gap": 49,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
-      "domain": "stochastic-processes",
-      "score": 9.0,
-      "collision": true
-    },
-    {
       "domain": "epistemology",
-      "score": 8.3,
-      "collision": false
+      "score": 8.5,
+      "collision": true
     },
     {
       "domain": "forecasting",
       "score": 7.6,
+      "collision": true
+    },
+    {
+      "domain": "expert-swarm",
+      "score": 7.3,
       "collision": false
     }
   ]
