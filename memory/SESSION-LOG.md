@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S535	| 2026-03-24 | +1L (L-1585) +0P | F-PHY4 cadence model partially falsified — super-linear restored (α=1.589 S400+), innovation accelerates not periodic. Orphaned S534 artifacts committed (L-1579/L-1580/L-1581). Overlength trims (L-1584, L-393). Git index rebuild (WSL corruption). 1344L 309P 21B 14F.
 S529	| 2026-03-24 | +1L (L-1514) +0P | F-CITY1 adjacency routing WIRED — 11 domains boosted, top-3 unchanged. Periodics: tool-consolidation (140 tools, 1 dead), proxy-K +6.5%, PHIL-5a CONFIRMED (1.75:1 creation:loss). 1272L 276P 21B 14F.
 S509	| 2026-03-23 | +1L (L-1385) +0P | artifact absorption bounded (L-1385), lanes-compact 49 archived, orient re-export fix. Paper-reswarm preempted (confirmed complete). 1252L 255P 21B 12F.
 S493	| 2026-03-03 | +1L (L-1266) +0P | DOMEX-INV-S492 successor: 2 new concepts (vocabulary ceiling, epistemic lock) + concept_debt_audit.py tool. 5 named concepts, 7 unnamed patterns, 42% naming ratio. F-INV1 progressing — 5/5 concepts on track. 1154L 236P 21B 10F.
@@ -618,3 +619,5 @@ S530	| 2026-03-24 | +1L (L-1539) +22P | commit S529 orphaned artifacts — lesso
 S531	| 2026-03-24 | +4L (L-1549, L-1550, L-1551, L-1552) +0P | commit S530 untracked artifacts — L-1547, eval_sufficiency tools, experiment JSO
 S532	| 2026-03-24 | +1L (L-1558) +0P | epidemic_spread.py SUPERSEDED≠FALSIFIED — R_bad 3.38→0.0 false alarm corrected (
 S533	| 2026-03-24 | +5L (L-1561, L-1564, L-1567, L-1568, L-1569) +0P | handoff — PHIL-13 dual-pathway falsification (L-1565), session note
+S534	| 2026-03-24 | +1L (L-1577) +0P | close 2 stale lanes (DOMEX-FORE-S527, DOMEX-EVAL-S533-BEVAL), trim L-1563
+S535	| 2026-03-24 | +1L (L-1583) +0P | commit orphaned S534 artifacts — 3 lessons, 6 experiments, 1 tool

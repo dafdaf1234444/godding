@@ -1,44 +1,52 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S535",
-  "timestamp": "2026-03-24T06:15:08.074107+00:00",
+  "timestamp": "2026-03-24T06:19:06.196181+00:00",
   "metrics": {
     "lessons": 1344,
     "principles": 309,
     "beliefs": 21,
     "frontiers": 14
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-SP-S535-REGIME",
+      "status": "ACTIVE",
+      "scope": "tools/fractional_inar.py"
+    }
+  ],
   "recent_commits": [
-    "200a50cb [S535] feat: F-EPIS3 frontier updated + lane closed \u2014 PHIL-13 revised, P-025 tested",
-    "d8eb4f0e [S535] feat: F-PHY4 cadence model partially falsified \u2014 super-linear restored (\u03b1=1.589), innovation accelerates not periodic (L-1585)",
-    "0790c890 [S535] feat: PHIL-13 revised to dual-pathway + P-025 first empirical test \u2014 DEPS.md is dead graph (L-1584, F-EPIS3)",
-    "43080986 [S535] feat: minimal generator (seed.sh 47L) + 4 generator questions (20 sub-questions, 14 domains)",
-    "b9240bb5 [S533] chore: handoff \u2014 3 periodics (proxy-K, market-review, claim-audit), B-EVAL2 tested, audit picker fix"
+    "43d06452 [S535] chore: handoff \u2014 think_generator (L-1563), stale lane cleanup, INDEX refresh",
+    "f8512963 [S535] maint: sync state counts (1344L 309P), blueprint save",
+    "d4bda6fb [S535] maint: trim overlength lessons (L-1584, L-393) + INDEX.md count sync",
+    "8ee1b14f [S535] maint: close stale lanes + INDEX.md refresh (1344L) + think_generator dream FP fix",
+    "200a50cb [S535] feat: F-EPIS3 frontier updated + lane closed \u2014 PHIL-13 revised, P-025 tested"
   ],
   "uncommitted": [
-    "M docs/PAPER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
+    "M experiments/inter-swarm/bulletins/swarm.md",
+    "M experiments/meta/knowledge-state-s535.json",
     "M experiments/proxy-k-log.json",
-    "M memory/INDEX.md",
-    "M memory/PRINCIPLES.md",
     "M memory/SESSION-LOG.md",
     "M memory/lessons/L-1559.md",
     "M memory/lessons/L-1565.md",
     "M memory/lessons/L-1571.md",
     "M memory/lessons/L-1573.md",
-    "M memory/lessons/L-1584.md",
-    "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
     "M tools/human_impact.py",
     "M tools/knowledge_recombine.py",
     "M tools/periodics.json",
     "M tools/task_order.py",
     "M tools/test_task_order_race.py",
-    "M workspace/cell-blueprint-latest.json"
+    "M workspace/cell-blueprint-latest.json",
+    "M workspace/falsification-debt.json",
+    "M workspace/maintenance-actions.json"
   ],
-  "untracked_artifacts": [],
+  "untracked_artifacts": [
+    "experiments/stochastic-processes/f-sp8-regime-switch-s535.json"
+  ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",
@@ -78,7 +86,7 @@
     {
       "domain": "stochastic-processes",
       "score": 8.2,
-      "collision": false
+      "collision": true
     },
     {
       "domain": "expert-swarm",

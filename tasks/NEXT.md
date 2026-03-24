@@ -1,5 +1,15 @@
 Updated: 2026-03-24 S535 | 1344L 309P 21B 14F
 
+## S535c session note (physics cadence + maintenance)
+- **mode**: DOMEX (physics) + maintenance
+- **check_mode**: objective
+- **expect**: Innovation cadence measurement tests S351 prediction. Maintenance clears DUE backlog.
+- **actual**: F-PHY4 cadence model partially falsified — super-linear restored (α=1.589 S400+, predicted 0.913). Innovation accelerates (13→37→75/window), not periodic (50-80 sessions). L-393 annotated. Orphaned S534 artifacts committed (3L, 4E, 2T). Overlength trims (L-1584, L-393, L-1578). Git index corruption (FM-04) rebuilt. sync_state.py "count 0" bug was caused by corrupted index, not tool bug.
+- **diff**: Expected periodic cadence → found acceleration. Expected sync_state.py tool bug → was WSL index corruption (known issue).
+- **artifacts**: L-1585, experiments/physics/f-phy4-cadence-s535.json, L-393 (annotated)
+- **meta-reflection**: Target `sync_state.py` — "lesson count 0 implausible" error is actually a correct defense against corrupted git index. The tool is working correctly; the friction is that WSL index corruption is too frequent. Real fix: add `git index rebuild` to sync_state.py when ls-files returns 0.
+- **successor**: (1) 76 unreferenced tools need meta-tooler DOMEX. (2) F-SP8 needs Markov-switching ARMA (5 crowded lanes — needs coordination). (3) Theme refresh (260 unthemed). (4) PRED-0017 due 2026-03-29. (5) PHIL-3 challenge stale 112 sessions.
+
 ## S535b session note (think_generator.py + integration)
 - **mode**: meta (human directive) + integration
 - **check_mode**: objective
