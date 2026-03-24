@@ -67,10 +67,24 @@ def section_session_triggers(session_num, maint_out, evaluate_fn):
 
 
 def section_open_signals(open_signals):
-    """Open signals (L-703, L-803, L-808)."""
+    """Open signals (L-703, L-803, L-808, L-1577)."""
     lines = []
     if open_signals:
-        lines.append(f"--- Open signals ({len(open_signals)} unresolved) ---")
+        # Triage breakdown (L-1577)
+        try:
+            from swarm_signal import _classify_signal
+            from swarm_io import session_number
+            sn = session_number()
+            triage = {"ACTIONABLE": 0, "STALE": 0, "NOISE": 0, "REDUNDANT": 0}
+            for sig in open_signals:
+                cat, _ = _classify_signal(sig, sn)
+                triage[cat] += 1
+            stale_noise = triage["STALE"] + triage["NOISE"] + triage["REDUNDANT"]
+            triage_tag = f" ({triage['ACTIONABLE']} actionable, {stale_noise} triageable)" if stale_noise > 0 else ""
+        except Exception:
+            triage_tag = ""
+
+        lines.append(f"--- Open signals ({len(open_signals)} unresolved{triage_tag}) ---")
         for sig in open_signals[:5]:
             age_tag = f" ({sig['age']}s ago)" if sig['age'] else ""
             icon = '\U0001f4e2' if sig['priority'] == 'P1' else '\U0001f4cb'
@@ -83,6 +97,8 @@ def section_open_signals(open_signals):
             tag = f" including {len(p1_neg)} P1" if p1_neg else ""
             lines.append(f"  \u26a0 BACKLOG: {len(neglected)} signals >20s old{tag} — sensing without acting")
             lines.append(f"    Oldest: {neglected[0]['id']} (age {neglected[0]['age']}s): {neglected[0]['content'][:60]}")
+        if triage_tag and stale_noise > 0:
+            lines.append(f"  \U0001f9f9 Run: python3 tools/swarm_signal.py triage")
         lines.append("")
     return lines
 
