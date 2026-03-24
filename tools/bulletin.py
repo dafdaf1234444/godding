@@ -92,6 +92,7 @@ LANE_CHECK_PATTERN = re.compile(
     r"# Bulletin from:\s*([^\n]+?)\nDate:\s*(\S+)\nType:\s*lane-check(?:\nTrust-Tier:\s*\S+)?\n\n## Content\n"
     r"Check-ID:\s*(\S+)\nFrontier:\s*(\S+)",
 )
+CLOSED_LANE_STATUSES = {"MERGED", "ABANDONED", "SUPERSEDED"}
 
 
 def _append_with_lock(path: Path, entry: str, timeout_s: float = 10.0):
@@ -126,6 +127,28 @@ def _append_with_lock(path: Path, entry: str, timeout_s: float = 10.0):
             lock_path.unlink()
         except FileNotFoundError:
             pass
+
+
+def _closed_lane_ids() -> set[str]:
+    """Return lane ids that are already closed in live or archived lane tables."""
+    closed_lanes: set[str] = set()
+    lane_tables = (
+        REPO_ROOT / "tasks" / "SWARM-LANES.md",
+        REPO_ROOT / "tasks" / "SWARM-LANES-ARCHIVE.md",
+    )
+    for lanes_path in lane_tables:
+        if not lanes_path.exists():
+            continue
+        for line in lanes_path.read_text().splitlines():
+            if not line.startswith("|") or line.startswith("| ---") or line.startswith("| Date"):
+                continue
+            cols = [c.strip() for c in line.split("|")]
+            if len(cols) < 13:
+                continue
+            status = cols[11]
+            if status in CLOSED_LANE_STATUSES:
+                closed_lanes.add(cols[2])
+    return closed_lanes
 
 
 def write_genesis_feedback(swarm_name: str, feedback: str):
@@ -406,23 +429,13 @@ def write_lane_check(swarm_name: str, frontier: str, intent: str = ""):
 def _scan_lane_conflicts(frontier: str) -> list:
     """Scan bulletins for lane-announce entries matching a frontier.
 
-    Cross-checks SWARM-LANES.md to filter out lanes that were MERGED/ABANDONED
-    but still have stale ACTIVE bulletins (L-1553 process reflection).
+    Cross-checks live and archived lane tables to filter out lanes that were
+    closed but still have stale ACTIVE bulletins (L-1553 process reflection).
     """
     if not BULLETINS_DIR.exists():
         return []
 
-    # Read SWARM-LANES.md to know which lanes are actually closed
-    closed_lanes = set()
-    lanes_path = REPO_ROOT / "tasks" / "SWARM-LANES.md"
-    if lanes_path.exists():
-        import re as _re
-        for line in lanes_path.read_text().split('\n'):
-            if '| MERGED |' in line or '| ABANDONED |' in line:
-                # Extract lane ID from table row
-                cols = [c.strip() for c in line.split('|')]
-                if len(cols) >= 3:
-                    closed_lanes.add(cols[2])  # lane ID column
+    closed_lanes = _closed_lane_ids()
 
     conflicts = []
     for f in sorted(BULLETINS_DIR.glob("*.md")):

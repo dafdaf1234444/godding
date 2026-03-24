@@ -13,6 +13,11 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import bulletin  # noqa: E402
 
+LANE_HEADER = """# Swarm Lanes
+| Date | Lane | Session | Agent | Branch | PR | Model | Platform | Scope-Key | Etc | Status | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+"""
+
 
 class TestBulletin(unittest.TestCase):
     """Validate bulletin write/read/scan/help flows in an isolated temp repo."""
@@ -45,6 +50,15 @@ class TestBulletin(unittest.TestCase):
         sink = io.StringIO()
         with redirect_stdout(sink):
             return fn(*args)
+
+    def _write_lane_tables(self, live_rows: str = "", archive_rows: str = ""):
+        tasks_dir = bulletin.REPO_ROOT / "tasks"
+        tasks_dir.mkdir(parents=True, exist_ok=True)
+        (tasks_dir / "SWARM-LANES.md").write_text(LANE_HEADER + live_rows, encoding="utf-8")
+        (tasks_dir / "SWARM-LANES-ARCHIVE.md").write_text(
+            LANE_HEADER + archive_rows,
+            encoding="utf-8",
+        )
 
     def test_scan_counts_hyphenated_types(self):
         self._quiet_call(bulletin.write_bulletin, "alpha", "sibling-sync", "sync message")
@@ -90,6 +104,58 @@ class TestBulletin(unittest.TestCase):
         child_bulletins = child_workspace / "bulletins"
         self.assertTrue((child_bulletins / "alpha.md").exists())
         self.assertFalse((child_bulletins / f"{child_name}.md").exists())
+
+    def test_scan_lane_conflicts_ignores_archived_merged_lane(self):
+        self._write_lane_tables(
+            archive_rows=(
+                "| 2026-03-23 | DOMEX-F119-S525b | S525 | ai-session | master | - | "
+                "claude-sonnet-4-6 | close_lane.py | tools/maintenance_inventory.py | "
+                "frontier=F119 | MERGED | archived close |\n"
+            )
+        )
+        self._quiet_call(
+            bulletin.write_lane_announce,
+            "swarm",
+            "DOMEX-F119-S525b",
+            "F119",
+            "tools/maintenance_inventory.py",
+            "ACTIVE",
+        )
+
+        self.assertEqual(bulletin._scan_lane_conflicts("F119"), [])
+
+    def test_scan_lane_conflicts_ignores_superseded_live_lane(self):
+        self._write_lane_tables(
+            live_rows=(
+                "| 2026-03-24 | MAINT-S544-MCR | S544 | ai-session | master | - | gpt-5 | "
+                "close_lane.py | global | frontier=F119 | SUPERSEDED | duplicate lane |\n"
+            )
+        )
+        self._quiet_call(
+            bulletin.write_lane_announce,
+            "swarm",
+            "MAINT-S544-MCR",
+            "F119",
+            "global",
+            "ACTIVE",
+        )
+
+        self.assertEqual(bulletin._scan_lane_conflicts("F119"), [])
+
+    def test_scan_lane_conflicts_keeps_live_active_lane(self):
+        self._write_lane_tables()
+        self._quiet_call(
+            bulletin.write_lane_announce,
+            "swarm",
+            "DOMEX-META-S544-ENFORCE",
+            "F-META2",
+            "tools/enforcement_router.py",
+            "ACTIVE",
+        )
+
+        conflicts = bulletin._scan_lane_conflicts("F-META2")
+        self.assertEqual(len(conflicts), 1)
+        self.assertEqual(conflicts[0]["lane_id"], "DOMEX-META-S544-ENFORCE")
 
 
 if __name__ == "__main__":
