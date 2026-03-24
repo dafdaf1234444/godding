@@ -1,0 +1,18 @@
+{
+  "id": "f-epis3-phil11-audit-s543",
+  "session": "S543",
+  "frontier": "F-EPIS3",
+  "domain": "epistemology",
+  "target": "PHIL-11",
+  "data": {
+    "acceptance_total": 87,
+    "acceptance_rejections": 0,
+    "execution_resolved": 25,
+    "execution_open": 6,
+    "execution_completion_rate": 0.806
+  },
+  "finding": "PHIL-11 decomposes: acceptance 100% vs execution 80.6%",
+  "external": "Jensen & Meckling (1976)",
+  "outcome": "REFINED",
+  "lesson": "L-1661"
+}
