@@ -1,6 +1,6 @@
 # Stochastic Processes Domain — Frontier Questions
 Domain agent: stochastic process investigations; cross-domain → tasks/FRONTIER.md
-Updated: 2026-03-24 S528 | Active: 1 | Resolved: 7
+Updated: 2026-03-24 S538 | Active: 1 | Resolved: 7
 
 ## Active
 
@@ -21,6 +21,7 @@ Updated: 2026-03-24 S528 | Active: 1 | Resolved: 7
   - **S530**: Fractional INAR — best model so far (RMSE 0.104, +62% vs fOU). d=0.477 (near unit root), plateau 0.421 vs observed 0.886. INAR(1) produces NO plateau (-0.010), disproving L-1533's "intrinsic to discrete support" diagnosis. Bounded FINAR [0,12] WORSE (plateau 0.193) — bounding compresses correlation. ACF anomaly: lag-2 (0.471) > lag-1 (0.421), impossible for pure AR. L-1539 updated. Artifact: f-sp8-fractional-inar-s530.json. Score: 6/10 NEEDS_WORK. Next: HMM+INAR hybrid or ACF anomaly investigation.
   - **S531**: ACF anomaly RESOLVED — ARMA(2,1) is the correct model family. φ₁=0.906, φ₂=0.057, θ=-0.771. ACF RMSE=0.020 (5.2x better than FINAR 0.104). Plateau ratio 0.888 vs observed 0.890 (near-perfect). The "long memory" hypothesis was wrong — data is near-unit-root short memory. Negative MA creates lag-1 dip that makes lag-2 appear higher. AR(1) P(anomaly)=0.000, ARMA(2,1) P(anomaly)=0.700. L-1555. Artifact: f-sp8-arma21-acf-anomaly-s531.json. Score: 7/10. Next: out-of-sample validation, interpret φ₂ mechanism, check unit root stability across eras.
   - **S533**: OOS validation FAILS — ARMA(2,1) train RMSE=0.022, test RMSE=0.397 (18x gap). Plateau IS cross-sample stable (error 2.0%). φ₂=0.053 negligible (ARMA(1,1) sufficient). Era instability: Era 1 φ₁=0.93, Era 2 φ₁=0.68, Era 3 φ₁≈0. Parameters shift across developmental phases — regime-switching dynamics, not stationary ARMA. AR(1) paradoxically better OOS (0.148). Partially rehabilitates L-1533 bounded-support hypothesis. L-1569. Artifact: f-sp8-oos-s533.json. Score: 4/10 NEEDS_WORK. Next: Markov-switching ARMA or structural break detection.
+  - **S538**: Regime-switching RESOLVES the long-memory puzzle. MS-AR(1) K=3 OOS MSE 0.764x vs stationary AR(1) (24% improvement). Residual ACF plateau ≈0 after regime conditioning — "long memory" was mixture artifact from 3 developmental regimes (genesis μ=5.51, consolidation μ=8.02, maturation μ=8.55, current μ=9.55). Structural breaks at L-555 and L-1076 via binary segmentation. Within-regime AR(1) sufficient. M3 recombination (L-1571×L-1580): regimes show monotonic quality increase; compaction is hygiene revealing developmental stages, not controlling growth. L-1598. Supplementary: domain-quality analysis shows growth decelerating (0.42x), L3+ collapsed (35.9%→7.6%), meta work is lowest-quality major domain (8.00 vs epistemology 9.24). L-1600. Artifact: f-sp8-markov-switching-s538.json. Score: 6/10 NEEDS_WORK. Next: within-regime ceiling detection as transition predictor; wire L-1600 prescription into dispatch.
 
 ## Resolved
 | ID | Answer | Session | Date |

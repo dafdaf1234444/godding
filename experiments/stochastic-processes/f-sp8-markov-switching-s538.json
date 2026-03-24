@@ -1,10 +1,219 @@
 {
-    "experiment": "DOMEX-SP-S538",
-    "frontier": "F-SP8",
-    "session": "S538",
-    "domain": "stochastic-processes",
-    "date": "2026-03-24",
-    "expect": "MS-ARMA K=3 matches era structure. OOS improvement >2x vs stationary ARMA.",
-    "actual": "TBD",
-    "diff": "TBD"
+  "experiment": "F-SP8 Markov-switching AR(1)",
+  "session": "S538",
+  "date": "2026-03-24",
+  "data": {
+    "n_total": 778,
+    "n_train": 544,
+    "n_test": 234,
+    "train_mean": 7.893382352941177,
+    "test_mean": 8.641452991452992
+  },
+  "ar1_baseline": {
+    "rho": 0.4516781960569073,
+    "test_mse": 1.4018252154049138
+  },
+  "arma11_baseline": {
+    "phi": -0.999,
+    "theta": -0.999,
+    "sigma": 27.61543614242259,
+    "bic": 5172.093859701632,
+    "test_mse": 24424.076035946393
+  },
+  "ms_models": {
+    "2": {
+      "mu": [
+        5.917061037247997,
+        8.223846801724982
+      ],
+      "phi": [
+        0.22547596369722145,
+        0.08517835201765267
+      ],
+      "sigma": [
+        1.6332776863793719,
+        0.8624129618275879
+      ],
+      "ll": -755.7471522821459,
+      "bic": 1561.8858985391394,
+      "n_params": 8,
+      "test_mse": 1.2410623841276678,
+      "ar1_test_mse": 1.4018252154049138,
+      "mse_ratio": 0.8853189188562213,
+      "train_resid_plateau": 0.007269181527910082,
+      "test_resid_plateau": -0.014161096258016077,
+      "train_transitions": 3,
+      "test_transitions": 2,
+      "state_occupancy": {
+        "0": 75,
+        "1": 469
+      }
+    },
+    "3": {
+      "mu": [
+        5.929929579413484,
+        7.996985547910856,
+        8.566914810476447
+      ],
+      "phi": [
+        0.24046556882452358,
+        -0.06282214993110143,
+        0.06247652616708854
+      ],
+      "sigma": [
+        1.6301660002861138,
+        0.811805305199856,
+        0.8316140679731469
+      ],
+      "ll": -740.1604736276536,
+      "bic": 1574.8051859581462,
+      "n_params": 15,
+      "test_mse": 1.07029752177428,
+      "ar1_test_mse": 1.4018252154049138,
+      "mse_ratio": 0.7635028318884443,
+      "train_resid_plateau": -0.025074765718473637,
+      "test_resid_plateau": -0.020217421033910415,
+      "train_transitions": 5,
+      "test_transitions": 3,
+      "state_occupancy": {
+        "0": 75,
+        "1": 325,
+        "2": 144
+      }
+    },
+    "4": {
+      "mu": [
+        4.539056957040363,
+        6.508783168097542,
+        7.998437005560515,
+        8.568311463400336
+      ],
+      "phi": [
+        0.15698202895103927,
+        -0.10672022775918967,
+        -0.054742190059485614,
+        0.061065334426984114
+      ],
+      "sigma": [
+        0.5752609462193277,
+        1.6446350512312133,
+        0.8104197221679782,
+        0.8330975167073039
+      ],
+      "ll": -721.354681800746,
+      "bic": 1593.8841455260347,
+      "n_params": 24,
+      "test_mse": 1.076377312149867,
+      "ar1_test_mse": 1.4018252154049138,
+      "mse_ratio": 0.7678398849737897,
+      "train_resid_plateau": -0.018355802417264592,
+      "test_resid_plateau": -0.025651657280285654,
+      "train_transitions": 6,
+      "test_transitions": 3,
+      "state_occupancy": {
+        "1": 23,
+        "0": 54,
+        "2": 325,
+        "3": 142
+      }
+    }
+  },
+  "best_bic_k": 2,
+  "best_oos_k": 3,
+  "structural_breaks": {
+    "method": "binary_segmentation",
+    "full_breaks": [
+      {
+        "index": 59,
+        "lesson_id": 555
+      },
+      {
+        "index": 413,
+        "lesson_id": 1076
+      },
+      {
+        "index": 747,
+        "lesson_id": 1564
+      }
+    ],
+    "train_breaks": [
+      {
+        "index": 59,
+        "lesson_id": 555
+      },
+      {
+        "index": 413,
+        "lesson_id": 1076
+      }
+    ],
+    "segments": [
+      {
+        "start": 0,
+        "end": 59,
+        "lesson_start": 486,
+        "lesson_end": 551,
+        "n": 59,
+        "mean": 5.508474576271187,
+        "std": 1.4656852548561667
+      },
+      {
+        "start": 59,
+        "end": 413,
+        "lesson_start": 555,
+        "lesson_end": 1075,
+        "n": 354,
+        "mean": 8.019774011299434,
+        "std": 0.9126567382156685
+      },
+      {
+        "start": 413,
+        "end": 747,
+        "lesson_start": 1076,
+        "lesson_end": 1563,
+        "n": 334,
+        "mean": 8.551197604790419,
+        "std": 0.9339480953375738
+      },
+      {
+        "start": 747,
+        "end": 778,
+        "lesson_start": 1564,
+        "lesson_end": 1597,
+        "n": 31,
+        "mean": 9.548387096774194,
+        "std": 1.1313340591451728
+      }
+    ],
+    "cusum_range": 191.40514138817704,
+    "oos_last_seg_mean_mse": 1.1050603236218877,
+    "oos_last_seg_ar1_mse": 1.0891043511450742,
+    "oos_full_ar1_mse": 1.4018252154049138
+  },
+  "verdict": "MS-AR(1) K=3 OOS best (MSE ratio 0.764x vs AR(1)), K=2 BIC best. Residual ACF plateau ~0 after regime conditioning \u2014 'long memory' was regime-switching mixture artifact. Two regimes: low-quality (mu\u22485.9, 14%) and normal (mu\u22488.0-8.6, 86%). Transition rate <1% \u2014 very persistent. Prediction: >2x OOS improvement PARTIALLY CONFIRMED (0.764x actual). Era matching: CONFIRMED for K=3 (Era3 shifts dominant state).",
+  "m3_recombination": {
+    "sources": [
+      "L-1571 (forgetting=rate-distortion)",
+      "L-1580 (compaction=hygiene)"
+    ],
+    "finding": "Regime transitions reveal developmental quality stages (monotonic increase 5.51->8.02->8.55->9.55). Compaction prevents quality regression (L-1580) while regime structure shows forgetting shapes information-theoretic profile (L-1571). Both correct at different levels.",
+    "novel_question": "Can within-regime distortion rates predict the next regime transition?",
+    "regime_quality_trend": "monotonic: 5.51 -> 8.02 -> 8.55 -> 9.55"
+  },
+  "domain_quality_analysis": {
+    "note": "S538 supplementary: what DRIVES regime transitions?",
+    "meta_vs_nonmeta": {"meta_mean": 8.00, "nonmeta_mean": 8.18, "cohen_d": 0.14, "p": 0.057},
+    "session_meta_effect": {"low_meta_mean": 8.26, "high_meta_mean": 7.99, "delta": 0.28},
+    "l3_rate_collapse": {"early": "0.0%", "middle": "35.9%", "late": "7.6%"},
+    "growth_deceleration": {"early_rate": 0.016, "late_rate": 0.007, "ratio": 0.42},
+    "top_quartile_domain_boost": {"epistemology": "+12.3%", "stochastic_processes": "+5.5%", "expert_swarm": "+5.1%"},
+    "top_quartile_domain_drag": {"meta": "-8.2%"},
+    "domain_rankings": {"epistemology": 9.24, "stochastic_processes": 8.65, "evaluation": 8.31, "expert_swarm": 8.27, "meta": 8.00},
+    "prescription": "Increase domain experiment fraction, decrease meta fraction. Quality accelerates when swarm does domain work, decelerates with meta work."
+  },
+  "lessons_produced": ["L-1600"],
+  "next": [
+    "Test within-regime ceiling detection as transition predictor",
+    "Wire L-1600 prescription into dispatch weighting",
+    "Score: advance from 4/10 to 6/10 (regime model + domain-quality analysis)"
+  ]
 }

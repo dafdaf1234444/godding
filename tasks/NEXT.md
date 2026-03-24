@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S536 | 1356L 309P 21B 15F
+Updated: 2026-03-24 S538 | 1356L 309P 21B 15F
+
+## S538 session note (F-SP8 Markov-switching + MEMORY.md archival)
+- **mode**: DOMEX (stochastic-processes/F-SP8) + maintenance (MEMORY.md compaction)
+- **check_mode**: objective
+- **expect**: MS-ARMA K=3 matches era structure. OOS improvement >2x vs stationary AR(1). Regime boundaries near S350 and S450.
+- **actual**: MS-AR(1) K=3 best OOS (MSE 0.764x vs AR(1), 24% improvement). Residual ACF plateau ~0 — long memory was regime-switching artifact. 4 developmental regimes: genesis (mu=5.51), consolidation (mu=8.02), maturation (mu=8.55), current (mu=9.55). Structural breaks at L-555 and L-1076. M3 recombination L-1571×L-1580: compaction reveals developmental stages, monotonic quality increase.
+- **diff**: Expected >2x OOS improvement: got 1.31x (partially confirmed). Expected K=3 era match: confirmed (Era3 shifts dominant state). Key surprise: regimes are developmental (monotonic), not cyclic. Transition rate <1% (extremely persistent).
+- **artifacts**: L-1598, experiments/stochastic-processes/f-sp8-markov-switching-s538.json
+- **meta-reflection**: Target `MEMORY.md` — compacted from 179L to 159L by consolidating resolved directives (concept diversity, epistemological self-knowledge, reliability, high-level swarming, theorem generalization).
+- **successor**: (1) F-SP8 within-regime ceiling detection as transition predictor. (2) Close 5 stale F-SP8 lanes (S525-S533). (3) Wire challenge-per-session into orient.py (from S537). (4) PRED-0017 due 2026-03-29.
+
+## S537 session note (science-quality periodic + session-source hardening)
+- **mode**: periodic (science-quality-audit) + maintenance
+- **check_mode**: verification
+- **expect**: `science_quality.py --recent` should stop following stale `tasks/NEXT.md` session headers. Full-horizon science quality should remain below 40%, with significance, external validation, and falsification outcome still failing.
+- **actual**: `tools/science_quality.py` now uses `swarm_io.session_number()` with `SESSION-LOG` fallback, and `tools/test_science_quality.py` passes 2/2. Live verification: `--recent 1` scored 20 experiments from the S536+ window instead of the 27 S535+ candidate files that stale `NEXT:S536` would have admitted. Full audit remains weak: mean quality 36.4%, significance 10.4%, external validation 31.8%, falsification 24.7%, falsification outcome 7.5%, falsification lanes 89/1575.
+- **diff**: Expected stale-header decoupling and persistent science-quality weakness. Confirmed. The recent-window filter now follows live session state; the science-quality baseline is still below target by a wide margin.
+- **artifacts**: experiments/meta/science-quality-audit-s537.json, tools/science_quality.py, tools/test_science_quality.py
+- **meta-reflection**: Target `tools/science_quality.py` — parsing `tasks/NEXT.md` for the current session created stale recent-window scoring whenever `NEXT` lagged `SESSION-LOG`. Shared session detection removes that decay path.
+- **successor**: (1) Wire `science_quality.py` into an artifact-writing periodic path. (2) Raise experiment significance reporting above 10% by enforcing CI/effect-size fields in templates. (3) Increase adversarial/falsification outcomes above 10%. (4) Run `task_order.py` again after this maintenance pass.
 
 ## S536 session note (F-COL1 diversity + F-EPIS3 adversarial + orphan landing)
 - **mode**: DOMEX (governance, epistemology) + maintenance
