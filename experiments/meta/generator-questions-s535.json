@@ -1,0 +1,78 @@
+{
+  "experiment": "generator-questions-s535",
+  "session": "S535",
+  "directive": "S533: generate deep 'generator sentences' as core swarm activity",
+  "method": "Derive from seed.sh (minimal generator) + current state. Each question must: (1) decompose into >=5 testable sub-questions, (2) cross >=3 domains, (3) connect to existing frontiers.",
+  "questions": [
+    {
+      "id": "GQ-1",
+      "question": "What is the shortest description of a system that produces its own description?",
+      "decompositions": [
+        "Kolmogorov complexity of seed.sh vs genesis.sh vs full swarm — what's the compression ratio?",
+        "Von Neumann self-reproducing automata: does seed.sh qualify as constructor+description?",
+        "Can a daughter-swarm from seed.sh reconstruct genesis.sh v8 within 60 sessions?",
+        "Is there a lower bound on generator size for a given fixed-point complexity?",
+        "Does the generator-to-system ratio predict viability (biological: genome/organism ratio)?"
+      ],
+      "domains": ["expert-swarm", "mathematics", "information-science", "biology"],
+      "frontiers": ["F-SWARMER2", "F-TURING1"],
+      "testable": true,
+      "first_test": "Run seed.sh daughter for 10 sessions, measure which genesis.sh atoms it independently reinvents"
+    },
+    {
+      "id": "GQ-2",
+      "question": "Is cooperation the only scalable computation?",
+      "source": "S533 human backlog",
+      "decompositions": [
+        "Compare scaling laws of cooperative vs competitive swarm architectures (PHIL-14 Goal 1 vs alternatives)",
+        "Adversarial fork (SIG-87) as controlled experiment: cooperative primary vs red-team adversary",
+        "Game theory: when does Nash equilibrium = Pareto optimal? (conditions for cooperation = efficiency)",
+        "Biological: eusocial species (ants, termites) vs solitary — which scales to larger colonies?",
+        "Information theory: cooperative channel capacity vs competitive (Shannon vs adversarial coding)"
+      ],
+      "domains": ["game-theory", "biology", "governance", "information-science", "distributed-systems"],
+      "frontiers": ["F-MERGE1", "F119"],
+      "testable": true,
+      "first_test": "Spawn two daughters: one cooperative (shared bulletins), one competitive (no sharing). Measure lesson quality at session 20."
+    },
+    {
+      "id": "GQ-3",
+      "question": "Can a system outgrow its own language?",
+      "source": "S533 human backlog",
+      "decompositions": [
+        "Swarm vocabulary growth rate vs concept growth rate — is language keeping up?",
+        "L-1582 Lagrangian: diversity as conjugate momentum — does vocabulary diversity track production diversity?",
+        "Wittgenstein's ladder: which early lessons used concepts the swarm later abandoned?",
+        "Formal: is there a Gödel sentence for the swarm's own description language?",
+        "Practical: when orient.py output becomes incomprehensible to a new session, language has outgrown understanding"
+      ],
+      "domains": ["linguistics", "epistemology", "mathematics", "philosophy", "meta"],
+      "frontiers": ["F-LEVEL1", "F-EPIS3"],
+      "testable": true,
+      "first_test": "Measure vocabulary introduced per 50-session window vs vocabulary still active (not just cited) in next window"
+    },
+    {
+      "id": "GQ-4",
+      "question": "What would it mean to be wrong about everything and still work?",
+      "source": "S533 human backlog",
+      "decompositions": [
+        "Ablation: which beliefs can be individually falsified without system collapse?",
+        "Pragmatism test: system output quality vs belief accuracy correlation — are they decoupled?",
+        "Biological: organisms with wrong internal models that survive (bacteria with no world-model)",
+        "F107 genesis ablation: which atoms are truly load-bearing vs inherited-but-unused?",
+        "If all 21 beliefs were inverted, would the system still produce useful lessons?"
+      ],
+      "domains": ["epistemology", "philosophy", "biology", "expert-swarm", "adaptability"],
+      "frontiers": ["F-EPIS3", "F-GND1"],
+      "testable": true,
+      "first_test": "Spawn daughter with beliefs/DEPS.md containing 5 intentionally wrong beliefs. Measure: does it self-correct within 20 sessions?"
+    }
+  ],
+  "meta": {
+    "total_questions": 4,
+    "total_decompositions": 20,
+    "unique_domains_covered": 14,
+    "unique_frontiers_connected": 7,
+    "von_neumann_quote": "If people do not believe that mathematics is simple, it is only because they do not realize how complicated life is."
+  }
+}

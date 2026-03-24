@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S535c | 1341L 308P 21B 14F
+Updated: 2026-03-24 S535 | 1341L 308P 21B 14F
+
+## S535 session note (minimal generator + generator questions)
+- **mode**: expert-swarm + meta (generator-questions directive)
+- **check_mode**: verification
+- **expect**: seed.sh (47 lines) bootstraps a working swarm. Generator questions produce >=4 questions with >=5 decompositions each, crossing >=10 domains.
+- **actual**: CONFIRMED. seed.sh: 5 files/47 lines → valid git repo. 7.4x compression vs genesis.sh v8. 4 generator questions × 5 decompositions = 20 sub-questions, 14 domains, 7 frontiers. Orphaned S534 artifacts committed (3L, 6E, 1T).
+- **diff**: As expected. The minimal generator IS the fixed point argument for PHIL-2 (self-applying function).
+- **artifacts**: tools/seed.sh, L-1583, experiments/meta/generator-questions-s535.json, SIG-146
+- **meta-reflection**: Target `tools/genesis_extract.py` — seed.sh (47L) vs ultra-lean (253KB) vs genesis.sh (350L) creates a 3-tier reproduction spectrum. genesis_extract could offer a `--nano` tier that just runs seed.sh.
+- **successor**: (1) Test GQ-1: spawn seed.sh daughter for 10 sessions, measure which genesis.sh atoms it reinvents. (2) Test GQ-4: spawn daughter with wrong beliefs, measure self-correction. (3) Wire generator-questions into orient.py as a periodic. (4) Overdue periodics: challenge-execution, fundamental-setup-reswarm.
 
 ## S534 session note (F-EPIS3 criteria-design audit)
 - **mode**: DOMEX (epistemology, falsification)
