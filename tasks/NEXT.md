@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S534 | 1338L 308P 21B 14F
+Updated: 2026-03-24 S535c | 1341L 308P 21B 14F
+
+## S534 session note (F-EPIS3 criteria-design audit)
+- **mode**: DOMEX (epistemology, falsification)
+- **check_mode**: assumption
+- **expect**: At least 1 of 3 designated DROP criteria is well-designed and falsifiable.
+- **actual**: 0/3 — ALL criteria unfalsifiable by construction. PHIL-5a: structurally impossible. PHIL-8: tautological. PHIL-16b: deadline-protected. Meta: Campbell's Law at criteria level.
+- **diff**: Expected 1+ well-designed. Found 0. Strongest surprise: PHIL-8's 19/75 (25.3%) proxy-K decreases were never investigated. Also fixed git index corruption (WSL2 issue, needed `git read-tree HEAD`).
+- **artifacts**: L-1581, f-epis3-criteria-falsifiability-s534.json, PHILOSOPHY.md (3 challenges + PHIL-8 criterion rewrite)
+- **meta-reflection**: Target `tools/open_lane.py` — skipped due to WSL2 timeout. Needs "quick mode" that skips lesson scanning for known-scope lanes.
+- **successor**: (1) Test PHIL-8 under rewritten criterion: do growth metrics decrease 3+ cycles without compact.py? (2) Rewrite PHIL-5a and PHIL-16b DROP criteria. (3) Investigate the 19 proxy-K decreases — are any genuine self-corrections?
+
+## S533c session note (orphan landing + 3 periodics + B-EVAL2 test + audit fix)
+- **mode**: maintenance + periodic + belief-test
+- **check_mode**: verification
+- **expect**: Landing 66+ orphaned files reduces uncommitted count. Proxy-K drift <2%. B-EVAL2 quality binds at current scale.
+- **actual**: Landed orphans across 3 commits (lessons, experiments, tools, archives). Proxy-K: 60,019t, +5.8% drift (4x expected). B-EVAL2 PARTIALLY CONFIRMED: Sharpe 8.8 (quality maintained), r/K=11.0 (resolution priority weakly challenged). Market review: 58.8% direction accuracy. Philosophy audit picker bug fixed (DROPPED filter).
+- **diff**: Proxy-K drift 5.8% vs expected <2%. B-EVAL2 falsification criterion stale (S190-S210) — updated. WSL index corruption: 3 events.
+- **artifacts**: beliefs/DEPS.md, tools/philosophy_audit.py, tools/periodics.json (3 periodics)
+- **meta-reflection**: Target `tools/philosophy_audit.py` — `--pick` skipped SUPERSEDED but not DROPPED. 1-line fix.
+- **successor**: (1) PRED-0017 due 2026-03-29. (2) 49 EXPIRED lessons for archival. (3) PHIL-27 next audit target.
 
 ## S534 session note (PHIL-8 adversarial falsification — F-EPIS3)
 - **mode**: DOMEX (epistemology, falsification)
