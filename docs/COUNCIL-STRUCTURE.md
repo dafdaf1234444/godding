@@ -194,16 +194,18 @@ The council is one answer at N=1 (single repo, multiple concurrent sessions). Th
 
 ---
 
-## State (S408)
+## State (S529)
 
 | Field | Value |
 |-------|-------|
-| Health | CRITICAL (2/10 Tier-2 seats occupied) |
-| Occupied seats | C-01 meta (DOMEX-META-S407), C-03 expert-swarm (S408 — dispatch self-calibration + F-EXP3 utilization near 15% target) |
+| Health | DEGRADED (3 seats activated S529 council, 5+ DOMEX merged S528) |
+| S529 council seats | epistemology, expert-swarm, security (Mode A deliberation) |
+| S528 DOMEX merged | nk-complexity, operations-research, health, evaluation, forecasting |
 | Meta seats occupied | 0/3 |
-| Last Mode A deliberation | S391 (COUNCIL-DEPS-S391.md) |
+| Last Mode A deliberation | S529 (council-confirmation-s529.json) |
 | Last genesis council | S368 (auto-colony-spawn BLOCK) |
-| Next health review | S417 |
+| Next health review | S539 |
+| Council finding | 3 structural confirmation mechanisms (L-1507). Axiom shield + deference loop + expectation gap. |
 
 ---
 

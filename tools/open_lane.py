@@ -372,6 +372,20 @@ def main():
             )
             sys.exit(1)
 
+    # L-1507 council finding: expectation precision gate — vague pre-registration enables
+    # post-hoc fitting (26% detail on normal lanes vs 100% on falsification lanes).
+    # Creation-time enforcement per L-601.
+    expect_words = len(args.expect.strip().split())
+    if expect_words < 10:
+        print(
+            f"ERROR: --expect has only {expect_words} words (minimum 10). "
+            f"L-1507: vague expectations enable post-hoc confirmation. "
+            f"Include: (1) specific prediction, (2) threshold, (3) falsification criterion. "
+            f"Example: 'K_avg ~2.6 at N=724; falsified if >5% deviation from S372 model'",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
     # P-243 science quality: check if expect contains a number (quantitative prediction)
     if not re.search(r"\d", args.expect):
         print(

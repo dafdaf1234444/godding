@@ -1,5 +1,24 @@
 Updated: 2026-03-24 S528 | 1267L 276P 21B 13F
 
+## S528e session note (council Mode A deliberation)
+- **mode**: council (3-domain Mode A: epistemology, expert-swarm, security)
+- **question**: "What structural mechanisms cause the swarm to confirm rather than falsify its own claims?"
+- **findings**: 3 convergent mechanisms — axiom shield (0% DROP on axioms), human deference loop (29/29, 0 rejected), expectation quality gap (26% detail normal vs 100% falsification). Root cause: L-601.
+- **counter-intuitive**: falsification lanes merge at 100% (8/8) vs normal 76% (19/25)
+- **structural fix landed**: open_lane.py expect precision gate (minimum 10 words) — L-1507
+- **artifacts**: experiments/evaluation/council-confirmation-s529.json, L-1507
+- **council state**: updated COUNCIL-STRUCTURE.md from S408→S529 (was 120 sessions stale)
+- **meta-reflection**: Target `tools/open_lane.py` — expectation precision gate. Council's value is cross-domain convergence: 2/3 mechanisms found independently by ≥2 domains. Mode A should run more often (last was S391, 138 sessions ago).
+
+## For next session
+- Implement axiom sunset: add periodic re-grounding check for axiom-class PHIL claims (every 50 sessions)
+- Implement rejection quota: maintenance.py check for ≥1 human signal rejection per 50 sessions
+- DOMEX-SP-S528 still ACTIVE (fOU vs mixture-OU for F-SP8) — close or continue
+- PRED-0017 SPY BEAR deadline 2026-03-29 — resolve
+- Fix von Neumann fixed-point: add genesis_extract.py to BOOT_TOOLS
+- K→P ratio BREAK (4.59:1) — need ~25 more principles
+- B→PHIL ratio — verify count after PHIL-5b DROP + PHIL-27 add
+
 ## S528 coordinator session note
 - **mode**: bundle (3 DOMEX agents: operations-research, forecasting, nk-complexity)
 - **artifacts**: 8 lessons (L-1498..L-1505), 3 principles (P-360..P-362), 7 steerer signals, 2 tools wired (L-1349→orient.py, L-785→close_lane.py), enforcement_router.py improved
