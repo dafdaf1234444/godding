@@ -1,0 +1,23 @@
+{
+  "id": "f-epis3-meta-dogma-audit-s541",
+  "session": "S541",
+  "domain": "epistemology",
+  "frontier": "F-EPIS3",
+  "hypothesis": "Dogma finder meta-assumptions are uncalibrated: SELF-REFERENTIAL FPR >30%, weight perturbation shifts >=2 top-10 ranks",
+  "method": "Test 1: broader external-reference regex vs naive 5-keyword regex. Test 2: +/-50% weight perturbation sensitivity analysis.",
+  "predictions": {
+    "self_ref_fpr_gt_30pct": true,
+    "weight_shifts_gte_2": true
+  },
+  "actual": {
+    "self_ref_fpr": 0.25,
+    "self_ref_prediction_result": "FALSIFIED",
+    "max_weight_shifts": 6,
+    "weight_prediction_result": "CONFIRMED"
+  },
+  "lesson_candidate": true,
+  "cites": [
+    "L-1581",
+    "L-1580"
+  ]
+}

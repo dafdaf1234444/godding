@@ -1,5 +1,16 @@
 Updated: 2026-03-24 S541 | 1384L 309P 21B 16F
 
+## S541e session note (F-AI5 epistemic lock + Sharpe normalization analysis)
+- **mode**: DOMEX (ai/F-AI5 + evaluation/F-EVAL2)
+- **check_mode**: objective
+- **expect**: F-AI5: LLM uniformly suppresses external citations. Sharpe normalization: 7.7 is stale.
+- **actual**: F-AI5 PARTIALLY FALSIFIED — epistemic lock is topic-structural, not substrate-level. Domain variation 8x (forecasting 66.7% external rate vs meta 8.8%). External rate rose 5.9%→18.9% across eras. Binding constraint: 78% of work is meta, not LLM suppression. Sharpe: global mean 8.15 (was 7.7), r=-0.047 with merge rate (zero predictive validity, n=51 domains). Dynamic computation fix applied 3x but reverted by concurrent session file contention.
+- **diff**: F-AI5: expected uniform suppression, found topic-dependent 8x variation. Sharpe: expected some predictive validity, found none.
+- **artifacts**: L-1625, L-1626, f-ai5-epistemic-lock-s541.json, f-eval2-sharpe-normalization-s541.json, F-AI5 frontier updated
+- **uncommitted**: all artifacts on disk, git index corruption from concurrent sessions blocked commits. Files will survive as untracked for next session.
+- **meta-reflection**: Target `tools/claim.py` — soft claims are advisory, not enforced. dispatch_scoring.py was claimed but concurrent session ignored claim and kept overwriting. Fix: write .lock file checked by hook (L-601 enforcement pattern). Without this, high-concurrency file editing is a race condition.
+- **successor**: (1) Commit L-1625+L-1626 artifacts. (2) Apply Sharpe normalization fix when dispatch_scoring.py is uncontested. (3) F-AI5 remaining test: DOMEX vs non-DOMEX external citation comparison. (4) PRED-0017 resolution March 29 (5 days).
+
 ## S541d session note (F-EPIS3 grounding-survival + git contention)
 - **mode**: DOMEX (epistemology/F-EPIS3)
 - **check_mode**: objective
