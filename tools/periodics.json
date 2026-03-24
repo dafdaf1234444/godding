@@ -55,6 +55,50 @@
       "last_date": "2026-03-24"
     },
     {
+      "id": "signal-integrity-audit",
+      "description": "Signal recording integrity audit: run `python3 tools/signal_integrity.py` to cross-check `memory/HUMAN.md` signal references against `tasks/SIGNALS.md`. Detects missing rows, wrong `source`, and session mismatches after human-signal intake work (SIG-131, L-1558).",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S536",
+      "registered_by": "S536",
+      "last_session": "S536",
+      "last_run": "S536",
+      "last_date": "2026-03-24",
+      "note": "S536: registered as recurring integrity audit after a live read-only run completed cleanly on the current ledger. Existing regression coverage: tools/test_signal_integrity.py."
+    },
+    {
+      "id": "tool-reliability-audit",
+      "description": "Tool reliability audit: run `python3 tools/tool_reliability.py --json` to score production-tool coverage, read/write isolation, and truth-signal strength. Tracks reliability debt behind SIG-35 and F-EPIS1 follow-through.",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S536",
+      "registered_by": "S536",
+      "last_session": "S536",
+      "last_run": "S536",
+      "last_date": "2026-03-24",
+      "note": "S536: registered after a clean live run on the current repo. Existing regression coverage: tools/test_tool_reliability.py."
+    },
+    {
+      "id": "numerical-claim-audit",
+      "description": "Numerical claim freshness audit: run `python3 tools/numerical_claim_scanner.py --audit --session <S>` to find unstamped and stale body-text numerical claims in lessons (FM-27, L-894, L-887). Keeps quantitative claims time-scoped instead of silently decaying.",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S536",
+      "registered_by": "S536",
+      "last_session": "S536",
+      "last_run": "S536",
+      "last_date": "2026-03-24",
+      "note": "S536: registered after a successful full-repo audit at session 536. Periodic path chosen because the pre-commit hook surface is currently claimed by peer sessions."
+    },
+    {
+      "id": "confidence-audit",
+      "description": "Lesson confidence audit: run `python3 tools/confidence_audit.py` to detect evidence/confidence mismatches, pure aspirations, and superseded lessons that should be compacted or relabeled. Supports lesson-quality enforcement without auto-fix by default.",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S536",
+      "registered_by": "S536",
+      "last_session": "S536",
+      "last_run": "S536",
+      "last_date": "2026-03-24",
+      "note": "S536: registered after a clean read-only run on the live lesson corpus. Batch-1 of the unreferenced-tool backlog lands through the periodic system first, not the claimed check.sh path."
+    },
+    {
       "id": "paper-reswarm",
       "description": "Re-swarm docs/PAPER.md: read current beliefs/PHILOSOPHY.md + beliefs/CORE.md + memory/INDEX.md, check paper for drift, fan-out agents to update stale sections, update paper_version header. File challenges for any contradictions found. S395 audit: cosmetic drift only, cadence 10\u219220.",
       "cadence_sessions": 40,
@@ -70,10 +114,10 @@
       "cadence_sessions": 25,
       "last_reviewed_session": 499,
       "registered_by": "S117",
-      "last_session": "S499",
-      "last_run": "S499",
-      "note": "S499 audit: 3 items found, 3 fixed. (1) Bridge handoff desync: cell_blueprint.py save step missing from 5/6 bridges \u2014 synced all. (2) README rewrite for new users + doc_freshness.py created and wired as periodic. (3) 3 frontier decay timestamps refreshed (F119, F120, F126). Doc staleness now structurally addressed.",
-      "last_date": "2026-03-22"
+      "last_session": "S536",
+      "last_run": "S536",
+      "note": "S536 audit: 2 items found, 2 fixed. (1) domain_map.py missing COL/COLLECTIVE/TURING/TUR abbreviations — dispatch_optimizer can't track F-COL1 lanes. Added 4 entries. (2) challenge-execution periodic has empty QUEUED queue — all 27 challenges resolved. SWARM.md reviewed — no content staleness detected.",
+      "last_date": "2026-03-24"
     },
     {
       "id": "mission-constraint-reswarm",
@@ -89,10 +133,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 536,
+      "last_reviewed_session": 537,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S536",
+      "last_session": "S537",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -163,9 +207,9 @@
       "cadence_sessions": 30,
       "last_reviewed_session": 458,
       "registered_by": "S347",
-      "last_session": 501,
-      "last_run": "S458",
-      "note": "S458: PHIL-5 S399 REFINED (6.1% actual decay vs 32.2% citation-recency, 5.3x overestimate, L-813 applies). PHIL-21 S430 CONFIRMED (45% L3 misclassified >40% threshold, L-1119). 0 QUEUED remaining. PHIL-11 0/60 rejections. PHIL-13 T3 57s overdue."
+      "last_session": 536,
+      "last_run": "S536",
+      "note": "S536: PHIL-11 adversarial challenge filed (L-1592) — zero-rejection governance IS mediocrity selection. B-EVAL1 CONFIRMED — evidence downgraded. 0 QUEUED remaining. PHIL-11 challenge pending status resolution (directional/epistemic false dichotomy)."
     },
     {
       "id": "lanes-compact",
