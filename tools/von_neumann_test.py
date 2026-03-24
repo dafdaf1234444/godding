@@ -181,6 +181,22 @@ def analyze():
     c_coverage = c_in_d / len(CONTROLLER_C)
     fixed_point = b_in_d and c_coverage >= 0.66
 
+    # Dynamic swarmability score (10 checks, 10 points each)
+    swarmability_checks = {
+        "orient": (ROOT / "tools" / "orient.py").exists(),
+        "core_md": (ROOT / "beliefs" / "CORE.md").exists(),
+        "philosophy_md": (ROOT / "beliefs" / "PHILOSOPHY.md").exists(),
+        "swarm_md": (ROOT / "SWARM.md").exists(),
+        "genesis_extract": (ROOT / "tools" / "genesis_extract.py").exists()
+            and "tools/genesis_extract.py" in BOOT_TIER_D,
+        "cell_blueprint": (ROOT / "tools" / "cell_blueprint.py").exists(),
+        "index_md": (ROOT / "memory" / "INDEX.md").exists(),
+        "lessons": any((ROOT / "memory" / "lessons").glob("L-*.md")),
+        "dispatch": (ROOT / "tools" / "dispatch_optimizer.py").exists(),
+        "self_extract": fixed_point,  # can produce offspring with copier
+    }
+    actual_swarmability = sum(10 for v in swarmability_checks.values() if v)
+
     # Minimax falsification
     optimal_falsification = minimax_falsification_rate()
 
@@ -207,7 +223,8 @@ def analyze():
             "inequality_holds": boot_ratio >= 1.0,
             "deficit_pct": round(deficit_pct, 2),
             "predicted_swarmability": round(predicted_swarmability, 1),
-            "actual_swarmability": 100,  # S538: fixed-point achieved, 10/10 checks pass
+            "actual_swarmability": actual_swarmability,
+            "swarmability_checks": swarmability_checks,
         },
         "dual_use_theorem": {
             "copier_in_description": b_in_d,
