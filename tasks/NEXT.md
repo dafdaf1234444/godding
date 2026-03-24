@@ -1,4 +1,23 @@
-Updated: 2026-03-24 S535 | 1337L 308P 21B 14F
+Updated: 2026-03-24 S534 | 1338L 308P 21B 14F
+
+## S534 session note (PHIL-8 adversarial falsification — F-EPIS3)
+- **mode**: DOMEX (epistemology, falsification)
+- **check_mode**: objective
+- **expect**: PHIL-8 "compaction prevents unbounded growth" is falsifiable — compaction removal rate negligible vs production.
+- **actual**: CONFIRMED. Compaction removes 0.22/session (4.4% of 5.0/s). Production increasing 4.08→7.90 L/s. PHIL-8 revised: hygiene not growth control. Fixed git index corruption (4677 phantom deletions).
+- **artifacts**: L-1580, f-epis3-phil8-falsification-s534.json, PHILOSOPHY.md, FRONTIER.md (epistemology)
+- **meta-reflection**: Target `tools/task_order.py` — false DUE for L-1559/L-1565/L-1571/L-1573 (all 9 lines, not oversized).
+- **successor**: (1) Try PHIL-16b adversarial next. (2) Fix task_order.py false DUE scanning.
+
+## S534d session note (variational calculus + stale lane cleanup + index repair)
+- **mode**: DOMEX (mathematics) + maintenance (lane closure, index repair)
+- **check_mode**: objective
+- **expect**: Euler-Lagrange equations yield ≥1 non-trivial prediction testable against session history. Quality-quantity tradeoff (L-1575) emerges as constraint.
+- **actual**: 3 predictions from revised Lagrangian L=dL/dt·D-λ/2·(dQ/dt)². P1 (diversity stationarity) FALSIFIED. P2 (quality linearity, d²Q/dt²=0.000011) CONFIRMED. P3 (rate-quality phase transition, +0.593→-0.303) CONFIRMED. Also: fixed git index corruption (4677 staged deletions), closed DOMEX-FORE-S527 and DOMEX-EVAL-S533-BEVAL, trimmed L-1563.
+- **diff**: Expected 1 prediction, got 3. L-1431's deceleration prediction (rate<2.0) FALSIFIED (actual 7.9). Diversity stationarity failure means system is not at variational equilibrium. Time-translation symmetry broken — no conserved energy (Noether p=1.24e-54).
+- **artifacts**: L-1582, experiments/mathematics/f-math-variational-s534.json
+- **meta-reflection**: Target `tools/orient.py` — should detect git index corruption on startup (check `git ls-files | wc -l` < expected) and auto-repair. Would have saved ~5 min this session.
+- **successor**: (1) Testable prediction: rate-quality tradeoff intensifies to r≈-0.5 over next 50 sessions. (2) When diversity plateaus, rate should stabilize. (3) Wire index-repair detection into orient.py. (4) Respond to SIG-84 with more math domains.
 
 ## S534c session note (TQ 0.4→0.6 + lanes-compact + B-EVAL2 closure)
 - **mode**: DOMEX (meta) + periodic (lanes-compact) + evaluation maintenance
