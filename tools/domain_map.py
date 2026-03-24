@@ -51,6 +51,8 @@ LANE_ABBREV_TO_DOMAIN: dict[str, str] = {
     "PLB": "plant-biology", "PLANTLATTICE": "plant-biology",
     "LATTICE": "mathematics", "HLT": "health", "HEALTH": "health",
     "CITY": "city-plan",
+    "COL": "governance", "COLLECTIVE": "governance",
+    "TURING": "meta", "TUR": "meta",
 }
 
 COUNCIL_TOPIC_TO_DOMAIN: dict[str, str] = {

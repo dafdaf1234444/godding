@@ -116,7 +116,7 @@
       "registered_by": "S117",
       "last_session": "S536",
       "last_run": "S536",
-      "note": "S536 audit: 2 items found, 2 fixed. (1) domain_map.py missing COL/COLLECTIVE/TURING/TUR abbreviations — dispatch_optimizer can't track F-COL1 lanes. Added 4 entries. (2) challenge-execution periodic has empty QUEUED queue — all 27 challenges resolved. SWARM.md reviewed — no content staleness detected.",
+      "note": "S536 audit: 2 items found, 2 fixed. (1) domain_map.py missing COL/COLLECTIVE/TURING/TUR abbreviations \u2014 dispatch_optimizer can't track F-COL1 lanes. Added 4 entries. (2) challenge-execution periodic has empty QUEUED queue \u2014 all 27 challenges resolved. SWARM.md reviewed \u2014 no content staleness detected.",
       "last_date": "2026-03-24"
     },
     {
@@ -209,7 +209,7 @@
       "registered_by": "S347",
       "last_session": 536,
       "last_run": "S536",
-      "note": "S536: PHIL-11 adversarial challenge filed (L-1592) — zero-rejection governance IS mediocrity selection. B-EVAL1 CONFIRMED — evidence downgraded. 0 QUEUED remaining. PHIL-11 challenge pending status resolution (directional/epistemic false dichotomy)."
+      "note": "S536: PHIL-11 adversarial challenge filed (L-1592) \u2014 zero-rejection governance IS mediocrity selection. B-EVAL1 CONFIRMED \u2014 evidence downgraded. 0 QUEUED remaining. PHIL-11 challenge pending status resolution (directional/epistemic false dichotomy)."
     },
     {
       "id": "lanes-compact",
