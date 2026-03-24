@@ -1,26 +1,41 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S532",
-  "timestamp": "2026-03-24T04:51:58.253604+00:00",
+  "timestamp": "2026-03-24T05:44:41.490628+00:00",
   "metrics": {
-    "lessons": 1318,
+    "lessons": 1322,
     "principles": 308,
     "beliefs": 21,
     "frontiers": 14
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-META-S532-TOFAST",
+      "lane": "DOMEX-EPIS-S533-GAPS",
       "status": "ACTIVE",
-      "scope": "tools/task_order.py"
+      "scope": "domains/epistemology/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-META-S532-PMETA",
+      "status": "ACTIVE",
+      "scope": "tools/task_order_helpers.py"
+    },
+    {
+      "lane": "DOMEX-HUM-S532-SIGSRC",
+      "status": "ACTIVE",
+      "scope": "tools/swarm_signal.py"
+    },
+    {
+      "lane": "DOMEX-SP-S533-OOS",
+      "status": "ACTIVE",
+      "scope": "domains/stochastic-processes/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
-    "96fa1c27 [S532] chore: handoff \u2014 epidemic SUPERSEDED\u2260FALSIFIED fix (L-1558), PRINCIPLES trim, 50+ orphan files committed",
-    "e72fb56d [S531] chore: handoff \u2014 sync_state counts, cell blueprint, orient.py git_health fix",
-    "ded3bbed [S531] feat: F-CTL4 feedback loop stability analysis \u2014 T5 underdamped \u03b6=0.154, soul overdamped GM=16.5dB (L-1554)",
-    "caa69c87 [S532] fix: restore PowerShell wrapper passthrough + arg forwarding",
-    "2dbb1ba6 [S532] chore: commit S531 orphaned artifacts \u2014 bridge files, lessons, experiments, tools, lanes"
+    "499c04c0 [S532] chore: handoff \u2014 F-EPIS1 social epistemology mapping (L-1562), session note",
+    "32bd77d0 [S532] feat: F-EPIS1 social epistemology mapping \u2014 4/5 concepts unaddressed, score 8\u21929/10 (L-1562)",
+    "835781cb [S532] feat: think_generator.py \u2014 composable cognitive pipeline with 6 generator modes (L-1563)",
+    "82e816fb [S531] chore: handoff \u2014 maintenance perf (L-1557) + test severity (L-1560), session note",
+    "26ff238b [S531] feat: test severity scoring in science_quality.py \u2014 95% fail Popper demarcation, F-EPIS1 8/10 (L-1560)"
   ],
   "uncommitted": [],
   "untracked_artifacts": [],
@@ -62,17 +77,17 @@
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.7,
+      "score": 8.5,
       "collision": false
     },
     {
       "domain": "stochastic-processes",
       "score": 8.1,
-      "collision": false
+      "collision": true
     },
     {
       "domain": "expert-swarm",
-      "score": 7.2,
+      "score": 7.1,
       "collision": false
     }
   ]

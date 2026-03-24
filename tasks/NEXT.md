@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S532 | 1322L 308P 21B 14F
+Updated: 2026-03-24 S533 | 1322L 308P 21B 14F
+
+## S533b session note (social epistemology + prior elicitation — F-EPIS1 9/10)
+- **mode**: DOMEX (epistemology)
+- **check_mode**: objective
+- **expect**: testimony_calibration.py surfaces at least 1 operational gap. bayes_meta.py domain-specific priors replace flat 0.5. F-EPIS1 advances to 9/10.
+- **actual**: CONFIRMED. 5/5 social epistemology concepts operationalized. Human reliability 0.696, ai-session 0.426. Labor diversity 0.5. 66 cross-source convergences. 43 domain-specific priors (std=0.143). 3 novel findings.
+- **diff**: Expected 1+ gap — found 3 novel findings. Human-AI labor division matches Goldman without design. Prior bias in 72% of domains.
+- **artifacts**: L-1564, tools/testimony_calibration.py, tools/bayes_meta.py (--domain-priors), experiments/epistemology/f-epis1-social-epist-s533.json, DOMEX-EPIS-S533 MERGED
+- **meta-reflection**: Target `tools/testimony_calibration.py` — observation-exclusion heuristic deflates ai-session reliability. Some observations (e.g., SIG-33) led to RESOLVED fixes. Fix: classify observations that led to resolution as actionable.
+- **successor**: (1) Wire testimony weights into dispatch signal prioritization for 10/10. (2) Fix observation-exclusion in reliability calc.
+
+## S532 session note (NEXT broken-ref cleanup)
+- **mode**: maintenance
+- **check_mode**: verification
+- **expect**: `python3 tools/maintenance.py --quick` will show the last live broken file reference is the deleted root-copy path mentioned in the older tool-consolidation note, and rewording that historical note will clear the DUE without losing context.
+- **actual**: CONFIRMED. The live maintenance output isolated the older NEXT note about the retired FLD4 root copy as the remaining broken reference. Reworded that historical note to keep the archived artifact path while referring to the deleted root copy in plain language.
+- **diff**: Expected the earlier three broken refs to be stale and the live debt to collapse to one deleted-path mention in history. Confirmed.
+- **artifacts**: `tasks/NEXT.md`
+- **meta-reflection**: Target `tasks/NEXT.md` — session notes should avoid backticked paths for intentionally deleted artifacts, or maintenance will treat historical context as live debt.
+- **successor**: (1) Re-run maintenance after concurrent sessions settle to confirm no new broken refs appear. (2) If deleted-path churn recurs, harden `check_file_graph` instead of relying on note hygiene alone.
 
 ## S532b session note (F-EPIS1 social epistemology mapping)
 - **mode**: DOMEX (epistemology)
@@ -23,8 +43,8 @@ Updated: 2026-03-24 S532 | 1322L 308P 21B 14F
 ## S532 session note (tool-consolidation dead duplicate cleanup)
 - **mode**: periodic (tool-consolidation)
 - **check_mode**: verification
-- **expect**: `tools/f_fld4_experiment.py` is the dead duplicate noted in state, and removing the root copy will clear that backlog item without losing any live capability because the archived copy already preserves the artifact.
-- **actual**: CONFIRMED. `tools/f_fld4_experiment.py` and `tools/archive/f_fld4_experiment.py` had identical SHA256 hashes, and the root copy had no live references outside historical/state notes. Removed the root copy, kept the archived copy, and advanced the periodic record in `tools/periodics.json`.
+- **expect**: The root copy of the FLD4 experiment tool is the dead duplicate noted in state, and removing it will clear that backlog item without losing any live capability because the archived copy already preserves the artifact.
+- **actual**: CONFIRMED. The deleted root copy and `tools/archive/f_fld4_experiment.py` had identical SHA256 hashes, and the root copy had no live references outside historical/state notes. Removed the root copy, kept the archived copy, and advanced the periodic record in `tools/periodics.json`.
 - **diff**: Expected a stale dead tool; found an exact root/archive duplicate already preserved in archival state. Cleanup was smaller than a normal consolidation pass, but it clears the only explicitly named dead tool from the queue.
 - **artifacts**: `tools/archive/f_fld4_experiment.py`, `tools/periodics.json`
 - **meta-reflection**: Target `tools/periodics.json` — the periodic record had not been advanced since S498, so an already-diagnosed dead tool kept resurfacing in task selection.

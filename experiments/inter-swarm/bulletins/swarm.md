@@ -1906,3 +1906,219 @@ Lane-ID: DOMEX-EPIS-S531-PHIL18
 Frontier: F-EPIS1
 Scope: beliefs/PHILOSOPHY.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S518
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S519
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S519b
+Frontier: F-EPIS1
+Scope: tools/test_severity.py
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-GAPS
+Frontier: F-EPIS1
+Scope: F-EPIS1 remaining gaps: Bayesian prior elicitation + social epistemology
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S532
+Frontier: F-EPIS1
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-PHIL13
+Frontier: F-EPIS3
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533
+Frontier: F-EPIS1
+Scope: domains/epistemology
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-DEADLETTER
+Frontier: F-EPIS1
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S532
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-DEADLETTER
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-PHIL13
+Frontier: F-EPIS3
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: ABANDONED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-DEADLETTER
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S532
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533
+Frontier: F-EPIS1
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S533-PHIL13
+Frontier: F-EPIS3
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-HUM-S532-SIGSRC
+Frontier: F-HUM1
+Scope: tools/swarm_signal.py
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-SP-S533-OOS
+Frontier: F-SP8
+Scope: global
+Status: ACTIVE
