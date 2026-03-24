@@ -1942,7 +1942,7 @@
     },
     {
       "session": 532,
-      "timestamp": "2026-03-24T04:51:41Z",
+      "timestamp": "2026-03-24T04:52:36Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -1960,9 +1960,11 @@
           "severities": []
         },
         "check_runtime_portability": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_commit_hooks": {
           "fired": false,
@@ -1986,12 +1988,8 @@
         },
         "check_lessons": {
           "fired": true,
-          "count": 6,
+          "count": 2,
           "severities": [
-            "DUE",
-            "DUE",
-            "DUE",
-            "DUE",
             "DUE",
             "NOTICE"
           ]
@@ -2055,11 +2053,9 @@
           "severities": []
         },
         "check_swarm_coordinator": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -2072,12 +2068,9 @@
           "severities": []
         },
         "check_uncommitted": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "NOTICE",
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_handoff_staleness": {
           "fired": false,
@@ -2262,16 +2255,11 @@
             "DUE",
             "NOTICE"
           ]
-        },
-        "check_unpushed": {
-          "fired": false,
-          "count": 0,
-          "severities": []
         }
       },
       "totals": {
-        "DUE": 19,
-        "NOTICE": 21,
+        "NOTICE": 20,
+        "DUE": 14,
         "PERIODIC": 14
       }
     }

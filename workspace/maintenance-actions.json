@@ -1,26 +1,10 @@
 {
   "session": 532,
-  "count": 19,
+  "count": 14,
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1549.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1552.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1553.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1554.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1557.md"
+      "message": "Lesson over 20 lines: L-1559.md"
     },
     {
       "priority": "DUE",
@@ -57,10 +41,6 @@
     {
       "priority": "DUE",
       "message": "[steerer-cycle] Synthetic steerer cycle: run steerer.py run --all, generate 2-3 signals per steerer, record via steerer.py record, act on strongest signal. L-1337, L-1336. (every ~5 sessions, last: S518)"
-    },
-    {
-      "priority": "DUE",
-      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-META-S532-TOFAST"
     },
     {
       "priority": "DUE",
