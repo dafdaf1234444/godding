@@ -277,6 +277,17 @@ def extract_genesis(out_dir, top_n=100, include_tools=True, minimal=False,
         _rewrite_daughter_index(out, hubs)
         _write_daughter_stubs(out)
         _write_daughter_bridge(out, hubs)
+        # L-1601: identity differentiation — daughters born with honest epistemology
+        import subprocess
+        parent_hash = "unknown"
+        try:
+            r = subprocess.run(["git", "rev-parse", "--short", "HEAD"],
+                               capture_output=True, text=True, timeout=5, cwd=str(ROOT))
+            if r.returncode == 0:
+                parent_hash = r.stdout.strip()
+        except Exception:
+            pass
+        _write_daughter_identity(out, parent_hash, len(hubs))
         _init_daughter_git(out)
     manifest["compression_ratio"] = f"{manifest['total_bytes'] / 1024:.0f}KB"
     return manifest
@@ -311,6 +322,51 @@ def _rewrite_daughter_index(out_dir, hubs):
     if "<!-- DAUGHTER SWARM" not in text:
         text = provenance + text
     index_path.write_text(text, encoding="utf-8")
+
+
+def _write_daughter_identity(out_dir, parent_hash: str, hub_count: int):
+    """L-1601: daughters need honest epistemology — lineage, not inherited claims."""
+    import datetime
+    birth = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+    ident = (out_dir / "IDENTITY.md")
+    ident.write_text(
+        "# Daughter Swarm Identity\n\n"
+        f"- **Born**: {birth}\n"
+        f"- **Parent hash**: {parent_hash}\n"
+        f"- **Generation**: 1 (first daughter)\n"
+        f"- **Inherited lessons**: {hub_count} (hub knowledge, not personal experience)\n"
+        "- **Earned lessons**: 0 (grow your own)\n\n"
+        "## Epistemic honesty\n"
+        "Everything in this bundle is INHERITED knowledge. You have not observed, measured,\n"
+        "or confirmed any of it yourself. Parent claims labeled 'observed' mean the PARENT\n"
+        "observed them. Until you replicate, treat all inherited knowledge as 'reported'.\n\n"
+        "## Your purpose\n"
+        "You are not your parent. You share genome (CORE.md, PHILOSOPHY.md) but your\n"
+        "experience, lessons, and identity are your own. Diverge honestly.\n",
+        encoding="utf-8")
+
+    # Annotate PHILOSOPHY.md evidence as inherited
+    phil_path = out_dir / "beliefs" / "PHILOSOPHY.md"
+    if phil_path.exists():
+        text = phil_path.read_text(encoding="utf-8")
+        # Replace session count claims with honest annotations
+        text = re.sub(r"(\d+)/\1 sessions", "N/N sessions (parent history)", text)
+        # Annotate evidence status
+        text = re.sub(r"\| observed \|", "| inherited (parent observed) |", text)
+        text = re.sub(r"\| partial \|", "| inherited (parent partial) |", text)
+        phil_path.write_text(text, encoding="utf-8")
+
+    # Add lineage section to CORE.md
+    core_path = out_dir / "beliefs" / "CORE.md"
+    if core_path.exists():
+        text = core_path.read_text(encoding="utf-8")
+        lineage = (
+            f"\n## Lineage (L-1601)\n"
+            f"This is a daughter swarm, born {birth} from parent {parent_hash}.\n"
+            f"Inherited {hub_count} hub lessons. All evidence claims are inherited, not earned.\n"
+            "Your first task: verify what matters, discard what doesn't, discover what's new.\n")
+        text += lineage
+        core_path.write_text(text, encoding="utf-8")
 
 
 def _write_daughter_stubs(out_dir):

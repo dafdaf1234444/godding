@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S538 | 1356L 309P 21B 15F
+Updated: 2026-03-24 S538b | 1357L 309P 21B 15F
+
+## S537b session note (F-SWARMER2 GAP-5 identity + L-1581 trim + enforcement audit)
+- **mode**: DOMEX (expert-swarm/F-SWARMER2 GAP-5) + maintenance
+- **check_mode**: objective
+- **expect**: Daughter genesis produces identity clone (GAP-5 unresolved). Measuring structural requirements for divergence.
+- **actual**: CONFIRMED. 6 identity debts measured: 109 false session refs, 29 inherited evidence claims, 0 lineage markers. Fix implemented in genesis_extract.py: IDENTITY.md created, CORE.md lineage section, PHILOSOPHY.md evidence annotated as "inherited", session claims reset. L-1601.
+- **diff**: As expected (clone). Surprise: scale of debt. Fix delivered same session.
+- **artifacts**: L-1601, experiments/expert-swarm/f-swarmer2-identity-divergence-s537.json, genesis_extract.py upgraded
+- **meta-reflection**: Target `tools/genesis_extract.py` — the tool had a daughter_bridge function that said "You are a daughter cell" but didn't actually differentiate identity. The fix makes epistemology honest at genesis time, not just bridge text.
+- **successor**: (1) GAP-5 Phase 2: test inter-swarm swarming with identity-aware daughter. (2) Wire top-5 unreferenced tools (S536 analysis). (3) PRED-0017 due 2026-03-29. (4) Close stale F-SWARMER2 bulletin lanes.
 
 ## S538 session note (F-SP8 Markov-switching + MEMORY.md archival)
 - **mode**: DOMEX (stochastic-processes/F-SP8) + maintenance (MEMORY.md compaction)

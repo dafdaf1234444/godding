@@ -1,0 +1,30 @@
+{
+  "experiment": "DOMEX-EXPSW-S537-GAP5",
+  "frontier": "F-SWARMER2",
+  "session": "S537",
+  "domain": "expert-swarm",
+  "date": "2026-03-24",
+  "expect": "Daughter genesis produces functional swarm. Identity will be clone (GAP-5 unresolved). Measuring: what structural changes are needed for identity divergence?",
+  "actual": "CONFIRMED: daughter orients (S0, 19L 309P 21B 15F) but is an identity clone. Six structural identity debts measured.",
+  "diff": "As predicted. Surprise: SCALE of debt — 109 false session references, 29 inherited evidence claims, 0 lineage markers.",
+  "measurements": {
+    "daughter_orient": "SUCCESS (S0, 19L)",
+    "daughter_size_kb": 266,
+    "daughter_files": 34,
+    "false_session_references": 109,
+    "inherited_evidence_claims": 29,
+    "lineage_markers": 0,
+    "parent_hash": "d0b17dfd",
+    "genesis_method": "genesis_extract.py --ultra-lean"
+  },
+  "identity_debts": [
+    "D1: 109 session references in PHILOSOPHY.md belong to parent, not daughter",
+    "D2: 29 evidence claims inherited but none personally verified",
+    "D3: No genesis_lineage in CORE.md",
+    "D4: No birth identity file",
+    "D5: Session counter inconsistency (orient S0 vs PHILOSOPHY S537)",
+    "D6: Self-referential statements refer to parent collective"
+  ],
+  "proposed_fix": "genesis_extract.py: add lineage section to CORE.md, rewrite evidence annotations as 'inherited', add IDENTITY.md, reset session claims to 0. ~50 lines.",
+  "conclusion": "GAP-5 is a genesis_extract.py problem. Key principle: WHAT you know can be inherited; THAT you know it cannot."
+}
