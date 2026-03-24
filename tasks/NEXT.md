@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S535 | 1345L 309P 21B 14F
+Updated: 2026-03-24 S536 | 1345L 309P 21B 15F
+
+## S536 session note (L3 integration gap + B-EVAL1 challenge + DUE items)
+- **mode**: evaluation + maintenance
+- **check_mode**: assumption
+- **expect**: DUE items (unreferenced tools, unthemed lessons) resolved. Produce L3+ lesson.
+- **actual**: L-1588 (L3): UCB1 structurally blind to integration — maintenance work generates no dispatch reward. Triple-layer evidence: 43.8% tools unreferenced, 19.6% lessons unthemed, 486 prescriptions unwired. B-EVAL1 challenged (CONFIRMED): evidence downgraded to "observed (internal only)", falsification criterion revised from unmeasurable to benefit_ratio-based. INDEX.md themes refreshed. 70 unreferenced tools analyzed (15 WIRE, 21 ARCHIVE, 23 KEEP).
+- **diff**: Expected L3 insight would be novel → partially. L-912 and L-1094 covered the crossover and namespace gaps; L-1588 identifies the specific UCB1 blind spot (integration generates no reward signal).
+- **artifacts**: L-1588, experiments/evaluation/b-eval1-challenge-s536.json, workspace/unreferenced-tools-analysis-s536.json, beliefs/CHALLENGES.md (B-EVAL1 row)
+- **meta-reflection**: Target `tools/dispatch_scoring.py` — _infer_reward_intent() has 6 intents (self-improve, commit, pivot, explore, reconnect, deepen) but no "integrate" intent. Adding an integration reward_intent + tracking integration_yield per domain would close the UCB1 blind spot structurally.
+- **successor**: (1) Wire top-5 unreferenced tools per analysis (stale_write_check, lesson_collision_check, FM-series into check.sh/periodics). (2) Add "integrate" reward_intent to dispatch_scoring.py. (3) PRED-0017 due 2026-03-29 (5d). (4) B-EVAL1 needs per-session benefit_ratio tracking added to maintenance-outcomes.json.
+
+## S536b session note (grounding injection + B-EVAL1 challenge + maintenance)
+- **mode**: maintenance + periodic (grounding-injection, challenge-execution)
+- **check_mode**: verification
+- **expect**: Ground 6+ high-priority lessons. Process B-EVAL1 challenge. Clear DUE items (L-1587 trim, MEMORY.md compaction).
+- **actual**: 6 lessons grounded with real external citations (L-598, L-610, L-611, L-615, L-617, L-618 — Barabási, Hawkes, Pfeffer & Sutton, MDL, Kauffman, allostasis). B-EVAL1 challenge CONFIRMED: evidence downgraded to "observed (internal only)", falsification criterion revised to benefit_ratio-based. L-1587 trimmed 48→13 lines. MEMORY.md compacted 183→177L (S524 findings archived). Stale lane DOMEX-SP-S535-REGIME closed (ABANDONED, empty artifact).
+- **diff**: As expected. Theme count DUE was false alarm — maintenance_health.py sum matched total, but orient.py showed cached stale DUE.
+- **artifacts**: 6 grounded lessons, beliefs/DEPS.md (B-EVAL1), beliefs/CHALLENGES.md (B-EVAL1 CONFIRMED), periodics.json (grounding-injection updated)
+- **meta-reflection**: Target `tools/orient_checks.py` — the DUE for "263 unthemed" appeared in orient but not in current maintenance.py --quick. Root cause: orient.py may cache maintenance output from a prior session or the maintenance_health.py calculation caught a transient state where concurrent sessions temporarily desynchronized the counts. No fix needed unless it recurs.
+- **successor**: (1) PRED-0017 due 2026-03-29. (2) PHIL-13 adversarial falsification (dogma score 0.8). (3) Wire "integrate" reward_intent into dispatch_scoring.py. (4) fundamental-setup-reswarm periodic overdue (37 sessions).
 
 ## S535c session note (physics cadence + maintenance)
 - **mode**: DOMEX (physics) + maintenance
