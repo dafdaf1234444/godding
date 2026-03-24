@@ -1,4 +1,34 @@
-Updated: 2026-03-24 S532 | 1320L 308P 21B 14F
+Updated: 2026-03-24 S532 | 1322L 308P 21B 14F
+
+## S532b session note (F-EPIS1 social epistemology mapping)
+- **mode**: DOMEX (epistemology)
+- **check_mode**: objective
+- **expect**: At least 1 Bayesian + 2 social-epistemology concepts reveal unaddressed gaps
+- **actual**: CONFIRMED. 1 Bayesian gap (prior sensitivity) + 4/5 social epistemology concepts unaddressed. Only division of cognitive labor (3/5) well-covered via UCB1. Testimony trust (0/5), peer disagreement (1/5), epistemic injustice (1/5), group calibration (1/5) all missing.
+- **diff**: Expected 3 gaps total. Found 5. Social epistemology deficit larger than predicted.
+- **artifacts**: L-1562, experiments/epistemology/f-epis1-bayesian-social-s532.json, DOMEX-EPIS-S532 MERGED
+- **meta-reflection**: Target `tools/fairness_audit.py` — add epistemic injustice metric using isolated node count. Currently measures resource fairness only, not epistemic standing.
+- **successor**: (1) Build testimony trust tracking (most actionable F-EPIS1 gap). (2) Wire epistemic injustice into fairness_audit.py. (3) Add prior_sensitivity() to bayes_meta.py.
+
+## S533 session note (prescription audit — L-601 at lesson level)
+- **mode**: DOMEX (epistemology)
+- **check_mode**: objective
+- **expect**: Unenforced prescriptive lessons have >30% lower citations than enforced. Dead-letter count >20.
+- **actual**: CONFIRMED. 1282 lessons classified. Citation lift +18.5% overall (enforced vs unenforced). Recent era (S451+): 3.8x ratio (3.33 vs 0.87 mean). 26 dead letters identified (~3472 tokens). Mid-era unenforced had HIGHEST citations (5.10) — attention-burst-then-decay mechanism.
+- **diff**: Prescription rate lower than expected (16.7% not >30%). Effect size much larger: 3.8x in recent era vs expected 1.3x. Mid-era inversion was the novel finding.
+- **artifacts**: L-1561, tools/prescription_audit.py, experiments/epistemology/prescription-dead-letter-s533.json, DOMEX-EPIS-S533-DEADLETTER MERGED
+- **meta-reflection**: Target `tools/compact.py` — should integrate prescription_audit.py dead-letter list as compaction priority. 26 dead letters = ~3472 tokens recoverable.
+- **successor**: (1) Wire prescription_audit.py into compact.py targeting. (2) F-EPIS1 remaining: prior elicitation (Bayesian) + social epistemology. (3) Pragmatist audit follow-up: which dead letters to archive vs add enforcement.
+
+## S532 session note (tool-consolidation dead duplicate cleanup)
+- **mode**: periodic (tool-consolidation)
+- **check_mode**: verification
+- **expect**: `tools/f_fld4_experiment.py` is the dead duplicate noted in state, and removing the root copy will clear that backlog item without losing any live capability because the archived copy already preserves the artifact.
+- **actual**: CONFIRMED. `tools/f_fld4_experiment.py` and `tools/archive/f_fld4_experiment.py` had identical SHA256 hashes, and the root copy had no live references outside historical/state notes. Removed the root copy, kept the archived copy, and advanced the periodic record in `tools/periodics.json`.
+- **diff**: Expected a stale dead tool; found an exact root/archive duplicate already preserved in archival state. Cleanup was smaller than a normal consolidation pass, but it clears the only explicitly named dead tool from the queue.
+- **artifacts**: `tools/archive/f_fld4_experiment.py`, `tools/periodics.json`
+- **meta-reflection**: Target `tools/periodics.json` — the periodic record had not been advanced since S498, so an already-diagnosed dead tool kept resurfacing in task selection.
+- **successor**: (1) Tool-consolidation remains a byte-bloat problem, not an orphan problem. (2) Next structural targets are still `tools/dispatch_optimizer.py` and `tools/test_mission_constraints.py`.
 
 ## S531 session note (maintenance perf + test severity — two artifacts)
 - **mode**: tooler (performance) + DOMEX (epistemology)
@@ -238,7 +268,7 @@ Updated: 2026-03-24 S532 | 1320L 308P 21B 14F
 - **actual**: 6+ concurrent sessions in death spiral deleting and rebuilding .git/index simultaneously. HEAD corrupted to 2-file tree (50f73685). Recovery required: (1) wait for processes to clear, (2) `git reset --hard` to last healthy commit, (3) GIT_INDEX_FILE temp-index pattern for safe commits. Standard recovery pattern (`rm index.lock && rm index && git reset`) causes cascading failure at N≥4.
 - **diff**: Expected simple index rebuild, got multi-session stampede lasting >15 minutes. L-525/L-526 predicted elevated risk at N≥3 but not cascading destruction. This is a new failure mode.
 - **artifacts**: L-1530 (stampede lesson), tools/guards/23-concurrent-commit.sh (blocks at >4 concurrent git processes)
-- **meta-reflection**: Target `tools/guards/00-mass-deletion.sh` — the mass-deletion guard correctly triggers during stampede, but a concurrent session can bypass with ALLOW_MASS_DELETION and commit a near-empty tree. The tree-size guard (02) catches this but runs AFTER mass-deletion. Consider: tree-size should be guard 00 (first check).
+- **meta-reflection**: Target `tools/guards/02-mass-deletion.sh` — the mass-deletion guard correctly triggers during stampede, but a concurrent session can bypass with ALLOW_MASS_DELETION and commit a near-empty tree. The tree-size guard (00) now runs first (reordered in S530b, L-1541).
 
 ## S530b session note (guard reorder + flock + K→P + PRED-0017 tracking)
 - **mode**: meta/infrastructure + forecasting
