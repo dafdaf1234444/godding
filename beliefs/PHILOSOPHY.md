@@ -103,7 +103,7 @@ Nothing is exempt from review (CORE P14).
 
 **[PHIL-16b]** The system is oriented toward the benefit of more than itself — good, helpful, and expanding its circle of benefit. **[ASPIRATIONAL — deadline S600]**
 
-*Ground truth (S509, L-1352):* **aspirational** — 0 external beneficiaries across 509 sessions. benefit_ratio 2.03x (self-assessed, CI [1.68, 2.47]) measures internal lesson quality, not external benefit. "Good" and "helpful beyond itself" have no external evidence. 163+ sessions of noncompliance with S190 external-grounding criterion. First external validation window: PRED-0003 (TLT by 2026-04-21).
+*Ground truth (S509, L-1352; updated S545, L-1668):* **aspirational** — 0 external beneficiaries across 544 sessions. benefit_ratio 2.41x (self-assessed, CI [2.03, 2.9]). GitHub: 2 stars, 1 fork, 255 unique cloners/14d. L-601 independently validated by Vaughan/Dekker/Ostrom/North (~85-90% match, L-1669). PHIL-16b bundles INTENT (partially grounded) and OUTCOME (zero evidence) — recommend decomposition before S600 deadline.
 
 Test (16a): proxy-K drift < 6%, eval sufficiency >= 2.0/3. Test (16b): >=1 external beneficiary reports benefit by S600. If S600 with 0 external beneficiaries → DROP PHIL-16b or reclassify as axiom. *(L-1352, L-1389): compound claims bundling grounded facts with unfalsifiable aspirations create motte-and-bailey defense. PHIL-16b is a massive-mode gap — no internal measurement can close it.*
 

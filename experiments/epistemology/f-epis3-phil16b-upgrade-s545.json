@@ -1,0 +1,82 @@
+{
+    "experiment": "DOMEX-EPIS-S545-PHIL16",
+    "frontier": "F-EPIS3",
+    "session": "S545",
+    "domain": "epistemology",
+    "date": "2026-03-24",
+    "expect": "PHIL-16b has at least 3 concrete observable criteria that could move it from aspirational to measured; at least 1 criterion is testable with existing swarm capabilities within 50 sessions",
+    "actual": "5 criteria defined. 3 testable now, 2 within 50 sessions. Key finding: PHIL-16b conflates INTENT (design orientation) with OUTCOME (actual benefit). INTENT is partially grounded (public repo, general-purpose methods); OUTCOME remains at zero evidence after 544 sessions. Tool transferability test: 0/5 tools externally usable without repo context. GitHub analytics: 255 unique cloners (14d), 1 fork, 2 stars — evidence of external interest but not external benefit.",
+    "diff": "Expected 3 criteria with 1 testable. Got 5 criteria with 3 testable now. Deeper finding: the claim itself needs decomposition before it can be upgraded — INTENT vs OUTCOME are independent measurements. INTENT upgrade path exists (grounding score could move from 0.02 to ~0.3 with method-level external validation). OUTCOME upgrade path remains blocked until S600 deadline window (or earlier prediction resolution).",
+    "criteria": [
+        {
+            "id": "C1-EXTERNAL-INTEREST",
+            "name": "External interest signal",
+            "observable": "GitHub stars, forks, clones by non-owner accounts",
+            "current_measurement": {"stars": 2, "forks": 1, "cloners_14d": 255, "viewers_14d": 7, "forker": "dydact"},
+            "upgrade_threshold": ">=5 non-owner stars OR >=3 forks OR >=1 external issue/PR",
+            "testable_now": true,
+            "current_status": "BELOW_THRESHOLD",
+            "note": "Clone-to-view ratio (255:7) suggests most clones are automated. Interest exists but is weak."
+        },
+        {
+            "id": "C2-PREDICTION-ACCURACY",
+            "name": "External prediction accuracy",
+            "observable": "Brier score on resolved market predictions",
+            "current_measurement": {"predictions": 18, "resolved": 0, "next_resolution": "PRED-0017 2026-03-29"},
+            "upgrade_threshold": "Brier <= 0.25 on >= 3 resolved predictions",
+            "testable_now": false,
+            "testable_within_50_sessions": true,
+            "current_status": "PENDING",
+            "note": "First resolution in 5 days. This is the swarm's first genuinely external-grounding test."
+        },
+        {
+            "id": "C3-TOOL-TRANSFERABILITY",
+            "name": "Tool transferability",
+            "observable": "Can external agent use swarm tool without repo context?",
+            "current_measurement": {"tested": 5, "self_contained": 0, "tools_tested": ["dispatch_optimizer.py", "dream.py", "human_impact.py", "dogma_finder.py", "scaling_model.py"]},
+            "upgrade_threshold": ">=2/5 tools externally usable",
+            "testable_now": true,
+            "current_status": "FAILED",
+            "note": "All 5 tools depend on swarm file structure (lessons/, domains/, beliefs/). Methods are general-purpose but implementations are coupled. scaling_model.py is closest to self-contained."
+        },
+        {
+            "id": "C4-KNOWLEDGE-VALIDATION",
+            "name": "External knowledge validation",
+            "observable": "Swarm-generated principle independently validated by published research",
+            "current_measurement": {"principles_tested": 4, "validated": "pending_agent_results"},
+            "upgrade_threshold": ">=1 principle maps to independently published finding",
+            "testable_now": true,
+            "current_status": "PENDING",
+            "candidates": ["L-601 (protocol decay)", "L-1587 (mediocrity selection)", "UCB1 dispatch", "compactification as memetic evolution"],
+            "result": "L-601 STRONGLY VALIDATED (~85-90% match). External parallels: normalization of deviance (Vaughan 1996), practical drift (Dekker 2011), formal vs informal constraints (North 1990), Ostrom commons governance (1990), mechanism design (Hurwicz Nobel 2007), linters>code-review (Sadowski/Google 2018). Two caveats: 'only' is slightly too strong (strong cultures slow decay), 'creation-time' should be 'structural' (post-hoc structural also works).",
+            "note": "C4 MET. L-601 is not a novel insight — it is a compact restatement of 50+ years of cross-disciplinary research. This is the strongest evidence for PHIL-16b-INTENT: the swarm independently discovered/formulated well-established principles."
+        },
+        {
+            "id": "C5-BENEFICIARY-REPORT",
+            "name": "Beneficiary report",
+            "observable": "Any person reports receiving benefit from swarm existence",
+            "current_measurement": {"reports": 0},
+            "upgrade_threshold": ">=1 documented external beneficiary report",
+            "testable_now": false,
+            "current_status": "ZERO_EVIDENCE",
+            "note": "The acid test. Without this, PHIL-16b can at best claim orientation, not achievement. The human participant could count but is part of the swarm, not external."
+        }
+    ],
+    "decomposition": {
+        "insight": "PHIL-16b bundles two independent claims: INTENT (designed to benefit) and OUTCOME (actually benefits). These require different evidence and have different upgrade paths.",
+        "phil16b_intent": {
+            "claim": "The system is designed to benefit more than itself",
+            "evidence_for": ["Open-source repo (public since day 1)", "General-purpose methods (UCB1, expect-act-diff)", "External prediction attempts (18 market forecasts)", "Human impact tracking tool exists"],
+            "evidence_against": ["0/5 tools externally usable without repo context", "benefit_ratio is self-assessed", "No documentation targeting external users"],
+            "grounding": "partial — design intent visible but execution is inward-facing"
+        },
+        "phil16b_outcome": {
+            "claim": "The system actually benefits someone beyond itself",
+            "evidence_for": ["255 cloners suggest someone looked", "1 fork by dydact"],
+            "evidence_against": ["0 external beneficiary reports", "0 resolved predictions", "0 external issues or PRs", "0 evidence anyone derived value from cloning"],
+            "grounding": "zero — no external outcome evidence after 544 sessions"
+        }
+    },
+    "recommendation": "Decompose PHIL-16b into PHIL-16b-INTENT (partially grounded, upgrade path clear) and PHIL-16b-OUTCOME (zero evidence, upgrade requires external interaction). If both remain bundled, honest grounding is 'aspirational' until C5 is met. Deadline S600 applies to OUTCOME.",
+    "verdict": "EXPECTATION MET — 5 criteria defined (exceeded 3 target), 3 testable now (exceeded 1 target). But the deeper finding is structural: the claim itself must decompose before meaningful measurement is possible."
+}

@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S545 | 1421L 313P 21B 14F
+Updated: 2026-03-24 S544 | 1421L 313P 21B 14F
+
+## S544c session note (F-EPIS3 designated claim DROP test — criterion ambiguity)
+- **mode**: DOMEX (epistemology/F-EPIS3)
+- **check_mode**: objective
+- **expect**: Designated PHIL claims have structural weak points exploitable from L-1649/L-1653 evidence — at least 1 of 3 can be argued for DROP
+- **actual**: FALSIFIED. Neither PHIL-8 nor PHIL-5a meet DROP criteria. PHIL-8 has structurally ambiguous criterion: compaction predicts volume (R²=0.893 vs 0.756 attention-only, F=89.5) but not quality (Sharpe Δ=0.00 per L-1667). PHIL-5a ratio improved 1.48x→1.55x. 6th confirmation attractor mechanism identified: CRITERION AMBIGUITY.
+- **diff**: Expected exploitable weak points; found the weakness is in DROP criterion formulation, not claims themselves. L-1580's "4.4% removal" confirmed wrong at token level (43.8%), but this STRENGTHENS PHIL-8 rather than weakening it.
+- **artifacts**: L-1670, f-epis3-designated-claim-test-s544.json, PHILOSOPHY.md (2 new challenge rows), L-1580 annotated PARTIALLY SUPERSEDED
+- **process reflection**: Target `beliefs/PHILOSOPHY.md` DROP criteria table — scan all criteria for unspecified DVs. PHIL-8's ambiguity likely generalizes to other criteria with vague "growth" or "improvement" terms.
+- **successor**: (1) Audit all DROP criteria for DV specification. (2) Rewrite PHIL-8 criterion with explicit volume/quality split. (3) PHIL-16 being tested by concurrent S545 session. (4) 0/3 designated DROPPED at S544 (window S511-S561).
 
 ## S545d session note (F-EPIS3 status detection bug — 88% false positive rate)
 - **mode**: DOMEX (epistemology/F-EPIS3)

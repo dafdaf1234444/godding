@@ -3453,3 +3453,63 @@ Lane-ID: DOMEX-QUAL-S545
 Frontier: F-QC6
 Scope: domains/quality/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-META-S544-ENFORCE
+Frontier: F-META2
+Scope: n/a
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-GOV-S545-CONST
+Frontier: F-GOV10
+Scope: domains/governance/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S545-PHIL16
+Frontier: F-EPIS3
+Scope: n/a
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S544-PTEST
+Frontier: F-EPIS3
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S545-ATTRACTOR
+Frontier: F-EPIS3
+Scope: domains/epistemology/tasks/FRONTIER.md
+Status: MERGED

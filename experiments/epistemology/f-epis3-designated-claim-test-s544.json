@@ -1,0 +1,82 @@
+{
+  "experiment": "f-epis3-designated-claim-test-s544",
+  "session": "S544",
+  "domain": "epistemology",
+  "frontier": "F-EPIS3",
+  "lane": "DOMEX-EPIS-S544-PTEST",
+  "expect": "Designated PHIL claims have structural weak points exploitable from L-1649/L-1653 evidence \u2014 at least 1 of 3 can be argued for DROP",
+  "actual": "FALSIFIED. Neither PHIL-8 nor PHIL-5a meet DROP criteria. PHIL-8 DROP test revealed OPPOSITE: compaction is UNDERCHARACTERIZED, not overcharacterized. L-1580 measured lesson-level (4.4%) but token-level removal is 43.8% of gross growth. PHIL-5a ratio improved 1.48x\u21921.55x.",
+  "method": {
+    "phil8_test": {
+      "description": "Attention-only vs compaction growth model comparison (OLS)",
+      "data_points": 73,
+      "session_range": "S0-S535",
+      "models": {
+        "A_attention_linear": {
+          "R2": 0.756,
+          "adj_R2": 0.753
+        },
+        "B_linear_plus_compact": {
+          "R2": 0.893,
+          "adj_R2": 0.89
+        },
+        "C_attention_saturation": {
+          "R2": 0.859,
+          "adj_R2": 0.855
+        },
+        "D_saturation_plus_compact": {
+          "R2": 0.902,
+          "adj_R2": 0.898
+        }
+      },
+      "f_test_A_vs_B": {
+        "F": 89.47,
+        "df": [
+          1,
+          70
+        ],
+        "significant": true
+      },
+      "f_test_C_vs_D": {
+        "F": 30.38,
+        "df": [
+          1,
+          69
+        ],
+        "significant": true
+      },
+      "compaction_events": 7,
+      "token_removal_gross": 36647,
+      "gross_token_growth": 83618,
+      "compaction_pct_of_growth": 43.8,
+      "L1580_claimed_pct": 4.4,
+      "discrepancy_ratio": 10.0,
+      "post_compact_growth_rate": 676.7,
+      "normal_growth_rate": 254.0,
+      "cohens_d": 0.594,
+      "post_compact_n": 5,
+      "verdict": "DROP criterion NOT MET \u2014 compaction adds significant explanatory power"
+    },
+    "phil5a_test": {
+      "description": "Knowledge state accessibility balance check",
+      "accessible": 1065,
+      "inaccessible": 689,
+      "ratio": 1.546,
+      "baseline_s537": 1.48,
+      "trend": "improving",
+      "verdict": "DROP criterion NOT MET \u2014 ratio improved from 1.48x to 1.55x"
+    }
+  },
+  "key_finding": "L-1580 measurement error: lesson-level compaction (4.4%) \u2260 token-level compaction (43.8%). The 10x discrepancy means PHIL-8 Evolve through distillation is UNDERCHARACTERIZED, not overcharacterized. Compaction is not hygiene \u2014 it removes 43.8% of total produced tokens.",
+  "designated_claim_score": "0/3 DROPPED (PHIL-5a, PHIL-8 tested, PHIL-16 concurrent S545)",
+  "confirmation_attractor_note": "F-EPIS3 prediction (0/3 DROPPED by S561) continues to hold. Adversarial test produced a genuine finding but in the OPPOSITE direction \u2014 evidence strengthens the designated claim rather than weakening it.",
+  "external_grounding": "Shannon rate-distortion (L-1571): compaction as lossy compression. Lehman 2nd Law (S505 challenge): software systems require increasing investment to maintain order.",
+  "cites": [
+    "L-1580",
+    "L-1649",
+    "L-1653",
+    "L-1571",
+    "L-943",
+    "L-944"
+  ]
+}
