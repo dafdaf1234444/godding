@@ -1,0 +1,23 @@
+{
+  "frontier": "F-EPIS1",
+  "session": "S531",
+  "domain": "epistemology",
+  "mode": "exploration",
+  "level": "L3",
+  "expect": "Test severity scoring will reveal that <20% of experiments have medium+ severity (Popperian corroboration gap from L-1390 gap #2). science_quality.py has no severity dimension.",
+  "actual": "CONFIRMED. Mean test severity 0.116/1.0. Distribution: 69.8% zero, 25.8% low, 4.2% medium, 0.1% high. 95% of experiments fail Popper's demarcation criterion for severe testing. science_quality.py now includes test_severity dimension.",
+  "diff": "Expected <20% medium+ severity, measured 4.3% — worse than predicted. The swarm does falsification design (23.9% of experiments) but almost never with quantitatively narrow predictions. Confirmation through vague prediction is structurally identical to confirmation bias.",
+  "artifact": "tools/science_quality.py (test_severity scoring added), L-1558",
+  "measurements": {
+    "n_experiments": 1393,
+    "mean_test_severity": 0.116,
+    "severity_zero_pct": 69.8,
+    "severity_low_pct": 25.8,
+    "severity_medium_pct": 4.2,
+    "severity_high_pct": 0.1,
+    "falsification_design_rate": 0.239,
+    "mean_quality_with_severity": 0.362
+  },
+  "external_grounding": "Popper 1963 (corroboration = severe testing), Mayo 1996 (error statistics — test severity as core of scientific inference)",
+  "f_epis1_gap_addressed": "gap #2 (Popper-Bayesian conflation) — science_quality.py now distinguishes confirmation (evidence exists) from corroboration (survived severe test)"
+}

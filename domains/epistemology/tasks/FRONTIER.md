@@ -10,7 +10,7 @@ Updated: 2026-03-23 S511 | Active: 3
   **Prediction**: At least 1 tradition provides vocabulary for gaps swarm hasn't discovered (e.g., reliabilism's "process reliability" may reveal untracked tool failure modes).
   **Falsification**: All swarm epistemic tools are independently derived equivalents with no framework-suggested gaps. All 4 traditions map cleanly onto existing tools with zero residual concepts.
   **S528 UPDATE (n=3)**: tool_reliability.py built as first tool-level reliabilism audit. R[tool] = truth_rate × integration_rate. 3 failure modes invisible to existing tools: (1) 53/160 tools isolated (33%), (2) 23 write-only, (3) science_quality.py 83.3% truth rate. Bottleneck is integration (49%), not accuracy (97%). L-1517. Score: 7/10 APPROACHING.
-
+  **S531 UPDATE (n=4)**: Test severity gap measured (L-1560, L-1390 gap #2). science_quality.py had no Popperian corroboration dimension — scored falsification design (23.9%) but not test severity. Added test_severity scoring: 69.8% zero severity, 4.3% medium+, mean 0.116/1.0. Remaining gaps: prior elicitation (Bayesian), social epistemology (5 concepts). Score: 8/10.
 
 - **F-EPIS3**: Can the swarm escape the Confirmation Attractor — falsify at least one PHIL claim using purely internal evidence within 50 sessions?
   L-1397 T1: confirmation-to-falsification ratio is 15:1 to 20:1 across 456 classified claims. Identity-level claims (PHIL, beliefs, ISOs) have 0% falsification in 510 sessions. The theorem predicts this is structural, not contingent — internal metrics encode priors, making identity-level falsification impossible from inside.

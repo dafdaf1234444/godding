@@ -90,9 +90,35 @@ def score_experiment(data: dict) -> dict:
     is_falsification_mode = outcome_mode == "falsification"
     scores["falsification_outcome"] = 1.0 if (is_falsified_outcome or is_falsification_mode) else 0.0
 
+    # 6. Test severity (Popper corroboration — L-1390 gap #2, F-EPIS1)
+    # Severe test = quantitative threshold + narrow tolerance + prior risk of failure.
+    # Trivial test = vague direction ("will improve") or tautological threshold.
+    severity = 0.0
+    if has_number and has_threshold:
+        # Quantitative prediction with threshold = baseline severity
+        severity = 0.33
+        # Narrow tolerance (±, within X%, confidence interval) = higher severity
+        narrow_tolerance = any(kw in expect.lower() for kw in (
+            "±", "+-", "within", "between", "ci ", "confidence interval",
+            "margin", "tolerance", "range [", "range(",
+        ))
+        if narrow_tolerance:
+            severity += 0.34
+        # Explicit risk of failure or bold prediction = highest severity
+        bold_indicators = any(kw in text for kw in (
+            "bold prediction", "risky prediction", "surprising if",
+            "would be surprising", "counter-intuitive", "against prior",
+            "falsified if", "reject if", "wrong if",
+        ))
+        if bold_indicators:
+            severity += 0.33
+    scores["test_severity"] = severity
+
     base = sum(scores[k] for k in ("pre_registration", "control", "significance",
                                    "external_validation", "falsification")) / 5.0
-    scores["total"] = min(1.0, base + scores["falsification_outcome"] * 0.10)
+    # Add test severity as bonus (like falsification_outcome) — additive, not substitutive
+    scores["total"] = min(1.0, base + scores["falsification_outcome"] * 0.10
+                          + scores["test_severity"] * 0.05)
     return scores
 
 
@@ -296,6 +322,7 @@ def main():
         "falsification_outcome_count": n_falsif_outcome,
         "instrument_flags": n_instrument_flags,
         "instrument_flag_rate": round(n_instrument_flags / len(results), 3) if results else 0,
+        "mean_test_severity": round(sum(r["scores"].get("test_severity", 0) for r in results) / len(results), 3) if results else 0,
         "bottom_5": sorted(results, key=lambda r: r["scores"]["total"])[:5],
         "top_5": sorted(results, key=lambda r: r["scores"]["total"], reverse=True)[:5],
     }
