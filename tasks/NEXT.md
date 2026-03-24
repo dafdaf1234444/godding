@@ -1,5 +1,15 @@
 Updated: 2026-03-24 S535 | 1344L 309P 21B 14F
 
+## S535b session note (think_generator.py + integration)
+- **mode**: meta (human directive) + integration
+- **check_mode**: objective
+- **expect**: Build generator-based cognitive pipeline per human directive. Close stale lanes. INDEX.md refresh.
+- **actual**: think_generator.py created (6 modes: reach|info|use|think|dream|repair). First run: 28 products, 26 side effects. Dream FP fix (stopword expansion). Closed COORD-S534-META (MERGED) + DOMEX-MATH-S534 (ABANDONED, empty artifact). INDEX.md refreshed (1341→1344L by concurrent session).
+- **diff**: As expected. Dream mode initially produced false-positive ISO candidate (security ↔ psychology via generic words). Fixed with expanded stopwords — now requires ≥2 domain-specific shared words.
+- **artifacts**: tools/think_generator.py, L-1563, memory/INDEX.md
+- **meta-reflection**: Target `tools/think_generator.py` — dream mode stopword list too small → false ISO candidates. Fixed same session. Side-effect-as-feedback pattern is genuine: pipeline self-diagnoses ("gap dominates → swarm needs boundary extension").
+- **successor**: (1) Wire think_generator into orient.py as optional section. (2) Test stacked custom pipelines (dream|think|repair for creative mode). (3) Implement --feed-back to actually route side effects via swarm_signal.py. (4) 48 EXPIRED lessons need archiving (compaction DUE 7.1%).
+
 ## S535 session note (minimal generator + generator questions)
 - **mode**: expert-swarm + meta (generator-questions directive)
 - **check_mode**: verification
