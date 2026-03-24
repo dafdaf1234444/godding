@@ -18,7 +18,7 @@
         "local_exponent_range": [0.98, 2.42],
         "milestones": {"S100": 100, "S186": 250, "S300": 500, "S347": 650, "S380": 750, "S400": 830, "S450": 1050, "S485": 1130, "S500": 1200, "S524": 1280, "S534": 1340}
     },
-    "lesson": "L-1582",
+    "lesson": "L-1586",
     "falsified": "S351 cadence model (periodic 50-80 sessions, sub-linear post-burst). Innovation rate accelerates, production remains super-linear.",
     "confirmed": "West dual-law consistent (super-linear scaling requires increasing innovation frequency — observed). Innovation burst did occur in predicted S400-S430 window.",
     "sample_size": "534 sessions, 11 milestones, 125 structural innovations S380-S534"
