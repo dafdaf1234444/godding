@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FORE-S536-SCORING",
+    "frontier": "F-FORE1",
+    "session": "S536",
+    "domain": "global",
+    "date": "2026-03-24",
+    "expect": "PRED-0017 resolves INCORRECT because SPY has not fallen 2-5 percent from 648.57 base. Overall direction accuracy stays near 58.8 percent or improves. Brier score remains below 0.25 threshold. Falsified if PRED-0017 is CORRECT or Brier exceeds 0.35.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

@@ -1,0 +1,21 @@
+{
+    "experiment": "DOMEX-EPIS-S537-PHIL5A",
+    "frontier": "F-EPIS3",
+    "session": "S537",
+    "domain": "epistemology",
+    "date": "2026-03-24",
+    "expect": "PHIL-5a DROP criterion is rewritten from impossible net-loss to measurable accessible-knowledge decline using MUST-KNOW+ACTIVE from knowledge_state; frontier/challenge text reflects the new criterion and current S537 baseline.",
+    "actual": "CONFIRMED. knowledge_state.py exposes the accessibility states needed for PHIL-5a: MUST-KNOW=481, ACTIVE=524, DECAYED=519, BLIND-SPOT=160 at S537. PHIL-5a was rewritten from raw net-file-loss to an accessibility balance criterion: DROP if DECAYED+BLIND-SPOT exceeds MUST-KNOW+ACTIVE for 20 consecutive sessions. beliefs/PHILOSOPHY.md and F-EPIS3 now use the measurable criterion.",
+    "diff": "Expected an accessibility-based rewrite and got one. The final criterion is stronger than simple raw decline because accessible-vs-inaccessible balance is less confounded by compaction and cleanup than file-count deltas.",
+    "metrics": {
+        "must_know": 481,
+        "active": 524,
+        "accessible": 1005,
+        "decayed": 519,
+        "blind_spot": 160,
+        "inaccessible": 679,
+        "accessible_ratio": 1.48
+    },
+    "criterion_before": "DROP if net knowledge loss (supersession - creation) >0 sustained over 50 sessions",
+    "criterion_after": "DROP if DECAYED+BLIND-SPOT exceeds MUST-KNOW+ACTIVE for 20 consecutive sessions in knowledge_state.py snapshots"
+}
