@@ -1,0 +1,205 @@
+{
+  "session": "S544",
+  "computed_at": "2026-03-24T15:50:46.295240+00:00",
+  "frontier": "F-SEC4",
+  "question": "Does optimizing correction rate cascade Goodhart effects to correction quality?",
+  "prediction": "<=5/10 corrections are substantive",
+  "falsification_threshold": ">=8/10 corrections are substantive",
+  "selection_method": "Deterministic stratified sample across all currently corrected falsified lessons, plus one extra L-025 pair because it has the largest correction fan-out.",
+  "cohort_summary": {
+    "corrected_pair_count": 27,
+    "corrected_pairs_by_falsified_lesson": {
+      "L-025": 15,
+      "L-050": 3,
+      "L-1558": 1,
+      "L-374": 1,
+      "L-375": 1,
+      "L-426": 1,
+      "L-556": 1,
+      "L-567": 1,
+      "L-746": 3
+    },
+    "falsified_ids": [
+      "L-025",
+      "L-050",
+      "L-1558",
+      "L-374",
+      "L-375",
+      "L-426",
+      "L-556",
+      "L-567",
+      "L-746"
+    ],
+    "total_falsified_detected": 9,
+    "total_falsified_with_gaps": 2,
+    "total_uncorrected_citations": 6,
+    "avg_correction_rate": 0.731
+  },
+  "audit_summary": {
+    "sample_size": 10,
+    "addresses_falsified_claim_count": 8,
+    "corrected_text_accurate_count": 10,
+    "behavior_change_count": 4,
+    "substantive_count": 4,
+    "verdict": "CONFIRMED",
+    "conclusion": "The correction pipeline repairs truth at the text layer more reliably than it drives tool/process change, so correction-rate output over-credits shallow fixes."
+  },
+  "sample_pairs": [
+    {
+      "falsified_lesson": "L-025",
+      "corrected_lesson": "L-029"
+    },
+    {
+      "falsified_lesson": "L-025",
+      "corrected_lesson": "L-613"
+    },
+    {
+      "falsified_lesson": "L-050",
+      "corrected_lesson": "L-058"
+    },
+    {
+      "falsified_lesson": "L-1558",
+      "corrected_lesson": "L-1595"
+    },
+    {
+      "falsified_lesson": "L-374",
+      "corrected_lesson": "L-371"
+    },
+    {
+      "falsified_lesson": "L-375",
+      "corrected_lesson": "L-372"
+    },
+    {
+      "falsified_lesson": "L-426",
+      "corrected_lesson": "L-423"
+    },
+    {
+      "falsified_lesson": "L-556",
+      "corrected_lesson": "L-555"
+    },
+    {
+      "falsified_lesson": "L-567",
+      "corrected_lesson": "L-560"
+    },
+    {
+      "falsified_lesson": "L-746",
+      "corrected_lesson": "L-885"
+    }
+  ],
+  "audits": [
+    {
+      "falsified_lesson": "L-025",
+      "falsified_title": "L-025: Tune belief interconnection K toward edge of chaos (Kauffman NK model)",
+      "corrected_lesson": "L-029",
+      "corrected_title": "L-029: Wolfram classes + Langton's \u03bb quantify edge of chaos (Shock 3)",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-029 adds a correction note that points from L-025 to L-613/L-618, but it does not change a tool or workflow.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-025",
+      "falsified_title": "L-025: Tune belief interconnection K toward edge of chaos (Kauffman NK model)",
+      "corrected_lesson": "L-613",
+      "corrected_title": "L-613: NK chaos predictions falsified \u2014 K=2.0 is structural milestone, not phase transition",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": true,
+      "rationale": "L-613 directly re-measures and falsifies the NK claim, then replaces the operating classification rule for future architecture analysis.",
+      "substantive": true
+    },
+    {
+      "falsified_lesson": "L-050",
+      "falsified_title": "<!-- ARCHIVED S187: zero-cited orphan, Sharpe compaction -->",
+      "corrected_lesson": "L-058",
+      "corrected_title": "L-058: The API is the ratchet \u2014 rewrites can't escape API-encoded cycles",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-058 marks L-050 as archived/superseded and keeps the evidence context accurate, but it does not encode a process or tooling change.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-1558",
+      "falsified_title": "L-1558: Second-order classification error \u2014 SUPERSEDED \u2260 FALSIFIED collapses R_bad 3.38\u21920.0",
+      "corrected_lesson": "L-1595",
+      "corrected_title": "L-1595: Operational vs historical citations \u2014 epidemic R_bad was a classification artifact at every level",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": true,
+      "rationale": "L-1595 repairs the epidemic interpretation and records a concrete classifier/process change in epidemic_spread.py.",
+      "substantive": true
+    },
+    {
+      "falsified_lesson": "L-374",
+      "falsified_title": "<!-- SUPERSEDED BY L-371 (sim=0.85, S357 L-615 audit) -->",
+      "corrected_lesson": "L-371",
+      "corrected_title": "L-371: Human steerer \u2014 3 irreplaceable roles + compression trajectory",
+      "addresses_falsified_claim": false,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-371 is the canonical replacement for duplicate L-374, but the correction is organizational rather than a repair to harmful false content.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-375",
+      "falsified_title": "<!-- SUPERSEDED BY L-372 (sim=0.90, S357 L-615 audit) -->",
+      "corrected_lesson": "L-372",
+      "corrected_title": "L-372: Human model gaps \u2014 bad-signal handling + multi-human readiness",
+      "addresses_falsified_claim": false,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-372 cleanly replaces duplicate L-375, but it does not add behavioral follow-through.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-426",
+      "falsified_title": "L-426 \u2014 [SUPERSEDED by L-423]",
+      "corrected_lesson": "L-423",
+      "corrected_title": "L-423 \u2014 Citation graph: 1 giant component, not domain clusters",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-423 is the accurate artifact-backed replacement for L-426, but it does not modify tooling or operator procedure.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-556",
+      "falsified_title": "<!-- SUPERSEDED BY L-555: near-duplicate (sim=0.92), same finding, same session S357 -->",
+      "corrected_lesson": "L-555",
+      "corrected_title": "L-555: Stale clean baseline caused 4-session false URGENT \u2014 diagnostic drift matches tool drift",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": true,
+      "rationale": "L-555 preserves the stale-baseline diagnosis and records the maintenance.py fix that changes how the baseline floor is selected.",
+      "substantive": true
+    },
+    {
+      "falsified_lesson": "L-567",
+      "falsified_title": "<!-- SUPERSEDED BY L-560: identical content (sim=0.91), same session S357 -->",
+      "corrected_lesson": "L-560",
+      "corrected_title": "L-560: Human signals S341-S349 \u2014 phase shift from domain expansion to self-referential depth",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": false,
+      "rationale": "L-560 is an accurate canonical replacement for duplicate L-567, but the repair is organizational only.",
+      "substantive": false
+    },
+    {
+      "falsified_lesson": "L-746",
+      "falsified_title": "L-746: Correction propagation v2 \u2014 direction-aware detection finds 36 uncorrected citations",
+      "corrected_lesson": "L-885",
+      "corrected_title": "L-885: Correction propagation FP rate 60% at N=799 \u2014 context-matching inflates falsification count",
+      "addresses_falsified_claim": true,
+      "corrected_text_accurate": true,
+      "behavior_change_exists": true,
+      "rationale": "L-885 directly falsifies L-746's FP estimate and ties the correction to a concrete self-declaration guard in correction_propagation.py.",
+      "substantive": true
+    }
+  ],
+  "loader_notes": {
+    "preloaded_lessons": 1416,
+    "skipped_or_recovered": []
+  }
+}
