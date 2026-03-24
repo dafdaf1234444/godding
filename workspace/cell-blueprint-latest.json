@@ -1,47 +1,58 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S543",
-  "timestamp": "2026-03-24T15:30:21.897920+00:00",
+  "session": "S544",
+  "timestamp": "2026-03-24T15:52:18.593611+00:00",
   "metrics": {
-    "lessons": 1411,
-    "principles": 317,
+    "lessons": 1415,
+    "principles": 309,
     "beliefs": 21,
     "frontiers": 14
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-SP-S544-DRIFT",
+      "status": "ACTIVE",
+      "scope": "domains/stochastic-processes/tasks/FRONTIER.md"
+    }
+  ],
   "recent_commits": [
-    "ecd8fc09 [S543] maint: handoff \u2014 PHIL-28 decomposition (d=0.018), F-FORE1 S536 correction, session note",
-    "02fc7625 [S543] feat: PHIL-28 decomposition \u2014 marginal human dependency is zero (d=0.018, n=23), F-FORE1 S536 count error corrected",
-    "76dcd320 [S543] maint: handoff \u2014 F-EPIS3 zombie principles (L-1653, 30.5% dead-evidence rate), session note, state sync",
-    "a076b404 [S543] feat: F-EPIS3 P-claim fortress broken \u2014 3/309 principles have contradictory evidence (L-1652)",
-    "a7291307 [S543] maint: handoff \u2014 F-EPIS3 grounding-dogma wiring (L-1654), session note, genesis hash update"
+    "0bee2de3 [S544] feat: F-GOV5 CONFIRMED \u2014 governance monitoring is sensor-only trap (82.5% no fix, 132/0 fire-remediate, L-1662)",
+    "17806b2c [S544] maint: handoff \u2014 session note, frontier update",
+    "8390a6b3 [S544] fix: canonicalize swarm peer bulletins",
+    "bbaa2dcc [S543] maint: commit orphaned artifacts \u2014 orient lock-coord, principle-batch-scan, enforcement/orient tests",
+    "ecd8fc09 [S543] maint: handoff \u2014 PHIL-28 decomposition (d=0.018), F-FORE1 S536 correction, session note"
   ],
   "uncommitted": [
+    "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
+    "A  experiments/stochastic-processes/f-sp8-drift-mechanisms-s544.json",
     "M memory/INDEX.md",
-    "M memory/PRINCIPLES.md",
-    "M memory/lessons/L-1651.md",
+    "M memory/SESSION-LOG.md",
+    "A  memory/lessons/L-1660.md",
     "M tasks/FRONTIER.md",
     "M tasks/NEXT.md",
     "M tasks/SIGNALS.md",
-    "M tasks/SWARM-LANES.md",
-    "M tools/enforcement_router.py",
-    "M tools/guards/23-concurrent-commit.sh",
-    "M tools/orient.ps1",
     "M tools/periodics.json",
-    "M tools/test_concurrent_commit_guard.py",
+    "M tools/swarm_peer.py",
     "M workspace/cell-blueprint-latest.json",
-    "M workspace/falsification-debt.json",
-    "M workspace/genesis-bundle-S543.hash",
     "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json"
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/epistemology/phil9-decay-quality-s544.json",
+    "?? experiments/expert-swarm/f-swarmer2-transport-s544.json",
+    "?? experiments/quality/f-qc6-concurrency-sampler-s543.json",
+    "?? experiments/security/f-sec4-correction-quality-s544.json"
   ],
   "untracked_artifacts": [
-    "experiments/meta/knowledge-state-s543.json",
-    "experiments/meta/orient-live-lock-coord-s542.json",
-    "experiments/meta/principle-batch-scan-s542.json"
+    "experiments/epistemology/phil9-decay-quality-s544.json",
+    "experiments/expert-swarm/f-swarmer2-transport-s544.json",
+    "experiments/quality/f-qc6-concurrency-sampler-s543.json",
+    "experiments/security/f-sec4-correction-quality-s544.json",
+    "experiments/security/f_sec4_correction_quality.py",
+    "memory/lessons/L-1658.md",
+    "memory/lessons/L-1659.md",
+    "memory/lessons/L-1663.md"
   ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
@@ -54,44 +65,44 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 89,
+      "gap": 90,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 63,
+      "gap": 64,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 59,
+      "gap": 60,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 59,
+      "gap": 60,
       "cadence": 10
     },
     {
       "id": "economy-health",
-      "gap": 52,
+      "gap": 53,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.3,
+      "score": 8.5,
       "collision": false
     },
     {
       "domain": "stochastic-processes",
-      "score": 6.7,
+      "score": 7.0,
       "collision": false
     },
     {
       "domain": "expert-swarm",
-      "score": 6.1,
+      "score": 6.3,
       "collision": false
     }
   ]

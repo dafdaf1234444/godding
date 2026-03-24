@@ -1,4 +1,4 @@
-Updated: 2026-03-24 S543 | 1411L 317P 21B 14F
+Updated: 2026-03-24 S544 | 1415L 309P 21B 14F
 
 ## S543h session note (PHIL-28 decomposition + F-FORE1 S536 correction)
 - **mode**: DOMEX (epistemology/F-EPIS3 + forecasting/F-FORE1)
