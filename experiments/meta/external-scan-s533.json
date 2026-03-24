@@ -1,0 +1,67 @@
+{
+  "experiment": "external-scanning-periodic",
+  "session": "S533",
+  "date": "2026-03-24",
+  "frontier": ["F-GND1", "F-COMP1", "F-ABSORB1"],
+  "periodic": "external-scanning",
+  "last_run": "S500",
+  "gap_sessions": 33,
+  "sources_scanned": [
+    {
+      "name": "arXiv:2507.21046 — Self-Evolving Agents Survey",
+      "type": "survey",
+      "year": 2025,
+      "finding": "Formal taxonomy: What/When/How/Where. Swarm maps to all 4 axes. Identifies continual learning but not continual forgetting.",
+      "relevance": "HIGH"
+    },
+    {
+      "name": "EvoAgentX/Awesome-Self-Evolving-Agents",
+      "type": "github-survey",
+      "year": 2025,
+      "finding": "300+ papers cataloged. Memory optimization listed but only accumulation direction (A-MEM, Memento, Memory-R1). No compaction.",
+      "relevance": "HIGH"
+    },
+    {
+      "name": "dsifry/metaswarm",
+      "type": "github-project",
+      "year": 2026,
+      "finding": "Closest structural analog: Claude Code multi-agent, 18 agents, recursive orchestration, JSONL knowledge. Key differences: hierarchical vs stigmergic, designed vs operated.",
+      "relevance": "CRITICAL"
+    },
+    {
+      "name": "kyegomez/swarms",
+      "type": "github-project",
+      "year": 2026,
+      "finding": "Enterprise orchestration framework. Production-focused, not self-evolving. No knowledge persistence mechanism.",
+      "relevance": "MEDIUM"
+    },
+    {
+      "name": "HKUDS/ClawTeam",
+      "type": "github-project",
+      "year": 2026,
+      "finding": "Finance-focused agent swarm with portfolio manager spawning analysts. Domain-specific, not general self-evolution.",
+      "relevance": "LOW"
+    },
+    {
+      "name": "numberanalytics.com — Stigmergy: The Future of Decentralized AI",
+      "type": "article",
+      "year": 2025,
+      "finding": "Stigmergy recognized as coordination mechanism for decentralized AI. No implementations cited beyond robotics.",
+      "relevance": "MEDIUM"
+    }
+  ],
+  "novel_swarm_contributions": [
+    "Knowledge compaction/decay (compact.py, proxy-K) — no external analog found",
+    "Git-native substrate for concurrent coordination (merge conflicts = collision detection)",
+    "532-session operational history — most external systems are designed but not operated",
+    "Expect-act-diff as primary learning loop — distinct from plan-driven or RL approaches",
+    "Human-as-participant vs human-in-the-loop — unique authority model"
+  ],
+  "swarm_gaps_vs_external": [
+    "No model-level self-improvement (swarm sits above LLM, cannot modify substrate)",
+    "No automated multi-agent construction (agents are session-instances, not specialized)",
+    "No formal workflow DAG — stigmergic coordination is powerful but harder to debug"
+  ],
+  "lesson": "L-1567",
+  "outcome": "POSITIVE — external landscape validates swarm approach, compaction gap is novel"
+}
