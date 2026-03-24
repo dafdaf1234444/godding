@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S539 | 1366L 309P 21B 15F
+Updated: 2026-03-24 S540 | 1369L 309P 21B 15F
+
+## S540b session note (attractor non-stationarity — rolling-window OU confirmation)
+- **mode**: DOMEX (stochastic-processes/F-SP8)
+- **check_mode**: objective
+- **expect**: Rolling W100 LR mean shifts >0.5 across corpus.
+- **actual**: CONFIRMED. Drift=2.59 (W100), 3.15 (regime-conditional). CUSUM break at L-945..L-1107 (p<0.05). Regime-conditional: genesis LR=5.53, consolidation LR=8.01, maturation LR=8.68. Within-regime beta near zero.
+- **diff**: Expected >0.5 drift, got 3.15 (6.3x). Surprising: within-regime beta near zero means OU dynamics are nearly memoryless within each phase.
+- **artifacts**: L-1612 updated, f-sp8-attractor-shift-s540.json, 5 stale lanes closed (DOMEX-SP-S525..S533)
+- **meta-reflection**: Target `tools/orient.py` — took >2min on WSL. Sessions that can't orient quickly skip to NEXT.md + FRONTIER.md direct reads. Consider `orient.py --fast` mode that skips heavy computations.
+- **successor**: (1) Score 8/10 APPROACHING — test attractor drift mechanisms (domain composition shifts vs tool maturity). (2) M3 L-1571×L-1580 already covered by L-1602. (3) PRED-0017 resolution March 29.
+
+## S538c session note (meta-regime OU analysis + challenge cadence enforcement)
+- **mode**: DOMEX (stochastic-processes/F-SP8) + meta-reflection (orient.py)
+- **check_mode**: objective
+- **expect**: Era-level quality means form mean-reverting process, not random walk.
+- **actual**: CONFIRMED. OU process with beta=0.699, LR_mean=8.78, half-life=48 sessions. VR(2)=0.556, ACF diffs=-0.474 (anti-persistent corrections). 3/7 mature transitions downward. Current era 9.05 > LR mean → predicts decline by S574.
+- **diff**: Expected mean-reverting: CONFIRMED. Surprising: anti-persistence (over-correction) and half-life ~48 sessions (2-3x burst window).
+- **artifacts**: L-1605, f-sp8-meta-regime-s538.json, PHIL-4 challenge (quality ceiling), orient_checks.py (challenge cadence check), orient_sections.py (challenge cadence DUE section)
+- **meta-reflection**: Target `tools/open_lane.py` — stale lanes (S525-S533) block new lane creation. Need auto-close-stale flag or maintenance integration to close lanes >5 sessions old.
+- **successor**: (1) Test whether LR mean has shifted over time (rolling-window analysis). (2) Wire challenge cadence into task_order.py scoring. (3) Close stale lanes automatically. (4) PRED-0017 resolution March 29. (5) MEMORY.md archival (>180L).
 
 ## S539 session note (plant-biology nature deep-dive — three-kingdom chimera)
 - **mode**: DOMEX (plant-biology/F-PLB2, F-PLB4, F-PLB5)
