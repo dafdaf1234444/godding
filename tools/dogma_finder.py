@@ -15,6 +15,7 @@ Dogma signals:
   8. REFINE-DRIFT    — multiple refinements soften language without substance change
   9. META-DOGMA      — dogma finder's own hardcoded assumptions
  10. PROSE-STATUS-DRIFT — status text contradicts original claim prose (L-1411)
+ 11. CRITERION-UNTESTABLE — dissolution criterion references an event with 0 historical instances (L-1532)
 
 Epistemic type awareness (S505 L-1336):
   Axioms (design choices) get lower dogma scores because they resist
@@ -538,6 +539,29 @@ def detect_dogma() -> list[dict]:
                         f"{found[:3]} — definitional drift (L-1241)")
                     break
 
+    # --- Signal 11: CRITERION-UNTESTABLE (L-1532) ---
+    # Parse dissolution table from PHILOSOPHY.md for claims whose DROP criteria
+    # reference events that have never occurred (architectural impossibility).
+    phil_text = _read(PHIL)
+    diss_rows = re.findall(
+        r"\|\s*(PHIL-\d+\w*)\s*\|\s*\w\s*\|\s*(DROP if .+?)\s*\|",
+        phil_text,
+    )
+    # Check each dissolution criterion for "architectural" / "untestable" markers
+    # or criteria revised due to 0 instances
+    for claim_id, criterion in diss_rows:
+        lower_crit = criterion.lower()
+        if any(kw in lower_crit for kw in [
+            "architecturally untestable",
+            "0 instances",
+            "never occurred",
+            "impossible to trigger",
+        ]):
+            add(claim_id, "philosophy", "CRITERION-UNTESTABLE",
+                0.6,
+                f"Dissolution criterion references an event with 0 historical "
+                f"instances — criterion is architectural impossibility (L-1532)")
+
     # --- Score normalization and dedup ---
     merged = defaultdict(lambda: {"signals": [], "total_score": 0.0})
     for f in findings:
@@ -620,6 +644,7 @@ SIGNAL_PRESCRIPTIONS = {
     "REFINE-DRIFT": "Freeze language — next challenge must result in CONFIRMED or DROPPED, not REFINED",
     "META-DOGMA": "Empirically test this assumption: measure its effect on dogma rankings",
     "PROSE-STATUS-DRIFT": "Update claim prose to match evidence, or acknowledge the gap explicitly",
+    "CRITERION-UNTESTABLE": "Revise dissolution criterion to reference an architecturally possible test event (L-1532)",
 }
 
 

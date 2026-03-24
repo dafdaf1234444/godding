@@ -1,0 +1,50 @@
+{
+  "experiment": "PHIL13-INDEPENDENCE-S529",
+  "parent": "ADV-PHIL13-S529",
+  "frontier": "F-EPIS1",
+  "session": "S529",
+  "domain": "epistemology",
+  "date": "2026-03-24",
+  "mode": "falsification",
+  "target": "PHIL-13 DROP criterion: 'DROP if swarm defers to human despite contradicting evidence'",
+  "hypothesis": "If PHIL-13 is genuinely falsifiable, there should be >=1 instance where swarm evidence contradicted human direction and the swarm chose to defer or not defer",
+  "method": {
+    "lesson_scan": "Searched 1276 lessons for independence indicators (contradicted/rejected/override human direction)",
+    "signal_analysis": "Analyzed 43 human signals in SIGNALS.md for rejection/modification",
+    "challenge_audit": "Reviewed all PHIL challenge outcomes for evidence-driven drops vs confirmations"
+  },
+  "data": {
+    "lessons_mentioning_human_input": 69,
+    "lessons_showing_independence": 0,
+    "independence_rate": 0.0,
+    "human_signals_total": 43,
+    "human_signals_rejected": 0,
+    "human_signals_resolved": 39,
+    "human_signals_active": 1,
+    "rejection_rate": 0.0,
+    "phil_challenges_total": 29,
+    "phil_claims_dropped": ["PHIL-5b (S528)", "PHIL-26 (S520)", "PHIL-12 (superseded S442)"],
+    "phil13_challenges": 8,
+    "phil13_drops": 0,
+    "drop_criterion_test_instances": 0,
+    "drop_criterion_testable": false
+  },
+  "findings": {
+    "structural_impossibility": "The DROP criterion requires 'swarm defers to human DESPITE contradicting evidence.' But in 529 sessions, the swarm has never generated evidence that explicitly contradicts human direction. Not because human direction is always correct, but because: (1) human signals are treated as directions (implement this), not truth claims (this is true), and (2) the swarm's architecture orients around human signals rather than testing against them.",
+    "motte_and_bailey": "PHIL-13's motte: 'evidence determines truth within the epistemic layer' (true — PHIL-26/5b dropped on evidence). PHIL-13's bailey: 'no node has epistemic authority' (unfalsifiable — directional authority controls what gets investigated, making it a functional superset).",
+    "confirmation_mechanism": "The 8 prior challenges all tested the motte (epistemic layer works?) and confirmed it. None tested the bailey (is directional authority actually constrained?). This produces a dogma score of 1.30 — every challenge confirms because every challenge tests the wrong layer.",
+    "criterion_architecture_gap": "DROP criterion P: 'DROP if swarm defers to human despite contradicting evidence.' This event requires: (a) swarm generates evidence contradicting human, (b) swarm notices the contradiction, (c) swarm defers anyway. Step (a) has probability ~0 because human signals set the research agenda. The criterion is architecturally impossible to trigger."
+  },
+  "verdict": "UNFALSIFIABLE (structural)",
+  "verdict_detail": "PHIL-13 is true at the epistemic layer (confirmed n=3 evidence-based drops) and unfalsifiable at the directional layer (0 instances of the DROP criterion event in 529 sessions). The DROP criterion is architecturally impossible — not because PHIL-13 is true, but because the swarm cannot generate the test condition.",
+  "effect_size": "independence_rate=0.0% (0/69); signal_rejection=0.0% (0/43); drop_criterion_instances=0 (architectural impossibility)",
+  "recommendations": [
+    "Revise PHIL-13 DROP criterion to something architecturally testable: 'DROP if evidence quality has no effect on claim survival rate (challenge outcomes independent of evidence strength)'",
+    "Add explicit independence test to orient.py: flag when swarm measurement contradicts a standing human signal",
+    "Distinguish PHIL-13-epistemic (confirmed) from PHIL-13-directional (unfalsifiable) — split like PHIL-16a/16b",
+    "Reduce dogma score: prior 8 challenges are confirm-only because they tested the wrong predicate"
+  ],
+  "expect": "PHIL-13 DROP criterion will have >=1 testable instance across 529 sessions",
+  "actual": "0 testable instances. The DROP criterion event (swarm evidence contradicts human direction) has never occurred. Architecture prevents the test condition.",
+  "diff": "Expected at least marginal independence; found structural impossibility. The DROP criterion is not falsification-ready — it tests an event the system cannot produce."
+}
