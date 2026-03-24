@@ -46,13 +46,13 @@ ORIENT_TOOLS = [
 ]
 OPERATIONAL_TOOLS = [
     "tools/compact.py", "tools/validate_beliefs.py", "tools/sync_state.py",
-    "tools/cell_blueprint.py",
+    "tools/cell_blueprint.py", "tools/genesis_extract.py",
 ]
 BOOT_TOOLS = ORIENT_TOOLS + OPERATIONAL_TOOLS
 GROWTH_TOOLS = [
     "tools/dispatch_optimizer.py", "tools/dispatch_data.py", "tools/dispatch_scoring.py",
     "tools/open_lane.py", "tools/close_lane.py", "tools/claim.py",
-    "tools/genesis_seeds.py", "tools/genesis_extract.py", "tools/check.sh",
+    "tools/genesis_seeds.py", "tools/check.sh",
 ]
 CORE_TOOLS = BOOT_TOOLS + GROWTH_TOOLS
 

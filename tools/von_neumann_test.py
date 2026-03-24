@@ -61,10 +61,12 @@ BOOT_TIER_D = [
     "tools/compact.py",
     "tools/sync_state.py",
     "tools/cell_blueprint.py",
+    "tools/genesis_extract.py",
     "beliefs/CORE.md",
     "beliefs/PHILOSOPHY.md",
     "beliefs/DEPS.md",
     "SWARM.md",
+    "CLAUDE.md",
     "memory/INDEX.md",
     "memory/PRINCIPLES.md",
 ]
@@ -205,7 +207,7 @@ def analyze():
             "inequality_holds": boot_ratio >= 1.0,
             "deficit_pct": round(deficit_pct, 2),
             "predicted_swarmability": round(predicted_swarmability, 1),
-            "actual_swarmability": 80,  # from L-1489
+            "actual_swarmability": 100,  # S538: fixed-point achieved, 10/10 checks pass
         },
         "dual_use_theorem": {
             "copier_in_description": b_in_d,

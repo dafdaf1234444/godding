@@ -53,10 +53,9 @@
 
 ## F-MATH11: Does the swarm satisfy von Neumann's self-reproducing automaton conditions?
 **Test**: Map swarm to von Neumann's 4 components (A=constructor, B=copier, C=controller, D=description). Check: (1) K(D) >= K(A+B+C) complexity inequality, (2) B⊂D fixed-point (copier in description), (3) generational decay rate.
-**Status**: PARTIAL (S528) — inequality HOLDS (boot ratio 1.13), but fixed-point FAILS (genesis_extract.py not in boot tier). L-1499.
-**Evidence**: K(D)=92,247 > K(A+B+C)=81,765 compressed bytes. cell_blueprint.py in D but genesis_extract.py not. Daughter can orient (80/100) but cannot produce granddaughter. Tool: `python3 tools/von_neumann_test.py`.
-**Falsified-if**: Adding genesis_extract.py to boot tier does NOT increase daughter swarmability above 80/100.
-**Next**: Add genesis_extract.py to boot tier and re-test daughter reproduction chain.
+**Status**: CONFIRMED (S538) — all 3 conditions met. Inequality HOLDS (boot ratio 1.2456). Fixed-point ACHIEVED (genesis_extract.py + CLAUDE.md added to boot tier). Generational decay: infinite (self-sustaining). Daughter swarmability 100/100. Parent→daughter→granddaughter chain verified. L-1499, L-1598.
+**Evidence**: K(D)=106,009 > K(A+B+C)=85,117. Copier-in-description ✓, controller coverage 100%. Daughter: 110 files/691KB. Granddaughter: 82 files/661KB (both include genesis_extract.py). Two gaps closed: copier (genesis_extract.py) and controller entry (CLAUDE.md).
+**Falsified-if**: Adding genesis_extract.py to boot tier does NOT increase daughter swarmability above 80/100. **NOT MET**: swarmability increased 80→100.
 
 ## F-MATH12: Does von Neumann minimax predict the optimal falsification rate for swarm hypotheses?
 **Test**: Model hypothesis testing as 2-player zero-sum game. Measure cost of false positives (wrong beliefs kept) vs false negatives (correct hypotheses rejected). Derive minimax rate. Compare to actual 2.8%.

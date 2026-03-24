@@ -2770,3 +2770,51 @@ Lane-ID: DOMEX-PLB-S539-VASCULAR
 Frontier: F-PLB2
 Scope: domains/plant-biology/tasks/FRONTIER.md
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S538-SCORING
+Frontier: F-FORE1
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-STOCH-S538
+Frontier: F-SP8
+Scope: domains/stochastic-processes/tasks/FRONTIER.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EXPSW-S537-GAP5
+Frontier: F-SWARMER2
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-MATH-S538-VN
+Frontier: F-MATH11
+Scope: domains/mathematics/tasks/FRONTIER.md
+Status: MERGED
