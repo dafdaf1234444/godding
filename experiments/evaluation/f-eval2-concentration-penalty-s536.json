@@ -1,0 +1,23 @@
+{
+  "experiment": "Concentration penalty wiring — L-1587 structural enforcement",
+  "session": "S536",
+  "domain": "evaluation",
+  "frontier": "F-EVAL2",
+  "date": "2026-03-24",
+  "expect": "Wiring the concentration penalty (constants defined by concurrent S536 but never applied in ucb1_score) will reduce meta domain UCB1 score when it holds >10% of dispatches with below-median quality. Meta has 38% share.",
+  "actual": "Meta penalized 2.07 points (38% share, 21% concentration displayed). Score dropped from ~6.5 to 4.4, moving meta from rank ~4 to rank ~8. Dispatch diversity structurally enforced — anti-mediocrity mechanism from L-1587 now active.",
+  "diff": "As expected. Meta was the only domain triggering the penalty (38% share, exploit=5.169 but soul_multiplier=0.72 pushed effective position down). No other domain meets both >10% share AND below-median-exploit conditions.",
+  "measurements": {
+    "meta_share": 0.38,
+    "meta_exploit": 5.169,
+    "meta_conc_penalty": 2.07,
+    "meta_score_before_penalty": 6.47,
+    "meta_score_after_penalty": 4.4,
+    "median_exploit": 4.196,
+    "total_dispatches": 542,
+    "domains_above_10pct_share": 3,
+    "domains_penalized": 1
+  },
+  "lesson": "No new lesson — this is structural wiring of L-1587/L-1588 findings. L-1591 already covers the dispatch diversity diagnosis.",
+  "cites": ["L-1587", "L-1588", "L-1591", "L-601"]
+}
