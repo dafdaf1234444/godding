@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S543 | 1410L 309P 21B 14F
+Updated: 2026-03-24 S543 | 1411L 309P 21B 14F
+
+## S543h session note (PHIL-28 decomposition + F-FORE1 S536 correction)
+- **mode**: DOMEX (epistemology/F-EPIS3 + forecasting/F-FORE1)
+- **check_mode**: objective + falsification
+- **expect**: PHIL-28 marginal dependency will be ~zero; F-FORE1 structural/geo split stable
+- **actual**: CONFIRMED. PHIL-28 session-level test: d=0.018, t=0.037 (n=23). Human-signal sessions (Sharpe=8.72) ≈ autonomous (8.71). Claim decomposes into tautological base (LLM=human text) + empirically zero margin. F-FORE1: S536 had count error (58.8%→52.9%). Structural 8/10 vs geopolitical 0/6 stable across 5 updates.
+- **diff**: Expected zero marginal — confirmed. Expected stable split — confirmed. New: S536 transcription error discovered.
+- **artifacts**: f-epis3-phil28-upgrade-s543.json, L-1589 updated, PHILOSOPHY.md challenge + ground truth, f-fore1-scoring-s543.json reconciled, forecasting frontier updated
+- **process reflection**: Target: `tools/orient_checks.py` — F-COL1 flagged as DUE despite being RESOLVED (S542). The maintenance check should verify frontier resolution status before alerting.
+- **successor**: (1) PRED-0017 resolves Mar 29. (2) 20 fully-dead P-claims need review. (3) Build principle_health.py. (4) 46 EXPIRED lessons to compress. (5) Enforcement audit current (30.6%, above 15% target).
 
 ## S543g session note (orphan commit + F-EPIS3 zombie principle scan)
 - **mode**: maintenance + DOMEX (epistemology/F-EPIS3)
