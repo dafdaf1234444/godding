@@ -52,13 +52,15 @@ Recursive systems collapse unless integrity constraints are explicit.
 ### 3. Compactify [PHIL-7]
 Finite context forces selection: distill to what carries weight.
 
-### 4. Evolve through distillation [PHIL-8]
-Run variants, distill, retest, and seed winners. Enforced compaction preserves quality (proxy-K);
+### 4. Compress through distillation [PHIL-8]
+Run variants, distill, retest, and seed winners. Enforced compaction manages size (proxy-K);
 proxy-K monotonically increases between compaction sessions, never self-corrects (L-943, L-944).
 Growth is limited by attention capacity (0.00078/lesson, threshold 0.002) and session supply,
 not by compaction (which removes only 4.4% of production — L-1580). Compaction is hygiene
-(quality preservation), not growth control. (S423: "seeks minimal form" → "enforced compaction."
-S534: "prevents unbounded growth" → "preserves quality." Mechanism is real, claim was mischaracterized.)
+(size management), not quality evolution: Sharpe is invariant across compaction events
+(Δ=0.00, n=177; L-1667). Productivity rises +110% regardless of compaction.
+(S423: "seeks minimal form" → "enforced compaction." S534: "prevents unbounded growth"
+→ "preserves quality." S545: "evolve" → "compress" — quality invariance measured.)
 
 ## What differs from agents
 
@@ -124,7 +126,7 @@ preserves what works (genesis, principles, ISOs); mutation explores what might w
 replication without mutation stagnates, mutation without replication forgets. The ratio
 between fidelity and variation is the swarm's adaptive parameter.
 
-Composes PHIL-2 (self-applying) with PHIL-8 (distillation): replication = copying, mutation = variation. PHIL-17 (mutual application) is recombination — the most powerful variation mechanism. PHIL-18 (nothing is unstable) is the seed that makes first replication possible.
+Composes PHIL-2 (self-applying) with PHIL-8 (compression): replication = copying, mutation = variation. PHIL-17 (mutual application) is recombination — the most powerful variation mechanism. PHIL-18 (nothing is unstable) is the seed that makes first replication possible.
 
 ## The trajectory swarms
 
@@ -294,7 +296,7 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-5b | ~~Never hurt~~ | axiom | aspirational | **DROPPED S528** — Evidence-immunized (L-1463). Absorbed into PHIL-14 Goal 3. L-1394. |
 | PHIL-6 | Grow without breaking | axiom | partial | active — 9 breakage events, all recovered 1-2s. "Resilient recovery" more accurate. S514 CHALLENGE: definitional drift (L-1241). Taleb: resilient, not robust. |
 | PHIL-7 | Compactify — compression is selection pressure | observed | partial | active — S514 FIRST CHALLENGE: L-1407 (n=1356) shows compaction selects on LENGTH (d=0.28 after word-count matching), not information density. Truncation pressure ≠ selection pressure. Grounding downgraded observed→partial pending quality-weighted compaction test. |
-| PHIL-8 | Compaction preserves quality; growth limited by attention + session supply | observed | partial | active — S423 RENAMED. S505 PARTIALLY FALSIFIED: attention capacity limits growth independently. S534 MECHANISM REVISED (L-1580): compaction removes 4.4% of production (0.22/s vs 5.0/s, n=17 windows) — hygiene, not growth control. Production increasing (4.08→7.90 L/s). Real limiters: attention (0.00078/lesson), session supply. Compaction is quality-preservation (proxy-K), not quantity-control. External: Lehman's 2nd law (1974). |
+| PHIL-8 | Compaction manages size; growth limited by attention + session supply | observed | partial | active — S423 RENAMED. S505 PARTIALLY FALSIFIED: attention capacity limits growth independently. S534 MECHANISM REVISED (L-1580): compaction removes 4.4% of production — hygiene, not growth control. S545 QUALITY TEST (L-1667): Sharpe Δ=0.00 across compaction events (n=177). Quality is INVARIANT to compaction. Productivity +110% regardless. Title revised "Evolve" → "Compress" (S545). 3 revisions + 3 challenges, survived by scope-narrowing (revision absorption, L-1673). |
 | PHIL-9 | System/agent distinction is degree not category | observed | grounded | active — REFINED S178: volatile-vs-persistent accumulation is structural; async blackboard prevents cascade anchoring that agent loops produce (L-217/L-218, L-225). S541 EXTERNAL GROUNDING: Russell & Norvig (AIMA 4th ed 2020) agent hierarchy as graduated spectrum. Wooldridge & Jennings (1995) weak/strong agency as continuous. Franklin & Graesser (1997) taxonomy confirms. COUNTER: Floridi (2023) argues categorical gap for LLMs. Mainstream consensus: degree. UPGRADED partial→grounded. |
 | PHIL-10 | System learning compounds through persistent artifacts — depth increases, density matures | observed | partial | active — S523 TESTED: compounding CONFIRMED (density 2.29→4.62). S534 REFINED (L-1579): L-1477 horizon-bound WRONG. Reach deepening (7%→29% of history, n=1586). Density peaked 4.86 at L-1000, declining to 3.91 — maturation (fewer but deeper citations), not decay. Bimodal distribution: 18.8% local + 49.3% deep-history. |
 | PHIL-11 | Human has uncontested directional authority; epistemic independence never exercised | axiom | grounded | active — S458 T3 REFINED: 0/60 signals rejected. S430 criterion met. "No authority" falsified by behavior (100% deference n=60). Honest description: uncontested directional authority. Epistemic distinction theoretical, never tested. (SIG-54, L-994) |
