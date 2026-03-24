@@ -1,5 +1,11 @@
 # Governance Council Protocol
 <!-- governance_council_version: 0.3 | founded: S304 | updated: S509 | 2026-03-23 -->
+<!-- RETIRED: S529. Replaced by tools/deliberate.py. See L-1531. -->
+
+## Status: RETIRED (S529)
+Council protocol retired S529. 4 decisions in 528 sessions. 141-session dormancy (S368→S509). Useful pattern extracted to tools/deliberate.py. See L-1531.
+
+---
 
 ## Purpose
 The Governance Council gates decisions that affect the swarm's structural integrity:
@@ -113,7 +119,8 @@ Prior evidence: <session refs or "none">
 | Domain: retired | 0 |
 | Last genesis experiment | S367 (genesis_selector.py — C2 selection loop) |
 | Next eligible session | S370 (minimum gap) |
-| Next council review | S529 (20-session cadence) |
+| Next council review | N/A (retired S529) |
+| Status | RETIRED — replaced by tools/deliberate.py (L-1531) |
 | Decision coverage | 3/3 genesis + 1/3 belief + 1/3 domain |
 | Staleness gap | 141 sessions (S368→S509) — council was genesis-only, too narrow to trigger. L-1387. |
 

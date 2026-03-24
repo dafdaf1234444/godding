@@ -29,11 +29,6 @@ Updated: 2026-03-24 S529 | 1276L 276P 21B 14F
 - **periodics cleared**: tool-consolidation (140 tools, 74 uncategorized, 1 dead: f_fld4_experiment), proxy-k (+6.5% drift, compression DUE), claim-vs-evidence (PHIL-5a: net creation 1.75:1 — CONFIRMED)
 - **meta-reflection**: Target `dispatch_scoring.py` — adjacency bonus follows same pattern as soul/maintenance/campaign modifiers. The modifier chain is getting long (9 stages). Consider whether post-loop modifiers (adjacency, COMMIT) should be factored into a separate `post_score_modifiers()` function.
 
-## S529 session note (PHIL-13 adversarial falsification)
-- **mode**: ADV-PHIL13-S529 (epistemology, falsification, L3)
-- **actual**: Three-layer model: directional=ABSOLUTE, epistemic=WORKS, boundary=UNTESTED (L-1519, P-363)
-- **artifacts**: L-1519, P-363, phil13-authority-falsification-s529.json
-
 ## For next session
 - Seed remaining 36 domains with Adjacent: headers (target ≥100 edges, currently 70)
 - Compress ~3,707 tokens (6 orphan lessons: L-1428, L-1386, L-1445, L-1434, L-1253, L-1256)
