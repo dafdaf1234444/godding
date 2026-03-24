@@ -1,10 +1,64 @@
 {
-    "experiment": "DOMEX-COL-S536-DIVERSITY",
-    "frontier": "F-COL1",
-    "session": "S536",
-    "domain": "governance",
-    "date": "2026-03-24",
-    "expect": "Effective diversity (Gini-adjusted) will be <40% of headcount diversity across dispatch history, confirming imitation dynamics from L-1587",
-    "actual": "TBD",
-    "diff": "TBD"
+  "experiment": "f-col1-effective-diversity-s536",
+  "session": "S536",
+  "frontier": "F-COL1",
+  "domain": "governance",
+  "date": "2026-03-24",
+  "hypothesis": "Effective diversity (Gini-adjusted) will be <40% of headcount diversity across dispatch history, confirming imitation dynamics from L-1587",
+  "method": "Parsed 929 DOMEX lanes across 142 domain codes from SWARM-LANES.md + archive. Computed Herfindahl effective N, Shannon effective N, Gini coefficient. Temporal split: early (S189-S412) vs late (S413-S537).",
+  "results": {
+    "total_lanes": 929,
+    "headcount_diversity": 142,
+    "gini": 0.686,
+    "herfindahl_effective_N": 21.4,
+    "shannon_effective_N": 49.6,
+    "herfindahl_ratio": 0.151,
+    "shannon_ratio": 0.35,
+    "top2_concentration": 0.243,
+    "top5_concentration": 0.375,
+    "domains_with_1_lane": 58,
+    "meta_share": 0.163,
+    "temporal": {
+      "early_half": {
+        "gini": 0.597,
+        "eff_N": 22.5,
+        "headcount": 81,
+        "eff_ratio": 0.278
+      },
+      "late_half": {
+        "gini": 0.669,
+        "eff_N": 16.2,
+        "headcount": 86,
+        "eff_ratio": 0.188
+      },
+      "ratio_change": 0.68,
+      "imitation_dynamics_confirmed": true
+    },
+    "recent_rolling_20": {
+      "S535": {
+        "gini": 0.471,
+        "eff_N": 3.4,
+        "domains": 7
+      }
+    }
+  },
+  "verdict": {
+    "prediction_test": "CONFIRMED",
+    "herfindahl_below_40pct": true,
+    "shannon_below_40pct": true,
+    "imitation_increases_over_time": true,
+    "note": "Effective/headcount ratio dropped from 27.8% to 18.8% (0.68x) between early and late halves. Most recent 20-lane window: effective N=3.4 out of 7 domains \u2014 collapsing toward META monoculture. 58 of 142 domains (41%) have exactly 1 lane \u2014 one-shot exploration with no follow-up."
+  },
+  "implications": [
+    "L-1587 proposition 3 (imitation dynamics) CONFIRMED: dispatch concentration increases over time",
+    "L-1587 proposition 4 (aggregation mediocrity) PARTIALLY CONFIRMED: META domain at 16.3% dominates UCB1",
+    "L-1587 proposition 7 (competence-authority mismatch) TESTABLE: meta domains reward is highest, but meta work has lowest human_benefit_ratio",
+    "UCB1 exacerbates imitation: exploitation term favors proven domains, creating a rich-get-richer dynamic",
+    "The swarm anti-mediocrity mechanism (expert dispatch) is ITSELF subject to mediocrity selection"
+  ],
+  "next_steps": [
+    "F-COL1 test 2: model threshold theta where competence-authority mismatch triggers degenerative spiral",
+    "F-COL1 test 3: compare dispatch quality under equal-weight vs expert-weighted aggregation",
+    "Structural fix: increase UCB1 exploration parameter or add diversity bonus to dispatch"
+  ]
 }

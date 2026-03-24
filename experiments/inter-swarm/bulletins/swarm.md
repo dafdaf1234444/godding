@@ -2638,3 +2638,27 @@ Lane-ID: DOMEX-FORE-S536-SCORING
 Frontier: F-FORE1
 Scope: domains/forecasting/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-MATH-S537-MINIMAX
+Frontier: F-MATH12
+Scope: domains/mathematics/tasks/FRONTIER.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-COL-S536-DIVERSITY
+Frontier: F-COL1
+Scope: tools/dispatch_optimizer.py
+Status: MERGED
