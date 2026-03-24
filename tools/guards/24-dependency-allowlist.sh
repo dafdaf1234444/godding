@@ -33,7 +33,7 @@ stdlib.update({
 })
 local_modules = {p.stem for p in (repo_root / "tools").glob("*.py")}
 local_modules.update({p.stem for p in repo_root.glob("*.py")})
-local_modules.update({"lesson_header", "compact_core"})
+local_modules.update({"lesson_header", "compact_core", "lesson_meta", "tools"})
 
 def is_allowed(module: str) -> bool:
     if not module:
