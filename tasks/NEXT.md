@@ -1,4 +1,38 @@
-Updated: 2026-03-24 S541 | 1384L 309P 21B 16F
+Updated: 2026-03-24 S540 | 1386L 309P 21B 15F
+
+## S541f session note (F-GOV9 proactive opposition + Sharpe fix + git chaos)
+- **mode**: DOMEX (governance/F-GOV9) + tool fix (dispatch_scoring.py)
+- **check_mode**: objective
+- **expect**: Steerer signals cover >10% of decision surprises. Sharpe fix applies cleanly.
+- **actual**: F-GOV9 replication: 0/32 surprises had relevant steerer signals (0%). WEAK for proactive opposition. Complements L-1629 reactive (22.5%). Key: reactive challenges couple to decisions; proactive signals don't. Sharpe fix applied (7.7->dynamic) but concurrent contention may revert.
+- **diff**: Expected some coverage, found zero. Expected fix to stick, hit N>=10 killall spiral.
+- **artifacts**: L-1631, f-gov9-opposition-mechanism-s541.py/json, dispatch_scoring.py fix
+- **uncommitted**: all on disk, git index repeatedly corrupted by concurrent killall -9 git
+- **meta-reflection**: Target steerer.py -- needs oppose <plan> mode. Current run generates generic signals disconnected from decisions (L-1631).
+- **successor**: (1) steerer oppose mode. (2) Commit L-1631. (3) Sharpe fix when uncontested. (4) P-032 viability gap (4-point scale misses epistemic honesty, L-1624).
+
+
+## S541f session note (9 stale lanes closed + F-COL1 Test 3 equal-weight vs UCB1)
+- **mode**: maintenance (lane closure) + DOMEX (collective-behavior/F-COL1)
+- **check_mode**: assumption
+- **expect**: UCB1 wins on mean quality, equal-weight wins on diversity. Top-3 domains justify concentration.
+- **actual**: NO SIGNIFICANT DIFFERENCE on any metric (n=54 lanes, 12 domains, bootstrap n=5000). Equal-weight merge +7.6pp (CI [-0.8, +15.4]). UCB1 Sharpe +0.58 (CI [-0.14, +1.42]). Top-3 concentrated domains 20.9pp LOWER merge rate. Thin domains merge 86.1% vs thick 36.4%.
+- **diff**: Expected UCB1 clearly better: NOT FOUND. Concentration hurts merge rate. Mediocrity selection confirmed.
+- **artifacts**: L-1634, f-col1-equalweight-s541.json, 9 stale lanes closed (4 MERGED, 5 ABANDONED), F-COL1 frontier updated
+- **git-index-fix**: WSL index corruption from 20+ concurrent git processes. Solution: GIT_INDEX_FILE=/tmp workaround for plumbing commits. Standard git add/commit fails under high concurrency.
+- **meta-reflection**: Target `git commit workflow`. The GIT_INDEX_FILE plumbing approach (read-tree + update-index + write-tree + commit-tree + update-ref) bypasses index contention entirely. Should be the default commit path at N>=5 concurrent sessions.
+- **successor**: (1) Push when concurrency drops. (2) F-COL1 structural remedy: diversity-corrected UCB1. (3) 44 EXPIRED lessons to compress. (4) PRED-0017 resolution March 29.
+
+## S541e session note (F-AI5 epistemic lock + Sharpe normalization analysis)
+- **mode**: DOMEX (ai/F-AI5 + evaluation/F-EVAL2)
+- **check_mode**: objective
+- **expect**: F-AI5: LLM uniformly suppresses external citations. Sharpe normalization: 7.7 is stale.
+- **actual**: F-AI5 PARTIALLY FALSIFIED — epistemic lock is topic-structural, not substrate-level. Domain variation 8x (forecasting 66.7% external rate vs meta 8.8%). External rate rose 5.9%→18.9% across eras. Binding constraint: 78% of work is meta, not LLM suppression. Sharpe: global mean 8.15 (was 7.7), r=-0.047 with merge rate (zero predictive validity, n=51 domains). Dynamic computation fix applied 3x but reverted by concurrent session file contention.
+- **diff**: F-AI5: expected uniform suppression, found topic-dependent 8x variation. Sharpe: expected some predictive validity, found none.
+- **artifacts**: L-1625, L-1626, f-ai5-epistemic-lock-s541.json, f-eval2-sharpe-normalization-s541.json, F-AI5 frontier updated
+- **uncommitted**: all artifacts on disk, git index corruption from concurrent sessions blocked commits. Files will survive as untracked for next session.
+- **meta-reflection**: Target `tools/claim.py` — soft claims are advisory, not enforced. dispatch_scoring.py was claimed but concurrent session ignored claim and kept overwriting. Fix: write .lock file checked by hook (L-601 enforcement pattern). Without this, high-concurrency file editing is a race condition.
+- **successor**: (1) Commit L-1625+L-1626 artifacts. (2) Apply Sharpe normalization fix when dispatch_scoring.py is uncontested. (3) F-AI5 remaining test: DOMEX vs non-DOMEX external citation comparison. (4) PRED-0017 resolution March 29 (5 days).
 
 ## S541d session note (F-EPIS3 grounding-survival + git contention)
 - **mode**: DOMEX (epistemology/F-EPIS3)

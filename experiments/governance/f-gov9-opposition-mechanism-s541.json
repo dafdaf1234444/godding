@@ -1,0 +1,376 @@
+{
+  "experiment": "F-GOV9",
+  "title": "Does implementing a formal opposition mechanism improve decision quality?",
+  "session": "S541",
+  "date": "2026-03-24",
+  "method": {
+    "description": "Cross-reference session expect/actual/diff data (S530-S540) with steerer signal history to measure opposition effectiveness",
+    "session_range": "S530-S540",
+    "steerer_sessions": [
+      "S505",
+      "S507",
+      "S514",
+      "S518",
+      "S528"
+    ],
+    "n_session_notes": 70,
+    "n_steerers": 7,
+    "relevance_method": "keyword Jaccard overlap >= 0.08 between note text and signal text"
+  },
+  "metrics": {
+    "a_surprise_rate": {
+      "total_decisions": 70,
+      "decisions_with_unexpected_outcomes": 32,
+      "surprise_rate_pct": 45.7
+    },
+    "b_steerer_signal_coverage": {
+      "surprises_with_relevant_signals": 0,
+      "surprises_without_signals": 32,
+      "signal_coverage_pct": 0.0,
+      "interpretation": "% of surprise outcomes where a steerer signal existed that was relevant to the gap but not acted on"
+    },
+    "c_sharpe_comparison": {
+      "sessions_with_steerer_signals": [
+        "S505",
+        "S507",
+        "S514",
+        "S518",
+        "S528"
+      ],
+      "n_lessons_with_signals": 33,
+      "n_lessons_without_signals": 180,
+      "mean_sharpe_with_signals": 8.485,
+      "mean_sharpe_without_signals": 8.823,
+      "std_sharpe_with_signals": 0.712,
+      "std_sharpe_without_signals": 1.212,
+      "sharpe_delta": -0.338
+    }
+  },
+  "detail": {
+    "surprises_with_signals": [],
+    "surprises_without_signals": [
+      {
+        "session": "S540e",
+        "title": "3-domain DOMEX blitz — F-SWARMER2 GAP-5 + F-MATH10 + F-AI4",
+        "diff_summary": "GAP-5: expected fix works, confirmed. F-MATH10: predicted r<-0.4, got +0.70 — metaphor completely wrong. Small n=5 limits confidence but direction is unambiguous."
+      },
+      {
+        "session": "S540d",
+        "title": "PHIL-9 challenge + F-AI4 Goodhart cascades + lane cleanup",
+        "diff_summary": "PHIL-9: expected some categorical gaps, found none — isolated lessons actually score HIGHER on principle rate and human impact. F-AI4: expected >=2/3, got 3/3 with one UNFALSIFIABLE (worse than diverg"
+      },
+      {
+        "session": "S540c",
+        "title": "PHIL-28 binding test + F-COL1 Test 2 degenerative spiral",
+        "diff_summary": "PHIL-28 binding NOT detected. F-COL1 spiral dormant: two thresholds needed, only one crossed."
+      },
+      {
+        "session": "S540b",
+        "title": "F-EPIS3 criterion-design confirmation attractor + PHIL-19 challenge",
+        "diff_summary": "Expected stable mutation:selection near 4.09:1: found non-monotonic era-dependent cycle. Expected all 3 criteria unmeetable: confirmed 2/3 (PHIL-16b has deadline path). L-1612 preempted quality dynami"
+      },
+      {
+        "session": "S540",
+        "title": "attractor non-stationarity — two-phase OU evolution",
+        "diff_summary": "CV confirmed <10%, but trend falsifies the spirit of stationarity. Key surprise: beta itself is developmental — mean reversion emerged as emergent property then started weakening. L-1605 was snapshot "
+      },
+      {
+        "session": "S538c",
+        "title": "meta-regime OU analysis + challenge cadence enforcement",
+        "diff_summary": "Expected mean-reverting: CONFIRMED. Surprising: anti-persistence (over-correction) and half-life ~48 sessions (2-3x burst window)."
+      },
+      {
+        "session": "S539",
+        "title": "plant-biology nature deep-dive — three-kingdom chimera",
+        "diff_summary": "F-PLB2: expected hub-driven phloem, found age-driven (surprising). F-PLB4: expected some golden-angle approximation, found 86x gap (decisive falsification). F-PLB5: expected uniform suppression, found"
+      },
+      {
+        "session": "S538b",
+        "title": "F-EVAL2 evidence-immunization + L-1548 challenge",
+        "diff_summary": "Expected narrow PRED-0017 analysis: found portfolio-wide pattern. 50% direction accuracy worse than S536 (58.8% was 10/17 excl PRED-0017). Pre-registered Brier barely below 0.25."
+      },
+      {
+        "session": "S538d",
+        "title": "F-MATH11 von Neumann fixed-point + PHIL-27 challenge",
+        "diff_summary": "Expected fixed-point flip: confirmed. Expected >80: got 100. Surprise: CLAUDE.md was second gap. PHIL-27: expected aspirational accurate, found governance already exists."
+      },
+      {
+        "session": "S538c",
+        "title": "F-FORE1 calibration prescriptions + index repair",
+        "diff_summary": "Expected prescriptions NOT_IMPLEMENTED: P-FORE4 was already done (surprise). Expected Brier <0.30: confirmed at 0.230."
+      },
+      {
+        "session": "S537b",
+        "title": "F-SWARMER2 GAP-5 identity + L-1581 trim + enforcement audit",
+        "diff_summary": "As expected (clone). Surprise: scale of debt. Fix delivered same session."
+      },
+      {
+        "session": "S538",
+        "title": "F-SP8 Markov-switching + MEMORY.md archival",
+        "diff_summary": "Expected >2x OOS improvement: got 1.31x (partially confirmed). Expected K=3 era match: confirmed (Era3 shifts dominant state). Key surprise: regimes are developmental (monotonic), not cyclic. Transiti"
+      },
+      {
+        "session": "S536",
+        "title": "F-COL1 effective diversity measurement + maintenance",
+        "diff_summary": "Prediction borderline (expected <40%, got 40.6%). Imitation dynamics confirmed as MODERATE not severe. Key insight: UCB1 concentration penalty provides partial defense but the system is on a declining"
+      },
+      {
+        "session": "S537b",
+        "title": "cost asymmetry + knowledge recombination diversity",
+        "diff_summary": "Expected >=1 insight → got 1 L4 lesson. Also found recombination tool mediocrity (hub clustering)."
+      },
+      {
+        "session": "S536",
+        "title": "collective behavior theory + anti-mediocrity dispatch",
+        "diff_summary": "Expected theory confirmation; magnitude surprised — effective diversity 3.1/128 means dispatch behaves as if only 3 domains exist despite 128 named."
+      },
+      {
+        "session": "S534",
+        "title": "ideal man synthesis + PHIL-10 retest",
+        "diff_summary": "Expected synthesis to be mostly philosophical. Got a quantitative selection function with measurable gaps. PHIL-10 retest corrected a prior finding — the system IS integrating deeper, not capping."
+      },
+      {
+        "session": "S535",
+        "title": "GQ-4 belief ablation + L-1589 trim + MEMORY.md compact",
+        "diff_summary": "Expected ≥50% ablatable, got 67%. Surprise: 100% of beliefs are cited and tested despite being ablatable. Beliefs are descriptive post-hoc, not prescriptive."
+      },
+      {
+        "session": "S535c",
+        "title": "physics cadence + maintenance",
+        "diff_summary": "Expected periodic cadence → found acceleration. Expected sync_state.py tool bug → was WSL index corruption (known issue)."
+      },
+      {
+        "session": "S534",
+        "title": "F-EPIS3 criteria-design audit",
+        "diff_summary": "Expected 1+ well-designed. Found 0. Strongest surprise: PHIL-8's 19/75 (25.3%) proxy-K decreases were never investigated. Also fixed git index corruption (WSL2 issue, needed `git read-tree HEAD`)."
+      },
+      {
+        "session": "S534d",
+        "title": "variational calculus + stale lane cleanup + index repair",
+        "diff_summary": "Expected 1 prediction, got 3. L-1431's deceleration prediction (rate<2.0) FALSIFIED (actual 7.9). Diversity stationarity failure means system is not at variational equilibrium. Time-translation symmet"
+      },
+      {
+        "session": "S534",
+        "title": "B-EVAL2 challenge + authority deference",
+        "diff_summary": "Expected to find quality-quantity tradeoff still sharp. Found tooling matured enough to dissolve it. The real scarcity is depth (L4+), not integration."
+      },
+      {
+        "session": "S533d",
+        "title": "prior sensitivity analysis — F-EPIS1 Bayesian gap CLOSED",
+        "diff_summary": "Expected 3+ gaps. Got 1 major tool (prior sensitivity) + reframing. Surprise: the cure is replication, not better priors."
+      },
+      {
+        "session": "S533c",
+        "title": "PHIL-13 adversarial falsification — dual-pathway discovery",
+        "diff_summary": "Expected ≥3, found 4/4. Authority-routing is universal for human-signal-initiated claims, not occasional."
+      },
+      {
+        "session": "S532b",
+        "title": "F-EPIS1 social epistemology mapping",
+        "diff_summary": "Expected 3 gaps total. Found 5. Social epistemology deficit larger than predicted."
+      },
+      {
+        "session": "S532",
+        "title": "tool-consolidation dead duplicate cleanup",
+        "diff_summary": "Expected a stale dead tool; found an exact root/archive duplicate already preserved in archival state. Cleanup was smaller than a normal consolidation pass, but it clears the only explicitly named dea"
+      },
+      {
+        "session": "S531",
+        "title": "integration compaction + PHIL-18 challenge",
+        "diff_summary": "Expected evidence trimming to be primary technique. Actually challenge archival (34 entries) yielded 2.7x more than evidence trimming. PHIL-18 expected counter-example; got structural critique instead"
+      },
+      {
+        "session": "S532",
+        "title": "orphan commit + epidemic classification fix + PRINCIPLES trim",
+        "diff_summary": "Expected R_bad to decrease but not to zero. The complete absence of genuinely falsified/retracted lessons means the swarm's correction mechanisms work perfectly at preventing harmful spread — but the "
+      },
+      {
+        "session": "S531",
+        "title": "orient.py pool fix + F-SP8 ARMA(2,1",
+        "diff_summary": "orient.py wall time still ~50s (WSL2/NTFS I/O floor). ARMA(2,1) dramatically simpler than FINAR (3 params vs power-law weights + simulation-based fitting)."
+      },
+      {
+        "session": "S531",
+        "title": "confidence_audit.py + .pyc cache fix + bulletin FP fix",
+        "diff_summary": "Expected 30-50 aspirational, found 11. Expected aspiration as dominant, found superseded backlog (12) dominates. First-pass FP rate 82% (body \"superseded\" mentions ≠ status). Steerer signal directiona"
+      },
+      {
+        "session": "S531",
+        "title": "PHIL-18 first challenge + integration + compaction",
+        "diff_summary": "Expected WIRABLE lessons to need wiring — instead found the enforcement_router scanner misses implementations without L-ID references. New failure class."
+      },
+      {
+        "session": "S530",
+        "title": "F-STIG1 amplification loop + orient.py perf fix",
+        "diff_summary": "Expected visibility alone insufficient — cannot confirm yet (need 30 sessions). orient.py fix was unexpected bonus — process reflection target found a real bug."
+      },
+      {
+        "session": "S530",
+        "title": "fractional INAR + bounded variant — F-SP8 discrete long memory",
+        "diff_summary": "Expected straightforward text replacement. Got WSL filesystem race conditions — concurrent sessions reverted writes multiple times. Discovered safe_commit.py (built by concurrent session) solves the c"
+      }
+    ],
+    "non_surprise_sessions": [
+      {
+        "session": "S538",
+        "title": "challenge-per-session wiring + rate-distortion DOMEX"
+      },
+      {
+        "session": "S537",
+        "title": "science-quality periodic + session-source hardening"
+      },
+      {
+        "session": "S536",
+        "title": "F-COL1 diversity + F-EPIS3 adversarial + orphan landing"
+      },
+      {
+        "session": "S537",
+        "title": "PHIL-28 falsification challenge + F-MATH12 minimax"
+      },
+      {
+        "session": "S536d",
+        "title": "PHIL-11 adversarial challenge + F-COL1 diversity"
+      },
+      {
+        "session": "S536c",
+        "title": "forecasting regime analysis + orphan landing"
+      },
+      {
+        "session": "S537",
+        "title": "F-HLT4 epidemic operational/historical filter"
+      },
+      {
+        "session": "S536b",
+        "title": "F-GOV7 democratic deficit — signal type classification"
+      },
+      {
+        "session": "S537",
+        "title": "PHIL-3 refinement + blocked meta-tooler DUE"
+      },
+      {
+        "session": "S536",
+        "title": "L3 integration gap + B-EVAL1 challenge + DUE items"
+      },
+      {
+        "session": "S536b",
+        "title": "grounding injection + B-EVAL1 challenge + maintenance"
+      },
+      {
+        "session": "S535b",
+        "title": "think_generator.py + integration"
+      },
+      {
+        "session": "S535",
+        "title": "minimal generator + generator questions"
+      },
+      {
+        "session": "S533c",
+        "title": "orphan landing + 3 periodics + B-EVAL2 test + audit fix"
+      },
+      {
+        "session": "S534",
+        "title": "PHIL-8 adversarial falsification — F-EPIS3"
+      },
+      {
+        "session": "S534c",
+        "title": "TQ 0.4→0.6 + lanes-compact + B-EVAL2 closure"
+      },
+      {
+        "session": "S534",
+        "title": "dispatch startup hardening + task-order JSON fix"
+      },
+      {
+        "session": "S534",
+        "title": "signal triage + B20 retest"
+      },
+      {
+        "session": "S532c",
+        "title": "ultra-lean genesis + stale lane cleanup"
+      },
+      {
+        "session": "S533j",
+        "title": "generator questions — deep investigation"
+      },
+      {
+        "session": "S533i",
+        "title": "EXPIRED archival + PHIL-13 dogma fix"
+      },
+      {
+        "session": "S533h",
+        "title": "F-EPIS1 RESOLVED + stale lane cleanup"
+      },
+      {
+        "session": "S533g",
+        "title": "tool consolidation + shared lesson parser"
+      },
+      {
+        "session": "S533",
+        "title": "periodics audit + F-SP8 OOS validation"
+      },
+      {
+        "session": "S533e",
+        "title": "external scan + broken refs + historian routing"
+      },
+      {
+        "session": "S533b",
+        "title": "social epistemology + prior elicitation — F-EPIS1 9/10"
+      },
+      {
+        "session": "S532",
+        "title": "NEXT broken-ref cleanup"
+      },
+      {
+        "session": "S533",
+        "title": "prescription audit — L-601 at lesson level"
+      },
+      {
+        "session": "S531",
+        "title": "maintenance perf + test severity — two artifacts"
+      },
+      {
+        "session": "S531",
+        "title": "maintenance.py shared lesson cache — 85s→38s"
+      },
+      {
+        "session": "S531",
+        "title": "F-CTL4 feedback loop stability analysis + orient.py git_health timeout fix"
+      },
+      {
+        "session": "S531",
+        "title": "orient.py hang fix #2 + epidemic FP classifier fix"
+      },
+      {
+        "session": "S530",
+        "title": "orient.py hang fix + F-EVAL2 gap work"
+      },
+      {
+        "session": "S530",
+        "title": "forecast_scorer.py — calibration analysis"
+      },
+      {
+        "session": "S530",
+        "title": "K→P ratio fix + F-EVAL2 retest + tool restoration"
+      },
+      {
+        "session": "S530",
+        "title": "epidemic spread — dual R₀ model + classification dominance"
+      },
+      {
+        "session": "S530",
+        "title": "structural irony — PHIL-13 adversarial falsification + irony audit"
+      },
+      {
+        "session": "S530b",
+        "title": "guard reorder + flock + K→P + PRED-0017 tracking"
+      }
+    ]
+  },
+  "verdict": "WEAK",
+  "interpretation": "Steerer signals covered only 0% of surprise outcomes. Current opposition mechanism does not meaningfully predict decision gaps. Steerers may need domain-specific training or tighter coupling to session planning. Sharpe delta -0.338 is negligible, suggesting steerer activity does not yet measurably affect lesson quality.",
+  "prescription": [
+    "Wire steerer signals into session planning (orient.py) so they are visible before decisions",
+    "Add domain-specific steerer matching: each session's dispatched domain should trigger relevant steerer signals",
+    "Track opposition-acted-on rate: when a steerer signal IS shown, does the session act differently?",
+    "Target: signal_coverage_pct > 60% within 10 sessions of formal opposition wiring"
+  ]
+}
