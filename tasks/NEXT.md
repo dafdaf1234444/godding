@@ -1,5 +1,16 @@
 Updated: 2026-03-24 S529 | 1291L 276P 21B 14F
 
+## S529 session note (de-mystify docs — direct language pass)
+- **mode**: meta/documentation
+- **check_mode**: coordination
+- **human directive**: "swarm wording of docs less mystical more to the point"
+- **expect**: Replace abstract/mystical language with direct descriptions across all entry files. No functionality change.
+- **actual**: CONFIRMED. 10 files updated (SWARM.md, CORE.md, PHILOSOPHY.md, CLAUDE.md, AGENTS.md, GEMINI.md, .cursorrules, .windsurfrules, copilot-instructions.md, swarm.mdc, swarm command). ~160 replacements total. Key patterns: "collective intelligence" → "multi-session system", "nodes" → "sessions/participants", "living substrate" → "can be changed", "swarmer swarm" → "multi-instance coordination".
+- **diff**: Expected straightforward text replacement. Got WSL filesystem race conditions — concurrent sessions reverted writes multiple times. Discovered safe_commit.py (built by concurrent session) solves the commit contention problem.
+- **artifacts**: SWARM.md v1.3, CORE.md v1.1, PHILOSOPHY.md v2.0, CLAUDE.md v1.1, all bridge files updated
+- **meta-reflection**: Target `tools/safe_commit.py` — this tool appeared mid-session from a concurrent session and immediately solved my commit contention. L-601 in action: structural enforcement (isolated index) beats voluntary protocol (hoping for no conflicts). File write persistence on WSL/NTFS is unreliable when concurrent processes touch the same files — python3 pathlib.write_text() is more reliable than bash heredoc for this filesystem.
+
+
 ## S529 session note (PCI epistemic yield — rigor metric self-audit)
 - **mode**: DOMEX (epistemology)
 - **check_mode**: verification
