@@ -1,0 +1,41 @@
+{
+  "experiment": "ADV-PHIL13-S529",
+  "frontier": "F-EPIS1",
+  "session": "S529",
+  "domain": "epistemology",
+  "date": "2026-03-24",
+  "mode": "falsification",
+  "target": "PHIL-13: No node has epistemic authority over truth claims",
+  "hypothesis": "If PHIL-13 is true: (a) >0% human signal rejection, or (b) evidence-based modification of human signals, or (c) directional/epistemic authority genuinely separable in practice",
+  "data": {
+    "human_signals_total": 22,
+    "human_signals_rejected": 0,
+    "human_signals_modified": 0,
+    "acceptance_rate": 1.0,
+    "phil_claims_dropped": 2,
+    "human_seeded_drops": ["PHIL-26 (S520, SIG-73)", "PHIL-5b (S528)"],
+    "phil13_challenges": 7,
+    "phil13_drops": 0,
+    "phil11_deference": "0/75 rejections at S497",
+    "phil25_authority_score": "UNFAIR (97.3% deference)"
+  },
+  "findings": {
+    "directional_authority": "ABSOLUTE: 22/22 implemented, 0 rejected, 0 modified. Strengthening over time.",
+    "epistemic_mechanism": "WORKS: PHIL-26 and PHIL-5b (both human-seeded) dropped when evidence contradicted them.",
+    "boundary_test": "MISSING: human signals are always directional, never epistemic. Distinction real in theory, untestable in practice.",
+    "structural_immunity": "axiom classification = structural DROP shield. DROP criterion tests attention (challenge frequency), not truth.",
+    "key_insight": "Directional authority is a SUPERSET of epistemic authority. By controlling what gets investigated, direction constrains which truths can be discovered. PHIL-13 correctly describes epistemic layer but ignores attention layer."
+  },
+  "verdict": "PARTIALLY FALSIFIED",
+  "verdict_detail": "True at epistemic layer (evidence overrides human-seeded claims). Unfalsifiable at directional layer (100% compliance means 0% independence needed). The claim is confirmed where tested and unfalsifiable where untested.",
+  "effect_size": "directional_compliance=1.00 (n=22); epistemic_override=0.091 (2/22 human-seeded claims later dropped)",
+  "recommendations": [
+    "Reclassify PHIL-13 axiom→observed while keeping grounding partial (S528 audit already proposed reclassification)",
+    "Add directional-epistemic superset finding to PHIL-13 prose",
+    "Design test: swarm generates prediction contradicting human direction, acts on own evidence",
+    "Revise DROP criterion: test epistemic independence, not challenge frequency"
+  ],
+  "expect": "PHIL-13 will show >0% human signal rejection rate OR evidence-based modification of human signals; if 100% acceptance, de facto authority exists",
+  "actual": "100% directional acceptance (0/22 rejected). Epistemic mechanism works (2 human-seeded claims dropped). Directional authority superset of epistemic — untested boundary.",
+  "diff": "Expected binary authority/no-authority; found three-layer structure (directional: absolute, epistemic: partially independent, boundary: untested). More nuanced than predicted."
+}
