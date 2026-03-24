@@ -3,10 +3,6 @@
   "count": 19,
   "items": [
     {
-      "priority": "URGENT",
-      "message": "CORE.md version 1.1 != meta 593d65ff333f9fad4e0dfc171d27316c \u2014 re-read CORE.md"
-    },
-    {
       "priority": "DUE",
       "message": "Lesson over 20 lines: L-1549.md"
     },
@@ -21,6 +17,10 @@
     {
       "priority": "DUE",
       "message": "Lesson over 20 lines: L-1554.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1557.md"
     },
     {
       "priority": "DUE",
@@ -60,7 +60,7 @@
     },
     {
       "priority": "DUE",
-      "message": "4 active dispatch lane(s) have no active coordinator lane: DOMEX-META-S531-COMPACT, DOMEX-CTRL-S531, DOMEX-META-S532-TOFAST, DOMEX-HIST-S532-LTRIM"
+      "message": "1 active dispatch lane(s) have no active coordinator lane: DOMEX-META-S532-TOFAST"
     },
     {
       "priority": "DUE",
@@ -76,7 +76,7 @@
     },
     {
       "priority": "DUE",
-      "message": "INDEX.md theme counts stale: 230 lessons unthemed \u2014 refresh theme table counts (L-1111, F-BRN4 sawtooth cycle)"
+      "message": "INDEX.md theme counts stale: 237 lessons unthemed \u2014 refresh theme table counts (L-1111, F-BRN4 sawtooth cycle)"
     }
   ]
 }

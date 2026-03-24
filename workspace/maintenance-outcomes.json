@@ -1942,7 +1942,7 @@
     },
     {
       "session": 532,
-      "timestamp": "2026-03-24T04:47:24Z",
+      "timestamp": "2026-03-24T04:51:41Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -1960,11 +1960,9 @@
           "severities": []
         },
         "check_runtime_portability": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_commit_hooks": {
           "fired": false,
@@ -1972,11 +1970,9 @@
           "severities": []
         },
         "check_version_drift": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "URGENT"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_open_challenges": {
           "fired": false,
@@ -1990,8 +1986,9 @@
         },
         "check_lessons": {
           "fired": true,
-          "count": 5,
+          "count": 6,
           "severities": [
+            "DUE",
             "DUE",
             "DUE",
             "DUE",
@@ -2265,12 +2262,16 @@
             "DUE",
             "NOTICE"
           ]
+        },
+        "check_unpushed": {
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
-        "NOTICE": 22,
-        "URGENT": 1,
-        "DUE": 18,
+        "DUE": 19,
+        "NOTICE": 21,
         "PERIODIC": 14
       }
     }

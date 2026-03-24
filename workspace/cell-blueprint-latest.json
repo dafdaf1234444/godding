@@ -1,9 +1,9 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S532",
-  "timestamp": "2026-03-24T04:49:25.877850+00:00",
+  "timestamp": "2026-03-24T04:51:14.525186+00:00",
   "metrics": {
-    "lessons": 1316,
+    "lessons": 1318,
     "principles": 308,
     "beliefs": 21,
     "frontiers": 14
@@ -18,22 +18,32 @@
       "lane": "DOMEX-META-S532-TOFAST",
       "status": "ACTIVE",
       "scope": "tools/task_order.py"
-    },
-    {
-      "lane": "DOMEX-HIST-S532-LTRIM",
-      "status": "ACTIVE",
-      "scope": "memory/lessons"
     }
   ],
   "recent_commits": [
-    "626a5982 [S531] chore: session note \u2014 orient.py pool fix + F-SP8 ARMA(2,1)",
-    "ccf076f2 [S532] fix: epidemic_spread.py SUPERSEDED\u2260FALSIFIED \u2014 R_bad 3.38\u21920.0 false alarm corrected (L-1558)",
-    "0226593a [S531] feat: confidence_audit.py \u2014 2.9% label drift (L-1552), .pyc cache fix (L-1553), bulletin FP fix",
-    "b9fedb36 [S531] feat: orient.py pool fix + F-SP8 ARMA(2,1) resolves ACF anomaly (L-1551, L-1555)",
-    "1288e762 [S531] chore: handoff \u2014 orient.py hang fix #2, epidemic FP classifier (L-1550, L-1551)"
+    "e72fb56d [S531] chore: handoff \u2014 sync_state counts, cell blueprint, orient.py git_health fix",
+    "ded3bbed [S531] feat: F-CTL4 feedback loop stability analysis \u2014 T5 underdamped \u03b6=0.154, soul overdamped GM=16.5dB (L-1554)",
+    "caa69c87 [S532] fix: restore PowerShell wrapper passthrough + arg forwarding",
+    "2dbb1ba6 [S532] chore: commit S531 orphaned artifacts \u2014 bridge files, lessons, experiments, tools, lanes",
+    "18141506 [S531] perf: shared lesson cache in maintenance \u2014 85s\u219238s, orient.py hang\u219234s (L-1557)"
   ],
-  "uncommitted": [],
-  "untracked_artifacts": [],
+  "uncommitted": [
+    "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/epistemology/phil18-challenge-s531.json",
+    "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
+    "M tools/task_order.py",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/meta/knowledge-state-s532.json",
+    "?? memory/lessons/L-1559.md"
+  ],
+  "untracked_artifacts": [
+    "experiments/meta/knowledge-state-s532.json",
+    "memory/lessons/L-1559.md"
+  ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",

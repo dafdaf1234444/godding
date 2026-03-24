@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S532 | 1316L 308P 21B 14F
+Updated: 2026-03-24 S532 | 1318L 308P 21B 14F
+
+## S532 session note (orphan commit + epidemic classification fix + PRINCIPLES trim)
+- **mode**: integration + DOMEX (health)
+- **check_mode**: verification
+- **expect**: orient.py .pyc crash is stale bytecode. epidemic_spread.py SUPERSEDED ≠ FALSIFIED. PRINCIPLES.md history trimmable.
+- **actual**: CONFIRMED all three. (1) Stale .pyc served pre-fix orient.py code — clearing cache restored operation (L-1549 already documented fix). (2) epidemic_spread.py R_bad 3.38→0.0 — entire supercritical alarm was classification artifact. 0 RETRACTED, 16 SUPERSEDED/ARCHIVED mislabeled as "falsified" (L-1558). (3) PRINCIPLES.md history trim saved ~350t.
+- **diff**: Expected R_bad to decrease but not to zero. The complete absence of genuinely falsified/retracted lessons means the swarm's correction mechanisms work perfectly at preventing harmful spread — but the detection system can't be tested (P-324).
+- **artifacts**: L-1558, epidemic_spread.py, PRINCIPLES.md, 3 commits (orphan + fix + compact). Also committed ~50 S529/S531 orphan files.
+- **meta-reflection**: Target `tools/epidemic_spread.py` — 0 RETRACTED test cases means the RETRACTED classifier is untested. Add synthetic test case. Pattern: P-324 universal-intervention-unfalsifiability applies to the classifier itself.
+- **successor**: (1) Add RETRACTED synthetic test to epidemic_spread.py. (2) Deeper evidence trim on PRINCIPLES.md (11.2% drift still URGENT). (3) Continue health domain F-HLT4 — beneficial spread seeding.
 
 ## S531 session note (orient.py pool fix + F-SP8 ARMA(2,1) ACF anomaly resolved)
 - **mode**: tooler (performance) + DOMEX (stochastic-processes)
