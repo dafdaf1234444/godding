@@ -9,6 +9,7 @@ Replaces the manual pattern of: read NEXT.md + INDEX.md + FRONTIER.md + run main
 
 Usage:
     python3 tools/orient.py                         # full orientation
+    python3 tools/orient.py --fast                   # fast mode (~4s vs 60s+, file reads only)
     python3 tools/orient.py --brief                 # compact one-screen summary
     python3 tools/orient.py --coord                 # coordination-only (for concurrent sessions)
     python3 tools/orient.py --classify "build X"   # route a task to domain+personality
@@ -290,6 +291,7 @@ def _print_lines(lines):
 def main():
     brief = "--brief" in sys.argv
     coord = "--coord" in sys.argv  # coordination-only: skip static analysis (L-1425)
+    fast = "--fast" in sys.argv    # fast mode: skip maintenance + heavy scans (S541 perf fix)
 
     _auto_repair_swarm_md()
 
@@ -311,6 +313,82 @@ def main():
         extract_critical_frontiers as _frontiers, get_recent_commits as _commits,
         get_current_session_from_git as _git_session, extract_open_signals as _signals,
     )
+
+    # --fast: lightweight orientation -- file reads only, no subprocess/heavy scans
+    # Produces decision-ready output in <5s vs 60-120s for full orient (S541 perf fix)
+    if fast:
+        index_text = _read("memory/INDEX.md")
+        next_text = _read("tasks/NEXT.md")
+        frontier_text = _read("tasks/FRONTIER.md")
+        signals_text = _read("tasks/SIGNALS.md")
+        log_text = _read("memory/SESSION-LOG.md")
+
+        session, counts = _state(index_text)
+        sess_m = re.search(r"S(\d+)", session)
+        sess_num = int(sess_m.group(1)) if sess_m else 0
+
+        print(f"=== ORIENT {session} | {counts} [FAST] ===")
+        print(f"Maintenance: skipped (--fast)")
+        print()
+
+        from orient_sections import (
+            section_key_state, section_priorities, section_frontiers,
+            section_open_signals, section_recent_commits, section_session_log_tail,
+            section_concurrent_activity, section_agent_positions,
+            section_stale_lanes, section_epsilon_dispatch,
+            section_suggested_action,
+        )
+
+        _print_lines(section_key_state(_key_state(next_text)))
+        _print_lines(section_priorities(_priorities(next_text)))
+        _print_lines(section_frontiers(_frontiers(frontier_text)))
+
+        open_signals = _signals(signals_text, current_session=sess_num)
+        _print_lines(section_open_signals(open_signals))
+
+        git_session = _git_session()
+        current_sess_num = git_session if git_session > 0 else sess_num
+        if current_sess_num > 0:
+            from orient_checks import check_stale_lanes as _check_stale_lanes
+            lane_lines, _ = section_stale_lanes(current_sess_num, lambda s: _check_stale_lanes(s, ROOT, _read))
+            _print_lines(lane_lines)
+
+        try:
+            import json as _json_pred
+            from datetime import datetime as _dt_pred
+            _pred_reg = ROOT / "experiments" / "finance" / "predictions" / "registry.json"
+            if _pred_reg.exists():
+                _pred_data = _json_pred.loads(_pred_reg.read_text())
+                _today = _dt_pred.now().date()
+                _due_soon = []
+                for _p in _pred_data.get("predictions", []):
+                    if _p.get("status") != "OPEN":
+                        continue
+                    _rb = _p.get("resolve_by")
+                    if _rb:
+                        _rd = _dt_pred.strptime(_rb, "%Y-%m-%d").date()
+                        _days = (_rd - _today).days
+                        if _days <= 7:
+                            _due_soon.append((_days, _p))
+                if _due_soon:
+                    print(f"\n--- Prediction Deadlines (F-FORE1) ---")
+                    for _days, _p in sorted(_due_soon):
+                        _label = f"{abs(_days)}d OVERDUE" if _days < 0 else ("TODAY" if _days == 0 else f"in {_days}d")
+                        _flag = "\u26a0" if _days <= 0 else "\u2192"
+                        print(f"  {_flag} {_p['id']} {_p['direction']} {_p['asset']} "
+                              f"(conf={_p['confidence']}) \u2014 {_label} ({_p['resolve_by']})")
+                    print(f"  Resolve: python3 tools/market_predict.py resolve --id <ID> --outcome-price <price>")
+        except Exception:
+            pass
+
+        _print_lines(section_epsilon_dispatch(current_sess_num))
+        _print_lines(section_recent_commits(_commits()))
+        _print_lines(section_session_log_tail(log_text, brief))
+        _print_lines(section_agent_positions())
+        _print_lines(section_concurrent_activity())
+        _print_lines(section_suggested_action("", open_signals, {}, _priorities(next_text)))
+        return
+
     from orient_sections import (
         section_maintenance, section_session_triggers, section_open_signals,
         section_index_coverage, section_precompact_checkpoint, section_cell_blueprint,
