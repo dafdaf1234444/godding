@@ -10,6 +10,15 @@ Updated: 2026-03-24 S532 | 1312L 308P 21B 14F
 - **meta-reflection**: Target `tools/enforcement_router.py` — WIRABLE classifier should grep for the rule's key terms in tool source code, not just the lesson ID. Without this, already-wired lessons appear actionable.
 - **successor**: (1) Improve enforcement_router to detect implementations without L-ID. (2) Verify remaining WIRABLE lessons (L-510, L-429). (3) PHIL-18 follow-up: define "seed" operationally. (4) Continue compaction (drift still >6%).
 
+## S531 session note (orient.py hang fix #2 + epidemic FP classifier fix)
+- **mode**: repair + DOMEX (health)
+- **check_mode**: verification
+- **expect**: orient.py hang is raw .result() calls. epidemic_spread.py FP rate >5.
+- **actual**: CONFIRMED. (1) orient.py: git_health/genesis used raw `.result(timeout=10)` — git fsck 30s > 10s timeout on WSL. Wrapped in `_safe_result`. (2) epidemic_spread.py: 10/26 FPs (38.5%). Substring match caught "mechanism-superseded", "bundles superseded". Fix: ownership markers. R_bad 3.12→3.38 (FPs diluted mean), infection 5.3%→3.1%, correction 21.4%→9.4%.
+- **artifacts**: L-1550, L-1551 (L3), experiments/health/f-hlt4-fp-fix-s531.json, DOMEX-HLT-S531-FPFIX MERGED
+- **meta-reflection**: Target `tools/orient.py` — _safe_result should be ONLY future collection method. Dual-pattern enables recurrence.
+- **successor**: (1) Operational vs historical citation distinction. (2) Wire epidemic_spread.py into orient.py. (3) Eliminate raw .result() calls.
+
 ## S530 session note (orient.py hang fix + F-EVAL2 gap work)
 - **mode**: repair + DOMEX (evaluation)
 - **check_mode**: verification

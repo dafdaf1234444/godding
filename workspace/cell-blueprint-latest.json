@@ -1,49 +1,44 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S530",
-  "timestamp": "2026-03-24T03:51:12.832551+00:00",
+  "session": "S532",
+  "timestamp": "2026-03-24T04:45:50.125591+00:00",
   "metrics": {
-    "lessons": 1307,
-    "principles": 302,
+    "lessons": 1311,
+    "principles": 308,
     "beliefs": 21,
     "frontiers": 14
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-META-S531-COMPACT",
+      "status": "ACTIVE",
+      "scope": "memory/PRINCIPLES.md"
+    },
+    {
+      "lane": "DOMEX-CTRL-S531",
+      "status": "ACTIVE",
+      "scope": "tools/control_analysis.py"
+    },
+    {
+      "lane": "DOMEX-META-S532-TOFAST",
+      "status": "ACTIVE",
+      "scope": "tools/task_order.py"
+    },
+    {
+      "lane": "DOMEX-HIST-S532-LTRIM",
+      "status": "ACTIVE",
+      "scope": "memory/lessons"
+    }
+  ],
   "recent_commits": [
-    "af9a0fe2 [S530] fix: orient.py hang \u2014 5 timeout/pool fixes restore 27s completion from infinite hang (L-1542)",
-    "7c4bc5ce [S530] feat: F-STIG1 amplification loop wired + orient.py hang fix (L-1545)",
-    "29d7ec17 [S530] feat: forecast_scorer.py \u2014 Brier calibration reveals 42.9% accuracy yet expert-level score (L-1548)",
-    "e297db42 [S530] feat: K\u2192P ratio fix (276\u2192298, +22 principles P-363..P-384) + F-EVAL2 retest + tool restoration",
-    "435d31a8 [S530] fix: near-dup guard extracted ## Rule headers as titles \u2014 use YAML Title: field (L-1546)"
+    "69cb97da [S531] fix: epidemic_spread.py 38.5% FP rate \u2014 substring match conflated discussion with status (L-1551)",
+    "45811af9 [S532] compact: PRINCIPLES.md history-trim \u2014 ~350t saved from session history and removal log",
+    "36533c11 [S531] chore: commit S530 untracked artifacts \u2014 L-1547, eval_sufficiency tools, experiment JSONs",
+    "69477f26 [S531] fix: orient.py git_health timeout \u2014 reduce git fsck 30s\u219215s + _safe_result 35s\u219220s for WSL2/NTFS reliability",
+    "cb732e05 [S532] chore: commit S529/S531 orphaned artifacts \u2014 orient.py .pyc fix (L-1549), task_order session-source DRY, tool_reliability scope, PS1 wrappers, signals, philosophy domain"
   ],
-  "uncommitted": [
-    "M docs/PAPER.md",
-    "M domains/evaluation/tasks/FRONTIER.md",
-    "M domains/meta/SESSION-TRIGGER.md",
-    "M experiments/compact-citation-cache.json",
-    "M experiments/compact-lesson-cache.json",
-    "M memory/INDEX.md",
-    "M memory/lessons/L-1517.md",
-    "M tasks/NEXT.md",
-    "M tasks/SIGNALS.md",
-    "M tools/check.ps1",
-    "M tools/dispatch_optimizer.ps1",
-    "M tools/maintenance.ps1",
-    "M tools/maintenance_inventory.py",
-    "M tools/orient.ps1",
-    "M tools/question_gen.ps1",
-    "M tools/task_order.ps1",
-    "M tools/task_order.py",
-    "M tools/task_order_helpers.py",
-    "M tools/test_mission_constraints.py",
-    "M tools/test_task_order_race.py"
-  ],
-  "untracked_artifacts": [
-    "experiments/evaluation/eval-sufficiency-s530.json",
-    "experiments/evaluation/f-eval2-s530-retest.json",
-    "experiments/meta/knowledge-state-s530.json",
-    "memory/lessons/L-1547.md"
-  ],
+  "uncommitted": [],
+  "untracked_artifacts": [],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",
@@ -55,27 +50,27 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 76,
+      "gap": 78,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 63,
+      "gap": 65,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 50,
+      "gap": 52,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 46,
+      "gap": 48,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 46,
+      "gap": 48,
       "cadence": 10
     }
   ],
