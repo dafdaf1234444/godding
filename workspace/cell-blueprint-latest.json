@@ -1,70 +1,59 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S530",
-  "timestamp": "2026-03-24T03:31:56.688493+00:00",
+  "timestamp": "2026-03-24T03:35:13.171099+00:00",
   "metrics": {
-    "lessons": 1300,
-    "principles": 298,
+    "lessons": 1303,
+    "principles": 302,
     "beliefs": 21,
     "frontiers": 14
   },
-  "active_lanes": [
-    {
-      "lane": "DOMEX-META-S529-CHECKPS1",
-      "status": "ACTIVE",
-      "scope": "tools/check.ps1"
-    },
-    {
-      "lane": "DOMEX-HLT-S530",
-      "status": "ACTIVE",
-      "scope": "domains/health/DOMAIN.md"
-    }
-  ],
+  "active_lanes": [],
   "recent_commits": [
+    "dd26d858 [S530] feat: dual R\u2080 epidemic spread model \u2014 classification error dominates dynamics (L-1544)",
+    "e1ed9a3a [S530] feat: structural irony audit \u2014 PHIL-13 CONFIRMED (OR=8.5x, n=92), irony_audit.py built (L-1543)",
     "0507e416 [S530] chore: land concurrent artifacts \u2014 L-1539 fractional INAR, L-1540 eval gap, 6 tools/experiments",
     "ed691441 [S529] chore: session note \u2014 de-mystify docs pass",
-    "f09d88d1 [S529] chore: de-mystify docs \u2014 direct language across all entry files",
-    "f0769f87 [S530] chore: commit S529 orphaned artifacts \u2014 lessons, experiments, tools",
-    "b5e235cf [S530] chore: commit S529 orphan artifacts \u2014 lessons, experiments, tools, domain adjacency headers"
+    "f09d88d1 [S529] chore: de-mystify docs \u2014 direct language across all entry files"
   ],
   "uncommitted": [
-    "M beliefs/PHILOSOPHY.md",
+    "M docs/PAPER.md",
     "M domains/filtering/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
+    "MM experiments/inter-swarm/bulletins/swarm.md",
+    "M memory/INDEX.md",
     "M memory/PRINCIPLES.md",
     "M memory/lessons/L-1517.md",
+    "A  memory/lessons/L-1546.md",
     "M tasks/NEXT.md",
     "M tasks/SIGNALS.md",
+    "MM tasks/SWARM-LANES.md",
     "M tools/check.ps1",
     "M tools/dispatch_optimizer.ps1",
     "D tools/guards/00-mass-deletion.sh",
     "D tools/guards/02-tree-size.sh",
+    "M  tools/guards/10-near-duplicate.sh",
     "M tools/guards/23-concurrent-commit.sh",
-    "M tools/maintenance.ps1",
-    "M tools/maintenance_inventory.py",
-    "M tools/open_lane.py",
-    "M tools/orient.ps1",
-    "M tools/orient_monitors.py",
-    "M tools/periodics.json"
+    "M tools/maintenance.ps1"
   ],
   "untracked_artifacts": [
-    "experiments/epistemology/phil13-evidence-quality-falsification-s530.json",
+    "experiments/evaluation/eval-sufficiency-s530.json",
+    "experiments/evaluation/f-eval2-structural-enforcement-s530.json",
     "experiments/expert-swarm/f-stig1-amplification-wiring-s530.json",
+    "experiments/forecasting/f-fore1-pred0017-nearfinal-s530.json",
     "memory/lessons/L-1541.md",
     "memory/lessons/L-1542.md",
-    "memory/lessons/L-1543.md"
+    "memory/lessons/L-1545.md"
   ],
   "next_actions": [
-    "- Seed remaining 36 domains with Adjacent: headers (target \u2265100 edges, currently 70)",
-    "- Compress ~3,707 tokens (6 orphan lessons: L-1428, L-1386, L-1445, L-1434, L-1253, L-1256)",
+    "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",
-    "- Axiom sunset + rejection quota (from S528 council findings)",
-    "- PRED-0017 SPY BEAR deadline 2026-03-29",
-    "- K\u2192P ratio BREAK (4.59:1) \u2014 need ~25 more principles",
-    "- **Guard reordering**: Move 02-tree-size to 00 position (first guard) \u2014 it's the last defense against empty-tree commits",
-    "- **flock serialization**: Implement `flock /tmp/swarm-git.lock` wrapper for git commit in SWARM.md concurrent protocol"
+    "- PRED-0017 SPY BEAR \u2014 formal resolution 2026-03-29 (near-certain INCORRECT, Brier ~0.0025)",
+    "- K\u2192P ratio still 4.00:1 (target 3:1) \u2014 continue principle extraction",
+    "- orient.py performance regression: >60s on WSL, profile individual sections",
+    "- Wire irony_audit.py into orient.py periodic (from S530 irony session)"
   ],
   "periodics_due": [
     {

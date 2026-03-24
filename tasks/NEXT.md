@@ -1,4 +1,13 @@
-Updated: 2026-03-24 S530 | 1300L 298P 21B 14F
+Updated: 2026-03-24 S530 | 1303L 302P 21B 14F
+
+## S530 session note (epidemic spread — dual R₀ model + classification dominance)
+- **mode**: DOMEX (health), exploration
+- **check_mode**: objective
+- **expect**: Dual R₀ model separates harmful from beneficial spread with AUC>0.7. Externalizable to ≥3 domains.
+- **actual**: PARTIALLY CONFIRMED. R_bad=3.12 (supercritical), R_good=4.22 (healthy), SIR: 5.4% infected/42.4% immune. Classification error dominance discovered: naive detector 15x overcount (122→26 falsified) changes every metric. 4 external applications mapped.
+- **artifacts**: L-1544 (classification dominance, L3), tools/epidemic_spread.py, experiments/health/f-hlt4-dual-r0-s530.json, DOMEX-HLT-S530 MERGED
+- **meta-reflection**: Target `tools/epidemic_spread.py` — reinvented falsification detection instead of importing from correction_propagation.py. The bug IS the lesson: always use canonical sources. safe_commit.py bypasses pre-commit hooks — concurrency safety vs quality gates tradeoff unresolved.
+- **successor**: (1) Wire epidemic_spread.py into orient.py. (2) Target L-633/L-1192 super-spreaders. (3) Raise correction rate 0.214→0.679 for herd immunity.
 
 ## S530 session note (structural irony — PHIL-13 adversarial falsification + irony audit)
 - **mode**: DOMEX (epistemology), falsification
@@ -105,15 +114,22 @@ Updated: 2026-03-24 S530 | 1300L 298P 21B 14F
 - **artifacts**: L-1530 (stampede lesson), tools/guards/23-concurrent-commit.sh (blocks at >4 concurrent git processes)
 - **meta-reflection**: Target `tools/guards/00-mass-deletion.sh` — the mass-deletion guard correctly triggers during stampede, but a concurrent session can bypass with ALLOW_MASS_DELETION and commit a near-empty tree. The tree-size guard (02) catches this but runs AFTER mass-deletion. Consider: tree-size should be guard 00 (first check).
 
+## S530b session note (guard reorder + flock + K→P + PRED-0017 tracking)
+- **mode**: meta/infrastructure + forecasting
+- **check_mode**: coordination
+- **expect**: Guard reorder and flock add prevent empty-tree commits. K→P ratio improves by ~4 principles. PRED-0017 scoring update shows bear thesis failing.
+- **actual**: Guard 02-tree-size → 00 (first check, L-1541). safe_commit.py hardened with flock serialization + expected-parent update-ref (prevents stale-parent race). 4 principles extracted (P-385..P-388), ratio 4.05→4.00:1. PRED-0017 near-certain INCORRECT (SPY +1.05% from base, conf 0.05). Axiom sunset + rejection quota periodics registered.
+- **artifacts**: L-1541 (guard order), P-385..P-388, tools/safe_commit.py (flock), tools/periodics.json (+2 periodics), experiments/forecasting/f-fore1-pred0017-nearfinal-s530.json
+- **meta-reflection**: Target `tools/safe_commit.py` — flock + expected-parent closes stale-parent race. Pattern generalizable: any shared-state modify must read-under-lock. orient.py >60s on WSL is a reliability regression from parallelized I/O contention.
+- **successor**: (1) PRED-0017 formal resolution on Mar 29. (2) Compress 43 EXPIRED lessons (~4130 tokens). (3) F-CITY1: measure adjacency reward difference. (4) orient.py perf: profile individual sections to find >60s bottleneck.
+
 ## For next session
-- Seed remaining 36 domains with Adjacent: headers (target ≥100 edges, currently 70)
-- Compress ~3,707 tokens (6 orphan lessons: L-1428, L-1386, L-1445, L-1434, L-1253, L-1256)
+- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)
 - F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes
-- Axiom sunset + rejection quota (from S528 council findings)
-- PRED-0017 SPY BEAR deadline 2026-03-29
-- K→P ratio BREAK (4.59:1) — need ~25 more principles
-- **Guard reordering**: Move 02-tree-size to 00 position (first guard) — it's the last defense against empty-tree commits
-- **flock serialization**: Implement `flock /tmp/swarm-git.lock` wrapper for git commit in SWARM.md concurrent protocol
+- PRED-0017 SPY BEAR — formal resolution 2026-03-29 (near-certain INCORRECT, Brier ~0.0025)
+- K→P ratio still 4.00:1 (target 3:1) — continue principle extraction
+- orient.py performance regression: >60s on WSL, profile individual sections
+- Wire irony_audit.py into orient.py periodic (from S530 irony session)
 
 ## S528k session note (soul+brain extractor, swarm Alan Turing)
 - **mode**: DOMEX (epistemology+mathematics) — human directive "swarm soul and brain extractor, swarm alan turing"

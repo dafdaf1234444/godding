@@ -1,14 +1,70 @@
 {
-  "session": 528,
-  "count": 2,
+  "session": 530,
+  "count": 16,
   "items": [
     {
-      "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1506.md"
+      "priority": "URGENT",
+      "message": "CORE.md version 1.1 != meta 593d65ff333f9fad4e0dfc171d27316c \u2014 re-read CORE.md"
     },
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1507.md"
+      "message": "1 bridge file(s) missing swarm signaling guidance: CLAUDE.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "6 bridge file(s) missing 'Minimum Swarmed Cycle' section (F-GOV2, L-351): CLAUDE.md, AGENTS.md, GEMINI.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1531.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1535.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1537.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1538.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1541.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "[periodics-meta-audit] Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items. S437: pruned iso-annotation-sprint (dark matter stable 75s), merged historian-repair into historian-routing. Adjusted 6 cadences: health 5\u219210, economy 5\u219210, setup 5\u219210, dream 15\u219225, proxy-k 15\u219225, science-quality 10\u219220. Load 3.86\u21922.8 runs/session. 27\u219225 items. (every ~15 sessions, last: S499)"
+    },
+    {
+      "priority": "DUE",
+      "message": "[historian-routing] Historian routing + repair scan: (1) run python3 tools/historian_router.py \u2014 identify MERGED domain lanes with global frontier synthesis candidates; (2) run frontier_crosslink.py --apply --threshold 6 to maintain crosslinks (L-1022: link decay); (3) run historian_repair.py \u2014 detect stale beliefs (>50s), anxiety-zone frontiers (>15s), domain DOMEX gaps (>30s), apply --repair to close stale lanes. Route synthesis-ready work to dispatch. F-NK6 M3 mechanism (L-996, L-800). S436: domain\u2192global linkage 28.3%. Target: maintain \u226520% linkage. L-1060: cadence 5\u21923 (M3 routing generates ~2 updates/session; tighter cadence maintains global coverage). (every ~15 sessions, last: S499)"
+    },
+    {
+      "priority": "DUE",
+      "message": "[steerer-cycle] Synthetic steerer cycle: run steerer.py run --all, generate 2-3 signals per steerer, record via steerer.py record, act on strongest signal. L-1337, L-1336. (every ~5 sessions, last: S518)"
+    },
+    {
+      "priority": "DUE",
+      "message": "1 signal(s) >30 sessions without resolution: SIG-77(+32s). Close or escalate (L-908 TTL)."
+    },
+    {
+      "priority": "DUE",
+      "message": "Count drift in INDEX.md (L: stated 1302 vs actual 1300) \u2014 run python3 tools/sync_state.py"
+    },
+    {
+      "priority": "DUE",
+      "message": "3 broken file reference(s): SWARM.md->modes/BASE.md, SWARM.md->modes/audit.md, NEXT.md->tools/guards/00-mass-deletion.sh"
+    },
+    {
+      "priority": "DUE",
+      "message": "71 tools unreferenced by automation (>61 threshold, L-896) \u2014 open a meta-tooler DOMEX lane to wire or archive"
+    },
+    {
+      "priority": "DUE",
+      "message": "INDEX.md theme counts stale: 222 lessons unthemed \u2014 refresh theme table counts (L-1111, F-BRN4 sawtooth cycle)"
     }
   ]
 }
