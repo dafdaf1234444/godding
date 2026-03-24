@@ -1,0 +1,31 @@
+{
+  "experiment": "F-EPIS3 P-claim fortress adversarial test",
+  "session": "S543",
+  "domain": "epistemology",
+  "hypothesis": "P-claims (100% confirmation, 7/7) are a fortress of neglect, not invulnerability — at least 1/309 has contradictory evidence in the repo",
+  "method": "Full scan of 309 P-claims against cited lessons and repo state. Cross-reference numerical claims with subsequent measurements.",
+  "result": "CONFIRMED — 3/309 P-claims have strong contradictory evidence",
+  "contradictions": [
+    {
+      "principle": "P-243",
+      "claim": "58:1 confirmation ratio (L-787)",
+      "evidence_against": "L-1649: overall rate 0.510, keyword proxy ≠ belief-update rate",
+      "severity": "STRONG"
+    },
+    {
+      "principle": "P-245",
+      "claim": "UCB1 is the ONLY valid dispatch policy",
+      "evidence_against": "L-1635 Goodhart (rho_internal=+0.693, rho_external=-0.151), L-1643 indistinguishable from equal-weight, 10+ non-UCB1 mods in dispatch_scoring.py",
+      "severity": "STRONG"
+    },
+    {
+      "principle": "P-341 T1",
+      "claim": "15:1 identity-load confirmation rate",
+      "evidence_against": "L-1649: rate decomposed by type (P=100%, PHIL=16.7%, L=0%), not identity-load. 15:1 from same keyword proxy as P-243",
+      "severity": "STRONG"
+    }
+  ],
+  "implication": "P-claim fortress is maintenance neglect, not strength. No adversarial process tests principles. Lakatos hard-core structure confirmed: principles structurally unfalsifiable from within.",
+  "lesson": "L-1652",
+  "prediction_outcome": "CONFIRMED — found 3 contradictions, predicted at least 1"
+}
