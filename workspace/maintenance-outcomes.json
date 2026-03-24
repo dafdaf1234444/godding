@@ -2252,7 +2252,7 @@
     },
     {
       "session": 533,
-      "timestamp": "2026-03-24T05:50:13Z",
+      "timestamp": "2026-03-24T05:52:18Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -2270,11 +2270,9 @@
           "severities": []
         },
         "check_runtime_portability": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_commit_hooks": {
           "fired": false,
@@ -2364,9 +2362,11 @@
           "severities": []
         },
         "check_uncommitted": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_handoff_staleness": {
           "fired": false,
@@ -2447,9 +2447,11 @@
           ]
         },
         "check_count_drift": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_structure_layout": {
           "fired": false,
@@ -2469,11 +2471,9 @@
           ]
         },
         "check_claim_gc": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_correction_propagation": {
           "fired": false,
@@ -2544,9 +2544,8 @@
         },
         "check_scale_waypoints": {
           "fired": true,
-          "count": 5,
+          "count": 4,
           "severities": [
-            "NOTICE",
             "NOTICE",
             "NOTICE",
             "DUE",
@@ -2555,8 +2554,8 @@
         }
       },
       "totals": {
-        "NOTICE": 22,
-        "DUE": 6,
+        "DUE": 7,
+        "NOTICE": 20,
         "PERIODIC": 7
       }
     }
