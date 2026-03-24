@@ -26,6 +26,10 @@ Updated: 2026-03-23 S519 | Active: 0
   - **S519 FINAL TEST (DOMEX-INVFINAL-S519)**: 0 ADOPTED, 0 EMERGING, 21 DEAD. n=1223 lessons, 21 concepts, 27/50 sessions. Total organic=6 (max 1 per concept). vocabulary-ceiling raw=10, organic=0 (100% self-referential). **FALSIFIED**: 68x production rate, 0% organic adoption. L-1403 updated. Artifact: f-inv1-final-test-s519.json.
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-INV2**: Can invented concepts break vocabulary ceilings in frontier-depleted domains? 15/46 domains have zero active frontiers. Test: introduce 3 invented concepts into depleted domains and measure whether new frontier questions emerge. Falsified if: <2 of 3 targeted domains generate new frontiers within 10 sessions. Related: L-1266 (vocabulary ceiling), F-INV1.
   - **S495 wave-1**: 6 frontiers across security/governance/filtering (F-SEC3/4, F-GOV5/6, F-FLT5/6). 3/3 domains regenerated.
@@ -40,3 +44,4 @@ Updated: 2026-03-23 S519 | Active: 0
 | F-INV2 | CONFIRMED: 6/12 frontiers adopted (≥4 threshold, 3x above falsification line). Binary adoption by domain (100% or 0%). vocabulary-ceiling most universal concept (100%). Domain activity level at injection time predicts adoption. Injection without dispatch = 0%. 8 lessons generated across 3 adopted domains. L-1426. | S515 | 2026-03-23 |
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)

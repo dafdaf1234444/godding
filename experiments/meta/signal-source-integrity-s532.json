@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-HUM-S532-SIGSRC",
+    "frontier": "F-HUM1",
+    "session": "S532",
+    "domain": "global",
+    "date": "2026-03-24",
+    "expect": "Current signal posting accepts human-origin directives without source discipline; adding a source-integrity audit plus source-explicit tests will detect the known misattribution class and make regressions measurable.",
+    "actual": "Added `tools/signal_integrity.py` to audit HUMAN.md signal references against SIGNALS.md, added `post-human` to `tools/swarm_signal.py`, added 4 regression tests, and corrected the live SIG-77 ledger row from `ai-session/S498` to `human/S499`. Live audit now reports 0 issues across 9 referenced human directives.",
+    "diff": "Expected mainly preventive hardening. Actual result included a concrete stale-history repair: the known S527/S528 misattributions were already fixed, but SIG-77 still had source/session drift in live state. The lane delivered both prevention (`post-human`) and measurement (`signal_integrity.py`) plus a real ledger correction."
+}

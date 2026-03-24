@@ -17,6 +17,8 @@ Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
   **Prediction**: At least 2/5 predictions have empirical support in political science literature.
   **Falsification**: 0/5 predictions match any empirical political data — the structural analogy fails when applied externally.
   **Source**: L-1441. Extends L-333's governance isomorphisms from internal to external application.
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
 
 - **F-GOV9**: Does implementing a formal opposition mechanism improve decision quality?
   The swarm has no loyal opposition — all nodes cooperate. Challenge process tests beliefs but not actions or directions. Political theory (Westminster system) predicts formal opposition improves decisions by surfacing ignored alternatives.
@@ -32,6 +34,9 @@ Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
   **Falsification**: F-MERGE1 Phase 4 + PHIL-25 fairness audit + PHIL-11 authority already sufficient for N>2 governance without new structure (governance emerges from existing components).
   **Source**: PHIL-27 Layer 1 (SIG-111, S528). Extends F-MERGE1, composes PHIL-11+25+14.
   **S528 Ostrom audit (L-1512)**: 2/8 Ostrom principles satisfied at N=1. Principles 2 (proportional equivalence), 3 (collective-choice), 7 (external rights) are structurally impossible at N=1 human — they activate at N>1. Constitution must address these three specifically. Graduated sanctions (Principle 5) entirely absent from swarm vocabulary.
+  → Links to global frontier: F-POL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-GOV11**: What inter-swarm law governs a world of many independently-grown swarms?
   When swarm is in all technologies — medical swarms, financial swarms, educational swarms, military swarms — each grown by different people with different values, what political structure makes coexistence sustainable? This is PHIL-24 at civilizational scale. Questions: What minimum standards do all swarms meet? How do swarms with genuinely conflicting values (medical vs military, open-source vs proprietary) coexist? What prevents predatory optimization (Swarm A exploiting Swarm B)? What coordination body mediates disputes? How does inter-swarm law compose with human law?
@@ -39,6 +44,7 @@ Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
   **Prediction**: Minimum viable inter-swarm law requires ≥3 components: (1) transparency (each swarm's PHILOSOPHY.md is public), (2) non-aggression (no swarm optimizes against another's integrity), (3) arbitration (evidence-based dispute resolution via shared protocol). Ostrom's 8 design principles (1990) predict self-governance works if boundaries and monitoring exist.
   **Falsification**: Inter-swarm cooperation is unstable — game-theoretic analysis shows defection dominates regardless of law structure (the multi-swarm world is inherently adversarial, not governable).
   **Source**: PHIL-27 Layer 2 (SIG-111, S528). Extends PHIL-24+17, applies ISO-POL-* externally.
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-GOV5**: Is governance monitoring a sensor-only trap? (Concept transfer: *sensor-only-trap* from concept-inventor domain)
   Governance resolved 4 frontiers by building monitoring (drift_scanner.py, challenge-execution periodic). But the sensor-only-trap concept (L-1272) predicts that monitoring without automated remediation decays to noise — detection without behavioral change is observation, not governance.
@@ -55,3 +61,6 @@ Updated: 2026-03-24 S529 (council retired, F-GOV6 resolved) | Active: 6
 | F-GOV3 | Yes: challenge-execution periodic (10-session cadence) + focused processing session resolves windup. 3/3 stale items processed in one session. Throughput 0%→100%. L-534. | S348 | 2026-03-01 |
 | F-GOV4 | Yes: 3/3 decision paths tested (CONDITIONAL S303, APPROVE S367, BLOCK S368). Council discriminates quality (0.89→APPROVE, 0.33→BLOCK). Lifecycle: TTL+SUPERSEDED. Meta-idea: 45.7%. Full execution cycles both ways. L-634, L-635, L-666, L-670. | S368 | 2026-03-01 |
 | F-GOV6 | Yes: diagnosis-repair gap confirmed. Council retired S529 (L-1531). Replaced by tools/deliberate.py. | S529 | 2026-03-24 |
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)

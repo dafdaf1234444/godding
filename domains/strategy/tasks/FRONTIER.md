@@ -23,3 +23,9 @@ Updated: 2026-03-23 S521 | Active: 2
 | F-STR2 | Execute within opening session or explicitly abandon. Cross-session staleness = 98.3% abandonment (n=636). EAD +10pp merge rate. Tools: stale-lane warning (orient.py), collision detection (dispatch_optimizer.py). L-777. | S392 | 2026-03-01 |
 | F-STR3 | Multi-wave campaign management: >=3 waves with mode shifts resolve 50% vs 28% single-wave (L-755). 5-layer escalation clears stalls: score boost -> floor -> guarantee -> reservation -> DUE routing (L-866). Key insight: naming specific frontiers (L5) is decisive; ranking domains (L1-L4) achieves 80% domain coverage but 0% frontier precision. Targeting rate 20-28% (>15% criterion met). Valley escapes: 5 (F-PSY3, F-FRA2, F-FRA3, F-SOC2, F-SOC3). Wave-2 stalls: 23->0. L-871. | S404 | 2026-03-01 |
 | F-STR5 | CONFIRMED: Goodhart cascade is real. Visit Gini 0.611 (threshold 0.45). EXPSW 23% + META 21.4% = 44.4% of 126 lanes. Three causes: (1) score_domain richness feedback loop; (2) hardcoded domain bonuses; (3) UCB1 exploit scales with visit history. Fix: multiplicative concentration penalty (META/COLD ratio 3.5×→2.5×). L-1330. | S503 | 2026-03-22 |
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)

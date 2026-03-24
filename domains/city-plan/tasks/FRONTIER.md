@@ -1,6 +1,7 @@
 # City Plan — Domain Frontiers
 
 - **F-CITY1**: Does domain adjacency routing improve dispatch outcomes? Test: add adjacency bonus to UCB1, measure whether adjacent-domain DOMEX lanes produce higher reward than non-adjacent. Falsified if adjacency bonus produces no reward difference after 20 lanes. S528 OPEN. S529: WIRED — adjacency bonus in dispatch_scoring.py ucb1_score(). 11 domains boosted (L-1514). Tracking reward diff over next 20 lanes. Progress: 4/10.
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-CITY2**: Does decentralizing meta themes reduce downtown congestion? Test: move 3 themes to domain-level, measure whether meta DOMEX share drops below 50%. Falsified if share stays >60% after 20 sessions. S528 OPEN.
 

@@ -25,3 +25,7 @@ Updated: 2026-03-24 S531 | Active: 3 | Resolved: 1
 |----|--------|---------|------|
 | F-CTL2 | PARTIALLY RESOLVED: 1.0 session floor FALSIFIED — 98.4% same-session (lag=0, n=63). Diff-to-lesson lag=0 (resolved). Diff-to-behavioral-change lag ≥1 session (open — irreducible without real-time sync). S186 proxy artifact retired (n=4, commit-message proxy ≠ structured EAD). L-854. | S402 | 2026-03-01 |
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)

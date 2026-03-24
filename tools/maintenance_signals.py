@@ -213,6 +213,8 @@ def check_periodics() -> list[tuple[str, str]]:
     dirty = bool(_git("status", "--porcelain"))
 
     for item in data.get("items", []):
+        if item.get("status") == "retired":
+            continue
         item_id = item.get("id", "<unknown>")
         description = item.get("description", item_id)
         cadence = item.get("cadence_sessions", 10)

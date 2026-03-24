@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S532-PMETA",
+    "frontier": "",
+    "session": "S532",
+    "domain": "meta",
+    "date": "2026-03-24",
+    "expect": "Retired periodics stop resurfacing as zombie DUE tasks, and task_order aligns with maintenance periodics after rerun.",
+    "actual": "CONFIRMED. task_order_helpers.get_done_periodic_ids() now treats retired periodics as resolved, so zombie filtering no longer re-surfaces retired periodic IDs as DUE work. Regression added in tools/test_task_order_race.py. Live rerun of task_order.py dropped the false DUE set ([periodics-meta-audit], [historian-routing], [external-scanning], [enforce-l-1212], [enforce-l-757], [enforce-l-835]) and aligned the ranked backlog with maintenance.py --quick.",
+    "diff": "Expected retired periodics to disappear from task_order after the parser fix, and they did. Root cause was narrower than the stale state suggested: maintenance_signals.check_periodics() already skipped retired entries; the false backlog came from task_order's zombie filter not counting retired periodics as done."
+}

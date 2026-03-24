@@ -1,0 +1,72 @@
+{
+  "experiment": "F-SP8 ARMA(2,1) out-of-sample validation",
+  "session": "S533",
+  "date": "2026-03-24",
+  "data": {
+    "n_total": 814,
+    "n_train": 569,
+    "n_test": 245,
+    "split_ratio": 0.7,
+    "train_mean": 7.889279437609842,
+    "test_mean": 8.555102040816326
+  },
+  "arma21": {
+    "phi1": 0.9162,
+    "phi2": 0.0529,
+    "theta": -0.7663,
+    "train_acf_rmse": 0.0217,
+    "test_acf_rmse": 0.3965,
+    "full_acf_rmse": 0.0415,
+    "model_plateau": 0.879,
+    "test_plateau": 0.861,
+    "plateau_error_pct": 2.0
+  },
+  "arma11": {
+    "phi1": 0.9741,
+    "theta": -0.7941,
+    "train_acf_rmse": 0.0226,
+    "test_acf_rmse": 0.3968,
+    "model_plateau": 0.851
+  },
+  "ar1": {
+    "rho": 0.4623,
+    "train_acf_rmse": 0.3661,
+    "test_acf_rmse": 0.1479,
+    "model_plateau": 0.008
+  },
+  "era_stability": [
+    {
+      "era": 1,
+      "n": 271,
+      "phi1": 0.927,
+      "phi2": 0.041,
+      "theta": -0.727,
+      "acf_rmse": 0.0144,
+      "plateau": 0.853
+    },
+    {
+      "era": 2,
+      "n": 271,
+      "phi1": 0.678,
+      "phi2": 0.177,
+      "theta": -0.715,
+      "acf_rmse": 0.056,
+      "plateau": 2.988
+    },
+    {
+      "era": 3,
+      "n": 271,
+      "phi1": -0.011,
+      "phi2": 0.132,
+      "theta": 0.039,
+      "acf_rmse": 0.0357,
+      "plateau": 0.575
+    }
+  ],
+  "verdict": "OOS FAIL (test RMSE 0.3965 >= 0.05); plateau PASS (2.0% < 10%); \u03c6\u2082 negligible (0.0529): ARMA(1,1) sufficient",
+  "next": [
+    "If OOS PASS: ARMA(2,1) is validated as generative model for Sharpe ACF",
+    "If \u03c6\u2082 negligible: simplify to ARMA(1,1)",
+    "Era stability check: is near-unit-root property invariant or era-dependent?"
+  ]
+}

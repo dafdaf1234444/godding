@@ -21,6 +21,7 @@ Seeded: S302 | 2026-02-28 | Active: 3
   prior. Compare to current confidence level. Flag miscalibration gaps where inside-view belief
   exceeds outside-view base rate. Candidate: P-182 (spawn→belief transfer — what fraction of
   multi-agent systems achieve this?).
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-GUE3**: Is there an isomorphism between estimation cascade uncertainty propagation and (S302)
   swarm inference chain degradation? Do compounded errors in Fermi chains mirror degradation
@@ -50,3 +51,4 @@ writing any new high-confidence belief.
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)

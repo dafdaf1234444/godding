@@ -21,6 +21,7 @@ import json
 import re
 import subprocess
 import sys
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from maintenance_common import (
@@ -323,6 +324,72 @@ def _save_outcomes_direct(check_items: dict[str, list[tuple[str, str]]], session
 def _learn_from_outcomes():
     _learn_from_outcomes_impl(OUTCOMES_PATH)
 
+
+MAINTENANCE_MAX_PARALLEL_CHECKS = 4
+
+
+def _execute_checks(
+    all_checks: list,
+    live_check_names: set[str],
+    head_cache=None,
+    max_workers: int = MAINTENANCE_MAX_PARALLEL_CHECKS,
+) -> tuple[list[tuple[str, str]], dict[str, list[tuple[str, str]]]]:
+    """Run maintenance checks with stable output ordering.
+
+    HEAD-stable checks can run in parallel when they miss the cache.
+    Live checks keep single-threaded semantics so working-tree state is still
+    observed directly and in a predictable order.
+    """
+    items: list[tuple[str, str]] = []
+    check_items: dict[str, list[tuple[str, str]]] = {fn.__name__: [] for fn in all_checks}
+    cached_results: dict[str, list[tuple[str, str]]] = {}
+    parallel_checks = []
+
+    for check_fn in all_checks:
+        name = check_fn.__name__
+        if head_cache and name not in live_check_names:
+            cached = head_cache.get(f"maint_{name}")
+            if cached is not None:
+                fn_items = [tuple(x) for x in cached]
+                cached_results[name] = fn_items
+                check_items[name] = fn_items
+                continue
+        if name not in live_check_names:
+            parallel_checks.append(check_fn)
+
+    future_by_name = {}
+    executor = None
+    if parallel_checks:
+        worker_count = max(1, min(max_workers, len(parallel_checks)))
+        executor = ThreadPoolExecutor(max_workers=worker_count)
+        future_by_name = {
+            check_fn.__name__: executor.submit(check_fn)
+            for check_fn in parallel_checks
+        }
+
+    try:
+        for check_fn in all_checks:
+            name = check_fn.__name__
+            try:
+                if name in cached_results:
+                    fn_items = cached_results[name]
+                elif name in future_by_name:
+                    fn_items = future_by_name[name].result()
+                    check_items[name] = fn_items
+                    if head_cache and name not in live_check_names:
+                        head_cache.set(f"maint_{name}", [list(x) for x in fn_items])
+                else:
+                    fn_items = check_fn()
+                    check_items[name] = fn_items
+                items.extend(fn_items)
+            except Exception as e:
+                items.append(("NOTICE", f"{name} error: {e}"))
+        return items, check_items
+    finally:
+        if executor is not None:
+            executor.shutdown(wait=True)
+
+
 def main():
     if "--inventory" in sys.argv:
         inv = build_inventory()
@@ -412,27 +479,12 @@ def main():
     except ImportError:
         _hcache = None
 
-    items: list[tuple[str, str]] = []
-    check_items: dict[str, list[tuple[str, str]]] = {fn.__name__: [] for fn in all_checks}
-    for check_fn in all_checks:
-        name = check_fn.__name__
-        try:
-            # Try cache for HEAD-dependent checks
-            if _hcache and name not in _LIVE_CHECKS:
-                cached = _hcache.get(f"maint_{name}")
-                if cached is not None:
-                    fn_items = [tuple(x) for x in cached]
-                    items.extend(fn_items)
-                    check_items[name] = fn_items
-                    continue
-            fn_items = check_fn()
-            items.extend(fn_items)
-            check_items[name] = fn_items
-            # Cache HEAD-dependent results
-            if _hcache and name not in _LIVE_CHECKS:
-                _hcache.set(f"maint_{name}", [list(x) for x in fn_items])
-        except Exception as e:
-            items.append(("NOTICE", f"{check_fn.__name__} error: {e}"))
+    items, check_items = _execute_checks(
+        all_checks,
+        _LIVE_CHECKS,
+        head_cache=_hcache,
+        max_workers=MAINTENANCE_MAX_PARALLEL_CHECKS,
+    )
 
     items.sort(key=lambda x: PRIORITY_ORDER.get(x[0], 99))
 

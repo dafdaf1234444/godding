@@ -1,0 +1,28 @@
+{
+  "session": 532,
+  "date": "2026-03-24",
+  "lane": "DOMEX-META-S532-COMPACTVIS",
+  "check_mode": "verification",
+  "expect": "compact.py --dry-run will surface EXPIRED lesson information that currently only orient exposes, without changing compaction decisions.",
+  "actual": {
+    "expired_candidates_total": 48,
+    "expired_est_tokens_total": 4500,
+    "sample_ids": ["L-078", "L-329", "L-425", "L-696", "L-1268"],
+    "compact_default_output_surfaces_expired_section": true,
+    "compact_all_expired_option_available": true,
+    "unit_tests": {
+      "command": "python3 -m unittest tools.test_compact",
+      "passed": 2,
+      "failed": 0
+    }
+  },
+  "diff": {
+    "expected_compact_to_surface_expired_visibility": true,
+    "actual_compact_surfaces_expired_visibility": true,
+    "semantic_change_to_compaction_decisions_detected": false
+  },
+  "notes": [
+    "Implementation reuses knowledge_swarm.py canonical EXPIRED classifier instead of duplicating TTL logic in compact.py.",
+    "A concurrent session had already landed the compact.py code changes; this artifact captures local verification and usage follow-through."
+  ]
+}

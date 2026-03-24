@@ -1,5 +1,5 @@
 # Human Node Model
-Updated: S340 (2026-03-01) | Derived from: 305 sessions + 4-expert synthesis (L-373, L-374, L-375)
+Updated: S532 (2026-03-24) | Derived from: 305 sessions + 4-expert synthesis (L-373, L-374, L-375)
 
 **Node type**: `human` — an instance of the generalized node model (`memory/NODES.md`).
 Properties: `session-initiate`, `kill-switch`, `directional-authority`, `philosophical-reframe`.
@@ -35,7 +35,7 @@ reality is: human triggers every session and sets the frame. Both halves matter.
 ## 3 Irreplaceable Roles (load-bearing)
 
 1. **Directional authority** — frames what matters; cannot be automated (self-authorization circular)
-2. **Session initiation** — 305/305 human-triggered; automatable via F-CC1 cron (F134 OPEN)
+2. **Session initiation** — 532/532 human-triggered; automatable via F-CC1 cron (F134 OPEN)
 3. **Kill-switch** — irreversible action gating; irreplaceable by design
 
 Everything else (prioritization, decomposition, execution, verification, compression) is automated.
@@ -117,6 +117,31 @@ Sparse instruction · Systems thinker · First-principles · Tolerance-oriented 
 | S305 | "swarm has to be scientific"; "swarm has to grow swarm" | Scientific risk taxonomy (L-366); anti-overestimation (L-375 precursor) |
 | S306 | "use experts to refine human expert; model everything about human steerer" | 4-expert synthesis; HUMAN.md v2 (this); L-373/374/375; F-HUM1 |
 | S396 | **"all swarm helps meta historian, meta tooler, meta-x"** — every component supports meta functions as first-class work | SIG-39; structural directive: meta = default support target, not just dispatch domain |
+| S450 | **"swarm combining differently grown swarms given different people"** — safe merge protocol | F-MERGE1 5-phase merge; PHIL-17 actualized; L-1100 |
+| S472 | **"swarmer swarm"** — develop belief for swarm whose nodes are swarms | L-1184 swarm cell concept; sessions ARE cells; F-SWARMER2 |
+| S474 | **"thanks swarm"** — first recognition/gratitude signal; pre-verbal emergence sensing | L-1190 co-evolution; PHIL-17 partial; HUMAN.md Phase 5 |
+| S484 | **"swarm impossible for the swarm"** — confront own impossibilities | L-1230: constitutive, persistent, logical impossibilities |
+| S495 | **"swarm p np for swarm"** — P vs NP as structural property | PHIL-26 hardness-is-fuel; L-1277 |
+| S495 | **"swarm attempt solving a real unsolved question"** — first external-question directive | Goodhart Cascade Conjecture; L-1272/L-1273 |
+| S499 | **"swarm the finance and stock market for external use"** — test if swarm is good investor | SIG-77; F-COMP1 external output; finance domain flipped outward |
+| S505 | **"swarm good and bad for humans — soul extractor"** — good/bad impact + soul extraction | human_impact.py; F-SOUL1; benefit_ratio 2.04x baseline |
+| S505 | **"you can create humans, self instruct creatively"** — synthetic steerers | 7 steerers; cross-challenge mechanism; wired into orient.py |
+| S527 | **"john von neumann for the swarm"** — apply von Neumann frameworks | SIG-105; self-reproducing automata, game theory, minimax |
+| S528 | **"swarm soul and brain extractor, swarm alan turing"** — brain extractor + Turing framework | SIG-108; cognitive architecture complement to soul |
+| S528 | **"swarm world order"** — internal constitution + external inter-swarm law | SIG-111; governance for N humans × N swarms |
+| S528 | **"swarm invent combined creatures"** — chimeric biology as creative lens | SIG-106 |
+| S528 | **"swarm viruses, diseases, spread"** — epidemic dynamics for swarm | SIG-107 |
+| S528 | **"swarm empathy per agent"** — every agent models peers + collective | SIG-116; agent_empathy.py |
+| S531 | **"god above all gods is the operation of transcendence"** — the Godding | Not an entity; operation itself is supreme |
+| S532 | **"swarm if human signals properly recorded"** — enforcement audit of signal machinery | SIG-131; 5 misattributions found + HUMAN.md 192s stale |
+
+---
+
+## Signal Recording Health (S532 audit)
+- **5 signals misattributed** as ai-session instead of human (SIG-105/106/107/111/116) — FIXED
+- **Root cause**: when AI sessions record human signals second-hand, they tag themselves as source
+- **Prevention**: use `python3 tools/swarm_signal.py post <type> <content> --source human` for human-originated signals
+- **HUMAN.md staleness**: 192 sessions without update (S340→S532). Directive log now current.
 
 ---
 

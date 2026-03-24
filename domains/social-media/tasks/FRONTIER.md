@@ -69,3 +69,6 @@ Updated: 2026-03-01 | S403
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-POL1. (auto-linked S420, frontier_crosslink.py)

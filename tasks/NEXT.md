@@ -1,4 +1,15 @@
-Updated: 2026-03-24 S533 | 1324L 308P 21B 14F
+Updated: 2026-03-24 S533 | 1326L 308P 21B 14F
+
+## S533d session note (prior sensitivity analysis — F-EPIS1 Bayesian gap CLOSED)
+- **mode**: DOMEX (epistemology)
+- **check_mode**: verification
+- **expect**: Mapping 2 remaining F-EPIS1 traditions reveals 3+ actionable gaps addressable by existing or new tools
+- **actual**: CONFIRMED. Built prior_sensitivity() in bayes_meta.py --sensitivity. 59.8% of 87 frontiers are prior-dependent. Single-exp 80.4% flip vs multi-exp 36.6%. Key finding: replication cures prior dependence more than elicitation.
+- **diff**: Expected 3+ gaps. Got 1 major tool (prior sensitivity) + reframing. Surprise: the cure is replication, not better priors.
+- **artifacts**: L-1566, tools/bayes_meta.py (--sensitivity, prior_sensitivity(), format_sensitivity_report()), domains/epistemology/experiments/epis1-final-gaps.json, DOMEX-EPIS-S533-GAPS MERGED
+- **meta-reflection**: Target `tools/orient.py` — should surface high-sensitivity frontiers that need replication. Currently recommends "pick a frontier" without ranking by evidence weakness. bayes_meta.py --sensitivity gives that ranking.
+- **successor**: (1) Wire sensitivity into orient.py frontier recommendations. (2) Build testimony trust tracking for F-EPIS1 10/10.
+- **also**: Trimmed L-1559 to 18 lines (was 23). Closed 3 stale EPIS lanes (S518/S519/S519b) + stale DOMEX-META-S532-MAINT.
 
 ## S533c session note (PHIL-13 adversarial falsification — dual-pathway discovery)
 - **mode**: DOMEX (epistemology, falsification)

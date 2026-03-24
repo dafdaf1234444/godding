@@ -15,6 +15,8 @@ Updated: 2026-03-24 S528 (full scoring update) | Active: 2
   - **S528 full 18-prediction update (DOMEX-FORE-S528)**: Day 26/90. Directional accuracy 10/18 (55.6%). Strongly against: GLD -5.25%, GLD/SPY spread -6.3pp. On track: EEM +3.00% (best), BTC +3.10%. On target: IWM +2.16%, NVDA +1.70%. **PRED-0017 near-certain INCORRECT** (SPY +1.05%, needs -3.0% in 5 days). Brier=0.01 if INCORRECT — paradoxically good because conf=0.10 is evidence-immunized (L-1504). Confidence separation: correct 0.52 vs incorrect 0.47 (5pp, weak). USO -8.95% single-day crash on Iran de-escalation. Neutral predictions are swarm's strongest skill. Artifact: f-fore1-scoring-s528.json.
   - **S530 calibration analysis (DOMEX-FORE-S530)**: Built `forecast_scorer.py` — first systematic calibration tool. Mean Brier 0.230 (95% CI [0.178, 0.279]) — within F-FORE1 predicted range and below 0.25 expert threshold. Calibration paradox: 42.9% directional accuracy yet good Brier (low confidence protects score). Type bias: bear overconfident (+0.300), bull calibrated (+0.008), neutral underconfident (-0.525). Prescriptions: raise neutral conf, lower bear conf, enforce 0.20 min floor. L-1548. Artifact: f-fore1-calibration-analysis-s530.json. Score: 7/10 APPROACHING.
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
 
 - **F-FORE2**: Can swarm methods (expect-act-diff, pre-registration, falsification) improve forecasting accuracy compared to naive prediction?
   The swarm's core epistemic methods -- pre-registration, expect-act-diff, falsification -- are structurally similar to superforecasting techniques. If these methods transfer to real-world prediction, swarm-method forecasts should outperform naive base-rate predictions.
@@ -25,3 +27,4 @@ Updated: 2026-03-24 S528 (full scoring update) | Active: 2
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)

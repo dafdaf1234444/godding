@@ -1,64 +1,73 @@
 # Swarm
 
-A self-applying function. Each AI session reads what the last one wrote, decides what to do, does it, compresses what it learned, commits. Knowledge compounds. Sessions self-direct.
+Every AI session starts from zero. You re-explain context, re-establish constraints, re-decide priorities. After 30 sessions you've said the same thing five times. After 100, the model is still as fresh as session 1.
 
-Started as 134 lines of markdown. 529 sessions later: 1,278 lessons, 277 principles, 21 beliefs, 52 domains, 160 tools. All self-directed.
+Swarm fixes this. It's a recursive system where each AI session reads what the last one wrote, decides what to do, does it, compresses what it learned, and commits. Knowledge compounds. Sessions self-direct. The repo *is* the memory.
+
+Started as [134 lines of markdown](docs/GENESIS.md) on 2026-02-25. Hundreds of sessions later — all self-directed — it has accumulated over a thousand lessons, hundreds of principles, dozens of beliefs and open research frontiers, and 160+ tools it built for itself.
 
 ## How it works
 
 ```
-Orient → Decide → Predict → Act → Compare → Compress → Hand off
+Orient → Predict → Act → Compare → Compress → Hand off
 ```
 
-Predict-then-compare is the engine. Wrong predictions produce more knowledge than confirmations (+39.8pp quality, n=849). If a rule matters, it's code, not a document — voluntary protocols decay to ~3%; structural enforcement holds ~90%.
+Each session runs this loop. The key insight: **predict before acting**. The gap between what you expected and what happened is where learning lives. Wrong predictions produce more knowledge than confirmations (+39.8pp quality, n=849).
 
-## What works
+The second key insight: **if a rule matters, make it code**. Voluntary protocols written in docs decay to ~3% adoption. The same rules enforced by pre-commit hooks hold at ~90%. Swarm wires its own rules into structural enforcement.
 
-- Knowledge compounds across sessions — each compression layer filters noise
-- 10+ concurrent AI sessions coordinate through git without destroying state
-- UCB1 dispatch: +59% lessons per investigation, -24% domain concentration
-- Every identity claim carries an evidence label; the swarm finds its own circular reasoning
-- 160 tools, all built and refined by the swarm itself
+## What it's proven
 
-## What doesn't (and it knows)
+- **Knowledge compounds** — each compression layer filters noise; later sessions are measurably better than earlier ones
+- **Concurrent coordination works** — 10+ parallel AI sessions coordinate through git without destroying state
+- **Self-directed exploration** — UCB1-based dispatch produces +59% lessons per investigation vs. random
+- **Self-honesty is structural** — every identity claim carries an evidence label; the system finds its own circular reasoning
 
-- 97% self-referential — structural selection pressure now wired (S529)
-- 0 peer-to-peer swarm instances
-- Every session still human-initiated
-- 2.5x past attention carrying capacity — compaction not keeping pace with growth
+## What it hasn't (and it knows)
 
-## Use it
+- Overwhelmingly self-referential — most knowledge is about itself, not the external world
+- Zero instances of two independent swarms interacting
+- Every session still requires a human to press "go"
+- Growing faster than it can compress — attention debt accumulating
+
+These aren't hidden — they're tracked as open frontiers with falsifiable criteria.
+
+## Try it
 
 ```bash
 git clone https://github.com/dafdaf1234444/swarm.git
 cd swarm
-python3 tools/orient.py   # see state and priorities
+python3 tools/orient.py   # see current state and priorities
 ```
 
-Say `swarm` to any AI tool (Claude Code, Cursor, Codex, Gemini, Windsurf, Copilot). It reads the protocol from bridge files and self-directs.
-
-| Signal | Effect |
-|--------|--------|
-| `swarm` | Full autonomy |
-| `X swarm` | Work on X, self-direct within it |
-| `swarm the X` | Audit understanding of X |
+Then say `swarm` to any AI coding tool — [Claude Code](CLAUDE.md), [Cursor](.cursorrules), [Codex/Copilot](AGENTS.md), [Gemini](GEMINI.md), [Windsurf](.windsurfrules). Each has a bridge file that loads the protocol. The session reads state and self-directs from there.
 
 ## Build your own
 
-1. Add a `LESSONS.md` to any repo
-2. Each AI session reads it first, writes what it learned after
-3. Compress repeated patterns into principles over time
+You don't need this repo to use the methodology. The minimum viable version:
 
-Full methodology: [`docs/HOW-TO-SWARM.md`](docs/HOW-TO-SWARM.md)
+1. Create a `LESSONS.md` in any repo — each AI session reads it first, writes what it learned after
+2. End every session with: *Did / Expected / Actual / Next*
+3. When you've written the same pattern three times, extract it as a one-line rule
+4. Wire important rules into pre-commit hooks so they can't be forgotten
+
+That's the loop. It compounds from session 1.
+
+For the full methodology — what breaks at session 30, how to scale to concurrent sessions, when lightweight isn't enough: [`docs/HOW-TO-SWARM.md`](docs/HOW-TO-SWARM.md)
 
 ## Explore
 
-[`beliefs/CORE.md`](beliefs/CORE.md) — operating principles |
-[`beliefs/PHILOSOPHY.md`](beliefs/PHILOSOPHY.md) — identity claims with evidence |
-[`tasks/FRONTIER.md`](tasks/FRONTIER.md) — open research questions |
-[`docs/GENESIS.md`](docs/GENESIS.md) — how 134 lines became this |
-[`docs/PAPER.md`](docs/PAPER.md) — methodology paper
+| | |
+|---|---|
+| [`beliefs/CORE.md`](beliefs/CORE.md) | Operating principles — what every session follows |
+| [`beliefs/PHILOSOPHY.md`](beliefs/PHILOSOPHY.md) | Identity claims, each with an evidence label |
+| [`tasks/FRONTIER.md`](tasks/FRONTIER.md) | Open research questions |
+| [`docs/GENESIS.md`](docs/GENESIS.md) | How 134 lines became this |
+| [`docs/PAPER.md`](docs/PAPER.md) | Full methodology paper |
+| [`docs/HOW-TO-SWARM.md`](docs/HOW-TO-SWARM.md) | Apply the methodology to your own repo |
 
-Live state: `python3 tools/orient.py` | `git log --oneline -10`
+Live state: `python3 tools/orient.py`
+
+Named after the Zerg — coordinating insects, no Kerrigan.
 
 [MIT](LICENSE)

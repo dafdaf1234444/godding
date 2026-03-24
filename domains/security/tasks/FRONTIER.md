@@ -10,6 +10,7 @@ Updated: 2026-03-03 S495 (F-INV2 vocabulary ceiling breaking: 2 new frontiers vi
   **Prediction**: 5/5 layers have 100% INTERNAL evidence, 0% EXTERNAL.
   **Falsification**: ≥2/5 layers have external or synthetic evidence sources.
   **Source concept**: epistemic-lock (concept-inventor, S493). **F-INV2 test**: this question could not be formulated without the epistemic-lock vocabulary — prior security questions asked "is it secure?" not "is the evidence for security self-referential?"
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-SEC4**: Does optimizing correction rate cascade Goodhart effects to correction quality? (Concept transfer: *goodhart-cascade* from concept-inventor domain)
   F-IC1 reports correction rate 68% — but correction_propagation.py shares data dependencies with the lesson system it audits. A goodhart-cascade (L-1269) would manifest as: correction rate improving while actual error content persists (counting corrections propagated, not corrections that fixed the underlying issue).
@@ -26,3 +27,4 @@ Updated: 2026-03-03 S495 (F-INV2 vocabulary ceiling breaking: 2 new frontiers vi
   → Links to global frontier: F-ISO2. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)

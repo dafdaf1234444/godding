@@ -1,0 +1,1478 @@
+{
+  "session": 532,
+  "timestamp": "2026-03-24T05:44:06.258862+00:00",
+  "revival": [
+    {
+      "id": "L-1180",
+      "title": "Swarmer swarm \u2014 the swarm's reproductive unit is the recombinant peer, not the c",
+      "sharpe": 9,
+      "age": 59,
+      "active_citers": 3,
+      "score": 22.88,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-970",
+      "title": "GIT_INDEX_FILE temp-index bypasses concurrent index contention for catastrophic ",
+      "sharpe": 9,
+      "age": 105,
+      "active_citers": 2,
+      "score": 8.57,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-1218",
+      "title": "Cell blueprint is epigenetic memory, not orientation replacement",
+      "sharpe": 8,
+      "age": 53,
+      "active_citers": 1,
+      "score": 7.55,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-1213",
+      "title": "Re-export layers are single-point-of-failure for concurrent module additions",
+      "sharpe": 7,
+      "age": 54,
+      "active_citers": 1,
+      "score": 6.48,
+      "action": "cite_in_active_lane"
+    },
+    {
+      "id": "L-971",
+      "title": "git checkout <old-commit> -- . triggers mass-staging cascades in concurrent swar",
+      "sharpe": 9,
+      "age": 105,
+      "active_citers": 1,
+      "score": 4.29,
+      "action": "cite_in_active_lane"
+    }
+  ],
+  "compress": [
+    {
+      "id": "L-078",
+      "title": "Late bloomers can leapfrog \u2014 no-modes recovered from last to #5",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-329",
+      "title": "autoswarm.sh \u2014 autonomous cross-session initiator pattern",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-425",
+      "title": "Swarm Universal Grammar \u2014 5 structural constraints all domain colonies share",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-696",
+      "title": "CJT reversal at rho=0.62 \u2014 N=3 agents carry 1.34 effective votes; sequential > p",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1268",
+      "title": "Theoretical vs practical citation reachability \u2014 10 seeds unlock 26.2% of knowle",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 80,
+      "action": "archive"
+    },
+    {
+      "id": "L-1324",
+      "title": "Isomorphism layer is a mycorrhizal network \u2014 separate organism connecting domain",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-1387",
+      "title": "Council scope determines council activation \u2014 genesis-only scope left governance",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1388",
+      "title": "Experiment concentration mirrors self-referentiality \u2014 Gini 0.626, meta alone is",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1431",
+      "title": "Swarm evolution follows calculus of variations \u2014 Euler-Lagrange predicts deceler",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1436",
+      "title": "Plant-Swarm Duality \u2014 knowledge systems diversify where organisms specialize",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1438",
+      "title": "Process reliability is 97.6% \u2014 but 100% methods are untested, not reliable",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1447",
+      "title": "First empirical sub-swarm experiment \u2014 personality differentiation produces harv",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1448",
+      "title": "Seed monoculture \u2014 genesis_seeds.py transmits confirmation machine to children",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1453",
+      "title": "Steerer cross-challenges surface genuine tensions that primary signals miss \u2014 sh",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-1454",
+      "title": "Challenge table deliberation prose is largest compressible target in PHILOSOPHY.",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-1459",
+      "title": "Dead zone in soul dispatch scoring let meta escape benefit penalty for 40 sessio",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1466",
+      "title": "PHIL-26 DROP criterion met \u2014 2/4 NP predictions falsified, 0 actionable improvem",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1474",
+      "title": "Enforcement \"step function\" is a damped oscillation with permanent regime shift ",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 85,
+      "action": "archive"
+    },
+    {
+      "id": "L-1479",
+      "title": "arXiv sweep reveals swarm's worst-grounded claims have rich academic analogs \u2014 g",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-1522",
+      "title": "External knowledge is precalculation \u2014 unified searcher bridges the grounding ga",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 90,
+      "action": "archive"
+    },
+    {
+      "id": "L-1546",
+      "title": "",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1552",
+      "title": "Confidence Label Drift \u2014 2.9% Mismatch Rate, Superseded Backlog Dominates",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 60,
+      "action": "archive"
+    },
+    {
+      "id": "L-1554",
+      "title": "",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-1555",
+      "title": "ARMA(2,1) resolves ACF anomaly \u2014 \"long memory\" was near-unit-root short memory",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 80,
+      "action": "archive"
+    },
+    {
+      "id": "L-1556",
+      "title": "",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1557",
+      "title": "Shared Lesson Cache Eliminates Redundant File I/O",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 60,
+      "action": "archive"
+    },
+    {
+      "id": "L-1559",
+      "title": "",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-1565",
+      "title": "",
+      "sharpe": -1,
+      "age": 532,
+      "est_tokens": 110,
+      "action": "archive"
+    },
+    {
+      "id": "L-136",
+      "title": "Belief utilization is two-tiered: structural = load-bearing, semantic = partial ",
+      "sharpe": -1,
+      "age": 466,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-137",
+      "title": "Meta-tasks are swarmable \u2014 fan-out audit + coordinated merge",
+      "sharpe": -1,
+      "age": 465,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-144",
+      "title": "Handoff staleness is the measurable proxy for past\u2194future alignment",
+      "sharpe": -1,
+      "age": 461,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-158",
+      "title": "Persuasion-accuracy divergence \u2014 presentation quality overrides truth in LLM bel",
+      "sharpe": -1,
+      "age": 454,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-163",
+      "title": "T1/T2 cross-tier redundancy is intentional load-resilience, not waste",
+      "sharpe": -1,
+      "age": 454,
+      "est_tokens": 35,
+      "action": "archive"
+    },
+    {
+      "id": "L-165",
+      "title": "Human node model \u2014 input patterns, alignment detection, calibration rules",
+      "sharpe": -1,
+      "age": 453,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-181",
+      "title": "Lib extraction ROI = size \u00d7 domain-independence / coupling",
+      "sharpe": -1,
+      "age": 445,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-187",
+      "title": "Multi-LLM swarm is 95% ready \u2014 entry files are the thin bridge layer",
+      "sharpe": -1,
+      "age": 439,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-195",
+      "title": "Claim-vs-evidence audit S101 \u2014 philosophy-behavior gap measured",
+      "sharpe": -1,
+      "age": 431,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-203",
+      "title": "Real cooperative F92 validation found and fixed shared-file write loss",
+      "sharpe": -1,
+      "age": 421,
+      "est_tokens": 55,
+      "action": "archive"
+    },
+    {
+      "id": "L-217",
+      "title": "Multi-agent coordination has an empirical ceiling \u2014 above ~45% single-agent accu",
+      "sharpe": -1,
+      "age": 357,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-323",
+      "title": "PHIL-14 mission sufficiency is PARTIAL (1.5/3) \u2014 Increase is the binding constra",
+      "sharpe": -1,
+      "age": 339,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-325",
+      "title": "Claude Code has three unwired hooks that would close major swarm gaps",
+      "sharpe": -1,
+      "age": 338,
+      "est_tokens": 95,
+      "action": "archive"
+    },
+    {
+      "id": "L-345",
+      "title": "\u2014 Multi-expert parallel synthesis reveals claim-evidence gradient",
+      "sharpe": -1,
+      "age": 231,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-356",
+      "title": "\u2014 F-CC2: tokenomics maps to swarm; bonding curve gap is highest-ROI fix",
+      "sharpe": -1,
+      "age": 230,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-384",
+      "title": "Mission constraints (F119) \u2014 all PASS at S306, enforcement intact",
+      "sharpe": -1,
+      "age": 226,
+      "est_tokens": 105,
+      "action": "archive"
+    },
+    {
+      "id": "L-429",
+      "title": "\"repair\" keyword = maintenance-cycle directive (n=4 signals, S307-S325)",
+      "sharpe": -1,
+      "age": 207,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-441",
+      "title": "Swarm reachability \u2014 84.6% frontiers evidence-free, ISO is cut-vertex",
+      "sharpe": -1,
+      "age": 204,
+      "est_tokens": 100,
+      "action": "archive"
+    },
+    {
+      "id": "L-717",
+      "title": "Agent time allocation \u2014 overhead:value ratio dropped 6.0\u21920.50 across 70 sessions",
+      "sharpe": -1,
+      "age": 154,
+      "est_tokens": 80,
+      "action": "archive"
+    },
+    {
+      "id": "L-976",
+      "title": "Concurrent decomposition produces dead modules when architectures diverge",
+      "sharpe": -1,
+      "age": 105,
+      "est_tokens": 80,
+      "action": "archive"
+    }
+  ],
+  "crosslinks": [
+    {
+      "blind_id": "L-158",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-181",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-187",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-195",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-323",
+      "active_id": "L-385",
+      "reason": "shared target L-219"
+    },
+    {
+      "blind_id": "L-325",
+      "active_id": "L-521",
+      "reason": "shared target L-317"
+    },
+    {
+      "blind_id": "L-329",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    },
+    {
+      "blind_id": "L-345",
+      "active_id": "L-156",
+      "reason": "same domain (information-science)"
+    },
+    {
+      "blind_id": "L-356",
+      "active_id": "L-492",
+      "reason": "shared target L-298"
+    },
+    {
+      "blind_id": "L-384",
+      "active_id": "L-100",
+      "reason": "same domain (meta)"
+    }
+  ],
+  "orphaned_principles": [],
+  "domain_gaps": {
+    "brain/safety": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/cross-swarm": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "quality/knowledge-management": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/knowledge-structure": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "gaming/frontier-design": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "evaluation/meta": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.5
+    },
+    "meta/epistemics": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "meta/beliefs": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "claude-code/meta": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "cryptocurrency": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.5
+    },
+    "meta/swarm-coord": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "historian/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "swarm-meta": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "expert-swarm-/-meta": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "philosophy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "protocol-engineering": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "guesstimates": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 1.0
+    },
+    "plant-biology": {
+      "total": 3,
+      "blind_spot": 2,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.667,
+      "decayed_rate": 0.333
+    },
+    "genesis": {
+      "total": 2,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "cognitive-architecture": {
+      "total": 1,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 1.0,
+      "decayed_rate": 0.0
+    },
+    "fractals": {
+      "total": 6,
+      "blind_spot": 3,
+      "decayed": 2,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.333
+    },
+    "meta/compaction": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.667
+    },
+    "architecture": {
+      "total": 3,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.667,
+      "decayed_rate": 0.0
+    },
+    "fluid-dynamics": {
+      "total": 7,
+      "blind_spot": 2,
+      "decayed": 2,
+      "active": 2,
+      "must_know": 1,
+      "blind_spot_rate": 0.286,
+      "decayed_rate": 0.286
+    },
+    "meta/coordination": {
+      "total": 7,
+      "blind_spot": 0,
+      "decayed": 4,
+      "active": 3,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.571
+    },
+    "distributed-systems": {
+      "total": 4,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.25
+    },
+    "farming": {
+      "total": 2,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.0
+    },
+    "meta/quality": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "graph-theory": {
+      "total": 10,
+      "blind_spot": 2,
+      "decayed": 3,
+      "active": 4,
+      "must_know": 1,
+      "blind_spot_rate": 0.2,
+      "decayed_rate": 0.3
+    },
+    "social-media": {
+      "total": 6,
+      "blind_spot": 2,
+      "decayed": 1,
+      "active": 2,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.167
+    },
+    "coordination": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "dream": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.5
+    },
+    "quality": {
+      "total": 8,
+      "blind_spot": 2,
+      "decayed": 2,
+      "active": 1,
+      "must_know": 3,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.25
+    },
+    "filtering": {
+      "total": 4,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 0,
+      "must_know": 2,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.25
+    },
+    "mathematics": {
+      "total": 6,
+      "blind_spot": 3,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 2,
+      "blind_spot_rate": 0.5,
+      "decayed_rate": 0.0
+    },
+    "epistemology": {
+      "total": 33,
+      "blind_spot": 14,
+      "decayed": 2,
+      "active": 7,
+      "must_know": 10,
+      "blind_spot_rate": 0.424,
+      "decayed_rate": 0.061
+    },
+    "ai": {
+      "total": 9,
+      "blind_spot": 2,
+      "decayed": 2,
+      "active": 2,
+      "must_know": 3,
+      "blind_spot_rate": 0.222,
+      "decayed_rate": 0.222
+    },
+    "psychology": {
+      "total": 7,
+      "blind_spot": 3,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 2,
+      "blind_spot_rate": 0.429,
+      "decayed_rate": 0.0
+    },
+    "statistics": {
+      "total": 7,
+      "blind_spot": 1,
+      "decayed": 2,
+      "active": 2,
+      "must_know": 2,
+      "blind_spot_rate": 0.143,
+      "decayed_rate": 0.286
+    },
+    "stochastic-processes": {
+      "total": 28,
+      "blind_spot": 3,
+      "decayed": 7,
+      "active": 10,
+      "must_know": 8,
+      "blind_spot_rate": 0.107,
+      "decayed_rate": 0.25
+    },
+    "unknown": {
+      "total": 206,
+      "blind_spot": 11,
+      "decayed": 58,
+      "active": 83,
+      "must_know": 50,
+      "blind_spot_rate": 0.053,
+      "decayed_rate": 0.282
+    },
+    "finance": {
+      "total": 9,
+      "blind_spot": 0,
+      "decayed": 3,
+      "active": 3,
+      "must_know": 3,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.333
+    },
+    "meta/swarm-structure": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 2,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.333
+    },
+    "gaming": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "brain/meta": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.333
+    },
+    "meta/personality": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.333
+    },
+    "control-theory": {
+      "total": 3,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "game-theory": {
+      "total": 6,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 4,
+      "blind_spot_rate": 0.333,
+      "decayed_rate": 0.0
+    },
+    "meta": {
+      "total": 367,
+      "blind_spot": 72,
+      "decayed": 43,
+      "active": 98,
+      "must_know": 149,
+      "blind_spot_rate": 0.196,
+      "decayed_rate": 0.117
+    },
+    "operations-research": {
+      "total": 10,
+      "blind_spot": 3,
+      "decayed": 0,
+      "active": 5,
+      "must_know": 2,
+      "blind_spot_rate": 0.3,
+      "decayed_rate": 0.0
+    },
+    "brain": {
+      "total": 24,
+      "blind_spot": 1,
+      "decayed": 6,
+      "active": 10,
+      "must_know": 7,
+      "blind_spot_rate": 0.042,
+      "decayed_rate": 0.25
+    },
+    "health": {
+      "total": 7,
+      "blind_spot": 1,
+      "decayed": 1,
+      "active": 2,
+      "must_know": 3,
+      "blind_spot_rate": 0.143,
+      "decayed_rate": 0.143
+    },
+    "religion": {
+      "total": 7,
+      "blind_spot": 0,
+      "decayed": 2,
+      "active": 3,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.286
+    },
+    "governance": {
+      "total": 21,
+      "blind_spot": 2,
+      "decayed": 4,
+      "active": 7,
+      "must_know": 8,
+      "blind_spot_rate": 0.095,
+      "decayed_rate": 0.19
+    },
+    "evaluation": {
+      "total": 45,
+      "blind_spot": 7,
+      "decayed": 5,
+      "active": 16,
+      "must_know": 17,
+      "blind_spot_rate": 0.156,
+      "decayed_rate": 0.111
+    },
+    "nk-complexity": {
+      "total": 74,
+      "blind_spot": 9,
+      "decayed": 10,
+      "active": 21,
+      "must_know": 33,
+      "blind_spot_rate": 0.122,
+      "decayed_rate": 0.135
+    },
+    "thermodynamics": {
+      "total": 8,
+      "blind_spot": 2,
+      "decayed": 0,
+      "active": 5,
+      "must_know": 1,
+      "blind_spot_rate": 0.25,
+      "decayed_rate": 0.0
+    },
+    "expert-swarm": {
+      "total": 104,
+      "blind_spot": 12,
+      "decayed": 10,
+      "active": 36,
+      "must_know": 46,
+      "blind_spot_rate": 0.115,
+      "decayed_rate": 0.096
+    },
+    "information-science": {
+      "total": 15,
+      "blind_spot": 2,
+      "decayed": 1,
+      "active": 6,
+      "must_know": 6,
+      "blind_spot_rate": 0.133,
+      "decayed_rate": 0.067
+    },
+    "human-systems": {
+      "total": 5,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 2,
+      "blind_spot_rate": 0.2,
+      "decayed_rate": 0.0
+    },
+    "empathy": {
+      "total": 6,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 3,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.167
+    },
+    "concept-inventor": {
+      "total": 24,
+      "blind_spot": 4,
+      "decayed": 0,
+      "active": 13,
+      "must_know": 7,
+      "blind_spot_rate": 0.167,
+      "decayed_rate": 0.0
+    },
+    "linguistics": {
+      "total": 7,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 4,
+      "must_know": 2,
+      "blind_spot_rate": 0.143,
+      "decayed_rate": 0.0
+    },
+    "catastrophic-risks": {
+      "total": 28,
+      "blind_spot": 3,
+      "decayed": 1,
+      "active": 11,
+      "must_know": 13,
+      "blind_spot_rate": 0.107,
+      "decayed_rate": 0.036
+    },
+    "physics": {
+      "total": 8,
+      "blind_spot": 0,
+      "decayed": 1,
+      "active": 5,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.125
+    },
+    "helper-swarm": {
+      "total": 8,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 7,
+      "blind_spot_rate": 0.125,
+      "decayed_rate": 0.0
+    },
+    "forecasting": {
+      "total": 8,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 5,
+      "must_know": 2,
+      "blind_spot_rate": 0.125,
+      "decayed_rate": 0.0
+    },
+    "security": {
+      "total": 20,
+      "blind_spot": 1,
+      "decayed": 0,
+      "active": 9,
+      "must_know": 10,
+      "blind_spot_rate": 0.05,
+      "decayed_rate": 0.0
+    },
+    "meta-/-evolution": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta-/-multi-tool": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain/information-science": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/information-science": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/wsl": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "economy-/-coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/swarm-behavior": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "economy": {
+      "total": 15,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 8,
+      "must_know": 6,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "evolution": {
+      "total": 11,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 8,
+      "must_know": 3,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/tooling": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "helper-swarm-/-meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "tooling/compaction": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "conflict": {
+      "total": 9,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 3,
+      "must_know": 6,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "conflict/coordination": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "brain/coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "quality/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/philosophy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "coordination/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/operations": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "architecture/coordination": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/quality/publication": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/publication": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/management": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/governance": {
+      "total": 3,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/generalizer": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "physics-/-meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "orientation": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "linguistics/meta": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "strategy": {
+      "total": 28,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 16,
+      "must_know": 12,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "field-invisible-to-dream.py": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "history": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 2,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "operations": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "meta/strategy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "competitions": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "random-matrix-theory": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "string-theory": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "biology": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "cryptography": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "grounding": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 1,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "stigmergy": {
+      "total": 1,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 1,
+      "must_know": 0,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    },
+    "city-plan": {
+      "total": 2,
+      "blind_spot": 0,
+      "decayed": 0,
+      "active": 0,
+      "must_know": 2,
+      "blind_spot_rate": 0.0,
+      "decayed_rate": 0.0
+    }
+  },
+  "summary": {
+    "total": 1325,
+    "decayed_pct": 15.2,
+    "blind_spot_pct": 14.3
+  }
+}

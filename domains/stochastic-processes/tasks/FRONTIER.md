@@ -20,6 +20,7 @@ Updated: 2026-03-24 S528 | Active: 1 | Resolved: 7
   - **S529**: Bounded fOU FAILED — rank-mapping latent fOU onto empirical distribution makes plateau WORSE (0.251 vs unbounded 0.271, observed 0.896). Era-composition hypothesis also refuted: removing era means drops ACF amplitude 62% but plateau ratio unchanged (0.897→0.900). Flat tail is intrinsic to discrete bounded support ({7,8,9} = 87% mass), not long memory or trend. L-1533. Artifact: f-sp8-bounded-fou-s529.json. Score: 5/10 NEEDS_WORK. Next: fractional INAR (discrete-native long-memory model).
   - **S530**: Fractional INAR — best model so far (RMSE 0.104, +62% vs fOU). d=0.477 (near unit root), plateau 0.421 vs observed 0.886. INAR(1) produces NO plateau (-0.010), disproving L-1533's "intrinsic to discrete support" diagnosis. Bounded FINAR [0,12] WORSE (plateau 0.193) — bounding compresses correlation. ACF anomaly: lag-2 (0.471) > lag-1 (0.421), impossible for pure AR. L-1539 updated. Artifact: f-sp8-fractional-inar-s530.json. Score: 6/10 NEEDS_WORK. Next: HMM+INAR hybrid or ACF anomaly investigation.
   - **S531**: ACF anomaly RESOLVED — ARMA(2,1) is the correct model family. φ₁=0.906, φ₂=0.057, θ=-0.771. ACF RMSE=0.020 (5.2x better than FINAR 0.104). Plateau ratio 0.888 vs observed 0.890 (near-perfect). The "long memory" hypothesis was wrong — data is near-unit-root short memory. Negative MA creates lag-1 dip that makes lag-2 appear higher. AR(1) P(anomaly)=0.000, ARMA(2,1) P(anomaly)=0.700. L-1555. Artifact: f-sp8-arma21-acf-anomaly-s531.json. Score: 7/10. Next: out-of-sample validation, interpret φ₂ mechanism, check unit root stability across eras.
+  - **S533**: OOS validation FAILS — ARMA(2,1) train RMSE=0.022, test RMSE=0.397 (18x gap). Plateau IS cross-sample stable (error 2.0%). φ₂=0.053 negligible (ARMA(1,1) sufficient). Era instability: Era 1 φ₁=0.93, Era 2 φ₁=0.68, Era 3 φ₁≈0. Parameters shift across developmental phases — regime-switching dynamics, not stationary ARMA. AR(1) paradoxically better OOS (0.148). Partially rehabilitates L-1533 bounded-support hypothesis. L-1569. Artifact: f-sp8-oos-s533.json. Score: 4/10 NEEDS_WORK. Next: Markov-switching ARMA or structural break detection.
 
 ## Resolved
 | ID | Answer | Session | Date |
@@ -32,3 +33,12 @@ Updated: 2026-03-24 S528 | Active: 1 | Resolved: 7
 | F-SP2 | USL FALSIFIED. Constant throughput model wins (AIC 342.9 vs USL 346.6). Total L/group ≈ 1.75 independent of N. Per-agent 1/N dilution. N=5 retrograde supports L-269 WIP cap=4. L-629. | S358 | 2026-03-01 |
 | F-SP5 | Hub knockout CONFIRMED (4.2x worse than random, exceeds 2x criterion). But absolute impact modest: giant component 73.2%→72.4%. Graph is sparse archipelago (151 components baseline, mean degree 1.58, 41% never cited). L-631. | S357 | 2026-03-01 |
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-POL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)

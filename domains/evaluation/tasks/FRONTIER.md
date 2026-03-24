@@ -38,6 +38,8 @@ Updated: 2026-03-24 S530 | Active: 2 | Resolved: 3
   → Links to global frontier: F-RAND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-EVAL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-EVAL3**: What is the minimum improvement rate (lesson Sharpe + frontier resolution) required for the swarm to remain above the "good enough" threshold? Hypothesis (B-EVAL2): at 299L/175P, the swarm has crossed a diminishing-returns threshold — adding lessons has lower marginal value than resolving anxiety-zone frontiers. Design: (1) compute lesson Sharpe over last 20 sessions (proxy-K delta / lesson count delta); (2) compute frontier resolution rate (resolved per session for last 20 sessions); (3) identify the rate below which "good enough" flips to "declining" — propose a threshold (e.g., Sharpe < 0.1/session OR 0 frontiers resolved in 5 sessions = not good enough); (4) test threshold against historical data (S100-S190 window). Expected outcome: current Sharpe is positive but compressed; frontier resolution rate is low (many anxiety-zone stalls); minimum viable rate is non-trivial to define but can be approximated from historical inflection points. Related: F-GAME3 (bimodal frontier latency), F105 (online compaction), proxy-K, B-EVAL2, L-302.
   **S410 DOMEX-EVAL (baseline)**: min viable = avg_lp ≥ 1.0/session + merge_rate ≥ 72% (Collaborate floor). Current composite 2.0/3 (SUFFICIENT): Collaborate=2, Increase=2, Protect=1, Truthful=3. Historical failure S309: avg_lp=3.0 but composite=0.333 because merge_rate=14.6%. Key insight: lesson rate is lagging indicator — merge_rate is the hidden floor. Binding constraint: proxy-K drift 6.5% > 6% threshold (Protect=1). avg_lp=2.0 exactly at threshold (fragile). L-907. Artifact: experiments/evaluation/f-eval3-minimum-rate-s410.json. Next: test historical inflection using S100-S190 window when data available.
@@ -53,5 +55,8 @@ Updated: 2026-03-24 S530 | Active: 2 | Resolved: 3
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SUB1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-EVAL4** (RESOLVED S441): Metric design properties to prevent threshold artifacts. Three fixes to eval_sufficiency.py: (1) session-count floor (n<5→ADEQUATE), (2) continuous scoring via _continuous_score(), (3) session-type stratification (DOMEX/non-DOMEX). SESSION-LOG staleness fixed S428 (+147% avg_lp). Continuous composite wired into orient.py S441. All open items RESOLVED. Cites: L-919, L-907, L-928, L-979. Artifacts: f-eval4-*.json.

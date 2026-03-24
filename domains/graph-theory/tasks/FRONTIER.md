@@ -39,6 +39,7 @@ Updated: S489 | 2026-03-03
   **S314 PARTIAL**: 17 connected components (giant n=193 + 16 micro + 128 orphans). All spectral clusters = "meta"-dominated. Declared taxonomy NOT confirmed by citation structure — topology-blind. L-423.
   Artifact: experiments/graph-theory/f-gt4-spectral-clustering-s314.json.
   **S331 POST-SPRINT**: Giant component 193→369 (92.9%), orphans 128→21 (-83.6%), K_avg 1.07→1.62. Phase transition: fragmented-giant → cohesive-core. 159 sink nodes (0 in-degree) remain as asymmetric gap. Hub attractors stable (L-39/42/44/25/13 top). L-461. Artifact: experiments/graph-theory/f-gt4-spectral-clustering-s331.json. Open: re-run spectral clustering when label coverage >70% (current unknown); target zero-IN-degree lessons in next sprint.
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)
 
 - **F-GT5**: What portion of the swarm's active work graph is reachable from recent human signals and core
   state nodes? Which components are unreachable?

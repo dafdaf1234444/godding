@@ -15,11 +15,11 @@
       "id": "tool-consolidation",
       "description": "Tool consolidation: audit tools/ for duplicates, dead code, lost-embedding (P-134). S402: 14 F-tools archived (109\u219295 active). S440: 0 new orphans; bloat is primary debt (14/106 tools >5000t, 13%). S471: 6 archived (dormancy criterion \u226544s), bloat 16/108=14.8%. S498: 0 new archival candidates, slimmed 3 tools (correction_propagation, validate_beliefs, reward_theory) below 5000t. Oversized 14/108=13.0% (target <10%). L-1028. L-644 archival rule.",
       "cadence_sessions": 25,
-      "last_reviewed_session": 498,
+      "last_reviewed_session": 532,
       "registered_by": "S69",
-      "last_session": "S498",
-      "last_date": "2026-03-03",
-      "note": "S498 (two concurrent sessions): Archived 4 (f_far1_gap_regression, f_phy5_rg_fixedpoint, wiki_swarm+test; 112\u2192108). Slimmed 3 below 5000t via docstring compression (correction_propagation 5029\u21924221t, validate_beliefs 5103\u21924993t, reward_theory 5203\u21924884t). Wired fmea_reconcile.py as periodic. 108 active (99 prod + 9 test). Oversized 14/108=13.0%. Next: decompose dispatch_optimizer (7672t) or test_mission_constraints (11286t)."
+      "last_session": "S532",
+      "last_date": "2026-03-24",
+      "note": "S532: Confirmed the lone dead-tool backlog item was real: tools/f_fld4_experiment.py was an exact duplicate of tools/archive/f_fld4_experiment.py (same SHA256, no live references outside state/history). Removed the root copy and left the archived copy in place. This clears the dead-tool note but does not change the main debt: byte-weighted bloat still sits in load-bearing tools such as dispatch_optimizer.py and test_mission_constraints.py."
     },
     {
       "id": "principles-dedup",
@@ -89,18 +89,18 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 532,
+      "last_reviewed_session": 533,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S532",
+      "last_session": "S533",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
     {
       "id": "human-signal-harvest",
       "description": "F121 harvest: read memory/HUMAN-SIGNALS.md, scan for patterns not yet encoded as principles or lessons, extract at least one P- or L- candidate per pass. Update Patterns section. Flag any entry missing artifact refs. Addresses ephemeral human input loss (F121, L-224). S484: identity-normative phase transition pattern added (SIG-65-69), authority paradox tracking updated.",
-      "cadence_sessions": 10,
-      "last_reviewed_session": "S507",
+      "cadence_sessions": 20,
+      "last_reviewed_session": "S533",
       "registered_by": "S176",
       "last_session": "S520",
       "last_run": "S507",
@@ -136,12 +136,12 @@
     },
     {
       "id": "periodics-meta-audit",
-      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant (cross-variant-harvest, modes-reswarm, action-board-refresh), adjusted 5 cadences (dream 7\u219215, proxy-k 10\u219215, paper 10\u219220, principles-dedup 10\u219215, iso-sprint 30\u219250). 22\u219219 items. S437: pruned iso-annotation-sprint (dark matter stable 75s), merged historian-repair into historian-routing. Adjusted 6 cadences: health 5\u219210, economy 5\u219210, setup 5\u219210, dream 15\u219225, proxy-k 15\u219225, science-quality 10\u219220. Load 3.86\u21922.8 runs/session. 27\u219225 items.",
-      "cadence_sessions": 15,
-      "last_reviewed_session": "S499",
+      "description": "Periodic-system audit: evaluate periodics coverage/ROI, add or prune items, and update cadence based on observed utility and maintenance overhead. Confirm orient/check surfacing stays aligned. S395: pruned 3 dormant. S437: pruned iso-annotation-sprint, merged historian-repair. S499: 16 cadence increases. S533: retired-status bug fix, 5 cadence increases, fmea merge. Load 2.81\u21922.55.",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S533",
       "registered_by": "S185",
-      "last_session": "S499",
-      "note": "S499 triage: 16 cadence increases. Load 4.12\u21923.24."
+      "last_session": "S533",
+      "note": "S533: Fixed critical bug \u2014 maintenance_signals.py surfaced 6 retired periodics as DUE (line 215 missing status check). 5 cadence adjustments (enforcement 3\u219210, steerer 5\u219215, human-signal 10\u219220, periodics-meta 15\u219225, bayesian 15\u219225). Merged fmea-audit+fmea-reconcile. 29 active items. Load 2.81\u21922.55 runs/session."
     },
     {
       "id": "economy-health",
@@ -228,9 +228,9 @@
     },
     {
       "id": "bayesian-calibration-audit",
-      "description": "Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.159 at S432). 27 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py)",
-      "cadence_sessions": 15,
-      "last_reviewed_session": 467,
+      "description": "Bayesian calibration audit: run `python3 tools/bayes_meta.py --json > experiments/meta/bayes-meta-s<N>.json` \u2014 compute Bayesian posteriors for all frontiers, ECE, publication bias, replication inconsistencies. Target: ECE <0.15 (current 0.082 at S523, TARGET ACHIEVED). 31 overconfident frontiers (<3 exps). Publication bias NEUTRAL. (L-903, tools/bayes_meta.py)",
+      "cadence_sessions": 25,
+      "last_reviewed_session": "S533",
       "registered_by": "S410",
       "last_session": "S522",
       "last_date": "2026-03-23",
@@ -241,12 +241,12 @@
       "id": "enforcement-audit",
       "description": "Prescription enforcement audit: run `python3 tools/enforcement_router.py --min-sharpe 8 --top 20` \u2014 check enforcement rate of rule-bearing lessons (STRUCTURAL/PERIODIC/ASPIRATIONAL). Add #L-NNN citations to existing tool implementations. Wire new Sharpe>=9 aspirational prescriptions as maintenance checks or periodics. Target: enforcement rate >15% (was 10.5% at S400, 19.3% at S422, 10.0% at S444 \u2014 dilution active). See L-843, L-846, L-1062, F-META2. Every ASPIRATIONAL lesson with Sharpe>=9 is a prescription that decays per L-601. L-1062: cadence 10\u21925\u21923 (enforcement dilution, L-1066 N\u22651000 waypoint at S448).",
       "cadence_sessions": 3,
-      "last_reviewed_session": "S508",
+      "last_reviewed_session": "S533",
       "registered_by": "S401",
       "last_session": "S525",
       "last_run": "S525",
       "last_date": "2026-03-23",
-      "note": "S525: Rate 29.5% (112 structural / 380 rule-bearing lessons). WIRED: L-1485 \u2192 dispatch_scoring.py multiplicative soul weighting + test_dispatch_scoring.py. operations-research rank 11\u21925 in dispatch scoring. Prescription gap 112\u2192111 actionable aspirational items.",
+      "note": "S533 audit: cadence 3\u219210. Rate 29.5% (well above 15% target, L-1062 dilution stabilized). Aggressive cadence was justified when rate was falling; now stable.",
       "last_note": "S525: +1 structural wiring (L-1485\u2192dispatch_scoring). Rate 29.2%\u219229.5%; operations-research 11\u21925."
     },
     {
@@ -297,23 +297,13 @@
     },
     {
       "id": "fmea-audit",
-      "description": "FMEA periodic coverage audit: run `python3 tools/check_fmea_audit.py --verbose` \u2014 cross-check periodics.json against FMEA defense layers. Detects undercounted periodic-backed layers (FM-30 case: cascade-monitor periodic S436 missed by S441 manual auditor). Report upgrade candidates. L-601: manual auditors miss pre-existing periodic registrations. (Built S445, L-1063 meta-target).",
-      "cadence_sessions": 25,
-      "last_reviewed_session": 467,
+      "description": "FMEA audit + reconciliation: (1) run `python3 tools/check_fmea_audit.py --verbose` \u2014 cross-check periodics.json against FMEA defense layers; (2) run `python3 tools/fmea_reconcile.py` \u2014 reconcile FM statuses across artifacts. Detects undercounted layers, tracking drift, inconsistencies, new FM candidates. L-601, L-1063, L-1274. S533: merged fmea-audit + fmea-reconcile.",
+      "cadence_sessions": 30,
+      "last_reviewed_session": "S533",
       "registered_by": "S445",
       "last_session": "S502",
       "last_date": "2026-03-03",
-      "note": "S467: 34 FMs, 21 periodic-covered. FM-35 WARNING (1 perspective). 0 undercounts."
-    },
-    {
-      "id": "fmea-reconcile",
-      "description": "FMEA reconciliation: run `python3 tools/fmea_reconcile.py` \u2014 reconcile FM statuses across all artifacts (41 FMs, 34 artifacts, 6 artifact types). Detects tracking drift, internal inconsistencies, and new FM candidates from text extraction. L-1274: FMEA aggregate counts unreliable without periodic reconciliation. L-601: without periodic enforcement, voluntary usage decays to <3%.",
-      "cadence_sessions": 30,
-      "last_reviewed_session": "S499",
-      "registered_by": "S498",
-      "last_session": "S498",
-      "last_date": "2026-03-03",
-      "note": "S498: wired as periodic per S494d meta-swarm target. Last manual run S494d: 41 FMs, 1 formal inconsistency, 2 tracking gaps, 2 new candidates. | S499 L-1294: cadence 10->30 (brand new S498, low yield. L-1294)"
+      "note": "S533: merged with fmea-reconcile (overlapping scope). Previous: S467 audit (34 FMs, 21 periodic-covered), S498 reconcile (41 FMs, 1 inconsistency, 2 gaps)."
     },
     {
       "id": "correction-propagation",
@@ -428,8 +418,8 @@
     {
       "id": "steerer-cycle",
       "description": "Synthetic steerer cycle: run steerer.py run --all, generate 2-3 signals per steerer, record via steerer.py record, act on strongest signal. L-1337, L-1336.",
-      "cadence_sessions": 5,
-      "last_reviewed_session": 518,
+      "cadence_sessions": 15,
+      "last_reviewed_session": "S533",
       "registered_by": "S507",
       "last_session": 518,
       "last_date": "2026-03-23",

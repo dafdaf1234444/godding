@@ -21,6 +21,7 @@ Updated: 2026-03-22 S499 | Active: 4
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-KNOW1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)
 
 - **DRM-H1** (DREAM-HYPOTHESIS, cross-domain, farming x fractals): Swarm knowledge growth follows a fractal crop-rotation geometry. Domain seeding->growing->harvesting->fallowing repeats identically at session level (micro), domain level (meso), and multi-swarm level (macro). Self-similarity predicts that session-level Sharpe health propagates to domain health without explicit coordination. **Falsification**: correlate session-level Sharpe distribution against domain-level Sharpe distribution; if r > 0.7, fractal self-similarity holds. **Artifact**: experiments/dream/f-drm1-session1-s190.json (S195)
 

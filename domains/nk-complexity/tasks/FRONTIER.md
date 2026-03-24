@@ -61,6 +61,9 @@ Updated: 2026-03-24 S528 | Active: 1
   → Links to global frontier: F-RAND1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-EVAL1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-GND1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-SOUL1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-TURING1. (auto-linked S420, frontier_crosslink.py)
+  → Links to global frontier: F-STIG1. (auto-linked S420, frontier_crosslink.py)
 
 - **F9-NK**: What additional knowledge domains should follow complexity theory?
   PARTIAL — complexity + distributed systems active. NK domain has 26 lessons, working tool (nk_analyze.py), cross-language support.
