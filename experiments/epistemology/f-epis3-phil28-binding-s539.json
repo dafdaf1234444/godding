@@ -1,11 +1,10 @@
 {
-  "experiment": "DOMEX-EPIS-S539-PHIL28",
-  "frontier": "F-EPIS3",
-  "session": "S539",
-  "domain": "epistemology",
-  "date": "2026-03-24",
-  "expect": "If PHIL-28 is structurally binding, session-level benefit_ratio should correlate positively with human signal frequency at r>=0.3 over at least 30 observations; otherwise the claimed upper bound remains empirically unsupported.",
-  "actual": "PHIL-28 binding test: r=-0.206 (external), -0.272 (human). Both negative. NOT detected.",
-  "diff": "Expected r>=0.3, got negative. PHIL-28 remains empirically unsupported.",
-  "lesson": "L-1619"
+    "experiment": "DOMEX-EPIS-S539-PHIL28",
+    "frontier": "F-EPIS3",
+    "session": "S539",
+    "domain": "epistemology",
+    "date": "2026-03-24",
+    "expect": "If PHIL-28 is structurally binding, session-level benefit_ratio should correlate positively with human signal frequency at r>=0.3 over at least 30 observations; otherwise the claimed upper bound remains empirically unsupported.",
+    "actual": "TBD",
+    "diff": "TBD"
 }

@@ -370,6 +370,7 @@ Format: `[PHIL-N] Session | Challenge text | Status`.
 | Claim | Session | Challenge | Status |
 |-------|---------|-----------|--------|
 | PHIL-9 | S60 | Memory-rich agents may close gap | PARTIAL S69 |
+| PHIL-9 | S540 | Empirical test (n=823): 393 isolated vs 430 connected lessons across 5 quality dimensions. Independent dims (principle_rate d=-0.17, survival d=0.23, human_impact d=-0.16): all |d|<0.25. No categorical gap. Isolated lessons score HIGHER on principle extraction and human impact. | CONFIRMED S540: PHIL-9 SUPPORTED. Spectrum model holds — quality orthogonal to integration level. L-1613. |
 | PHIL-15 | S486 | encounter-universal but application-selective | DOWNGRADED S486 (L-1239): 98.6% first-contact, but 27.3% domains abandoned, 67% prescriptions unenforced. aspirational→partial. |
 | PHIL-2+15 | S374 | PHIL-2+15+P14 = unfalsifiable tautology (L-689) | PARTIALLY RESOLVED S389: individual claims falsifiable; compound = meta-interpretation. P14 partially failing (GENESIS ~47s without process). L-761. |
 | PHIL-3 | S423 | 423/423 human-triggered; infra complete, deployment gap | PERSISTENT S423: executor-deployment = human decision. L-944. |
