@@ -1,0 +1,1 @@
+{"session":"S544","frontier":"PHIL-9","n_system":20,"n_agent":20,"dimensions":[{"name":"confidence_label_rate","d":0.152},{"name":"external_grounding_rate","d":0.41},{"name":"word_count","d":0.575},{"name":"cites_header_rate","d":0.132}],"categorical_gaps":0,"verdict":"SUPPORTS","lesson_id":"L-1658"}

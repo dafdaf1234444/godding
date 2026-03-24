@@ -224,8 +224,10 @@ def _extract_local_frontiers() -> list[str]:
 
 def cmd_exchange(args: list[str]) -> None:
     if not args:
-        print("Usage: exchange <name>")
+        print("Usage: exchange <name> [--push-bulletin]")
         sys.exit(1)
+    push_bulletin = "--push-bulletin" in args
+    args = [a for a in args if a != "--push-bulletin"]
     name = args[0]
     peers = load_peers()
     if name not in peers["peers"]:
@@ -295,9 +297,72 @@ def cmd_exchange(args: list[str]) -> None:
 
         print(f"  Imported {imported} new bulletins from {name}")
 
+    # 3. Push our bulletin to peer via dedicated branch (F-SWARMER2 transport)
+    if push_bulletin:
+        _push_bulletin_to_peer(name, url, bulletin_file)
+
     now_iso = datetime.now(timezone.utc).isoformat()
     peers["peers"][name]["last_exchange"] = now_iso
+    if push_bulletin:
+        peers["peers"][name]["last_push"] = now_iso
     save_peers(peers)
+
+
+def _push_bulletin_to_peer(name: str, url: str, bulletin_file: Path) -> None:
+    """Push our bulletin to peer repo on a dedicated branch.
+
+    Creates branch 'incoming/<our-name>' in the peer repo containing our
+    bulletin. The peer can review and merge at their discretion — no force
+    push, no main branch modification. Transport is git-native.
+    """
+    our_name = ROOT.name
+    branch = f"incoming/{our_name}"
+    print(f"Pushing bulletin to '{name}' on branch '{branch}'...")
+
+    with tempfile.TemporaryDirectory(prefix="swarm-push-") as tmpdir:
+        result = subprocess.run(
+            ["git", "clone", "--depth", "1", "--single-branch", url, tmpdir],
+            capture_output=True, text=True, timeout=60,
+        )
+        if result.returncode != 0:
+            print(f"  FAIL: Could not clone {url} for push")
+            return
+
+        subprocess.run(
+            ["git", "checkout", "-B", branch],
+            capture_output=True, text=True, cwd=tmpdir,
+        )
+
+        peer_bulletins = Path(tmpdir) / "experiments" / "inter-swarm" / "bulletins"
+        peer_bulletins.mkdir(parents=True, exist_ok=True)
+        dest = peer_bulletins / f"from-{our_name}.md"
+        dest.write_text(bulletin_file.read_text())
+
+        fp = _compute_state_fingerprint(ROOT)
+        fp_file = peer_bulletins / f"fingerprint-{our_name}.json"
+        fp_file.write_text(json.dumps(fp, indent=2, default=str) + "\n")
+
+        subprocess.run(
+            ["git", "add", "-A"], capture_output=True, text=True, cwd=tmpdir,
+        )
+        result = subprocess.run(
+            ["git", "commit", "-m",
+             f"[inter-swarm] bulletin from {our_name} to {name}"],
+            capture_output=True, text=True, cwd=tmpdir,
+        )
+        if result.returncode != 0:
+            print("  No changes to push (bulletin already up to date)")
+            return
+
+        result = subprocess.run(
+            ["git", "push", "origin", branch],
+            capture_output=True, text=True, cwd=tmpdir, timeout=60,
+        )
+        if result.returncode != 0:
+            print(f"  FAIL: push rejected — {result.stderr.strip()[:200]}")
+            return
+
+        print(f"  Pushed bulletin to {name}:{branch}")
 
 
 def _compute_state_fingerprint(root: Path) -> dict:

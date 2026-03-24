@@ -3310,3 +3310,15 @@ Lane-ID: DOMEX-EPIS-S543-PHIL28
 Frontier: F-EPIS3
 Scope: beliefs/PHILOSOPHY.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-SP-S544-DRIFT
+Frontier: F-SP8
+Scope: domains/stochastic-processes/tasks/FRONTIER.md
+Status: MERGED

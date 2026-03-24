@@ -1,0 +1,20 @@
+{
+  "experiment": "DOMEX-EXPSW-S544-TRANSPORT",
+  "frontier": "F-SWARMER2",
+  "session": "S544",
+  "domain": "expert-swarm",
+  "date": "2026-03-24",
+  "check_mode": "implementation",
+  "expect": "--push-bulletin flag enables bidirectional transport via dedicated incoming/<name> branch.",
+  "actual": "CONFIRMED. _push_bulletin_to_peer() implemented: clone peer, create incoming/<our-name> branch, push bulletin + fingerprint. Non-destructive.",
+  "diff": "Implementation matches expect. Branch naming incoming/<name> for peer discoverability.",
+  "data": {
+    "lines_added": 52,
+    "mechanism": "git clone -> checkout -B -> add -> commit -> push",
+    "safety": "Branch push only"
+  },
+  "lessons": [
+    "L-1659"
+  ],
+  "severity": 0.6
+}
