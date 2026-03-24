@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-FORE-S539-REGIME",
+    "frontier": "F-FORE1",
+    "session": "S539",
+    "domain": "forecasting",
+    "date": "2026-03-24",
+    "expect": "market_predict score reproduces the S536 split: geopolitical directional hit rate <=25% while structural >=60%, and the registry/tooling change stays backward-compatible for existing predictions",
+    "actual": "TBD",
+    "diff": "TBD"
+}

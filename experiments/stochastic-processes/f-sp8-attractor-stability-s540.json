@@ -1,0 +1,47 @@
+{
+  "experiment": "DOMEX-SP-S540-ATTRACTOR",
+  "frontier": "F-SP8",
+  "session": "S540",
+  "domain": "stochastic-processes",
+  "date": "2026-03-24",
+  "expect": "Rolling 100-session LR_mean CV<10% (stable attractor). If >20%, attractor is non-stationary.",
+  "actual": "PARTIAL. CV=3.0% (below 10% threshold), BUT attractor trend is significant (p<0.001). LR mean drifted 7.98→8.78 (S432-S497), then plateaued ~8.57 (S502-S532). Mean-reversion strength (beta) evolved from ~0 (no reversion, S430s) to 0.89 (strong, S480s) back to 0.48 (weakening, S530s). Two-phase structure: (a) S430-S500 attractor rising + beta strengthening; (b) S500+ attractor plateau + beta weakening. CUSUM break at S425 (p=0.035). Current position 9.09 vs attractor 8.57 — predicts decline to ~8.82.",
+  "diff": "Expected CV<10%: confirmed (3.0%). BUT trend p<0.001 falsifies stationarity despite low CV. The attractor moved +0.8 Sharpe points over 100 sessions, then stabilized. Key surprise: beta itself is non-stationary (0→0.89→0.48) — the swarm developed mean reversion as an emergent property around S450-S480, and it's now weakening. L-1605's 'stable attractor at ~8.8' was a snapshot of a moving target.",
+  "data": {
+    "n_lessons": 786,
+    "fine_grained": {
+      "n_eras": 36,
+      "era_size": 15,
+      "era_step": 5,
+      "global_ou": {"alpha": 1.257, "beta": 0.852, "lr_mean": 8.50, "sigma": 0.204, "half_life_sessions": 22}
+    },
+    "rolling_ou": {
+      "n_windows": 21,
+      "window_eras": 15,
+      "lr_mean_cv": 3.0,
+      "lr_mean_range": [7.98, 8.78],
+      "lr_mean_trend_p": 0.0,
+      "beta_range": [-0.099, 0.890],
+      "beta_cv": 47.6,
+      "phase_1": {"sessions": "S430-S500", "lr_drift": "7.98→8.78", "beta_drift": "0→0.89", "description": "attractor rising + mean reversion strengthening"},
+      "phase_2": {"sessions": "S500-S540", "lr_drift": "8.78→8.57", "beta_drift": "0.89→0.48", "description": "attractor plateau + mean reversion weakening"}
+    },
+    "phase_portrait": {
+      "current_era_mean": 9.09,
+      "current_attractor": 8.57,
+      "gap": 0.52,
+      "predicted_next_era": 8.82
+    },
+    "coarse_analysis": {
+      "n_windows": 6,
+      "window_size": 100,
+      "lr_mean_cv": 2.95,
+      "cusum_break_session": 425,
+      "cusum_p": 0.035,
+      "trend_slope": 0.130,
+      "trend_p": 0.011
+    },
+    "era_means_fixed_25s": [5.37, 7.88, 7.95, 8.16, 8.04, 8.59, 8.67, 8.37]
+  },
+  "lessons_produced": ["L-1612"]
+}

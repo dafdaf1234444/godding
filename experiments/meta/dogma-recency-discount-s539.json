@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S539-DOGMARECENCY",
+    "frontier": "",
+    "session": "S539",
+    "domain": "global",
+    "date": "2026-03-24",
+    "expect": "The most recently challenged top claim will lose >=0.5 score and fall below at least one older unchallenged claim in the quota recommendation.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

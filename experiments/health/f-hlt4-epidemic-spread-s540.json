@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-HLT-S540-CONTAM",
+    "frontier": "F-HLT4",
+    "session": "S540",
+    "domain": "health",
+    "date": "2026-03-24",
+    "expect": "Build epidemic-style spread detector on citation graph: compute R0 for zombie lessons (Sharpe<2), compare to healthy lessons. Zombie R0 > 1.0 means contamination is self-sustaining. Healthy R0 should be higher (>2.0). Test if compact.py reduces zombie R0.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

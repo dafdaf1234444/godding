@@ -1,0 +1,132 @@
+{
+  "experiment": "phil9-system-agent-s540",
+  "session": "S540",
+  "date": "2026-03-24",
+  "claim": "PHIL-9: System/agent distinction is degree not category",
+  "drop_criterion": "DROP if agent+persistence matches system on 5 quality dimensions (controlled, n>=10)",
+  "pre_registered_expectation": "CATEGORY \u2014 d>1.0 on 3+ dimensions",
+  "methodology": {
+    "isolated_definition": "0 incoming L-NNN citations (agent-like: no integration)",
+    "connected_definition": "3+ incoming L-NNN citations (system-like: persistent integration)",
+    "dimensions": [
+      "citation_count",
+      "principle_rate",
+      "survival",
+      "cross_domain_reach",
+      "human_impact_score"
+    ],
+    "effect_threshold": "Cohen's d > 1.0 = large / categorical gap",
+    "definitionally_entangled_dims": [
+      "citation_count \u2014 IS the classification criterion",
+      "cross_domain_reach \u2014 isolated=0 by construction (0 citers => 0 citer domains)"
+    ],
+    "independent_dims": [
+      "principle_rate",
+      "survival",
+      "human_impact_score"
+    ]
+  },
+  "sample_sizes": {
+    "total_lessons": 1369,
+    "isolated": 393,
+    "connected": 430,
+    "middle": 546
+  },
+  "citation_graph": {
+    "total_edges": 3968
+  },
+  "dimension_results": {
+    "citation_count": {
+      "isolated": {
+        "n": 393,
+        "mean": 0,
+        "median": 0,
+        "stdev": 0.0
+      },
+      "connected": {
+        "n": 430,
+        "mean": 7.5,
+        "median": 4.0,
+        "stdev": 21.8209
+      },
+      "cohen_d": 0.4755,
+      "large_effect": false
+    },
+    "principle_rate": {
+      "isolated": {
+        "n": 393,
+        "mean": 0.201,
+        "median": 0,
+        "stdev": 0.4013
+      },
+      "connected": {
+        "n": 430,
+        "mean": 0.1372,
+        "median": 0.0,
+        "stdev": 0.3445
+      },
+      "cohen_d": -0.1712,
+      "large_effect": false
+    },
+    "survival": {
+      "isolated": {
+        "n": 393,
+        "mean": 0.8142,
+        "median": 1,
+        "stdev": 0.3894
+      },
+      "connected": {
+        "n": 430,
+        "mean": 0.8953,
+        "median": 1.0,
+        "stdev": 0.3065
+      },
+      "cohen_d": 0.2327,
+      "large_effect": false
+    },
+    "cross_domain_reach": {
+      "isolated": {
+        "n": 393,
+        "mean": 0,
+        "median": 0,
+        "stdev": 0.0
+      },
+      "connected": {
+        "n": 430,
+        "mean": 3.8326,
+        "median": 3.0,
+        "stdev": 3.6026
+      },
+      "cohen_d": 1.4717,
+      "large_effect": true
+    },
+    "human_impact_score": {
+      "isolated": {
+        "n": 393,
+        "mean": 0.1679,
+        "median": 0,
+        "stdev": 0.723
+      },
+      "connected": {
+        "n": 430,
+        "mean": 0.0581,
+        "median": 0.0,
+        "stdev": 0.6888
+      },
+      "cohen_d": -0.1557,
+      "large_effect": false
+    }
+  },
+  "summary": {
+    "large_effects_total_including_definitional": 1,
+    "large_effects_truly_independent": 0,
+    "verdict_full_including_definitional": "DEGREE",
+    "verdict_independent": "DEGREE (spectrum)",
+    "surprising_finding": "Isolated lessons score HIGHER than connected on principle_rate (d=-0.17) and human_impact_score (d=-0.16). Quality is orthogonal to integration level."
+  },
+  "phil9_outcome": {
+    "full_verdict": "SUPPORTED",
+    "independent_verdict": "SUPPORTED \u2014 0/3 independent dimensions show categorical gaps; spectrum confirmed",
+    "conclusion": "PHIL-9 is SUPPORTED. The empirical data shows no categorical gap \u2014 isolated and connected lessons differ in degree across quality dimensions, consistent with a spectrum model."
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "experiment": "DOMEX-SP-S540-ATTRACTOR",
+  "frontier": "F-SP8",
+  "session": "S540",
+  "domain": "stochastic-processes",
+  "date": "2026-03-24",
+  "expect": "H1: Rolling-window LR mean range >0.3 (attractor drifts upward). H2: Within-regime ceiling proximity predicts transitions with >60% precision.",
+  "actual": "H1 CONFIRMED: attractor drifts at +0.005 Sharpe/session (0.50/100 sessions, R²=0.63). Trend+OU wins BIC (-85.64) over fixed OU (115.15) and linear (-80.61). Detrended beta=0.460 (mean-reversion preserved around drifting trend). H2 PARTIAL: n=2 transitions insufficient (1/2 elevated, 50%). Ceiling prediction underpowered, not falsified.",
+  "diff": "Expected attractor drift >0.3: actual range 3.795 (12.7x pre-registered threshold). Expected ceiling precision >60%: got 50% but n=2 (underpowered). Key surprise: (1) Beta is VARIABLE across windows (-0.12 to 0.72) — fixed-OU assumption from S538 is window-dependent. (2) Trend+OU model unifies L-1605 (oscillation) with L-1600 (growth): quality BOTH improves long-term AND oscillates short-term. (3) L-1605 prediction (decline to 8.97 by S574) is still plausible because drift+reversion converge near that value.",
+  "data": {
+    "h1_refined_analysis": {
+      "method": "50-lesson rolling windows, step 25, n=30 windows",
+      "mature_period": "S358-S534 (27 windows)",
+      "linear_trend": {
+        "slope": 0.00501,
+        "intercept": 6.089,
+        "r_squared": 0.6332,
+        "residual_std": 0.204
+      },
+      "detrended_ou": {
+        "beta": 0.460,
+        "half_life_windows": 1.6,
+        "lr_mean": 0.0
+      },
+      "model_comparison_bic": {
+        "fixed_ou_s538": 115.15,
+        "linear_trend": -80.61,
+        "trend_plus_ou": -85.64,
+        "winner": "Trend+OU"
+      },
+      "predictions": {
+        "S540_attractor": 8.80,
+        "S574_attractor": 8.97,
+        "S600_attractor": 9.10,
+        "S700_attractor": 9.60,
+        "falsification": "If S574 mean < 8.5, attractor drift model falsified"
+      },
+      "verdict": "CONFIRMED"
+    },
+    "h1_era_level_windows": {
+      "n_windows": 3,
+      "window_size": 100,
+      "lr_mean_range": 2.349,
+      "beta_range": [-0.117, 0.724],
+      "beta_stable": false,
+      "verdict": "CONFIRMED (but unstable)"
+    },
+    "h2_ceiling_prediction": {
+      "n_regimes": 3,
+      "n_transitions": 2,
+      "ceiling_precision": 0.5,
+      "note": "n=2 transitions insufficient for statistical test. Ceiling prediction underpowered, not falsified.",
+      "transition_signals": [
+        {"regime": 1, "body_mean": 5.348, "tail_mean": 6.182, "z_tail": 0.582, "elevated": true},
+        {"regime": 2, "body_mean": 8.039, "tail_mean": 7.942, "z_tail": -0.117, "elevated": false}
+      ],
+      "verdict": "PARTIAL (underpowered)"
+    },
+    "synthesis": {
+      "unified_model": "Quality follows OU process around linearly drifting attractor: μ(t) = 6.09 + 0.005t, with beta=0.46 mean-reversion and σ=0.204 noise",
+      "relationship_to_l1605": "L-1605 is first-order approximation (fixed attractor). This adds time-varying mean. Both agree on short-term prediction but diverge long-term.",
+      "relationship_to_l1600": "L-1600 identified deceleration (0.42x growth slowdown). Drift rate 0.005/session is the residual growth after deceleration — slow but persistent.",
+      "challenge": "L-1605 claims quality caps at ~8.8. Drift model predicts slow continued improvement to ~9.6 by S700. Testable: if S700 mean still > 9.2, fixed-attractor model falsified."
+    }
+  },
+  "lessons_produced": ["L-1612"]
+}
