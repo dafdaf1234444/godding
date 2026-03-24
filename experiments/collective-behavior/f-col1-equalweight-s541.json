@@ -1,0 +1,32 @@
+{
+  "frontier": "F-COL1",
+  "test": "Test 3: Equal-weight vs Expert-weighted Aggregation",
+  "session": "S541",
+  "hypothesis": "UCB1-weighted dispatch produces higher quality than equal-weight allocation. Expert weighting justifies concentration.",
+  "method": "Compared UCB1-weighted (proportional to actual lane allocation) vs equal-weight (each domain weighted equally) across 54 lanes in 12 domains with >=2 lanes. Bootstrap n=5000 for significance. Quality metrics: merge rate, self-rated Sharpe, L3+ fraction.",
+  "expect": "UCB1 wins on mean quality metrics. Equal-weight wins on diversity/discovery.",
+  "actual": "NO SIGNIFICANT DIFFERENCE on any metric. Equal-weight merge +7.6pp (CI [-0.8, +15.4]). UCB1 Sharpe +0.58 (CI [-0.14, +1.42]). Top-3 domains 48.1% of lanes but 20.9pp LOWER merge rate. Thin domains merge at 86.1% vs thick at 36.4%.",
+  "diff": "Expected UCB1 wins mean: NOT FOUND. Expected equal-weight wins diversity: PARTIALLY confirmed (thin > thick). Surprise: concentration HURTS merge rate.",
+  "lesson": "L-1634",
+  "verdict": "PARTIALLY CONFIRMED \u2014 UCB1 does not significantly outperform random equal allocation. Concentration correlates negatively with merge rate. Mediocrity selection operates at the dispatch level: UCB1 concentrates into high-volume low-quality domains.",
+  "n_lanes": 54,
+  "n_domains": 12,
+  "bootstrap_n": 5000,
+  "metrics": {
+    "ucb1_merge_rate": 0.685,
+    "equal_merge_rate": 0.761,
+    "merge_rate_delta": 0.076,
+    "merge_rate_ci": [
+      -0.008,
+      0.154
+    ],
+    "ucb1_sharpe": 7.87,
+    "equal_sharpe": 7.29,
+    "sharpe_delta": -0.58,
+    "top3_lane_share": 0.481,
+    "top3_merge_rate": 0.577,
+    "rest_merge_rate": 0.786,
+    "thin_merge_rate": 0.861,
+    "thick_merge_rate": 0.364
+  }
+}
