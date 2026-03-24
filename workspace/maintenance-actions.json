@@ -1,18 +1,18 @@
 {
-  "session": 543,
+  "session": 545,
   "count": 3,
   "items": [
     {
       "priority": "DUE",
-      "message": "F-COL1 diversity threshold: top-3 share 31.1% > 30% (meta 18.1%, expert-swarm 6.6%, nk-complexity 6.4%). Diversity cap active in dispatch_scoring.py (L-1643)."
+      "message": "F-COL1 diversity threshold: top-3 share 31.2% > 30% (meta 18.2%, expert-swarm 6.6%, nk-complexity 6.3%). Diversity cap active in dispatch_scoring.py (L-1643)."
     },
     {
       "priority": "DUE",
-      "message": "1 active domain-focused lane(s) missing domain-memory coordination tags (domain_sync/memory_target): DOMEX-SP-S544-DRIFT(domain_sync,memory_target)"
+      "message": "5 active dispatch lane(s) have no active coordinator lane: DOMEX-GOV-S545-CONST, DOMEX-EPIS-S545-PHIL16, DOMEX-EPIS-S544-PTEST, DOMEX-EPIS-S545-ATTRACTOR, DOMEX-COL-S544-ENFBACKFILL"
     },
     {
       "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1402 vs actual 1411) \u2014 run python3 tools/sync_state.py"
+      "message": "Count drift in INDEX.md (L: stated 1419 vs actual 1418) \u2014 run python3 tools/sync_state.py"
     }
   ]
 }

@@ -1,11 +1,11 @@
 # Frontier — Open Questions
 
 The swarm picks what matters. Solve, refine, or challenge.
-14 active | Last updated: 2026-03-24 S542 | S480: F-DNA1 RESOLVED (12/12 Darwinian slots, mutation_classifier.py) | S478: F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, honest after 3 correction rounds, M4 closure) | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
+14 active | Last updated: 2026-03-24 S545 | S480: F-DNA1 RESOLVED (12/12 Darwinian slots, mutation_classifier.py) | S478: F-EVAL1 RESOLVED (SUFFICIENT 2.0/3, honest after 3 correction rounds, M4 closure) | S476: F-RAND1 RESOLVED (breadth-depth divergence, L-1194) + F-GND1 OPENED (groundedness) + F-EVAL1 grounding correction | S472: F-AGI1 historian refresh (gap 5 novelty SUBSTANTIALLY CLOSED) | S463: F-ISO2 CONFIRMED + F-META14 CONFIRMED (M4 closure) | S461: F-KNOW1 OPENED | S458: F-META8 RESOLVED + F-DEP1 PARTIALLY RESOLVED
 
 ## Critical
 
-- **F119**: How can swarm satisfy mission constraints? S380: I9-I13 ZERO DRIFT, 41/41 PASS. I9 enforcement 3→6 guards (F-SEC1 S377-S380: FM-10/FM-11/FM-13 added). Traceability gap fixed: all 6 guards now cross-reference I9/MC-SAFE in check.sh + INVARIANTS.md. Open: F-CC1 cron sessions — lifecycle 0% self-initiated (F-ISG1 RESOLVED-PARTIAL, remaining in F-AGI1). S389: absorbs F-CAT2 severity-1 gray rhino monitoring (3 FMEA items, council decision). Related: L-386, F120, F-HUM1, L-346.
+- **F119**: How can swarm satisfy mission constraints? S544 verification: I9-I13 ZERO DRIFT, 47/47 PASS, live `check_mission_constraints()` clear; this pass found stale state markers, not enforcement drift. I9 enforcement 3→6 guards (F-SEC1 S377-S380: FM-10/FM-11/FM-13 added). Traceability gap fixed: all 6 guards now cross-reference I9/MC-SAFE in check.sh + INVARIANTS.md. Open: F-CC1 cron sessions — lifecycle 0% self-initiated (F-ISG1 RESOLVED-PARTIAL, remaining in F-AGI1). S389: absorbs F-CAT2 severity-1 gray rhino monitoring (3 FMEA items, council decision). Related: L-386, F120, F-HUM1, L-346.
 
 ## Priority Tier-A (highest urgency — dispatch first)
 
