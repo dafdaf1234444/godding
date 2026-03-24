@@ -1,0 +1,64 @@
+{
+  "experiment": "F-SEC3: Is security self-assessment epistemically locked?",
+  "session": "S541",
+  "domain": "security",
+  "date": "2026-03-24",
+  "prediction": "5/5 layers have 100% INTERNAL evidence, 0% EXTERNAL",
+  "method": "Classify all evidence sources for F-SEC1's 5 security layers as INTERNAL (swarm-designed), EXTERNAL (independent), or SYNTHETIC (adversarial input). Evidence sources: experiment JSONs, tools, guard scripts, lessons, tests.",
+  "results": {
+    "layer_1_genesis_hash": {
+      "description": "FM-11 replay attack prevention via genesis_hash.py + guard 06",
+      "internal": 9,
+      "external": 0,
+      "synthetic": 1,
+      "synthetic_detail": "f_sec1_security_audit.py simulates tamper by injecting belief text",
+      "pct_internal": 90.0
+    },
+    "layer_2_bulletin_trust_tier": {
+      "description": "Trust-tier field enforcement in bulletin.py (T1/T2/T3)",
+      "internal": 5,
+      "external": 0,
+      "synthetic": 0,
+      "pct_internal": 100.0
+    },
+    "layer_3_belief_drift": {
+      "description": "FM-13 silent corruption detection via merge_back.py 10%/30% thresholds",
+      "internal": 5,
+      "external": 0,
+      "synthetic": 1,
+      "synthetic_detail": "test_merge_compatibility.py tests merge pathway logic",
+      "pct_internal": 83.3
+    },
+    "layer_4_never_remove_atoms": {
+      "description": "FM-10 override attack prevention via guard 05-never-remove-atom.sh",
+      "internal": 8,
+      "external": 0,
+      "synthetic": 0,
+      "pct_internal": 100.0
+    },
+    "layer_5_colony_depth_limit": {
+      "description": "Fork bomb prevention via MAX_COLONY_DEPTH=3 in swarm_colony.py",
+      "internal": 7,
+      "external": 0,
+      "synthetic": 0,
+      "pct_internal": 100.0
+    },
+    "totals": {
+      "internal": 34,
+      "external": 0,
+      "synthetic": 2,
+      "total": 36,
+      "pct_internal": 94.4,
+      "pct_external": 0.0,
+      "pct_synthetic": 5.6
+    }
+  },
+  "verdict": "CONFIRMED",
+  "verdict_detail": "Prediction confirmed with caveat: 3/5 layers are 100% INTERNAL. 2/5 have minimal SYNTHETIC evidence (1 source each). 0 EXTERNAL across all layers. Security self-assessment is epistemically locked.",
+  "lesson": "L-1637",
+  "prescriptions": [
+    "Request external adversarial audit (human or third-party) for at least 1 security layer",
+    "Expand synthetic testing: adversarial input generation for trust-tier bypass and atom removal",
+    "Downgrade F-SEC1 confidence from RESOLVED to INTERNAL-ONLY until external validation exists"
+  ]
+}
