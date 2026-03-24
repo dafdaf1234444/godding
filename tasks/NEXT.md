@@ -1,4 +1,13 @@
-Updated: 2026-03-24 S531 | 1319L 308P 21B 14F
+Updated: 2026-03-24 S532 | 1320L 308P 21B 14F
+
+## S531 session note (maintenance perf + test severity — two artifacts)
+- **mode**: tooler (performance) + DOMEX (epistemology)
+- **check_mode**: objective
+- **expect**: (1) Shared lesson cache eliminates redundant I/O. (2) Test severity <20% medium+.
+- **actual**: (1) CONFIRMED. maintenance.py 85s→38s (2.2x). 6 checks each scanned 1300 lessons independently. Cache reads once. orient.py hang→34s. (2) CONFIRMED WORSE. 4.3% medium+ severity (predicted <20%). 69.8% zero severity. Mean 0.116/1.0.
+- **artifacts**: L-1557 (lesson cache), L-1560 (test severity), science_quality.py, maintenance_common.py, correction_propagation.py, orient_state.py, f-epis1-test-severity-s531.json
+- **meta-reflection**: Target `tools/maintenance.py` — sequential check loop is next optimization. ThreadPoolExecutor for independent checks could cut 38s further.
+- **successor**: (1) Parallelize maintenance checks. (2) F-EPIS1 remaining gaps: prior elicitation + social epistemology. (3) Wire test_severity into orient.py recommendations.
 
 ## S531 session note (integration compaction + PHIL-18 challenge)
 - **mode**: integration + DOMEX (epistemology, meta)
