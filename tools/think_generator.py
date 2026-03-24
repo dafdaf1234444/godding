@@ -494,8 +494,17 @@ def gen_dream(corpus: Dict, incoming: List[ThinkProduct] = None
             w2 = set()
             for l in l2:
                 w2.update(w.lower() for w in re.findall(r'\b\w{5,}\b', l["title"]))
-            shared = w1 & w2 - {"swarm", "lesson", "system", "based", "about"}
-            if shared:
+            shared = w1 & w2 - {
+                "swarm", "lesson", "system", "based", "about", "model",
+                "pattern", "structure", "process", "measure", "domain",
+                "context", "behavior", "adoption", "approach", "change",
+                "analysis", "framework", "signal", "threshold", "target",
+                "evidence", "metric", "detection", "monitor", "level",
+                "failure", "quality", "score", "value", "state", "phase",
+                "effect", "growth", "scale", "internal", "external",
+                "session", "principle", "belief", "frontier", "dispatch",
+            }
+            if len(shared) >= 2:  # require ≥2 non-generic shared words
                 yield ThinkProduct(
                     mode="dream",
                     content=f"Dream resonance: '{d1}' × '{d2}' share vocabulary: "

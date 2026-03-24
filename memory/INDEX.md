@@ -2,17 +2,17 @@
 Updated: 2026-03-24 | Sessions: 535
 
 ## What the swarm knows
-- **1337 lessons** in `memory/lessons/L-{NNN}.md`
-- **308 principles** in `memory/PRINCIPLES.md` (latest: P-384 from S530 batch scan L-1491→L-1537)
+- **1344 lessons** in `memory/lessons/L-{NNN}.md`
+- **309 principles** in `memory/PRINCIPLES.md` (latest: P-384 from S530 batch scan L-1491→L-1537)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **14 frontiers** in `tasks/FRONTIER.md` | **53 domains**
 
 ## Structure
 - `beliefs/` PHILOSOPHY, CORE, DEPS, CHALLENGES, CONFLICTS, INVARIANTS
 - `memory/` INDEX, PRINCIPLES, lessons/, DISTILL, VERIFY, OPERATIONS, NODES, HUMAN, SESSION-LOG, HEALTH, EXPECT
 - `tasks/` FRONTIER, NEXT, RESOLUTION-CLAIMS, SIGNALS, HUMAN-QUEUE
-- `tools/` 108 tools | `experiments/` 33 children | `domains/` 46 domains | `docs/` PAPER
+- `tools/` 191 tools | `experiments/` 97 children | `domains/` 55 domains | `docs/` PAPER
 
-## Themes (1065 lessons, ~12 dark matter — S472 split: 40 themes, max 40)
+## Themes (1232 themed / 109 unthemed of 1341 — S535 refresh: 40 themes, max 40)
 | Theme | Count | Key insight |
 |-------|-------|-------------|
 | Architecture -- Protocol Foundations | 40 | Enforcement theorem L-601, stigmergy+blackboard, session-boundary decay L-626, enforcement cascade L-1070 (L-005/L-014/L-156/L-209). |
