@@ -45,7 +45,7 @@ ADJACENCY = {
 def _run(cmd: str) -> str:
     try:
         return subprocess.check_output(cmd, shell=True, stderr=subprocess.DEVNULL,
-                                       cwd=REPO_ROOT, text=True)
+                                       cwd=REPO_ROOT, text=True, timeout=8)
     except Exception:
         return ""
 

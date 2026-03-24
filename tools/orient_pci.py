@@ -10,8 +10,27 @@ PCI = ead_quality * belief_freshness * frontier_testability * epistemic_yield_fa
 """
 
 import json
+import os
 import re
 from pathlib import Path
+
+
+def _walk_json_files(exp_root, session_filter=None):
+    """Walk experiment directory for JSON files — faster than rglob on WSL/NTFS.
+    If session_filter=(min_sess, max_sess), skip files outside that session range
+    based on filename pattern *-s{N}.json to avoid stat()ing 1400+ files."""
+    _sess_re = re.compile(r"-s(\d+)\.json$", re.I) if session_filter else None
+    for dirpath, _dirnames, filenames in os.walk(exp_root):
+        for fn in filenames:
+            if not fn.endswith(".json"):
+                continue
+            if _sess_re and session_filter:
+                m = _sess_re.search(fn)
+                if m:
+                    s = int(m.group(1))
+                    if s < session_filter[0] or s > session_filter[1]:
+                        continue
+            yield Path(dirpath) / fn
 
 _FALSIF = re.compile(r"(?:FALSIF|unexpected|surprise|not.{0,10}predict|exceeded|didn.t match|wrong|incorrect)", re.I)
 _CONFIRM = re.compile(r"(?:confirm|as expected|matched|expectation met|predicted.{0,10}correct|SUPPORTED)", re.I)
@@ -25,13 +44,7 @@ def _scan_experiment_verdicts(root, current_session, window=20):
     exp_root = root / "experiments"
     if not exp_root.exists():
         return counts
-    for jf in exp_root.rglob("*.json"):
-        sm = re.search(r"-s(\d+)", jf.name)
-        if not sm:
-            continue
-        sess = int(sm.group(1))
-        if sess < min_session or sess > current_session:
-            continue
+    for jf in _walk_json_files(exp_root, session_filter=(min_session, current_session)):
         try:
             data = json.loads(jf.read_text())
         except Exception:
@@ -73,13 +86,7 @@ def _compute_epistemic_yield(root, current_session, window=20):
     falsified_frontiers = []
 
     # Collect falsified experiments and their frontier references
-    for jf in exp_root.rglob("*.json"):
-        sm = re.search(r"-s(\d+)", jf.name)
-        if not sm:
-            continue
-        sess = int(sm.group(1))
-        if sess < min_session or sess > current_session:
-            continue
+    for jf in _walk_json_files(exp_root, session_filter=(min_session, current_session)):
         try:
             data = json.loads(jf.read_text())
         except Exception:

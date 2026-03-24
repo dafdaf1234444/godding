@@ -336,7 +336,8 @@ def main():
     # L-1349: any new section MUST be added to this executor block.
     from concurrent.futures import ThreadPoolExecutor, as_completed
     _futures = {}
-    with ThreadPoolExecutor(max_workers=12) as _pool:
+    _pool = ThreadPoolExecutor(max_workers=12)
+    if True:  # was 'with' block — explicit shutdown to avoid hang on stuck threads (L-1542)
         # Pre-checks (~3s each)
         _futures['git_health'] = _pool.submit(check_git_object_health)
         _futures['genesis'] = _pool.submit(check_genesis_hash)
@@ -394,15 +395,16 @@ def main():
         maint_out = _run_maint()  # run in main thread while others execute
         # Re-submit cascade with actual maint_out if needed
         _futures['cascade_real'] = _pool.submit(lambda mo=maint_out: section_cascade_state(maint_output=mo))
-    # Collect pre-check results
-    for _line in _futures['git_health'].result():
+    # Collect pre-check results (10s timeout per future to prevent orient hang — L-1542)
+    for _line in _futures['git_health'].result(timeout=10):
         print(_line)
-    for _line in _futures['genesis'].result():
+    for _line in _futures['genesis'].result(timeout=10):
         print(_line)
-    def _safe_result(key, default=None):
-        """Fault-isolated future result — optional sections fail independently (L-1413)."""
+    def _safe_result(key, default=None, timeout=10):
+        """Fault-isolated future result — optional sections fail independently (L-1413).
+        Timeout prevents a single hung future from blocking all of orient (L-1542)."""
         try:
-            return _futures[key].result()
+            return _futures[key].result(timeout=timeout)
         except Exception:
             return default if default is not None else []
 
@@ -682,6 +684,9 @@ def main():
                                 frontier_text=frontier_text)
     except Exception:
         pass
+
+    # Shut down pool without waiting for stuck threads (L-1542: brain_turing hangs)
+    _pool.shutdown(wait=False, cancel_futures=True)
 
 
 if __name__ == "__main__":
