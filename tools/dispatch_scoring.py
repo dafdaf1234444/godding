@@ -17,12 +17,6 @@ except ImportError:
     WAVE_DANGER_BOOST = 1.5
     WAVE_COMMITTED_BOOST = 0.5
 
-try:
-    from dispatch_citation import build_citation_indegree
-    _CITATION_IMPORTED = True
-except ImportError:
-    _CITATION_IMPORTED = False
-
 DOMAINS_DIR = Path("domains")
 EXPERIMENTS_DIR = Path("experiments")
 
@@ -122,9 +116,7 @@ def _load_soul_weights():
         return {}
 
 
-# Lazy-load: scan_lessons reads 1378+ files (~6s on WSL2/NTFS). S541 perf fix.
-_soul_weights = None
-_soul_mean_ratio = None
+_soul_weights = _load_soul_weights()
 
 # Soul dispatch constants (F-SOUL1 Phase 2, SIG-81, L-1455, L-1485)
 SOUL_MULTIPLIER_MAX = 1.6       # cap positive soul weighting at +60%
@@ -132,21 +124,18 @@ SOUL_MULTIPLIER_MIN = 0.6       # cap negative soul weighting at -40%
 SOUL_MIN_SAMPLE = 5             # minimum good+bad lessons for scoring
 SOUL_SCALE = 0.15               # multiplier delta per unit deviation from mean ratio
 
-
-def _ensure_soul_loaded():
-    """Load soul weights on first access (lazy init)."""
-    global _soul_weights, _soul_mean_ratio
-    if _soul_weights is not None:
-        return
-    _soul_weights = _load_soul_weights()
+# Compute corpus-wide mean benefit ratio as reference point (L-1455)
+# Domains below mean displace human benefit; domains above generate it.
+def _compute_soul_mean():
     weighted = [(v.get("ratio", 1.0), v.get("good", 0) + v.get("bad", 0))
                 for v in _soul_weights.values()
                 if v.get("good", 0) + v.get("bad", 0) >= SOUL_MIN_SAMPLE]
     if not weighted:
-        _soul_mean_ratio = 1.0
-    else:
-        total_n = sum(n for _, n in weighted)
-        _soul_mean_ratio = sum(r * n for r, n in weighted) / total_n if total_n > 0 else 1.0
+        return 1.0
+    total_n = sum(n for _, n in weighted)
+    return sum(r * n for r, n in weighted) / total_n if total_n > 0 else 1.0
+
+_soul_mean_ratio = _compute_soul_mean()
 
 
 # Maintenance urgency constants (F-SWARMER1 intervention #3)
@@ -406,36 +395,6 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
             quality_scores.append(mr * (1 + math.log1p(oc.get("lessons", 0))) * sf)
     global_avg = sum(quality_scores) / len(quality_scores) if quality_scores else 1.0
 
-    # Pre-compute per-domain citation stats (L-1622, L-1641)
-    _domain_cite_stats = {}
-    _global_cite_avg = 0.0
-    if _CITATION_IMPORTED:
-        indegree = build_citation_indegree()
-        import re as _re
-        _dom_cites = {}
-        lessons_dir = Path("memory/lessons")
-        if lessons_dir.exists():
-            for lf in lessons_dir.iterdir():
-                if not lf.name.startswith("L-") or not lf.name.endswith(".md"):
-                    continue
-                try:
-                    header = lf.read_text(encoding="utf-8", errors="replace")[:500]
-                except Exception:
-                    continue
-                if header.startswith("<!--"):
-                    continue
-                lid = lf.name.replace(".md", "")
-                dm = _re.search(r"Domain:\s*(\S+)", header)
-                if dm:
-                    d = dm.group(1).strip().rstrip(",")
-                    _dom_cites.setdefault(d, []).append(indegree.get(lid, 0))
-        _all_cites = []
-        for d, counts in _dom_cites.items():
-            s = sum(counts)
-            _domain_cite_stats[d] = {"citation_sum": s, "citation_count": len(counts)}
-            _all_cites.extend(counts)
-        _global_cite_avg = sum(_all_cites) / len(_all_cites) if _all_cites else 1.0
-
     for r in results:
         dom = r["domain"]
         oc = outcome_map.get(dom, {"merged": 0, "abandoned": 0, "lessons": 0})
@@ -461,21 +420,14 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
             merge_rate = oc["merged"] / n
             lessons_l3plus = oc.get("lessons_l3plus", 0)
             lessons_weighted = lessons + lessons_l3plus
-            # Quality: blend dampened Sharpe (0.5x) with citation in-degree (0.5x)
-            # L-1622: self-rated Sharpe FALSIFIED (rho=0.154, CV=0.168).
-            # L-1641: citation in-degree as externalized quality signal.
+            # Sharpe-weighted quality (L-1127 Channel 3 fix, L-1141): domains producing
+            # high-Sharpe lessons get a quality multiplier. Normalised against
+            # dynamic global mean Sharpe (L-1622: was hardcoded 7.7, actual ~8.1).
             sharpe_sum = oc.get("sharpe_sum", 0)
             sharpe_count = oc.get("sharpe_count", 0)
             avg_sharpe = sharpe_sum / sharpe_count if sharpe_count > 0 else global_mean_sharpe
-            sharpe_factor = avg_sharpe / global_mean_sharpe
-            if _CITATION_IMPORTED and dom in _domain_cite_stats:
-                _cs = _domain_cite_stats[dom]
-                avg_cites = _cs["citation_sum"] / _cs["citation_count"] if _cs["citation_count"] > 0 else 0
-                cite_factor = (1 + math.log1p(avg_cites)) / (1 + math.log1p(_global_cite_avg))
-                quality_factor = 0.5 * sharpe_factor + 0.5 * cite_factor
-            else:
-                quality_factor = sharpe_factor
-            quality = merge_rate * (1 + math.log1p(lessons_weighted)) * quality_factor
+            sharpe_factor = avg_sharpe / global_mean_sharpe  # >1.0 for high-quality domains
+            quality = merge_rate * (1 + math.log1p(lessons_weighted)) * sharpe_factor
             explore_term = c * math.sqrt(math.log(total_dispatches) / n)
             r["ucb1_exploit"] = round(quality, 3)
             r["ucb1_explore"] = round(explore_term, 3)
@@ -525,7 +477,6 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         # Soul-informed human benefit weighting (F-SOUL1 Phase 2, SIG-81, L-1455)
         # L-1485: additive corrections do not fix multiplicative Goodhart.
         # Weight the full score by human-benefit ratio instead of adding a flat nudge.
-        _ensure_soul_loaded()
         pre_soul_score = r["score"]
         soul_multiplier = 1.0
         sw = _soul_weights.get(dom, {})

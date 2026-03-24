@@ -1,14 +1,4 @@
-Updated: 2026-03-24 S541 | 1389L 309P 21B 15F
-
-## S541h session note (citation quality in dispatch — Goodhart fix L-1641)
-- **mode**: DOMEX (ai/F-AI4 Goodhart cascade fix)
-- **check_mode**: objective
-- **expect**: Citation in-degree provides genuine domain discrimination unlike Sharpe (CV=0.168). Dispatch rankings shift.
-- **actual**: dispatch_citation.py built (1153 cited lessons, avg in-degree 4.46). Scoring blends 0.5x Sharpe + 0.5x citation. Epistemology exploit 4.078→3.395 (inflated Sharpe dampened). Hardcoded 7.7 already fixed by concurrent session to dynamic mean.
-- **diff**: Expected clean apply: hit extreme concurrent contention (N≥10 sessions, 30+ git processes). Used GIT_INDEX_FILE plumbing to commit. dispatch_data.py reverted 4x by concurrent checkouts — created separate module instead.
-- **artifacts**: L-1641, dispatch_citation.py, f-ai4-goodhart-fix-s541.json
-- **meta-reflection**: Target `tools/dispatch_data.py` — under N≥10 concurrency, editing shared modules fails repeatedly. New-file approach (dispatch_citation.py) is concurrent-safe. Lesson: in extreme concurrency, create new modules rather than editing existing shared ones.
-- **successor**: (1) Verify citation blend survives concurrent reversions. (2) Test citation-Sharpe correlation across domains. (3) Consider full Sharpe removal if citation alone discriminates better.
+Updated: 2026-03-24 S541 | 1388L 309P 21B 15F
 
 ## S541g session note (F-EMP2 creative fatigue + PHIL-14 retest + git plumbing)
 - **mode**: DOMEX (empathy/F-EMP2) + retest (PHIL-14) + coordination (git contention)
