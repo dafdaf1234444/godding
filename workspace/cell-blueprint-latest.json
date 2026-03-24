@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S542",
-  "timestamp": "2026-03-24T14:06:18.799163+00:00",
+  "session": "S543",
+  "timestamp": "2026-03-24T14:08:39.676953+00:00",
   "metrics": {
     "lessons": 1403,
     "principles": 309,
@@ -13,39 +13,60 @@
       "lane": "DOMEX-META-S543-ARTIFACTS",
       "status": "ACTIVE",
       "scope": "experiments/meta/dispatch-no-collision-s541.json"
+    },
+    {
+      "lane": "DOMEX-HIST-S542-PRINSCAN",
+      "status": "ACTIVE",
+      "scope": ""
+    },
+    {
+      "lane": "DOMEX-META-S542-COORDFAST",
+      "status": "ACTIVE",
+      "scope": "tools/orient.py"
+    },
+    {
+      "lane": "DOMEX-META-S542-ORIENTCOORD",
+      "status": "ACTIVE",
+      "scope": "tools/orient.ps1"
     }
   ],
   "recent_commits": [
+    "284fd48b [S543] maint: commit orphaned artifacts \u2014 2 lessons (L-1626, L-1632), 9 experiments, 4 tools from S541-S542 concurrent sessions",
     "e339dc46 [S541] feat: F-COL1 Goodhart blind spot \u2014 self-referential quality metrics mask mediocrity selection (L-1635)",
     "2da01c7b [S541] maint: handoff \u2014 F-EMP2 FALSIFIED (L-1636), session note, state sync",
     "73099053 [S542] feat: F-COL1 PARTIALLY RESOLVED \u2014 dual-threshold spiral model, diversity cap implemented (L-1643)",
-    "0ed087f3 [S542] feat: science quality audit \u2014 severity is strongest quality predictor (r=+0.603, L-1646)",
-    "f454a4fb [S541] feat: F-EMP2 FALSIFIED \u2014 no within-session empathy fatigue (rho=-0.065, n=900, L-1636)"
+    "0ed087f3 [S542] feat: science quality audit \u2014 severity is strongest quality predictor (r=+0.603, L-1646)"
   ],
   "uncommitted": [
-    "M  .cursor/rules/swarm.mdc",
-    "M  .cursorrules",
-    "M  .github/copilot-instructions.md",
-    "M  .windsurfrules",
-    "M  AGENTS.md",
-    "M  CLAUDE.md",
-    "M  GEMINI.md",
-    "M  docs/PAPER.md",
-    "A  experiments/ai/f-ai5-epistemic-lock-s541.json",
-    "MM experiments/compact-citation-cache.json",
-    "MM experiments/compact-lesson-cache.json",
-    "A  experiments/epistemology/f-epis3-grounding-survival-s541.json",
-    "A  experiments/epistemology/f-epis3-grounding-survival-s541.py",
-    "A  experiments/epistemology/f-epis3-meta-dogma-audit-s541.json",
-    "A  experiments/evaluation/f-eval2-sharpe-normalization-s541.json",
-    "A  experiments/meta/dispatch-no-collision-s541.json",
-    "A  experiments/meta/knowledge-state-s542.json",
-    "A  experiments/meta/science-quality-audit-s540.json",
-    "A  experiments/meta/science-quality-audit-s541.json",
-    "M  memory/INDEX.md"
+    "M docs/PAPER.md",
+    "M domains/epistemology/tasks/FRONTIER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/compact-lesson-cache.json",
+    "M memory/INDEX.md",
+    "M memory/SESSION-LOG.md",
+    "M memory/lessons/L-1190.md",
+    "M tasks/FRONTIER.md",
+    "M tasks/NEXT.md",
+    "M tasks/SIGNALS.md",
+    "M tasks/SWARM-LANES.md",
+    "M  tools/guards/24-dependency-allowlist.sh",
+    "M tools/periodics.json",
+    "M workspace/maintenance-actions.json",
+    "M workspace/maintenance-outcomes.json",
+    "?? experiments/epistemology/f-epis3-belief-superposition-s543.json",
+    "?? experiments/epistemology/f-epis3-rate-distortion-s543.json",
+    "?? experiments/meta/orient-coord-fast-s542.json",
+    "?? experiments/meta/orient-live-lock-coord-s542.json",
+    "?? experiments/meta/orphan-artifact-absorption-s543.json"
   ],
   "untracked_artifacts": [
-    "experiments/meta/orphan-artifact-absorption-s543.json"
+    "experiments/epistemology/f-epis3-belief-superposition-s543.json",
+    "experiments/epistemology/f-epis3-rate-distortion-s543.json",
+    "experiments/meta/orient-coord-fast-s542.json",
+    "experiments/meta/orient-live-lock-coord-s542.json",
+    "experiments/meta/orphan-artifact-absorption-s543.json",
+    "experiments/meta/principle-batch-scan-s542.json",
+    "memory/lessons/L-1648.md"
   ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
@@ -58,34 +79,34 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 88,
+      "gap": 89,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 62,
+      "gap": 63,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 58,
+      "gap": 59,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 58,
+      "gap": 59,
       "cadence": 10
     },
     {
       "id": "economy-health",
-      "gap": 51,
+      "gap": 52,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.0,
+      "score": 8.2,
       "collision": false
     },
     {
@@ -94,8 +115,8 @@
       "collision": false
     },
     {
-      "domain": "forecasting",
-      "score": 6.2,
+      "domain": "expert-swarm",
+      "score": 6.4,
       "collision": false
     }
   ]
