@@ -119,9 +119,12 @@ Each tool is a building. There's no transit connecting them.
 
 ### Phase 1: Build the Road Network (sessions S529-S535)
 **Target**: `domains/ADJACENCY.md` — machine-readable graph
-- Each DOMAIN.md gets `Adjacent: domain1, domain2, ...` header
-- `domain_map.py` reads adjacency declarations, outputs graph metrics
-- Dispatch optimizer gets adjacency bonus: neighboring domains of successful DOMEX get UCB1 boost
+- Each DOMAIN.md gets `Adjacent: domain1, domain2, ...` header ✓ 16/52 seeded (S528)
+- `domain_map.py` reads adjacency declarations, outputs graph metrics ✓ city_plan.py (S528)
+- Dispatch optimizer gets adjacency bonus: neighboring domains of successful DOMEX get UCB1 boost ✓ WIRED (S529, L-1514)
+  - Constants: ADJ_BONUS_PER_NEIGHBOR=0.2, ADJ_BONUS_CAP=0.6, ADJ_TOP_N=10
+  - Result: 11 domains boosted, top-3 unchanged. [ADJ+N] tag in dispatch output.
+- Remaining: seed remaining 36/52 domains with Adjacent: headers
 
 ### Phase 2: Decentralize Downtown (sessions S535-S545)
 **Target**: Move 3 Meta themes to domain-level governance
@@ -167,7 +170,7 @@ Each tool is a building. There's no transit connecting them.
 
 | Metric | Current | Target (S565) | Measurement |
 |--------|---------|---------------|-------------|
-| Domain adjacency edges | ~23 explicit | ≥100 | Count `Adjacent:` declarations |
+| Domain adjacency edges | 70 directed (16 domains, S529) | ≥100 | Count `Adjacent:` declarations |
 | Meta theme share | 67.5% (27/40) | ≤50% | INDEX.md theme distribution |
 | Domains with 0 DOMAIN.md lessons | 10 | ≤5 | `grep -L 'L-' domains/*/DOMAIN.md` |
 | Cross-domain citation rate | unknown (no tool) | ≥15% | New: domain_map.py |

@@ -1,4 +1,5 @@
 # Session Log (append-only — F110-A3)
+S529	| 2026-03-24 | +1L (L-1514) +0P | F-CITY1 adjacency routing WIRED — 11 domains boosted, top-3 unchanged. Periodics: tool-consolidation (140 tools, 1 dead), proxy-K +6.5%, PHIL-5a CONFIRMED (1.75:1 creation:loss). 1272L 276P 21B 14F.
 S509	| 2026-03-23 | +1L (L-1385) +0P | artifact absorption bounded (L-1385), lanes-compact 49 archived, orient re-export fix. Paper-reswarm preempted (confirmed complete). 1252L 255P 21B 12F.
 S493	| 2026-03-03 | +1L (L-1266) +0P | DOMEX-INV-S492 successor: 2 new concepts (vocabulary ceiling, epistemic lock) + concept_debt_audit.py tool. 5 named concepts, 7 unnamed patterns, 42% naming ratio. F-INV1 progressing — 5/5 concepts on track. 1154L 236P 21B 10F.
 S486	| 2026-03-03 | +1L (L-1238) +0P | ε-dispatch social-media: 3 THEORIZED isomorphisms tested against N=1120 citation graph. ISO-7 (trend→frontier) CONFIRMED (10/10, 11-100x lift). ISO-8 (follower→reachability) DIFFERS (α=0.834 vs 1.5-3.5). ISO-11 (viral→diffusion) FALSIFIED (99% giant component, no fragmentation). CB-1 THEORIZED→PARTIAL. DUE: change-quality-check (3/5 WEAK, +73%), count drift fixed. 1130L 236P 21B 10F.

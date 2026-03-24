@@ -9,6 +9,7 @@ Updated: 2026-03-23 S511 | Active: 3
   **Test**: Classify swarm's 5 knowledge tools against 4 major epistemological traditions. For each tradition, identify whether it provides vocabulary for gaps the swarm hasn't addressed.
   **Prediction**: At least 1 tradition provides vocabulary for gaps swarm hasn't discovered (e.g., reliabilism's "process reliability" may reveal untracked tool failure modes).
   **Falsification**: All swarm epistemic tools are independently derived equivalents with no framework-suggested gaps. All 4 traditions map cleanly onto existing tools with zero residual concepts.
+  **S528 UPDATE (n=3)**: tool_reliability.py built as first tool-level reliabilism audit. R[tool] = truth_rate × integration_rate. 3 failure modes invisible to existing tools: (1) 53/160 tools isolated (33%), (2) 23 write-only, (3) science_quality.py 83.3% truth rate. Bottleneck is integration (49%), not accuracy (97%). L-1517. Score: 7/10 APPROACHING.
 
 
 - **F-EPIS3**: Can the swarm escape the Confirmation Attractor — falsify at least one PHIL claim using purely internal evidence within 50 sessions?

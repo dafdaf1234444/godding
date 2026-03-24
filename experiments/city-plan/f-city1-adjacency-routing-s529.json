@@ -1,0 +1,50 @@
+{
+  "experiment": "F-CITY1 adjacency routing — neighborhood spillover in UCB1",
+  "session": "S529",
+  "date": "2026-03-24",
+  "frontier": "F-CITY1",
+  "domain": "city-plan",
+  "hypothesis": "Domain adjacency routing improves dispatch outcomes. Domains adjacent to high-scoring domains get a UCB1 boost, creating agglomeration economics.",
+  "method": "Added adjacency bonus to dispatch_scoring.py ucb1_score(). Loads adjacency graph from DOMAIN.md Adjacent: headers. Top-10 scoring domains identified, their neighbors get +0.2 per high-scoring neighbor (capped at +0.6).",
+  "pre_registration": {
+    "expect": "Adjacency bonus activates for ≥8 domains. Bonus range 0.2-0.6. Does not distort top-3 ranking but lifts well-connected peripheral domains.",
+    "falsification": "No reward difference between adjacent and non-adjacent DOMEX lanes after 20 lanes."
+  },
+  "results": {
+    "adjacency_graph": {
+      "total_domains": 52,
+      "domains_with_edges": 16,
+      "directed_edges": 70
+    },
+    "bonus_activation": {
+      "domains_boosted": 11,
+      "max_bonus": 0.6,
+      "min_bonus": 0.2,
+      "boosted_domains": {
+        "expert-swarm": 0.6,
+        "meta": 0.6,
+        "epistemology": 0.4,
+        "evolution": 0.4,
+        "forecasting": 0.4,
+        "governance": 0.4,
+        "operations-research": 0.4,
+        "ai": 0.2,
+        "conflict": 0.2,
+        "finance": 0.2,
+        "information-science": 0.2
+      }
+    },
+    "ranking_impact": {
+      "top3_unchanged": true,
+      "note": "expert-swarm rose from #3 (6.7) to #3 (7.3) — adjacency reinforced but did not distort. Peripheral domains (evolution, finance, information-science) lifted toward mid-pack."
+    }
+  },
+  "constants": {
+    "ADJ_BONUS_PER_NEIGHBOR": 0.2,
+    "ADJ_BONUS_CAP": 0.6,
+    "ADJ_TOP_N": 10
+  },
+  "code_location": "tools/dispatch_scoring.py:ucb1_score() — adjacency bonus block after soul multiplier",
+  "status": "WIRED — tracking reward difference over next 20 DOMEX lanes",
+  "next": "Measure whether adjacent-domain DOMEX lanes produce higher reward (merge rate, lesson yield) than non-adjacent after 20 lanes. Also: seed more DOMAIN.md Adjacent: headers (currently 16/52)."
+}

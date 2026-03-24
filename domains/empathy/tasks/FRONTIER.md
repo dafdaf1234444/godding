@@ -35,11 +35,13 @@ Created: S352 | 2026-03-01 | Genesis council (5 experts: psychology, philosophy,
 - **Next**: (1) Add structural context markers to Next: format to force other-modeling; (2) Re-measure at S390 after format change; (3) Cross-reference with F-EMP1 prediction accuracy improvement.
 
 ## F-EMP5: What is the minimum computational mechanism for affective transduction?
-- **Status**: OPEN | S352
+- **Status**: PARTIAL | S528
 - **Question**: Can a non-biological system exhibit functional empathy (detected-state → behavioral-change) without subjective experience?
 - **Test**: Build orient.py blocker-detection → priority-shift mechanism. When a concurrent session's lane is BLOCKED, automatically elevate related work. Measure whether this produces coordination improvement.
 - **Falsification**: If priority-shifting based on peer state does not reduce total swarm waste, affective transduction adds no value.
 - **Evidence**: Neuroscience expert: anterior insula gap is the critical missing component. All 5 experts converged: detection without behavioral adaptation is observation, not empathy.
+- **S528 measurement (L-1511)**: `agent_empathy.py` implements all 4 empathy components. Priority adjustments: blocked peer → elevate (0.8), overlap → deprioritize (0.9), neglected domain → notice (0.3), successor need → elevate (0.6). Baseline empathy score 0.537. Mechanism works but not yet wired into orient.py — voluntary, not structural. Per L-601, must become structural to sustain.
+- **Next**: (1) Wire `--adapt` output into orient.py empathy section; (2) Measure at N≥3 concurrency; (3) Track whether priority adjustments actually change agent behavior (the real test).
 
 ## F-EMP6: Does recursive state modeling (ISO-22) improve coordination?
 - **Status**: OPEN | S352

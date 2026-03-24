@@ -128,6 +128,39 @@ OUTCOME_BONUS = 0.5
 OUTCOME_MIXED_BONUS = 2.0
 OUTCOME_PENALTY = 1.0
 
+# Adjacency bonus constants (F-CITY1, L-1510 — neighborhood spillover)
+ADJ_BONUS_PER_NEIGHBOR = 0.2     # additive bonus per high-scoring adjacent domain
+ADJ_BONUS_CAP = 0.6              # max adjacency bonus (3 neighbors)
+ADJ_TOP_N = 10                   # consider top-N domains as "high-scoring"
+
+
+def _load_adjacency_graph():
+    """Load domain adjacency graph from DOMAIN.md Adjacent: headers (city_plan.py)."""
+    graph: dict[str, list[str]] = {}
+    if not DOMAINS_DIR.exists():
+        return graph
+    for entry in sorted(DOMAINS_DIR.iterdir()):
+        if not entry.is_dir() or entry.name.startswith("."):
+            continue
+        domain_md = entry / "DOMAIN.md"
+        if not domain_md.exists():
+            continue
+        try:
+            text = domain_md.read_text(errors="replace")
+        except Exception:
+            continue
+        m = re.search(r"^Adjacent(?:\s+Domains)?:\s*(.+)$", text,
+                      re.MULTILINE | re.IGNORECASE)
+        if m:
+            graph[entry.name] = [d.strip().lower() for d in m.group(1).split(",")
+                                 if d.strip()]
+        else:
+            graph[entry.name] = []
+    return graph
+
+
+_adjacency_graph = _load_adjacency_graph()
+
 
 def score_domain(domain: str, calibration: dict | None = None) -> dict | None:
     """Compute expected yield score for a domain's open frontiers."""
@@ -355,6 +388,12 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
         r["soul_multiplier"] = round(soul_multiplier, 3)
         r["soul_boost"] = round(r["score"] - pre_soul_score, 3)
 
+        # Adjacency bonus — neighborhood spillover (F-CITY1, L-1510)
+        # Domains adjacent to high-scoring domains get a boost, creating
+        # "agglomeration economics" — success in one area lifts neighbors.
+        r["adjacency_bonus"] = 0.0
+        # (computed after all individual scores are set — see post-loop block below)
+
         # Claimed domain penalty
         if dom in claimed:
             r["claimed"] = True
@@ -426,6 +465,22 @@ def ucb1_score(results: list[dict], outcome_map: dict, heat_map: dict,
             r["campaign_boost"] = WAVE_COMMITTED_BOOST
         else:
             r["campaign_boost"] = 0.0
+
+    # Adjacency bonus — post-loop computation (F-CITY1, L-1510)
+    # After all individual scores are set, identify top-N domains and boost
+    # their neighbors. This creates spatial spillover: good neighborhoods
+    # lift adjacent areas, mimicking agglomeration economics in cities.
+    if _adjacency_graph:
+        score_by_dom = {r["domain"]: r["score"] for r in results}
+        top_domains = set(sorted(score_by_dom, key=score_by_dom.get,
+                                 reverse=True)[:ADJ_TOP_N])
+        for r in results:
+            neighbors = _adjacency_graph.get(r["domain"], [])
+            high_neighbors = sum(1 for nb in neighbors if nb in top_domains)
+            if high_neighbors > 0:
+                bonus = min(high_neighbors * ADJ_BONUS_PER_NEIGHBOR, ADJ_BONUS_CAP)
+                r["score"] += bonus
+                r["adjacency_bonus"] = round(bonus, 3)
 
     # COMMIT floor (F-STR3, L-794)
     all_scores = sorted([r["score"] for r in results])

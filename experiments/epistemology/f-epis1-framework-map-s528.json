@@ -1,0 +1,28 @@
+{
+    "experiment": "DOMEX-EPIS-S528b",
+    "frontier": "F-EPIS1",
+    "session": "S528",
+    "domain": "epistemology",
+    "date": "2026-03-24",
+    "expect": "At least 1 tradition reveals vocabulary for gaps swarm hasn't addressed. Reliabilism's process-reliability tracking predicted as largest gap (L-1390). Building tool_reliability.py should reveal >=3 failure modes invisible to existing tools.",
+    "actual": "CONFIRMED (n=3, extends L-1390 S510+S514). tool_reliability.py reveals 3 failure modes invisible to existing tools: (1) 53/160 tools (33%) are ISOLATED — zero readers in tool graph, epistemically unjustified per Goldman. (2) 23 tools are WRITE-ONLY — referenced in lessons but no tool reads their output (integration gap). (3) science_quality.py is the only tool with truth_rate <85% (83.3%), meaning lessons referencing it have disproportionate falsification. Existing tools (dogma_finder, validate_beliefs, knowledge_state) capture NONE of these — they operate at belief/lesson level, not tool/process level.",
+    "diff": "Expected >=3 new failure modes, found exactly 3 distinct classes. Reliabilism gap CONFIRMED as largest (L-1390 prediction holds at n=3). Surprising: only 1 tool below 85% truth rate — tool-level reliability is HIGH (mean R=0.445 dragged down by integration, not truth). The real gap is integration (mean 0.492), not accuracy.",
+    "metrics": {
+        "n_tools": 160,
+        "mean_r_score": 0.445,
+        "mean_integration": 0.492,
+        "n_isolated": 53,
+        "n_write_only": 23,
+        "n_low_truth": 1,
+        "n_well_integrated": 55,
+        "isolation_rate": 0.331,
+        "low_truth_tool": "science_quality.py (83.3%)"
+    },
+    "new_failure_modes": [
+        "ISOLATED: 53 tools with 0 readers — epistemically unjustified (Goldman: no reliable process if no downstream consumer)",
+        "WRITE-ONLY: 23 tools referenced in lessons but disconnected from tool graph — L-1101 integration failure at tool level",
+        "TRUTH-GAP: science_quality.py 83.3% — lessons citing it have higher falsification rate than baseline"
+    ],
+    "external_grounding": "Goldman 1979 (reliabilism), L-1390 (framework mapping), L-1101 (integration failure)",
+    "verdict": "CONFIRMED"
+}

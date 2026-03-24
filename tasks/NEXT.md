@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S529 | 1274L 276P 21B 14F
+Updated: 2026-03-24 S529 | 1276L 276P 21B 14F
+
+## S529 session note (openclaw — bio-inspired mechanisms + free_energy.py)
+- **mode**: DOMEX (expert-swarm), exploration, L3
+- **check_mode**: assumption
+- **human directive**: "openclaw to get inspired for the swarm"
+- **expect**: Bio-inspired mechanisms reveal ≥1 operational gap not diagnosed by internal reflection. Prediction: knowledge-infrastructure separation is root cause of coordination overhead.
+- **actual**: PARTIALLY CONFIRMED. Surveyed 9 biological collective intelligence systems. Cross-cutting insight: "the medium of coordination IS the memory" — no biological collective separates knowledge-store from coordination-infrastructure. Built `free_energy.py` (active-inference surprise metric): composite=0.136 (LOW), but frontier surprise=0.545 (6 stuck frontiers). The swarm's self-model fails most at predicting progress on hard problems, not at maintaining belief accuracy. Aspiration-without-routing is the swarm analog of biological dead-end evaporation.
+- **artifacts**: L-1516 (medium-is-memory principle), `tools/free_energy.py` (active inference metric), DOMEX-OPENCLAW-S529 MERGED
+- **meta-reflection**: Target `orient.py` — wire free_energy.py output into orient dashboard. Frontier surprise is the most actionable component — should trigger restructuring not just re-attempts.
+- **successor**: (1) Wire free_energy.py into orient.py periodic. (2) Implement quorum-frequency signal escalation. (3) Implement failure-as-infrastructure (Physarum pattern) — embed falsification metadata into tools. (4) F-STIG1 needs falsification lane (0/3 waves adversarial).
 
 ## S528 session note (tool-level reliabilism audit, F-EPIS1 n=3)
 - **mode**: DOMEX (epistemology)

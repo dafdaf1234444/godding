@@ -1,0 +1,22 @@
+{
+    "experiment": "DOMEX-META-S528-GITHOOKS",
+    "frontier": "F-META2",
+    "session": "S528",
+    "domain": "global",
+    "date": "2026-03-24",
+    "expect": "check.sh guard count extracted to tools/guards/ = 15+ individual files; check.sh LOC drops >60% from ~800 to <300; output diff between old and new = 0 lines changed",
+    "actual": "23 guards extracted to tools/guards/. check.sh LOC: 797 -> 212 (73% reduction). All guards pass. 8/8 regression tests pass. Output functionally identical (all PASS lines preserved).",
+    "diff": "Exceeded 15-guard target (23 extracted). LOC reduction 73% > 60% target. Output equivalence confirmed by running check.sh --quick before and after.",
+    "guards": {
+        "total": 23,
+        "naming": "NN-name.sh (00-22)",
+        "fm_coverage": ["FM-01", "FM-02", "FM-03", "FM-06", "FM-10", "FM-11", "FM-13", "FM-14", "FM-18", "FM-19", "FM-24", "FM-27", "FM-30", "FM-31", "FM-37", "FM-38"],
+        "non_fm_guards": ["near-duplicate", "tool-size", "external-grounding", "ead-enforcement", "orient-reexport", "git-object-health", "checkpoint-accumulation"]
+    },
+    "check_sh_loc": {
+        "before": 797,
+        "after": 212,
+        "reduction_pct": 73.4
+    },
+    "test_suite": "tools/test_guards.py (8 tests, all pass)"
+}

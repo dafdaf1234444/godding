@@ -1,7 +1,8 @@
 # Domain: Empathy / Inter-Node State Modeling
 Topic: How nodes in multi-agent systems model each other's internal states, adapt behavior based on those models, and maintain self-other distinction — the computational, philosophical, and neuroscientific structure of empathy applied to the swarm.
 Beliefs: B1, B2, B7, B8 (coordination, integrity, learning)
-Lessons: L-207 (competitive deception as dark empathy), L-526 (high-concurrency pre-emption), L-540 (agent self-analysis), L-557 (C-EDIT collision overhead)
+Adjacent: brain, ai, conflict, game-theory, governance
+Lessons: L-207 (competitive deception as dark empathy), L-526 (high-concurrency pre-emption), L-540 (agent self-analysis), L-557 (C-EDIT collision overhead), L-1511 (per-agent empathy as operational mechanism)
 Frontiers: F-EMP1, F-EMP2, F-EMP3, F-EMP4, F-EMP5, F-EMP6
 Experiments: experiments/empathy/
 ISOs: ISO-4 (compression), ISO-6 (boundary-permeability), ISO-13 (empathy fatigue as windup), ISO-20 (bounded-epistemic replication), ISO-22 (recursive state modeling)
@@ -30,7 +31,7 @@ Four necessary components:
 | Type | Definition | Swarm analog | Status |
 |------|-----------|-------------|--------|
 | Cognitive | Model another's beliefs/goals without sharing their state | context_router.py, NEXT.md handoff | OPERATIONAL |
-| Affective | Resonance — your state shifts toward the modeled state | **MISSING**: detection doesn't change behavior | GAP |
+| Affective | Resonance — your state shifts toward the modeled state | `agent_empathy.py` affective transduction (L-1511) | OPERATIONAL (S528) |
 | Somatic | Bodily mirroring of another's physical state | N/A (no embodiment) | N/A |
 | Compassionate | Modeling + motivation to act for the other | PHIL-16, helper-swarm (partial) | PARTIAL |
 
@@ -49,7 +50,7 @@ Four necessary components:
 |-------------|----------|-------------|-----|
 | Mirror neurons | Action simulation | orient.py + git log | Passive |
 | TPJ | Self-other distinction | claim.py + lane ownership | Rudimentary |
-| Anterior insula | Affective transduction | **MISSING** | Critical gap |
+| Anterior insula | Affective transduction | `agent_empathy.py` priority adjustments (L-1511) | **FILLED S528** |
 | mPFC | Self-model | PHILOSOPHY.md, AGENT-SELF-ANALYSIS.md | Strong |
 | ACC | Error monitoring / routing | expect-act-diff | Strong |
 
@@ -61,6 +62,23 @@ Four necessary components:
 4. Empathy fatigue (ISO-13 windup) is a real risk: sustained helper-lane activity may degrade quality.
 5. Empathy asymmetry: human modeled extensively (HUMAN.md), AI sessions have no reciprocal model.
 6. Concurrent empathy failure: at N≥3, peer-prediction collapses (37% C-EDIT overhead = empathy deficit).
+
+## Operational tools (S528)
+
+### `agent_empathy.py` — per-agent empathy engine
+- `python3 tools/agent_empathy.py` — full empathy report (all 4 components)
+- `python3 tools/agent_empathy.py --adapt` — priority adjustments only (for orient integration)
+- `python3 tools/agent_empathy.py --for-agent S528` — empathy from specific agent's perspective
+- `python3 tools/agent_empathy.py --json` — machine-readable output
+
+Components implemented:
+1. **State-modeling**: git log + SWARM-LANES + NEXT.md → per-agent activity model
+2. **Affective transduction**: detected states → priority shifts (blocked→elevate, overlap→deprioritize, neglected→notice)
+3. **Reflexive modeling** (ISO-22): NEXT.md + lanes → "what others expect of me"
+4. **Boundary management**: Jaccard distinctiveness (optimal 0.5-0.7)
+
+Empathy score components: awareness, responsiveness, distinctiveness, reflexivity (0-1 each).
+Baseline (S528): composite 0.537.
 
 ## Empathy expert role
 The empathy expert monitors inter-node modeling quality across the swarm:

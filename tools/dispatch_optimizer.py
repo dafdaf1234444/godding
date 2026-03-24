@@ -390,6 +390,8 @@ def _print_ucb1_output(results, results_limited, active_lanes, session_merged,
         sm = r.get("soul_multiplier", 1.0)
         if sm > 1.0: m += f" [SOULx{sm:.2f}]"
         elif sm < 1.0: m += f" [SOULx{sm:.2f}]"
+        ab = r.get("adjacency_bonus", 0)
+        if ab > 0: m += f" [ADJ+{ab:.1f}]"
         print(f"{ss:>6}  {r['domain']:<25}  {r.get('ucb1_exploit',0):7.3f}  {es:>7}  "
               f"{r.get('outcome_n',0):3d}  {r.get('outcome_lessons',0):3d}  {hi:>4} [{r.get('outcome_label','NEW')}]{m}")
         if r["domain"] in session_merged:
