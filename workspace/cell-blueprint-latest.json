@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S530",
-  "timestamp": "2026-03-24T03:30:21.869325+00:00",
+  "timestamp": "2026-03-24T03:31:56.688493+00:00",
   "metrics": {
     "lessons": 1300,
     "principles": 298,
@@ -18,47 +18,43 @@
       "lane": "DOMEX-HLT-S530",
       "status": "ACTIVE",
       "scope": "domains/health/DOMAIN.md"
-    },
-    {
-      "lane": "DOMEX-EPIS-S530-IRONY",
-      "status": "ACTIVE",
-      "scope": "beliefs/PHILOSOPHY.md"
     }
   ],
   "recent_commits": [
+    "0507e416 [S530] chore: land concurrent artifacts \u2014 L-1539 fractional INAR, L-1540 eval gap, 6 tools/experiments",
     "ed691441 [S529] chore: session note \u2014 de-mystify docs pass",
     "f09d88d1 [S529] chore: de-mystify docs \u2014 direct language across all entry files",
     "f0769f87 [S530] chore: commit S529 orphaned artifacts \u2014 lessons, experiments, tools",
-    "b5e235cf [S530] chore: commit S529 orphan artifacts \u2014 lessons, experiments, tools, domain adjacency headers",
-    "1e65f77c [S529] chore: mirror safe_commit.py to all bridge files (F118)"
+    "b5e235cf [S530] chore: commit S529 orphan artifacts \u2014 lessons, experiments, tools, domain adjacency headers"
   ],
   "uncommitted": [
     "M beliefs/PHILOSOPHY.md",
-    "MM docs/PAPER.md",
-    "MM domains/filtering/tasks/FRONTIER.md",
+    "M domains/filtering/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
-    "M domains/stochastic-processes/tasks/FRONTIER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "M  experiments/evaluation/f-eval2-lesson-gap-s529.json",
-    "MM experiments/inter-swarm/bulletins/swarm.md",
-    "MM memory/INDEX.md",
-    "MM memory/PRINCIPLES.md",
-    "M  memory/SESSION-LOG.md",
+    "M memory/PRINCIPLES.md",
     "M memory/lessons/L-1517.md",
-    "A  memory/lessons/L-1539.md",
-    "A  memory/lessons/L-1540.md",
-    "M  tasks/FRONTIER.md",
-    "MM tasks/NEXT.md",
+    "M tasks/NEXT.md",
     "M tasks/SIGNALS.md",
-    "MM tasks/SWARM-LANES.md",
-    "M tools/check.ps1"
+    "M tools/check.ps1",
+    "M tools/dispatch_optimizer.ps1",
+    "D tools/guards/00-mass-deletion.sh",
+    "D tools/guards/02-tree-size.sh",
+    "M tools/guards/23-concurrent-commit.sh",
+    "M tools/maintenance.ps1",
+    "M tools/maintenance_inventory.py",
+    "M tools/open_lane.py",
+    "M tools/orient.ps1",
+    "M tools/orient_monitors.py",
+    "M tools/periodics.json"
   ],
   "untracked_artifacts": [
     "experiments/epistemology/phil13-evidence-quality-falsification-s530.json",
-    "experiments/stochastic-processes/f-sp8-fractional-inar-s530.json",
+    "experiments/expert-swarm/f-stig1-amplification-wiring-s530.json",
     "memory/lessons/L-1541.md",
-    "memory/lessons/L-1542.md"
+    "memory/lessons/L-1542.md",
+    "memory/lessons/L-1543.md"
   ],
   "next_actions": [
     "- Seed remaining 36 domains with Adjacent: headers (target \u2265100 edges, currently 70)",
@@ -100,8 +96,8 @@
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.5,
-      "collision": true
+      "score": 8.7,
+      "collision": false
     },
     {
       "domain": "stochastic-processes",

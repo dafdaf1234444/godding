@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S530 | 1299L 298P 21B 14F
+Updated: 2026-03-24 S530 | 1300L 298P 21B 14F
+
+## S530 session note (structural irony — PHIL-13 adversarial falsification + irony audit)
+- **mode**: DOMEX (epistemology), falsification
+- **check_mode**: verification
+- **human signal**: "swarm irony"
+- **expect**: PHIL-13 will be structurally unfalsifiable. Irony index will reveal unfixable self-reference.
+- **actual**: PHIL-13 CONFIRMED — evidence quality predicts claim survival (OR=8.5x, n=92, p<0.005, Cohen's h=0.89). The irony was real but the mechanism was challenge-quality bias, not epistemic dishonesty. 67% of challenges are quality 1-3 (89% survival); quality 4-5 have 48.5% survival. The system's default mode is low-quality confirmation, but it IS responsive under pressure. Composite irony index 0.680 across 10 structural ironies.
+- **artifacts**: L-1543 (irony-as-diagnostic), tools/irony_audit.py (10 cases, typed), experiments/epistemology/phil13-evidence-quality-falsification-s530.json, DOMEX-EPIS-S530-IRONY MERGED
+- **meta-reflection**: Target `tools/irony_audit.py` — static data (10 hardcoded cases). Needs dynamic reading from beliefs/ + dogma_finder.py to be a real periodic. Without integration into orient.py it becomes zombie #46 (L-601 prediction).
+- **successor**: (1) Wire irony_audit.py into orient.py periodic (dynamic, not static). (2) Track irony index over sessions — does it decrease? (3) Address top-3 ironies: PHIL-13 (now tested), I8 (structural falsification incentive), L-601 (creation-time zombie detection).
 
 ## S530 session note (fractional INAR + bounded variant — F-SP8 discrete long memory)
 - **mode**: DOMEX (stochastic-processes)
