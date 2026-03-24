@@ -442,26 +442,32 @@ def get_periodic_tasks() -> list[dict]:
     return tasks[:3]  # top 3 periodic items
 
 
-def get_meta_tasks() -> list[dict]:
-    """Standard meta-session suggestions."""
-    return [
-        {
+def get_meta_tasks(has_domain_tasks: bool = False) -> list[dict]:
+    """Standard meta-session suggestions.
+    L-1600: meta work drags quality (d=0.14, p=0.057). When domain tasks exist,
+    suppress meta-reflection to avoid the mediocrity-selection spiral (L-1587).
+    Handoff is always included (necessary protocol).
+    """
+    tasks = []
+    if not has_domain_tasks:
+        # Only suggest meta-reflection when no domain work is available
+        tasks.append({
             "priority": P_META,
             "tier": "META",
             "score": 20,
             "action": "Meta-reflection: identify one friction or improvement in swarming process",
             "detail": "Write lesson if finding is novel; update SWARM.md/bridge files if process change",
             "command": None,
-        },
-        {
-            "priority": P_META,
-            "tier": "META",
-            "score": 15,
-            "action": "Handoff: sync_state.py + validate_beliefs.py + NEXT.md update",
-            "detail": "Commit: [S<N>] what: why",
-            "command": "python3 tools/sync_state.py && python3 tools/validate_beliefs.py",
-        },
-    ]
+        })
+    tasks.append({
+        "priority": P_META,
+        "tier": "META",
+        "score": 15,
+        "action": "Handoff: sync_state.py + validate_beliefs.py + NEXT.md update",
+        "detail": "Commit: [S<N>] what: why",
+        "command": "python3 tools/sync_state.py && python3 tools/validate_beliefs.py",
+    })
+    return tasks
 
 
 def _check_preemption(tasks: list[dict]) -> list[dict]:
@@ -494,9 +500,14 @@ def build_task_list(top_n: int = 8) -> list[dict]:
     all_tasks.extend(get_closeable_lanes())
     all_tasks.extend(get_strategy_tasks())
     all_tasks.extend(get_signal_tasks())
-    all_tasks.extend(get_dispatch_tasks())
+    dispatch_tasks = get_dispatch_tasks()
+    all_tasks.extend(dispatch_tasks)
     all_tasks.extend(get_periodic_tasks())
-    all_tasks.extend(get_meta_tasks())
+    # L-1600: suppress meta-reflection when domain work is available
+    has_domain = bool(dispatch_tasks) or any(
+        t["tier"] == "STRATEGY" for t in all_tasks
+    )
+    all_tasks.extend(get_meta_tasks(has_domain_tasks=has_domain))
 
     # Check task claims from other sessions (L-686)
     all_tasks = _check_task_claims(all_tasks)
