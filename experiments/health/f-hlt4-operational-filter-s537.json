@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-HLT-S537-EPIDEMIC",
+    "frontier": "F-HLT4",
+    "session": "S537",
+    "domain": "health",
+    "date": "2026-03-24",
+    "expect": "Operational vs historical citation filtering reduces R_bad from 3.38 to <2.0 (subcritical). True correction rate increases from 9.4% as false infections are reclassified.",
+    "actual": "TBD",
+    "diff": "TBD"
+}
