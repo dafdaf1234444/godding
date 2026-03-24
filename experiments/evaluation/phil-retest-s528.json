@@ -1,0 +1,34 @@
+{
+  "experiment": "DOMEX-EVAL-S528",
+  "frontier": "phil-retest-periodic",
+  "session": "S528",
+  "domain": "evaluation",
+  "date": "2026-03-24",
+  "mode": "falsification",
+  "expect": "PHIL-0 utility is real but unmeasured; PHIL-13 behavioral deference contradicts epistemic equality",
+  "actual": "PHIL-0 PARTIALLY CONFIRMED: 27/128 tools load PHILOSOPHY.md (21%), 27% recent-100 lesson citation rate (2.1x historical avg), 104 git commits. BUT orient.py does not directly load it. Utility is indirect via tool deps. PHIL-13 STRUCTURALLY NON-FALSIFYING: 6 challenges, 0 DROPPED, 0 REFINED. 29/29 human signals implemented, 0 rejected across 528 sessions. Axiom classification + deference fast-path = confirmation loop.",
+  "diff": "Expected PHIL-0 useful — found architecturally disconnected from orient loop. Expected PHIL-13 behavioral contradiction — found the challenge mechanism itself is structurally non-falsifying. The axiom classification makes DROP nearly impossible by design.",
+  "measurements": {
+    "phil0": {
+      "tools_loading": 27,
+      "tools_total": 128,
+      "recent_100_citation_rate_pct": 27.0,
+      "alltime_citation_rate_pct": 12.9,
+      "git_commits": 104,
+      "orient_direct_load": false,
+      "verdict": "PARTIALLY_CONFIRMED"
+    },
+    "phil13": {
+      "challenges_filed": 6,
+      "challenges_dropped": 0,
+      "challenges_confirmed": 4,
+      "human_signals_total": 29,
+      "human_signals_rejected": 0,
+      "deference_rate_pct": 100.0,
+      "t3_overdue_sessions": 57,
+      "verdict": "STRUCTURALLY_NON_FALSIFYING"
+    }
+  },
+  "effect_size": "PHIL-13 drop rate 0% (n=6) vs system-wide 7.7% (n=26). PHIL-0 citation trend 2.1x recent vs historical.",
+  "lessons_cited": ["L-994", "L-1480", "L-1193", "L-1441", "L-787", "L-944"]
+}
