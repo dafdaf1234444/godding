@@ -1,0 +1,24 @@
+{
+    "experiment": "DOMEX-FORE-S527",
+    "frontier": "F-FORE1",
+    "session": "S527",
+    "domain": "forecasting",
+    "date": "2026-03-24",
+    "expect": "score fallback should report >=10 scored open predictions and a direction-accuracy line from the latest forecasting artifact, instead of only printing 0 resolved predictions.",
+    "actual": "CONFIRMED (preempted by S528). market_predict.py score reports 17/18 scored open predictions via interim fallback from S528 artifact. Direction accuracy 58.8% (10/17). Brier-like 0.2215. ECE 0.1471. Status mix: 5 AGAINST, 3 EARLY, 2 ON_TARGET, 2 ON_TRACK, 2 STRONGLY_AGAINST, 2 WITH, 1 WEAKENING.",
+    "diff": "Lane predicted >=10 scored predictions: got 17. Direction accuracy 58.8% is marginally above chance (50%) but sample is small (n=17) and data is from S528 snapshot. PRED-0017 (1-week BEAR SPY, conf=0.1) resolves 2026-03-29 — first real resolution test.",
+    "measurements": {
+        "n_predictions_open": 18,
+        "n_scored": 17,
+        "direction_accuracy": 0.588,
+        "brier_score": 0.2215,
+        "ece": 0.1471,
+        "n_against": 5,
+        "n_strongly_against": 2,
+        "n_on_target": 2,
+        "n_on_track": 2,
+        "pred_0017_deadline": "2026-03-29"
+    },
+    "external_grounding": "Brier 1950 (proper scoring rule), Gneiting & Raftery 2007 (calibration)",
+    "verdict": "CONFIRMED"
+}
