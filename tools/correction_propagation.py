@@ -32,12 +32,20 @@ _KNOWN_FALSIFICATIONS: dict[str, set[str]] = {
 }
 
 
-def _parse_lessons() -> dict[str, dict]:
-    """Parse all lessons: extract citations, title, and text."""
+def _parse_lessons(preloaded: dict | None = None) -> dict[str, dict]:
+    """Parse all lessons: extract citations, title, and text.
+
+    Args:
+        preloaded: optional {Path: text} cache to avoid re-reading files from disk.
+    """
     lessons = {}
-    for f in sorted(LESSONS_DIR.glob("L-*.md")):
-        lid = f.stem
-        text = f.read_text(encoding="utf-8")
+    if preloaded is not None:
+        sources = [(f.stem, text) for f, text in sorted(preloaded.items(), key=lambda x: x[0].name)]
+    else:
+        sources = []
+        for f in sorted(LESSONS_DIR.glob("L-*.md")):
+            sources.append((f.stem, f.read_text(encoding="utf-8")))
+    for lid, text in sources:
         lines = text.splitlines()
         title = lines[0].lstrip("# ").strip() if lines else ""
 
@@ -329,9 +337,9 @@ def _find_correction_gaps(
     return sorted(gaps, key=lambda g: -g["uncorrected_count"])
 
 
-def run_analysis(session: str = "S000", classify: bool = True) -> dict:
+def run_analysis(session: str = "S000", classify: bool = True, preloaded: dict | None = None) -> dict:
     """Run full correction propagation analysis."""
-    lessons = _parse_lessons()
+    lessons = _parse_lessons(preloaded=preloaded)
     cited_by = _build_citation_graph(lessons)
     falsified_map = _detect_falsified_lessons(lessons)
     gaps = _find_correction_gaps(lessons, cited_by, classify=classify)

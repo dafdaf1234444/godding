@@ -163,8 +163,8 @@ def run_maintenance():
     try:
         result = subprocess.run(
             [sys.executable, str(maint_path), "--quick"],
-            capture_output=True, text=True, cwd=ROOT, timeout=15
+            capture_output=True, text=True, cwd=ROOT, timeout=45
         )
         return result.stdout + result.stderr
     except subprocess.TimeoutExpired:
-        return "[NOTICE] maintenance.py timed out (>15s) — check_uncommitted or check_mission_constraints likely slow on WSL"
+        return "[NOTICE] maintenance.py timed out (>45s) — run standalone for diagnosis"

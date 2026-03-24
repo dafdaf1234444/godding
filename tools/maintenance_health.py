@@ -12,7 +12,7 @@ from maintenance_common import (
     KILL_SWITCH_PATH, T4_TOOL_TOKEN_WARN,
     IGNORED_UNTRACKED_RUNTIME_FILES,
     _git, _read, _status_path, _is_wsl_mnt_repo, _truncated,
-    _line_count,
+    _line_count, _lesson_texts,
 )
 
 
@@ -120,8 +120,8 @@ def check_compaction() -> list[tuple[str, str]]:
 
 
 def check_lessons() -> list[tuple[str, str]]:
-    lessons_dir = REPO_ROOT / "memory" / "lessons"
-    if not lessons_dir.exists(): return []
+    texts = _lesson_texts()
+    if not texts: return []
     results: list[tuple[str, str]] = []
     over_20 = []
     # L-973 TTL: track no-Sharpe + old lessons for archive candidates
@@ -135,9 +135,10 @@ def check_lessons() -> list[tuple[str, str]]:
     if sm:
         max_session = int(sm.group(1))
     else:
-        max_session = len(list(lessons_dir.glob("L-*.md")))
-    for f in lessons_dir.glob("L-*.md"):
-        if _line_count(f) > 20:
+        max_session = len(texts)
+    for f, content in texts.items():
+        line_count = len(content.splitlines())
+        if line_count > 20:
             # SIG-56: WSL page-cache can return stale content after concurrent trim.
             # If HEAD already has ≤20 lines, the working-tree count is a caching artifact.
             rel = str(f.relative_to(REPO_ROOT))
@@ -146,10 +147,7 @@ def check_lessons() -> list[tuple[str, str]]:
                 continue  # already trimmed in HEAD — skip false positive
             over_20.append(f.name)
         # L-973: TTL check — no Sharpe + age > 100 sessions = archive candidate
-        try:
-            header = f.read_text(encoding="utf-8", errors="replace")[:500]
-        except Exception:
-            continue
+        header = content[:500]
         if sharpe_re.search(header):
             continue  # has Sharpe — not a TTL candidate
         lm = session_re.search(header)

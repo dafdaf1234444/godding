@@ -94,7 +94,7 @@ def check_council_health() -> list[tuple[str, str]]:
     try:
         result = subprocess.run(
             [PYTHON_EXE, str(gather), "--json"],
-            capture_output=True, text=True, cwd=REPO_ROOT, timeout=15
+            capture_output=True, text=True, cwd=REPO_ROOT, timeout=5
         )
         if result.returncode != 0:
             return [("NOTICE", f"check_council_health: gather_council.py failed — {result.stderr[:120]}")]

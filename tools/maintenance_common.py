@@ -216,6 +216,29 @@ else:
         try: return len(_read(path).splitlines())
         except Exception: return 0
 
+# ---------------------------------------------------------------------------
+# Shared lesson text cache (L-1549: avoid re-reading 1300 files per check)
+# ---------------------------------------------------------------------------
+_LESSON_TEXT_CACHE: dict[Path, str] | None = None
+
+
+def _lesson_texts() -> dict[Path, str]:
+    """Return {Path: text} for all L-*.md files, cached after first call."""
+    global _LESSON_TEXT_CACHE
+    if _LESSON_TEXT_CACHE is not None:
+        return _LESSON_TEXT_CACHE
+    lessons_dir = REPO_ROOT / "memory" / "lessons"
+    cache: dict[Path, str] = {}
+    if lessons_dir.exists():
+        for f in lessons_dir.glob("L-*.md"):
+            try:
+                cache[f] = f.read_text(encoding="utf-8", errors="replace")
+            except Exception:
+                pass
+    _LESSON_TEXT_CACHE = cache
+    return cache
+
+
 def _exists(path: str) -> bool:
     return (REPO_ROOT / path).exists()
 

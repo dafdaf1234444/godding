@@ -11,7 +11,7 @@ from maintenance_common import (
     REPO_ROOT, PYTHON_EXE,
     PRINCIPLE_ID_RE, FILE_REF_ALIAS_MAP,
     STRUCTURE_REQUIRED_PATHS, STRUCTURE_ALLOWED_FILENAMES, STRUCTURE_ALLOWED_EXTENSIONS,
-    _read, _git, _exists, _truncated, _session_number,
+    _read, _git, _exists, _truncated, _session_number, _lesson_texts,
     _active_principle_ids, run_paper_drift_check,
 )
 
@@ -32,7 +32,7 @@ def check_correction_propagation() -> list[tuple[str, str]]:
             _spec.loader.exec_module(_cp)
         else:
             _cp = _sys.modules[_mod]
-        result = _cp.run_analysis(session="S?", classify=True)
+        result = _cp.run_analysis(session="S?", classify=True, preloaded=_lesson_texts())
         high_items = [q for q in result.get("correction_queue", [])
                       if q.get("priority") == "HIGH"]
         total = result.get("total_uncorrected_citations", 0)
@@ -75,19 +75,12 @@ def check_dark_matter() -> list[tuple[str, str]]:
     Below 15%: citations dense — diversity being eroded, pause citation sprints.
     15-25%: optimal range per L-581 F-META7 operational evidence.
     """
-    lessons_dir = REPO_ROOT / "memory" / "lessons"
-    if not lessons_dir.exists():
+    texts = _lesson_texts()
+    if not texts:
         return []
-    total = 0
-    no_cites = 0
-    for f in lessons_dir.glob("L-*.md"):
-        try:
-            content = f.read_text(encoding="utf-8", errors="replace")
-        except Exception:
-            continue
-        total += 1
-        if not re.search(r"(?:^|\| )\*{0,2}Cites\*{0,2}:\s*\S", content, re.MULTILINE):
-            no_cites += 1
+    total = len(texts)
+    no_cites = sum(1 for content in texts.values()
+                   if not re.search(r"(?:^|\| )\*{0,2}Cites\*{0,2}:\s*\S", content, re.MULTILINE))
     if total == 0:
         return []
     pct = no_cites / total * 100
@@ -143,8 +136,8 @@ def check_level_quota() -> list[tuple[str, str]]:
     Goodhart's law: measurement infra crowds out strategic work — enforce 1-in-5 L3+.
     L3+ proxy: explicit level tag L3-L5, OR (Sharpe>=9 AND strategic keyword).
     """
-    lessons_dir = REPO_ROOT / "memory" / "lessons"
-    if not lessons_dir.exists():
+    texts = _lesson_texts()
+    if not texts:
         return []
 
     strategic_keywords = [
@@ -161,11 +154,7 @@ def check_level_quota() -> list[tuple[str, str]]:
         return high_sharpe and any(k.lower() in text_lower for k in strategic_keywords)
 
     session_has_l3: dict[int, bool] = {}
-    for lf in sorted(lessons_dir.glob("L-*.md")):
-        try:
-            text = lf.read_text(encoding="utf-8", errors="replace")
-        except Exception:
-            continue
+    for text in texts.values():
         m = re.search(r"\*{0,2}Session\*{0,2}:\s*S(\d+)", text)
         if not m:
             continue
