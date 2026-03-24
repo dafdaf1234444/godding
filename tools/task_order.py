@@ -332,7 +332,10 @@ def get_dispatch_tasks() -> list[dict]:
             capture_output=True, text=True, cwd=ROOT, timeout=30
         )
         data = json.loads(r.stdout)
-        recommendations = data.get("recommendations", [])[:5]
+        if isinstance(data, list):
+            recommendations = data[:5]
+        else:
+            recommendations = data.get("recommendations", [])[:5]
     except Exception:
         return tasks
 
@@ -363,8 +366,13 @@ def get_dispatch_tasks() -> list[dict]:
             continue  # already have an active lane for this domain
         score = rec.get("score", 0)
         frontier = rec.get("top_frontier", {})
-        frontier_id = frontier.get("id", "?")
-        frontier_q = frontier.get("question", "")[:60]
+        if isinstance(frontier, str):
+            frontier_q = frontier[:60]
+            frontier_match = re.search(r"\*\*(F-[A-Za-z0-9-]+)\*\*", frontier)
+            frontier_id = frontier_match.group(1) if frontier_match else "?"
+        else:
+            frontier_id = frontier.get("id", "?")
+            frontier_q = frontier.get("question", "")[:60]
         status = rec.get("status", "")
         dormant = "DORMANT" in status.upper()
         tasks.append({

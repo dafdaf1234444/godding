@@ -35,17 +35,26 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+try:
+    from maintenance_common import _lesson_texts as _shared_lesson_texts
+except ImportError:
+    try:
+        from tools.maintenance_common import _lesson_texts as _shared_lesson_texts
+    except ImportError:
+        _shared_lesson_texts = None
+
 REPO_ROOT = Path(__file__).parent.parent
 LESSONS_DIR = REPO_ROOT / "memory" / "lessons"
 CITE_RE = re.compile(r"\bL-(\d+)\b")
 
 
-def parse_lesson(path: Path) -> dict | None:
+def parse_lesson(path: Path, text: str | None = None) -> dict | None:
     """Parse a lesson file into structured data."""
-    try:
-        text = path.read_text(encoding="utf-8", errors="replace")
-    except Exception:
-        return None
+    if text is None:
+        try:
+            text = path.read_text(encoding="utf-8", errors="replace")
+        except Exception:
+            return None
 
     num_m = re.search(r"\d+", path.stem)
     if not num_m:
@@ -89,6 +98,14 @@ def parse_lesson(path: Path) -> dict | None:
 def load_lessons() -> list[dict]:
     """Load and parse all lessons."""
     lessons = []
+    if _shared_lesson_texts is not None:
+        lesson_items = sorted(_shared_lesson_texts().items(), key=lambda item: item[0].name)
+        for path, text in lesson_items:
+            parsed = parse_lesson(path, text=text)
+            if parsed:
+                lessons.append(parsed)
+        return lessons
+
     for f in sorted(LESSONS_DIR.glob("L-*.md")):
         parsed = parse_lesson(f)
         if parsed:

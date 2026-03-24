@@ -51,7 +51,7 @@
       "registered_by": "S81b",
       "last_session": "S533",
       "last_run": "S533",
-      "note": "S533: philosophy_audit.py --pick returned PHIL-5b (already DROPPED — picker bug). Pivoted to dogma_finder top: B-EVAL2 (unchallenged 535s, stale S452). Tested: Sharpe 8.8 recent vs 8.3 hist (quality maintained). r/K=11.0 (producing >> resolving). PARTIALLY CONFIRMED. Updated falsification criterion. Picker bug: should exclude DROPPED claims.",
+      "note": "S533: philosophy_audit.py --pick returned PHIL-5b (already DROPPED \u2014 picker bug). Pivoted to dogma_finder top: B-EVAL2 (unchallenged 535s, stale S452). Tested: Sharpe 8.8 recent vs 8.3 hist (quality maintained). r/K=11.0 (producing >> resolving). PARTIALLY CONFIRMED. Updated falsification criterion. Picker bug: should exclude DROPPED claims.",
       "last_date": "2026-03-24"
     },
     {
@@ -335,11 +335,11 @@
       "id": "grounding-injection",
       "description": "External grounding injection: run `python3 tools/external_grounding_check.py --decay --top 10` \u2014 ground top-priority lessons with genuine external citations (named theories, papers, benchmarks). Target: 5-10 lessons per pass. Track overall grounding rate (baseline 15% at S481). L-601: without periodic prompting, voluntary grounding decays to 0%. F-GND1.",
       "cadence_sessions": 10,
-      "last_reviewed_session": 481,
+      "last_reviewed_session": "S536",
       "registered_by": "S481",
-      "last_session": "S523",
-      "last_date": "2026-03-23",
-      "note": "S523: 5 lessons grounded (L-533, L-543, L-572, L-593, L-597) with real CS/ops-research refs (OODA, Theory of Constraints, Little's Law, Design by Contract, survivorship bias). Overall: 347/1236 (28%). Critical decay: 251."
+      "last_session": "S536",
+      "last_date": "2026-03-24",
+      "note": "S536: 6 lessons grounded (L-598, L-610, L-611, L-615, L-617, L-618) with refs: Barab\u00e1si preferential attachment, Hawkes processes, Pfeffer & Sutton knowing-doing gap, MDL, Kauffman NK, allostasis. Overall: 417/1344 (31%). Critical decay: 299."
     },
     {
       "id": "market-review",

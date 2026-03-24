@@ -183,6 +183,41 @@ class TestTaskOrderRace(unittest.TestCase):
 
         self.assertIn("=== TASK ORDER S529 (0 items) ===", buf.getvalue())
 
+    def test_get_dispatch_tasks_accepts_list_json_output(self):
+        class Result:
+            stdout = json.dumps([
+                {
+                    "domain": "quality",
+                    "score": 4.1,
+                    "top_frontier": "**F-QC6**: Does lesson quality degrade predictably with session concurrency level?",
+                }
+            ])
+            stderr = ""
+
+        original_root = task_order.ROOT
+        original_lanes = task_order.LANES_FILE
+        original_run = task_order.subprocess.run
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                lanes = root / "tasks" / "SWARM-LANES.md"
+                lanes.parent.mkdir(parents=True)
+                lanes.write_text("", encoding="utf-8")
+
+                task_order.ROOT = root
+                task_order.LANES_FILE = lanes
+                task_order.subprocess.run = lambda *args, **kwargs: Result()
+
+                tasks = task_order.get_dispatch_tasks()
+                self.assertEqual(len(tasks), 1)
+                self.assertEqual(tasks[0]["tier"], "DISPATCH")
+                self.assertIn("quality", tasks[0]["action"])
+                self.assertIn("F-QC6", tasks[0]["action"])
+        finally:
+            task_order.ROOT = original_root
+            task_order.LANES_FILE = original_lanes
+            task_order.subprocess.run = original_run
+
     def test_get_zombie_due_items_skips_retired_periodics(self):
         original_root = task_order_helpers.ROOT
         original_shared = task_order_helpers._shared_session_number

@@ -2,8 +2,8 @@
 Adjacent: meta, expert-swarm, game-theory, human-systems, conflict
 Topic: Authority hierarchy, invariants, conflict handling, enforcement quality, and political systems analysis — both structural isomorphisms for swarm self-governance AND external political predictions from swarm tools.
 Beliefs: B1, B4, B6, B8, B11, B12, B16 (governance-adjacent core beliefs)
-Lessons: L-120, L-122, L-175, L-210, L-237, L-248, L-333, L-1193, L-1441
-Frontiers: F-GOV1, F-GOV2, F-GOV3, F-GOV4, F-GOV5, F-GOV6, F-GOV7, F-GOV8, F-GOV9, F-POL1
+Lessons: L-120, L-122, L-175, L-210, L-237, L-248, L-333, L-1193, L-1441, L-1587
+Frontiers: F-GOV1, F-GOV2, F-GOV3, F-GOV4, F-GOV5, F-GOV6, F-GOV7, F-GOV8, F-GOV9, F-POL1, F-COL1
 Experiments: experiments/architecture/, experiments/statistics/, experiments/self-analysis/
 Load order: CLAUDE.md -> beliefs/CORE.md -> this file -> INDEX.md -> memory/INDEX.md -> tasks/FRONTIER.md
 

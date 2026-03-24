@@ -30,6 +30,14 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lesson_header import parse_domain_field  # noqa: E402 — shared parser (SIG-80, L-1335)
 
+try:
+    from maintenance_common import _lesson_texts as _shared_lesson_texts
+except ImportError:
+    try:
+        from tools.maintenance_common import _lesson_texts as _shared_lesson_texts
+    except ImportError:
+        _shared_lesson_texts = None
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
 LESSONS_DIR = REPO_ROOT / "memory" / "lessons"
 PRINCIPLES_FILE = REPO_ROOT / "memory" / "PRINCIPLES.md"
@@ -202,9 +210,10 @@ def _score_text(text: str, signals: dict) -> list[tuple[str, float, str]]:
     return hits
 
 
-def classify_lesson(path: Path) -> dict:
+def classify_lesson(path: Path, text: str | None = None) -> dict:
     """Classify a single lesson by human impact."""
-    text = path.read_text(encoding="utf-8", errors="replace")
+    if text is None:
+        text = path.read_text(encoding="utf-8", errors="replace")
 
     # Extract metadata using shared parser for domain (SIG-80, L-1335)
     header_block = "\n".join(text.split("\n")[:10])
@@ -266,6 +275,16 @@ def scan_lessons() -> list[dict]:
     results = []
     if not LESSONS_DIR.exists():
         return results
+
+    if _shared_lesson_texts is not None:
+        lesson_items = sorted(_shared_lesson_texts().items(), key=lambda item: item[0].name)
+        for path, text in lesson_items:
+            try:
+                results.append(classify_lesson(path, text=text))
+            except Exception as e:
+                print(f"  WARN: {path.name}: {e}", file=sys.stderr)
+        return results
+
     for path in sorted(LESSONS_DIR.glob("L-*.md")):
         try:
             results.append(classify_lesson(path))
