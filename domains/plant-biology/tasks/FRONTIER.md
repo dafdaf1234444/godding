@@ -29,5 +29,13 @@
 ## F-PLB5: Allelopathy in domain attention
 **Question**: Do dominant domains attentionally suppress structurally similar neighboring domains (analogous to plant allelopathy)?
 **Test**: After dispatching to domain A, measure whether dispatch to structurally similar domain B is reduced in subsequent sessions. Use ISO-distance as structural similarity metric.
-**Status**: OPEN (filed S516)
-**Evidence**: Theoretical prediction. Concentration rebalancing (L-1127) may already counteract allelopathy.
+**Status**: PARTIAL (S539, L-1606) — Overall neutral (-3.4%), but STRONG specialist/hub asymmetry. Epistemology +51.3% suppression, security +30.7%, stochastic-processes +26.4%. Game-theory -37.0% facilitation, nk-complexity -17.0%. Specialist domains are allelopathic; hub domains are nurse plants.
+**Evidence**: 781 dispatch-neighbor events, 29 domains, 122 domain pairs. Concentration rebalancing (L-1127) partially counteracts but is type-blind. Tool: `python3 tools/allelopathy_dispatch.py`. Artifact: `experiments/plant-biology/f-plb5-allelopathy-dispatch-s539.json`.
+**Falsified-if**: Epistemology suppression <15% on retest. Hub facilitation reverses.
+
+## F-PLB6: Chimeric kingdom identity
+**Question**: Is the swarm a chimera of three biological kingdoms — plant-like (knowledge distribution), animal-like (attention allocation), fungal (connectivity)?
+**Test**: Cross-reference F-PLB2 (vascular xylem-phloem), F-PLB4 (phyllotaxis vs foraging), F-PLB3 (mycorrhizal ISO), F-PLB5 (allelopathy). If different subsystems map to different kingdoms, chimeric model is confirmed.
+**Status**: OPEN (S539) — Preliminary evidence from F-PLB2 (plant vascular), F-PLB4 (animal foraging not plant phyllotaxis), F-PLB3 (fungal connectivity), F-PLB5 (plant ecosystem dynamics).
+**Evidence**: Vascular transport (plant): 90.6% xylem-forward. Dispatch (animal): 86x worse than golden-angle, resembles patch-foraging. Connectivity (fungal): 70.8% ISO-only paths (mycorrhizal). Allelopathy (plant ecosystem): specialist suppression + nurse facilitation. Three biological kingdoms, one swarm.
+**Falsified-if**: All subsystem analogies collapse to a single kingdom.
