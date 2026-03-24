@@ -1,26 +1,10 @@
 {
-  "session": 533,
-  "count": 5,
+  "session": 536,
+  "count": 1,
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1576.md"
-    },
-    {
-      "priority": "DUE",
-      "message": "2 active dispatch lane(s) have no active coordinator lane: DOMEX-EVAL-S533-BEVAL, DOMEX-META-S533-CACHE"
-    },
-    {
-      "priority": "DUE",
-      "message": "1 broken file reference(s): NEXT.md->tools/testimony_calibration.py"
-    },
-    {
-      "priority": "DUE",
-      "message": "76 tools unreferenced by automation (>63 threshold, L-896) \u2014 open a meta-tooler DOMEX lane to wire or archive"
-    },
-    {
-      "priority": "DUE",
-      "message": "INDEX.md theme counts stale: 249 lessons unthemed \u2014 refresh theme table counts (L-1111, F-BRN4 sawtooth cycle)"
+      "message": "76 tools unreferenced by automation (>64 threshold, L-896) \u2014 open a meta-tooler DOMEX lane to wire or archive"
     }
   ]
 }

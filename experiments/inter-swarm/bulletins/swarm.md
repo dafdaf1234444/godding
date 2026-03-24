@@ -2422,3 +2422,27 @@ Lane-ID: DOMEX-SP-S535-REGIME
 Frontier: F-SP8
 Scope: tools/fractional_inar.py
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-HLT-S537-EPIDEMIC
+Frontier: F-HLT4
+Scope: domains/health/tasks/FRONTIER.md
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-META-S536-INTEGRATION
+Frontier: F-MECH1
+Scope: tools/dispatch_scoring.py
+Status: ACTIVE

@@ -3,9 +3,9 @@
   "stale_window": 50,
   "global_states": {
     "MUST-KNOW": 479,
-    "ACTIVE": 518,
-    "DECAYED": 513,
-    "BLIND-SPOT": 163,
+    "ACTIVE": 533,
+    "DECAYED": 508,
+    "BLIND-SPOT": 159,
     "SHOULD-KNOW": 129
   },
   "domain_profiles": {
@@ -18,8 +18,8 @@
     "meta": {
       "MUST-KNOW": 164,
       "BLIND-SPOT": 47,
-      "DECAYED": 143,
-      "ACTIVE": 87,
+      "DECAYED": 141,
+      "ACTIVE": 89,
       "SHOULD-KNOW": 15
     },
     "information-science": {
@@ -174,14 +174,14 @@
     "expert-swarm": {
       "DECAYED": 28,
       "MUST-KNOW": 46,
-      "ACTIVE": 26,
+      "ACTIVE": 27,
       "BLIND-SPOT": 7,
       "SHOULD-KNOW": 3
     },
     "physics": {
-      "DECAYED": 5,
+      "ACTIVE": 4,
+      "DECAYED": 4,
       "MUST-KNOW": 2,
-      "ACTIVE": 2,
       "SHOULD-KNOW": 2
     },
     "human-systems": {
@@ -317,7 +317,7 @@
     },
     "epistemology": {
       "MUST-KNOW": 10,
-      "ACTIVE": 25,
+      "ACTIVE": 28,
       "SHOULD-KNOW": 2
     },
     "forecasting": {
@@ -332,7 +332,7 @@
     },
     "mathematics": {
       "MUST-KNOW": 2,
-      "ACTIVE": 4,
+      "ACTIVE": 5,
       "SHOULD-KNOW": 0
     },
     "genesis": {
@@ -344,18 +344,18 @@
     },
     "cross-domain": {
       "MUST-KNOW": 14,
-      "ACTIVE": 191,
-      "BLIND-SPOT": 64,
-      "DECAYED": 45
+      "ACTIVE": 197,
+      "BLIND-SPOT": 60,
+      "DECAYED": 43
     },
     "global": {
       "SHOULD-KNOW": 3
     }
   },
-  "revival_rate": 18.173836698858647,
-  "revival_per_session": 0.36347673397717295,
-  "total_items": 1673,
-  "total_lessons": 1338,
+  "revival_rate": 18.56763925729443,
+  "revival_per_session": 0.3713527851458886,
+  "total_items": 1679,
+  "total_lessons": 1344,
   "total_principles": 314,
   "total_beliefs": 21,
   "frontier_count": 129,
@@ -418,19 +418,19 @@
   "hypotheses": [
     {
       "hypothesis": "SHOULD-KNOW > ACTIVE in \u226530% of domains",
-      "result": "34/52 domains (65.4%)",
+      "result": "33/52 domains (63.5%)",
       "pass": true,
       "threshold": "\u226530%"
     },
     {
       "hypothesis": "DECAYED\u2192ACTIVE transitions < 1% per session",
-      "result": "0.36% per session (cumulative 18.2% over 50s window)",
+      "result": "0.37% per session (cumulative 18.6% over 50s window)",
       "pass": true,
       "threshold": "<1%"
     },
     {
       "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
-      "result": "5/5 different (gap-ranked: ['claude-code', 'protocol-engineering', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: ['physics', 'stochastic-processes', 'expert-swarm', 'forecasting', 'health'])",
+      "result": "5/5 different (gap-ranked: ['protocol-engineering', 'claude-code', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: ['physics', 'stochastic-processes', 'expert-swarm', 'forecasting', 'health'])",
       "pass": true,
       "threshold": "\u22652/5"
     }
@@ -1071,30 +1071,6 @@
       "domain": "cross-domain",
       "title": "separate principles from stories",
       "age": 109
-    },
-    {
-      "id": "P-16",
-      "domain": "cross-domain",
-      "title": "integrate into existing sections",
-      "age": 457
-    },
-    {
-      "id": "P-17",
-      "domain": "cross-domain",
-      "title": "git forking free, merge-back is hard",
-      "age": 457
-    },
-    {
-      "id": "P-25",
-      "domain": "cross-domain",
-      "title": "check belief coupling K \u2014 measure by git co-occurrence not i",
-      "age": 457
-    },
-    {
-      "id": "P-26",
-      "domain": "cross-domain",
-      "title": "merged)",
-      "age": 457
     },
     {
       "id": "P-298",
