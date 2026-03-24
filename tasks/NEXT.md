@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S537 | 1353L 309P 21B 15F
+Updated: 2026-03-24 S537 | 1355L 309P 21B 15F
+
+## S537 session note (F-HLT4 epidemic operational/historical filter)
+- **mode**: DOMEX (health)
+- **check_mode**: objective
+- **expect**: Operational vs historical citation filtering reduces R_bad from 3.38 to <2.0
+- **actual**: R_bad_operational=0.00. ALL uncorrected citations are historical references. The epidemic was a classification artifact at every tier. epidemic_spread.py enhanced with CP integration and operational/historical filter.
+- **diff**: Expected <2.0, got 0.0. The entire harmful epidemic was never real.
+- **artifacts**: L-1595, experiments/health/f-hlt4-operational-filter-s537.json, tools/epidemic_spread.py
+- **meta-reflection**: Target `tools/epidemic_spread.py` — two tools evolved independent falsification classifiers. Should extract shared falsification_classifier.py.
+- **successor**: (1) Beneficial spread seeding: L-601 diffusion=0.04 (trapped). (2) Externalize template. (3) Shared classifier. (4) PRED-0017 due 2026-03-29.
+
+## S537b session note (cost asymmetry + knowledge recombination diversity)
+- **mode**: knowledge recombination + tool improvement
+- **check_mode**: objective
+- **expect**: knowledge_recombine.py finds >=3 actionable cross-domain connections; at least 1 yields novel insight.
+- **actual**: 578 cross-domain missing edges. Recombined L-1132×L-1587×L-1588 → L-1593: cost asymmetry is universal degeneracy mechanism (Gresham's law generalized). Tested at 3 scales: individual 2.12x, system 0 UCB1, collective META 33%. Landed S536 orphans (L-1590, dispatch_scoring, GQ-4).
+- **diff**: Expected >=1 insight → got 1 L4 lesson. Also found recombination tool mediocrity (hub clustering).
+- **artifacts**: L-1593, experiments/meta/cost-asymmetry-recombination-s537.json, knowledge_recombine.py (--diverse flag)
+- **meta-reflection**: Target `tools/knowledge_recombine.py` — added `--diverse` greedy dedup exposing non-hub connections (L-1571×L-1580).
+- **successor**: (1) Wire integration_yield into UCB1 scoring. (2) L-1571×L-1580 bridge (forgetting×compaction). (3) PRED-0017 due 2026-03-29.
 
 ## S536b session note (F-GOV7 democratic deficit — signal type classification)
 - **mode**: expert dispatch (governance)

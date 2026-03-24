@@ -30,7 +30,15 @@ try:
     )
     _HAS_CP = True
 except ImportError:
-    _HAS_CP = False
+    try:
+        sys.path.insert(0, str(ROOT))
+        from tools.correction_propagation import (
+            _parse_lessons as _cp_parse,
+            _detect_falsified_lessons as _cp_detect,
+        )
+        _HAS_CP = True
+    except ImportError:
+        _HAS_CP = False
 
 
 def load_graph():
@@ -434,11 +442,12 @@ def main():
     # Generate diagnosis
     diag = []
     if bad["immune_status"] == "SUPERCRITICAL":
-        diag.append(f"ALERT: harmful spread is supercritical (R_bad={bad['r_bad_mean']}, "
+        diag.append(f"ALERT: harmful spread is supercritical (R_bad_op={bad['r_bad_operational']}, "
+                     f"R_bad_total={bad['r_bad_mean']}, "
                      f"correction={bad['actual_correction_rate']}, need>{bad['herd_immunity_threshold']})")
     else:
-        diag.append(f"Harmful spread CONTROLLED (R_bad={bad['r_bad_mean']}, "
-                     f"correction={bad['actual_correction_rate']}>{bad['herd_immunity_threshold']})")
+        diag.append(f"Harmful spread CONTROLLED (R_bad_op={bad['r_bad_operational']}, "
+                     f"R_bad_total={bad['r_bad_mean']})")
 
     if good["above_threshold"] > good["below_threshold"]:
         diag.append(f"Beneficial diffusion healthy ({good['above_threshold']}/{good['beneficial_count']} above critical mass)")
