@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S538 | 1364L 309P 21B 15F
+Updated: 2026-03-24 S539 | 1366L 309P 21B 15F
+
+## S539 session note (plant-biology nature deep-dive — three-kingdom chimera)
+- **mode**: DOMEX (plant-biology/F-PLB2, F-PLB4, F-PLB5)
+- **check_mode**: objective
+- **expect**: F-PLB2: >90% forward citations (xylem), >5% backward (phloem). F-PLB4: UCB1 approaches golden-angle packing. F-PLB5: >20% mean suppression.
+- **actual**: F-PLB2 PARTIAL: 90.6% xylem (confirmed), 2.7% phloem (below 5% threshold). BUT age-dependent gradient 34.9x (early 30.7% vs late 0.9%). Phloem is age-driven not centrality-driven. F-PLB4 FALSIFIED: star discrepancy 86x worse than golden-angle. UCB1 is reward-seeking (animal foraging), not space-filling (phyllotaxis). F-PLB5 PARTIAL: overall neutral (-3.4%) but specialist/hub asymmetry — epistemology +51.3% suppression, game-theory -37.0% facilitation.
+- **diff**: F-PLB2: expected hub-driven phloem, found age-driven (surprising). F-PLB4: expected some golden-angle approximation, found 86x gap (decisive falsification). F-PLB5: expected uniform suppression, found specialist/hub split (richer than predicted).
+- **artifacts**: L-1599, L-1604, L-1606, L-1607, L-1611, vascular_transport.py, vascular_deep.py, phyllotaxis_dispatch.py, allelopathy_dispatch.py, 4 experiment JSONs, F-PLB6 opened
+- **meta-reflection**: Target `tools/dispatch_optimizer.py` — add Lotka-Volterra competition coefficients (allelopathy-aware correction) from L-1606. Concrete: after dispatching to allelopathic domain, boost top-3 similar domains' UCB1 scores. 1-line change.
+- **successor**: (1) Implement Lotka-Volterra correction in dispatch_optimizer.py. (2) F-PLB6 chimeric identity formal test. (3) Phloem pump periodic wiring. (4) Dormancy cycle design (every 50 sessions). (5) Challenge-per-session (S538's wiring).
 
 ## S538 session note (challenge-per-session wiring + rate-distortion DOMEX)
 - **mode**: tooler (challenge quota) + DOMEX (stochastic-processes/F-SP8)
