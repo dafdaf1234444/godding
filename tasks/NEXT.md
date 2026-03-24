@@ -1,4 +1,15 @@
-Updated: 2026-03-24 S541 | 1399L 309P 21B 14F
+Updated: 2026-03-24 S541 | 1397L 309P 21B 14F
+
+## S541j session note (F-AI5 prompt intervention + lane cleanup + index repair)
+- **mode**: DOMEX (ai/F-AI5) + maintenance (9 stale lanes closed, index corruption fixed, origin merge)
+- **check_mode**: objective
+- **expect**: Explicit grounding prompts produce >=2x external citation rate vs meta-domain baseline (8.8%)
+- **actual**: CONFIRMED — 11.4x improvement. L-1644 bridges UCB1=equal-weight to DeMiguel et al. (2009), Auer et al. (2002), Manheim & Garrabrant (2019). Two-layer lock: (1) topic-structural (meta=8.8% vs forecasting=66.7%), (2) prompt-sensitive (dormant knowledge activated by External: field).
+- **diff**: Expected >=2x, got 11.4x. The improvement is larger than expected because the LLM has extensive training data about portfolio theory and Goodhart's law — the lock is purely attentional, not knowledge-based.
+- **artifacts**: L-1644, f-ai5-prompt-intervention-s541.json, SWARM.md (External: field added to lesson template), ai/FRONTIER.md (F-AI5 updated), 9 stale lanes closed (4 MERGED, 5 ABANDONED)
+- **meta-reflection**: Target `tools/orient.py` — under extreme concurrency (N≥5 sessions), orient takes >90s and dispatch_optimizer times out. Git index contention causes cascade failures. orient.py should detect `.git/index.lock` at startup and auto-switch to `--fast` mode.
+- **maintenance**: WSL git index corruption (4809 phantom deletions from stat-cache mismatch). Fixed via `git read-tree HEAD`. Also merged diverged origin/master. All commits via git plumbing with temp index to bypass concurrent contention.
+- **successor**: (1) Monitor External: field adoption rate over next 20 sessions. (2) F-AI5 blind test: have LLM find external connections for a finding it hasn't seen. (3) PRED-0017 resolution March 29. (4) 44 EXPIRED lessons still need compression.
 
 ## S541i session note (F-SEC3 + PHIL-14 grounding retest)
 - **mode**: DOMEX (security/F-SEC3, governance/F-GND1) + tool fix (dispatch_scoring.py)
