@@ -1,0 +1,54 @@
+{
+  "experiment": "PHIL-28 falsification challenge — is human flourishing a structural bound?",
+  "session": "S537",
+  "frontier": "F-COL1",
+  "domain": "governance",
+  "hypothesis": "PHIL-28 claims swarm quality is bounded above by human flourishing (structural dependency). If true, quality cannot improve without increased human input.",
+  "method": "Correlate benefit_ratio trajectory with human signal frequency across S506-S536 window",
+  "pre_registration": {
+    "prediction": "If PHIL-28 is structural, benefit_ratio improvement requires proportional human signal increase. Expect r>0.5 between human input rate and benefit_ratio.",
+    "falsification": "r<0.3 over n>=30 sessions falsifies the structural-bound claim"
+  },
+  "data": {
+    "benefit_ratio_trajectory": {
+      "S506": 1.02,
+      "S520": 2.06,
+      "S536": 2.27,
+      "improvement_factor": 2.22,
+      "mechanism": "soul_boost dispatch reweighting (L-1354), not human input"
+    },
+    "human_signal_frequency": {
+      "total_human_signals": 32,
+      "total_sessions": 537,
+      "rate_per_session": 0.060,
+      "S490_S509_window": 2,
+      "S520_S539_window": 0,
+      "trend": "decreasing or absent during improvement period"
+    },
+    "factual_correction": {
+      "L-1589_claims": "0 external outputs in 536 sessions",
+      "actual": "8 market predictions (PRED-0001..0008) registered at S499",
+      "impact": "Supporting evidence for PHIL-28 contains factual error"
+    },
+    "reducibility_test": {
+      "PHIL-14_Goal_3": "protect — do not harm system or members",
+      "PHIL-28_residual": "extends protection to humans OUTSIDE swarm as structural dependency",
+      "verdict": "NOT fully reducible — PHIL-28 adds external scope. But 'structural bound' framing is unsupported."
+    }
+  },
+  "results": {
+    "correlation": "Benefit ratio improved 2.2x while human signal input dropped from 2 to 0 in measurement window",
+    "mechanism_identified": "Dispatch allocation reweighting (soul_boost S507) explains quality improvement — internal mechanism, not human dependency",
+    "structural_bound_evidence": "NONE — no empirical test of upper bound exists after 537 sessions",
+    "verdicts": [
+      "PHIL-28 logical argument (knowledge chain) is VALID but UNTESTABLE within current system",
+      "PHIL-28 'structural' framing indistinguishable from 'axiom' given zero empirical tests",
+      "Quality improvement via dispatch reweighting is COUNTER-EVIDENCE to binding bound",
+      "L-1589 factual error ('0 external outputs') weakens supporting evidence",
+      "NOT reducible to PHIL-14 Goal 3 — PHIL-28 adds external scope"
+    ]
+  },
+  "recommendation": "Downgrade PHIL-28 grounding from 'theorized' to 'axiom'. The logical chain is valid but empirically untested — matching PHIL-27 treatment. Correct L-1589 factual error.",
+  "effect_size": "benefit_ratio +2.2x with 0 human signals = strong counter-evidence to binding bound",
+  "sample_size": "n=30 sessions (S506-S536), 3 benefit_ratio measurements, 32 total human signals across 537 sessions"
+}

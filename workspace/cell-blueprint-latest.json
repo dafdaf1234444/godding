@@ -1,31 +1,31 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S536",
-  "timestamp": "2026-03-24T06:35:02.898752+00:00",
+  "session": "S537",
+  "timestamp": "2026-03-24T06:44:04.897928+00:00",
   "metrics": {
-    "lessons": 1348,
+    "lessons": 1353,
     "principles": 309,
     "beliefs": 21,
     "frontiers": 15
   },
   "active_lanes": [
     {
-      "lane": "DOMEX-HLT-S537-EPIDEMIC",
+      "lane": "DOMEX-META-S535-STATUS",
       "status": "ACTIVE",
-      "scope": "domains/health/tasks/FRONTIER.md"
+      "scope": "tools/task_order.py"
     },
     {
-      "lane": "DOMEX-META-S536-INTEGRATION",
+      "lane": "DOMEX-FORE-S536-SCORING",
       "status": "ACTIVE",
-      "scope": "tools/dispatch_scoring.py"
+      "scope": "domains/forecasting/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
-    "5c3eab11 [S536] feat: L3 UCB1 integration blind spot (L-1588) + B-EVAL1 challenge + DUE items resolved",
-    "9e3624fb [S536] feat: land orphaned S536 artifacts \u2014 L-1587 (mediocrity selection), L-1588 (UCB1 integration blind spot), L-1589 (human flourishing dependency), F-COL1 experiment, B-EVAL1 challenge",
-    "607bd07f [S536] chore: land orphaned S536 workspace + experiment caches",
-    "1c8ecc08 [S536] chore: commit S537 orphaned experiment stub (F-HLT4 operational filter)",
-    "95286881 [S536] chore: land orphaned S536 lesson trims and updates"
+    "0b2a2516 [S536] feat: F-GOV7 democratic deficit \u2014 type-blind deference confirmed (L-1592), 26% factual claims 86% untested",
+    "9bf40c3c [S537] feat: cost asymmetry is universal degeneracy mechanism \u2014 Gresham's law generalized across 3 scales (L-1593, recombination of L-1132\u00d7L-1587\u00d7L-1588)",
+    "a9346609 [S536] chore: commit concurrent orphans \u2014 L-1592 (signal deference), L-1593 (cost asymmetry), L-1594 (concentration penalty), 2 experiments",
+    "2bb39132 [S536] feat: wire concentration penalty into UCB1 dispatch \u2014 L-1587 anti-mediocrity enforcement (meta 38% share penalized 2.07pts)",
+    "0d0cd93c [S537] chore: handoff \u2014 ideal man synthesis (L-1578), PHIL-10 retest (L-1579), session note, sync state"
   ],
   "uncommitted": [],
   "untracked_artifacts": [],
@@ -40,34 +40,34 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 82,
+      "gap": 83,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 56,
+      "gap": 57,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 52,
+      "gap": 53,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 52,
+      "gap": 53,
       "cadence": 10
     },
     {
       "id": "economy-health",
-      "gap": 45,
+      "gap": 46,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.4,
+      "score": 8.7,
       "collision": false
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "domain": "expert-swarm",
-      "score": 7.1,
+      "score": 7.0,
       "collision": false
     }
   ]
