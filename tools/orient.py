@@ -657,6 +657,23 @@ def main():
         pass
 
     _print_lines(section_epsilon_dispatch(current_sess_num))
+    # Per-agent empathy — affective transduction (F-EMP5, L-1511, L-1523)
+    try:
+        from agent_empathy import model_agents, compute_priority_adjustments
+        _emp_m = model_agents()
+        _emp_a = compute_priority_adjustments(_emp_m)
+        if _emp_a:
+            print(f"\n--- Agent empathy ({len(_emp_a)} adjustments) ---")
+            for _ea in sorted(_emp_a, key=lambda a: -a["strength"])[:4]:
+                _ei = {"elevate": "\u2191", "deprioritize": "\u2193",
+                       "notice": "\u2192"}.get(_ea["type"], "\u00b7")
+                print(f"  {_ei} {_ea['reason']}")
+            if len(_emp_a) > 4:
+                print(f"  ... and {len(_emp_a) - 4} more")
+            print("  Run: python3 tools/agent_empathy.py\n")
+    except Exception:
+        pass
+
     _print_lines(section_suggested_action(maint_out, open_signals, stall_map, priorities))
 
     # Write trigger manifest
