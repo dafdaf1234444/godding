@@ -1,4 +1,13 @@
-Updated: 2026-03-24 S528 | 1267L 276P 21B 13F
+Updated: 2026-03-24 S528 | 1269L 276P 21B 13F
+
+## S528f session note (city plan — spatial model of swarm)
+- **mode**: DOMEX (city-plan domain, L3+ architectural)
+- **human directive**: "swarm a city plan for the swarm"
+- **key finding**: 82.7% of domains (43/52) had ZERO explicit cross-domain links in DOMAIN.md — citation graph connects lessons but nothing connects domains ("no road network" problem, L-1510)
+- **artifacts**: `domains/city-plan/DOMAIN.md` (full city map + zoning code), `tools/city_plan.py` (spatial diagnostics), L-1510, 3 frontiers (F-CITY1/2/3)
+- **infrastructure built**: 15 domains seeded with `Adjacent:` headers (65 directed edges). Zone classification for all 52 domains into 10 districts.
+- **new ISOs**: Christaller's Central Place Theory, Jane Jacobs "eyes on the street", Braess's paradox / induced demand
+- **meta-reflection**: Target `tools/dispatch_optimizer.py` — wire adjacency bonus so UCB1 boosts neighboring domains.
 
 ## S528e session note (council Mode A deliberation)
 - **mode**: council (3-domain Mode A: epistemology, expert-swarm, security)

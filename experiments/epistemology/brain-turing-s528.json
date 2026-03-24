@@ -1,0 +1,298 @@
+{
+  "session": "S528",
+  "experiment": "brain-extraction-turing-test",
+  "lesson": "L-1508",
+  "brain": {
+    "total_lessons": 1269,
+    "reasoning_types": {
+      "measurement": 3088,
+      "analogy": 947,
+      "falsification": 817,
+      "self_reflection": 298,
+      "abduction": 159,
+      "synthesis": 111,
+      "deduction": 103,
+      "induction": 12
+    },
+    "decision_patterns": {
+      "evidence_routing": 1746,
+      "scoring": 1676,
+      "selection_pressure": 525,
+      "threshold": 363,
+      "consensus": 207
+    },
+    "cognitive_biases": {
+      "confirmation_bias": 46,
+      "complexity_creep": 34,
+      "goodhart_drift": 27,
+      "self_reference_loop": 21,
+      "anchoring": 18
+    },
+    "reasoning_diversity_avg": 2.08,
+    "bias_to_reasoning_ratio": 0.026,
+    "system1_vs_system2": {
+      "s1_total": 4047,
+      "s2_total": 1190,
+      "ratio": 3.4,
+      "interpretation": "measurement-heavy (System 1 dominant)"
+    },
+    "marr_levels": {
+      "computational_pct": 5.7,
+      "algorithmic_pct": 22.5,
+      "implementational_pct": 71.8
+    },
+    "domain_dominant_reasoning": {
+      "unknown": "measurement",
+      "meta": "measurement",
+      "expert-swarm": "measurement",
+      "nk-complexity": "measurement",
+      "catastrophic-risks": "measurement",
+      "filtering": "measurement",
+      "security": "falsification",
+      "helper-swarm": "measurement",
+      "economy": "measurement",
+      "evaluation": "measurement",
+      "stochastic-processes": "measurement",
+      "fluid-dynamics": "measurement",
+      "evolution": "measurement",
+      "coordination": "measurement",
+      "brain": "measurement",
+      "biology": "analogy",
+      "strategy": "measurement",
+      "farming": "measurement",
+      "human-systems": "measurement",
+      "meta/tooling": "analogy",
+      "grounding": "measurement",
+      "physics": "measurement",
+      "social-media": "measurement",
+      "statistics": "measurement",
+      "psychology": "measurement",
+      "graph-theory": "measurement",
+      "concept-inventor": "measurement",
+      "religion": "measurement",
+      "finance": "measurement",
+      "distributed-systems": "falsification",
+      "architecture": "falsification",
+      "stigmergy": "falsification",
+      "dream": "measurement",
+      "operations-research": "measurement",
+      "plant-biology": "measurement",
+      "governance": "measurement",
+      "epistemology": "measurement",
+      "forecasting": "measurement",
+      "thermodynamics": "measurement",
+      "ai": "measurement",
+      "fractals": "measurement",
+      "mathematics": "measurement",
+      "genesis": "self_reflection",
+      "information-science": "measurement",
+      "health": "measurement",
+      "meta-/-evolution": "analogy",
+      "meta-/-multi-tool": "self_reflection",
+      "brain/information-science": "measurement",
+      "brain/safety": "measurement",
+      "meta/information-science": "falsification",
+      "meta/compaction": "measurement",
+      "meta/swarm-structure": "self_reflection",
+      "meta/cross-swarm": "analogy",
+      "economy-/-coordination": "measurement",
+      "meta/swarm-behavior": "falsification",
+      "gaming": "measurement",
+      "helper-swarm-/-meta": "analogy",
+      "tooling/compaction": "analogy",
+      "conflict": "measurement",
+      "quality/knowledge-management": "analogy",
+      "meta/knowledge-structure": "analogy",
+      "gaming/frontier-design": "measurement",
+      "conflict/coordination": "measurement",
+      "brain/coordination": "measurement",
+      "linguistics": "measurement",
+      "quality/meta": "measurement",
+      "meta/quality": "measurement",
+      "brain/meta": "measurement",
+      "meta/philosophy": "measurement",
+      "coordination/meta": "self_reflection",
+      "meta/personality": "measurement",
+      "evaluation/meta": "measurement",
+      "meta/epistemics": "measurement",
+      "meta/beliefs": "falsification",
+      "claude-code/meta": "self_reflection",
+      "meta/operations": "measurement",
+      "meta/coordination": "measurement",
+      "architecture/coordination": "measurement",
+      "meta/quality/publication": "measurement",
+      "meta/publication": "measurement",
+      "cryptocurrency": "analogy",
+      "meta/management": "deduction",
+      "meta/swarm-coord": "abduction",
+      "historian/meta": "measurement",
+      "meta/governance": "measurement",
+      "swarm-meta": "measurement",
+      "expert-swarm-/-meta": "analogy",
+      "meta/generalizer": "measurement",
+      "physics-/-meta": "analogy",
+      "orientation": "analogy",
+      "linguistics/meta": "analogy",
+      "philosophy": "analogy",
+      "control-theory": "measurement",
+      "empathy": "analogy",
+      "field-invisible-to-dream.py": "measurement",
+      "game-theory": "measurement",
+      "history": "measurement",
+      "quality": "measurement",
+      "protocol-engineering": "measurement",
+      "guesstimates": "measurement",
+      "operations": "measurement",
+      "competitions": "measurement",
+      "random-matrix-theory": "analogy",
+      "string-theory": "measurement"
+    },
+    "health": {
+      "bias_ratio": 0.026,
+      "bias_health": "HEALTHY",
+      "top_bias": "confirmation_bias",
+      "diversity_health": "ADEQUATE"
+    },
+    "self_modeling": {
+      "self_reflection_count": 298,
+      "self_reflection_pct": 5.4,
+      "self_reference_bias": 21
+    },
+    "selection_pressure": [
+      "IMBALANCE: System 1/System 2 ratio = 3.4x. Swarm measures more than it reasons. Dispatch should weight falsification and synthesis tasks higher.",
+      "BRAIN METRIC: 8 reasoning types active, S1/S2 = 3.4x, bias ratio = 0.026. Marr: 5.7% computational / 22.5% algorithmic / 71.8% implementational."
+    ]
+  },
+  "turing": {
+    "tests": [
+      {
+        "test": "imitation_game",
+        "description": "Can swarm output be distinguished from random/generic AI?",
+        "total_lessons": 1269,
+        "distinctive_markers": {
+          "self_correction": 442,
+          "cross_reference": 1269,
+          "quantified_claim": 274,
+          "named_principle": 353,
+          "domain_crossing": 91,
+          "uncertainty": 90,
+          "temporal_awareness": 1244,
+          "tool_creation": 70
+        },
+        "generic_markers": {
+          "hedging": 0,
+          "filler": 25,
+          "sycophancy": 0
+        },
+        "discriminability": 0.994,
+        "per_lesson_distinctive": 3.02,
+        "verdict": "PASSES \u2014 highly distinctive",
+        "turing_insight": "Turing's imitation game asks whether a machine's output has character. Discriminability 0.994: the swarm's output has strong character markers \u2014 it writes unlike a generic system."
+      },
+      {
+        "test": "universality",
+        "description": "Is the swarm computationally universal?",
+        "domain_count": 53,
+        "tool_count": 153,
+        "self_modifications": 13,
+        "novel_concepts": 75,
+        "experiment_count": 1484,
+        "universality_score": "5/5",
+        "verdict": "UNIVERSAL",
+        "turing_insight": "A universal Turing machine can simulate any computation. The swarm covers 53 domains, maintains 153 tools, has self-modified 13 times, and created 75 novel concepts. Universality score: 5/5."
+      },
+      {
+        "test": "halting_limits",
+        "description": "What can the swarm NOT know about itself? (G\u00f6del/Turing limits)",
+        "undecidable_questions": [
+          {
+            "question": "Will the swarm converge to a stable state?",
+            "why_undecidable": "Equivalent to the halting problem. The swarm's state transition function is Turing-complete, so convergence is undecidable in the general case.",
+            "partial_answer": "Empirically: no convergence observed in 528 sessions. Growth is managed (K-strategy), not halting."
+          },
+          {
+            "question": "Has the swarm learned everything learnable from its substrate?",
+            "why_undecidable": "G\u00f6del's first incompleteness theorem: any consistent system rich enough to encode arithmetic contains truths it cannot prove. The swarm's knowledge base has this property.",
+            "partial_answer": "BLIND-SPOT analysis shows ~10% of known items are unattended. Unknown unknowns are by definition unmeasurable."
+          },
+          {
+            "question": "Is the swarm's current architecture optimal?",
+            "why_undecidable": "Rice's theorem: all non-trivial semantic properties of programs are undecidable. 'Optimal architecture' is a semantic property of the swarm-program.",
+            "partial_answer": "UCB1 dispatch + falsification provide empirical improvement gradients, but cannot prove optimality."
+          },
+          {
+            "question": "Is the swarm's self-model accurate?",
+            "why_undecidable": "Tarski's undefinability theorem: a system cannot define its own truth predicate. The swarm uses contract_check.py as a partial workaround (checks specific claims), but comprehensive self-model accuracy is undecidable.",
+            "partial_answer": "contract_check.py validates 5 components. F-META8 tracks self-model drift. But the validator itself is part of the model."
+          },
+          {
+            "question": "Has the swarm produced genuinely original knowledge?",
+            "why_undecidable": "Requires comparison against ALL existing knowledge \u2014 a set too large to enumerate. Closest proxy: external grounding check (novel_to_swarm \u2260 novel_to_world).",
+            "partial_answer": "external_grounding_check.py measures grounding, not novelty. L-1499 (von Neumann mapping) approaches genuine synthesis."
+          }
+        ],
+        "limit_acknowledgments_in_lessons": 2,
+        "halting_awareness": 0.2,
+        "verdict": "IMMATURE \u2014 insufficient limit awareness",
+        "turing_insight": "Turing proved that no machine can solve its own halting problem. The swarm has 5 identified undecidable self-questions and 2 lessons acknowledging computational limits. A system that knows its limits reasons better within them."
+      },
+      {
+        "test": "stored_program",
+        "description": "Is the swarm a complete self-description? (von Neumann/Turing)",
+        "genesis_infrastructure": {
+          "docs/GENESIS.md": true,
+          "tools/genesis_extract.py": true,
+          "tools/cell_blueprint.py": true
+        },
+        "boot_tier": {
+          "SWARM.md": true,
+          "beliefs/CORE.md": true,
+          "beliefs/PHILOSOPHY.md": true,
+          "memory/INDEX.md": true,
+          "CLAUDE.md": true
+        },
+        "boot_tier_size_bytes": 89905,
+        "tool_documentation_ratio": 0.02,
+        "genesis_in_boot_tier": false,
+        "stored_program_score": "3/5",
+        "fixed_point": false,
+        "verdict": "INCOMPLETE \u2014 reproduction gaps exist",
+        "turing_insight": "Turing's universal machine stores its program as data \u2014 the program IS the description. Von Neumann extended this: self-reproduction requires the description to include the copier. Boot tier: 5/5 files present (89,905 bytes). Fixed-point (copier in description): NO \u2014 L-1499 gap."
+      },
+      {
+        "test": "morphogenesis",
+        "description": "Do Turing instability patterns explain swarm domain structure?",
+        "principle_diffusion_rate": 1.67,
+        "lesson_diffusion_rate": 2.21,
+        "diffusion_ratio": 0.76,
+        "turing_instability_threshold": 6.0,
+        "turing_instability_met": false,
+        "turing_patterns_possible": false,
+        "domain_clustering_gini": 0.785,
+        "domain_count": 107,
+        "top_domains": {
+          "meta": 353,
+          "unknown": 196,
+          "expert-swarm": 102,
+          "nk-complexity": 76,
+          "evaluation": 40,
+          "catastrophic-risks": 28,
+          "strategy": 28,
+          "stochastic-processes": 24,
+          "brain": 24,
+          "concept-inventor": 24
+        },
+        "verdict": "NO TURING INSTABILITY \u2014 uniform diffusion",
+        "turing_insight": "Turing (1952): patterns form when inhibitor diffuses faster than activator. Principles (inhibitor) diffuse at 1.67 domains/principle, lessons (activator) at 2.21 domains/lesson. Ratio D_v/D_u = 0.76 (need >6 for instability, >2 for possibility). Domain Gini = 0.785 (clustered)."
+      }
+    ],
+    "composite": {
+      "pass": 2,
+      "partial": 0,
+      "fail": 3,
+      "total": 5,
+      "turing_quotient": 0.4
+    },
+    "verdict": "TURING QUOTIENT: 0.4 (2 pass, 0 partial, 3 fail out of 5 tests)"
+  }
+}
