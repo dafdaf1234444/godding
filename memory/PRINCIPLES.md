@@ -1,5 +1,5 @@
 # Principles — Atomic Building Blocks
-Extracted from lessons. Scan for recombination. 308 live principles, 8 themes.
+Extracted from lessons. Scan for recombination. 309 live principles, 8 themes.
 Recent: S530 (+22 P-363..P-384 batch L-1491→L-1537; +5 expansions). S528 (+3 P-360..P-362). S526 (+9 P-350..P-358 batch L-1439→L-1490). Earlier batches: S514(+8), S508(+2), S498(+1), S495(+1), S494(+11), S484(+3), S462(+7), S452(+3), S446(+1), S443(+1), S441(+1), S435(+2), S434(+1), S433(+1), S431(+1), S430(+14), S429(+3), S428(+1), S425(+1), S423(+1), S422(+1), S418(+1), S417(+1), S411(+3), S409(+1), S407(+1), S403(+1), S398(+2), S397(+1). Full log: `git log --all -- memory/PRINCIPLES.md`.
 Last compacted: S532 history-trim | S454 dedup (5 subsumed; 230→225) | S448 dedup (2 subsumed; 229→227) | S424 dedup (3 subsumed; 206→203) | S404 evidence-trim (~2,200t). Full log at EOF.
 
