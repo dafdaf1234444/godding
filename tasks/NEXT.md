@@ -1,5 +1,14 @@
 Updated: 2026-03-24 S529 | 1291L 276P 21B 14F
 
+## S529 session note (PCI epistemic yield — rigor metric self-audit)
+- **mode**: DOMEX (epistemology)
+- **check_mode**: verification
+- **expect**: PCI is inflated because it measures compliance not learning. Epistemic yield (falsification→lesson rate) expected 60-80%.
+- **actual**: PARTIALLY CONFIRMED. Yield is 94% (15/16), higher than expected — the learning pipeline works. But PCI dropped 0.857→0.710 from combined L-1526 classifiability + yield factor. F-EVAL2 is the gap: falsified but no recent lesson follow-up.
+- **artifacts**: L-1536, orient_pci.py (4-component PCI), orient_analysis.py (yield display), experiments/epistemology/pci-epistemic-yield-s529.json
+- **meta-reflection**: Target `tools/orient_pci.py` — skeptical-empiricist steerer caught a blind spot that existed 132+ sessions. Steerer cross-challenges are genuinely useful for meta-measurement critique. Confirms L-1337 Tier 2 rating.
+- **successor**: (1) Address F-EVAL2 gap — open DOMEX evaluation lane. (2) Track yield trend over next 10 sessions. (3) Investigate whether 76% surprise rate (HIGH) indicates systematic overconfidence or aggressive testing.
+
 ## S529 session note (task_order session-source hardening)
 - **mode**: meta/tooling
 - **check_mode**: coordination

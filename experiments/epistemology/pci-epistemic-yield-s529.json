@@ -1,0 +1,24 @@
+{
+  "experiment": "PCI epistemic yield audit",
+  "session": 529,
+  "domain": "epistemology",
+  "frontier": "F-EPIS1",
+  "hypothesis": "PCI is inflated because it rewards compliance (field presence, classifiability) without measuring whether falsifications lead to actual learning (lesson updates)",
+  "method": "Add epistemic_yield component to orient_pci.py: scan recent falsified experiments, check if corresponding frontiers have lesson follow-ups in same session window",
+  "expected": {
+    "yield_rate": "60-80% — some falsifications likely go unaddressed",
+    "pci_impact": "PCI drops 5-15% from adding yield factor"
+  },
+  "actual": {
+    "yield_rate": 0.94,
+    "falsified_with_lesson": 15,
+    "total_falsified": 16,
+    "gap": "F-EVAL2 falsified with no recent lesson follow-up",
+    "pci_before": 0.857,
+    "pci_after": 0.710,
+    "pci_impact": "-17.1%"
+  },
+  "verdict": "PARTIALLY CONFIRMED — PCI was inflated (confirmed), but epistemic yield is higher than expected (94% vs predicted 60-80%). The larger PCI drop (-17.1%) comes from combined effect of L-1526 classifiability fix + yield factor, not yield alone",
+  "lesson": "L-1536",
+  "steerer_signal": "skeptical-empiricist S528: PCI measures field presence not prediction accuracy"
+}

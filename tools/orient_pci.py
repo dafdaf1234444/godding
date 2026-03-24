@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""PCI computation — prediction quality scoring (L-813, L-1526, L-XXXX).
+"""PCI computation — prediction quality scoring (L-813, L-1526, L-1536).
 
 L-1526: EAD field presence != prediction quality. PCI uses ead_quality
 (blended presence + classifiability) instead of raw presence.
-L-XXXX: Epistemic yield — PCI must measure whether falsifications lead to
+L-1536: Epistemic yield — PCI must measure whether falsifications lead to
 learning (lesson updates), not just whether predictions are classifiable.
 
 PCI = ead_quality * belief_freshness * frontier_testability * epistemic_yield_factor
@@ -105,16 +105,20 @@ def _compute_epistemic_yield(root, current_session, window=20):
     if not falsified_frontiers:
         return {"yield_rate": 1.0, "falsified_with_lesson": 0, "total_falsified": 0, "details": []}
 
-    # Check which falsified frontiers have lesson follow-ups
-    lesson_texts = {}
+    # Check which falsified frontiers have RECENT lesson follow-ups
+    # Only count lessons from within the session window (not all-time)
+    recent_lesson_text = ""
     if lessons_root.exists():
         for lf in lessons_root.glob("L-*.md"):
             try:
-                lesson_texts[lf.name] = lf.read_text()
+                txt = lf.read_text()
+                # Extract session from lesson header (Session: S529)
+                sm = re.search(r"Session:\s*S(\d+)", txt)
+                if sm and int(sm.group(1)) >= min_session:
+                    recent_lesson_text += txt + "\n"
             except Exception:
                 continue
 
-    all_lessons_text = "\n".join(lesson_texts.values())
     followed_up = 0
     detail_rows = []
     seen = set()
@@ -122,8 +126,8 @@ def _compute_epistemic_yield(root, current_session, window=20):
         if fid in seen:
             continue
         seen.add(fid)
-        # Check if any lesson references this frontier
-        has_lesson = bool(re.search(re.escape(fid), all_lessons_text, re.I))
+        # Check if a recent lesson references this frontier
+        has_lesson = bool(re.search(re.escape(fid), recent_lesson_text, re.I))
         if has_lesson:
             followed_up += 1
         detail_rows.append({"frontier": fid, "has_lesson": has_lesson})
