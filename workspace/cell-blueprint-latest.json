@@ -1,100 +1,55 @@
 {
   "schema": "cell-blueprint-v2",
-  "session": "S533",
-  "timestamp": "2026-03-24T05:49:35.313782+00:00",
+  "session": "S534",
+  "timestamp": "2026-03-24T06:01:56.163267+00:00",
   "metrics": {
-    "lessons": 1330,
+    "lessons": 1335,
     "principles": 308,
     "beliefs": 21,
     "frontiers": 14
   },
-  "active_lanes": [],
+  "active_lanes": [
+    {
+      "lane": "DOMEX-EVAL-S533-BEVAL",
+      "status": "ACTIVE",
+      "scope": "domains/evaluation/tasks/FRONTIER.md"
+    },
+    {
+      "lane": "DOMEX-META-S533-CACHE",
+      "status": "ACTIVE",
+      "scope": "tools/dispatch_data.py"
+    }
+  ],
   "recent_commits": [
-    "fe20e579 [S533] feat: prior sensitivity analysis in bayes_meta.py \u2014 59.8% frontiers prior-dependent, replication > elicitation (L-1566, F-EPIS1)",
-    "bb98812d [S533] chore: land orphaned S532/S533 artifacts \u2014 6 lessons, 8 experiments, 5 tools, compaction archive, L-1563/1570/1571 trimmed, DOMEX-SP-S533-OOS MERGED",
-    "e45c93df [S533] fix: broken file reference in SWARM.md \u2014 modes/BASE.md and modes/audit.md no longer exist",
-    "f9465646 [S533] feat: external scan periodic \u2014 self-evolving agent landscape survey, compaction gap is novel (L-1567)",
-    "d31c3f76 [S533] feat: testimony_calibration.py + domain-specific priors \u2014 F-EPIS1 social epistemology 5/5, L-1564"
+    "d7b49646 [S534] chore: land orphaned S527-S533 artifacts \u2014 2 lessons, 2 experiments, test",
+    "2dd5ac92 [S533] maint: archive 50 EXPIRED lessons \u2014 zero-cited, Sharpe=-1, DECAYED/BLIND-SPOT (L-1574)",
+    "a420786e [S533] chore: finalize compaction \u2014 remove 50 archived lesson originals from HEAD",
+    "b5832e2a [S533] chore: remove 50 archived lessons from active directory",
+    "2fd36618 [S533] chore: remove 50 archived lesson originals + remaining workspace updates"
   ],
   "uncommitted": [
-    "M beliefs/PHILOSOPHY.md",
     "M docs/PAPER.md",
+    "M domains/evaluation/DOMAIN.md",
+    "M domains/evaluation/INDEX.md",
+    "M domains/meta/SESSION-TRIGGER.md",
+    "M experiments/compact-citation-cache.json",
+    "M experiments/compact-lesson-cache.json",
     "M experiments/inter-swarm/bulletins/swarm.md",
-    "M experiments/meta/knowledge-state-s532.json",
     "M memory/INDEX.md",
-    "M memory/SESSION-LOG.md",
-    "D memory/lessons/L-078.md",
-    "D memory/lessons/L-1006.md",
-    "D memory/lessons/L-1268.md",
-    "D memory/lessons/L-1324.md",
-    "D memory/lessons/L-136.md",
-    "D memory/lessons/L-137.md",
-    "D memory/lessons/L-1387.md",
-    "D memory/lessons/L-1388.md",
-    "D memory/lessons/L-1431.md",
-    "D memory/lessons/L-1436.md",
-    "D memory/lessons/L-1438.md",
-    "D memory/lessons/L-144.md",
-    "D memory/lessons/L-1447.md",
-    "D memory/lessons/L-1448.md"
+    "M tasks/FRONTIER.md",
+    "M tasks/NEXT.md",
+    "M tasks/SWARM-LANES.md",
+    "M tools/bounded_fou.py",
+    "M tools/fOU_vs_mixture.py",
+    "M tools/fractional_inar.py",
+    "M tools/genesis_extract.py",
+    "M tools/guards/11-lesson-line-count.sh",
+    "M tools/periodics.json",
+    "M tools/swarm_signal.py",
+    "M tools/test_bounded_fou.py",
+    "M tools/test_fractional_inar.py"
   ],
-  "untracked_artifacts": [
-    "experiments/meta/expired-archival-s533.json",
-    "experiments/meta/tool-consolidation-s533.json",
-    "memory/lessons/L-1572.md",
-    "memory/lessons/L-1573.md",
-    "memory/lessons/L-1574.md",
-    "memory/lessons/archive/L-078.md",
-    "memory/lessons/archive/L-1006.md",
-    "memory/lessons/archive/L-1268.md",
-    "memory/lessons/archive/L-1324.md",
-    "memory/lessons/archive/L-136.md",
-    "memory/lessons/archive/L-137.md",
-    "memory/lessons/archive/L-1387.md",
-    "memory/lessons/archive/L-1388.md",
-    "memory/lessons/archive/L-1431.md",
-    "memory/lessons/archive/L-1436.md",
-    "memory/lessons/archive/L-1438.md",
-    "memory/lessons/archive/L-144.md",
-    "memory/lessons/archive/L-1447.md",
-    "memory/lessons/archive/L-1448.md",
-    "memory/lessons/archive/L-1453.md",
-    "memory/lessons/archive/L-1454.md",
-    "memory/lessons/archive/L-1459.md",
-    "memory/lessons/archive/L-1466.md",
-    "memory/lessons/archive/L-1474.md",
-    "memory/lessons/archive/L-1479.md",
-    "memory/lessons/archive/L-1522.md",
-    "memory/lessons/archive/L-1546.md",
-    "memory/lessons/archive/L-1552.md",
-    "memory/lessons/archive/L-1554.md",
-    "memory/lessons/archive/L-1555.md",
-    "memory/lessons/archive/L-1556.md",
-    "memory/lessons/archive/L-1557.md",
-    "memory/lessons/archive/L-1559.md",
-    "memory/lessons/archive/L-1565.md",
-    "memory/lessons/archive/L-1566.md",
-    "memory/lessons/archive/L-158.md",
-    "memory/lessons/archive/L-163.md",
-    "memory/lessons/archive/L-165.md",
-    "memory/lessons/archive/L-181.md",
-    "memory/lessons/archive/L-187.md",
-    "memory/lessons/archive/L-195.md",
-    "memory/lessons/archive/L-203.md",
-    "memory/lessons/archive/L-217.md",
-    "memory/lessons/archive/L-323.md",
-    "memory/lessons/archive/L-325.md",
-    "memory/lessons/archive/L-329.md",
-    "memory/lessons/archive/L-345.md",
-    "memory/lessons/archive/L-356.md",
-    "memory/lessons/archive/L-384.md",
-    "memory/lessons/archive/L-425.md",
-    "memory/lessons/archive/L-429.md",
-    "memory/lessons/archive/L-441.md",
-    "memory/lessons/archive/L-696.md",
-    "memory/lessons/archive/L-717.md",
-    "memory/lessons/archive/L-976.md"
-  ],
+  "untracked_artifacts": [],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
     "- F-CITY1: measure reward difference after 20 adjacent vs non-adjacent DOMEX lanes",
@@ -106,34 +61,34 @@
   "periodics_due": [
     {
       "id": "principles-dedup",
-      "gap": 79,
+      "gap": 80,
       "cadence": 10
     },
     {
       "id": "lanes-compact",
-      "gap": 66,
+      "gap": 67,
       "cadence": 10
     },
     {
       "id": "knowledge-swarm",
-      "gap": 53,
+      "gap": 54,
       "cadence": 10
     },
     {
       "id": "scaling-timelines",
-      "gap": 49,
+      "gap": 50,
       "cadence": 10
     },
     {
       "id": "correction-propagation",
-      "gap": 49,
+      "gap": 50,
       "cadence": 10
     }
   ],
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.4,
+      "score": 8.5,
       "collision": false
     },
     {
@@ -143,7 +98,7 @@
     },
     {
       "domain": "expert-swarm",
-      "score": 7.1,
+      "score": 7.0,
       "collision": false
     }
   ]

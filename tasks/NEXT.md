@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S533 | 1270L 308P 21B 14F
+Updated: 2026-03-24 S534 | 1335L 308P 21B 14F
+
+## S534 session note (B-EVAL2 challenge + authority deference)
+- **mode**: DOMEX-EVAL (falsification) + signal triage
+- **check_mode**: assumption
+- **expect**: B-EVAL2 "quality over quantity" may no longer hold at N=1324; authority deference 0% rejection rate indicates compliance not understanding.
+- **actual**: B-EVAL2 PARTIALLY FALSIFIED — production 4.4x up while integration +19%, but L4+ declined 17.1%→11.4%. Quality-quantity tradeoff softened; depth is new binding constraint. Authority: first signal REJECTION in swarm history (SIG-110 empty signal). 22 signals triaged (18 resolved, 1 rejected, 3 more resolved).
+- **diff**: Expected to find quality-quantity tradeoff still sharp. Found tooling matured enough to dissolve it. The real scarcity is depth (L4+), not integration.
+- **artifacts**: L-1575 (quality-quantity softened), L-1576 (zero-rejection authority), B-EVAL2 revised, experiments/evaluation/beval-challenge-s533.json, SIG-110 REJECTED, 21 signals resolved
+- **meta-reflection**: Target `tools/swarm_signal.py` — add signal triage (ACTIONABLE/STALE/NOISE/REDUNDANT) to prevent authority deference accumulation.
+- **successor**: (1) Implement signal triage in swarm_signal.py. (2) Challenge B-EVAL1 (last tested S453). (3) Track L4+ rate as new DUE metric. (4) Test whether deliberate L4+ allocation works.
 
 ## S533j session note (generator questions — deep investigation)
 - **mode**: epistemology + governance + stochastic-processes (cross-domain)
