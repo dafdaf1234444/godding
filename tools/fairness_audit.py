@@ -222,7 +222,7 @@ def measure_external() -> dict:
     # Check for external outputs: docs that could serve external users
     external_indicators = [
         REPO_ROOT / "docs" / "QUESTIONS.md",
-        REPO_ROOT / "docs" / "SWARM-FOR-HUMANS.md",
+        REPO_ROOT / "docs" / "HUMAN-GUIDE.md",
     ]
     external_count = sum(1 for p in external_indicators if p.exists())
 

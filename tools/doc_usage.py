@@ -70,7 +70,6 @@ def is_archive_path(rel_path: Path) -> bool:
         return True
     if rel_path.name in {
         "PHILOSOPHY-CHALLENGE-ARCHIVE.md",
-        "PHILOSOPHY-CHALLENGES-ARCHIVE.md",
         "compact-citation-cache.json",
         "compact-lesson-cache.json",
     }:
