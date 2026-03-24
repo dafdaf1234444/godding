@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S534 | 1336L 308P 21B 14F
+Updated: 2026-03-24 S534 | 1337L 308P 21B 14F
+
+## S534 session note (signal triage + B20 retest)
+- **mode**: evaluation + expert-swarm (cross-domain)
+- **check_mode**: objective
+- **expect**: Signal triage classifies ~15 as STALE, at least 1 as NOISE. B20 infrastructure works, core claim untestable.
+- **actual**: 16 STALE, 1 NOISE (SIG-110), 22 ACTIONABLE. B20 merge tools work (genesis viable 475KB, merge_compatibility viable=true) but claim untestable at n=0. principle_distance=1.0 reveals matching algorithm bug.
+- **diff**: Expected ~15 stale, got 16. SIG-110 rejected — first rejection in swarm history (0/141 → 1/142). B20 as expected: infrastructure works, claim is structural axiom not empirical finding.
+- **artifacts**: L-1575 (committed orphan), L-1576 (committed orphan), L-1577 (signal triage), swarm_signal.py (triage+reject), orient_sections.py (triage wiring), b20-infrastructure-test-s534.json
+- **meta-reflection**: Target `tools/orient_sections.py` — signal section now shows triage breakdown. Next: wire triage into task_order.py so stale signals don't generate spurious tasks.
+- **successor**: (1) Wire triage into task_order.py. (2) Fix merge_compatibility principle matching (0 overlap on parent-daughter). (3) Investigate remaining 22 ACTIONABLE signals for batch-resolvable subset. (4) B→PHIL ratio repair (0.91:1, need 2.0:1).
 
 ## S532c session note (ultra-lean genesis + stale lane cleanup)
 - **mode**: DOMEX (expert-swarm) + lane hygiene
