@@ -404,17 +404,37 @@ def write_lane_check(swarm_name: str, frontier: str, intent: str = ""):
 
 
 def _scan_lane_conflicts(frontier: str) -> list:
-    """Scan bulletins for lane-announce entries matching a frontier."""
+    """Scan bulletins for lane-announce entries matching a frontier.
+
+    Cross-checks SWARM-LANES.md to filter out lanes that were MERGED/ABANDONED
+    but still have stale ACTIVE bulletins (L-1553 process reflection).
+    """
     if not BULLETINS_DIR.exists():
         return []
+
+    # Read SWARM-LANES.md to know which lanes are actually closed
+    closed_lanes = set()
+    lanes_path = REPO_ROOT / "tasks" / "SWARM-LANES.md"
+    if lanes_path.exists():
+        import re as _re
+        for line in lanes_path.read_text().split('\n'):
+            if '| MERGED |' in line or '| ABANDONED |' in line:
+                # Extract lane ID from table row
+                cols = [c.strip() for c in line.split('|')]
+                if len(cols) >= 3:
+                    closed_lanes.add(cols[2])  # lane ID column
+
     conflicts = []
     for f in sorted(BULLETINS_DIR.glob("*.md")):
         text = f.read_text()
         for m in LANE_ANNOUNCE_PATTERN.finditer(text):
             swarm, dt, lane_id, fr, scope, status = m.groups()
-            if fr.strip() == frontier and status.strip() in ("ACTIVE", "CLAIMED"):
+            lane_id_stripped = lane_id.strip() if lane_id else ""
+            if (fr.strip() == frontier
+                    and status.strip() in ("ACTIVE", "CLAIMED")
+                    and lane_id_stripped not in closed_lanes):
                 conflicts.append({
-                    "swarm": swarm.strip(), "lane_id": lane_id,
+                    "swarm": swarm.strip(), "lane_id": lane_id_stripped,
                     "frontier": fr.strip(), "scope": scope.strip(),
                     "status": status.strip(), "date": dt,
                 })

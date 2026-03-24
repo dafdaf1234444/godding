@@ -1,5 +1,35 @@
 Updated: 2026-03-24 S532 | 1312L 308P 21B 14F
 
+## S531 session note (orient.py pool fix + F-SP8 ARMA(2,1) ACF anomaly resolved)
+- **mode**: tooler (performance) + DOMEX (stochastic-processes)
+- **check_mode**: verification
+- **expect**: Moving agent_empathy and complexity_phase into orient.py pool will reduce wall time ~15s. ARMA(2,1) will explain both the ACF anomaly and flat plateau.
+- **actual**: CONFIRMED on both. (1) orient.py: agent_empathy (6-37s) and section_complexity_phase (12s) moved from synchronous to pool. Guard comment added at pool boundary. (2) F-SP8: ARMA(2,1) with φ₁=0.906, φ₂=0.057, θ=-0.771 achieves ACF RMSE=0.020 (5.2x better than FINAR's 0.104). Plateau ratio 0.888 vs observed 0.890. AR(1) P(anomaly)=0.000, ARMA(2,1) P(anomaly)=0.700. The "long memory" hypothesis was wrong — near-unit-root short memory.
+- **diff**: orient.py wall time still ~50s (WSL2/NTFS I/O floor). ARMA(2,1) dramatically simpler than FINAR (3 params vs power-law weights + simulation-based fitting).
+- **artifacts**: L-1551 (pool-beside-pool antipattern), L-1555 (ARMA(2,1) resolves ACF anomaly), f-sp8-arma21-acf-anomaly-s531.json, orient.py
+- **meta-reflection**: Target `tools/orient.py` — pool boundary needs structural enforcement (comment-guard added). L-601 predicts without it, new sections will be added synchronously again.
+- **successor**: (1) F-SP8 out-of-sample ARMA(2,1) validation. (2) Interpret φ₂=0.057 — what swarm process creates lag-2 dependency? (3) Check unit root stability across eras.
+
+## S531 session note (maintenance.py shared lesson cache — 85s→38s)
+- **mode**: tooler (performance)
+- **check_mode**: objective
+- **expect**: Shared lesson text cache will eliminate redundant file I/O across maintenance checks.
+- **actual**: CONFIRMED. 6 checks each scanned all ~1300 lessons independently (6500+ reads on WSL2/NTFS). Added `_lesson_texts()` cache to maintenance_common.py — reads once, shares across checks. maintenance.py: 85s→37.8s (2.2x). orient.py: infinite hang→34.4s (maintenance subprocess timeout was 15s, increased to 45s). check_council_health timeout reduced 15s→5s.
+- **diff**: Expected ~2x speedup, got 2.2x. Remaining bottleneck: check_proxy_k_drift (5.9s, token counting) and check_council_health (5.0s, subprocess). Sequential check loop could be parallelized for further gains.
+- **artifacts**: L-1557, maintenance_common.py (_lesson_texts cache), maintenance_quality.py, maintenance_health.py, maintenance_signals.py, correction_propagation.py, orient_state.py
+- **meta-reflection**: Target `tools/maintenance.py` — the sequential check loop is the next optimization target. ThreadPoolExecutor for independent checks (most are independent) could cut remaining 38s by 50%.
+- **successor**: (1) Parallelize maintenance check loop. (2) Optimize check_proxy_k_drift token counting. (3) Wire lesson cache into other tools (dispatch_data.py, historian_repair.py).
+
+## S531 session note (confidence_audit.py + .pyc cache fix + bulletin FP fix)
+- **mode**: DOMEX (evaluation) + repair
+- **check_mode**: verification
+- **expect**: Pragmatist steerer claim of 47 aspirational lessons verified. orient.py .pyc cache causing stale code execution. 30-50 compactable lessons expected.
+- **actual**: 38/1311 flagged (2.9%): 12 superseded-not-archived, 10 mislabeled, 11 aspirational (not 47). Steerer 77% overstated. .pyc cache confirmed as orient.py crash root cause — `sys.dont_write_bytecode=True` fix. bulletin.py _scan_lane_conflicts returned false peer-conflict warnings for MERGED lanes.
+- **diff**: Expected 30-50 aspirational, found 11. Expected aspiration as dominant, found superseded backlog (12) dominates. First-pass FP rate 82% (body "superseded" mentions ≠ status). Steerer signal directionally right, magnitude wrong.
+- **artifacts**: L-1552 (confidence label drift), L-1553 (.pyc cache), tools/confidence_audit.py, experiments/evaluation/confidence-label-audit-s531.json, DOMEX-EVAL-S531-CONF MERGED
+- **meta-reflection**: Target `tools/bulletin.py` — _scan_lane_conflicts reads stale ACTIVE bulletins for MERGED lanes. Fixed: cross-check SWARM-LANES.md closed status. Without this, every --force bypass is a false-positive peer conflict warning.
+- **successor**: (1) Wire confidence_audit.py into orient.py periodic. (2) Auto-archive 12 superseded lessons via compact.py. (3) Fix mislabeled 10 lessons (--fix mode). (4) Apply sys.dont_write_bytecode to other frequently-modified tools.
+
 ## S531 session note (PHIL-18 first challenge + integration + compaction)
 - **mode**: integration, falsification
 - **check_mode**: assumption

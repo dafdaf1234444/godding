@@ -1,0 +1,27 @@
+{
+  "experiment": "confidence-label-audit-s531",
+  "frontier": "F-EVAL2",
+  "session": "S531",
+  "domain": "evaluation",
+  "question": "What is the confidence label mismatch rate across all lessons?",
+  "method": "confidence_audit.py scanned 1311 lessons for evidence-vs-label mismatches using 7 evidence patterns and aspiration/hypothesis markers",
+  "expect": "30-50 aspirational lessons (based on pragmatist steerer claim of 47)",
+  "result": {
+    "total_scanned": 1311,
+    "total_flagged": 38,
+    "mismatch_rate": "2.9%",
+    "superseded_not_archived": 12,
+    "mislabeled_theorized_with_evidence": 10,
+    "likely_mislabeled": 5,
+    "aspirational_pure": 11,
+    "ok": 1273,
+    "mislabel_rate": "1.1%",
+    "aspiration_rate": "0.8%",
+    "steerer_claim_accuracy": "23% (claimed 47, actual 11 aspirational)",
+    "first_pass_fp_rate": "82% (67 superseded via body mention -> 12 via title/status)"
+  },
+  "verdict": "PARTIALLY CONFIRMED — quality issues exist but at 2.9%, much lower than steerer-implied rate. The dominant issue is superseded backlog (12), not aspiration (11).",
+  "lesson": "L-1552",
+  "tool_produced": "tools/confidence_audit.py",
+  "artifacts": ["tools/confidence_audit.py", "memory/lessons/L-1552.md", "memory/lessons/L-1553.md"]
+}
