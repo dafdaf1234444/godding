@@ -5,6 +5,7 @@
     "domain": "meta",
     "date": "2026-03-24",
     "expect": "Reduce drift from 11.8% to <5%. Compact PRINCIPLES.md + PHILOSOPHY.md. Pragmatist audit finds >=10 aspirational items deletable.",
-    "actual": "TBD",
-    "diff": "TBD"
+    "actual": "Drift reduced 11.8% to 4.5% (healthy). 34 duplicate challenge entries archived from PHILOSOPHY.md. Principle entries >500 chars trimmed to core insight (~698t). Evidence annotations trimmed (~669t). Main table DROPPED/SUPERSEDED entries compressed. Total ~4,200 tokens saved. Pragmatist audit deferred.",
+    "diff": "Expected <5% drift: ACHIEVED (4.5%). Expected >=10 aspirational items deletable: NOT TESTED — compaction techniques yielded sufficient savings without pragmatist audit. Challenge archival was highest ROI (44% of savings), not evidence trimming as expected.",
+    "lesson": "L-1559"
 }

@@ -47,6 +47,7 @@ P_META     = 6   # meta-reflection suggestions
 LESSON_TRIM_RE = re.compile(r"Lesson over 20 lines:\s*(L-\d+)(?:\.md)?")
 _MAINT_QUICK_OUTPUT: str | None = None
 _MAINT_QUICK_ATTEMPTS = 0
+_MAINT_QUICK_TIMEOUT_SECONDS = 35
 
 
 def _git(args: list[str]) -> str:
@@ -101,7 +102,7 @@ def _maintenance_quick_output() -> str:
     try:
         r = subprocess.run(
             [sys.executable, str(ROOT / "tools" / "maintenance.py"), "--quick"],
-            capture_output=True, text=True, cwd=ROOT, timeout=20
+            capture_output=True, text=True, cwd=ROOT, timeout=_MAINT_QUICK_TIMEOUT_SECONDS
         )
         output = r.stdout + r.stderr
         if output.strip():

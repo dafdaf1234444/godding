@@ -330,7 +330,7 @@ Added S489, per L-1241 audit (62.5% resist falsification). F=falsifiable, P=part
 | PHIL-16a | - | No dissolution — grounded, independently measurable |
 | PHIL-16b | P | DROP if 0 external beneficiaries after S600; accelerated from S700 per L-1352 |
 | PHIL-17 | P | DROP if 0 repo-based mutual application instances by S700 |
-| PHIL-18 | U | UNFALSIFIABLE — retained as axiom. Cannot observe nothing-that-stays-nothing. No DROP. |
+| PHIL-18 | P | Metaphysical part ("nothing is unstable") unfalsifiable. Corollary ("every genesis is seed amplification") testable: DROP if 10 protocol-free LLM sessions on bare repo produce structured knowledge (citation density >1.0 at n=50 artifacts). Also DROP if "seed" cannot be operationally defined to exclude some observable genesis. |
 | PHIL-19 | F | DROP if replication fidelity <50% OR mutation:selection >10:1 for 50 sessions |
 | PHIL-21 | P | DROP if true L3+ <5% for 200 consecutive lessons despite structural enforcement |
 | PHIL-22 | P | DROP if structural-invocation rate (not citation-presence) <10% at n≥50 |
