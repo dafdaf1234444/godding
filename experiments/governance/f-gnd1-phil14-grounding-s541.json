@@ -1,0 +1,38 @@
+{
+  "experiment": "PHIL-14 grounding retest",
+  "session": "S541",
+  "date": "2026-03-24",
+  "goals": {
+    "collaborate": {
+      "measured": true,
+      "metric": "97.4% cross-citation",
+      "score": 0.974,
+      "evidence": "Cross-lesson citation rate as proxy for knowledge collaboration"
+    },
+    "increase": {
+      "measured": true,
+      "metric": "1399L, 31.2% L3+, 105 frontier rows",
+      "score": 0.8,
+      "evidence": "Lesson count, L3+ rate, frontier resolutions"
+    },
+    "protect": {
+      "measured": true,
+      "metric": "26 guards, NEVER-REMOVE=active",
+      "score": 0.5,
+      "evidence": "Pre-commit guards as structural enforcement, but no continuous harm rate tracking"
+    },
+    "truthful": {
+      "measured": true,
+      "metric": "falsification ratio 1.356 (118/87)",
+      "score": 0.6,
+      "evidence": "Falsification count as truthfulness proxy \u2014 system corrects itself"
+    }
+  },
+  "summary": {
+    "measured_count": 4,
+    "total_goals": 4,
+    "avg_grounding_score": 0.719,
+    "previous_score": 0.05,
+    "verdict": "PARTIAL"
+  }
+}
