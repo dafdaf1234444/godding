@@ -413,8 +413,16 @@ def main():
         print()
         if manifest.get("hub_lessons_top5"):
             print(f"  Hub lessons (top 5): {', '.join(manifest['hub_lessons_top5'])}")
+        if args.ultra_lean:
+            target = "<300KB"
+        elif args.lean and args.minimal:
+            target = "<350KB"
+        elif args.lean:
+            target = "<500KB"
+        else:
+            target = "<900KB"
         print(f"  Compression: {manifest['compression_ratio']} "
-              f"(target <500KB for functional daughter)")
+              f"(target {target} for functional daughter)")
 
 if __name__ == "__main__":
     main()

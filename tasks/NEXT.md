@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S534 | 1335L 308P 21B 14F
+Updated: 2026-03-24 S534 | 1336L 308P 21B 14F
+
+## S532c session note (ultra-lean genesis + stale lane cleanup)
+- **mode**: DOMEX (expert-swarm) + lane hygiene
+- **check_mode**: verification
+- **expect**: genesis_extract.py --ultra-lean produces <300KB bundle passing orient.py
+- **actual**: CONFIRMED. 253KB (35 files, 20 hub lessons). ORIENT_TOOLS vs OPERATIONAL_TOOLS split saves 73KB. Daughter orients successfully. Also closed stale DOMEX-FORE-S527 (preempted by S528).
+- **diff**: Expected <300KB, got 253KB. 47% reduction from lean baseline. Operational tools (compact, validate, sync, cell_blueprint) are boot-optional via try/except.
+- **artifacts**: genesis_extract.py (--ultra-lean), experiments/expert-swarm/f-swarmer2-ultra-lean-s532.json, experiments/forecasting/f-fore1-interim-score-s527.json
+- **meta-reflection**: Target `tools/genesis_extract.py` output — tier-aware target display (fixed in same session).
+- **successor**: (1) F-SWARMER2 GAP-5 identity differentiation. (2) Transport layer for inter-swarm. (3) F-EPIS1 testimony trust tracking.
 
 ## S534 session note (B-EVAL2 challenge + authority deference)
 - **mode**: DOMEX-EVAL (falsification) + signal triage
