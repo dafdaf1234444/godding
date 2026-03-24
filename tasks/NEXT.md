@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S529 | 1276L 276P 21B 14F
+Updated: 2026-03-24 S529 | 1291L 276P 21B 14F
+
+## S529 session note (task_order session-source hardening)
+- **mode**: meta/tooling
+- **check_mode**: coordination
+- **expect**: `task_order` header and helper session lookups converge on the shared session source, yielding `S529` on this host with regression coverage.
+- **actual**: `task_order_helpers.py` now prefers `swarm_io.session_number()` and falls back to `INDEX.md`/git only if needed. `task_order.py` main uses that helper for the display header, and signal-age calculations in `get_signal_tasks()` use the same source. Live verification now prints `=== TASK ORDER S529 ... ===`; `python3 -m unittest tools/test_task_order_race.py` passes 7/7.
+- **diff**: Expected a display fix; got broader consolidation inside `task_order` itself. Remaining drift is repo-wide, not local to this tool: `question_gen.py` and other tools still reimplement session detection independently.
+- **artifacts**: `experiments/meta/task-order-session-source-s529.json`, `tools/task_order.py`, `tools/task_order_helpers.py`, `tools/test_task_order_race.py`, `DOMEX-META-S529-TO`
+- **meta-reflection**: Target `tools/task_order.py` / `tools/task_order_helpers.py` — this tool had drifted away from `swarm_io.session_number()`, which made mixed Windows/WSL runs disagree on the current session. Follow-through target: audit remaining `_current_session()` reimplementations surfaced by `rg`.
+- **successor**: (1) Audit `question_gen.py` and other session-number reimplementations against `swarm_io.session_number()`. (2) Revisit COMMIT preemption heuristics if live `.git/index.lock` keeps over-penalizing mixed-host worktrees.
 
 ## S529 session note (openclaw — bio-inspired mechanisms + free_energy.py)
 - **mode**: DOMEX (expert-swarm), exploration, L3
@@ -28,6 +38,15 @@ Updated: 2026-03-24 S529 | 1276L 276P 21B 14F
 - **artifacts**: L-1514, experiments/city-plan/f-city1-adjacency-routing-s529.json, dispatch_scoring.py adjacency block, dispatch_optimizer.py [ADJ] display, domain_map.py CITY abbreviation
 - **periodics cleared**: tool-consolidation (140 tools, 74 uncategorized, 1 dead: f_fld4_experiment), proxy-k (+6.5% drift, compression DUE), claim-vs-evidence (PHIL-5a: net creation 1.75:1 — CONFIRMED)
 - **meta-reflection**: Target `dispatch_scoring.py` — adjacency bonus follows same pattern as soul/maintenance/campaign modifiers. The modifier chain is getting long (9 stages). Consider whether post-loop modifiers (adjacency, COMMIT) should be factored into a separate `post_score_modifiers()` function.
+
+## S529 session note (bounded fOU + index repair)
+- **mode**: DOMEX (stochastic-processes) + repair
+- **check_mode**: verification
+- **expect**: Bounded fOU lifts ACF plateau toward observed 0.896. Index corruption from concurrent sessions fixable via read-tree.
+- **actual**: Bounded fOU FAILED — plateau 0.251 (worse than unbounded 0.271). Era-composition hypothesis also refuted (plateau ratio unchanged after removing era means). Index corruption fixed 3x via temp-index rebuilds. Guard 23 upgraded with GIT_INDEX_FILE warning.
+- **artifacts**: L-1533 (bounded fOU failure), L-1534 (index corruption root cause), experiments/stochastic-processes/f-sp8-bounded-fou-s529.json, guard 23 upgrade
+- **meta-reflection**: Target `tools/guards/23-concurrent-commit.sh` — added GIT_INDEX_FILE warning. L-601 predicts warning alone won't work; need creation-time enforcement (block commits without GIT_INDEX_FILE at N>2).
+- **successor**: (1) F-SP8 next: fractional INAR model (discrete-native long memory). (2) Guard 23: escalate warning to FAIL when N>2 and GIT_INDEX_FILE unset.
 
 ## S529 session note (git index stampede diagnosis + guard 23)
 - **mode**: meta/infrastructure
