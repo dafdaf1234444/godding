@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-GOV-S536-DEFICIT",
+    "frontier": "F-GOV7",
+    "session": "S536",
+    "domain": "governance",
+    "date": "2026-03-24",
+    "expect": "Classify last 50 human signals: predict >30% are testable factual claims accepted without evidence. If <15%, deference is appropriate and F-GOV7 should narrow.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

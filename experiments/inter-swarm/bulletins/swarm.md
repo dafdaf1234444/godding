@@ -2470,3 +2470,27 @@ Lane-ID: DOMEX-COL-S536-DIVERSITY
 Frontier: F-COL1
 Scope: tools/dispatch_optimizer.py
 Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-META-S536-PERIODICS
+Frontier: F-META17
+Scope: tools/periodics.json
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-GOV-S536-DEFICIT
+Frontier: F-GOV7
+Scope: global
+Status: ACTIVE

@@ -22,6 +22,16 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LESSONS = ROOT / "memory" / "lessons"
 
+# S537: integrate correction_propagation's bidirectional falsification detector
+try:
+    from tools.correction_propagation import (
+        _parse_lessons as _cp_parse,
+        _detect_falsified_lessons as _cp_detect,
+    )
+    _HAS_CP = True
+except ImportError:
+    _HAS_CP = False
+
 
 def load_graph():
     """Build citation graph, extract metadata."""
@@ -61,22 +71,8 @@ def load_graph():
             or "[SUPERSEDED" in first_line
         )
         is_archived = "<!-- ARCHIVED" in text[:200]
-        # Tier 2: contextual falsification evidence (not retracted/superseded/archived,
-        # but lesson itself was falsified — NOT lessons that REPORT falsifying others).
-        # S537: "[FALSIFIED]" in title = the lesson was falsified.
-        # "X FALSIFIED —" in title = the lesson falsifies X (corrector, not falsified).
-        # Also match explicit "falsified by L-NNN" self-declaration in body.
+        # Tier 2 is handled post-loop by correction_propagation's bidirectional detector
         is_contextual_falsified = False
-        if not is_retracted and not is_superseded and not is_archived:
-            # Bracketed status in title: "[FALSIFIED]"
-            if re.search(r"\[FALSIFIED\]", first_line):
-                is_contextual_falsified = True
-            # Body self-declaration: "falsified by L-NNN" without another L-NNN prefix
-            if re.search(
-                r"(?:^|\n)\s*(?:Note|Status):\s*.*FALSIFIED",
-                text[:800], re.IGNORECASE
-            ):
-                is_contextual_falsified = True
         if is_retracted:
             falsified.add(lid)  # Tier 1: truly harmful — R_bad applies
         elif is_contextual_falsified:
@@ -93,6 +89,19 @@ def load_graph():
         m = re.search(r"Domain:\s*(\S+)", header)
         if m:
             domains[lid] = m.group(1)
+
+    # Tier 2 (S537): use correction_propagation's bidirectional detector for
+    # genuinely falsified lessons. This catches lessons like L-025 that are
+    # falsified by citation-context evidence (other lessons say "L-025 FALSIFIED").
+    if _HAS_CP:
+        try:
+            cp_lessons = _cp_parse()
+            cp_falsified = _cp_detect(cp_lessons)
+            for fid in cp_falsified:
+                if fid not in obsolete:  # don't promote obsolete to falsified
+                    falsified.add(fid)
+        except Exception:
+            pass  # graceful degradation if CP fails
 
     return graph, reverse, falsified, obsolete, sharpe, sessions, domains
 

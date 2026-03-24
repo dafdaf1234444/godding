@@ -1,10 +1,14 @@
 {
   "session": 537,
-  "count": 2,
+  "count": 3,
   "items": [
     {
       "priority": "DUE",
-      "message": "F119 learning-quality gap: tracked deltas without knowledge-state update (NEXT/SESSION-LOG/INDEX/FRONTIER/PRINCIPLES/lessons)"
+      "message": "Lesson over 20 lines: L-1579.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "4 active dispatch lane(s) have no active coordinator lane: DOMEX-COL-S536-DIVERSITY, DOMEX-META-S535-STATUS, DOMEX-META-S536-PERIODICS, DOMEX-GOV-S536-DEFICIT"
     },
     {
       "priority": "DUE",

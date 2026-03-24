@@ -99,6 +99,35 @@ class TestTaskOrderRace(unittest.TestCase):
             task_order.ROOT = original_root
             task_order.subprocess.run = original_run
 
+    def test_get_untracked_artifacts_uses_targeted_ls_files_query(self):
+        original_git = task_order._git
+        original_detect = task_order._detect_concurrency
+        calls = []
+
+        def fake_git(args):
+            calls.append(args)
+            if args == ["ls-files", "--others", "--exclude-standard", "--", "memory/lessons", "experiments"]:
+                return "\n".join([
+                    "memory/lessons/L-2000.md",
+                    "experiments/meta/example.json",
+                    "docs/ignore-me.md",
+                ])
+            raise AssertionError(f"unexpected git args: {args}")
+
+        try:
+            task_order._git = fake_git
+            task_order._detect_concurrency = lambda: 1
+
+            tasks = task_order.get_untracked_artifacts()
+
+            self.assertEqual(len(tasks), 1)
+            self.assertIn("L-2000", tasks[0]["action"])
+            self.assertIn("1 experiment(s)", tasks[0]["action"])
+            self.assertIn(["ls-files", "--others", "--exclude-standard", "--", "memory/lessons", "experiments"], calls)
+        finally:
+            task_order._git = original_git
+            task_order._detect_concurrency = original_detect
+
     def test_check_preemption_marks_commit_task_when_git_lock_is_live(self):
         original_root = task_order_helpers.ROOT
         original_git = task_order_helpers._git

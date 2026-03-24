@@ -916,7 +916,7 @@
     },
     {
       "session": 537,
-      "timestamp": "2026-03-24T06:37:33Z",
+      "timestamp": "2026-03-24T06:39:22Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -929,16 +929,16 @@
           "severities": []
         },
         "check_mission_constraints": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "DUE"
-          ]
-        },
-        "check_runtime_portability": {
           "fired": false,
           "count": 0,
           "severities": []
+        },
+        "check_runtime_portability": {
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_commit_hooks": {
           "fired": false,
@@ -962,8 +962,9 @@
         },
         "check_lessons": {
           "fired": true,
-          "count": 1,
+          "count": 2,
           "severities": [
+            "DUE",
             "NOTICE"
           ]
         },
@@ -1004,14 +1005,18 @@
           ]
         },
         "check_swarm_lanes": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "NOTICE"
+          ]
         },
         "check_swarm_coordinator": {
-          "fired": false,
-          "count": 0,
-          "severities": []
+          "fired": true,
+          "count": 1,
+          "severities": [
+            "DUE"
+          ]
         },
         "check_lane_reporting_quality": {
           "fired": false,
@@ -1024,12 +1029,9 @@
           "severities": []
         },
         "check_uncommitted": {
-          "fired": true,
-          "count": 2,
-          "severities": [
-            "NOTICE",
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_handoff_staleness": {
           "fired": false,
@@ -1214,8 +1216,8 @@
         }
       },
       "totals": {
-        "DUE": 2,
         "NOTICE": 22,
+        "DUE": 3,
         "PERIODIC": 6
       }
     }

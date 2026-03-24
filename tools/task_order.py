@@ -55,6 +55,19 @@ def _git(args: list[str]) -> str:
     return r.stdout.strip()
 
 
+def _untracked_paths(*pathspecs: str) -> list[str]:
+    """Return untracked paths, optionally limited to specific pathspecs.
+
+    `git status --short` is expensive in this repo on WSL-backed trees, while
+    `git ls-files --others --exclude-standard` stays cheap for the narrow
+    artifact-discovery case used here.
+    """
+    args = ["ls-files", "--others", "--exclude-standard"]
+    if pathspecs:
+        args.extend(["--", *pathspecs])
+    return [line for line in _git(args).splitlines() if line]
+
+
 def _safe_mtime(path: Path) -> float:
     """Return a stable sort key when files race with concurrent sessions."""
     try:
@@ -130,17 +143,10 @@ def _detect_concurrency() -> int:
 
 def get_untracked_artifacts() -> list[dict]:
     """Find untracked lesson + experiment files — likely done work needing commit."""
-    output = _git(["status", "--short"])
     tasks = []
-    lessons = []
-    experiments = []
-    for line in output.splitlines():
-        status = line[:2].strip()
-        path = line[3:].strip()
-        if status == "??" and path.startswith("memory/lessons/L-"):
-            lessons.append(path)
-        elif status == "??" and path.startswith("experiments/"):
-            experiments.append(path)
+    untracked = _untracked_paths("memory/lessons", "experiments")
+    lessons = [path for path in untracked if path.startswith("memory/lessons/L-")]
+    experiments = [path for path in untracked if path.startswith("experiments/")]
     if lessons or experiments:
         desc_parts = []
         if lessons:
