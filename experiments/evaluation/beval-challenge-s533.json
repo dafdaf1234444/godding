@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-EVAL-S533-BEVAL",
+    "frontier": "F-EVAL2",
+    "session": "S533",
+    "domain": "evaluation",
+    "date": "2026-03-24",
+    "expect": "B-EVAL2 quality-binds-over-quantity may no longer hold at N=1324 \u2014 integration tooling matured since N=550 diagnosis",
+    "actual": "TBD",
+    "diff": "TBD"
+}

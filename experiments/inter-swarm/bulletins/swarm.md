@@ -2206,3 +2206,15 @@ Lane-ID: DOMEX-META-S533-COMPACT
 Frontier: F-EPIS1
 Scope: domains/meta/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EVAL-S533-BEVAL
+Frontier: F-EVAL2
+Scope: global
+Status: ACTIVE
