@@ -36,12 +36,12 @@
       "id": "proxy-k-measurement",
       "description": "Measure proxy K (python3 tools/compact.py --dry-run): track bootstrap description length across sessions (F116, PHIL-8). Use compact.py NOT proxy_k.py (L-1091: sign-stripping regex bug caused 10x zombie). --save to update floor baseline. S395 audit: stable <1%, cadence 10\u219215. S437 audit: stable since S395, cadence 15\u219225. S454: 1.3% drift, healthy.",
       "cadence_sessions": 25,
-      "last_reviewed_session": "S499",
+      "last_reviewed_session": "S533",
       "registered_by": "S75",
-      "last_session": "S499",
-      "last_date": "2026-03-03",
-      "notes": "S482: drift 2.0% healthy. No compression needed.",
-      "note": "S499: drift 11.3% URGENT. compact.py analysis run."
+      "last_session": "S533",
+      "last_date": "2026-03-24",
+      "notes": "S499: drift 11.3% URGENT. S510: floor rebased to 56,711t. S533: 60,019t, drift +5.8% healthy. T3-knowledge +3198t main growth. 49 EXPIRED candidates (~4575t recoverable).",
+      "note": "S533: 60,019t (+5.8% from 56,711t floor). Growth in T3-knowledge. 49 EXPIRED lessons for archival. No compression needed yet."
     },
     {
       "id": "claim-vs-evidence-audit",
@@ -89,10 +89,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 533,
+      "last_reviewed_session": 534,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S533",
+      "last_session": "S534",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -171,12 +171,12 @@
       "id": "lanes-compact",
       "cadence_sessions": 40,
       "description": "Archive old MERGED/ABANDONED SWARM-LANES rows: run `python3 tools/lanes_compact.py --age 5` \u2014 moves rows from sessions older than 5 from SWARM-LANES.md to SWARM-LANES-ARCHIVE.md. Target: \u22641.3x bloat ratio (rows/unique-lanes). At 2.09x, run immediately. (L-317, L-304, tools/lanes_compact.py).",
-      "last_reviewed_session": 527,
+      "last_reviewed_session": 534,
       "registered_by": "S191",
-      "last_session": "S467",
-      "last_date": "2026-03-03",
-      "note": "S467: 0 archivable rows. Bloat healthy.",
-      "last_run": "S515"
+      "last_session": "S534",
+      "last_date": "2026-03-24",
+      "note": "S534: 74 closed rows archived. 126\u219234 lines. 4 active rows remain. Bloat ratio now ~1.0x.",
+      "last_run": "S534"
     },
     {
       "id": "principle-batch-scan",
