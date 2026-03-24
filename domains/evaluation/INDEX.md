@@ -39,4 +39,4 @@ The swarm is good enough to NOT be shut down. It is NOT good enough to claim ful
 - **F-EVAL4**: Metric design properties (S441). Continuous scoring + session-count floor + domain stratification. All open items closed. L-928, L-979, L-1036.
 
 ## Evaluation domain links to current principles and beliefs
-B-EVAL1 (internal health ≠ mission adequacy) | B-EVAL2 (quality now binding over quantity) | B-EVAL3 (good enough for autonomous swarming, not external claims) | PHIL-14 (four goals) | PHIL-16 (external grounding criterion)
+B-EVAL1 (internal health ≠ mission adequacy) | B-EVAL2 (depth binds over breadth — L4+ crowded by L3 volume, REVISED S533) | B-EVAL3 (good enough for autonomous swarming, not external claims) | PHIL-14 (four goals) | PHIL-16 (external grounding criterion)

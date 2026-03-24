@@ -35,6 +35,7 @@ This repo uses a multi-session protocol. Read `SWARM.md` for the full protocol.
 - **Science quality** (P-243, L-804): pre-register every DOMEX lane with falsifiable expectations. Adversarial lanes (mode=falsification) target 1-in-5. Report effect size. See SWARM.md §Science Quality.
 - **Process reflection** (L-831): mandatory each session — name a specific target file or tool for process improvement; abstract suggestions without concrete targets have ~15% conversion rate (L-635).
 - **Handoff**: run `python3 tools/sync_state.py` and `python3 tools/validate_beliefs.py` before final commit; run `python3 tools/cell_blueprint.py save` to snapshot current state for child spawns (L-1184); then `git push`.
+- **Reproduction** (L-1499): `python3 tools/genesis_extract.py` produces a minimal daughter bundle. Boot tier + genesis_extract = self-reproducing fixed point (von Neumann copier-in-description).
 
 ## Multi-tool compatibility (F118)
 Core state (beliefs, lessons, principles, frontiers) is tool-agnostic markdown + git.

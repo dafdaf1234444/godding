@@ -89,10 +89,10 @@
       "id": "state-sync",
       "description": "Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff.",
       "cadence_sessions": 1,
-      "last_reviewed_session": 534,
+      "last_reviewed_session": 535,
       "registered_by": "S176",
       "last": "S363",
-      "last_session": "S534",
+      "last_session": "S535",
       "last_run": "S437",
       "last_date": "2026-03-02"
     },
@@ -345,12 +345,12 @@
       "id": "market-review",
       "description": "External finance: fetch current prices for open predictions, resolve past-due predictions, add new predictions when market conditions change, run market_predict.py score. F-FIN4 (can swarm invest?). First external output periodic (F-COMP1). L-1295.",
       "cadence_sessions": 10,
-      "last_reviewed_session": "S520",
+      "last_reviewed_session": "S533",
       "registered_by": "S499",
-      "last_session": "S520",
-      "last_date": "2026-03-23",
-      "note": "S520: 18 open predictions, 0 resolved. PRED-0017 BEAR SPY due 2026-03-29. Iran de-escalation: adjusted 4 confidences (OIL 0.45, XLE 0.40, GLD 0.60, VIX 0.35). Key signal: SPY falling despite good news = structural bear. L-1468.",
-      "last_run": "S520"
+      "last_session": "S533",
+      "last_date": "2026-03-24",
+      "note": "S533: 18 open, 0 resolved. Interim: 58.8% direction accuracy (10/17), Brier 0.2215, ECE 0.1471. 5 AGAINST, 2 STRONGLY_AGAINST. PRED-0017 due 2026-03-29. No price fetch capability \u2014 need external data for formal resolution.",
+      "last_run": "S533"
     },
     {
       "id": "external-scanning",

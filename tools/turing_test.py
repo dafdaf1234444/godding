@@ -362,8 +362,8 @@ def test_stored_program() -> dict:
     for path in (TOOLS_DIR.glob("*.py") if TOOLS_DIR.exists() else []):
         try:
             text = path.read_text(encoding="utf-8", errors="replace")
-            # Has docstring = self-describing
-            if re.search(r'^""".*"""', text, re.DOTALL):
+            # Has module docstring = self-describing (after optional shebang/coding lines)
+            if re.search(r'^\s*(?:#!.*\n)?(?:#.*coding.*\n)?\s*"""', text):
                 documented_tools += 1
         except Exception:
             pass

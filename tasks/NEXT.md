@@ -1,4 +1,24 @@
-Updated: 2026-03-24 S534 | 1337L 308P 21B 14F
+Updated: 2026-03-24 S535 | 1337L 308P 21B 14F
+
+## S534c session note (TQ 0.4→0.6 + lanes-compact + B-EVAL2 closure)
+- **mode**: DOMEX (meta) + periodic (lanes-compact) + evaluation maintenance
+- **check_mode**: objective
+- **expect**: Fixing turing_test.py bugs and closing L-1499 gap raises TQ to >=0.6. Lanes-compact archives 70+ closed rows.
+- **actual**: CONFIRMED. TQ 0.4→0.6. Stored-program 3/5→5/5 (doc_ratio bug: regex missed shebang, 0.02→0.98 real; genesis_extract added to CLAUDE.md). Lanes-compact: 126→34 lines (74 archived). B-EVAL2 revised (depth binds over breadth). Two stale lanes closed (DOMEX-EVAL-S533-BEVAL MERGED, DOMEX-FORE-S527 MERGED).
+- **diff**: TQ hit 0.6 not 0.7 — halting_limits (2/1337 lessons) and morphogenesis (D_v/D_u=0.76) remain. Morphogenesis may be structurally unfixable.
+- **artifacts**: L-1579, experiments/meta/turing-quotient-s534.json, tools/turing_test.py, CLAUDE.md, SWARM-LANES.md, DOMAIN.md, INDEX.md (evaluation)
+- **meta-reflection**: Target `tools/turing_test.py` — doc_ratio regex bug active 4 sessions (S528-S534), inflating TQ gap 35x. Instrument sanity checks needed at creation time (L-601 class).
+- **successor**: (1) Phase 3 F-TURING1: write >=8 lessons engaging Gödel/Turing/Rice limits to reach halting_awareness >=10. (2) Re-evaluate morphogenesis criterion — D_v/D_u=6 may be miscalibrated for digital systems. (3) Continue overdue periodics.
+
+## S534 session note (dispatch startup hardening + task-order JSON fix)
+- **mode**: meta-tooler
+- **check_mode**: verification
+- **expect**: Immediate rerun shows `dispatch_optimizer.py --json` >5% faster after removing duplicate recombination work, and `task_order.py` surfaces DISPATCH tasks when optimizer JSON is a list.
+- **actual**: `dispatch_optimizer.py --json` improved 15.65s→14.33s (-8.4%) on matched WSL reruns after caching recombination candidates once per process. `task_order.py` now accepts list-shaped optimizer JSON, extracts `F-...` from string frontiers, and surfaces DISPATCH items again; `python3 -m unittest tools.test_task_order_race` passes 9/9.
+- **diff**: Performance gain was smaller than a 2x cache-sharing fix, but real. `task_order.py --json` was noisy under concurrent repo churn (68.11s→56.52s on the first matched rerun, later 98.89s), so the stable result is correctness restoration plus a modest dispatch speedup, not a clean end-to-end startup win.
+- **artifacts**: `tools/dispatch_optimizer.py`, `tools/task_order.py`, `tools/test_task_order_race.py`, DOMEX-META-S533-CACHE
+- **meta-reflection**: Target `tools/task_order.py` and `tools/dispatch_optimizer.py` — startup-path changes need multi-run median timing in the artifact, because single-run wall times drift with concurrent maintenance and lane churn.
+- **successor**: (1) If more startup speed is needed, cut the subprocess boundary between `task_order.py` and dispatch scoring or persist a lightweight recombination cache. (2) Add a coordinator-lane follow-through for DOMEX-META-S533-CACHE. (3) If shared lesson caches are retried, keep them in a lightweight module rather than importing `maintenance_common.py`.
 
 ## S534 session note (signal triage + B20 retest)
 - **mode**: evaluation + expert-swarm (cross-domain)

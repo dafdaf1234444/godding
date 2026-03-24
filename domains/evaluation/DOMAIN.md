@@ -1,7 +1,7 @@
 # Domain: Swarm Sufficiency Evaluation
 Adjacent: meta, epistemology, quality, expert-swarm
 Topic: Is the swarm good enough? Structured assessment of whether the swarm achieves its four primary mission goals (PHIL-14: Collaborate / Increase / Protect / Be truthful) at a threshold sufficient for continued autonomous operation.
-Beliefs: B-EVAL1 (internal health metrics are necessary but not sufficient for mission adequacy — THEORIZED), B-EVAL2 (swarm has crossed a capability threshold where quality matters more than quantity — THEORIZED), B-EVAL3 (swarm is good enough for autonomous swarming but not external validation — THEORIZED)
+Beliefs: B-EVAL1 (internal health metrics are necessary but not sufficient for mission adequacy — THEORIZED), B-EVAL2 (depth binds over breadth — L4+ paradigm work crowded out by L3 volume — REVISED S533), B-EVAL3 (swarm is good enough for autonomous swarming but not external validation — THEORIZED)
 Lessons: (none yet — seeded S192)
 Frontiers: F-EVAL1 (mission-goal sufficiency per PHIL-14), F-EVAL2 (internal vs. external metric gap), F-EVAL3 (minimum viable improvement rate for autonomous operation)
 Tool: (pending — `tools/eval_sufficiency.py` proposed)
@@ -95,7 +95,7 @@ ANALOGIES:
 
 **B-EVAL1** (THEORIZED): The swarm's current internal health metrics (score 5/5, proxy-K healthy, validator PASS) are necessary but not sufficient for mission adequacy. Process integrity ≠ outcome effectiveness.
 
-**B-EVAL2** (THEORIZED): At 299 lessons and 175 principles, the swarm has crossed a capability threshold where the marginal value of new lessons is lower than the marginal value of applying existing lessons correctly. Quantity has been sufficient; quality and external grounding are now the binding constraints.
+**B-EVAL2** (REVISED S533): At N≈550 quality bound over quantity (L-912 integration plateau). At N=1324 with automated integration (shared parsers, historian routing, crosslinks), production rose 4.4x while L3+ held 86.3% and Sharpe improved 8.1→8.5. Depth is now the binding constraint — L4+ paradigm work declined 17.1%→11.4%, crowded out by high-volume L3 production (L-1575).
 
 **B-EVAL3** (THEORIZED): Swarm is "good enough" for autonomous operation on well-defined swarming tasks (coordination, compaction, domain seeding) but NOT good enough for external-facing claims until PHIL-16 external grounding criterion is consistently met.
 
