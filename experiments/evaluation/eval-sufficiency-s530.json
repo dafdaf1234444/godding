@@ -1,0 +1,135 @@
+{
+  "session": "S530",
+  "computed_at": "2026-03-24T03:34:39.080974+00:00",
+  "goals": {
+    "Collaborate": {
+      "lane_merge_rate": 0.898,
+      "lane_merge_count": 44,
+      "lane_open_count": 5,
+      "c1_conflict_rate": 0.0111,
+      "c1_source": "f-con1-baseline-s526.json",
+      "signal_enforcement_pct": 97.7,
+      "continuous_score": 2.45,
+      "score": 2,
+      "verdict": "SUFFICIENT",
+      "discrete_score": 2,
+      "continuous_verdict": "SUFFICIENT",
+      "external_grounding": false,
+      "rationale": "merge_rate=89.8% (44/49 productive lanes MERGED), c1=1.1% (lane-level duplicate rate), signal_enforcement=98%, continuous=2.45",
+      "margin_warning": "continuous=2.45 is within 0.3 of SUFFICIENT/EXCELLENT boundary (2.5)"
+    },
+    "Increase": {
+      "avg_lp_per_session": 3.84,
+      "window_size": 50,
+      "window_n": 51,
+      "window_insufficient": false,
+      "threshold_margin_pct": 92.2,
+      "total_lessons": 1306,
+      "domex_avg_lp": 2.1,
+      "domex_n": 10,
+      "non_domex_avg_lp": 4.27,
+      "non_domex_n": 41,
+      "frontier_resolution_rate": 0.911,
+      "frontiers_open": 14,
+      "frontiers_resolved": 144,
+      "domain_count": 53,
+      "continuous_score": 3.0,
+      "continuous_sub": {
+        "lp": 3.0,
+        "resolution": 3.0,
+        "domains": 3.0
+      },
+      "external_grounding": false,
+      "score": 2,
+      "verdict": "SUFFICIENT",
+      "discrete_score": 3,
+      "continuous_verdict": "EXCELLENT",
+      "adjustment": "score capped at SUFFICIENT: EXCELLENT requires external_grounding=True (L-1191 grounding enforcement)",
+      "rationale": "avg_lp=3.84 (window=50s, n=51, DOMEX=2.1 n=10, non-DOMEX=4.3 n=41), resolution=91.1% (144/158), domains=53, continuous=3.00"
+    },
+    "Protect": {
+      "proxy_k_drift_pct": 11.1,
+      "proxy_k_healthy": false,
+      "challenge_drop_rate": 0.095,
+      "challenge_accepted_rate": 0.905,
+      "challenges_total": 21,
+      "zero_drop_warning": false,
+      "validator_pass": true,
+      "continuous_score": 1.36,
+      "score": 1,
+      "verdict": "ADEQUATE",
+      "discrete_score": 1,
+      "continuous_verdict": "ADEQUATE",
+      "external_grounding": false,
+      "rationale": "proxy_k_drift=11.1% (healthy<6%), validator=PASS, challenge_drop_rate=9.5% (2/21), continuous=1.36",
+      "margin_warning": "continuous=1.36 is within 0.3 of ADEQUATE/SUFFICIENT boundary (1.5)"
+    },
+    "Truthful": {
+      "evidence_grounded_rate": 0.905,
+      "signal_density_per_session": 0.249,
+      "signal_density_target_met": true,
+      "external_grounding_ok": true,
+      "external_trail_pct": 8.0,
+      "external_grounding_target": ">5% external trail in recent 50 lessons (L-1211)",
+      "frontier_resolution_absolute": 144,
+      "frontier_open_absolute": 14,
+      "continuous_score": 3.0,
+      "score": 3,
+      "verdict": "EXCELLENT",
+      "discrete_score": 3,
+      "continuous_verdict": "EXCELLENT",
+      "external_grounding": true,
+      "rationale": "evidence_grounded_rate=90.5% (19/21 challenges), signal_density=0.25/session (target \u22650.1), external_grounding_ok=True, continuous=3.00"
+    }
+  },
+  "scores": {
+    "Collaborate": 2,
+    "Increase": 2,
+    "Protect": 1,
+    "Truthful": 3
+  },
+  "continuous_scores": {
+    "Collaborate": 2.45,
+    "Increase": 3.0,
+    "Protect": 1.36,
+    "Truthful": 3.0
+  },
+  "stratified_scores": {
+    "DOMEX": {
+      "avg_lp": 2.1,
+      "n_sessions": 10
+    },
+    "non_DOMEX": {
+      "avg_lp": 4.27,
+      "n_sessions": 41
+    },
+    "ratio": 0.49,
+    "domex_fraction": 0.2
+  },
+  "composite_normalized": 0.667,
+  "continuous_composite": 0.818,
+  "avg_score_of_3": 2.0,
+  "overall": "SUFFICIENT",
+  "continuous_overall": "SUFFICIENT",
+  "next_improvement_target": "Protect",
+  "scale": {
+    "0": "Insufficient \u2014 below minimum threshold",
+    "1": "Adequate \u2014 meets threshold, gaps in rate or grounding",
+    "2": "Sufficient \u2014 exceeds threshold with internal evidence",
+    "3": "Excellent \u2014 exceeds threshold with external grounding"
+  },
+  "related": [
+    "F-EVAL1",
+    "PHIL-14",
+    "PHIL-16",
+    "L-316",
+    "B-EVAL1/2/3"
+  ],
+  "margin_warnings": [
+    "Collaborate: continuous=2.45 is within 0.3 of SUFFICIENT/EXCELLENT boundary (2.5)",
+    "Protect: continuous=1.36 is within 0.3 of ADEQUATE/SUFFICIENT boundary (1.5)"
+  ],
+  "adjustments": [
+    "Increase: score capped at SUFFICIENT: EXCELLENT requires external_grounding=True (L-1191 grounding enforcement)"
+  ]
+}

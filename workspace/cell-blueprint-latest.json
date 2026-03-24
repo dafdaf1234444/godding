@@ -1,51 +1,52 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S530",
-  "timestamp": "2026-03-24T03:35:13.171099+00:00",
+  "timestamp": "2026-03-24T03:38:50.745635+00:00",
   "metrics": {
-    "lessons": 1303,
+    "lessons": 1304,
     "principles": 302,
     "beliefs": 21,
     "frontiers": 14
   },
   "active_lanes": [],
   "recent_commits": [
+    "941d6185 [S530] feat: guard reorder + flock commit serialization + K\u2192P extraction + PRED-0017 tracking (L-1541, P-385..P-388)",
+    "ec813e5d [S530] chore: handoff \u2014 epidemic spread session note, sync counts, lane closures",
     "dd26d858 [S530] feat: dual R\u2080 epidemic spread model \u2014 classification error dominates dynamics (L-1544)",
     "e1ed9a3a [S530] feat: structural irony audit \u2014 PHIL-13 CONFIRMED (OR=8.5x, n=92), irony_audit.py built (L-1543)",
-    "0507e416 [S530] chore: land concurrent artifacts \u2014 L-1539 fractional INAR, L-1540 eval gap, 6 tools/experiments",
-    "ed691441 [S529] chore: session note \u2014 de-mystify docs pass",
-    "f09d88d1 [S529] chore: de-mystify docs \u2014 direct language across all entry files"
+    "0507e416 [S530] chore: land concurrent artifacts \u2014 L-1539 fractional INAR, L-1540 eval gap, 6 tools/experiments"
   ],
   "uncommitted": [
     "M docs/PAPER.md",
+    "M domains/evaluation/tasks/FRONTIER.md",
     "M domains/filtering/tasks/FRONTIER.md",
     "M domains/meta/SESSION-TRIGGER.md",
     "M experiments/compact-citation-cache.json",
     "M experiments/compact-lesson-cache.json",
-    "MM experiments/inter-swarm/bulletins/swarm.md",
+    "M experiments/inter-swarm/bulletins/swarm.md",
     "M memory/INDEX.md",
-    "M memory/PRINCIPLES.md",
     "M memory/lessons/L-1517.md",
     "A  memory/lessons/L-1546.md",
     "M tasks/NEXT.md",
     "M tasks/SIGNALS.md",
-    "MM tasks/SWARM-LANES.md",
     "M tools/check.ps1",
     "M tools/dispatch_optimizer.ps1",
-    "D tools/guards/00-mass-deletion.sh",
-    "D tools/guards/02-tree-size.sh",
     "M  tools/guards/10-near-duplicate.sh",
     "M tools/guards/23-concurrent-commit.sh",
-    "M tools/maintenance.ps1"
+    "M tools/historian_repair.py",
+    "M tools/maintenance.ps1",
+    "M tools/maintenance_inventory.py",
+    "M tools/open_lane.py"
   ],
   "untracked_artifacts": [
     "experiments/evaluation/eval-sufficiency-s530.json",
+    "experiments/evaluation/f-eval2-s530-retest.json",
     "experiments/evaluation/f-eval2-structural-enforcement-s530.json",
     "experiments/expert-swarm/f-stig1-amplification-wiring-s530.json",
-    "experiments/forecasting/f-fore1-pred0017-nearfinal-s530.json",
-    "memory/lessons/L-1541.md",
+    "experiments/meta/knowledge-state-s530.json",
     "memory/lessons/L-1542.md",
-    "memory/lessons/L-1545.md"
+    "memory/lessons/L-1545.md",
+    "memory/lessons/L-1547.md"
   ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",

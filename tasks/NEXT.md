@@ -1,4 +1,4 @@
-Updated: 2026-03-24 S530 | 1303L 302P 21B 14F
+Updated: 2026-03-24 S530 | 1304L 302P 21B 14F
 
 ## S530 session note (K→P ratio fix + F-EVAL2 retest + tool restoration)
 - **mode**: maintenance + DOMEX (evaluation)

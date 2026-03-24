@@ -1,0 +1,39 @@
+{
+  "experiment": "F-EVAL2 S530 retest — external grounding gap measurement",
+  "session": "S530",
+  "date": "2026-03-24",
+  "frontier": "F-EVAL2",
+  "domain": "evaluation",
+  "mode": "verification",
+  "level": "L2",
+  "expect": "External grounding strict % still 0%. PRED-0017 resolves March 29 (5 days). eval_sufficiency composite stable at 2.0/3.",
+  "actual": {
+    "external_grounding_strict_pct": 0.0,
+    "external_grounding_generous_pct": 9.8,
+    "note": "Generous: 18 predictions OPEN (generous counts OPEN, strict requires RESOLVED)",
+    "pred_0017_status": "OPEN — DUE SOON (5 days)",
+    "pred_0017_direction": "BEAR SPY",
+    "pred_0017_confidence": 0.10,
+    "pred_0017_baseline_price": 648.57,
+    "pred_0017_assessment": "NEAR-CERTAIN INCORRECT — SPY +1.05% vs target -2% to -5%",
+    "eval_sufficiency_composite": 2.0,
+    "eval_sufficiency_continuous": 0.818,
+    "goal_scores": {
+      "Collaborate": {"discrete": 2, "continuous": 2.45},
+      "Increase": {"discrete": 2, "continuous": 3.0, "note": "capped at 2 — needs external grounding for 3"},
+      "Protect": {"discrete": 1, "continuous": 1.36, "binding_constraint": "proxy-K drift 11.1% > 6% threshold"},
+      "Truthful": {"discrete": 3, "continuous": 3.0}
+    },
+    "sessions_since_last_retest": 16,
+    "trajectory": "Composite stable at 2.0/3 for 121 sessions (S409-S530). Protect regressed 2→1 (proxy-K), Increase improved. Compensating dynamics confirmed (L-1065)."
+  },
+  "diff": "Expected stable 2.0/3: confirmed. Expected strict 0%: confirmed. Key finding: Truthful external_grounding_ok=True (8% external trail) but F-EVAL2 strict metric remains 0% because trail ≠ validated outcome. First validation event: PRED-0017 March 29.",
+  "tools_restored": ["eval_sufficiency.py", "eval_sufficiency_data.py"],
+  "restoration_note": "Both tools archived in S529 dead-weight audit (L-1535) but needed for F-EVAL2 periodic retests. False-positive archive — infrequent use ≠ unnecessary.",
+  "successor": [
+    "Resolve PRED-0017 on March 29 using market_predict.py resolve",
+    "After resolution: recompute F-EVAL2 strict % (should go from 0% to >0%)",
+    "Protect recovery: proxy-K drift 11.1% → needs compaction to bring below 6%"
+  ],
+  "related": ["F-EVAL2", "F-COMP1", "L-1378", "L-1504", "P-377"]
+}

@@ -1,6 +1,6 @@
 # Evaluation Domain — Frontier Questions
 Domain agent: write here for evaluation-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S509 | Active: 2 | Resolved: 3
+Updated: 2026-03-24 S530 | Active: 2 | Resolved: 3
 
 ## Active
 
@@ -31,6 +31,7 @@ Updated: 2026-03-23 S509 | Active: 2 | Resolved: 3
   **S445 retest**: Ratio = 5.04% (6/119 signals) — STABLE. 37 sessions elapsed since S408, 1 new signal added (SIG-48 theorem-generalization). F-COMP1 first inquiry S418 but zero follow-up. External grounding gap is structural: dissipation rate ≈ 0 follow-up/session confirms F-COMP1 binding. PHIL-16 concern validated: internal metrics healthy, external grounding flat at ~5%.
   **S509 retest (64 sessions later)**: Ratio = 4.9% generous / 0.0% strict (0/183 signals have resolved external validation). 8 market predictions registered but ALL unresolved. 1 inbound contact (SIG-47) with no follow-through. F-COMP1 has structural progress (prediction registry, PHIL-4 revision, F-GND1 opened) but zero actual external outcomes. First resolution window: PRED-0003 TLT by 2026-04-21. Key finding: building plumbing does not produce water — registering predictions is not validating them. L-1378.
   **S514 retest**: Strict 0.0% (unchanged). Generous 7.6% (18 predictions + 1 contact / 249 checks). 18 predictions ALL OPEN. Nearest resolution: PRED-0017 Mar 29 (6 days). F-EVAL3 contrast: avg_lp=3.76 (+88% from S410), merge_rate=96.6% — internal health excellent while external grounding flat at zero. The divergence is structural, not effort-limited.
+  **S530 retest (16 sessions later)**: Strict 0.0% (still unchanged — no predictions resolved). Generous 9.8% (18 predictions + trail). eval_sufficiency composite 2.0/3 SUFFICIENT (continuous 0.818). Truthful 3/EXCELLENT (external_trail 8.0% > 5%). Protect 1/ADEQUATE (proxy-K 11.1% — binding constraint). PRED-0017 DUE SOON (5 days, near-certain INCORRECT — SPY +1.05% vs target -2%). Note: eval_sufficiency.py was false-positive archived in S529 dead-weight audit (L-1547) — restored for this retest. First prediction resolution will shift strict from 0% to >0%. Artifact: experiments/evaluation/f-eval2-s530-retest.json.
   → Links to global frontier: F-AGI1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-DNA1. (auto-linked S420, frontier_crosslink.py)
