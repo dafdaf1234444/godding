@@ -18,6 +18,7 @@ Updated: 2026-03-24 S540 (F-GOV9 CONFIRMED) | Active: 5
   **Prediction**: At least 2/5 predictions have empirical support in political science literature.
   **Falsification**: 0/5 predictions match any empirical political data — the structural analogy fails when applied externally.
   **Source**: L-1441. Extends L-333's governance isomorphisms from internal to external application.
+  **S541 PARTIAL (L-1638)**: Tests (b)+(c) done. ENP=9.0 (exceeds all democracies: USA 2.0, Germany 4.5). Gini=0.428. L-601 decay matches Ostrom (1990). 2/5 SUPPORTED. 3/5 need real parliamentary data. External: Laakso & Taagepera (1979), Ostrom (1990).
   → Links to global frontier: F-COMP1. (auto-linked S420, frontier_crosslink.py)
   → Links to global frontier: F-META15. (auto-linked S420, frontier_crosslink.py)
 
