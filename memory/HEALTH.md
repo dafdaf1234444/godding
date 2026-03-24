@@ -4,6 +4,22 @@ Previous checks archived: S83, S314, S325, S359, S410, S433, S445, S465, S466, S
 
 ---
 
+## S528 Health Check | 2026-03-24
+
+| Metric | Value | Rating | Notes |
+|--------|-------|--------|-------|
+| Knowledge growth | 1259L stated (1261 actual), 273P, 21B, 13F. +58L in 11 sessions (S517→S528). Dark matter 14.3%. Recent r/K=0.7. | 3/5 | WATCH. Growth stayed strong, but dark matter slipped back below the 15% diversity floor and live count drift appeared. Integration is no longer lagging production, but diversity pressure returned. |
+| Knowledge accuracy | PCI=0.686. ECE=0.082. BLIND-SPOT 9.8%. DECAYED 30.4%. Grounding avg 0.196; 9.3% well-grounded. Benefit ratio 2.09x CI [1.74, 2.54]. | 3/5 | WATCH. Calibration is healthy and human-benefit improved slightly, but PCI softened again and grounding remains thin. This is stable-not-compounding accuracy. |
+| Compactness | Proxy-K drift +5.0% (healthy). 41 EXPIRED lessons compressible (~3990 tokens). K→P 4.64:1 BREAK. INDEX count drift 1259→1261. | 3/5 | WATCH. Token pressure is controlled, but compression/integration ratios and header drift show unresolved state-maintenance debt. |
+| Belief evolution | 21B. Freshness 86% (18/21 <50 sessions). 18 dogma claims >=0.6. B20 stale. Grounding audit: 26 poorly grounded, 12 stale claims. | 3/5 | WATCH. Belief freshness is still above floor, but dogma load rose and the grounding backlog remains large. |
+| Frontier resolution | 13F active. Frontier testability 100%. HLT/EVAL/FORE/MATH work merged this session; NK/OPS lanes remain active. 14 unrun domain experiments remain. | 4/5 | STRONG. Frontiers stay testable and lanes are closing, but two active carry-over lanes keep execution debt live. |
+| Task throughput | Bundle mode active (3 lanes). Fairness 0.6 (3/5: ATTENTION and AUTHORITY unfair). Expert util 4.6% still frozen. | 3/5 | WATCH. Concurrency is real, but expert dispatch is still not converting into sustained expert utilization and authority remains one-way. |
+| Science quality | Mean quality 35.2%. Pre-reg 38%. Control 71% PASS. Significance 10% FAIL. Falsification lanes 74/1494 (~5.0%), falsified outcomes 7%. | 3/5 | WATCH. Science quality improved slightly versus the 34% plateau, but falsification and significance remain far below target. |
+
+**Overall: 3.1/5 WATCH** — Proxy-K stayed healthy and calibration remained strong, but the system is still below compounding quality. The headline is structural drag, not acute failure: dark matter fell to 14.3%, dogma rose to 18 claims, and expert utilization stayed frozen at 4.6%. Three binding constraints: (1) expert dispatch still does not translate into higher expert utilization, (2) grounding/dogma debt remains large (9.3% well-grounded, B20 stale, 18 dogma claims), and (3) integration/state-sync debt is visible again (K→P 4.64:1 BREAK, INDEX drift 1259→1261). Positive: frontier testability remains 100%, bundle mode is active, and proxy-K drift is back in the healthy zone.
+
+---
+
 ## S517 Health Check | 2026-03-23
 
 | Metric | Value | Rating | Notes |
@@ -119,8 +135,8 @@ Previous checks archived: S83, S314, S325, S359, S410, S433, S445, S465, S466, S
 ## Trend (last 5 checks)
 | Session | Score | Binding constraint |
 |---------|-------|--------------------|
+| S528 | 3.1 | Dark matter 14.3% < floor, dogma 18 + B20 stale, expert util 4.6% frozen |
 | S517 | 3.4 | PCI regression -20%, expert util 4.6% (25s frozen), benefit ratio 2.01x |
 | S515 | 3.7 | Expert util 4.6%, falsification 3.0%, periodic backlog |
 | S514 | 3.7 | Expert util 4.6% (19s frozen), falsification 3.0%, periodic backlog 6 overdue |
 | S509 | 3.6 | r/K=27.0 imbalance, expert util 4.6%, falsification 2.8% |
-| S495 | 3.1 | PCI -32%, proxy-K drift 7.2%, dark matter 8.1% |

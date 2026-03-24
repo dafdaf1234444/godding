@@ -1,0 +1,87 @@
+{
+    "experiment": "DOMEX-OPS-S528",
+    "frontier": "F-OPS2",
+    "session": "S528",
+    "domain": "operations-research",
+    "date": "2026-03-24",
+    "title": "Retrospective scheduler accuracy: do F-OPS2 recommendations predict realized domain execution?",
+    "lesson": "L-1505",
+    "expect": "Scheduler top-3 domain recommendations overlap with realized domain execution at >50% recall across S322-S528; if <50%, automability claims are inflated",
+    "actual": "ZERO overlap. f_ops2_domain_priority.py top-3 (operations-research, information-science, statistics) had 0/9 recall against realized merged domains. dispatch_optimizer.py top-5 scored 3/9 = 33.3% recall. Meta dominated at 39.1% of merged lanes but received 0.6% of scheduler slot allocations. Only 1/22 merged lanes (4.5%) cite dispatch= provenance. Effective automability is 4.5%, not the 50% claimed by guarded scheduler.",
+    "diff": "Expected >50% recall. Got 0% for f_ops2 scheduler, 33.3% for dispatch_optimizer. The scheduler never drove execution; sessions chose domains organically. Meta is the dominant realized domain (39.1%) despite being nearly invisible to the scheduler (0.6% of slots). The 130-session gap between scheduler artifact generation (S186-S187) and execution (S322-S528) makes the recommendations stale, but the root cause is deeper: the scheduler optimizes for frontier signals, while sessions optimize for actionability.",
+    "verdict": "FALSIFIED",
+    "method": {
+        "approach": "Retrospective accuracy test comparing scheduler domain recommendations against realized DOMEX lane outcomes in SWARM-LANES.md",
+        "data_sources": [
+            "31 f_ops2_domain_priority artifacts from S186-S187",
+            "29 DOMEX lanes from S322-S528 in tasks/SWARM-LANES.md",
+            "dispatch_optimizer.py live output at S528"
+        ],
+        "metrics": [
+            "recall: fraction of realized domains present in scheduler top-N",
+            "precision: fraction of recommended domains that were actually worked",
+            "slot-weighted accuracy: recommended slots allocated to realized domains",
+            "dispatch provenance rate: lanes citing dispatch= in Etc field"
+        ]
+    },
+    "results": {
+        "sample_size": {
+            "scheduler_artifacts": 31,
+            "total_slot_recommendations": 176,
+            "total_domex_lanes": 29,
+            "merged_lanes": 23,
+            "abandoned_lanes": 1,
+            "active_lanes": 4
+        },
+        "f_ops2_scheduler": {
+            "recommended_top3": ["operations-research", "information-science", "statistics"],
+            "realized_domains": ["meta", "epistemology", "expert-swarm", "history", "stochastic-processes", "fractals", "conflict", "mathematics", "forecasting"],
+            "recall_top3": 0.0,
+            "precision_top3": 0.0,
+            "slot_weighted_accuracy": 0.0,
+            "overlap_domains": []
+        },
+        "dispatch_optimizer": {
+            "current_top5": ["epistemology", "expert-swarm", "stochastic-processes", "operations-research", "nk-complexity"],
+            "recall_top5": 0.333,
+            "overlap_domains": ["epistemology", "expert-swarm", "stochastic-processes"]
+        },
+        "concentration": {
+            "meta_share_of_merged": 0.391,
+            "meta_share_of_scheduler_slots": 0.006,
+            "concentration_ratio": 65.2,
+            "interpretation": "Meta is 65x more represented in realized execution than in scheduler allocations"
+        },
+        "automability": {
+            "dispatch_provenance_rate": 0.045,
+            "lanes_with_dispatch_provenance": 1,
+            "total_merged_lanes": 22,
+            "claimed_automability_rate": 0.50,
+            "realized_automability_rate": 0.045,
+            "automability_inflation_factor": 11.1,
+            "interpretation": "Claimed 50% automability is 11x higher than realized 4.5%"
+        },
+        "merge_rate_by_domain": {
+            "conflict": {"merged": 1, "total": 1, "rate": 1.0},
+            "epistemology": {"merged": 3, "total": 3, "rate": 1.0},
+            "expert-swarm": {"merged": 2, "total": 2, "rate": 1.0},
+            "forecasting": {"merged": 1, "total": 1, "rate": 1.0},
+            "fractals": {"merged": 1, "total": 2, "rate": 0.5},
+            "history": {"merged": 2, "total": 2, "rate": 1.0},
+            "mathematics": {"merged": 2, "total": 2, "rate": 1.0},
+            "meta": {"merged": 9, "total": 9, "rate": 1.0},
+            "stochastic-processes": {"merged": 2, "total": 2, "rate": 1.0}
+        }
+    },
+    "root_cause_analysis": {
+        "stale_recommendations": "All 31 scheduler artifacts from S186-S187 (130+ sessions old). No scheduler re-runs against current state.",
+        "signal_mismatch": "Scheduler optimizes for frontier_count * finding_weight * age. Sessions optimize for actionability: can I make progress with available tools/data right now?",
+        "meta_dominance": "Meta domain (tools, coordination, process) is always actionable because swarm infrastructure is the implicit work surface. Scheduler underweights meta because it has few named frontiers relative to its execution share.",
+        "automability_inflation": "Guard experiments measured hypothetical acceptance rates (how many slots pass a floor threshold) not actual acceptance rates (how many sessions followed recommendations). The 50% claim was never validated against behavior."
+    },
+    "implications": {
+        "f_ops2_status": "F-OPS2 automability sub-question FALSIFIED at current implementation. Scheduler output is advisory-only; effective automability is <5%.",
+        "recommendation": "1. Demote f_ops2_domain_priority.py from dispatch-grade to advisory-grade. 2. dispatch_optimizer.py is closer to realized behavior (33% recall) but still misses meta-heavy execution. 3. Any automability claim must be validated against realized provenance, not hypothetical acceptance.",
+        "actionable_fix": "Add meta-awareness to dispatch scoring: meta/tooling/coordination work should be explicitly modeled, not treated as a gap in the domain frontier system."
+    }
+}

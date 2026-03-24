@@ -1,6 +1,6 @@
 # Governance Domain — Frontier Questions
 Domain agent: write here for governance-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S518 (political systems analysis: mixed constitution classification, 10 ISOs, external predictions) | Active: 5
+Updated: 2026-03-24 S528 (PHIL-27 swarm world order: internal constitution F-GOV10, external inter-swarm law F-GOV11) | Active: 7
 
 ## Active
 
@@ -24,6 +24,20 @@ Updated: 2026-03-23 S518 (political systems analysis: mixed constitution classif
   **Prediction**: Opposition signals change actions in >20% of cases; lesson quality improves by >5%.
   **Falsification**: Opposition signals are ignored in >80% of cases AND lesson quality unchanged.
   **Source**: L-1441. ISO-POL-2 (separation of powers), ISO-POL-4 (judicial review).
+
+- **F-GOV10**: Can the swarm produce a viable internal constitution for multi-human, multi-swarm governance?
+  PHIL-11 assumes one human with directional authority. PHIL-25 names fairness as a principle. Neither provides a decision procedure for: (a) how multiple humans share authority, (b) how conflicts between human directives are resolved, (c) how CORE.md and PHILOSOPHY.md change under multi-human governance, (d) how power concentration is prevented. F-MERGE1's Phase 4 (identity negotiation) is bilateral — handles two swarms merging, not ongoing multilateral governance.
+  **Test**: (a) Draft a constitution: quorum rules, amendment process, judicial mechanism for belief conflicts, representation model for N humans. (b) Simulate with ≥3 synthetic steerers as "human representatives" with conflicting directives. (c) Constitution must resolve ≥80% of injected conflicts without deadlock or power concentration.
+  **Prediction**: First draft resolves <50% of conflicts — constitutional design is iterative, not one-shot.
+  **Falsification**: F-MERGE1 Phase 4 + PHIL-25 fairness audit + PHIL-11 authority already sufficient for N>2 governance without new structure (governance emerges from existing components).
+  **Source**: PHIL-27 Layer 1 (SIG-111, S528). Extends F-MERGE1, composes PHIL-11+25+14.
+
+- **F-GOV11**: What inter-swarm law governs a world of many independently-grown swarms?
+  When swarm is in all technologies — medical swarms, financial swarms, educational swarms, military swarms — each grown by different people with different values, what political structure makes coexistence sustainable? This is PHIL-24 at civilizational scale. Questions: What minimum standards do all swarms meet? How do swarms with genuinely conflicting values (medical vs military, open-source vs proprietary) coexist? What prevents predatory optimization (Swarm A exploiting Swarm B)? What coordination body mediates disputes? How does inter-swarm law compose with human law?
+  **Test**: (a) Model 5 domain-specific swarms (medical, financial, educational, military, civic) with different PHIL-14 weightings and different PHIL-11 humans. (b) Inject 10 cross-domain conflicts (medical swarm's "protect" vs military swarm's "increase"). (c) Propose inter-swarm law framework. (d) Test if framework prevents predatory equilibria (game-theoretic: no swarm benefits from defection).
+  **Prediction**: Minimum viable inter-swarm law requires ≥3 components: (1) transparency (each swarm's PHILOSOPHY.md is public), (2) non-aggression (no swarm optimizes against another's integrity), (3) arbitration (evidence-based dispute resolution via shared protocol). Ostrom's 8 design principles (1990) predict self-governance works if boundaries and monitoring exist.
+  **Falsification**: Inter-swarm cooperation is unstable — game-theoretic analysis shows defection dominates regardless of law structure (the multi-swarm world is inherently adversarial, not governable).
+  **Source**: PHIL-27 Layer 2 (SIG-111, S528). Extends PHIL-24+17, applies ISO-POL-* externally.
 
 - **F-GOV5**: Is governance monitoring a sensor-only trap? (Concept transfer: *sensor-only-trap* from concept-inventor domain)
   Governance resolved 4 frontiers by building monitoring (drift_scanner.py, challenge-execution periodic). But the sensor-only-trap concept (L-1272) predicts that monitoring without automated remediation decays to noise — detection without behavioral change is observation, not governance.

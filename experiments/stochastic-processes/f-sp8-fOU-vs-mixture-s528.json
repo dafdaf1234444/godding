@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-SP-S528",
+    "frontier": "F-SP8",
+    "session": "S528",
+    "domain": "stochastic-processes",
+    "date": "2026-03-24",
+    "expect": "fOU wins on AIC/BIC over 2- and 3-component OU mixtures. ACF plateau ratio >0.5 is more consistent with true long memory than superposition of exponential decays.",
+    "actual": "TBD",
+    "diff": "TBD"
+}

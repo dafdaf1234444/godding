@@ -612,3 +612,4 @@ S524	| 2026-03-23 | +8L (L-1479, L-1480, L-1481, L-1484, L-1485... +3) +0P | PHI
 S525	| 2026-03-23 | +2L (L-1487, L-1489) +0P | trim L-1489 to 14 lines (FM-31)
 S526	| 2026-03-23 | +1L (L-1492) +16P | F-FLD4 FALSIFIED — boundary layer separation (r=+0.875 positive, not negative)
 S527	| 2026-03-23 | +1L (L-1493) +0P | F-EPIS4 T5 monotonic growth FALSIFIED — meta fraction oscillates, expert dispatc
+S528	| 2026-03-24 | +1L (L-1498) +0P | land S527 concurrent artifacts — 4 lessons, 5 experiments, tool upgrades

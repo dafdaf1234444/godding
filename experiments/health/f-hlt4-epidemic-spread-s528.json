@@ -1,0 +1,81 @@
+{
+  "experiment": "DOMEX-HLT-S528",
+  "frontier": "F-HLT4",
+  "session": "S528",
+  "domain": "health",
+  "date": "2026-03-24",
+  "question": "Can epidemic-style spread metrics distinguish harmful contamination from beneficial propagation in the swarm and yield an externalizable disease-spread template?",
+  "expect": "correction_propagation will show harmful spread is contained with fewer than 10 uncorrected citations and reactivation will expose at least 2 seed candidates with R_react > 1 for beneficial spread",
+  "actual": "CONFIRMED. correction_propagation.py --json found 8 falsified lessons but only 2 live spread gaps, 6 uncorrected citations total, avg correction rate 0.726, and all remaining gaps are citation_only rather than content-dependent. reactivation.py --brief found 207 DECAYED items and 4 seed candidates with R_react > 1: L-349 (1.49), L-281 (1.45), L-299 (1.45), L-494 (1.34).",
+  "diff": "Expected separated harmful vs beneficial spread regimes; got a cleaner split than expected. Harmful propagation is already subcritical and mostly metadata-only, while beneficial propagation requires deliberate seeding to go supercritical.",
+  "internal_baseline": {
+    "harmful_spread": {
+      "falsified_lessons_detected": 8,
+      "lessons_with_live_spread_gaps": 2,
+      "uncorrected_citations": 6,
+      "avg_correction_rate": 0.726,
+      "top_gap": {
+        "lesson": "L-025",
+        "uncorrected_count": 4,
+        "correction_rate": 0.852,
+        "gap_type": "citation_only"
+      },
+      "interpretation": "The swarm currently looks closer to a contained endemic state than an uncontrolled outbreak. Remaining harmful carriers are low-severity metadata echoes, not active content-dependent infections."
+    },
+    "beneficial_spread": {
+      "decayed_items": 207,
+      "seed_candidates_over_one": 4,
+      "top_seed_candidates": [
+        {
+          "lesson": "L-349",
+          "r_react": 1.49
+        },
+        {
+          "lesson": "L-281",
+          "r_react": 1.45
+        },
+        {
+          "lesson": "L-299",
+          "r_react": 1.45
+        },
+        {
+          "lesson": "L-494",
+          "r_react": 1.34
+        }
+      ],
+      "interpretation": "Positive propagation is not automatic. It exists as seedable potential that needs explicit routing and reinforcement to cross a self-propagation threshold."
+    }
+  },
+  "health_model": {
+    "r_bad_proxy": "uncorrected content-dependent spread after correction pressure",
+    "r_good_proxy": "R_react from reactivation.py",
+    "immune_proxy": "correction_rate on falsified lessons",
+    "vaccination_proxy": "proactive citation correction on falsified hubs before spread",
+    "diagnosis": "The swarm already has a partial immune system against harmful spread, but it lacks an equally strong mechanism for deliberately amplifying beneficial spread."
+  },
+  "externalization_path": {
+    "dual_use_claim": "The same separation between harmful and beneficial spread applies outside the swarm: outbreak control needs R_bad suppression, while public-health messaging and beneficial practice adoption need R_good amplification.",
+    "candidate_outputs": [
+      "disease-spread template separating harmful contagion from beneficial intervention diffusion",
+      "rumor-vs-correction propagation frame for social-media or governance use",
+      "simple dual-threshold dashboard: outbreak risk, immunity level, beneficial-seed candidates"
+    ],
+    "supporting_isomorphisms": [
+      "domains/ISOMORPHISM-ATLAS.md:240 epidemic spreading",
+      "domains/ISOMORPHISM-ATLAS.md:501 herd immunity threshold",
+      "domains/ISOMORPHISM-ATLAS.md:632 virology RNA viruses"
+    ]
+  },
+  "prescriptions": [
+    "Treat content-dependent uncorrected citations as infection hotspots; citation_only gaps are low-severity carriers.",
+    "Use correction rate as an immunity proxy and watch for drops below the current 0.726 baseline.",
+    "Seed high-R_react lessons deliberately if beneficial spread is desired; good ideas do not automatically go viral in the swarm."
+  ],
+  "cites": [
+    "L-207",
+    "L-218",
+    "L-1048",
+    "L-1383",
+    "SIG-107"
+  ]
+}

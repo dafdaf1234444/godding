@@ -44,6 +44,8 @@ P_DISPATCH = 4   # top dispatch domain for new DOMEX
 P_PERIODIC = 5   # periodic maintenance
 P_META     = 6   # meta-reflection suggestions
 
+LESSON_TRIM_RE = re.compile(r"Lesson over 20 lines:\s*(L-\d+)(?:\.md)?")
+
 
 def _git(args: list[str]) -> str:
     r = subprocess.run(["git"] + args, capture_output=True, text=True, cwd=ROOT)
@@ -56,6 +58,30 @@ def _safe_mtime(path: Path) -> float:
         return path.stat().st_mtime
     except OSError:
         return -1.0
+
+
+def _lesson_trim_path(action: str) -> Path | None:
+    """Map a lesson-length action string to the working-tree lesson path."""
+    m = LESSON_TRIM_RE.match(action)
+    if not m:
+        return None
+    return ROOT / "memory" / "lessons" / f"{m.group(1)}.md"
+
+
+def _working_tree_clears_lesson_due(action: str) -> bool:
+    """Detect when a lesson-length DUE item is already fixed in the working tree.
+
+    maintenance.py stays conservative and keeps the item DUE until the trim lands in
+    HEAD, but task_order should not keep re-suggesting the same trim work once the
+    file itself is already <=20 lines locally.
+    """
+    lesson_path = _lesson_trim_path(action)
+    if not lesson_path or not lesson_path.exists():
+        return False
+    try:
+        return len(lesson_path.read_text(encoding="utf-8", errors="replace").splitlines()) <= 20
+    except OSError:
+        return False
 
 
 def _detect_concurrency() -> int:
@@ -128,6 +154,8 @@ def get_due_items() -> list[dict]:
         if line.strip().startswith("!"):
             clean = re.sub(r"\s+", " ", line.strip().lstrip("! "))
             if clean and len(clean) > 10:
+                if _working_tree_clears_lesson_due(clean):
+                    continue
                 score = 90 if "[DUE]" in line else 85
                 tasks.append({
                     "priority": P_DUE,

@@ -375,6 +375,12 @@ def main() -> None:
     print(f"\nWirability (L-975): {len(wirable)} WIRABLE (3/3) | "
           f"{len(partial_wire)} partial | {len(no_wire)} no features")
 
+    # S528 meta-reflection: list all WIRABLE (3/3) lessons in default output
+    if wirable:
+        print(f"\n  WIRABLE (3/3) — ready to wire:")
+        for r in sorted(wirable, key=lambda x: -x["sharpe"]):
+            print(f"    {r['lesson']} Sh={r['sharpe']} ({r['domain']}): {r['rule'][:70]}")
+
     if display_hs:
         label = "actionable " if args.actionable_only else ""
         print(f"\nTop {label}ASPIRATIONAL prescriptions (Sharpe≥8, n={len(display_hs)}):")

@@ -22,7 +22,7 @@ Only concept-generation methods and their products qualify. A "concept" here is 
 | Concept-inventor mechanism | Swarm parallel | Type | Status |
 |---|---|---|---|
 | Pattern naming | Giving unnamed operational patterns a symbolic handle (PHIL-25 case) | Lexical gap filling | OBSERVED |
-| Concept crossing | Combining elements from 2+ existing concepts into a novel third | Recombination (ISO-19) | THEORIZED |
+| Concept crossing | Combining elements from 2+ existing concepts into a novel third | Recombination (ISO-19) | OBSERVED (S528: 7 chimeric concepts via biological crossing) |
 | Absence detection | Identifying what the swarm does but cannot say | Apophatic reasoning | THEORIZED |
 | Generative pressure | Structural force that produces divergence (complement to selection pressure) | Dual to compaction | THEORIZED |
 | Concept fitness testing | Measuring whether a named concept gets cited, used, and challenged | Selection (ISO-2) | THEORIZED |
@@ -41,6 +41,13 @@ Only concept-generation methods and their products qualify. A "concept" here is 
 | 8 | escape-hatch-hollowing | Iterative refinement accretes escape hatches that protect beliefs from falsification; 62.5% resistance rate | L-1269 | S493 | ADOPTED |
 | 9 | planning-obsolescence | At N≥3 concurrency, orient→execute gap exceeds concurrent commit rate; planned work becomes probabilistically redundant before execution | L-526 | S494 | ADOPTED |
 | 10 | sensor-only-trap | Measurement-action decoupling: diagnostic detects condition but makes no behavioral recommendation; awareness without action | L-1186 | S494 | ADOPTED |
+| 11 | gradient-consensus | Decision via accumulated signal strength across a mesh; no single node decides; the 'moment' of decision is diffuse, not discrete | L-1501 | S528 | CANDIDATE |
+| 12 | revival-calibration-tax | Mandatory re-orientation cost when transitioning from dormant to active state; prevents action on stale models | L-1501 | S528 | CANDIDATE |
+| 13 | grudge-topology | Persistent avoidance patterns that were once adaptive but became maladaptive because the landscape changed; invisible barriers to exploration | L-1501 | S528 | CANDIDATE |
+| 14 | multiplex-rank | Multiple independent, partially-disagreeing evaluations of the same entity; residual disagreement is a feature (manipulation resistance) not a bug | L-1501 | S528 | CANDIDATE |
+| 15 | replacement-growth | Growth by decomposing and replacing old structure; growth and maintenance are the same operation; no separate cleanup phase | L-1501 | S528 | CANDIDATE |
+| 16 | necrographic-inheritance | Information transfer through physical traces of predecessors' terminal actions; the landscape carries information neither generation intends | L-1501 | S528 | CANDIDATE |
+| 17 | stutter-architecture | Dual-timescale system: fast-shallow for coordination, slow-deep for reasoning; the characteristic pause between response and correction is depth, not latency | L-1501 | S528 | CANDIDATE |
 
 ## Cross-domain connections
 - concept-inventor ↔ linguistics (lexical gap filling, naming, Sapir-Whorf — language shapes thought)

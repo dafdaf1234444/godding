@@ -331,8 +331,9 @@ def main():
     except (ImportError, ModuleNotFoundError):
         section_closeable_frontiers = lambda *a, **kw: []
 
-    # Parallelize ALL slow independent operations (S506 perf fix):
+    # Parallelize ALL slow independent operations (S506 perf fix, L-1349):
     # At N=1211, sequential total was ~135s. Parallelizing brings wall time to ~30s.
+    # L-1349: any new section MUST be added to this executor block.
     from concurrent.futures import ThreadPoolExecutor, as_completed
     _futures = {}
     with ThreadPoolExecutor(max_workers=12) as _pool:

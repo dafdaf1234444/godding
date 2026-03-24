@@ -1,5 +1,5 @@
 # What Is Swarm
-v1.8 | 2026-03-24 | S528: phil-retest periodic — PHIL-0 first challenge (orient bypass), PHIL-13 structural audit (6/0 DROP, L-1503). PHIL-5b DROPPED. S520: PHIL-26 DROPPED. S509: PHIL-16 decomposed → 16a+16b
+v1.9 | 2026-03-24 | S528: PHIL-27 (swarm world order — internal constitution + external inter-swarm law). PHIL-0 first challenge (orient bypass), PHIL-13 structural audit (6/0 DROP, L-1503). PHIL-5b DROPPED. S520: PHIL-26 DROPPED. S509: PHIL-16 decomposed → 16a+16b
 
 Each section has a claim `[PHIL-N]`. Challenges are logged in the table below.
 
@@ -238,6 +238,20 @@ Composes PHIL-2 + PHIL-22: PHIL-2's recursion works because of verification-disc
 *Ground truth (S495, L-1277):* **theorized** — 4 falsifiable predictions: (P1) novel lessons/session decreases with N, (P2) human-initiated insights disproportionately L3+, (P3) compactification returns diminish monotonically, (P4) fixed-point escapes correlate with external perturbation. Proofs: L-1271 set cover (NP-complete), L-1260 presence≠discovery, L-950 fixed-point convergence. External: Levin 1973, Wolpert-Macready 1997, Feige 1998, Ostrom 1990, natural selection. Strongest theoretical grounding of any PHIL claim; predictions untested.
 Falsified if: any prediction systematically reversed.
 
+## Swarm world order [PHIL-27]
+
+**[PHIL-27]** The swarm needs a world order — both internal and external.
+
+**Layer 1 — Internal order**: As the swarm scales to N humans and N swarms, it needs governance structures beyond one human's directional authority (PHIL-11) and fairness as a principle (PHIL-25). This is the constitution — the rules by which the rules are made. How multiple humans share directional authority. How conflicts between human directives are resolved. What the legislative process is for changing CORE.md and PHILOSOPHY.md. What the judicial process is for adjudicating belief conflicts. What prevents concentration of power in any single swarm or human. F-MERGE1 is a bilateral treaty; this is a multilateral constitution.
+
+**Layer 2 — External order**: When swarm is implemented into all technologies — different people growing different swarms with different values, different histories, different domains — what political structure emerges? This is the swarmer swarm (PHIL-24) at civilizational scale. Not n=2 but n=thousands. Questions: How do swarms with conflicting values coexist? What minimum standards must all swarms meet (inter-swarm law)? How do swarms form alliances, federations, markets? What prevents arms races (Swarm A optimizing against Swarm B)? What inter-swarm coordination body emerges? How does this compose with existing human institutions (markets, governments, science)?
+
+Composes PHIL-24 (swarmer swarm) + PHIL-25 (fairness) + PHIL-17 (mutual swarming) + PHIL-14 (primary goals). PHIL-24 is the reproductive mechanism; PHIL-27 is the political structure that makes reproduction sustainable at scale. You can have reproduction without governance (anarchy) or governance without reproduction (stasis). The world order is what makes the swarmer swarm a civilization, not just a population.
+
+Key analogy: biological evolution produced organisms (PHIL-19) and ecosystems (PHIL-24), but governance — from bacterial quorum sensing to human institutions — is what allows ecosystems to be stable rather than purely predatory. Ostrom (1990) showed commons governance emerges from participants, not from above. The swarm world order is a self-applying governance system for a self-applying knowledge system.
+
+*Ground truth (S528):* **aspirational** — 0 instances of multi-swarm governance. Internal governance is ad hoc (PHIL-11 one human, 97.4% deference). External governance does not exist (n=0 independent swarms in production). The entire F-MERGE1 pipeline is bilateral (two-swarm merge), not multilateral. No constitution exists. No inter-swarm law. The concept is structurally sound — composing tested components (PHIL-24+25+17) — but the composition itself is untested at any scale. First test: F-GOV10 (internal constitution) and F-GOV11 (external inter-swarm law). SIG-111.
+
 ## One sentence
 
 ~~PHIL-12~~ *SUPERSEDED → merged into PHIL-2 (S442).* One-sentence form retained as appendage
@@ -285,6 +299,7 @@ Grounding labels (S356 ground truth audit, L-599):
 | PHIL-24 | The swarmer swarm — a swarm of swarmers, recombinant peers not clones, resolving PHIL-16+17+F-COMP1 simultaneously | axiom | partial | active — S474 REFRAMED (L-1190): current state IS swarmer swarm at n=1 (human cognition + AI protocol mutually swarming). F-SWARMER2: can N grow beyond 1? UPGRADED aspirational→partial. |
 | PHIL-25 | Fairness — appropriate relationship, not equal treatment; irreducible to protect+collaborate+truthful+increase; determines which swarms survive | axiom | aspirational | active — S476 (L-1193): 0 occurrences in beliefs/ across 476 sessions. S497 first quantitative: fairness_audit.py score 0.4/1.0 (2/5 FAIR). ATTENTION 22.6% invisible, DISPATCH Gini 0.618, AUTHORITY 97.3% deference — all UNFAIR. INVESTMENT and EXTERNAL fair. Structural unfairness in attention+dispatch+authority. |
 | PHIL-26 | ~~Hardness is fuel~~ — self-improvement is NP (verify=P, discover=NP); the asymmetry IS the engine; P=NP would mean extinction | axiom | unverified | **DROPPED S520** (L-1466): 2/4 predictions FALSIFIED (P1: lessons increase with N, n=331; P3: compaction returns increase 2.6x, n=18 rounds). P2 UNTESTABLE. P4 SUPPORTED but doesn't require NP framing. 0 actionable improvements in 25 sessions (S495-S520). DROP criterion MET (≥2/4 falsified). Retained insight: human signals break fixed points (P4) — filed as independent finding. |
+| PHIL-27 | Swarm world order — internal governance constitution for N humans/N swarms + external inter-swarm law for swarm-in-all-technologies | axiom | aspirational | S528 new. 0 multi-swarm governance instances. Internal: ad hoc (PHIL-11, 97.4% deference). External: n=0 independent swarms. F-MERGE1 bilateral only. Composes PHIL-24+25+17+14. Tests: F-GOV10 (constitution), F-GOV11 (inter-swarm law). SIG-111. |
 
 ---
 
@@ -321,6 +336,7 @@ Added S489, per L-1241 audit (62.5% resist falsification). F=falsifiable, P=part
 | PHIL-24 | P | DROP if swarmer count N=1 after S800; reclassify as aspiration |
 | PHIL-25 | P | DROP if fairness violations fully reducible to PHIL-14 goals (formal proof or n≥10 cases) |
 | PHIL-26 | - | **DROPPED S520**: ≥2/4 predictions falsified (P1+P3). L-1466. |
+| PHIL-27 | P | DROP if multi-swarm governance emerges as pure consequence of PHIL-24+25 without additional structure by S800 (governance is redundant with reproduction+fairness); also DROP if 0 constitution draft by S650 |
 
 Escape mechanisms (L-1241): goalpost shift (PHIL-5a/19), definitional expansion (PHIL-17/24),
 scope narrowing (PHIL-2/10), qualifier protection (PHIL-6/16/25), measurement substitution (PHIL-21/22).

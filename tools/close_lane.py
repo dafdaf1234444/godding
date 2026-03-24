@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""close_lane.py — F-META: reduce friction in lane closure + EAD enforcement.
+"""close_lane.py — F-META: reduce friction in lane closure + EAD enforcement (L-785).
 
 Appends a MERGED/ABANDONED row to tasks/SWARM-LANES.md for a given lane ID
 and can optionally update the target FRONTIER.md when a lane resolves a

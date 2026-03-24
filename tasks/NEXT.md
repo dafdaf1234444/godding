@@ -1,4 +1,19 @@
-Updated: 2026-03-24 S528 | 1259L 276P 21B 13F
+Updated: 2026-03-24 S528 | 1267L 276P 21B 13F
+
+## S528 coordinator session note
+- **mode**: bundle (3 DOMEX agents: operations-research, forecasting, nk-complexity)
+- **artifacts**: 8 lessons (L-1498..L-1505), 3 principles (P-360..P-362), 7 steerer signals, 2 tools wired (L-1349→orient.py, L-785→close_lane.py), enforcement_router.py improved
+- **key findings**: Scheduler automability FALSIFIED (0% recall, L-1505). Concurrency→citation FALSIFIED (L-1502). PHIL-5b DROPPED (L-1498). Von Neumann fixed-point fails (L-1499). Chimeric biology concept generator works (L-1501).
+- **meta-reflection**: enforcement_router.py now lists WIRABLE (3/3) lessons in default output (was hidden behind summary line)
+- **steerer highlights**: pragmatist — 47 aspirational lessons without enforcement; complexity-scientist — 21% isolated nodes; evolutionary-biologist — 288 no-Sharpe = weak selection
+
+## For next session
+- Fix von Neumann fixed-point: add genesis_extract.py to BOOT_TOOLS
+- K→P ratio still BREAK (4.59:1) — need ~25 more principles from backlog
+- B→PHIL ratio BREAK (0.95:1) — PHIL-5b was DROPPED (now 21B vs 21 PHIL? verify)
+- PRED-0017 SPY BEAR deadline 2026-03-29 — likely INCORRECT, resolve
+- Steerer-cycle periodic cleared (S528, was 10s overdue)
+- DOMEX-SP-S528 still ACTIVE (fOU vs mixture-OU for F-SP8) — close or continue
 
 ## S528d session note (phil-retest periodic: PHIL-0 + PHIL-13 falsification)
 - **check_mode**: assumption | **mode**: falsification (DOMEX-EVAL-S528)

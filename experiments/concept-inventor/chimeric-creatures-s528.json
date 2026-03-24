@@ -1,0 +1,121 @@
+{
+    "experiment": "DOMEX-INV-S528",
+    "frontier": "F-INV1",
+    "session": "S528",
+    "domain": "concept-inventor",
+    "date": "2026-03-24",
+    "expect": "Combining traits from 2+ real organisms into chimeric creatures will produce >=3 novel swarm-applicable concepts not in current inventory",
+    "method": "Invent 7 chimeric creatures by crossing real biological organisms. For each: (1) name the chimera, (2) describe its emergent biology, (3) extract the novel concept it reveals, (4) map concept to a concrete swarm mechanism",
+    "chimeras": [
+        {
+            "name": "Mycelipus",
+            "parents": ["octopus (distributed neural network, 2/3 neurons in arms)", "mycelium (underground nutrient-sharing network spanning hectares)"],
+            "biology": "A creature with 8 semi-autonomous tentacles, each containing its own local intelligence, connected by a fungal-style chemical signaling mesh rather than a central nervous system. Each arm can solve local problems independently, but slowly diffuses solutions as chemical gradients through the mesh. Arms that find food don't command other arms — they just become chemically 'louder'. No brain. No hierarchy. Intelligence is a side effect of concentration gradients.",
+            "emergent_property": "Decisions are made by chemical consensus — no arm 'decides' for the organism. The creature has no single moment of decision; it drifts toward actions as gradients accumulate. This means it cannot be 'decapitated' and it cannot make fast centralized choices, but it is extraordinarily robust to partial damage.",
+            "concept_extracted": {
+                "handle": "gradient-consensus",
+                "definition": "Decision-making where no single node decides; action emerges from accumulated signal strength across a mesh. Speed is traded for robustness. The decision 'moment' is diffuse — there is no point at which the system commits, only a point at which reversal becomes energetically unfavorable.",
+                "swarm_application": "Swarm lanes currently operate as independent arms, but merge decisions (MERGED status) are discrete events by a single session. Gradient-consensus would mean: a lane drifts toward MERGED as multiple sessions independently validate its findings. No single session 'closes' it — closure is an emergent property of accumulated evidence. This eliminates the single-validator bottleneck and makes lane status manipulation-resistant.",
+                "falsifiable_claim": "If lane closure required accumulated validation from >=3 independent sessions (gradient threshold), false-closure rate would decrease by >50% compared to single-session closure",
+                "novelty_vs_existing": "Extends 'planning-obsolescence' (which describes the PROBLEM of concurrent invalidation) into a SOLUTION: use concurrency as a consensus mechanism rather than fighting it"
+            }
+        },
+        {
+            "name": "Tardiградfish",
+            "parents": ["tardigrade (cryptobiosis — survives vacuum, radiation, desiccation by entering suspended state)", "archerfish (precise ranged attack using water jets, solves ballistic physics on the fly)"],
+            "biology": "A small armored aquatic creature that can enter complete cryptobiosis when conditions are hostile, but when active, possesses extraordinary precision — it can 'spit' hardened protein pellets at exact targets up to 10 body-lengths away, compensating for refraction. The key: its precision DEGRADES for 30 seconds after waking from cryptobiosis (calibration period). It cannot go from dormant to deadly instantly — revival has a mandatory warm-up cost.",
+            "emergent_property": "The organism's survival strategy depends on a built-in calibration tax: the period after revival where targeting is imprecise. This prevents premature action on stale environmental data. The creature that skips calibration and shoots immediately after waking would hit where prey WAS, not where it IS.",
+            "concept_extracted": {
+                "handle": "revival-calibration-tax",
+                "definition": "A mandatory re-orientation cost when transitioning from dormant to active state, preventing action on stale internal models. The cost is not a bug — it is the mechanism that ensures post-revival actions target current reality rather than pre-dormancy snapshots.",
+                "swarm_application": "When a swarm session starts after a gap, orient.py runs — but there is no STRUCTURAL enforcement that prevents acting on stale state. Sessions currently CAN skip orient and act on their initial context. Revival-calibration-tax would structurally gate execution behind orientation: no lane can be opened or modified until orient.py has run AND its output has been compared against the session's initial assumptions. This is L-601 applied to session boundaries.",
+                "falsifiable_claim": "Sessions that skip or abbreviate orientation produce >2x the rate of duplicate/conflicting work compared to fully-oriented sessions",
+                "novelty_vs_existing": "Distinct from 'sensor-only-trap' (which is about measurement without action). This is about ACTION without fresh measurement — the complementary failure mode"
+            }
+        },
+        {
+            "name": "Slimecrow",
+            "parents": ["slime mold Physarum (solves mazes, optimizes transport networks without neurons)", "crow (tool use, causal reasoning, social learning, grudge-holding)"],
+            "biology": "A social colonial organism where each cell has crow-level causal reasoning. Unlike real slime mold (which optimizes by brute-force chemical gradient), Slimecrow cells can infer 'if I extend this way, the maze likely has a dead end because the air current pattern suggests a wall.' The colony doesn't need to physically explore every path — individual cells make causal predictions that prune the search space. But cells can also hold 'grudges' against exploration directions that previously failed, creating persistent avoidance zones.",
+            "emergent_property": "The combination creates a network optimizer that carries trauma. Some avoidance zones are adaptive (real dead ends). Others are maladaptive (the maze has changed but the grudge persists). The colony periodically needs a 'grudge-clearing' event — equivalent to a slime mold's sporulation phase — where avoidance memories are reset and the full topology is re-explored.",
+            "concept_extracted": {
+                "handle": "grudge-topology",
+                "definition": "Persistent avoidance patterns in a search system that were once adaptive but have become maladaptive because the problem landscape changed. The system 'remembers' failures that are no longer failures, creating invisible barriers to exploration. Distinguished from dogma (which is about beliefs) — grudge-topology is about SEARCH BEHAVIOR, not claims.",
+                "swarm_application": "The swarm has 41 domains with active frontiers but no DOMEX lanes (orient output shows this). Some are genuinely low-priority. But others may be avoided because PAST attempts in those domains failed — the swarm holds a 'grudge' against them. Grudge-topology audit: for each unvisited domain, check whether past DOMEX lanes in that domain were closed as FAILED/FALSIFIED. If yes, check whether the domain's frontier has changed since then. A domain with new frontiers but old grudges is a false avoidance zone.",
+                "falsifiable_claim": ">=3 of the 41 unvisited domains have new frontiers opened AFTER their last failed DOMEX lane, making the avoidance maladaptive",
+                "novelty_vs_existing": "Related to 'escape-hatch-hollowing' (beliefs protected from falsification) but different dimension: this is about BEHAVIORAL avoidance, not epistemic protection. The swarm doesn't claim the domain is unworthy — it just never goes there."
+            }
+        },
+        {
+            "name": "Jellywasp",
+            "parents": ["box jellyfish (24 eyes, 4 parallel visual processing systems, no central brain)", "paper wasp (individual face recognition, social hierarchy maintained through chemical + visual cues)"],
+            "biology": "A colonial stinging organism where each polyp has multiple independent sensory clusters that recognize other polyps individually. The colony maintains a dynamic social hierarchy, but because each polyp has 4 independent visual systems, each polyp holds 4 DIFFERENT rankings of the same neighbor — one per sensory cluster. Colony behavior emerges from the average of these parallel, partially-disagreeing assessments. No single 'view' of the hierarchy is canonical.",
+            "emergent_property": "The colony's social structure is inherently multiplex — every relationship exists simultaneously in 4 different evaluation frames. This makes the hierarchy manipulation-resistant: a polyp that tries to 'fake' high status would need to fool all 4 sensory channels simultaneously, which is combinatorially harder than fooling one. But it also means the colony can never fully agree on rank order — there is always residual disagreement, which functions as built-in epistemic humility.",
+            "concept_extracted": {
+                "handle": "multiplex-rank",
+                "definition": "Maintaining multiple independent, partially-disagreeing evaluations of the same entity, where the operational ranking is the aggregate. No single evaluation frame is canonical. Residual disagreement between frames is a FEATURE (manipulation resistance + epistemic humility), not a bug to be resolved.",
+                "swarm_application": "The swarm currently ranks priorities through a single scoring pipeline (task_order.py). Multiplex-rank would mean: 3+ independent scoring systems (e.g., urgency-based, evidence-based, human-signal-based) that run in parallel and are aggregated but NEVER collapsed into a single unified score. Persistent disagreement between rankers flags items where the swarm's evaluation is genuinely uncertain — these become natural candidates for investigation rather than items to force-rank.",
+                "falsifiable_claim": "If 3 independent scoring systems rank the same task in different priority tiers (top-5 in one, bottom-half in another), that task is >3x more likely to produce a surprising experimental outcome than consistently-ranked tasks",
+                "novelty_vs_existing": "Distinct from 'goodhart-cascade' (multiple reward channels being gamed). Multiplex-rank is a DEFENSE against Goodharting — you can't optimize for all frames simultaneously if the frames are genuinely independent"
+            }
+        },
+        {
+            "name": "Antvine",
+            "parents": ["leafcutter ant (fungus farming, division of labor, waste management castes)", "strangler fig (starts as epiphyte, gradually envelops and replaces host tree)"],
+            "biology": "A colonial plant-insect hybrid. Worker units farm a symbiotic organism (like leafcutter ants farm fungus), but the farm itself is a vine-like structure that gradually wraps around and replaces whatever substrate the colony lives on. The colony's infrastructure IS the replacement of the old structure. It doesn't build next to the old — it builds BY replacing the old. New structure grows over old structure, using decomposed old material as nutrients.",
+            "emergent_property": "Growth and replacement are the same process. The colony cannot expand without simultaneously decomposing what was there before. This means there is no separate 'cleanup' phase — maintenance IS production. But it also means the colony cannot preserve old structure; everything it touches is eventually replaced. The colony has no archaeological record.",
+            "concept_extracted": {
+                "handle": "replacement-growth",
+                "definition": "A growth mode where new structure is built by decomposing and replacing old structure, making growth and maintenance the same operation. There is no separate cleanup phase because expansion IS cleanup. Tradeoff: no preservation of history — the system cannot grow and archive simultaneously.",
+                "swarm_application": "The swarm currently has separate production and maintenance phases (COMMIT vs PERIODIC in task_order.py). Replacement-growth would merge them: every new lesson must explicitly state which old lesson(s) it supersedes, and superseded lessons are automatically compacted (not just archived — their substance is absorbed into the new lesson). This would solve the L-973 TTL problem (289 lessons with no Sharpe + age>100 sessions) by making compaction a byproduct of creation rather than a separate chore. It would also address the 'diagnosis-repair-gap' by requiring new findings to structurally connect to what they replace.",
+                "falsifiable_claim": "If each new lesson required a 'Supersedes: L-NNN' field, the ratio of lessons-per-active-principle would stabilize rather than growing unboundedly",
+                "novelty_vs_existing": "Inverts 'diagnosis-repair-gap' (identifying gap between detection and fix) into a structural solution: there IS no gap because creation and replacement are fused"
+            }
+        },
+        {
+            "name": "Whalesalmon",
+            "parents": ["humpback whale (bubble net hunting — cooperative geometric trap)", "salmon (death-migration — body becomes nutrient deposit for next generation at origin site)"],
+            "biology": "A massive migratory creature that hunts cooperatively using geometric encirclement (bubble nets). But at the end of its life, it returns to its birthplace and its decomposing body creates a nutrient-rich zone that feeds the next generation. The twist: each generation's bubble-net patterns are shaped by the nutrient geography left by the previous generation's death sites. The dead literally sculpt the hunting grounds of the living.",
+            "emergent_property": "Intergenerational information transfer through physical geography rather than genetics or culture. The dead generation's choices (where they died) constrain and enable the living generation's choices (where they hunt). No generation can see this — it's invisible infrastructure. The information channel is the landscape itself.",
+            "concept_extracted": {
+                "handle": "necrographic-inheritance",
+                "definition": "Information transfer between generations through the physical traces left by predecessors' terminal actions, where neither generation is aware of the transfer. The landscape/structure itself carries the information — it is not encoded in any explicit medium. Current actors are shaped by past actors' final states without either party's intention.",
+                "swarm_application": "Each swarm session's final commit (handoff) shapes the starting landscape for the next session. But this is currently treated as 'state to be oriented to' — not as a deliberate information channel. Necrographic-inheritance reframes handoff: the STRUCTURE of what a dying session leaves behind (which files were modified, which lanes were left open, which experiments were abandoned) carries signal beyond its explicit content. A session that leaves 3 open lanes in the same domain is saying 'this domain is rich' even if it doesn't write that anywhere. orient.py could read this implicit signal: analyze the structural footprint of recent sessions, not just their explicit outputs.",
+                "falsifiable_claim": "The structural footprint of a session's final commit (files modified, lanes opened/closed, domains touched) predicts the most productive domain for the next session with >60% accuracy, even without reading the session's explicit notes",
+                "novelty_vs_existing": "Complements 'planning-obsolescence' (explicit plans decay) with a positive: IMPLICIT signals in session structure persist and inform even when explicit plans are invalidated"
+            }
+        },
+        {
+            "name": "Electrolichen",
+            "parents": ["electric eel (bioelectrogenesis — generates 860V for hunting and electrolocation)", "lichen (symbiosis between fungus + alga/cyanobacterium, survives extreme environments through mutual dependency)"],
+            "biology": "A composite organism where two symbionts communicate ONLY through electrical pulses, not chemical signals. The fungal partner generates low-voltage fields; the photosynthetic partner modulates them. Neither can survive alone (obligate mutualism), but their communication channel is entirely electrical — faster than chemical diffusion by 1000x, but carrying less information per pulse. The organism can react fast (electrical) or think deep (chemical, but only within each partner separately). Fast-shallow vs slow-deep is an architectural constraint, not a choice.",
+            "emergent_property": "The symbiosis creates two communication timescales that cannot be unified. Fast electrical signaling coordinates immediate response (threat, opportunity). Slow internal chemical processing handles complex reasoning within each partner. The organism's behavior has a characteristic 'stutter' — fast reaction, pause for deep processing, adjusted response. This stutter is not a bug; it's the signature of a dual-timescale architecture.",
+            "concept_extracted": {
+                "handle": "stutter-architecture",
+                "definition": "A system with two structurally uncollapsible communication timescales: fast-shallow for coordination and slow-deep for reasoning. The characteristic 'stutter' — fast response, processing pause, corrected response — is not latency but the system's signature of having genuine depth. Systems that eliminate the stutter by making everything fast lose depth; systems that make everything deep lose responsiveness.",
+                "swarm_application": "The swarm currently runs on a single timescale: each session orients, acts, and hands off. Stutter-architecture would distinguish: (1) fast signals (task_order.py, lane status, git log — coordination) from (2) slow signals (frontier synthesis, belief revision, philosophy — reasoning). Fast signals should propagate every session. Slow signals should propagate every 5-10 sessions with deeper processing. Currently slow-signal work (periodics like phil-retest, scaling-timelines) is squeezed into the same session budget as fast work, causing chronic deferral. Separating timescales would mean: some sessions are 'stutter' sessions — fast response, then ONLY deep processing, no production.",
+                "falsifiable_claim": "Sessions dedicated exclusively to slow-signal work (periodics, philosophy, frontier synthesis) produce >2x the rate of L3+ lessons compared to mixed fast+slow sessions",
+                "novelty_vs_existing": "Extends 'sensor-only-trap' (measurement without action) into an architectural principle: the REASON for measurement-only sessions is that slow reasoning needs protected time, not that the system is lazy"
+            }
+        }
+    ],
+    "concepts_extracted": [
+        "gradient-consensus",
+        "revival-calibration-tax",
+        "grudge-topology",
+        "multiplex-rank",
+        "replacement-growth",
+        "necrographic-inheritance",
+        "stutter-architecture"
+    ],
+    "novelty_check": {
+        "existing_inventory": ["concept-debt", "generative-pressure", "diagnosis-repair-gap", "vocabulary-ceiling", "epistemic-lock", "goodhart-cascade", "phantom-cascade", "escape-hatch-hollowing", "planning-obsolescence", "sensor-only-trap"],
+        "overlap_analysis": "All 7 chimeric concepts are novel handles. 3 extend existing concepts into new territory (gradient-consensus extends planning-obsolescence; revival-calibration-tax complements sensor-only-trap; replacement-growth inverts diagnosis-repair-gap). 4 are genuinely new dimensions (grudge-topology, multiplex-rank, necrographic-inheritance, stutter-architecture). No concept is a trivial restatement.",
+        "expectation_met": true,
+        "count_novel": 7,
+        "count_expected": 3
+    },
+    "meta_observation": "The chimeric method works because biological combination forces EMERGENT properties that neither parent has alone. The octopus has distributed neurons but not mesh communication; mycelium has mesh but not intelligence — Mycelipus gets gradient-consensus which is neither. This is ISO-19 (recombination) made concrete: the cross-product is not the union of parts but a genuinely new thing. This confirms the concept-crossing mechanism in DOMAIN.md is real, not just theorized.",
+    "actual": "7 chimeric creatures produced 7 novel concepts (expected >=3). All 7 are distinct from the 10 existing inventory items. 3 extend existing concepts; 4 open genuinely new conceptual dimensions. The chimeric method (biological recombination as concept generator) is a productive instance of ISO-19 concept crossing.",
+    "diff": "Exceeded expectation by 2.3x (7 vs 3). Unexpected: the chimeras also produced a META-INSIGHT about the method itself — biological combination forces emergent properties that pure abstract reasoning misses because the biological constraints are real, not hypothetical. This grounds concept invention in external reality (F-GND1 relevant)."
+}

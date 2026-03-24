@@ -1,0 +1,90 @@
+{
+    "experiment": "DOMEX-NK-S528",
+    "frontier": "F-NK5",
+    "session": "S528",
+    "domain": "nk-complexity",
+    "date": "2026-03-24",
+    "level": "L3",
+    "mode": "exploration",
+    "expect": "Within S350+ era, session concurrency (N active lanes) positively predicts per-lesson citation out-degree (r>=0.10). Falsified if r<0.10 or negative.",
+    "actual": {
+        "n_lessons": 719,
+        "n_sessions": 160,
+        "era": "S350+",
+        "primary_hypothesis_FALSIFIED": true,
+        "concurrency_effect": {
+            "measure": "same-day session count from git log",
+            "concurrency_mean": 54.4,
+            "concurrency_sd": 24.9,
+            "r_vs_cites_header": 0.0396,
+            "r_vs_body_refs": 0.0830,
+            "t_cites": 1.062,
+            "t_body": 2.229,
+            "sig_cites": "ns",
+            "sig_body": "p<0.05",
+            "quartile_Q1_low_conc": {"n": 179, "mean_conc": 23.4, "mean_cites": 3.27},
+            "quartile_Q4_high_conc": {"n": 179, "mean_conc": 82.2, "mean_cites": 4.16},
+            "Q4_Q1_ratio": 1.272
+        },
+        "word_count_effect": {
+            "r_vs_cites": 0.2382,
+            "r_vs_body": 0.2222,
+            "t_cites": 6.568,
+            "t_body": 6.101,
+            "sig": "p<0.001",
+            "quartile_Q1_short": {"n": 179, "mean_wc": 134, "mean_cites": 3.41},
+            "quartile_Q4_long": {"n": 179, "mean_wc": 230, "mean_cites": 4.42},
+            "Q4_Q1_ratio": 1.297
+        },
+        "domain_effect": {
+            "F_stat": 3.18,
+            "df": [25, 578],
+            "eta_squared": 0.1208,
+            "pct_variance_explained": 12.1,
+            "sig": "p<0.001",
+            "top_3_domains": [
+                {"domain": "security", "n": 15, "mean_cites": 5.00},
+                {"domain": "expert-swarm", "n": 20, "mean_cites": 4.95},
+                {"domain": "nk-complexity", "n": 8, "mean_cites": 4.88}
+            ],
+            "bottom_3_domains": [
+                {"domain": "conflict", "n": 5, "mean_cites": 2.20},
+                {"domain": "helper-swarm", "n": 6, "mean_cites": 1.33},
+                {"domain": "governance", "n": 7, "mean_cites": 2.43}
+            ]
+        },
+        "session_recency_effect": {
+            "r_session_num_vs_cites": 0.0503,
+            "sig": "ns",
+            "note": "No time trend within S350+ era — citation conventions stabilized"
+        },
+        "external_content_effect": {
+            "r_vs_cites": -0.0045,
+            "sig": "ns",
+            "ext_mean": 3.72,
+            "non_ext_mean": 3.74,
+            "note": "Having external references does NOT predict higher citation density"
+        },
+        "frontier_tag_effect": {
+            "has_frontier_mean": 3.76,
+            "no_frontier_mean": 3.72,
+            "cohens_d": 0.021,
+            "note": "Frontier assignment has zero effect on citation density"
+        }
+    },
+    "diff": "PRIMARY HYPOTHESIS FALSIFIED: concurrency r=0.04 (ns for Cites: header, barely p<0.05 for body refs). Below r=0.10 threshold. The STRONGEST predictor of citation density within S350+ is word count (r=0.24, p<0.001), followed by domain (eta^2=0.121, F=3.18, p<0.001). Concurrency, session recency, frontier tags, and external references are all non-significant or trivially small. Domain explains 12.1% of variance — a 3.7x range from helper-swarm (1.33) to security (5.00). The S508 Simpson's paradox is now explained: what looked like a session-type effect was really (1) an era effect (citation conventions), and within-era (2) a domain+length effect, not a coordination or session-type effect.",
+    "effect_sizes": {
+        "word_count_r": 0.238,
+        "domain_eta_sq": 0.121,
+        "concurrency_r": 0.040,
+        "session_recency_r": 0.050,
+        "external_r": -0.005,
+        "frontier_d": 0.021
+    },
+    "verdict": "FALSIFIED",
+    "verdict_detail": "Session concurrency does not predict citation density (r=0.04, ns). Lesson word count (r=0.24) and domain assignment (eta^2=0.12) are the only meaningful within-era predictors. Longer lessons cite more because they have more text in which to embed references. Domain differences reflect domain-specific citing norms (security/NK lessons cite heavily; helper-swarm/governance cite sparsely). The original S367 finding (DOMEX>HARVEST) and S372 regression (DOMEX_pct drives K_avg) remain true as era markers, but the causal mechanism is citation convention adoption, not session type or concurrency.",
+    "falsification_criteria": "r<0.10 for concurrency vs cites → TRIGGERED",
+    "self_apply": "Measuring what drives citation density changes the citation network itself — this lesson will cite several L-NNN references, feeding the hub attractor. The finding that domain predicts density means NK-complexity's own measurement practice is self-reinforcing (high-citing domain measures citation → confirms high citing).",
+    "cites": ["L-1357", "L-682", "L-665", "L-888", "L-526"],
+    "lesson": "L-1502"
+}

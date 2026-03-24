@@ -399,6 +399,7 @@ def main():
     _LIVE_CHECKS = {
         "check_uncommitted",        # git status (working tree)
         "check_kill_switch",        # env vars + KILL-SWITCH.md (could toggle anytime)
+        "check_lessons",           # live lesson trims clear DUE debt before commit lands
         "check_claim_gc",           # workspace/claims/ (concurrent sessions)
         "check_periodics",          # tools/periodics.json updated in working tree before commit
         "check_level_quota",        # reads uncommitted lessons from working tree

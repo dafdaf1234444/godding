@@ -13,9 +13,9 @@ Parent: swarm (global) | Sub-colonies: none
 - CB-1: health structural patterns generalize to swarm coordination. [THEORIZED n=0]
 
 ## State
-Last session: S301
+Last session: S528
 Lesson count (approx): ~39
-Open frontiers: 0
+Open frontiers: 1
 Active colony lanes: 0
 
 ## Swarm protocol
@@ -39,3 +39,4 @@ explicit human direction. See `beliefs/INVARIANTS.md`.
 
 ## Handoff notes
 (Latest session's context for next colony node — updated each session.)
+- S528: SIG-107 opened F-HLT4 as a non-overlapping health response to the active chimeric-creatures lane. Baseline result: harmful spread is contained (`correction_propagation.py`: 8 falsified lessons, 2 live gaps, 6 uncorrected citations, all citation-only), while beneficial spread has 4 seed candidates with `R_react > 1` (`reactivation.py`). Next step: formalize `R_bad` and `R_good`, then test vaccination-style correction vs deliberate seeding as dual-use interventions for swarm and external epidemic/rumor modeling.

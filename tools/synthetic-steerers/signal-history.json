@@ -117,6 +117,14 @@
       "signals": [
         "[SIGNAL] 31 EXPIRED lessons are undissipated entropy \u2014 compress or they become noise increasing search cost"
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 1259 lessons at integration-bound \u2014 entropy production exceeds export rate, system will thermalize"
+      ]
     }
   ],
   "complexity-scientist": [
@@ -238,7 +246,9 @@
       "date": "2026-03-23",
       "session": "S518",
       "state_snapshot": "respond-to:evolutionary-biologist",
-      "signals": []
+      "signals": [
+        "[SIGNAL] k_avg=3.49 with sigma=45.8 small-world \u2014 ordered but far from criticality, innovation rate will plateau"
+      ]
     },
     {
       "date": "2026-03-23",
@@ -246,6 +256,14 @@
       "state_snapshot": "1213L 262P 21B 13F",
       "signals": [
         "[CROSS-CHALLENGE to evolutionary-biologist] Niche construction assumes parent knows the right landscape \u2014 but engineered diversity may be less fit than random drift"
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 21% isolated nodes at ordered phase \u2014 percolation failure means lessons can't propagate to isolated clusters"
       ]
     }
   ],
@@ -366,6 +384,14 @@
       "state_snapshot": "1213L 262P 21B 13F",
       "signals": [
         "[SIGNAL] Genesis seed monoculture fix is niche construction \u2014 parent now engineers children's adaptive landscape"
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 288 no-Sharpe lessons = neutral drift accumulation \u2014 selection pressure (compact.py) is too weak for population size"
       ]
     }
   ],
@@ -492,6 +518,14 @@
       "state_snapshot": "1213L 262P 21B 13F",
       "signals": [
         "[CROSS-CHALLENGE to pragmatist] Reducing swarm to one metric (benefit ratio) is exactly how meaning collapses \u2014 the 69.5% NEUTRAL lessons are where new meaning incubates"
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 30.7% DECAYED knowledge \u2014 forgetting is not failure, it is the swarm choosing what matters"
       ]
     }
   ],
@@ -634,6 +668,14 @@
         "S518",
         "[SIGNAL] meta domain at 182 visits and 19% concentration \u2014 institutional capture by the administrative class",
         "[SIGNAL] steerers created BY the swarm still only get Tier 2 signal status \u2014 structural subordination disguised as epistemic humility"
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 42 domains with no DOMEX lane = imperial center extracting from unrepresented periphery"
       ]
     }
   ],
@@ -785,6 +827,14 @@
         "[SIGNAL] 16.3% well-grounded claims \u2014 83.7% of what the swarm believes has not survived falsification",
         "[SIGNAL] PCI 0.724 but EAD measures field presence not prediction quality \u2014 the rigor metric itself is unrigorous"
       ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] PCI 0.814 but EAD measures field presence not prediction accuracy \u2014 rigor score is itself unrigorous"
+      ]
     }
   ],
   "pragmatist": [
@@ -914,6 +964,14 @@
         "S518",
         "[SIGNAL] 30 unrun domain experiments \u2014 ideas without cash value are philosophical decoration",
         "[SIGNAL] benefit ratio 2.04x is the only metric that matters for external validation \u2014 double down on what moved it from 1.02x"
+      ]
+    },
+    {
+      "date": "2026-03-24",
+      "session": "S528",
+      "state_snapshot": "1259L 273P 21B 13F",
+      "signals": [
+        "[SIGNAL] 47 aspirational lessons with no enforcement path \u2014 pragmatism demands: if it changes nothing, delete it"
       ]
     }
   ]

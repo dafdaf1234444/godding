@@ -4,11 +4,11 @@
   "items": [
     {
       "priority": "DUE",
-      "message": "Lesson over 20 lines: L-1501.md"
+      "message": "Lesson over 20 lines: L-1506.md"
     },
     {
       "priority": "DUE",
-      "message": "Count drift in INDEX.md (L: stated 1259 vs actual 1261) \u2014 run python3 tools/sync_state.py"
+      "message": "Lesson over 20 lines: L-1507.md"
     }
   ]
 }

@@ -49,7 +49,7 @@ LANE_ABBREV_TO_DOMAIN: dict[str, str] = {
     "SCHED": "meta", "PRIORITY": "meta", "UNIVERSALITY": "meta",
     "PERSONALITY": "psychology",
     "PLB": "plant-biology", "PLANTLATTICE": "plant-biology",
-    "LATTICE": "mathematics",
+    "LATTICE": "mathematics", "HLT": "health", "HEALTH": "health",
 }
 
 COUNCIL_TOPIC_TO_DOMAIN: dict[str, str] = {

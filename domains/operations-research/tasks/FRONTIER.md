@@ -1,6 +1,6 @@
 # Operations Research Domain — Frontier Questions
 Domain agent: write here for operations-research-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S506 | Active: 1 | Resolved: 1
+Updated: 2026-03-24 S528 | Active: 1 | Resolved: 1
 
 ## Active
 
@@ -36,6 +36,7 @@ Updated: 2026-03-23 S506 | Active: 1 | Resolved: 1
 - **S186 expert-generator swarming**: `tools/f_ops2_domain_priority.py` now emits an `expert_generator` section plus `domain_expert_coverage` in every policy artifact, so expert creation is automatic when scheduled slots outpace dispatchable domain-expert capacity. In `experiments/operations-research/f-ops2-domain-expert-generator-s186.json` (guarded config), the generator flagged three domains (`operations-research`, `information-science`, `evolution`) with `total_new_experts=4` and provided spawn-ready lane IDs + `etc_template` rows. **Next**: append generated lanes and execute them instead of leaving expert gaps as passive scheduler output.
 - **S186 expert-generator execution pass**: reran guarded scheduler to `experiments/operations-research/f-ops2-domain-expert-generator-s186-swarm.json`; generator now flags `total_new_experts=5` across `operations-research` (3), `game-theory` (1), and `evolution` (1). Generated lanes were appended into `tasks/SWARM-LANES.md` as READY (`L-S186-DOMEX-GEN-OPERATIONSRE-1..3`, `L-S186-DOMEX-GEN-GAMETHEORY-1`, `L-S186-DOMEX-GEN-EVOLUTION-1`) with full lane-contract fields. **Next**: run these generated domain-expert lanes and close/reassign them based on execution outcomes.
 - **S186 floor-0.3333 slot-2 execution**: coordinator queued information-science work is now executed with disagreement reduction (`experiments/information-science/f-is5-lane-distill-tags-s186-slot2-disagreement-reduced.json`): transfer stayed non-zero (`0.1053`) while collision dropped to `0.3333` (below `<0.5` gate). Queue now advances to slot-3 operations/ai dispatch (`tasks/SWARM-LANES.md`, `L-S186-MSW2-COORD`).
+- **S528 retrospective accuracy test (FALSIFIED)**: scheduler recommendations have ZERO recall against realized DOMEX execution. f_ops2_domain_priority.py top-3 (operations-research, information-science, statistics) overlap 0/9 realized domains. dispatch_optimizer.py fares better at 33.3% recall. Only 1/22 merged lanes cite dispatch= provenance; effective automability is 4.5%, not the claimed 50%. Meta domain dominates realized execution at 39.1% but receives 0.6% of scheduler slots. Root cause: scheduler optimizes for frontier signals, sessions optimize for actionability. Artifact: `experiments/operations-research/f-ops2-scheduler-accuracy-s528.json`. L-1505. **Automability sub-question FALSIFIED**: f_ops2 is descriptive-only, not prescriptive. Demoted to advisory-grade.
 ## Resolved
 | ID | Answer | Session | Date |
 |----|--------|---------|------|

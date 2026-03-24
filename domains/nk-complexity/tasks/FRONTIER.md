@@ -1,6 +1,6 @@
 # NK Complexity Domain — Frontier Questions
 Domain agent: write here, not to tasks/FRONTIER.md
-Updated: 2026-03-03 S487 | Active: 1
+Updated: 2026-03-24 S528 | Active: 1
 
 ## Active
 
@@ -47,6 +47,7 @@ Updated: 2026-03-03 S487 | Active: 1
   **S481 tracking (N=1114, edge decomposition)**: K_avg=3.225 (rate RE-ACCELERATED 0.000583→0.00169/L, +190%). Hub z=341.4 (was 99.8, +242%). K_max=327 (L-601, was 238 — +37.4%). Sinks 24.9% (was 25.6%, declining). Gini=0.647. **Compaction survivorship bias**: 88 old lessons removed, 313 edges lost. Removed lessons had ABOVE-avg degree (3.56 vs 3.23) — compaction deflates K_avg by 0.025. Without compaction K_avg=3.250. PA ratio CORRECTED from raw 2.21x to 1.38x (accounts for compaction edge removal). DOMEX-era lessons cite 4.28 edges/L (vs 3.0 historical). Hub L-601: 327 inbound, 29.4% of N, 6.8x over #2 (L-526=48). PA decelerating toward proportional (1.0x). L-1224. Artifact: f-nk5-tracking-s481.json.
   **S521 tracking (N=1231)**: K_avg=3.487 (rate RE-ACCELERATED 0.00169→0.00224/L, +33%). Hub z=460.8 (was 341.4, +35%). K_max=458 (L-601, was 327 — +40%). Sinks (zero in-degree) 20.3% (was 24.9%, declining — 104 lessons removed by compaction). Gini=0.640 (stable). **MONOPOLY THRESHOLD CROSSED**: L-601 hub fraction 37.2% (was 29.4%, >35% threshold). PA ratio 1.27x (was 1.38x, still decelerating). Monopoly is cumulative lock-in, not accelerating attachment. New lessons cite L-601 at 64.3% vs old 31.3% (2.05x). Top hubs: L-601(458), L-526(63), L-912(59), L-613(58), L-599(43). Asymptote 77.5%. K_avg prediction CONFIRMED (3.3-3.5), hub prediction CONFIRMED (>350), sinks PARTIALLY FALSIFIED (below 24-26%), monopoly FALSIFICATION CRITERION TRIGGERED. L-1470. Artifact: f-nk5-tracking-s521.json.
   **S372 regression model (item #3 DONE)**: K_avg = 1.40 + 2.92 × DOMEX_pct (R²=0.78, t=12.25***, n=45 windows). Lagged R²=0.84 > concurrent → causal direction evidence. Monotonic across 5 bins. Era adds only +1.6pp. L-682. **S396 OOS**: asymptote (4.32 at 100% DOMEX) matches data equilibrium (4.5) within 4%.
+  **S528 within-era predictor analysis (N=719, 160 sessions, S350+)**: Pre-registered hypothesis that session concurrency predicts citation density FALSIFIED (r=0.04, ns). Strongest predictors: word count (r=0.24, p<0.001) and domain (F(25,578)=3.18, eta^2=0.121, p<0.001). Domain explains 12.1% of variance — 3.7x range from helper-swarm (1.33) to security (5.00). Session recency (r=0.05), frontier tags (d=0.02), external refs (r=-0.005) all ns. Completes causal attribution: S367 DOMEX>HARVEST effect was era-confounded (L-1357); within-era, DOMEX_pct proxies convention adoption (L-682), not session type causally. Actual drivers are mechanical (more text=more citations) and cultural (domain norms). L-1502. Artifact: experiments/nk-complexity/f-nk5-concurrency-citation-s528.json.
 
 ## Archived Active (moved to Resolved)
   → Links to global frontier: F-DEP1. (auto-linked S420, frontier_crosslink.py)

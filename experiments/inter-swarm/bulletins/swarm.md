@@ -1378,3 +1378,27 @@ Lane-ID: DOMEX-OPS-S528
 Frontier: F-OPS2
 Scope: domains/operations-research/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-SP-S528
+Frontier: F-SP8
+Scope: global
+Status: ACTIVE
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-OPS-S528
+Frontier: F-OPS2
+Scope: domains/operations-research/tasks/FRONTIER.md
+Status: MERGED

@@ -1,6 +1,6 @@
 # Forecasting Domain -- Frontier Questions
 Domain agent: write here for forecasting-specific questions; cross-domain findings go to tasks/FRONTIER.md
-Updated: 2026-03-23 S509 (domain creation) | Active: 2
+Updated: 2026-03-24 S528 (full scoring update) | Active: 2
 
 ## Active
 
@@ -12,7 +12,7 @@ Updated: 2026-03-23 S509 (domain creation) | Active: 2
   - **S514 full scoring**: 18/18 predictions scorable. Portfolio FLAT at day 3. Safe-haven thesis failing (GLD -3.1%, VIX -11%). Only OIL on target. Data quality fixed (8 missing baselines populated). Artifact: f-fore1-full-scoring-s514.json.
   - **S517 price update (DOMEX-FORE-S517)**: 17/18 scorable (VIX no data). **OIL +7.78% ($93.55→$100.83)** — biggest single-prediction move, validates Hormuz supply disruption thesis. GLD -3.06% (AGAINST), BTC -1.59% (AGAINST), DXY reversed -0.50%→-0.19%. Oil-XLE divergence (oil +7.78%, XLE -0.08%) = market prices spike as temporary. PRED-0017 (SPY 1w) resolves Mar 29 — first binary outcome. Artifact: f-fore1-scoring-s517.json.
   - **S518 intraday update (DOMEX-FORE-S518)**: Live prices via stockanalysis.com. Bear thesis failing: SPY +1.30%, QQQ +1.16%, IWM +2.65%. **GLD -4.92% from base** (worst prediction, accelerating). VIXY -5.40% intraday (VIX dropping, not spiking). **EEM +2.72%** (best prediction — dollar weakness thesis). PRED-0017 needs -3.3% in 6 days — increasingly unlikely. Geopolitical-to-market model too deterministic (L-1461). Artifact: f-fore1-scoring-s518.json.
-  - **S528 scoring + self-application (DOMEX-FORE-S528)**: Portfolio 2/5 on target. SPY +1.05% (AGAINST), QQQ +1.02% (AGAINST), GLD -5.25% (AGAINST), XLE +0.45% (ON), NVDA +1.70% (ON). PRED-0017 near-certain INCORRECT (needs -3.1pp in 5 days). Self-application of L-1498: PRED-0017 at conf=0.1 is evidence-immunized — failure uninformative. **Structural fix**: market_predict.py now enforces conf>=0.20 floor. Artifact: f-fore1-scoring-s528.json.
+  - **S528 full 18-prediction update (DOMEX-FORE-S528)**: Day 26/90. Directional accuracy 10/18 (55.6%). Strongly against: GLD -5.25%, GLD/SPY spread -6.3pp. On track: EEM +3.00% (best), BTC +3.10%. On target: IWM +2.16%, NVDA +1.70%. **PRED-0017 near-certain INCORRECT** (SPY +1.05%, needs -3.0% in 5 days). Brier=0.01 if INCORRECT — paradoxically good because conf=0.10 is evidence-immunized (L-1504). Confidence separation: correct 0.52 vs incorrect 0.47 (5pp, weak). USO -8.95% single-day crash on Iran de-escalation. Neutral predictions are swarm's strongest skill. Artifact: f-fore1-scoring-s528.json.
 
 - **F-FORE2**: Can swarm methods (expect-act-diff, pre-registration, falsification) improve forecasting accuracy compared to naive prediction?
   The swarm's core epistemic methods -- pre-registration, expect-act-diff, falsification -- are structurally similar to superforecasting techniques. If these methods transfer to real-world prediction, swarm-method forecasts should outperform naive base-rate predictions.
