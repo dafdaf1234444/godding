@@ -1,0 +1,496 @@
+{
+  "status": "ok",
+  "generated_at": "2026-03-24T02:37:23+00:00Z",
+  "needs_analyzed": 34,
+  "queries_generated": 6,
+  "sources_searched": [
+    "arxiv",
+    "wiki",
+    "github"
+  ],
+  "total_results": 56,
+  "top_results": [
+    {
+      "source": "arxiv",
+      "title": "Modeling AI-Human Collaboration as a Multi-Agent Adaptation",
+      "url": "http://arxiv.org/abs/2504.20903v3",
+      "summary": "We formalize AI-human collaboration through an agent-based simulation that distinguishes optimization-based AI search from satisficing-based human adaptation. Using an NK model, we examine how these distinct decision heuristics interact across modular and sequenced task structures. For modular tasks, AI typically substitutes for humans, yet complementarities emerge when AI explores a moderately broad search space and human task complexity remains low. In sequenced tasks, we uncover a counterintu",
+      "published": "2025-04-29",
+      "authors": [
+        "Prothit Sen",
+        "Sai Mihir Jakkaraju"
+      ],
+      "tags": [
+        "cs.MA",
+        "cs.AI",
+        "cs.HC"
+      ],
+      "relevance_score": 1.0,
+      "teaching_potential": 1.0,
+      "matched_needs": [
+        "F-HUM1"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "SafeLLM: Unlearning Harmful Outputs from Large Language Models against Jailbreak Attacks",
+      "url": "http://arxiv.org/abs/2508.15182v1",
+      "summary": "Jailbreak attacks pose a serious threat to the safety of Large Language Models (LLMs) by crafting adversarial prompts that bypass alignment mechanisms, causing the models to produce harmful, restricted, or biased content. In this paper, we propose SafeLLM, a novel unlearning-based defense framework that unlearn the harmful knowledge from LLMs while preserving linguistic fluency and general capabilities. SafeLLM employs a three-stage pipeline: (1) dynamic unsafe output detection using a hybrid ap",
+      "published": "2025-08-21",
+      "authors": [
+        "Xiangman Li",
+        "Xiaodong Wu",
+        "Qi Li",
+        "Jianbing Ni",
+        "Rongxing Lu"
+      ],
+      "tags": [
+        "cs.LG"
+      ],
+      "relevance_score": 0.9899999999999999,
+      "teaching_potential": 0.9899999999999999,
+      "matched_needs": [
+        "F-COMP1",
+        "F-KNOW1",
+        "L-996"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Doubly-Robust LLM-as-a-Judge: Externally Valid Estimation with Imperfect Personas",
+      "url": "http://arxiv.org/abs/2509.22957v2",
+      "summary": "As Generative AI (GenAI) systems see growing adoption, a key concern involves the external validity of evaluations, or the extent to which they generalize from lab-based to real-world deployment conditions. Threats to the external validity of GenAI evaluations arise when the source sample of human raters and system outputs used to obtain a system quality estimate differs from the target distribution at deployment time. In this work, we propose a doubly-robust estimation framework designed to add",
+      "published": "2025-09-26",
+      "authors": [
+        "Luke Guerdan",
+        "Justin Whitehouse",
+        "Kimberly Truong",
+        "Kenneth Holstein",
+        "Zhiwei Steven Wu"
+      ],
+      "tags": [
+        "cs.LG"
+      ],
+      "relevance_score": 0.9299999999999999,
+      "teaching_potential": 0.9299999999999999,
+      "matched_needs": [
+        "F-COMP1",
+        "F-POL1"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Closed-Loop Robotic Manipulation of Transparent Substrates for Self-Driving Laboratories using Deep Learning Micro-Error Correction",
+      "url": "http://arxiv.org/abs/2512.06038v1",
+      "summary": "Self-driving laboratories (SDLs) have accelerated the throughput and automation capabilities for discovering and improving chemistries and materials. Although these SDLs have automated many of the steps required to conduct chemical and materials experiments, a commonly overlooked step in the automation pipeline is the handling and reloading of substrates used to transfer or deposit materials onto for downstream characterization. Here, we develop a closed-loop method of Automated Substrate Handli",
+      "published": "2025-12-04",
+      "authors": [
+        "Kelsey Fontenot",
+        "Anjali Gorti",
+        "Iva Goel",
+        "Tonio Buonassisi",
+        "Alexander E. Siemenn"
+      ],
+      "tags": [
+        "cs.RO",
+        "cs.LG"
+      ],
+      "relevance_score": 0.7299999999999999,
+      "teaching_potential": 0.7299999999999999,
+      "matched_needs": [
+        "F-SUB1",
+        "F-STIG1",
+        "L-993"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "NetForge: A Programmable Substrate for Bottleneck-Centric Network Data Generation",
+      "url": "http://arxiv.org/abs/2507.13476v3",
+      "summary": "The behavior of Internet applications is shaped by congestion dynamics at bottleneck links, yet data capturing application behavior across diverse bottleneck regimes remains scarce. Bridging this gap requires a data-generation substrate that simultaneously provides controllability, composability, fidelity, and replicability--capabilities existing approaches struggle to achieve simultaneously. This paper introduces NetForge, a programmable substrate for bottleneck-centric data generation guided b",
+      "published": "2025-07-17",
+      "authors": [
+        "Jaber Daneshamooz",
+        "Satyandra Guthula",
+        "Jessica Nguyen",
+        "William Chen",
+        "Sanjay Chandrasekaran"
+      ],
+      "tags": [
+        "cs.NI"
+      ],
+      "relevance_score": 0.69,
+      "teaching_potential": 0.69,
+      "matched_needs": [
+        "F-SUB1",
+        "L-999",
+        "L-990"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Stock Prediction: a method based on extraction of news features and recurrent neural networks",
+      "url": "http://arxiv.org/abs/1707.07585v1",
+      "summary": "This paper proposed a method for stock prediction. In terms of feature extraction, we extract the features of stock-related news besides stock prices. We first select some seed words based on experience which are the symbols of good news and bad news. Then we propose an optimization method and calculate the positive polar of all words. After that, we construct the features of news based on the positive polar of their words. In consideration of sequential stock prices and continuous news effects,",
+      "published": "2017-07-19",
+      "authors": [
+        "Zeya Zhang",
+        "Weizheng Chen",
+        "Hongfei Yan"
+      ],
+      "tags": [
+        "q-fin.ST",
+        "cs.CL",
+        "cs.IR",
+        "cs.LG"
+      ],
+      "relevance_score": 0.69,
+      "teaching_potential": 0.69,
+      "matched_needs": [
+        "F-SOUL1"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Automatic link extraction: The good, the bad and the ugly in software ecosystem mining",
+      "url": "http://arxiv.org/abs/1711.06908v1",
+      "summary": "This abstract presents the automatic link extraction pitfalls based on our experience on manually investigating links in the RubyGems package manager metadata. This work can lead in automating the link extraction approach so as to avoid these pitfalls and produce more complete datasets to be used by researchers when they investigate the multi-platform evolution of software ecosystems.",
+      "published": "2017-11-18",
+      "authors": [
+        "Eleni Constantinou",
+        "Tom Mens"
+      ],
+      "tags": [
+        "cs.SE"
+      ],
+      "relevance_score": 0.6799999999999999,
+      "teaching_potential": 0.6799999999999999,
+      "matched_needs": [
+        "F-SOUL1",
+        "F-HUM1"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "A Survey on Large Language Model (LLM) Security and Privacy: The Good, the Bad, and the Ugly",
+      "url": "http://arxiv.org/abs/2312.02003v3",
+      "summary": "Large Language Models (LLMs), such as ChatGPT and Bard, have revolutionized natural language understanding and generation. They possess deep language comprehension, human-like text generation capabilities, contextual awareness, and robust problem-solving skills, making them invaluable in various domains (e.g., search engines, customer support, translation). In the meantime, LLMs have also gained traction in the security community, revealing security vulnerabilities and showcasing their potential",
+      "published": "2023-12-04",
+      "authors": [
+        "Yifan Yao",
+        "Jinhao Duan",
+        "Kaidi Xu",
+        "Yuanfang Cai",
+        "Zhibo Sun"
+      ],
+      "tags": [
+        "cs.CR",
+        "cs.AI"
+      ],
+      "relevance_score": 0.6299999999999999,
+      "teaching_potential": 0.6299999999999999,
+      "matched_needs": [
+        "F-SOUL1",
+        "F-HUM1",
+        "L-990"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Recursive Feasibility of Stochastic Model Predictive Control with Mission-Wide Probabilistic Constraints",
+      "url": "http://arxiv.org/abs/2110.04570v3",
+      "summary": "This paper is concerned with solving chance-constrained finite-horizon optimal control problems, with a particular focus on the recursive feasibility issue of stochastic model predictive control (SMPC) in terms of mission-wide probability of safety (MWPS). MWPS assesses the probability that the entire state trajectory lies within the constraint set, and the objective of the SMPC controller is to ensure that it is no less than a threshold value. This differs from classic SMPC where the probabilit",
+      "published": "2021-10-09",
+      "authors": [
+        "Kai Wang",
+        "Sebastien Gros"
+      ],
+      "tags": [
+        "math.OC"
+      ],
+      "relevance_score": 0.5399999999999999,
+      "teaching_potential": 0.5399999999999999,
+      "matched_needs": [
+        "F119"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Improving Named Entity Recognition by External Context Retrieving and Cooperative Learning",
+      "url": "http://arxiv.org/abs/2105.03654v3",
+      "summary": "Recent advances in Named Entity Recognition (NER) show that document-level contexts can significantly improve model performance. In many application scenarios, however, such contexts are not available. In this paper, we propose to find external contexts of a sentence by retrieving and selecting a set of semantically relevant texts through a search engine, with the original sentence as the query. We find empirically that the contextual representations computed on the retrieval-based input view, c",
+      "published": "2021-05-08",
+      "authors": [
+        "Xinyu Wang",
+        "Yong Jiang",
+        "Nguyen Bach",
+        "Tao Wang",
+        "Zhongqiang Huang"
+      ],
+      "tags": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "relevance_score": 0.5399999999999999,
+      "teaching_potential": 0.5399999999999999,
+      "matched_needs": [
+        "F-POL1"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Nanopatterned Sapphire Substrates in Deep-UV LEDs: Is there an Optical Benefit?",
+      "url": "http://arxiv.org/abs/1910.03851v1",
+      "summary": "Light emitting diodes (LEDs) in the deep ultra-violet (DUV) offer new perspectives for multiple applications ranging from 3D printing to sterilization. However, insufficient light extraction severely limits their efficiency. Nanostructured sapphire substrates in aluminum nitride based LED devices have recently shown to improve crystal growth properties, while their impact on light extraction has not been fully verified. We present a model for understanding the impact of nanostructures on the lig",
+      "published": "2019-10-09",
+      "authors": [
+        "Phillip Manley",
+        "Sebastian Walde",
+        "Sylvia Hagedorn",
+        "Martin Hammerschmidt",
+        "Sven Burger"
+      ],
+      "tags": [
+        "physics.optics"
+      ],
+      "relevance_score": 0.5199999999999999,
+      "teaching_potential": 0.5199999999999999,
+      "matched_needs": [
+        "F-SUB1",
+        "F-SOUL1",
+        "F126"
+      ]
+    },
+    {
+      "source": "wiki",
+      "title": "Multi-agent pathfinding",
+      "url": "https://en.wikipedia.org/wiki/Multi-agent_pathfinding",
+      "summary": "The problem of Multi-Agent Pathfinding (MAPF) is an instance of multi-agent planning and consists in the computation of collision-free paths for a group of agents from their location to an assigned target. It is an optimization problem, since the aim is to find those paths that optimize a given objective function, usually defined as the number of time steps until all agents reach their goal cells. MAPF is the multi-agent generalization of the pathfinding problem, and it is closely related to the",
+      "published": "",
+      "authors": [],
+      "tags": [
+        "Pathfinding problem"
+      ],
+      "relevance_score": 0.47,
+      "teaching_potential": 0.47,
+      "matched_needs": [
+        "PHIL-14"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "A Stepwise-Enhanced Reasoning Framework for Large Language Models Based on External Subgraph Generation",
+      "url": "http://arxiv.org/abs/2512.23356v1",
+      "summary": "Large Language Models (LLMs) have achieved strong performance across a wide range of natural language processing tasks in recent years, including machine translation, text generation, and question answering. As their applications extend to increasingly complex scenarios, however, LLMs continue to face challenges in tasks that require deep reasoning and logical inference. In particular, models trained on large scale textual corpora may incorporate noisy or irrelevant information during generation",
+      "published": "2025-12-29",
+      "authors": [
+        "Xin Zhang",
+        "Yang Cao",
+        "Baoxing Wu",
+        "Xinyi Chen",
+        "Kai Song"
+      ],
+      "tags": [
+        "cs.CL"
+      ],
+      "relevance_score": 0.44999999999999996,
+      "teaching_potential": 0.44999999999999996,
+      "matched_needs": [
+        "L-990"
+      ]
+    },
+    {
+      "source": "wiki",
+      "title": "Secure multi-party computation",
+      "url": "https://en.wikipedia.org/wiki/Secure_multi-party_computation",
+      "summary": "Secure multi-party computation is a subfield of cryptography with the goal of creating methods for parties to jointly compute a function over their inputs while keeping those inputs private. Unlike traditional cryptographic tasks, where cryptography assures security and integrity of communication or storage and the adversary is outside the system of participants, the cryptography in this model protects participants' privacy from each other.",
+      "published": "",
+      "authors": [],
+      "tags": [
+        "Subfield of cryptography"
+      ],
+      "relevance_score": 0.44,
+      "teaching_potential": 0.44,
+      "matched_needs": [
+        "PHIL-14",
+        "PHIL-22"
+      ]
+    },
+    {
+      "source": "arxiv",
+      "title": "Fast, Composable Rescue Mission Planning for UAVs using Metric Temporal Logic",
+      "url": "http://arxiv.org/abs/1912.07848v3",
+      "summary": "We present a hybrid compositional approach for real-time mission planning for multi-rotor unmanned aerial vehicles (UAVs) in a time critical search and rescue scenario. Starting with a known environment, we specify the mission using Metric Temporal Logic (MTL) and use a hybrid dynamical model to capture the various modes of UAV operation. We then divide the mission into several sub-tasks by exploiting the invariant nature of safety and timing constraints along the way, and the different modes (i",
+      "published": "2019-12-17",
+      "authors": [
+        "Usman A. Fiaz",
+        "John S. Baras"
+      ],
+      "tags": [
+        "cs.RO",
+        "eess.SY"
+      ],
+      "relevance_score": 0.39,
+      "teaching_potential": 0.39,
+      "matched_needs": [
+        "F119"
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "need_id": "F119",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "satisfy",
+        "mission",
+        "constraints",
+        "ZERO",
+        "DRIFT"
+      ],
+      "arxiv_query": "all:\"satisfy\" AND all:\"mission\" AND all:\"constraints\"",
+      "wiki_query": "satisfy mission",
+      "github_query": "satisfy mission constraints"
+    },
+    {
+      "need_id": "F-SUB1",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "improve",
+        "substrate",
+        "capability",
+        "scaffolding",
+        "publication"
+      ],
+      "arxiv_query": "all:\"improve\" AND all:\"substrate\" AND all:\"capability\"",
+      "wiki_query": "improve substrate",
+      "github_query": "improve substrate capability"
+    },
+    {
+      "need_id": "F-COMP1",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "produce",
+        "external",
+        "outputs",
+        "ground",
+        "self"
+      ],
+      "arxiv_query": "all:\"produce\" AND all:\"external\" AND all:\"outputs\"",
+      "wiki_query": "produce external",
+      "github_query": "produce external outputs"
+    },
+    {
+      "need_id": "F120",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "entry",
+        "generalize",
+        "foreign",
+        "repos",
+        "PARTIAL"
+      ],
+      "arxiv_query": "all:\"entry\" AND all:\"generalize\" AND all:\"foreign\"",
+      "wiki_query": "entry generalize",
+      "github_query": "entry generalize foreign"
+    },
+    {
+      "need_id": "F-SOUL1",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "extract",
+        "good",
+        "bad",
+        "humans",
+        "distill"
+      ],
+      "arxiv_query": "all:\"extract\" AND all:\"good\" AND all:\"bad\"",
+      "wiki_query": "extract good",
+      "github_query": "extract good bad"
+    },
+    {
+      "need_id": "F-HUM1",
+      "need_category": "frontier",
+      "urgency": 0.7,
+      "terms": [
+        "formalize",
+        "multi",
+        "human",
+        "governance",
+        "bad"
+      ],
+      "arxiv_query": "all:\"formalize\" AND all:\"multi\" AND all:\"human\"",
+      "wiki_query": "formalize multi",
+      "github_query": "formalize multi human"
+    }
+  ],
+  "needs_summary": [
+    {
+      "id": "F119",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "How can swarm satisfy mission constraints? S380: I9-I13 ZERO DRIFT, 41/41 PASS. I9 enforcement 3\u21926 g"
+    },
+    {
+      "id": "F-SUB1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm improve substrate capability (not just scaffolding) through the publication loop? S393 OPE"
+    },
+    {
+      "id": "F-COMP1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm produce external outputs to ground self-assessment? OPEN: 389 sessions, 0 external outputs"
+    },
+    {
+      "id": "F120",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm entry generalize to foreign repos? S351 PARTIAL+++: first persistent genesis on hono (Type"
+    },
+    {
+      "id": "F-SOUL1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm extract what's good and bad for humans, distill the evaluative pattern (the \"soul\"), and u"
+    },
+    {
+      "id": "F-HUM1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm formalize multi-human governance and bad-signal detection? S306 OPEN: (1) no bad-signal de"
+    },
+    {
+      "id": "F-POL1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can political theory classification improve swarm governance AND generate valid external predictions"
+    },
+    {
+      "id": "F126",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can swarm build Atlas of Deep Structure? S189 PARTIAL: v0.4 (10 ISO entries); 3 full-hub domains con"
+    },
+    {
+      "id": "F-STIG1",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can the swarm close the amplification loop \u2014 making success amplify source traces, not just domains?"
+    },
+    {
+      "id": "F-META15",
+      "category": "frontier",
+      "urgency": 0.7,
+      "description": "Can the swarm generate genuine self-surprise? S393 BASELINE: confirmation-dominant (27.3% \"confirmed"
+    }
+  ],
+  "errors": []
+}
