@@ -2,7 +2,7 @@
 Updated: 2026-03-24 | Sessions: 537
 
 ## What the swarm knows
-- **1349 lessons** in `memory/lessons/L-{NNN}.md`
+- **1353 lessons** in `memory/lessons/L-{NNN}.md`
 - **309 principles** in `memory/PRINCIPLES.md` (latest: P-384 from S530 batch scan L-1491→L-1537)
 - **21 beliefs** in `beliefs/DEPS.md` (B1–B3, B6–B19, B-EVAL1–3) | **15 frontiers** in `tasks/FRONTIER.md` | **53 domains**
 
@@ -35,7 +35,7 @@ Updated: 2026-03-24 | Sessions: 537
 | Meta -- Human Interaction & Authority | 39 | On-ramp L-1092, authority paradox L-994, trust calibration L-858, steerer 3 roles L-371, learn-and-teach L-1052. |
 | Meta -- Integration & Extraction | 37 | Check_modes; principle batch extraction 4.5%→9.8% L-664; retrospective signaling fails L-604; tool degradation class L-530/L-532; K→P bottleneck L-1162. |
 | Meta -- Citation Graph Topology | 20 | Hubs, giant component 98.6% L-937, preferential attachment, domain linkage L-958, 2-hop coverage L-967, recombination-as-M3 L-1139, L-601 hub monopoly 35% L-1470. |
-| Meta -- Cross-Domain Citation & Metrics | 58 | Cross-domain rates 3 definitions L-954, spectral universality L-997, implicit refs (L-574/L-622/L-639). |
+| Meta -- Cross-Domain Citation & Metrics | 59 | Cross-domain rates 3 definitions L-954, spectral universality L-997, implicit refs (L-574/L-622/L-639), cost asymmetry as universal degeneracy L-1593. |
 | Meta -- Compaction & Compression | 43 | Compression cycles, proxy-K drift, MDL, compact.py; oracle summaries; proxy-K log-normal L-771; orphan FP L-1159; swarm as compressor L-1046 (L-002/L-106/L-512). |
 | Meta -- Archival & Dark Matter | 30 | INDEX decay L-1111, dark matter L-573/L-1168/L-1169, SESSION-LOG L-979, retention vs accessibility L-1096. |
 | Meta -- Scale Measurement & Baselines | 14 | Scale breakpoints L-1095, baseline scanning L-1031, metadata parsing L-1035, stale detection L-989, scaling model L-1033. |
