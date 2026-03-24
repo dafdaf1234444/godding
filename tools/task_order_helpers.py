@@ -10,14 +10,28 @@ import json
 import re
 import subprocess
 import sys
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+LIVE_GIT_LOCK_SECONDS = 120
 
 
 def _git(args: list[str]) -> str:
     r = subprocess.run(["git"] + args, capture_output=True, text=True, cwd=ROOT)
     return r.stdout.strip()
+
+
+def has_live_git_write_lock(window_seconds: int = LIVE_GIT_LOCK_SECONDS) -> bool:
+    """Return True when a fresh git index lock suggests another write is active."""
+    lock_path = ROOT / ".git" / "index.lock"
+    if not lock_path.exists():
+        return False
+    try:
+        age = time.time() - lock_path.stat().st_mtime
+    except OSError:
+        return False
+    return age <= window_seconds
 
 
 def _current_session() -> int:
@@ -166,7 +180,8 @@ def check_preemption(tasks: list[dict], P_DISPATCH: int, P_STRATEGY: int) -> lis
     # Also scan working tree: concurrent sessions leave uncommitted lessons/experiments
     untracked = _git(["ls-files", "--others", "--exclude-standard"])
     modified = _git(["diff", "--name-only"])
-    if not recent_commits and not untracked:
+    live_git_write = has_live_git_write_lock()
+    if not recent_commits and not untracked and not live_git_write:
         return tasks
 
     commit_text = "\n".join(
@@ -182,14 +197,19 @@ def check_preemption(tasks: list[dict], P_DISPATCH: int, P_STRATEGY: int) -> lis
         anchors = extract_task_anchors(task["action"])
         if task.get("detail"):
             anchors |= extract_task_anchors(task["detail"])
-        if not anchors:
-            continue
-        matched = sum(1 for a in anchors if a in commit_text)
-        if matched >= 1 and len(anchors) > 0 and matched / len(anchors) >= 0.5:
+        matched = sum(1 for a in anchors if a in commit_text) if anchors else 0
+        busy_commit = live_git_write and task["priority"] == 0
+        if busy_commit or (
+            anchors and matched >= 1 and matched / len(anchors) >= 0.5
+        ):
             task["preempted"] = True
             task["score"] -= 50
             if "[PREEMPTED]" not in task["tier"]:
                 task["tier"] = f"{task['tier']} [PREEMPTED]"
+            if busy_commit:
+                note = "Live git write detected (.git/index.lock) — defer commit tasks until repo settles"
+                detail = task.get("detail")
+                task["detail"] = f"{detail} | {note}" if detail else note
             preempted_count += 1
 
     if actionable_count > 0 and preempted_count / actionable_count > 0.5:

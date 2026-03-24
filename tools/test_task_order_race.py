@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """Regression tests for task_order.py race handling."""
 
+import os
 import sys
 import tempfile
+import time
 import unittest
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 import task_order  # noqa: E402
+import task_order_helpers  # noqa: E402
 
 
 class TestTaskOrderRace(unittest.TestCase):
@@ -70,6 +73,80 @@ class TestTaskOrderRace(unittest.TestCase):
         finally:
             task_order.ROOT = original_root
             task_order.subprocess.run = original_run
+
+    def test_check_preemption_marks_commit_task_when_git_lock_is_live(self):
+        original_root = task_order_helpers.ROOT
+        original_git = task_order_helpers._git
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                git_dir = root / ".git"
+                git_dir.mkdir()
+                (git_dir / "index.lock").write_text("", encoding="utf-8")
+
+                task_order_helpers.ROOT = root
+                task_order_helpers._git = lambda args: ""
+
+                tasks = [{
+                    "priority": task_order.P_COMMIT,
+                    "tier": "COMMIT",
+                    "score": 100,
+                    "action": "Commit untracked artifacts: 1 lesson(s): L-1511",
+                    "detail": "Files: memory/lessons/L-1511.md",
+                    "command": None,
+                }]
+
+                updated = task_order_helpers.check_preemption(
+                    tasks,
+                    task_order.P_DISPATCH,
+                    task_order.P_STRATEGY,
+                )
+
+                self.assertTrue(updated[0]["preempted"])
+                self.assertIn("[PREEMPTED]", updated[0]["tier"])
+                self.assertIn("Live git write detected", updated[0]["detail"])
+                self.assertTrue(any(t["tier"] == "NOVEL" for t in updated))
+        finally:
+            task_order_helpers.ROOT = original_root
+            task_order_helpers._git = original_git
+
+    def test_check_preemption_ignores_stale_git_lock(self):
+        original_root = task_order_helpers.ROOT
+        original_git = task_order_helpers._git
+        try:
+            with tempfile.TemporaryDirectory() as tmpdir:
+                root = Path(tmpdir)
+                git_dir = root / ".git"
+                git_dir.mkdir()
+                lock_path = git_dir / "index.lock"
+                lock_path.write_text("", encoding="utf-8")
+                stale_time = time.time() - (task_order_helpers.LIVE_GIT_LOCK_SECONDS + 30)
+                os.utime(lock_path, (stale_time, stale_time))
+
+                task_order_helpers.ROOT = root
+                task_order_helpers._git = lambda args: ""
+
+                tasks = [{
+                    "priority": task_order.P_COMMIT,
+                    "tier": "COMMIT",
+                    "score": 100,
+                    "action": "Commit untracked artifacts: 1 lesson(s): L-1511",
+                    "detail": "Files: memory/lessons/L-1511.md",
+                    "command": None,
+                }]
+
+                updated = task_order_helpers.check_preemption(
+                    tasks,
+                    task_order.P_DISPATCH,
+                    task_order.P_STRATEGY,
+                )
+
+                self.assertNotIn("preempted", updated[0])
+                self.assertEqual(updated[0]["tier"], "COMMIT")
+                self.assertFalse(any(t["tier"] == "NOVEL" for t in updated[1:]))
+        finally:
+            task_order_helpers.ROOT = original_root
+            task_order_helpers._git = original_git
 
 
 if __name__ == "__main__":
