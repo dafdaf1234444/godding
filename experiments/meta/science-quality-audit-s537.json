@@ -1,0 +1,64 @@
+{
+  "session": "S537",
+  "mode": "periodic",
+  "check_mode": "verification",
+  "intent": "Run the overdue science-quality audit and harden recent-window session detection against stale NEXT headers.",
+  "expect": "science_quality.py recent-window scoring should follow live session detection instead of tasks/NEXT.md drift. Full-horizon science quality should remain below the 40% target, with significance, external validation, and falsification outcome still failing.",
+  "actual": {
+    "session_source_fix": {
+      "change": "science_quality.py now uses swarm_io.session_number() with SESSION-LOG fallback instead of parsing tasks/NEXT.md.",
+      "verification": "tools/test_science_quality.py passes 2/2. --recent 1 scored 20 experiments from the live S536+ window; the stale NEXT:S536 path would have admitted 27 S535+ candidate files."
+    },
+    "full_report": {
+      "n_experiments": 1419,
+      "mean_quality": 0.3636277269528501,
+      "median_quality": 0.3157894736842105,
+      "criteria_means": {
+        "pre_registration": 0.39006342515856234,
+        "control": 0.7061310782241015,
+        "significance": 0.10394644115574347,
+        "external_validation": 0.3178294573643411,
+        "falsification": 0.2473572938690458,
+        "falsification_outcome": 0.07470049330514447
+      },
+      "confirm_discover_ratio": "289:216",
+      "skipped_no_ead": 743,
+      "falsification_lanes": "89/1575",
+      "falsification_outcome_rate": 0.075,
+      "falsification_outcome_count": 106,
+      "instrument_flags": 279,
+      "instrument_flag_rate": 0.197,
+      "mean_test_severity": 0.068
+    },
+    "recent_window": {
+      "recent_arg": 1,
+      "n_experiments": 20,
+      "mean_quality": 0.419075,
+      "median_quality": 0.41650000000000004,
+      "criteria_means": {
+        "pre_registration": 0.6,
+        "control": 0.65,
+        "significance": 0.1,
+        "external_validation": 0.25,
+        "falsification": 0.4,
+        "falsification_outcome": 0.1
+      },
+      "sessions_observed": [
+        536,
+        537,
+        539
+      ]
+    }
+  },
+  "diff": "Expected stale-NEXT coupling removal and persistent science-quality weakness. Confirmed. The recent-window filter now tracks live session state instead of the NEXT:S536 header, while the full audit still fails the 40% quality target and continues to show severe significance, external-validation, and falsification-outcome gaps.",
+  "artifacts": [
+    "experiments/meta/science-quality-audit-s537.json",
+    "tools/science_quality.py",
+    "tools/test_science_quality.py"
+  ],
+  "successor": [
+    "Wire science_quality.py into a periodic artifact-writing path so audits stop living only in stdout.",
+    "Raise significance reporting above 10% by enforcing effect-size or CI fields in experiment templates.",
+    "Raise falsification-outcome rate above 10% by routing more adversarial lanes into active frontiers."
+  ]
+}

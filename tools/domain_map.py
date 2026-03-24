@@ -25,7 +25,7 @@ LANE_ABBREV_TO_DOMAIN: dict[str, str] = {
     "DNA": "meta", "IS": "information-science", "HS": "human-systems",
     "COMP": "competitions", "INFO": "information-science",
     # Full-name and common abbreviations (L-676: 33 were missing — 65% data loss)
-    "META": "meta", "SP": "stochastic-processes", "EMP": "empathy",
+    "META": "meta", "SP": "stochastic-processes", "STOCH": "stochastic-processes", "EMP": "empathy",
     "AI": "ai", "CON": "conflict", "CONFLICT": "conflict",
     "CAT": "catastrophic-risks", "DS": "distributed-systems",
     "FIN": "finance", "GOV": "governance", "EVAL": "evaluation",

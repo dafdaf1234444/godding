@@ -1,0 +1,49 @@
+{
+  "experiment": "DOMEX-SP-S538-METAREGIME",
+  "frontier": "F-SP8",
+  "session": "S538",
+  "domain": "stochastic-processes",
+  "date": "2026-03-24",
+  "expect": "Era-level quality means (n=10 eras) form mean-reverting process, not random walk — swarm has quality attractor.",
+  "actual": "CONFIRMED. Era-level Sharpe means are mean-reverting (OU process), not random walk. Full sample (n=9, 25-session eras): beta=0.215, LR_mean=8.45, VR(2)=0.599, Hurst=0.471. Mature sample (S350+, n=8): beta=0.699, LR_mean=8.78, half-life=1.9 eras (48 sessions), VR(2)=0.556. ACF(1) of first differences = -0.474 — swarm over-corrects quality changes (anti-persistent increments). 3/7 transitions are downward. Current era (S525-549) at 9.05 is above LR mean 8.78 — mean reversion predicts quality decline next era.",
+  "diff": "Expected mean-reverting: CONFIRMED. Surprising: (1) anti-persistence in changes (ACF=-0.474) means swarm systematically over-corrects, (2) LR mean ~8.8 implies a quality ceiling the swarm oscillates around, (3) half-life ~48 sessions is biologically plausible (2-3x a burst window).",
+  "data": {
+    "full_sample": {
+      "n_eras": 9,
+      "era_size_sessions": 25,
+      "era_means": [5.37, 7.88, 7.95, 8.16, 8.04, 8.59, 8.58, 8.37, 9.05],
+      "era_ns": [51, 107, 83, 100, 79, 79, 72, 121, 87],
+      "beta_ar1": 0.215,
+      "lr_mean": 8.453,
+      "variance_ratio_2": 0.599,
+      "hurst_rs": 0.471,
+      "reversals": "3/8"
+    },
+    "mature_sample": {
+      "n_eras": 8,
+      "start_session": 350,
+      "beta_ar1": 0.699,
+      "lr_mean": 8.779,
+      "half_life_eras": 1.9,
+      "half_life_sessions": 48,
+      "variance_ratio_2": 0.556,
+      "acf1_diffs": -0.474,
+      "reversals": "3/7"
+    },
+    "prediction": {
+      "current_era_mean": 9.05,
+      "lr_mean": 8.78,
+      "next_era_predicted": 8.97,
+      "direction": "DECLINE",
+      "test_window": "S550-S574",
+      "falsification": "If next-era mean > 9.2, mean-reversion model falsified"
+    },
+    "model_comparison_bic": {
+      "AR1": -14.72,
+      "logarithmic": -10.25,
+      "linear": -3.98,
+      "winner": "AR(1)"
+    }
+  },
+  "lessons_produced": ["L-1598"]
+}

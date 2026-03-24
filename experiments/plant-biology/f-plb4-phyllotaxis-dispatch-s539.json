@@ -1,0 +1,37 @@
+{
+  "frontier": "F-PLB4",
+  "session": "S539",
+  "hypothesis": "UCB1 dispatch approximates golden-angle divergence",
+  "n_dispatches": 1002,
+  "n_domains": 98,
+  "disc_actual": 0.19925455212024934,
+  "disc_golden": 0.002314051189008126,
+  "disc_random_mean": 0.029892303109935348,
+  "packing_vs_golden": 86.10637183253323,
+  "packing_vs_random": 6.665747747420065,
+  "golden_angle_fraction": 0.3819660112501051,
+  "step_mean": 0.19512120532528696,
+  "step_stdev": 0.23587041628120553,
+  "steps_near_golden": 70,
+  "steps_near_golden_pct": 0.06993006993006994,
+  "interval_mean": 26.91592920353982,
+  "interval_stdev": 77.69913587017379,
+  "interval_cv": 2.886734293384724,
+  "domain_concentration": {
+    "meta": 320,
+    "expert-swarm": 99,
+    "nk-complexity": 65,
+    "evaluation": 37,
+    "stochastic-processes": 30,
+    "epistemology": 29,
+    "strategy": 26,
+    "brain": 23,
+    "catastrophic-risks": 23,
+    "governance": 21
+  },
+  "verdict": {
+    "golden_approximation": false,
+    "better_than_random": false,
+    "phyllotaxis_confirmed": false
+  }
+}

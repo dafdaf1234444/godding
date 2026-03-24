@@ -9,6 +9,9 @@ Usage:
     python3 tools/dispatch_optimizer.py --domain X      # Score single domain
     python3 tools/dispatch_optimizer.py --json          # JSON output
 
+L-1537: Every domain must satisfy its own filter within 50 sessions — a domain
+studying X without doing X is a mirror, not a lens.
+
 Architecture (DOMEX-META-S427, L-941 DI pattern):
     dispatch_data.py     — data loading (heat, outcomes, lanes, calibration)
     dispatch_scoring.py  — score_domain + ucb1_score + constants

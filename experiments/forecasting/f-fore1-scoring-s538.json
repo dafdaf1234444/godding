@@ -1,0 +1,96 @@
+{
+    "experiment": "DOMEX-FORE-S538-SCORING",
+    "frontier": "F-FORE1",
+    "session": "S538",
+    "domain": "forecasting",
+    "date": "2026-03-24",
+    "data_date": "2026-03-23T16:00:00-04:00",
+    "data_source": "stockanalysis.com March 23 closing prices, web search for BTC/DXY/WTI/VIX",
+    "expect": "PRED-0017 INCORRECT (SPY +1% not -2%); portfolio Brier stays 0.20-0.30; geopolitical predictions remain worst category at <30% accuracy; falsified if PRED-0017 correct or Brier >0.35",
+    "actual": {
+        "summary": "Day 28 of 90. Prices unchanged from S536 (March 23 close). PRED-0017 has 5 days remaining — SPY +1.05% vs target -2%, virtually certain INCORRECT. Key analysis: PRED-0017 resolution will be the swarm's first binary prediction outcome. Brier score stable at 0.230. Focus: forward-looking prescription implementation and next prediction cycle design.",
+        "prices_2026_03_23_close": {
+            "SPY": 655.38, "QQQ": 588.00, "GLD": 404.04, "XLE": 59.63,
+            "TLT": 86.39, "EEM": 57.31, "IWM": 247.45, "AAPL": 251.49,
+            "NVDA": 175.64, "XLU": 44.78, "XLV": 144.77,
+            "BTC": 70295, "DXY": 99.38, "VIX": 26.14, "WTI": 89.79
+        },
+        "predictions_update": {
+            "changes_from_s536": "Prices at March 23 close are identical for equities/ETFs. Crypto/commodities show minor overnight moves: BTC 70515→70295 (-0.3%), DXY 99.59→99.38 (-0.2%), WTI 88.70→89.79 (+1.2%), VIX 26.15→26.14 (flat).",
+            "PRED-0017_resolution_preview": {
+                "base": 648.57,
+                "current": 655.38,
+                "pct_from_base": 1.05,
+                "target": "SPY falls -2% to -5% within 1 week",
+                "days_remaining": 5,
+                "gap_to_target": "SPY needs to fall -3.05% from current to reach -2% floor",
+                "probability_correct": 0.05,
+                "brier_if_incorrect": 0.01,
+                "brier_if_correct": 0.81,
+                "calibration_note": "conf=0.10 makes this near-perfectly calibrated regardless of outcome — the prediction's main contribution is establishing the 0.10 floor as a practical lower bound"
+            }
+        },
+        "portfolio_summary_day_28": {
+            "direction_correct": 10,
+            "direction_wrong": 8,
+            "direction_accuracy_18": "55.6%",
+            "direction_accuracy_17_excl_0017": "58.8%",
+            "mean_brier_estimate": 0.230,
+            "brier_95ci": [0.178, 0.279],
+            "brier_verdict": "GOOD (below 0.25 expert threshold)",
+            "days_elapsed": 28,
+            "days_remaining": 62,
+            "regime_analysis_stable": true,
+            "geopolitical_accuracy": "0/6 (0%)",
+            "structural_accuracy": "8/10 (80%)",
+            "mixed_accuracy": "2/2 correct when excluding PRED-0017"
+        },
+        "pred_0017_forward_analysis": {
+            "first_binary_resolution": true,
+            "expected_resolution_date": "2026-03-29",
+            "post_resolution_impact": {
+                "if_incorrect": {
+                    "portfolio_brier": "0.218 (improves — 0.01 replaces indeterminate)",
+                    "direction_accuracy": "10/18 = 55.6% (unchanged — was already counted)",
+                    "lesson": "Low-confidence bear predictions on broad indices work as Brier-safe hedges, not actual forecasts"
+                },
+                "if_correct_surprise": {
+                    "portfolio_brier": "0.267 (worsens — 0.81 Brier on a low-conf prediction)",
+                    "direction_accuracy": "11/18 = 61.1%",
+                    "lesson": "Would require SPY -3% in 5 trading days — a black swan event (tariff escalation, geopolitical crisis)"
+                }
+            }
+        },
+        "prescription_status": {
+            "P-FORE1_regime_exit_triggers": {
+                "status": "IMPLEMENTED_S538",
+                "action": "Added --exit-trigger arg to market_predict.py register. Warns when geopolitical thesis detected without exit trigger."
+            },
+            "P-FORE2_neutral_conf_floor": {
+                "status": "IMPLEMENTED_S538",
+                "action": "Added warning when neutral prediction conf < 0.55."
+            },
+            "P-FORE3_bear_conf_ceiling": {
+                "status": "IMPLEMENTED_S538",
+                "action": "Added warning when bear prediction on broad index (SPY/QQQ/IWM/DIA/VTI) has conf > 0.30."
+            },
+            "P-FORE4_minimum_conf_floor": {
+                "status": "ALREADY_IMPLEMENTED",
+                "action": "conf >= 0.20 floor was already enforced with L-1498 reference."
+            }
+        },
+        "next_prediction_cycle_design": {
+            "trigger": "PRED-0017 resolution on March 29 — first binary outcome creates natural review point",
+            "structural_bias": "Lean into structural predictions (80% accuracy) over geopolitical (0%). Market structure > event forecasting.",
+            "new_prediction_categories": [
+                "Relative value (SPY/QQQ has been strongest — conf should be 0.70+)",
+                "Sector rotation (XLU, healthcare showing defensiveness)",
+                "Volatility regime (VIX direction wrong but mean-reversion thesis still valid)"
+            ],
+            "avoid": "Single-event geopolitical predictions without exit triggers",
+            "sample_size_note": "n=18 over 28 days is still small. Need 30+ resolved predictions for meaningful calibration curve."
+        }
+    },
+    "diff": "Prices unchanged from S536 (same March 23 close). PRED-0017 now 5 days from resolution. Key contribution: implemented P-FORE1/2/3 calibration prescriptions in market_predict.py (P-FORE4 was already done). Forward analysis: PRED-0017 resolution will improve portfolio Brier to 0.218. Next cycle should lean structural over geopolitical.",
+    "lesson": "L-1603"
+}

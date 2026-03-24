@@ -46,21 +46,40 @@ def extract_philosophy_claims(path: Path) -> dict[str, str]:
     return claims
 
 
-def extract_principles(path: Path) -> list[str]:
-    """Extract principle identifiers from PRINCIPLES.md.
+def extract_principles(path: Path) -> list[dict[str, str]]:
+    """Extract principle identifiers and optional titles from PRINCIPLES.md.
 
-    Format: pipe-delimited within category lines, e.g.
-    **Structure**: P-008 validate by usage | P-011 flat→hierarchical
+    Supported formats:
+    - Full parent lines: ``**Structure**: P-008 validate by usage | P-011 ...``
+    - Compact daughter projection: ``- P-008``
     """
-    principles = []
+    principles: list[dict[str, str]] = []
+    seen: set[str] = set()
     if not path.exists():
         return principles
     text = path.read_text(errors="ignore")
-    # Find all P-NNN entries with their short names
-    for m in re.finditer(r'P-(\d+)\s+([^|*\n]+)', text):
-        name = m.group(2).strip().rstrip(':')
-        if name and len(name) > 3:  # skip noise
-            principles.append(name[:150])
+    for raw_line in text.splitlines():
+        line = raw_line.strip()
+        if line.startswith("- P-"):
+            m = re.match(r"-\s*(P-\d+)\b(?:\s+(.*))?$", line)
+            if not m:
+                continue
+            pid = m.group(1)
+            title = (m.group(2) or "").strip().rstrip(":")
+            if pid not in seen:
+                principles.append({"id": pid, "title": title[:150]})
+                seen.add(pid)
+            continue
+
+        if not (line.startswith("**") and ": P-" in line):
+            continue
+
+        for m in re.finditer(r"\b(P-\d+)\b(?:\s+([^|*\n]+))?", line):
+            pid = m.group(1)
+            title = (m.group(2) or "").strip().rstrip(":")
+            if pid not in seen:
+                principles.append({"id": pid, "title": title[:150]})
+                seen.add(pid)
     return principles
 
 
@@ -155,24 +174,66 @@ def compare_philosophies(local_claims: dict, remote_claims: dict) -> dict:
 
 
 def compare_principles(local_p: list, remote_p: list) -> dict:
-    """Compare principle sets using fuzzy matching."""
+    """Compare principle sets using exact ID matching when titles are absent.
+
+    Daughter genesis projections preserve only principle IDs, so parent↔daughter
+    comparisons need an exact-ID path instead of title-only fuzzy matching.
+    """
     if not local_p and not remote_p:
         return {"local_count": 0, "remote_count": 0, "overlap_rate": 1.0,
                 "estimated_compatible": 0, "estimated_novel": 0}
 
-    # Find best-match pairs
+    def _normalize(entries: list) -> list[dict[str, str]]:
+        normalized = []
+        for entry in entries:
+            if isinstance(entry, str):
+                normalized.append({"id": "", "title": entry})
+            else:
+                normalized.append({
+                    "id": entry.get("id", ""),
+                    "title": entry.get("title", ""),
+                })
+        return normalized
+
+    local_entries = _normalize(local_p)
+    remote_entries = _normalize(remote_p)
+    remote_by_id = {entry["id"]: idx for idx, entry in enumerate(remote_entries) if entry["id"]}
+    used_remote: set[int] = set()
     matched = 0
-    for lp in local_p:
-        best = max((word_overlap(lp, rp) for rp in remote_p), default=0)
-        if best >= 0.4:
+    for local in local_entries:
+        local_id = local["id"]
+        local_title = local["title"]
+
+        exact_idx = remote_by_id.get(local_id)
+        if exact_idx is not None:
+            remote = remote_entries[exact_idx]
+            if exact_idx not in used_remote and (not local_title or not remote["title"]):
+                used_remote.add(exact_idx)
+                matched += 1
+                continue
+
+        best_idx = None
+        best_score = 0.0
+        for idx, remote in enumerate(remote_entries):
+            if idx in used_remote:
+                continue
+            if not local_title or not remote["title"]:
+                continue
+            score = word_overlap(local_title, remote["title"])
+            if score > best_score:
+                best_score = score
+                best_idx = idx
+
+        if best_idx is not None and best_score >= 0.4:
+            used_remote.add(best_idx)
             matched += 1
 
-    total_unique = len(local_p) + len(remote_p) - matched
+    total_unique = len(local_entries) + len(remote_entries) - matched
     return {
-        "local_count": len(local_p),
-        "remote_count": len(remote_p),
+        "local_count": len(local_entries),
+        "remote_count": len(remote_entries),
         "matched_pairs": matched,
-        "overlap_rate": round(matched / max(len(local_p), 1), 3),
+        "overlap_rate": round(matched / max(len(local_entries), 1), 3),
         "estimated_compatible": matched,
         "estimated_novel": total_unique - matched,
     }

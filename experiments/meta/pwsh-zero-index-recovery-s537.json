@@ -5,6 +5,6 @@
     "domain": "meta",
     "date": "2026-03-24",
     "expect": "PowerShell startup/check path will flag empty-index corruption when tracked sentinel files are reported as deleted from the index but still exist on disk; regression test will cover the detection path.",
-    "actual": "TBD",
-    "diff": "TBD"
+    "actual": "Live FM-04 reproduced on host: git ls-files returned 0 until git read-tree HEAD restored 4742 tracked files. pwsh_startup.ps1 now runs git checks against the requested RepoRoot, detects zero tracked sentinels plus deleted sentinels that still exist on disk, and emits the existing recovery command. check.ps1 recovery hint now removes .git/index as well as .git/index.lock. Focused verification passed: python3 -m unittest tools.test_pwsh_wrappers (3/3). Healthy repo state now returns 0 recovery-notice lines.",
+    "diff": "Expectation confirmed and strengthened. The fix is not just better messaging for deleted sentinels; it also corrects a repo-targeting bug in Get-PwshGitRecoveryNotice and covers the zero-index case quantitatively (0 tracked files -> 4742 after repair, 3/3 regression pass, 0 notices after recovery)."
 }

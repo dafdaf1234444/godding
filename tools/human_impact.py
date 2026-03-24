@@ -4,6 +4,9 @@
 SIG-81: "swarm good and bad for humans — good/bad extractor, soul extractor
 that can be used for better swarm swarm"
 
+L-1589: Human flourishing is a constraint on swarm operation. Self-referential
+work not connecting to human benefit is the swarm's ivory tower.
+
 Scans swarm knowledge (lessons, principles, beliefs, tools) and classifies
 each by human impact:
   GOOD    — helps humans understand, decide, act, learn, avoid harm

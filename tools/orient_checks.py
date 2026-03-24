@@ -594,3 +594,32 @@ def check_ghost_lessons(ROOT):
             lines.append(f"    ghost: {g}")
         lines.append(f"  Fix: rm {' '.join('memory/lessons/' + g for g in sorted(ghosts)[:5])}")
     return lines
+
+
+def check_challenge_cadence(current_session: int, ROOT=None) -> dict:
+    """Check if the current session has filed at least 1 challenge (L-1597, F-MATH12).
+
+    Returns dict with keys: session_challenges (0/1), last_challenge_session (int),
+    gap (int sessions since last challenge), due (bool), sources (list[str]).
+    """
+    if ROOT is None:
+        ROOT = Path(__file__).resolve().parent.parent
+    result = {
+        "session_challenges": 0,
+        "last_challenge_session": 0,
+        "gap": 0,
+        "due": False,
+        "sources": [],
+    }
+    try:
+        from swarm_io import latest_challenge_session, session_challenge_sources
+    except Exception:
+        return result
+    sources = session_challenge_sources(current_session, ROOT)
+    last_sess = latest_challenge_session(ROOT)
+    result["session_challenges"] = 1 if sources else 0
+    result["sources"] = sources
+    result["last_challenge_session"] = last_sess
+    result["gap"] = current_session - last_sess if last_sess else current_session
+    result["due"] = not sources
+    return result

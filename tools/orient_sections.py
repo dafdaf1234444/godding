@@ -388,6 +388,25 @@ def section_fairness(root=ROOT):
     return lines
 
 
+def section_challenge_cadence(session_num, check_fn):
+    """Challenge cadence DUE (L-1597, F-MATH12: 497:1 cost ratio, +27.2 EV per challenge)."""
+    lines = []
+    try:
+        result = check_fn(session_num)
+        if result["due"]:
+            gap = result["gap"]
+            lines.append(f"--- Challenge cadence (F-MATH12) ---")
+            lines.append(f"  \u26a0 DUE: 0 challenge records detected this session (gap={gap}s)")
+            lines.append(f"  Every challenge is +EV (27.2 sessions saved, 497:1 cost ratio)")
+            lines.append(f"  Pick one claim and test it adversarially:")
+            lines.append(f"    python3 tools/philosophy_audit.py --pick")
+            lines.append(f"    Then file a row in beliefs/CHALLENGES.md or beliefs/PHILOSOPHY.md")
+            lines.append("")
+    except Exception:
+        pass
+    return lines
+
+
 def section_suggested_action(maint_out, open_signals, stall_map, priorities):
     """Suggested next action (concurrency-aware via L-526)."""
     lines = ["--- Suggested next action ---"]

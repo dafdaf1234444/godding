@@ -194,6 +194,10 @@ def check_stale_baselines(current_session: int, stale_threshold: int = 50) -> li
     from orient_checks import check_stale_baselines as _impl
     return _impl(current_session, ROOT, stale_threshold)
 
+def check_challenge_cadence(current_session: int) -> dict:
+    from orient_checks import check_challenge_cadence as _impl
+    return _impl(current_session, ROOT)
+
 
 # --- Classify (kept inline — small, orient-specific) ---
 
@@ -323,7 +327,7 @@ def main():
         section_suggested_action, section_cascade_state, section_epsilon_dispatch,
         section_grounding_audit, section_fairness, section_self_inflation,
         section_trace_amplification,
-        section_complexity_phase,
+        section_complexity_phase, section_challenge_cadence,
     )
     try:
         from external_grounding_check import section_grounding_decay
@@ -490,6 +494,7 @@ def main():
     if sess_num and not coord:
         _print_lines(section_stale_beliefs(sess_num, check_stale_beliefs))
         _print_lines(_dogma_lines)
+        _print_lines(section_challenge_cadence(sess_num, check_challenge_cadence))
         # self_application uses pre-computed stale infrastructure
         _sa_result = _self_app_result or []
         if _sa_result:

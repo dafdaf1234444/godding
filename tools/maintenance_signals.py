@@ -329,22 +329,18 @@ def check_frontier_namespace_linkage() -> list[tuple[str, str]]:
 def check_challenge_quota() -> list[tuple[str, str]]:
     """L-1597: mandatory 1 challenge/session — every challenge is +EV (27.2 sessions saved).
 
-    Checks git log for current session's challenge commits. If none found,
+    Checks startup-visible challenge records for the current session. If none found,
     surfaces the top dogma_finder item as a DUE action.
     """
     results = []
     try:
+        from swarm_io import session_challenge_sources
+
         session = _session_number()
         if not session:
             return results
-        # Check if a challenge was already filed this session
-        log = _git("log", "--oneline", "--all", f"--grep=\\[S{session}\\]", "--grep=challenge", "--all-match")
-        if log.strip():
-            return results  # challenge already filed this session
-        # Also check CHALLENGES.md for rows mentioning this session
-        chal_text = _read(REPO_ROOT / "beliefs" / "CHALLENGES.md")
-        if f"S{session}" in chal_text:
-            return results  # challenge row exists for this session
+        if session_challenge_sources(session, REPO_ROOT):
+            return results
         # No challenge this session — surface top dogma item
         try:
             from dogma_finder import detect_dogma, prescribe

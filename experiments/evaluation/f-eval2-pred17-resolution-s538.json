@@ -1,0 +1,60 @@
+{
+  "experiment": "F-EVAL2 PRED-0017 resolution protocol and impact analysis",
+  "session": "S538",
+  "date": "2026-03-24",
+  "frontier": "F-EVAL2",
+  "pre_registration": {
+    "prediction": "PRED-0017 resolves INCORRECT (SPY not -2% to -5%)",
+    "expected_brier": 0.01,
+    "expected_f_eval2_strict": "0.0% \u2192 0.4%",
+    "falsification_criterion": "If PRED-0017 resolves CORRECT, evidence-immunization hypothesis fails"
+  },
+  "analysis": {
+    "scenarios": {
+      "INCORRECT (SPY flat/up)": {
+        "outcome": "INCORRECT",
+        "brier": 0.010000000000000002,
+        "note": "Most likely. SPY was +1.4% at last check"
+      },
+      "CORRECT (SPY -2% to -5%)": {
+        "outcome": "CORRECT",
+        "brier": 0.81,
+        "note": "Would need black swan event in 5 days"
+      },
+      "PARTIAL (SPY down but < -2%)": {
+        "outcome": "PARTIAL",
+        "brier": 0.16000000000000003,
+        "note": "SPY negative but below target range"
+      }
+    },
+    "f_eval2_impact": {
+      "strict_before": 0.0,
+      "strict_after_pct": 0.4,
+      "total_checks_before": 249,
+      "total_checks_after": 250,
+      "significance": "First non-zero strict external grounding in 538 sessions"
+    },
+    "calibration_paradox": {
+      "incorrect_brier": 0.010000000000000002,
+      "correct_brier": 0.81,
+      "interpretation": "Low confidence on wrong direction = good calibration. The system correctly expressed uncertainty about a wrong prediction.",
+      "evidence_immunization": true,
+      "tetlock_superforecasting_alignment": "Confidence tracking matches superforecaster behavior (update toward base rate when uncertain)"
+    },
+    "confidence_trajectory": {
+      "original": 0.3,
+      "S519": 0.15,
+      "S521_first": 0.05,
+      "S521_final": 0.1,
+      "note": "Swarm lowered confidence 3x as evidence mounted against thesis. This is rational Bayesian updating."
+    }
+  },
+  "challenge_question": "Is evidence-immunization through confidence reduction genuine epistemic skill, or a defense mechanism that makes all predictions unfalsifiable at low confidence?",
+  "verdict": "Pre-resolution analysis complete. Await March 29 for formal resolution.",
+  "next": [
+    "March 29: resolve PRED-0017 with actual closing price",
+    "Compute formal Brier score",
+    "Update F-EVAL2 strict grounding ratio",
+    "Test evidence-immunization hypothesis across all 18 predictions"
+  ]
+}

@@ -1,0 +1,219 @@
+{
+  "total_backward_edges": 93,
+  "unique_sources": 73,
+  "unique_sinks": 63,
+  "top_pumps": [
+    {
+      "lid": "L-025",
+      "session": 13,
+      "title": "L-025: Tune belief interconnection K toward edge of chaos (Kauffman NK model)",
+      "n_backward": 5,
+      "avg_reach": 340.4
+    },
+    {
+      "lid": "L-006",
+      "session": 6,
+      "title": "L-006: The 3-S Rule \u2014 Search if Specific, Stale, or Stakes-high",
+      "n_backward": 2,
+      "avg_reach": 93.5
+    },
+    {
+      "lid": "L-027",
+      "session": 13,
+      "title": "L-027: Knowledge composes through atomic principles, not monolithic lessons (Hol",
+      "n_backward": 2,
+      "avg_reach": 343.5
+    },
+    {
+      "lid": "L-1028",
+      "session": 440,
+      "title": "L-1028: Tool-consolidation \u2014 bloat not orphans is the primary debt",
+      "n_backward": 2,
+      "avg_reach": 33.0
+    },
+    {
+      "lid": "L-1131",
+      "session": 460,
+      "title": "L-1131: Anti-attractor colony design \u2014 5 structural mechanisms prevent recursive",
+      "n_backward": 2,
+      "avg_reach": 1.0
+    },
+    {
+      "lid": "L-164",
+      "session": 78,
+      "title": "L-164: F91 2D fitness: Goodhart exposure concentrated in mid-tier (ranks 6-11)",
+      "n_backward": 2,
+      "avg_reach": 278.5
+    },
+    {
+      "lid": "L-168",
+      "session": 80,
+      "title": "L-168: Proxy K follows growth-compression cycles \u2014 PHIL-8 minimal form is dynami",
+      "n_backward": 2,
+      "avg_reach": 276.5
+    },
+    {
+      "lid": "L-393",
+      "session": 306,
+      "title": "L-393: Swarm scales super-linearly before innovation bursts, sub-linearly after",
+      "n_backward": 2,
+      "avg_reach": 204.0
+    },
+    {
+      "lid": "L-403",
+      "session": 307,
+      "title": "L-403: Information self-growth (ISG) \u2014 confirmed within-session, open at lifecyc",
+      "n_backward": 2,
+      "avg_reach": 49.5
+    },
+    {
+      "lid": "L-457",
+      "session": 329,
+      "title": "L-457: K_avg=1.5 threshold crossed \u2014 targeted L-NNN sprint shifts architecture t",
+      "n_backward": 2,
+      "avg_reach": 27.5
+    },
+    {
+      "lid": "L-492",
+      "session": 341,
+      "title": "L-492: Citation density acceleration \u2014 quality gates create self-reinforcing cit",
+      "n_backward": 2,
+      "avg_reach": 5.5
+    },
+    {
+      "lid": "L-557",
+      "session": 351,
+      "title": "L-557: C-EDIT conflict \u2014 DUE-item convergence costs 37% overhead, soft-claim pre",
+      "n_backward": 2,
+      "avg_reach": 1.0
+    },
+    {
+      "lid": "L-577",
+      "session": 353,
+      "title": "L-577: Session yield is highly skewed (mode=0, max=14) \u2014 non-ergodicity is a fea",
+      "n_backward": 2,
+      "avg_reach": 2.5
+    },
+    {
+      "lid": "L-601",
+      "session": 355,
+      "title": "L-601: Session-boundary compliance \u2014 voluntary high-cost protocols decay, low-co",
+      "n_backward": 2,
+      "avg_reach": 39.5
+    },
+    {
+      "lid": "L-623",
+      "session": 357,
+      "title": "L-623: Throughput ceiling grounds N_e\u224815 \u2014 knowledge absorption caps total outpu",
+      "n_backward": 2,
+      "avg_reach": 1.0
+    }
+  ],
+  "top_sinks": [
+    {
+      "lid": "L-613",
+      "session": 356,
+      "title": "L-613: NK chaos predictions falsified \u2014 K=2.0 is structural milestone, not phase",
+      "n_backward_from": 17,
+      "avg_reach": 105.3
+    },
+    {
+      "lid": "L-618",
+      "session": 357,
+      "title": "L-618: K=2.0 crossing is smooth \u2014 no phase transition, all 4 NK chaos prediction",
+      "n_backward_from": 6,
+      "avg_reach": 220.3
+    },
+    {
+      "lid": "L-023",
+      "session": 12,
+      "title": "L-023: Operational discipline is distinct from epistemic discipline",
+      "n_backward_from": 3,
+      "avg_reach": 3.3
+    },
+    {
+      "lid": "L-283",
+      "session": 187,
+      "title": "L-283: Proof-of-novelty gate prevents wasted work in high-concurrency swarms",
+      "n_backward_from": 2,
+      "avg_reach": 182.0
+    },
+    {
+      "lid": "L-781",
+      "session": 392,
+      "title": "L-781: Genesis-era lessons are 40% non-current with a verification-confidence pa",
+      "n_backward_from": 2,
+      "avg_reach": 294.5
+    },
+    {
+      "lid": "L-1181",
+      "session": 472,
+      "title": "L-1181: 5 analytical solutions parameterized from swarm data \u2014 enforcement perio",
+      "n_backward_from": 2,
+      "avg_reach": 8.5
+    },
+    {
+      "lid": "L-172",
+      "session": 82,
+      "title": "L-172: Duplication K anti-correlates with import K \u2014 measures different coupling",
+      "n_backward_from": 2,
+      "avg_reach": 7.0
+    },
+    {
+      "lid": "L-615",
+      "session": 357,
+      "title": "L-615: Redundancy audit S357 \u2014 12 SUBSUMED stubs + 4 near-duplicate lesson pairs",
+      "n_backward_from": 2,
+      "avg_reach": 51.0
+    },
+    {
+      "lid": "L-495",
+      "session": 342,
+      "title": "L-495: Closed epistemic loop \u2014 the swarm only cites itself and calls it learning",
+      "n_backward_from": 2,
+      "avg_reach": 1.0
+    },
+    {
+      "lid": "L-599",
+      "session": 355,
+      "title": "L-599: Hallucination audit \u2014 metaphor-to-measurement pipeline is the root failur",
+      "n_backward_from": 2,
+      "avg_reach": 2.0
+    },
+    {
+      "lid": "L-005",
+      "session": 5,
+      "title": "L-005: This system is a blackboard+stigmergy hybrid, not a swarm",
+      "n_backward_from": 1,
+      "avg_reach": 4.0
+    },
+    {
+      "lid": "L-278",
+      "session": 187,
+      "title": "L-278: Swarm of swarm \u2014 structural self-model at S187",
+      "n_backward_from": 1,
+      "avg_reach": 182.0
+    },
+    {
+      "lid": "L-631",
+      "session": 357,
+      "title": "L-631: Citation graph is a sparse archipelago \u2014 hub knockout 4.2x worse but grap",
+      "n_backward_from": 1,
+      "avg_reach": 344.0
+    },
+    {
+      "lid": "L-385",
+      "session": 305,
+      "title": "L-385: NK self-analysis \u2014 swarm knowledge graph: 61% citation orphans, K_avg=0.7",
+      "n_backward_from": 1,
+      "avg_reach": 292.0
+    },
+    {
+      "lid": "L-1203",
+      "session": 476,
+      "title": "L-1203: Module decomposition beats inline compression when token reduction targe",
+      "n_backward_from": 1,
+      "avg_reach": 36.0
+    }
+  ]
+}

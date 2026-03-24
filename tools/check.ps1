@@ -29,7 +29,7 @@ function Test-GitIndexFailureText {
 function Write-GitIndexRecoveryHint {
     param([string]$Context)
     $repoBash = Convert-ToBashPath $repoRoot
-    $recovery = "bash -lc 'cd $repoBash && rm -f .git/index.lock && git read-tree HEAD && git update-index --refresh'"
+    $recovery = "bash -lc 'cd $repoBash && rm -f .git/index .git/index.lock && git read-tree HEAD && git update-index --refresh'"
     Write-Warning "$Context Recover via WSL/bash: $recovery"
 }
 

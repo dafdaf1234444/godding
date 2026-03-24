@@ -1,0 +1,29 @@
+{
+    "experiment": "DOMEX-STOCH-S538",
+    "frontier": "F-SP8",
+    "session": "S538",
+    "domain": "stochastic-processes",
+    "date": "2026-03-24",
+    "expect": "Compaction distortion per bit >=2x lower than random deletion at same compression ratio (30%). Rate-distortion R(D) curve fit R^2 > 0.95.",
+    "actual": "PARTIAL. Sharpe-ordered compaction has 13.5x lower distortion than random at 30% (massively exceeds 2x prediction). Phase transition at 22%: below it, distortion=0 (lossless). Above it, power-law D=1075*(C-0.22)^1.06, R^2=0.9919. But this R^2 is for the power-law fit on the post-transition data, not the full exponential fit (R^2=0.9329).",
+    "diff": "Expected >=2x advantage: actual 13.5x (much better than predicted). Expected R^2>0.95 for R(D) curve: FALSIFIED for exponential (0.9329), CONFIRMED for power-law with threshold (0.9919). Key surprise: phase transition — 22% of corpus carries zero citation edges. The data splits into two regimes, not one smooth curve.",
+    "method": "Compared compact.py Sharpe-ordered archival vs 100-trial random deletion across 6 compression ratios (10-60%). Measured distortion as citation edges lost. N=1359 active lessons, 4760 total citation edges.",
+    "measurements": {
+        "n_lessons": 1359,
+        "total_citation_edges": 4760,
+        "noise_floor_pct": 22,
+        "compression_curve": [
+            {"compression_pct": 10, "sharpe_distortion": 0, "random_distortion": 424, "ratio": "inf"},
+            {"compression_pct": 20, "sharpe_distortion": 0, "random_distortion": 820, "ratio": "inf"},
+            {"compression_pct": 30, "sharpe_distortion": 73, "random_distortion": 982, "ratio": 13.45},
+            {"compression_pct": 40, "sharpe_distortion": 176, "random_distortion": 1160, "ratio": 6.6},
+            {"compression_pct": 50, "sharpe_distortion": 292, "random_distortion": 1203, "ratio": 4.1},
+            {"compression_pct": 60, "sharpe_distortion": 370, "random_distortion": 1123, "ratio": 3.0}
+        ],
+        "power_law_fit": "D = 1075 * (C - 0.22)^1.06",
+        "power_law_r2": 0.9919,
+        "exponential_fit_r2": 0.9329
+    },
+    "bridge_insight": "L-1571 (forgetting=rate-distortion) + L-1580 (compaction=hygiene) unify: hygiene IS the rate-distortion computation. Below 22% compression, Sharpe-ordering achieves lossless compression (noise floor removal). Above it, power-law distortion. The two lessons describe the same phenomenon from different frames.",
+    "recombination_source": "M3: L-1571 x L-1580 (stochastic-processes x epistemology)"
+}

@@ -214,6 +214,27 @@ def register(args):
         print("ERROR: confidence must be >= 0.20. Below 0.20, failure is already expected — the prediction is evidence-immunized (L-1498). Express low-confidence views as observations, not predictions.")
         sys.exit(1)
 
+    # P-FORE1 (L-1461): geopolitical predictions need explicit exit triggers
+    geopolitical_keywords = ["war", "conflict", "iran", "china", "tariff", "sanction", "geopolit",
+                             "escalat", "de-escalat", "military", "hormuz", "invasion"]
+    thesis_lower = (args.thesis or "").lower()
+    is_geopolitical = any(kw in thesis_lower for kw in geopolitical_keywords)
+    if is_geopolitical and not args.exit_trigger:
+        print("WARN (P-FORE1): thesis appears geopolitical but no --exit-trigger provided. "
+              "Geopolitical predictions are 0/6 correct without exit triggers (L-1461). "
+              "Add --exit-trigger 'event that invalidates thesis'.")
+
+    # P-FORE2 (L-1548): neutral predictions are portfolio's strongest type but underconfident
+    if args.direction == "NEUTRAL" and conf < 0.55:
+        print(f"WARN (P-FORE2): neutral predictions are underconfident at conf={conf}. "
+              "Calibration data shows neutrals are strongest type — consider conf >= 0.55 (L-1548).")
+
+    # P-FORE3 (L-1461): narrative-based bear predictions on broad indices are overconfident
+    broad_indices = {"SPY", "QQQ", "IWM", "DIA", "VTI"}
+    if args.direction == "BEAR" and args.asset.upper() in broad_indices and conf > 0.30:
+        print(f"WARN (P-FORE3): bear prediction on broad index {args.asset.upper()} with conf={conf} > 0.30. "
+              "Geopolitical/narrative bear theses are 0/6 correct (L-1461). Consider lowering confidence.")
+
     resolve_date = (datetime.now() + timedelta(days=TIMEFRAME_DAYS[tf])).strftime("%Y-%m-%d")
 
     pred = {
@@ -228,6 +249,7 @@ def register(args):
         "thesis": args.thesis,
         "domains_applied": [d.strip() for d in args.domains.split(",")],
         "key_risk": args.key_risk or "",
+        "exit_trigger": args.exit_trigger or "",
         "resolve_by": resolve_date,
         "status": "OPEN",
         "outcome_date": None,
@@ -635,6 +657,8 @@ def main():
     reg_p.add_argument("--thesis", required=True)
     reg_p.add_argument("--domains", required=True, help="Comma-separated domain list")
     reg_p.add_argument("--key-risk", default="")
+    reg_p.add_argument("--exit-trigger", default="",
+                        help="P-FORE1: event that invalidates thesis (required for geopolitical predictions)")
     reg_p.add_argument("--session", default=None)
 
     res_p = sub.add_parser("resolve", help="Resolve a prediction with outcome")

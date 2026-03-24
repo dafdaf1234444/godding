@@ -1,0 +1,61 @@
+{
+  "frontier": "F-PLB2",
+  "session": "S539",
+  "hypothesis": "Xylem-phloem duality: forward citations (xylem) dominate, backward citations (phloem) are non-trivial",
+  "n_lessons": 1356,
+  "n_with_session": 1090,
+  "total_directed_edges": 3413,
+  "forward_count": 3093,
+  "backward_count": 93,
+  "same_session_count": 227,
+  "unknown_count": 428,
+  "forward_ratio": 0.9062,
+  "backward_ratio": 0.0272,
+  "same_session_ratio": 0.0665,
+  "directionality_ratio": 33.26,
+  "xylem_score": 0.9062,
+  "phloem_index": 0.0301,
+  "tier_analysis": {
+    "early": {
+      "forward": 47,
+      "backward": 23,
+      "same": 5,
+      "backward_ratio": 0.3067
+    },
+    "mid": {
+      "forward": 600,
+      "backward": 47,
+      "same": 92,
+      "backward_ratio": 0.0636
+    },
+    "late": {
+      "forward": 2446,
+      "backward": 23,
+      "same": 130,
+      "backward_ratio": 0.0088
+    }
+  },
+  "hub_flow": {
+    "n_hubs": 106,
+    "hub_forward": 1534,
+    "hub_backward": 43,
+    "hub_backward_ratio": 0.027266962587190868,
+    "nonhub_forward": 1559,
+    "nonhub_backward": 50,
+    "nonhub_backward_ratio": 0.031075201988812928
+  },
+  "temporal_reach": {
+    "forward_mean_reach": 57.77497575169738,
+    "forward_median_reach": 26,
+    "forward_max_reach": 524,
+    "backward_mean_reach": 66.0752688172043,
+    "backward_median_reach": 5,
+    "backward_max_reach": 379
+  },
+  "verdict": {
+    "has_xylem_dominance": true,
+    "has_phloem_reflux": false,
+    "vascular_duality_confirmed": false,
+    "directionality_ratio_fwd_bwd": 33.26
+  }
+}
