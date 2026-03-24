@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """Per-claim philosophy audit — structural wiring of L-1116.
 
+L-1230: Three classes of impossibility (constitutive/persistent/logical).
+Constitutive impossibilities ARE the swarm — don't fix. Persistent failures
+LIMIT it — fix. Test: would removing this destroy identity?
+
 Replaces the expensive manual claim-vs-evidence periodic with automated
 per-claim health checks. Makes the audit cheap enough to run every session
 instead of every 20 sessions (L-1116: reduce cost, not increase priority).

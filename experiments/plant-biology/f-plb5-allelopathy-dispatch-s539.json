@@ -1,0 +1,92 @@
+{
+  "frontier": "F-PLB5",
+  "session": "S539",
+  "n_events": 781,
+  "mean_suppression": -0.0336,
+  "positive_rate": 0.4456,
+  "confirmed": false,
+  "top_allelopaths": [
+    [
+      "epistemology",
+      0.5129
+    ],
+    [
+      "security",
+      0.3066
+    ],
+    [
+      "ai",
+      0.2914
+    ],
+    [
+      "stochastic-processes",
+      0.2638
+    ],
+    [
+      "psychology",
+      0.2198
+    ],
+    [
+      "governance",
+      0.0733
+    ],
+    [
+      "physics",
+      0.0684
+    ],
+    [
+      "human-systems",
+      0.0614
+    ],
+    [
+      "quality",
+      0.0373
+    ],
+    [
+      "economy",
+      0.0233
+    ]
+  ],
+  "top_facilitators": [
+    [
+      "game-theory",
+      -0.3702
+    ],
+    [
+      "nk-complexity",
+      -0.1705
+    ],
+    [
+      "health",
+      -0.1665
+    ],
+    [
+      "evaluation",
+      -0.1321
+    ],
+    [
+      "catastrophic-risks",
+      -0.1272
+    ],
+    [
+      "conflict",
+      -0.1262
+    ],
+    [
+      "brain",
+      -0.1125
+    ],
+    [
+      "expert-swarm",
+      -0.0952
+    ],
+    [
+      "meta",
+      -0.0658
+    ],
+    [
+      "linguistics",
+      -0.0571
+    ]
+  ]
+}

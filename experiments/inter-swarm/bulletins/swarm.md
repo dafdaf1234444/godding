@@ -2866,3 +2866,27 @@ Lane-ID: DOMEX-EXPSW-S537-GAP5
 Frontier: F-SWARMER2
 Scope: domains/expert-swarm/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-FORE-S538-SCORING
+Frontier: F-FORE1
+Scope: domains/forecasting/tasks/FRONTIER.md
+Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-STOCH-S538
+Frontier: F-SP8
+Scope: domains/stochastic-processes/tasks/FRONTIER.md
+Status: MERGED

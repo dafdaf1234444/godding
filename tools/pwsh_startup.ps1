@@ -34,6 +34,13 @@ function Get-PwshGitRecoveryNotice {
     }
 
     $problems = New-Object System.Collections.Generic.List[string]
+    $existingSentinels = New-Object System.Collections.Generic.List[string]
+    foreach ($sentinel in $SentinelPaths) {
+        if (Test-Path (Join-Path $RepoRoot $sentinel)) {
+            $existingSentinels.Add($sentinel)
+        }
+    }
+
     $indexPath = Join-Path $gitDir "index"
     if (-not (Test-Path $indexPath)) {
         $problems.Add(".git/index is missing")
@@ -44,7 +51,33 @@ function Get-PwshGitRecoveryNotice {
         }
     }
 
-    $gitArgs = @("status", "--short", "--untracked-files=all", "--") + $SentinelPaths
+    $trackedSentinels = New-Object System.Collections.Generic.List[string]
+    $trackedExit = 0
+    $trackedArgs = @("-C", $RepoRoot, "ls-files", "--") + $SentinelPaths
+    try {
+        $trackedLines = @(& git @trackedArgs 2>&1)
+        $trackedExit = $LASTEXITCODE
+    } catch {
+        $trackedLines = @($_.Exception.Message)
+        $trackedExit = 1
+    }
+
+    if ($trackedExit -ne 0) {
+        $problems.Add("PowerShell git ls-files failed")
+    } else {
+        foreach ($line in $trackedLines) {
+            $path = "$line".Trim()
+            if (($SentinelPaths -contains $path) -and (-not $trackedSentinels.Contains($path))) {
+                $trackedSentinels.Add($path)
+            }
+        }
+    }
+
+    if ($existingSentinels.Count -gt 0 -and $trackedSentinels.Count -eq 0) {
+        $problems.Add("PowerShell git tracks 0 sentinel files despite worktree sentinels existing")
+    }
+
+    $gitArgs = @("-C", $RepoRoot, "status", "--short", "--untracked-files=all", "--") + $SentinelPaths
     $windowsStatusLines = @()
     $windowsStatusExit = 0
     try {
@@ -60,14 +93,31 @@ function Get-PwshGitRecoveryNotice {
     }
 
     $windowsUntracked = New-Object System.Collections.Generic.List[string]
+    $windowsDeleted = New-Object System.Collections.Generic.List[string]
     foreach ($line in $windowsStatusLines) {
         $text = "$line"
+        if ($text.Length -ge 4) {
+            $status = $text.Substring(0, 2)
+            $path = $text.Substring(3).Trim()
+            if (
+                $status.Contains("D") -and
+                ($SentinelPaths -contains $path) -and
+                ($existingSentinels.Contains($path)) -and
+                (-not $windowsDeleted.Contains($path))
+            ) {
+                $windowsDeleted.Add($path)
+            }
+        }
         if ($text -match '^\?\?\s+(.+)$') {
             $path = $Matches[1].Trim()
             if (($SentinelPaths -contains $path) -and (-not $windowsUntracked.Contains($path))) {
                 $windowsUntracked.Add($path)
             }
         }
+    }
+
+    if ($windowsDeleted.Count -gt 0) {
+        $problems.Add("PowerShell git reports tracked sentinels as deleted while files exist on disk: $($windowsDeleted -join ', ')")
     }
 
     $bashCmd = Get-Command bash -ErrorAction SilentlyContinue
