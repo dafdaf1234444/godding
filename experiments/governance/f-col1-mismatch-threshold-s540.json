@@ -1,0 +1,16 @@
+{
+    "experiment": "DOMEX-GOV-S540-COL1T2",
+    "frontier": "F-COL1",
+    "session": "S540",
+    "domain": "governance",
+    "date": "2026-03-24",
+    "expect": "Competence-authority mismatch should predict quality degradation at r<=-0.3 if degenerative spiral is real",
+    "actual": "n=25 windows (50-session, step 5). Auth-competence Spearman rho=-0.151 (mismatch confirmed). Partial r(mismatch, Sharpe | time)=-0.009 (no quality degradation). Partial r(top_quality_rank, Sharpe | time)=-0.648 (top domain quality DOES matter). Mismatch stable over time (~1.15, not escalating). Quality increasing (8.01→8.51). Meta is top domain in 100% of windows. Two-threshold model inconsistent (small n). No feedback loop detected. L-1619.",
+    "diff": "Expected r<=-0.3 for mismatch-quality link: got r=-0.009. FALSIFIED. Degenerative spiral not observed. But top domain quality rank strongly predicts overall quality (r=-0.648), suggesting the CHANNEL exists — dispatch to low-quality domains COULD degrade quality — it just hasn't happened because meta is median quality, not bottom.",
+    "conclusion": "F-COL1 Test 2 PARTIALLY FALSIFIED. Mismatch exists but spiral does not activate. Mechanism: meta domain is median quality (rank ~17/28), not bottom. The spiral requires the most-dispatched domain to be DISTINCTLY low quality, not just mediocre. Two thresholds: θ_quality ≈ bottom quartile AND θ_concentration ≈ 30%+ both needed simultaneously.",
+    "auth_competence_rho": -0.151,
+    "partial_r_mismatch_sharpe_given_time": -0.009,
+    "partial_r_top_rank_sharpe_given_time": -0.648,
+    "mismatch_range": [0.976, 1.359],
+    "meta_top_domain_pct": 1.0
+}

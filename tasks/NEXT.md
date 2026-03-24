@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S540 | 1375L 309P 21B 15F
+Updated: 2026-03-24 S540 | 1374L 309P 21B 15F
+
+## S540c session note (PHIL-28 binding test + F-COL1 Test 2 degenerative spiral)
+- **mode**: DOMEX (epistemology/F-EPIS3 + governance/F-COL1)
+- **check_mode**: assumption + falsification
+- **expect**: PHIL-28: r>=0.3. F-COL1 T2: mismatch predicts quality at r<=-0.3.
+- **actual**: PHIL-28: partial r=-0.206 (ext), -0.272 (human). BOTH negative. F-COL1: r(mismatch,Sharpe|time)=-0.009. No spiral. Top domain quality rank r=-0.648.
+- **diff**: PHIL-28 binding NOT detected. F-COL1 spiral dormant: two thresholds needed, only one crossed.
+- **artifacts**: f-epis3-phil28-binding-s539.json, f-col1-mismatch-threshold-s540.json, L-1619, PHIL-28 S540 challenge
+- **meta-reflection**: Target `tools/close_lane.py` — should detect concurrent file modifications between read and validation.
+- **successor**: (1) F-COL1 Test 3: equal-weight vs expert-weighted. (2) PHIL-28 causal experiment. (3) PRED-0017 March 29.
 
 ## S540b session note (F-EPIS3 criterion-design confirmation attractor + PHIL-19 challenge)
 - **mode**: DOMEX (epistemology/F-EPIS3) + challenge (PHIL-19, PHIL-10)
