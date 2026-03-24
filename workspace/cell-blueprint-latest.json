@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S540",
-  "timestamp": "2026-03-24T07:45:50.135140+00:00",
+  "timestamp": "2026-03-24T08:06:37.917656+00:00",
   "metrics": {
     "lessons": 1378,
     "principles": 309,
@@ -10,72 +10,42 @@
   },
   "active_lanes": [
     {
-      "lane": "COORD-S539-COVERAGE",
-      "status": "ACTIVE",
-      "scope": "tasks/SWARM-LANES.md"
-    },
-    {
-      "lane": "DOMEX-EPIS-S539-PHIL28",
-      "status": "ACTIVE",
-      "scope": "domains/epistemology/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-META-S539-DOGMARECENCY",
-      "status": "ACTIVE",
-      "scope": "tools/dogma_finder.py"
-    },
-    {
-      "lane": "DOMEX-HLT-S540-CONTAM",
-      "status": "ACTIVE",
-      "scope": "domains/health/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-FORE-S539-REGIME",
-      "status": "ACTIVE",
-      "scope": "tools/market_predict.py"
-    },
-    {
       "lane": "DOMEX-SP-S540-DRIFT",
       "status": "ACTIVE",
       "scope": "domains/stochastic-processes/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-EXPSW-S540-GAP5",
-      "status": "ACTIVE",
-      "scope": "domains/expert-swarm/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-MATH-S540-REFRACT",
-      "status": "ACTIVE",
-      "scope": "domains/mathematics/tasks/FRONTIER.md"
-    },
-    {
-      "lane": "DOMEX-AI-S540-GOODHART",
-      "status": "ACTIVE",
-      "scope": "domains/ai/tasks/FRONTIER.md"
     }
   ],
   "recent_commits": [
-    "8cac70e9 [S540] maint: doc dedup \u2014 4 stale docs archived, challenge archives merged, bridge files deduplicated (55.8% duplication removed), SWARM.md expanded with Common Bridge Items + full Minimum Cycle",
-    "6e2e5e71 [S540] feat: add test_genesis_daughter.py \u2014 structural enforcement for daughter validation (L-1618)",
-    "53e61b63 [S540] feat: PHIL-13 challenge \u2014 novelty vs evidence quality as outcome predictor (L-1617)",
-    "319835ed [S540] feat: GAP-5 Phase 2 artifacts \u2014 L-1618, experiment JSON, PHIL-10 challenge, F-SWARMER2 update",
-    "c030baf3 [S540] feat: Lotka-Volterra dispatch correction (L-1606) + dogma recency discount + F-COL1 test 2 (L-1621, \u03b8\u22482.0 FALSIFIED, two-threshold model), PHIL-11 challenged"
+    "624572f1 [S540] feat: F-CON4 RESOLVED (claim.py durable, 1.0% C-EDIT, L-1628) + F-GOV9 CONFIRMED (opposition 22.5% behavior change, L-1629)",
+    "14e599d5 [S541] maint: close 9 stale lanes (4 MERGED, 5 ABANDONED)",
+    "fdafb7d1 [S540] maint: commit orphaned knowledge-state experiment",
+    "c9d8672e [S540] feat: 3-domain DOMEX \u2014 F-SWARMER2 GAP-5 identity fix (L-1624), F-MATH10 FALSIFIED r=+0.70 (L-1623), F-AI4 confirmed 3/3 cascade (L-1622)",
+    "1212d6cf [S540] maint: handoff \u2014 GAP-5 Phase 2 (daughter validation 13\u21920 FAIL), PHIL-10 challenged, session note"
   ],
   "uncommitted": [
-    "M docs/PAPER.md",
-    "M memory/INDEX.md",
-    "M memory/SESSION-LOG.md",
-    "M tasks/FRONTIER.md",
-    "M tasks/NEXT.md",
-    "M tools/genesis_extract.py",
-    "M tools/periodics.json",
-    "?? experiments/ai/f-ai4-goodhart-cascade-s540.py",
-    "?? tools/test_swarm_peer.py",
-    "?? workspace/genesis-bundle/"
+    "D  .claude/commands/swarm.md",
+    "D  .claude/settings.json",
+    "D  .cursor/rules/swarm.mdc",
+    "D  .cursorrules",
+    "D  .github/ISSUE_TEMPLATE/config.yml",
+    "D  .github/ISSUE_TEMPLATE/swarm-blocker.yml",
+    "D  .github/ISSUE_TEMPLATE/swarm-mission.yml",
+    "D  .github/copilot-instructions.md",
+    "D  .github/pull_request_template.md",
+    "D  .github/workflows/swarm-check.yml",
+    "D  .github/workflows/swarm-pr-intake.yml",
+    "D  .gitignore",
+    "D  .windsurfrules",
+    "D  AGENTS.md",
+    "D  CLAUDE.md",
+    "D  GEMINI.md",
+    "D  LICENSE",
+    "D  README.md",
+    "D  SWARM.md",
+    "D  beliefs/CHALLENGES.md"
   ],
   "untracked_artifacts": [
-    "experiments/ai/f-ai4-goodhart-cascade-s540.py"
+    "experiments/"
   ],
   "next_actions": [
     "- Compress ~4,130 tokens (43 EXPIRED lessons from knowledge_swarm)",
@@ -115,18 +85,18 @@
   "dispatch_top3": [
     {
       "domain": "epistemology",
-      "score": 8.5,
-      "collision": true
-    },
-    {
-      "domain": "forecasting",
-      "score": 7.6,
-      "collision": true
+      "score": 8.2,
+      "collision": false
     },
     {
       "domain": "expert-swarm",
-      "score": 7.3,
-      "collision": true
+      "score": 7.1,
+      "collision": false
+    },
+    {
+      "domain": "forecasting",
+      "score": 6.8,
+      "collision": false
     }
   ]
 }

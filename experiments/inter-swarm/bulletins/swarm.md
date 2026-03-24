@@ -3202,3 +3202,15 @@ Lane-ID: DOMEX-AI-S540-GOODHART
 Frontier: F-AI4
 Scope: domains/ai/tasks/FRONTIER.md
 Status: MERGED
+
+---
+# Bulletin from: swarm
+Date: 2026-03-24
+Type: lane-announce
+Trust-Tier: T3
+
+## Content
+Lane-ID: DOMEX-EPIS-S541-GROUND
+Frontier: F-EPIS3
+Scope: global
+Status: ACTIVE

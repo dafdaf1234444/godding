@@ -1,5 +1,38 @@
 {
-  "session": 537,
-  "count": 0,
-  "items": []
+  "session": 541,
+  "count": 8,
+  "items": [
+    {
+      "priority": "DUE",
+      "message": "6 bridge file(s) missing swarm signaling guidance: CLAUDE.md, AGENTS.md, GEMINI.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "6 bridge file(s) missing 'Minimum Swarmed Cycle' section (F-GOV2, L-351): CLAUDE.md, AGENTS.md, GEMINI.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1603.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1607.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1608.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1617.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "Lesson over 20 lines: L-1625.md"
+    },
+    {
+      "priority": "DUE",
+      "message": "[state-sync] Auto-sync count drift: run `python3 tools/sync_state.py` to patch INDEX.md / FRONTIER.md / NEXT.md / PRINCIPLES.md headers with live lesson/principle/belief/frontier counts. Addresses ~4% state-sync commit overhead (L-216). Run as part of every handoff. (every ~1 sessions, last: S538)"
+    }
+  ]
 }
