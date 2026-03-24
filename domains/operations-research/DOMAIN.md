@@ -1,4 +1,5 @@
 # Domain: Operations Research / Scheduling
+Adjacent: expert-swarm, forecasting, guesstimates, strategy
 Topic: Queueing, scheduling policy, bottleneck management, work-in-progress limits, and throughput/latency tradeoffs as structural isomorphisms for swarm lane planning, frontier execution order, and coordination overhead control.
 Beliefs: (candidate only; no formal B-OPS* entries in `beliefs/DEPS.md` yet)
 Lessons: L-216 (state-sync overhead), L-251 (max-of-N timing effect), L-257 (session quality pattern), L-258 (coordination mode analysis)

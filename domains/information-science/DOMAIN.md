@@ -1,4 +1,5 @@
 # Domain: Information Science
+Adjacent: epistemology, cryptography, distributed-systems, statistics
 Topic: Shannon entropy, Kolmogorov complexity / MDL, Zipf's law citation distributions, recall/precision tradeoffs, and information decay as structural isomorphisms for swarm compaction timing, knowledge quality, spawn discipline, and obsolescence detection.
 Beliefs: B-IS1 (REFUTED S183 L-262: belief-state entropy is near-constant, not a compaction signal), B-IS2 (lesson citation distribution follows Zipf's law: power-law concentration is structural, OBSERVED — L-232/L-235), B-IS3 (spawn discipline is recall/precision tradeoff: P-119 threshold is the operating point on the IR curve, THEORIZED — F-IS3 model needs revision L-262)
 Lessons: L-232 (full-corpus Sharpe: power-law concentration in lesson citations), L-235 (age-normalized Sharpe: temporal bias + obsolescence curve), L-256 (information science domain seed: isomorphism audit), L-262 (F-IS1 refuted: belief entropy constant; F-IS3 model mismatch)

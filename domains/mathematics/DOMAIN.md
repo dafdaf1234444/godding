@@ -1,4 +1,5 @@
 # Domain: Mathematics (External Application)
+Adjacent: graph-theory, nk-complexity, stochastic-processes, statistics
 Topic: Mathematical dependency trees — tracking axiom→definition→lemma→theorem→corollary chains as navigable DAGs. First external-production application of swarm infrastructure: dependency graphs, knowledge-state tracking, correction propagation, and learning path generation applied to mathematics education and formalization.
 Beliefs: B14 (structural reproducibility), B2 (layered memory maps to layered math objects)
 Lessons: L-1294, L-1435, L-1496, L-1499

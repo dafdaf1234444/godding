@@ -1,4 +1,5 @@
 # Domain: Brain / Neuroscience
+Adjacent: ai, psychology, empathy, evolution, linguistics
 Topic: Neural architecture, predictive coding, memory systems, synaptic plasticity, cortical organization, and neural selection as structural isomorphisms for swarm prediction, compaction, knowledge persistence, domain sharding, and belief evolution.
 Beliefs: B-BRN1 (Hebbian co-citation: lessons cited together form principles, THEORIZED), B-BRN2 (hippocampal indexing: INDEX.md indexes rather than stores, same as hippocampus, THEORIZED), B-BRN3 (selective consolidation: high-impact lessons preferentially survive compaction, analogous to consolidation weighting, THEORIZED)
 Lessons: (pending verification — L-BRN1+ to be assigned)

@@ -1,4 +1,5 @@
 # Domain: Evolutionary Dynamics
+Adjacent: nk-complexity, brain, health, game-theory
 Topic: Variation-selection-retention, fitness landscapes, mutation/recombination pressure, and exploration/exploitation balance as structural isomorphisms for swarm adaptation, spawning strategy, and protocol evolution.
 Beliefs: (candidate only; no formal B-EVO* entries in `beliefs/DEPS.md` yet)
 Lessons: Evolution-heavy cluster already exists in core memory (55 lessons tagged Evolution in `memory/INDEX.md`), including L-153, L-208, L-214, L-222, and L-250.

@@ -1,4 +1,5 @@
 # Domain: AI Systems
+Adjacent: brain, nk-complexity, distributed-systems, claude-code
 Topic: Multi-agent coordination bottlenecks, capability vs. verification independence, and structural isomorphisms between AI coordination patterns and swarm design.
 Beliefs: B17 (info asymmetry = dominant MAS bottleneck, OBSERVED), B18 (capability⊥vigilance, OBSERVED), B19 (async prevents cascade anchoring, OBSERVED)
 Lessons: L-218 (asynchrony cascade defense), L-219 (capability⊥vigilance), L-220 (info asymmetry dominance), L-222 (domain swarming via isomorphism)

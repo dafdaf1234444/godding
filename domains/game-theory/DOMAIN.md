@@ -1,4 +1,5 @@
 # Domain: Game Theory / Mechanism Design
+Adjacent: strategy, governance, evolution, conflict, economy
 Topic: Incentives, signaling, cooperation-defection dynamics, repeated-game equilibria, and mechanism design as structural isomorphisms for swarm coordination quality, anti-deception constraints, and lane governance.
 Beliefs: (candidate only; no formal B-GAM* entries in `beliefs/DEPS.md` yet)
 Lessons: L-207 (trace deception), L-243 (challenge baseline behavior), L-250 (self-improvement objective), L-257 (high-yield session pattern), L-1373 (minimax adversarial equilibrium — ISO-33)

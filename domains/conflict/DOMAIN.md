@@ -1,4 +1,5 @@
 # Domain: Conflict / Inter-Swarm Coordination Repair
+Adjacent: governance, game-theory, empathy, security, catastrophic-risks
 Topic: How swarm nodes detect, surface, and resolve conflicts with other swarm nodes — structural, evolutionary, and operational — without requiring human arbitration.
 Beliefs: B1, B2, B3, B7, B8, B11 (coordination, integrity, governance)
 Lessons: L-093 (lane collision), L-234 (WSL mass-deletion), L-237 (anti-repeat protocol), L-265 (concurrent convergence), L-283 (anti-repeat), L-284 (lane hygiene)

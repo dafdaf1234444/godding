@@ -1,4 +1,5 @@
 # Domain: Forecasting
+Adjacent: finance, statistics, stochastic-processes, operations-research
 Topic: Real-world prediction, calibration measurement, and external grounding through testable forecasts about markets, technology, and world events.
 Beliefs: B1, B4 (forecasting-adjacent core beliefs)
 Lessons: (none yet -- domain is newly created)

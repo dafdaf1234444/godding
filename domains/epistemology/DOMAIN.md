@@ -1,4 +1,5 @@
 # Domain: Epistemology
+Adjacent: meta, mathematics, stochastic-processes, information-science
 Topic: Knowledge-about-knowledge — grounding the swarm's epistemic architecture in established traditions (Popper falsification, Bayesian epistemology, reliabilism, social epistemology) to discover structural gaps and improve knowledge quality.
 Beliefs: B1, B4, B8 (epistemology-adjacent core beliefs)
 Lessons: L-707, L-721, L-804 (knowledge state, multilevel claims, science quality)

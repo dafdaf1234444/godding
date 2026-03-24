@@ -1,4 +1,5 @@
 # Domain: Expert Swarm
+Adjacent: meta, governance, operations-research, epistemology
 Topic: Expert dispatch, companion bundling, utilization, and colony-based self-direction as structural isomorphisms for swarm capacity management and coordination efficiency.
 Beliefs: (candidate only; no formal B-EXP* entries yet)
 Lessons: L-355

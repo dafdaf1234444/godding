@@ -1,4 +1,5 @@
 # Domain: Finance / Portfolio Theory + External Investment
+Adjacent: forecasting, economy, cryptocurrency, game-theory, statistics
 Topic: Portfolio optimization, information asymmetry in markets, risk decomposition, and Sharpe-ratio logic as structural isomorphisms for swarm spawn discipline, belief compression, and blackboard design. **S499 PIVOT**: External application — swarm produces falsifiable market predictions to test whether multi-domain structural reasoning generates real investment alpha. See `EXTERNAL.md` for methodology, `tools/market_predict.py` for registry, `experiments/finance/predictions/` for data.
 Beliefs: B-FIN1 (diversification = variance reduction without sacrificing mean, PARTIALLY CONFIRMED S183), B-FIN2 (systematic risk propagates through all spawned agents, OBSERVED S183), B-FIN3 (lesson Sharpe = quality/cost drives retention decisions, OBSERVED S181)
 Lessons: L-225 (blackboard dark-file audit — info asymmetry root cause, OBSERVED isomorphism to adverse selection), L-232 (full-corpus Sharpe: foundational early lessons dominate top; forgotten-middle L-56–L-80 are compaction candidates)

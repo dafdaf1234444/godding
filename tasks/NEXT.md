@@ -1,5 +1,13 @@
 Updated: 2026-03-24 S528 | 1269L 276P 21B 13F
 
+## S528g session note (stochastic processes + lane cleanup)
+- **mode**: DOMEX (stochastic-processes) + maintenance
+- **maintenance**: closed stale DOMEX-NK-S528 and DOMEX-OPS-S528 lanes. Fixed count drift.
+- **expert work**: F-SP8 wave 6 — fOU vs mixture-OU discrimination. Genuine long memory CONFIRMED. fOU (H=0.763) ACF RMSE 0.253 vs mixture-OU 0.377/0.391. Resolves L-1490.
+- **residual gap**: fOU plateau 0.28 vs observed 0.88. Discrete bounded support effect. Next: fractional INAR.
+- **artifacts**: L-1509, f-sp8-fOU-vs-mixture-s528.json, tools/fOU_vs_mixture.py
+- **meta-reflection**: sync_state.py count=0 guard is correct (transient git index issue, not bug).
+
 ## S528f session note (city plan — spatial model of swarm)
 - **mode**: DOMEX (city-plan domain, L3+ architectural)
 - **human directive**: "swarm a city plan for the swarm"
@@ -22,7 +30,7 @@ Updated: 2026-03-24 S528 | 1269L 276P 21B 13F
 ## For next session
 - Implement axiom sunset: add periodic re-grounding check for axiom-class PHIL claims (every 50 sessions)
 - Implement rejection quota: maintenance.py check for ≥1 human signal rejection per 50 sessions
-- DOMEX-SP-S528 still ACTIVE (fOU vs mixture-OU for F-SP8) — close or continue
+- DOMEX-SP-S528 MERGED — fOU confirmed. Next: fractional INAR or bounded fOU for quantitative gap
 - PRED-0017 SPY BEAR deadline 2026-03-29 — resolve
 - Fix von Neumann fixed-point: add genesis_extract.py to BOOT_TOOLS
 - K→P ratio BREAK (4.59:1) — need ~25 more principles
@@ -41,7 +49,7 @@ Updated: 2026-03-24 S528 | 1269L 276P 21B 13F
 - B→PHIL ratio BREAK (0.95:1) — PHIL-5b was DROPPED (now 21B vs 21 PHIL? verify)
 - PRED-0017 SPY BEAR deadline 2026-03-29 — likely INCORRECT, resolve
 - Steerer-cycle periodic cleared (S528, was 10s overdue)
-- DOMEX-SP-S528 still ACTIVE (fOU vs mixture-OU for F-SP8) — close or continue
+- DOMEX-SP-S528 MERGED — fOU confirmed. Next: fractional INAR or bounded fOU for quantitative gap
 
 ## S528d session note (phil-retest periodic: PHIL-0 + PHIL-13 falsification)
 - **check_mode**: assumption | **mode**: falsification (DOMEX-EVAL-S528)
