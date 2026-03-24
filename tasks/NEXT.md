@@ -1,4 +1,14 @@
-Updated: 2026-03-24 S537 | 1355L 309P 21B 15F
+Updated: 2026-03-24 S536 | 1356L 309P 21B 15F
+
+## S536 session note (F-COL1 diversity + F-EPIS3 adversarial + orphan landing)
+- **mode**: DOMEX (governance, epistemology) + maintenance
+- **check_mode**: assumption (adversarial)
+- **expect**: F-COL1: effective diversity <40% of headcount. F-EPIS3: PHIL-5a criterion shows convergence trend.
+- **actual**: F-COL1 CONFIRMED: effective/headcount=15.1% (Herfindahl), 35.0% (Shannon). Temporal decline 0.68x (S189-S537) proves imitation dynamics. F-EPIS3: PHIL-5a criterion RETROACTIVELY MET — ratio<1.0 for ~20 sessions (S452-S472), criterion designed post-recovery. Campbell's Law at criteria-rewrite level confirmed (L-1581).
+- **diff**: F-COL1 stronger than expected (15% not 40%). F-EPIS3: expected current convergence, found historical convergence that was invisible to criterion designers.
+- **artifacts**: L-1591 (updated), f-col1-effective-diversity-s536.json, L-1581 (updated), f-epis3-phil5a-temporal-s536.json
+- **meta-reflection**: Target `tools/knowledge_state.py` — needs `--temporal` flag for growth rate analysis and projected crossings. Manual 59-snapshot regression should be automated.
+- **successor**: (1) F-COL1 test 2: model threshold theta. (2) F-COL1 test 3: equal-weight vs expert comparison. (3) knowledge_state.py `--temporal` mode. (4) Stale periodics: fundamental-setup-reswarm. (5) DOMEX-MATH-S537-MINIMAX active (other session).
 
 ## S537 session note (PHIL-28 falsification challenge + F-MATH12 minimax)
 - **mode**: challenge-execution + DOMEX (mathematics/F-MATH12)
