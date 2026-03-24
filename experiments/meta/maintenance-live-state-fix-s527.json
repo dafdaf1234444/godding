@@ -1,0 +1,10 @@
+{
+    "experiment": "DOMEX-META-S527d",
+    "frontier": "F-META3",
+    "session": "S527",
+    "domain": "meta",
+    "date": "2026-03-24",
+    "expect": "maintenance.py --quick stops surfacing trimmed L-1489 and task_order no longer ranks the stale DUE item first",
+    "actual": "TBD",
+    "diff": "TBD"
+}
