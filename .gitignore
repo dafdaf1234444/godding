@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .DS_Store
 *.swp
 *~
@@ -37,3 +38,21 @@ workspace/autoswarm-trigger
 workspace/precompact-checkpoint-*.json
 workspace/cache/
 workspace/claims/
+=======
+bin/
+obj/
+*.db
+*.user
+*.suo
+.vs/
+*.DotSettings.user
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+>>>>>>> b5a3f75e (Godding — the bidirectional tree)
+runtime/*.lock
+runtime/*.pid
+runtime/*.tmp
+runtime/*.local
