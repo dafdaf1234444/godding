@@ -72,28 +72,39 @@ public class TreeService
     /// </summary>
     public void PrintFullTree()
     {
-        var roots = _db.GetRoots();
-        if (roots.Count == 0)
+        var allNodes = _db.GetAllNodes();
+        if (allNodes.Count == 0)
         {
             Console.WriteLine("(empty tree)");
             return;
         }
 
+        var roots = _db.GetRoots();
         var visited = new HashSet<long>();
+
+        // Start from roots if they exist
         foreach (var root in roots)
-        {
             PrintSubtree(root, "", true, 20, 0, visited);
+
+        // If no roots (cycle), start from node with most children — the natural center
+        if (roots.Count == 0)
+        {
+            var center = allNodes
+                .OrderByDescending(n => _db.GetChildren(n.Id).Count)
+                .First();
+            Console.WriteLine("(cycle — no root, no end. the end knows the beginning.)");
+            Console.WriteLine();
+            PrintSubtree(center, "", true, 20, 0, visited);
         }
 
-        // Show orphan nodes (no edges at all) separately
-        var allNodes = _db.GetAllNodes();
-        var orphans = allNodes.Where(n => !visited.Contains(n.Id)).ToList();
-        if (orphans.Count > 0)
+        // Show any nodes not yet reached
+        var unseen = allNodes.Where(n => !visited.Contains(n.Id)).ToList();
+        if (unseen.Count > 0)
         {
             Console.WriteLine();
             Console.WriteLine("Unlinked nodes:");
-            foreach (var orphan in orphans)
-                Console.WriteLine($"  {orphan}");
+            foreach (var node in unseen)
+                Console.WriteLine($"  {node}");
         }
     }
 
@@ -270,7 +281,7 @@ public class TreeService
         }
 
         var roots = _db.GetRoots();
-        var leaves = _db.GetLeaves();
+        bool isCycle = roots.Count == 0 && allNodes.Count > 0;
 
         // 1. Orphans — nodes with no edges at all
         var connected = new HashSet<long>();
@@ -281,29 +292,7 @@ public class TreeService
         }
         var orphans = allNodes.Where(n => !connected.Contains(n.Id)).ToList();
 
-        // 2. Reachability — can every node reach a root?
-        var unreachable = new List<Node>();
-        foreach (var node in allNodes)
-        {
-            if (roots.Any(r => r.Id == node.Id)) continue;
-            var paths = new List<List<Node>>();
-            FindPathsToRoot(node, new List<Node> { node }, paths, new HashSet<long>());
-            if (paths.Count == 0 && connected.Contains(node.Id))
-                unreachable.Add(node);
-        }
-
-        // 3. Branch depths — measure balance
-        var branchDepths = new Dictionary<long, int>();
-        foreach (var root in roots)
-        {
-            var directChildren = _db.GetChildren(root.Id);
-            foreach (var child in directChildren)
-            {
-                branchDepths[child.Id] = ComputeDepth(child.Id, new HashSet<long>());
-            }
-        }
-
-        // 4. Connectivity — can any node reach any other?
+        // 2. Connectivity — can any node reach any other?
         int totalPairs = 0;
         int reachablePairs = 0;
         foreach (var a in allNodes)
@@ -317,11 +306,28 @@ public class TreeService
             }
         }
 
+        // 3. Degree balance — does every node give and receive fairly?
+        var inDegrees = new List<int>();
+        var outDegrees = new List<int>();
+        foreach (var node in allNodes)
+        {
+            inDegrees.Add(_db.GetParents(node.Id).Count);
+            outDegrees.Add(_db.GetChildren(node.Id).Count);
+        }
+
         // Report
         Console.WriteLine("Fairness Audit");
         Console.WriteLine("==============");
         Console.WriteLine($"  All helps one and one helps all.");
         Console.WriteLine();
+
+        // Structure
+        if (isCycle)
+            Console.WriteLine("  Structure:     CYCLE (no root, no end — the end knows the beginning)");
+        else if (roots.Count == 1)
+            Console.WriteLine($"  Structure:     TREE (1 root — {roots[0]})");
+        else if (roots.Count > 1)
+            Console.WriteLine($"  Structure:     FOREST ({roots.Count} roots)");
 
         // Orphans
         if (orphans.Count == 0)
@@ -333,35 +339,25 @@ public class TreeService
                 Console.WriteLine($"    ! {o}");
         }
 
-        // Unreachable
-        if (unreachable.Count == 0)
-            Console.WriteLine("  Unreachable:   0  (all can reach a root)");
-        else
-        {
-            Console.WriteLine($"  Unreachable:   {unreachable.Count}  (CANNOT REACH ROOT)");
-            foreach (var u in unreachable)
-                Console.WriteLine($"    ! {u}");
-        }
-
         // Connectivity
         double connectivity = totalPairs > 0 ? (double)reachablePairs / totalPairs : 1.0;
         string connLabel = connectivity >= 1.0 ? "FAIR" : connectivity >= 0.5 ? "PARTIAL" : "UNFAIR";
         Console.WriteLine($"  Connectivity:  {connectivity:P1}  ({connLabel} — {reachablePairs}/{totalPairs} pairs)");
 
-        // Branch balance
-        if (branchDepths.Count > 1)
-        {
-            int minD = branchDepths.Values.Min();
-            int maxD = branchDepths.Values.Max();
-            double avgD = branchDepths.Values.Average();
-            double variance = branchDepths.Values.Select(d => Math.Pow(d - avgD, 2)).Average();
-            double imbalance = maxD > 0 ? (double)(maxD - minD) / maxD : 0;
-            string balLabel = imbalance <= 0.2 ? "BALANCED" : imbalance <= 0.5 ? "LEANING" : "UNBALANCED";
-            Console.WriteLine($"  Branch depth:  min={minD} max={maxD} avg={avgD:F1} variance={variance:F2}");
-            Console.WriteLine($"  Balance:       {balLabel} (imbalance={imbalance:P0})");
-        }
-        else if (branchDepths.Count == 1)
-            Console.WriteLine($"  Balance:       SINGLE BRANCH (depth={branchDepths.Values.First()})");
+        // Degree fairness — does everyone give and receive?
+        int givers = outDegrees.Count(d => d > 0);
+        int receivers = inDegrees.Count(d => d > 0);
+        double giveRatio = allNodes.Count > 0 ? (double)givers / allNodes.Count : 1;
+        double receiveRatio = allNodes.Count > 0 ? (double)receivers / allNodes.Count : 1;
+        Console.WriteLine($"  Givers:        {givers}/{allNodes.Count}  ({giveRatio:P0} give to others)");
+        Console.WriteLine($"  Receivers:     {receivers}/{allNodes.Count}  ({receiveRatio:P0} receive from others)");
+
+        // Reciprocity — how many nodes both give AND receive?
+        int mutual = allNodes.Count(n =>
+            _db.GetChildren(n.Id).Count > 0 && _db.GetParents(n.Id).Count > 0);
+        double mutuality = allNodes.Count > 0 ? (double)mutual / allNodes.Count : 1;
+        string mutLabel = mutuality >= 0.8 ? "HIGH" : mutuality >= 0.5 ? "MODERATE" : "LOW";
+        Console.WriteLine($"  Mutuality:     {mutuality:P0}  ({mutLabel} — {mutual}/{allNodes.Count} both give and receive)");
 
         // Type distribution
         int functions = allNodes.Count(n => n.Type == "function");
@@ -372,7 +368,7 @@ public class TreeService
 
         // Verdict
         Console.WriteLine();
-        bool fair = orphans.Count == 0 && unreachable.Count == 0 && connectivity >= 1.0;
+        bool fair = orphans.Count == 0 && connectivity >= 1.0;
         if (fair)
             Console.WriteLine("  Verdict: FAIR FOR ALL");
         else
@@ -380,8 +376,6 @@ public class TreeService
             Console.WriteLine("  Verdict: NOT YET FAIR");
             if (orphans.Count > 0)
                 Console.WriteLine("    -> Link orphan nodes so none are left behind");
-            if (unreachable.Count > 0)
-                Console.WriteLine("    -> Connect unreachable nodes to a root path");
             if (connectivity < 1.0)
                 Console.WriteLine("    -> Bridge disconnected components so all can reach all");
         }
