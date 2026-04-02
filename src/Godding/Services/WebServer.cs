@@ -30,7 +30,7 @@ public class WebServer
                 n.Id, n.Name, n.Content, n.Type,
                 Children = db.GetChildren(n.Id).Select(c => c.Id).ToList(),
                 Parents = db.GetParents(n.Id).Select(p => p.Id).ToList()
-            });
+            }).ToList();
             return Results.Json(nodes);
         });
 
