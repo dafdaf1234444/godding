@@ -12,20 +12,16 @@ body {
     color: #3a3a3a;
     min-height: 100vh;
 }
-
 .page {
-    max-width: 580px;
+    max-width: 500px;
     margin: 0 auto;
-    padding: 32px 20px;
+    padding: 40px 20px;
 }
-
 h1 {
     text-align: center;
     font-size: 22px;
-    color: #2a2a2a;
     font-weight: normal;
     margin-bottom: 4px;
-    letter-spacing: 1px;
 }
 .tagline {
     text-align: center;
@@ -35,125 +31,131 @@ h1 {
     margin-bottom: 32px;
 }
 
-/* ── Cards ── */
-.card {
-    background: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 14px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-}
-.card h2 {
-    font-size: 13px;
-    color: #888;
-    margin-bottom: 10px;
-    font-weight: normal;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-/* ── Inputs ── */
-.input-row {
-    display: flex;
-    gap: 8px;
-}
-.input-row input {
-    flex: 1;
-    padding: 10px 12px;
-    background: #fafaf8;
-    border: 1px solid #e0dcd6;
-    border-radius: 8px;
-    color: #3a3a3a;
-    font-size: 15px;
-    font-family: inherit;
-    outline: none;
-}
-.input-row input:focus { border-color: #b8a88a; }
-.input-row input::placeholder { color: #bbb; }
-.btn {
-    padding: 10px 18px;
-    border: 1px solid #d5cfc5;
+/* Status */
+.status {
+    text-align: center;
+    padding: 14px;
     border-radius: 8px;
     font-size: 14px;
+    margin-bottom: 20px;
+}
+.status.good { background: #e8f0e8; color: #4a6a4a; }
+.status.needs { background: #f0e8e4; color: #7a5a4a; }
+.status.empty { background: #eee8e0; color: #999; }
+
+/* Add */
+.add-box {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.add-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #d5cfc5;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #fff;
+    color: #3a3a3a;
+    outline: none;
+}
+.add-box input:focus { border-color: #b8a88a; }
+.add-box input::placeholder { color: #ccc; }
+.add-box button {
+    padding: 12px 20px;
+    border: 1px solid #d5cfc5;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 15px;
     font-family: inherit;
     cursor: pointer;
     color: #555;
-    background: #f0ece5;
 }
-.btn:hover { background: #e5e0d8; }
-.btn-go { background: #e8efe8; border-color: #b5ccb5; color: #4a6a4a; }
-.btn-go:hover { background: #dce8dc; }
+.add-box button:hover { background: #f0ece5; }
 
-/* ── Status ── */
-.status {
-    text-align: center;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 14px;
-    margin-bottom: 14px;
+/* Things */
+.thing {
+    background: #fff;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
-.status.fair {
-    background: #edf5ed;
-    color: #4a7a4a;
+.thing .name {
+    font-size: 16px;
+    color: #2a2a2a;
+    margin-bottom: 6px;
 }
-.status.unfair {
-    background: #f5edea;
-    color: #8a5a4a;
-}
-.status.empty {
-    background: #f0ece5;
-    color: #999;
-}
-
-/* ── Canvas ── */
-.canvas-wrap {
-    background: #fafaf8;
-    border: 1px solid #e8e4de;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-}
-canvas {
-    display: block;
-    width: 100%;
-    height: 380px;
-    cursor: grab;
-}
-canvas:active { cursor: grabbing; }
-.hint {
-    position: absolute;
-    bottom: 8px;
-    left: 0; right: 0;
-    text-align: center;
-    color: #ccc;
-    font-size: 11px;
-    pointer-events: none;
-}
-
-.connect-bar {
-    display: none;
-    text-align: center;
-    padding: 10px;
-    background: #edf5ed;
-    border: 1px solid #c5d8c5;
-    border-radius: 10px;
-    margin-bottom: 14px;
-    color: #4a7a4a;
+.thing .links {
     font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+}
+.thing .links b {
+    color: #666;
+    font-weight: normal;
+}
+.thing .alone {
+    color: #c09080;
+    font-size: 13px;
+    font-style: italic;
 }
 
-/* ── Detail ── */
-.detail { display: none; }
-.detail .name { font-size: 17px; color: #2a2a2a; margin-bottom: 4px; }
-.detail .desc { color: #999; margin-bottom: 8px; font-size: 13px; font-style: italic; }
-.detail .conn { color: #777; font-size: 13px; line-height: 1.7; }
-.detail .conn b { color: #555; font-weight: normal; }
+/* Connect */
+.connect-area {
+    display: flex;
+    gap: 6px;
+    margin-top: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.connect-area select {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #fafaf8;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+}
+.connect-area button {
+    padding: 6px 12px;
+    border: 1px solid #c5d5c5;
+    border-radius: 6px;
+    background: #edf5ed;
+    font-size: 13px;
+    font-family: inherit;
+    cursor: pointer;
+    color: #4a6a4a;
+}
+.connect-area button:hover { background: #e0ece0; }
+.connect-area .arrow {
+    color: #ccc;
+    font-size: 14px;
+}
+
+.section-label {
+    font-size: 12px;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #e8e4de;
+    margin: 24px 0;
+}
 
 footer {
     text-align: center;
     color: #ccc;
     font-size: 11px;
-    padding: 20px;
+    margin-top: 32px;
     line-height: 1.6;
 }
 </style>
@@ -164,306 +166,161 @@ footer {
 <h1>Godding</h1>
 <p class="tagline">The hand that gives is connected to the hand that receives.</p>
 
-<div class="status empty" id="status">Add something to begin</div>
+<div class="status empty" id="status">Write something below to begin.</div>
 
-<div class="card">
-    <h2>Add something</h2>
-    <div class="input-row">
-        <input type="text" id="name" placeholder="What is it?" autocomplete="off">
-        <button class="btn" onclick="add()">Add</button>
-    </div>
+<div class="add-box">
+    <input type="text" id="inp" placeholder="Something on your mind..." autocomplete="off">
+    <button onclick="add()">Add</button>
 </div>
 
-<div class="connect-bar" id="connectBar">Click two circles to connect them</div>
-
-<div class="card">
-    <h2>Your tree</h2>
-    <div style="margin-bottom:10px">
-        <button class="btn btn-go" id="connectBtn" onclick="startConnect()">Connect two things</button>
+<div id="connectBox" style="display:none">
+    <div class="section-label">Connect</div>
+    <div class="connect-area">
+        <select id="fromSel"></select>
+        <span class="arrow">&#8594;</span>
+        <select id="toSel"></select>
+        <button onclick="link()">Connect</button>
     </div>
-    <div class="canvas-wrap">
-        <canvas id="c"></canvas>
-        <div class="hint" id="hint">Click a circle to see it. Drag to move.</div>
-    </div>
+    <hr class="divider">
 </div>
 
-<div class="card detail" id="detail">
-    <div class="name" id="dName"></div>
-    <div class="desc" id="dDesc"></div>
-    <div class="conn" id="dConn"></div>
-</div>
+<div class="section-label" id="listLabel" style="display:none">Everything</div>
+<div id="list"></div>
 
 <footer>
-    Everything stays in your browser. Nothing is sent anywhere.<br>
-    Fair for all.
+    Everything stays here in your browser.<br>
+    Nothing is sent anywhere. Fair for all.
 </footer>
 
 </div>
 <script>
-const KEY = 'godding';
-const seed = {nextId:7, nodes:[
-    {id:1, name:'You', desc:'The one reading this'},
-    {id:2, name:'Someone else', desc:'Anyone in the world'},
-    {id:3, name:'An idea', desc:'Something worth understanding'},
-    {id:4, name:'A question', desc:'Something worth asking'},
-    {id:5, name:'Kindness', desc:'The simplest connection'},
-    {id:6, name:'Understanding', desc:'What comes after'}
-], edges:[
-    {from:1,to:5},{from:2,to:5},
-    {from:5,to:6},
-    {from:6,to:3},{from:6,to:4},
-    {from:3,to:1},{from:4,to:2}
+const K = 'godding2';
+const seed = {nextId: 4, nodes: [
+    {id:1, name:'You'},
+    {id:2, name:'Someone else'},
+    {id:3, name:'Something in common'}
+], edges: [
+    {from:1, to:3},
+    {from:2, to:3},
+    {from:3, to:1},
+    {from:3, to:2}
 ]};
 
 function load() {
     try {
-        const d = JSON.parse(localStorage.getItem(KEY));
+        const d = JSON.parse(localStorage.getItem(K));
         if (d && d.nodes && d.nodes.length > 0) return d;
         return JSON.parse(JSON.stringify(seed));
     } catch { return JSON.parse(JSON.stringify(seed)); }
 }
-function save(d) { localStorage.setItem(KEY, JSON.stringify(d)); }
-
-let pos = {};
-let drag = null, dragOff = {x:0,y:0}, dragMoved = false;
-let connecting = false, connectFrom = null;
+function save(d) { localStorage.setItem(K, JSON.stringify(d)); }
 
 function add() {
-    const inp = document.getElementById('name');
-    const n = inp.value.trim();
-    if (!n) return;
+    const inp = document.getElementById('inp');
+    const name = inp.value.trim();
+    if (!name) return;
     const d = load();
-    d.nodes.push({id: d.nextId++, name: n, desc: null});
+    d.nodes.push({id: d.nextId++, name});
     save(d);
     inp.value = '';
     render();
 }
 
-function startConnect() {
-    connecting = !connecting;
-    connectFrom = null;
-    document.getElementById('connectBtn').textContent = connecting ? 'Cancel' : 'Connect two things';
-    document.getElementById('connectBar').style.display = connecting ? 'block' : 'none';
-    document.getElementById('connectBar').textContent = 'Click two circles to connect them';
-    render();
-}
-
-function doConnect(nid) {
-    if (!connectFrom) {
-        connectFrom = nid;
-        const d = load();
-        const n = d.nodes.find(x => x.id === nid);
-        document.getElementById('connectBar').textContent = 'Now click what "' + n.name + '" connects to';
-        render();
-        return;
-    }
-    if (nid === connectFrom) return;
+function link() {
+    const f = parseInt(document.getElementById('fromSel').value);
+    const t = parseInt(document.getElementById('toSel').value);
+    if (!f || !t || f === t) return;
     const d = load();
-    if (!d.edges.some(e => e.from === connectFrom && e.to === nid)) {
-        d.edges.push({from: connectFrom, to: nid});
-        save(d);
-    }
-    connecting = false; connectFrom = null;
-    document.getElementById('connectBtn').textContent = 'Connect two things';
-    document.getElementById('connectBar').style.display = 'none';
+    if (d.edges.some(e => e.from === f && e.to === t)) return;
+    d.edges.push({from: f, to: t});
+    save(d);
     render();
 }
 
 function render() {
     const d = load();
-    updateStatus(d);
-    draw(d);
-}
 
-function updateStatus(d) {
+    // Status
     const el = document.getElementById('status');
-    if (d.nodes.length === 0) { el.textContent = 'Add something to begin'; el.className = 'status empty'; return; }
-    const linked = new Set();
-    d.edges.forEach(e => { linked.add(e.from); linked.add(e.to); });
-    const alone = d.nodes.filter(n => !linked.has(n.id));
-    if (alone.length === 0) {
-        el.textContent = 'Everything is connected.';
-        el.className = 'status fair';
-    } else if (d.nodes.length === 1) {
-        el.textContent = 'One thing so far.';
+    if (d.nodes.length === 0) {
+        el.textContent = 'Write something below to begin.';
         el.className = 'status empty';
     } else {
-        const names = alone.map(n => n.name);
-        el.textContent = (names.length <= 2 ? names.join(' and ') : names.length + ' things') + ' \u2014 not connected yet';
-        el.className = 'status unfair';
-    }
-}
-
-function draw(d) {
-    const canvas = document.getElementById('c');
-    const rect = canvas.getBoundingClientRect();
-    const dpr = window.devicePixelRatio || 1;
-    canvas.width = rect.width * dpr;
-    canvas.height = rect.height * dpr;
-    const ctx = canvas.getContext('2d');
-    ctx.scale(dpr, dpr);
-    const W = rect.width, H = rect.height;
-
-    if (d.nodes.length === 0) {
-        document.getElementById('hint').textContent = 'Add something above to see it here.';
-        return;
-    }
-    document.getElementById('hint').textContent = connecting
-        ? 'Click a circle to start' : 'Click a circle to see it. Drag to move.';
-
-    d.nodes.forEach((n, i) => {
-        if (!pos[n.id]) {
-            const a = (i / d.nodes.length) * Math.PI * 2 - Math.PI/2;
-            const r = 55 + d.nodes.length * 13;
-            pos[n.id] = {x: W/2 + Math.cos(a)*r, y: H/2 + Math.sin(a)*r};
+        const linked = new Set();
+        d.edges.forEach(e => { linked.add(e.from); linked.add(e.to); });
+        const alone = d.nodes.filter(n => !linked.has(n.id));
+        if (alone.length === 0) {
+            el.textContent = 'Everything is connected.';
+            el.className = 'status good';
+        } else if (d.nodes.length === 1) {
+            el.textContent = 'One thing so far. Add another and connect them.';
+            el.className = 'status empty';
+        } else {
+            const names = alone.map(n => '"' + n.name + '"');
+            el.textContent = (names.length <= 3 ? names.join(' and ') : alone.length + ' things') + ' not connected yet.';
+            el.className = 'status needs';
         }
-    });
+    }
 
-    for (let t = 0; t < 40; t++) {
-        d.nodes.forEach(a => {
-            if (drag && a.id === drag.id) return;
-            let fx = 0, fy = 0;
-            const pa = pos[a.id];
-            d.nodes.forEach(b => {
-                if (a.id === b.id) return;
-                const pb = pos[b.id];
-                let dx = pb.x-pa.x, dy = pb.y-pa.y, dist = Math.sqrt(dx*dx+dy*dy)||1;
-                fx -= dx/dist * 2200/(dist*dist);
-                fy -= dy/dist * 2200/(dist*dist);
+    // Connect selects
+    const showConnect = d.nodes.length >= 2;
+    document.getElementById('connectBox').style.display = showConnect ? 'block' : 'none';
+    if (showConnect) {
+        ['fromSel', 'toSel'].forEach(id => {
+            const sel = document.getElementById(id);
+            const old = sel.value;
+            sel.innerHTML = '<option value="">pick...</option>';
+            d.nodes.forEach(n => {
+                const o = document.createElement('option');
+                o.value = n.id; o.textContent = n.name;
+                sel.appendChild(o);
             });
-            d.edges.forEach(e => {
-                let oid = e.from===a.id ? e.to : e.to===a.id ? e.from : null;
-                if (!oid || !pos[oid]) return;
-                let dx = pos[oid].x-pa.x, dy = pos[oid].y-pa.y, dist = Math.sqrt(dx*dx+dy*dy)||1;
-                fx += dx/dist * (dist-85) * 0.04;
-                fy += dy/dist * (dist-85) * 0.04;
-            });
-            fx += (W/2 - pa.x) * 0.004;
-            fy += (H/2 - pa.y) * 0.004;
-            pa.x = Math.max(35, Math.min(W-35, pa.x + fx*0.22));
-            pa.y = Math.max(35, Math.min(H-35, pa.y + fy*0.22));
+            sel.value = old;
         });
     }
 
-    ctx.clearRect(0,0,W,H);
-    const R = 22;
+    // List
+    const list = document.getElementById('list');
+    document.getElementById('listLabel').style.display = d.nodes.length > 0 ? 'block' : 'none';
+    list.innerHTML = '';
 
-    // Edges
-    d.edges.forEach(e => {
-        const a = pos[e.from], b = pos[e.to];
-        if (!a || !b) return;
-        ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
-        ctx.strokeStyle = '#d0ccc5'; ctx.lineWidth = 1; ctx.stroke();
-        const ang = Math.atan2(b.y-a.y, b.x-a.x);
-        const ax = b.x - Math.cos(ang)*R, ay = b.y - Math.sin(ang)*R;
-        ctx.beginPath(); ctx.moveTo(ax,ay);
-        ctx.lineTo(ax-Math.cos(ang-0.3)*7, ay-Math.sin(ang-0.3)*7);
-        ctx.lineTo(ax-Math.cos(ang+0.3)*7, ay-Math.sin(ang+0.3)*7);
-        ctx.closePath(); ctx.fillStyle='#c5c0b8'; ctx.fill();
-    });
-
-    // Nodes
     const linked = new Set();
     d.edges.forEach(e => { linked.add(e.from); linked.add(e.to); });
 
     d.nodes.forEach(n => {
-        const p = pos[n.id]; if (!p) return;
-        const orphan = !linked.has(n.id) && d.nodes.length > 1;
-        const isCF = connecting && connectFrom === n.id;
+        const div = document.createElement('div');
+        div.className = 'thing';
 
-        ctx.beginPath(); ctx.arc(p.x,p.y,R,0,Math.PI*2);
-        if (orphan) {
-            ctx.fillStyle = '#f5e8e4';
-            ctx.strokeStyle = '#c89a8a';
-        } else if (isCF) {
-            ctx.fillStyle = '#e4f0e4';
-            ctx.strokeStyle = '#7aaa7a';
-        } else {
-            ctx.fillStyle = '#fff';
-            ctx.strokeStyle = '#b8b0a5';
-        }
-        ctx.fill();
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
+        const givesTo = d.edges.filter(e => e.from === n.id)
+            .map(e => d.nodes.find(x => x.id === e.to))
+            .filter(Boolean).map(x => x.name);
+        const getsFrom = d.edges.filter(e => e.to === n.id)
+            .map(e => d.nodes.find(x => x.id === e.from))
+            .filter(Boolean).map(x => x.name);
 
-        ctx.fillStyle = '#555';
-        ctx.font = '11px Georgia, serif';
-        ctx.textAlign = 'center';
-        const words = n.name.split(' ');
-        if (n.name.length <= 12) {
-            ctx.fillText(n.name, p.x, p.y + R + 14);
-        } else {
-            const mid = Math.ceil(words.length/2);
-            ctx.fillText(words.slice(0,mid).join(' '), p.x, p.y+R+12);
-            if (words.length > 1)
-                ctx.fillText(words.slice(mid).join(' '), p.x, p.y+R+24);
+        let html = '<div class="name">' + esc(n.name) + '</div>';
+
+        if (givesTo.length || getsFrom.length) {
+            let parts = [];
+            if (givesTo.length) parts.push('Gives to <b>' + givesTo.map(esc).join('</b>, <b>') + '</b>');
+            if (getsFrom.length) parts.push('Receives from <b>' + getsFrom.map(esc).join('</b>, <b>') + '</b>');
+            html += '<div class="links">' + parts.join('<br>') + '</div>';
+        } else if (d.nodes.length > 1) {
+            html += '<div class="alone">Not connected to anything yet.</div>';
         }
+
+        div.innerHTML = html;
+        list.appendChild(div);
     });
 }
 
-function nodeAt(cx, cy) {
-    const d = load(), rect = document.getElementById('c').getBoundingClientRect();
-    const x = cx - rect.left, y = cy - rect.top;
-    for (let i = d.nodes.length-1; i >= 0; i--) {
-        const p = pos[d.nodes[i].id]; if (!p) continue;
-        if ((x-p.x)**2 + (y-p.y)**2 < 24*24) return d.nodes[i];
-    }
-    return null;
+function esc(s) {
+    const d = document.createElement('div');
+    d.textContent = s;
+    return d.innerHTML;
 }
 
-function showDetail(node) {
-    const d = load(), el = document.getElementById('detail');
-    el.style.display = 'block'; el.className = 'card detail';
-    document.getElementById('dName').textContent = node.name;
-    document.getElementById('dDesc').textContent = node.desc || '';
-    const to = d.edges.filter(e => e.from===node.id).map(e => d.nodes.find(n => n.id===e.to)?.name).filter(Boolean);
-    const from = d.edges.filter(e => e.to===node.id).map(e => d.nodes.find(n => n.id===e.from)?.name).filter(Boolean);
-    let h = '';
-    if (to.length) h += 'Gives to <b>' + to.join('</b>, <b>') + '</b><br>';
-    if (from.length) h += 'Receives from <b>' + from.join('</b>, <b>') + '</b>';
-    if (!to.length && !from.length) h = 'Not connected yet.';
-    document.getElementById('dConn').innerHTML = h;
-}
-
-const c = document.getElementById('c');
-c.addEventListener('mousedown', e => {
-    const n = nodeAt(e.clientX, e.clientY);
-    if (n) {
-        if (connecting) { doConnect(n.id); return; }
-        drag = n; dragMoved = false;
-        const p = pos[n.id], rect = c.getBoundingClientRect();
-        dragOff = {x: e.clientX-rect.left-p.x, y: e.clientY-rect.top-p.y};
-    }
-});
-c.addEventListener('mousemove', e => {
-    if (!drag) return; dragMoved = true;
-    const rect = c.getBoundingClientRect();
-    pos[drag.id] = {x: e.clientX-rect.left-dragOff.x, y: e.clientY-rect.top-dragOff.y};
-    draw(load());
-});
-c.addEventListener('mouseup', () => { if (drag && !dragMoved) showDetail(drag); drag = null; });
-c.addEventListener('mouseleave', () => { drag = null; });
-
-c.addEventListener('touchstart', e => {
-    e.preventDefault();
-    const t = e.touches[0], n = nodeAt(t.clientX, t.clientY);
-    if (n) {
-        if (connecting) { doConnect(n.id); return; }
-        drag = n; dragMoved = false;
-        const p = pos[n.id], rect = c.getBoundingClientRect();
-        dragOff = {x: t.clientX-rect.left-p.x, y: t.clientY-rect.top-p.y};
-    }
-}, {passive:false});
-c.addEventListener('touchmove', e => {
-    e.preventDefault();
-    if (!drag) return; dragMoved = true;
-    const t = e.touches[0], rect = c.getBoundingClientRect();
-    pos[drag.id] = {x: t.clientX-rect.left-dragOff.x, y: t.clientY-rect.top-dragOff.y};
-    draw(load());
-}, {passive:false});
-c.addEventListener('touchend', () => { if (drag && !dragMoved) showDetail(drag); drag = null; });
-
-document.getElementById('name').addEventListener('keydown', e => { if (e.key==='Enter') add(); });
+document.getElementById('inp').addEventListener('keydown', e => { if (e.key === 'Enter') add(); });
 render();
 </script>
 </body>
