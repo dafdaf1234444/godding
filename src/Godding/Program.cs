@@ -336,6 +336,21 @@ balanceCommand.SetHandler((dbPath) =>
     svc.PrintBalance();
 }, dbPathOption);
 
+// ── serve (web UI) ───────────────────────────────────────────────────
+var serveCommand = new Command("serve", "Open the visual tree in your browser");
+var portOption = new Option<int>("--port", getDefaultValue: () => 5111, "Port to run on");
+serveCommand.AddOption(portOption);
+serveCommand.AddOption(dbPathOption);
+
+serveCommand.SetHandler((port, dbPath) =>
+{
+    var dir = Path.GetDirectoryName(dbPath);
+    if (dir != null && !Directory.Exists(dir))
+        Directory.CreateDirectory(dir);
+    var server = new WebServer(dbPath);
+    server.Start(port);
+}, portOption, dbPathOption);
+
 // ── Register all commands ────────────────────────────────────────────
 rootCommand.AddCommand(addCommand);
 rootCommand.AddCommand(linkCommand);
@@ -353,6 +368,7 @@ rootCommand.AddCommand(updateCommand);
 rootCommand.AddCommand(rootsCommand);
 rootCommand.AddCommand(leavesCommand);
 rootCommand.AddCommand(balanceCommand);
+rootCommand.AddCommand(serveCommand);
 
 return await rootCommand.InvokeAsync(args);
 
