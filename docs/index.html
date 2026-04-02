@@ -13,7 +13,7 @@ body {
     min-height: 100vh;
 }
 .page {
-    max-width: 500px;
+    max-width: 540px;
     margin: 0 auto;
     padding: 40px 20px;
 }
@@ -30,6 +30,25 @@ h1 {
     font-style: italic;
     margin-bottom: 32px;
 }
+.card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px 22px;
+    margin-bottom: 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.card h2 {
+    font-size: 15px;
+    font-weight: normal;
+    color: #2a2a2a;
+    margin-bottom: 8px;
+}
+.card p {
+    font-size: 14px;
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
 
 /* Status */
 .status {
@@ -37,7 +56,7 @@ h1 {
     padding: 14px;
     border-radius: 8px;
     font-size: 14px;
-    margin-bottom: 20px;
+    margin-bottom: 14px;
 }
 .status.good { background: #e8f0e8; color: #4a6a4a; }
 .status.needs { background: #f0e8e4; color: #7a5a4a; }
@@ -47,7 +66,7 @@ h1 {
 .add-box {
     display: flex;
     gap: 8px;
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 .add-box input {
     flex: 1;
@@ -74,80 +93,76 @@ h1 {
 }
 .add-box button:hover { background: #f0ece5; }
 
+/* Connect */
+.connect-area {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+.connect-area select {
+    flex: 1;
+    min-width: 100px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    background: #fff;
+    color: #555;
+    outline: none;
+    cursor: pointer;
+}
+.connect-area .arrow { color: #ccc; font-size: 14px; }
+.connect-area button {
+    padding: 8px 14px;
+    border: 1px solid #c5d5c5;
+    border-radius: 6px;
+    background: #edf5ed;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+    color: #4a6a4a;
+}
+.connect-area button:hover { background: #e0ece0; }
+
+.label {
+    font-size: 12px;
+    color: #bbb;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
 /* Things */
 .thing {
     background: #fff;
     border-radius: 8px;
-    padding: 16px;
-    margin-bottom: 10px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 .thing .name {
-    font-size: 16px;
+    font-size: 15px;
     color: #2a2a2a;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
 }
 .thing .links {
     font-size: 13px;
     color: #999;
     line-height: 1.6;
 }
-.thing .links b {
-    color: #666;
-    font-weight: normal;
-}
+.thing .links b { color: #666; font-weight: normal; }
 .thing .alone {
     color: #c09080;
     font-size: 13px;
     font-style: italic;
 }
 
-/* Connect */
-.connect-area {
-    display: flex;
-    gap: 6px;
-    margin-top: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.connect-area select {
-    padding: 6px 8px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    font-size: 13px;
-    font-family: inherit;
-    background: #fafaf8;
-    color: #555;
-    outline: none;
-    cursor: pointer;
-}
-.connect-area button {
-    padding: 6px 12px;
-    border: 1px solid #c5d5c5;
-    border-radius: 6px;
-    background: #edf5ed;
-    font-size: 13px;
-    font-family: inherit;
-    cursor: pointer;
-    color: #4a6a4a;
-}
-.connect-area button:hover { background: #e0ece0; }
-.connect-area .arrow {
-    color: #ccc;
-    font-size: 14px;
-}
-
-.section-label {
-    font-size: 12px;
-    color: #bbb;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 10px;
-}
-
 .divider {
     border: none;
-    border-top: 1px solid #e8e4de;
+    border-top: 1px solid #ebe6df;
     margin: 24px 0;
 }
 
@@ -166,35 +181,96 @@ footer {
 <h1>Godding</h1>
 <p class="tagline">The hand that gives is connected to the hand that receives.</p>
 
+<!-- ── WHAT ── -->
+<div class="card">
+    <h2>What is this?</h2>
+    <p>
+        A place to put things down and connect them to each other.
+        Ideas, people, problems, anything.
+        You write them here, you draw the lines between them,
+        and it tells you if anything got left out.
+    </p>
+</div>
+
+<!-- ── HOW ── -->
+<div class="card">
+    <h2>How does it work?</h2>
+    <p>
+        <strong>1.</strong> You add things. Type a name, press Add.<br>
+        <strong>2.</strong> You connect them. Pick two, press Connect.<br>
+        <strong>3.</strong> You see who gives to who, and who receives from who.<br>
+        <strong>4.</strong> If something is left alone, it shows you.
+    </p>
+</div>
+
+<!-- ── WHY ── -->
+<div class="card">
+    <h2>Why?</h2>
+    <p>
+        Because things get lost when they're not connected.
+        An idea nobody hears. A person nobody checks on.
+        A question nobody asks. This doesn't fix that.
+        It just makes it visible, so you can.
+    </p>
+</div>
+
+<!-- ── WHAT IT MEANS ── -->
+<div class="card">
+    <h2>What does it mean?</h2>
+    <p>
+        "Gives to" means one thing helps another.<br>
+        "Receives from" means it gets help from another.<br>
+        "Not connected" means it's on its own. Nobody left behind is the goal.<br>
+        "Everything is connected" means fair for all.
+    </p>
+</div>
+
+<!-- ── WHAT IT KNOWS ── -->
+<div class="card">
+    <h2>What does it know?</h2>
+    <p>
+        Nothing about you. It doesn't send data anywhere.
+        Everything stays right here in your browser.
+        If you clear your browser data, it's gone.
+        It only knows what you put in it.
+    </p>
+</div>
+
+<hr class="divider">
+
+<!-- ── THE TOOL ── -->
+
 <div class="status empty" id="status">Write something below to begin.</div>
 
+<div class="label">Add something</div>
 <div class="add-box">
     <input type="text" id="inp" placeholder="Something on your mind..." autocomplete="off">
     <button onclick="add()">Add</button>
 </div>
 
 <div id="connectBox" style="display:none">
-    <div class="section-label">Connect</div>
+    <div class="label">Connect two things</div>
     <div class="connect-area">
         <select id="fromSel"></select>
         <span class="arrow">&#8594;</span>
         <select id="toSel"></select>
         <button onclick="link()">Connect</button>
     </div>
-    <hr class="divider">
 </div>
 
-<div class="section-label" id="listLabel" style="display:none">Everything</div>
+<div class="label" id="listLabel" style="display:none">Everything you've added</div>
 <div id="list"></div>
 
 <footer>
-    Everything stays here in your browser.<br>
-    Nothing is sent anywhere. Fair for all.
+    All helps one and one helps all, forever.<br>
+    Hence all is known in the end, and the end knows the beginning.<br><br>
+    Everything stays in your browser. Nothing is sent anywhere.<br>
+    Free and open source. Fair for all.
 </footer>
 
 </div>
 <script>
-const K = 'godding2';
+const K = 'godding3';
 const seed = {nextId: 4, nodes: [
     {id:1, name:'You'},
     {id:2, name:'Someone else'},
@@ -240,7 +316,6 @@ function link() {
 function render() {
     const d = load();
 
-    // Status
     const el = document.getElementById('status');
     if (d.nodes.length === 0) {
         el.textContent = 'Write something below to begin.';
@@ -256,13 +331,12 @@ function render() {
             el.textContent = 'One thing so far. Add another and connect them.';
             el.className = 'status empty';
         } else {
-            const names = alone.map(n => '"' + n.name + '"');
-            el.textContent = (names.length <= 3 ? names.join(' and ') : alone.length + ' things') + ' not connected yet.';
+            const names = alone.map(n => '\u201c' + n.name + '\u201d');
+            el.textContent = (names.length <= 3 ? names.join(' and ') : alone.length + ' things') + ' \u2014 not connected yet.';
             el.className = 'status needs';
         }
     }
 
-    // Connect selects
     const showConnect = d.nodes.length >= 2;
     document.getElementById('connectBox').style.display = showConnect ? 'block' : 'none';
     if (showConnect) {
@@ -279,13 +353,12 @@ function render() {
         });
     }
 
-    // List
     const list = document.getElementById('list');
     document.getElementById('listLabel').style.display = d.nodes.length > 0 ? 'block' : 'none';
     list.innerHTML = '';
 
-    const linked = new Set();
-    d.edges.forEach(e => { linked.add(e.from); linked.add(e.to); });
+    const linked2 = new Set();
+    d.edges.forEach(e => { linked2.add(e.from); linked2.add(e.to); });
 
     d.nodes.forEach(n => {
         const div = document.createElement('div');
