@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rank — Worst first</title>
+<meta name="description" content="39 leaders and CEOs ranked by documented harm. Evidence graded.">
+<meta property="og:title" content="The Rank — 39 people. Worst first.">
+<meta property="og:description" content="Ranked by documented harm. Court records. ICC warrants. Federal convictions. You decide.">
+<meta property="og:image" content="https://dafdaf1234444.github.io/godding/card.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#128065;</text></svg>">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; background: #111; color: #ddd; }
+.top {
+    text-align: center;
+    padding: 48px 20px 24px;
+}
+.top h1 {
+    font-size: 32px;
+    font-weight: normal;
+    color: #fff;
+}
+.top h1 span { color: #d4756a; }
+.top p { color: #666; font-size: 14px; margin-top: 8px; }
+.count {
+    font-size: 64px;
+    color: #d4756a;
+    margin: 16px 0 4px;
+}
+.count-label { color: #555; font-size: 14px; margin-bottom: 16px; }
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 8px 20px 24px;
+    flex-wrap: wrap;
+}
+.legend span {
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.list {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 12px 60px;
+}
+.row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    padding: 16px 16px 16px 0;
+    border-bottom: 1px solid #1a1a1a;
+    overflow: hidden;
+}
+.bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: var(--bar-width);
+    background: var(--bar-color);
+    opacity: 0.1;
+    z-index: 0;
+}
+.rank {
+    flex-shrink: 0;
+    width: 48px;
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    padding-top: 2px;
+    z-index: 1;
+}
+.info {
+    flex: 1;
+    z-index: 1;
+}
+.name {
+    font-size: 17px;
+    color: #eee;
+    margin-bottom: 2px;
+}
+.role {
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 6px;
+}
+.worst {
+    font-size: 14px;
+    color: #c99;
+    line-height: 1.5;
+    margin-bottom: 6px;
+}
+.tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+.tier-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+.grade-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #2a3a2a;
+    color: #7a9a7a;
+}
+
+.bottom {
+    text-align: center;
+    padding: 40px 20px 60px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.bottom a {
+    color: #666;
+    text-decoration: none;
+    font-size: 13px;
+    margin: 0 6px;
+}
+.bottom a:hover { color: #999; }
+.bottom .big {
+    display: inline-block;
+    background: #1a1a1a;
+    color: #bbb;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    font-size: 15px;
+    font-family: inherit;
+    text-decoration: none;
+    margin: 8px;
+}
+.bottom .big:hover { background: #222; color: #fff; }
+.bottom p { color: #333; font-size: 11px; margin-top: 24px; }
+</style>
+</head>
+<body>
+
+<div class="top">
+    <h1><span>Worst first.</span></h1>
+    <div class="count">39</div>
+    <div class="count-label">leaders &middot; CEOs &middot; networks &middot; ranked by documented harm</div>
+    <p>Scroll down. The worst are at the top. Every line is sourced.</p>
+</div>
+
+<div class="legend">
+    <span style="background:#8a4a4a;">CHILDREN HARMED</span>
+    <span style="background:#c47474;">MURDER / SLAVERY</span>
+    <span style="background:#d4a574;">CORRUPTION</span>
+</div>
+
+<div class="list">
+
+<div class="row" style="--bar-width:100%;--bar-color:#8a4a4a;">
+  <div class="rank">#1</div>
+  <div class="info">
+    <div class="name">Donald Trump</div>
+    <div class="role">President of the United States — United States</div>
+    <div class="worst">34 felony convictions — falsifying business records (NY, May 2024).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:99%;--bar-color:#8a4a4a;">
+  <div class="rank">#2</div>
+  <div class="info">
+    <div class="name">Jeffrey Epstein</div>
+    <div class="role">Financier / Convicted Sex Offender — United States</div>
+    <div class="worst">Federal conviction: trafficking of minors for sexual abuse.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:96%;--bar-color:#8a4a4a;">
+  <div class="rank">#3</div>
+  <div class="info">
+    <div class="name">Ghislaine Maxwell</div>
+    <div class="role">Epstein Associate / Convicted Sex Trafficker — United Kingdom / United States</div>
+    <div class="worst">Convicted on 5 of 6 federal counts including sex trafficking of a minor (Dec 2021).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:96%;--bar-color:#8a4a4a;">
+  <div class="rank">#4</div>
+  <div class="info">
+    <div class="name">Alan Dershowitz</div>
+    <div class="role">Harvard Law Professor / Epstein Associate — United States</div>
+    <div class="worst">Named by Virginia Giuffre as someone she was trafficked to — under oath.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:96%;--bar-color:#8a4a4a;">
+  <div class="rank">#5</div>
+  <div class="info">
+    <div class="name">Leon Black</div>
+    <div class="role">CEO, Apollo Global Management / Epstein Associate — United States</div>
+    <div class="worst">Paid Epstein $158 million between 2012-2017 — AFTER conviction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:94%;--bar-color:#8a4a4a;">
+  <div class="rank">#6</div>
+  <div class="info">
+    <div class="name">Nestlé Leadership</div>
+    <div class="role">CEO / Board, Nestlé — Switzerland</div>
+    <div class="worst">Baby formula marketing in developing countries — WHO documented deaths from contaminated water mixing.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade B</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:94%;--bar-color:#8a4a4a;">
+  <div class="rank">#7</div>
+  <div class="info">
+    <div class="name">Prince Andrew (Duke of York)</div>
+    <div class="role">British Royal / Epstein Associate — United Kingdom</div>
+    <div class="worst">Visited Epstein after 2008 conviction — photographed together in Central Park 2010.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:94%;--bar-color:#8a4a4a;">
+  <div class="rank">#8</div>
+  <div class="info">
+    <div class="name">Jean-Luc Brunel</div>
+    <div class="role">Model Agency Owner / Epstein Associate — France</div>
+    <div class="worst">Found dead in prison Feb 2022 — ruled suicide, before trial.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:93%;--bar-color:#8a4a4a;">
+  <div class="rank">#9</div>
+  <div class="info">
+    <div class="name">JP Morgan Chase</div>
+    <div class="role">Bank / Epstein Financial Services — United States</div>
+    <div class="worst">Maintained Epstein as client for 15 years (2003-2018) — including after conviction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#8a4a4a;">CHILDREN HARMED</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:70%;--bar-color:#c47474;">
+  <div class="rank">#10</div>
+  <div class="info">
+    <div class="name">Recep Tayyip Erdogan</div>
+    <div class="role">President of Turkey — Turkey</div>
+    <div class="worst">Jailed more journalists than any other country (CPJ, multiple years running).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#11</div>
+  <div class="info">
+    <div class="name">Mohammed bin Salman (MBS)</div>
+    <div class="role">Crown Prince / De facto ruler of Saudi Arabia — Saudi Arabia</div>
+    <div class="worst">Yemen war: coalition airstrikes killed thousands of civilians.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#12</div>
+  <div class="info">
+    <div class="name">Xi Jinping</div>
+    <div class="role">President / General Secretary CPC — China</div>
+    <div class="worst">Mass detention of Uyghur Muslims — UN estimated 1 million+ in camps.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#13</div>
+  <div class="info">
+    <div class="name">Sackler Family / Purdue Pharma</div>
+    <div class="role">Owners of Purdue Pharma — United States</div>
+    <div class="worst">500,000+ Americans dead from opioid overdoses (CDC, 1999-2020).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#14</div>
+  <div class="info">
+    <div class="name">Meta / Facebook (Mark Zuckerberg)</div>
+    <div class="role">CEO, Meta — United States</div>
+    <div class="worst">Cambridge Analytica: 87 million users' data harvested without consent.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#15</div>
+  <div class="info">
+    <div class="name">Volkswagen Leadership (Martin Winterkorn)</div>
+    <div class="role">CEO, Volkswagen — Germany</div>
+    <div class="worst">Installed defeat devices in 11 million vehicles to cheat emissions tests.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:67%;--bar-color:#c47474;">
+  <div class="rank">#16</div>
+  <div class="info">
+    <div class="name">Isaias Afwerki</div>
+    <div class="role">President of Eritrea — Eritrea</div>
+    <div class="worst">UN Commission: crimes against humanity including enslavement, torture, rape.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#17</div>
+  <div class="info">
+    <div class="name">Vladimir Putin</div>
+    <div class="role">President of Russia — Russia</div>
+    <div class="worst">Full-scale invasion of Ukraine, Feb 2022 — no UN authorization.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#18</div>
+  <div class="info">
+    <div class="name">Benjamin Netanyahu</div>
+    <div class="role">Prime Minister of Israel — Israel</div>
+    <div class="worst">ICC arrest warrant issued November 2024 for war crimes and crimes against humanity.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#19</div>
+  <div class="info">
+    <div class="name">Kim Jong-un</div>
+    <div class="role">Supreme Leader — North Korea</div>
+    <div class="worst">Famine and malnutrition while spending billions on nuclear weapons and luxury goods.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#20</div>
+  <div class="info">
+    <div class="name">Jes Staley</div>
+    <div class="role">CEO, Barclays / Epstein Associate — United Kingdom</div>
+    <div class="worst">1,200+ emails with Epstein over 7-year period — including AFTER conviction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#21</div>
+  <div class="info">
+    <div class="name">Alexander Lukashenko</div>
+    <div class="role">President of Belarus — Belarus</div>
+    <div class="worst">Systematic torture of detainees — documented by UN, Amnesty, HRW.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#22</div>
+  <div class="info">
+    <div class="name">Goldman Sachs (David Solomon / Lloyd Blankfein era)</div>
+    <div class="role">CEO, Goldman Sachs — United States</div>
+    <div class="worst">1MDB scandal: helped steal $4.5 billion from Malaysian people.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#23</div>
+  <div class="info">
+    <div class="name">Boeing Leadership (Dennis Muilenburg / Dave Calhoun)</div>
+    <div class="role">CEO, Boeing — United States</div>
+    <div class="worst">346 people killed in two 737 MAX crashes (Lion Air 2018, Ethiopian Airlines 2019).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#24</div>
+  <div class="info">
+    <div class="name">Narendra Modi</div>
+    <div class="role">Prime Minister of India — India</div>
+    <div class="worst">2002 Gujarat riots: 1,000+ killed (mostly Muslims) while he was Chief Minister — accused of inaction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade B</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:64%;--bar-color:#c47474;">
+  <div class="rank">#25</div>
+  <div class="info">
+    <div class="name">Jair Bolsonaro</div>
+    <div class="role">Former President of Brazil — Brazil</div>
+    <div class="worst">Amazon deforestation increased 75% during his term (INPE satellite data).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:61%;--bar-color:#c47474;">
+  <div class="rank">#26</div>
+  <div class="info">
+    <div class="name">Bashar al-Assad</div>
+    <div class="role">Former President of Syria (ousted 2024) — Syria</div>
+    <div class="worst">Ghouta sarin attack 2013: 1,400+ killed including hundreds of children.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:61%;--bar-color:#c47474;">
+  <div class="rank">#27</div>
+  <div class="info">
+    <div class="name">Nicolás Maduro</div>
+    <div class="role">President of Venezuela — Venezuela</div>
+    <div class="worst">7+ million Venezuelans fled the country (UN refugee agency).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:61%;--bar-color:#c47474;">
+  <div class="rank">#28</div>
+  <div class="info">
+    <div class="name">ExxonMobil Leadership (Rex Tillerson / Darren Woods era)</div>
+    <div class="role">CEO, ExxonMobil — United States</div>
+    <div class="worst">Internal scientists predicted climate change accurately in 1977. Company funded denial for 40 years.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:61%;--bar-color:#c47474;">
+  <div class="rank">#29</div>
+  <div class="info">
+    <div class="name">Rodrigo Duterte</div>
+    <div class="role">Former President of Philippines — Philippines</div>
+    <div class="worst">Drug war: 12,000-30,000 extrajudicial killings (UN, Human Rights Watch estimates).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:61%;--bar-color:#c47474;">
+  <div class="rank">#30</div>
+  <div class="info">
+    <div class="name">Abdel Fattah el-Sisi</div>
+    <div class="role">President of Egypt — Egypt</div>
+    <div class="worst">Rabaa massacre 2013: at least 817 killed in single day (HRW) — possibly over 1,000.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#c47474;">MURDER / SLAVERY</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:35%;--bar-color:#d4a574;">
+  <div class="rank">#31</div>
+  <div class="info">
+    <div class="name">Rabobank Leadership</div>
+    <div class="role">CEO / Board, Rabobank — Netherlands</div>
+    <div class="worst">Paid $1.07 billion in fines — DOJ, FCA, CFTC, Dutch prosecutors.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#d4a574;">CORRUPTION</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:32%;--bar-color:#d4a574;">
+  <div class="rank">#32</div>
+  <div class="info">
+    <div class="name">Johnson &amp; Johnson Leadership</div>
+    <div class="role">CEO / Board, Johnson &amp; Johnson — United States</div>
+    <div class="worst">Knew baby powder contained asbestos for decades — internal documents.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#d4a574;">CORRUPTION</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:32%;--bar-color:#d4a574;">
+  <div class="rank">#33</div>
+  <div class="info">
+    <div class="name">Wells Fargo Leadership (John Stumpf / Tim Sloan)</div>
+    <div class="role">CEO, Wells Fargo — United States</div>
+    <div class="worst">3.5 million fake accounts opened without customer consent.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#d4a574;">CORRUPTION</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:32%;--bar-color:#d4a574;">
+  <div class="rank">#34</div>
+  <div class="info">
+    <div class="name">Alex Acosta</div>
+    <div class="role">US Attorney / Trump Labor Secretary — United States</div>
+    <div class="worst">As US Attorney, approved sweetheart plea deal for Epstein (2008 NPA).</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#d4a574;">CORRUPTION</span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:32%;--bar-color:#d4a574;">
+  <div class="rank">#35</div>
+  <div class="info">
+    <div class="name">Viktor Orbán</div>
+    <div class="role">Prime Minister of Hungary — Hungary</div>
+    <div class="worst">Dismantled independent judiciary — EU Article 7 proceedings triggered.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#d4a574;">CORRUPTION</span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:0%;--bar-color:#555;">
+  <div class="rank">#36</div>
+  <div class="info">
+    <div class="name">Bill Gates</div>
+    <div class="role">Microsoft Co-founder / Epstein Associate — United States</div>
+    <div class="worst">Met with Epstein multiple times AFTER 2008 conviction — NYT documented.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#555;"></span>
+      <span class="grade-tag">Grade B</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:0%;--bar-color:#555;">
+  <div class="rank">#37</div>
+  <div class="info">
+    <div class="name">Bill Clinton</div>
+    <div class="role">Former US President / Epstein Associate — United States</div>
+    <div class="worst">Flight logs show 26+ flights on Epstein's planes — not 4 as claimed.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#555;"></span>
+      <span class="grade-tag">Grade A-</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:0%;--bar-color:#555;">
+  <div class="rank">#38</div>
+  <div class="info">
+    <div class="name">Les Wexner</div>
+    <div class="role">CEO, L Brands (Victoria's Secret) / Epstein Associate — United States</div>
+    <div class="worst">Relationship continued years after Epstein's 2008 conviction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#555;"></span>
+      <span class="grade-tag">Grade B</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+<div class="row" style="--bar-width:0%;--bar-color:#555;">
+  <div class="rank">#39</div>
+  <div class="info">
+    <div class="name">Deutsche Bank</div>
+    <div class="role">Bank / Epstein Financial Services — Germany</div>
+    <div class="worst">Accepted Epstein as client in 2013 — 5 years AFTER conviction.</div>
+    <div class="tags">
+      <span class="tier-tag" style="background:#555;"></span>
+      <span class="grade-tag">Grade A</span>
+    </div>
+  </div>
+  <div class="bar"></div>
+</div>
+</div>
+
+<div class="bottom">
+    <a class="big" href="network.html">See the connections</a>
+    <a class="big" href="records.html">Full evidence</a>
+    <a class="big" href="door.html">Said vs Did</a>
+    <div style="margin-top:20px;">
+        <a href="all.html">The six sins</a>
+        <a href="spread.html">Share this</a>
+        <a href="index.html">Godding</a>
+    </div>
+    <p>
+        No tracking. No ads. No owner. Open source. Public records only.<br>
+        You decide what it means. The tool just shows you.
+    </p>
+</div>
+
+</body>
+</html>
