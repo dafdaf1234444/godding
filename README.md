@@ -1,95 +1,46 @@
 # Godding
 
-A tool for connecting things. Break something into parts, put parts back together, check that nothing was left behind.
+**The hand that gives is connected to the hand that receives.**
 
-**"The hand that gives is connected to the hand that receives."**
+Add things. Connect them. See what's left out. Fair for all.
 
-## What it does
+**[Open it](https://dafdaf1234444.github.io/godding/)** — works in your browser, nothing to install.
 
-You have an idea. You break it into pieces to understand it. Later, you take scattered pieces and trace them back to one thing. That's it.
+---
 
-```
-godding add "your idea"                -- put something in
-godding add "part of it"               -- put another thing in
-godding link "your idea" "part of it"  -- connect them
-godding decompose "your idea"          -- see all the parts
-godding compose "part of it"           -- trace it back to where it came from
-godding balance                        -- is anything left behind?
-```
+## What is this?
 
-## Why
+You make a choice. That choice has a consequence. The consequence touches someone. That someone makes their own choice. And so on, forever.
 
-Because things get disconnected. Ideas, people, parts of a problem. This tool doesn't fix that — it shows you where the breaks are. You decide what to link. Or not. That's your choice.
+This is a way to see it. You write things down, draw the lines between them, and it shows you if anything got left out.
 
-## Install
+## How it works
 
-Download a release, or build from source:
+1. **Add** things — anything real to you.
+2. **Connect** them — this gives to that, that receives from this.
+3. **See** what's connected and what's alone.
+
+When everything is connected, it says so. When something is left out, it says that too. It doesn't tell you what's right. It tells you what is.
+
+## What it knows
+
+Nothing about you. Everything stays in your browser. Nothing is sent anywhere. It only knows what you put in.
+
+## CLI
+
+There's also a command-line version if you prefer:
 
 ```bash
 # Requires .NET 8.0 SDK
 dotnet build src/Godding/Godding.csproj
-
-# Run
-dotnet run --project src/Godding -- add "something" "what it means"
+dotnet run --project src/Godding -- add "A choice" "something you decided"
+dotnet run --project src/Godding -- link "A choice" "The consequence"
+dotnet run --project src/Godding -- balance
 ```
-
-## Example: help someone learn something
-
-```bash
-# A teacher breaks a subject into parts
-godding add "Cooking" "feeding yourself and others"
-godding add "Knife skills" "how to cut safely"
-godding add "Heat control" "when to turn it up or down"
-godding add "Tasting" "knowing when it's right"
-
-godding link Cooking "Knife skills"
-godding link Cooking "Heat control"
-godding link Cooking Tasting
-
-# A student traces back from what they're struggling with
-godding compose "Heat control"
-# -> Cooking -> Heat control
-# Now they know where it fits
-
-# Check nothing was forgotten
-godding balance
-```
-
-## Example: understand a problem
-
-```bash
-godding add "Why am I stuck" "something isn't working"
-godding add "Fear" "afraid of the wrong choice"
-godding add "Too many options" "can't pick one"
-godding add "No information" "don't know enough yet"
-
-godding link "Why am I stuck" Fear
-godding link "Why am I stuck" "Too many options"
-godding link "Why am I stuck" "No information"
-
-godding decompose "Why am I stuck"
-# Now you can see the parts separately
-# Pick one. Start there.
-```
-
-## All commands
-
-| Command | What it does |
-|---------|-------------|
-| `add <name> [description]` | Put something in the tree |
-| `link <from> <to>` | Connect two things |
-| `unlink <from> <to>` | Disconnect two things |
-| `decompose <thing>` | Break it into parts (1 -> many) |
-| `compose <thing>` | Trace it back to the source (many -> 1) |
-| `tree` | See everything |
-| `trace <A> <B>` | Find the path between any two things |
-| `balance` | Check that nothing is left behind |
-| `search <word>` | Find things by name |
-| `show <thing>` | See one thing in detail |
-| `list` | List everything |
-| `delete <thing>` | Remove something |
-| `stats` | Numbers |
 
 ## Free
 
-MIT license. Take it, use it, change it. It's not mine. It's not anyone's. It's for all.
+MIT license. Take it, use it, change it.
+
+All helps one and one helps all, forever.
+Hence all is known in the end, and the end knows the beginning.
