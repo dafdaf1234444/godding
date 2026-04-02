@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godding</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, system-ui, 'Segoe UI', sans-serif;
+    background: #111;
+    color: #ddd;
+    min-height: 100vh;
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px 10px;
+}
+header h1 {
+    font-size: 28px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+header p {
+    color: #999;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ── Add section ── */
+.add-section {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.add-section h2 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 14px;
+}
+.add-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.add-row input {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px 14px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 15px;
+    outline: none;
+}
+.add-row input:focus {
+    border-color: #5b9bd5;
+}
+.add-row input::placeholder {
+    color: #666;
+}
+.add-row button {
+    padding: 10px 24px;
+    background: #1a3a5c;
+    border: 1px solid #5b9bd5;
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 15px;
+    cursor: pointer;
+}
+.add-row button:hover {
+    background: #244a70;
+}
+
+/* ── Connect section ── */
+.connect-section {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.connect-section h2 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 6px;
+}
+.connect-section p {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+.connect-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.connect-row select {
+    flex: 1;
+    min-width: 120px;
+    padding: 10px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 15px;
+    outline: none;
+    cursor: pointer;
+}
+.connect-row select:focus {
+    border-color: #5b9bd5;
+}
+.arrow {
+    color: #666;
+    font-size: 20px;
+}
+.connect-row button {
+    padding: 10px 20px;
+    background: #1a3a2a;
+    border: 1px solid #4ade80;
+    border-radius: 8px;
+    color: #ddd;
+    font-size: 15px;
+    cursor: pointer;
+}
+.connect-row button:hover {
+    background: #244a35;
+}
+
+/* ── Balance ── */
+.balance {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.balance .verdict {
+    font-size: 20px;
+    font-weight: bold;
+}
+.balance .verdict.fair { color: #4ade80; }
+.balance .verdict.unfair { color: #f87171; }
+.balance .stats {
+    display: flex;
+    gap: 20px;
+    color: #999;
+    font-size: 13px;
+}
+.balance .stats span { color: #fff; }
+
+/* ── Tree visual ── */
+.tree-section {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.tree-section h2 {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 16px;
+}
+
+canvas {
+    width: 100%;
+    height: 450px;
+    border-radius: 8px;
+    background: #0a0a0a;
+    cursor: grab;
+    display: block;
+}
+canvas:active { cursor: grabbing; }
+
+/* ── Node detail ── */
+.detail {
+    display: none;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+}
+.detail h2 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 8px;
+}
+.detail .desc {
+    color: #999;
+    margin-bottom: 12px;
+}
+.detail .connections {
+    color: #888;
+    font-size: 14px;
+}
+.detail .connections span { color: #ccc; }
+
+/* ── How it works ── */
+.how {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    color: #888;
+    font-size: 14px;
+    line-height: 1.8;
+}
+.how h2 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Godding</h1>
+    <p>The hand that gives is connected to the hand that receives.</p>
+</header>
+
+<div class="container">
+
+    <div class="how">
+        <h2>What is this?</h2>
+        You have ideas, thoughts, things you're trying to understand.<br>
+        Put them here. Connect them. See how they relate.<br>
+        Nothing is hidden. Nothing is removed. Everything stays connected.<br>
+        <br>
+        <strong>Step 1:</strong> Add things you're thinking about.<br>
+        <strong>Step 2:</strong> Connect them to each other.<br>
+        <strong>Step 3:</strong> See the picture. Click on any circle to learn more.
+    </div>
+
+    <div class="add-section">
+        <h2>Add something</h2>
+        <div class="add-row">
+            <input type="text" id="addName" placeholder="What is it?">
+            <input type="text" id="addDesc" placeholder="Describe it (optional)">
+            <button onclick="addNode()">Add</button>
+        </div>
+    </div>
+
+    <div class="connect-section">
+        <h2>Connect two things</h2>
+        <p>This one helps that one. Pick both and connect them.</p>
+        <div class="connect-row">
+            <select id="fromSelect"><option value="">Pick one...</option></select>
+            <span class="arrow">&#10140;</span>
+            <select id="toSelect"><option value="">Pick another...</option></select>
+            <button onclick="linkNodes()">Connect</button>
+        </div>
+    </div>
+
+    <div class="balance" id="balance">
+        <div class="verdict" id="verdict">Add something to start</div>
+        <div class="stats" id="stats"></div>
+    </div>
+
+    <div class="tree-section">
+        <h2>Your tree</h2>
+        <canvas id="canvas"></canvas>
+    </div>
+
+    <div class="detail" id="detail">
+        <h2 id="detailName"></h2>
+        <div class="desc" id="detailDesc"></div>
+        <div class="connections" id="detailConn"></div>
+    </div>
+
+</div>
+
+<footer>
+    All helps one and one helps all.<br>
+    Your data stays in your browser. Nothing is sent anywhere.
+</footer>
+
+<script>
+// ── Data (stored in your browser) ──
+function loadData() {
+    try {
+        return JSON.parse(localStorage.getItem('godding') || '{"nodes":[],"edges":[],"nextId":1}');
+    } catch { return {nodes:[], edges:[], nextId:1}; }
+}
+function saveData(data) {
+    localStorage.setItem('godding', JSON.stringify(data));
+}
+
+// ── Actions ──
+function addNode() {
+    const name = document.getElementById('addName').value.trim();
+    if (!name) return;
+    const desc = document.getElementById('addDesc').value.trim();
+    const data = loadData();
+    data.nodes.push({id: data.nextId++, name, desc: desc || null});
+    saveData(data);
+    document.getElementById('addName').value = '';
+    document.getElementById('addDesc').value = '';
+    refresh();
+}
+
+function linkNodes() {
+    const fromId = parseInt(document.getElementById('fromSelect').value);
+    const toId = parseInt(document.getElementById('toSelect').value);
+    if (!fromId || !toId || fromId === toId) return;
+    const data = loadData();
+    if (data.edges.some(e => e.from === fromId && e.to === toId)) return;
+    data.edges.push({from: fromId, to: toId});
+    saveData(data);
+    refresh();
+}
+
+// ── UI refresh ──
+function refresh() {
+    const data = loadData();
+    updateSelects(data);
+    updateBalance(data);
+    drawTree(data);
+}
+
+function updateSelects(data) {
+    ['fromSelect', 'toSelect'].forEach(id => {
+        const sel = document.getElementById(id);
+        const val = sel.value;
+        sel.innerHTML = '<option value="">Pick one...</option>';
+        data.nodes.forEach(n => {
+            const opt = document.createElement('option');
+            opt.value = n.id;
+            opt.textContent = n.name;
+            sel.appendChild(opt);
+        });
+        sel.value = val;
+    });
+}
+
+function updateBalance(data) {
+    const verdict = document.getElementById('verdict');
+    const stats = document.getElementById('stats');
+
+    if (data.nodes.length === 0) {
+        verdict.textContent = 'Add something to start';
+        verdict.className = 'verdict';
+        stats.innerHTML = '';
+        return;
+    }
+
+    const connected = new Set();
+    data.edges.forEach(e => { connected.add(e.from); connected.add(e.to); });
+    const orphans = data.nodes.filter(n => !connected.has(n.id)).length;
+    const givers = new Set(data.edges.map(e => e.from)).size;
+    const receivers = new Set(data.edges.map(e => e.to)).size;
+
+    if (orphans === 0 && data.nodes.length > 1) {
+        verdict.textContent = 'FAIR FOR ALL';
+        verdict.className = 'verdict fair';
+    } else if (orphans > 0) {
+        verdict.textContent = orphans + (orphans === 1 ? ' thing' : ' things') + ' not yet connected';
+        verdict.className = 'verdict unfair';
+    } else {
+        verdict.textContent = 'Getting started';
+        verdict.className = 'verdict';
+    }
+
+    stats.innerHTML = `
+        Things: <span>${data.nodes.length}</span> &nbsp;
+        Connections: <span>${data.edges.length}</span>
+    `;
+}
+
+// ── Tree drawing ──
+let positions = {};
+let dragging = null;
+let dragOff = {x:0, y:0};
+
+function drawTree(data) {
+    const canvas = document.getElementById('canvas');
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width * 2;
+    canvas.height = rect.height * 2;
+    const ctx = canvas.getContext('2d');
+    ctx.scale(2, 2);
+    const W = rect.width;
+    const H = rect.height;
+
+    // Initialize positions for new nodes
+    data.nodes.forEach((n, i) => {
+        if (!positions[n.id]) {
+            const angle = (i / Math.max(data.nodes.length, 1)) * Math.PI * 2;
+            const r = 80 + data.nodes.length * 12;
+            positions[n.id] = {
+                x: W/2 + Math.cos(angle) * r,
+                y: H/2 + Math.sin(angle) * r
+            };
+        }
+    });
+
+    // Simple force simulation
+    for (let iter = 0; iter < 30; iter++) {
+        data.nodes.forEach((a, i) => {
+            if (a.id === (dragging && dragging.id)) return;
+            let fx = 0, fy = 0;
+
+            // Repel from other nodes
+            data.nodes.forEach((b, j) => {
+                if (i === j) return;
+                const pa = positions[a.id], pb = positions[b.id];
+                let dx = pb.x - pa.x, dy = pb.y - pa.y;
+                let d = Math.sqrt(dx*dx + dy*dy) || 1;
+                fx -= (dx/d) * 3000 / (d*d);
+                fy -= (dy/d) * 3000 / (d*d);
+            });
+
+            // Attract along edges
+            data.edges.forEach(e => {
+                let other = null;
+                if (e.from === a.id) other = e.to;
+                else if (e.to === a.id) other = e.from;
+                if (!other) return;
+                const pa = positions[a.id], pb = positions[other];
+                if (!pb) return;
+                let dx = pb.x - pa.x, dy = pb.y - pa.y;
+                let d = Math.sqrt(dx*dx + dy*dy) || 1;
+                fx += (dx/d) * (d - 100) * 0.04;
+                fy += (dy/d) * (d - 100) * 0.04;
+            });
+
+            // Pull toward center
+            const pa = positions[a.id];
+            fx += (W/2 - pa.x) * 0.003;
+            fy += (H/2 - pa.y) * 0.003;
+
+            pa.x += fx * 0.3;
+            pa.y += fy * 0.3;
+
+            // Keep in bounds
+            pa.x = Math.max(40, Math.min(W - 40, pa.x));
+            pa.y = Math.max(40, Math.min(H - 40, pa.y));
+        });
+    }
+
+    ctx.clearRect(0, 0, W, H);
+
+    // Draw edges
+    data.edges.forEach(e => {
+        const from = positions[e.from];
+        const to = positions[e.to];
+        if (!from || !to) return;
+
+        ctx.beginPath();
+        ctx.moveTo(from.x, from.y);
+        ctx.lineTo(to.x, to.y);
+        ctx.strokeStyle = '#444';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        // Arrow
+        const angle = Math.atan2(to.y - from.y, to.x - from.x);
+        const r = 24;
+        const ax = to.x - Math.cos(angle) * r;
+        const ay = to.y - Math.sin(angle) * r;
+        ctx.beginPath();
+        ctx.moveTo(ax, ay);
+        ctx.lineTo(ax - Math.cos(angle - 0.35) * 8, ay - Math.sin(angle - 0.35) * 8);
+        ctx.lineTo(ax - Math.cos(angle + 0.35) * 8, ay - Math.sin(angle + 0.35) * 8);
+        ctx.closePath();
+        ctx.fillStyle = '#555';
+        ctx.fill();
+    });
+
+    // Draw nodes
+    const connected = new Set();
+    data.edges.forEach(e => { connected.add(e.from); connected.add(e.to); });
+
+    data.nodes.forEach(n => {
+        const p = positions[n.id];
+        if (!p) return;
+        const isOrphan = !connected.has(n.id) && data.nodes.length > 1;
+        const r = 22;
+
+        // Glow for orphans
+        if (isOrphan) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, r + 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(248, 113, 113, 0.15)';
+            ctx.fill();
+        }
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+        ctx.fillStyle = isOrphan ? '#2a1a1a' : '#1a2a3a';
+        ctx.fill();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = isOrphan ? '#f87171' : '#5b9bd5';
+        ctx.stroke();
+
+        // Name
+        ctx.fillStyle = '#ddd';
+        ctx.font = '12px -apple-system, system-ui, sans-serif';
+        ctx.textAlign = 'center';
+
+        const words = n.name.split(' ');
+        if (words.length <= 2 && n.name.length <= 14) {
+            ctx.fillText(n.name, p.x, p.y + r + 16);
+        } else {
+            const mid = Math.ceil(words.length / 2);
+            ctx.fillText(words.slice(0, mid).join(' '), p.x, p.y + r + 14);
+            ctx.fillText(words.slice(mid).join(' '), p.x, p.y + r + 28);
+        }
+    });
+}
+
+// ── Canvas interaction ──
+const canvas = document.getElementById('canvas');
+
+function getNodeAt(mx, my) {
+    const data = loadData();
+    const rect = canvas.getBoundingClientRect();
+    const x = mx - rect.left;
+    const y = my - rect.top;
+    for (let i = data.nodes.length - 1; i >= 0; i--) {
+        const n = data.nodes[i];
+        const p = positions[n.id];
+        if (!p) continue;
+        const dx = x - p.x, dy = y - p.y;
+        if (dx*dx + dy*dy < 22*22) return n;
+    }
+    return null;
+}
+
+canvas.addEventListener('mousedown', e => {
+    const node = getNodeAt(e.clientX, e.clientY);
+    if (node) {
+        dragging = node;
+        const p = positions[node.id];
+        const rect = canvas.getBoundingClientRect();
+        dragOff = {x: e.clientX - rect.left - p.x, y: e.clientY - rect.top - p.y};
+    }
+});
+
+canvas.addEventListener('mousemove', e => {
+    if (dragging) {
+        const rect = canvas.getBoundingClientRect();
+        positions[dragging.id] = {
+            x: e.clientX - rect.left - dragOff.x,
+            y: e.clientY - rect.top - dragOff.y
+        };
+        drawTree(loadData());
+    }
+});
+
+canvas.addEventListener('mouseup', e => {
+    if (dragging) {
+        // If barely moved, treat as click
+        showDetail(dragging);
+        dragging = null;
+    }
+});
+
+canvas.addEventListener('mouseleave', () => { dragging = null; });
+
+// Touch support
+canvas.addEventListener('touchstart', e => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const node = getNodeAt(touch.clientX, touch.clientY);
+    if (node) {
+        dragging = node;
+        const p = positions[node.id];
+        const rect = canvas.getBoundingClientRect();
+        dragOff = {x: touch.clientX - rect.left - p.x, y: touch.clientY - rect.top - p.y};
+    }
+}, {passive: false});
+
+canvas.addEventListener('touchmove', e => {
+    e.preventDefault();
+    if (dragging) {
+        const touch = e.touches[0];
+        const rect = canvas.getBoundingClientRect();
+        positions[dragging.id] = {
+            x: touch.clientX - rect.left - dragOff.x,
+            y: touch.clientY - rect.top - dragOff.y
+        };
+        drawTree(loadData());
+    }
+}, {passive: false});
+
+canvas.addEventListener('touchend', e => {
+    if (dragging) {
+        showDetail(dragging);
+        dragging = null;
+    }
+});
+
+function showDetail(node) {
+    const data = loadData();
+    const detail = document.getElementById('detail');
+    detail.style.display = 'block';
+    document.getElementById('detailName').textContent = node.name;
+    document.getElementById('detailDesc').textContent = node.desc || '';
+
+    const givesTo = data.edges.filter(e => e.from === node.id)
+        .map(e => data.nodes.find(n => n.id === e.to)?.name).filter(Boolean);
+    const receivesFrom = data.edges.filter(e => e.to === node.id)
+        .map(e => data.nodes.find(n => n.id === e.from)?.name).filter(Boolean);
+
+    let html = '';
+    if (givesTo.length > 0)
+        html += `Gives to: <span>${givesTo.join(', ')}</span><br>`;
+    if (receivesFrom.length > 0)
+        html += `Receives from: <span>${receivesFrom.join(', ')}</span><br>`;
+    if (givesTo.length === 0 && receivesFrom.length === 0)
+        html = 'Not connected to anything yet.';
+
+    document.getElementById('detailConn').innerHTML = html;
+}
+
+// Enter key to add
+document.getElementById('addName').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addNode();
+});
+document.getElementById('addDesc').addEventListener('keydown', e => {
+    if (e.key === 'Enter') addNode();
+});
+
+// Start
+refresh();
+</script>
+</body>
+</html>
