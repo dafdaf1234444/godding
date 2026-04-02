@@ -1,0 +1,128 @@
+[
+  {
+    "name": "Example A — The Kleptocrat",
+    "role": "Head of State",
+    "country": "Composite example",
+    "said": [
+      "I serve the nation, not myself.",
+      "I will fight corruption."
+    ],
+    "did": [
+      "Personal wealth grew from $0 to estimated $70-200 billion during time in office.",
+      "Palace complex built at cost of $1.35 billion from public funds.",
+      "Family members placed in senior government and business positions (nepotism).",
+      "Jailed journalist who reported on corruption (censorship, destroyed evidence)."
+    ],
+    "facts": [
+      "Unexplained wealth orders filed in multiple jurisdictions.",
+      "Offshore accounts and shell companies linked to inner circle.",
+      "Opposition leaders jailed on vague charges.",
+      "Constitutional changes to extend power.",
+      "Media control — independent outlets shut down or taken over."
+    ],
+    "sources": [
+      "OCCRP investigations",
+      "Transparency International reports",
+      "Court filings in UK/EU/US jurisdictions",
+      "FOIA documents",
+      "Financial disclosure analysis by independent researchers"
+    ],
+    "grade": "B"
+  },
+  {
+    "name": "Example B — The War Starter",
+    "role": "Head of State",
+    "country": "Composite example",
+    "said": [
+      "A short, special operation.",
+      "We are protecting our people.",
+      "Minimal civilian impact."
+    ],
+    "did": [
+      "Invasion without UN authorization — war crime under international law.",
+      "Hundreds of thousands of civilian casualties documented by UN.",
+      "Cities turned to rubble — targeting civilian infrastructure.",
+      "Blocking humanitarian access to besieged areas.",
+      "Use of prohibited weapons documented by independent monitors."
+    ],
+    "facts": [
+      "ICC arrest warrant issued for crimes against humanity.",
+      "Mass graves documented by satellite imagery.",
+      "Forced deportation of children documented by multiple organizations.",
+      "Torture confirmed by OHCHR reports.",
+      "Ethnic cleansing patterns identified by genocide scholars."
+    ],
+    "sources": [
+      "International Criminal Court warrants",
+      "United Nations OHCHR reports",
+      "Independent satellite imagery analysis",
+      "Geneva Convention violation documentation",
+      "ICRC (Red Cross) access denial records"
+    ],
+    "grade": "A"
+  },
+  {
+    "name": "Example C — The CEO",
+    "role": "CEO, Major Corporation",
+    "country": "Composite example",
+    "said": [
+      "Our employees are our greatest asset.",
+      "We care deeply about the environment.",
+      "We act with integrity."
+    ],
+    "did": [
+      "Fired 12,000 workers while taking $40M bonus same quarter.",
+      "Internal memos show company knew about environmental damage since 1977.",
+      "Funded climate denial campaigns for 40 years (destroyed evidence of internal research).",
+      "Mandatory arbitration used to silence worker complaints about unsafe conditions.",
+      "Lobbied against minimum wage increase while company had record profits."
+    ],
+    "facts": [
+      "SEC investigation for fraud in emissions reporting.",
+      "Wage theft class action — $380M settlement.",
+      "Supply chain audit found forced labor in 3 countries.",
+      "Tax evasion — effective rate 2.3% on $14B profit via offshore shell companies.",
+      "Whistleblower retaliation documented in court filings."
+    ],
+    "sources": [
+      "SEC enforcement filings",
+      "Court discovery documents (internal memos)",
+      "Proxy statements and annual reports",
+      "Class action settlement records",
+      "ILO forced labor investigation report"
+    ],
+    "grade": "A"
+  },
+  {
+    "name": "Example D — The Network",
+    "role": "Financier / Socialite",
+    "country": "Composite example",
+    "said": [
+      "I have never met that person.",
+      "These allegations are false.",
+      "I am a philanthropist."
+    ],
+    "did": [
+      "Flight logs show 26 trips to private island.",
+      "Sexual abuse of minors confirmed by federal conviction.",
+      "Trafficking children across state lines — federal charges.",
+      "NDAs used to silence victims for decades.",
+      "Network of powerful associates documented in court exhibits."
+    ],
+    "facts": [
+      "Federal conviction for trafficking of minors.",
+      "Victim testimonies from 36+ individuals corroborating abuse pattern.",
+      "Institutional protection — first plea deal was non-prosecution agreement.",
+      "Associates include heads of state, royalty, CEOs — flight logs are court exhibits.",
+      "Cover-up by multiple institutions documented in federal investigation."
+    ],
+    "sources": [
+      "Federal court records, SDNY",
+      "FAA flight logs (court exhibit)",
+      "Victim impact statements (court record)",
+      "Federal investigation documents",
+      "Photographic evidence entered as court exhibits"
+    ],
+    "grade": "A"
+  }
+]
