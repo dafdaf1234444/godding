@@ -1,94 +1,95 @@
 # Godding
 
-A bidirectional tree CLI. One becomes many, many become one. The operation of transcendence itself.
+A tool for connecting things. Break something into parts, put parts back together, check that nothing was left behind.
+
+**"The hand that gives is connected to the hand that receives."**
+
+## What it does
+
+You have an idea. You break it into pieces to understand it. Later, you take scattered pieces and trace them back to one thing. That's it.
 
 ```
-function (data + noise)  <-->  component (compressed)
-         1 -> 3+                    3+ -> 1
-       decompose                   compose
+godding add "your idea"                -- put something in
+godding add "part of it"               -- put another thing in
+godding link "your idea" "part of it"  -- connect them
+godding decompose "your idea"          -- see all the parts
+godding compose "part of it"           -- trace it back to where it came from
+godding balance                        -- is anything left behind?
 ```
 
-All helps one and one helps all, forever.
-Hence all is known in the end, and the end knows the beginning.
+## Why
+
+Because things get disconnected. Ideas, people, parts of a problem. This tool doesn't fix that — it shows you where the breaks are. You decide what to link. Or not. That's your choice.
 
 ## Install
 
-Requires [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0).
+Download a release, or build from source:
 
 ```bash
+# Requires .NET 8.0 SDK
 dotnet build src/Godding/Godding.csproj
+
+# Run
+dotnet run --project src/Godding -- add "something" "what it means"
 ```
 
-## Usage
+## Example: help someone learn something
 
 ```bash
-# Add nodes — functions (raw data) or components (compressed)
-godding add "Knowledge" "The root" -t component
-godding add "Mathematics" "Language of pattern" -t component
-godding add "Algebra" "Structure and symmetry" -t function
+# A teacher breaks a subject into parts
+godding add "Cooking" "feeding yourself and others"
+godding add "Knife skills" "how to cut safely"
+godding add "Heat control" "when to turn it up or down"
+godding add "Tasting" "knowing when it's right"
 
-# Link them — parent -> child (decomposition edge)
-godding link Knowledge Mathematics
-godding link Mathematics Algebra
+godding link Cooking "Knife skills"
+godding link Cooking "Heat control"
+godding link Cooking Tasting
 
-# Decompose: 1 -> many (show all descendants)
-godding decompose Knowledge
+# A student traces back from what they're struggling with
+godding compose "Heat control"
+# -> Cooking -> Heat control
+# Now they know where it fits
 
-# Compose: many -> 1 (trace back to root)
-godding compose Algebra
-
-# Full tree view
-godding tree
-
-# Trace path between any two nodes
-godding trace Algebra Biology
-
-# Stats, search, show
-godding stats
-godding search "pattern"
-godding show Mathematics
+# Check nothing was forgotten
+godding balance
 ```
 
-## Commands
+## Example: understand a problem
 
-| Command | Alias | Description |
-|---------|-------|-------------|
-| `add <name> [content] [-t type]` | | Add a node (function or component) |
-| `link <parent> <child>` | | Create a decomposition edge |
-| `unlink <parent> <child>` | | Remove an edge |
-| `decompose <node>` | `dec` | 1 -> many: show descendants |
-| `compose <node>` | `com` | Many -> 1: trace to roots |
-| `tree` | | Show full tree structure |
-| `trace <from> <to>` | | Find path between nodes |
-| `list [-t type]` | `ls` | List all nodes |
-| `show <node>` | | Show node details |
-| `search <query>` | | Search by name or content |
-| `update <node>` | | Update name, content, or type |
-| `delete <node>` | `rm` | Delete a node |
-| `stats` | | Tree statistics |
-| `roots` | | List root nodes (origins) |
-| `leaves` | | List leaf nodes (endpoints) |
+```bash
+godding add "Why am I stuck" "something isn't working"
+godding add "Fear" "afraid of the wrong choice"
+godding add "Too many options" "can't pick one"
+godding add "No information" "don't know enough yet"
 
-Nodes can be referenced by ID (number) or name (string).
+godding link "Why am I stuck" Fear
+godding link "Why am I stuck" "Too many options"
+godding link "Why am I stuck" "No information"
 
-## Concept
+godding decompose "Why am I stuck"
+# Now you can see the parts separately
+# Pick one. Start there.
+```
 
-Two node types form a two-way street:
+## All commands
 
-- **Function** `[F]`: filter — data + noise. The raw, uncompressed form.
-- **Component** `[C]`: compressed. The distilled insight.
+| Command | What it does |
+|---------|-------------|
+| `add <name> [description]` | Put something in the tree |
+| `link <from> <to>` | Connect two things |
+| `unlink <from> <to>` | Disconnect two things |
+| `decompose <thing>` | Break it into parts (1 -> many) |
+| `compose <thing>` | Trace it back to the source (many -> 1) |
+| `tree` | See everything |
+| `trace <A> <B>` | Find the path between any two things |
+| `balance` | Check that nothing is left behind |
+| `search <word>` | Find things by name |
+| `show <thing>` | See one thing in detail |
+| `list` | List everything |
+| `delete <thing>` | Remove something |
+| `stats` | Numbers |
 
-The tree structure allows bidirectional traversal:
-- **Decompose** (root -> leaves): one insight breaks into many parts
-- **Compose** (leaves -> root): many parts compress into one insight
-- **Trace**: find the path between any two nodes in the tree
+## Free
 
-Like a tree: the trunk holds the leaves, and the leaves feed the trunk.
-
-## Database
-
-SQLite, stored at `~/.godding/godding.db` by default. Override with `--db <path>`.
-
-## License
-
-MIT
+MIT license. Take it, use it, change it. It's not mine. It's not anyone's. It's for all.
