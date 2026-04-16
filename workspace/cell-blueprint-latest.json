@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-16T16:22:30.973952+00:00",
+  "timestamp": "2026-04-16T16:28:29.295826+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,23 +26,16 @@
     }
   ],
   "recent_commits": [
+    "890f04f0 acknowledge L-1653",
+    "f0d0ef24 auto: processed L-601",
     "15c929e5 acknowledge L-601",
     "a90b6b58 auto: checkpoint before sync",
-    "05a33748 wip: before sync fix",
-    "e5230d0d acknowledge L-908",
-    "f4727b94 acknowledge L-908"
+    "05a33748 wip: before sync fix"
   ],
   "uncommitted": [
     "M .loop_seen",
-    "M docs/PAPER.md",
-    "M experiments/compact-citation-cache.json",
-    "M memory/INDEX.md",
-    "M memory/SESSION-LOG.md",
-    "M tasks/FRONTIER.md",
-    "M tasks/NEXT.md",
-    "M tools/periodics.json",
+    "M experiments/meta/knowledge-state-s546.json",
     "M workspace/cell-blueprint-latest.json",
-    "M workspace/maintenance-actions.json",
     "M workspace/maintenance-outcomes.json"
   ],
   "untracked_artifacts": [],
@@ -81,5 +74,21 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": []
+  "dispatch_top3": [
+    {
+      "domain": "stochastic-processes",
+      "score": 7.1,
+      "collision": false
+    },
+    {
+      "domain": "expert-swarm",
+      "score": 5.9,
+      "collision": false
+    },
+    {
+      "domain": "physics",
+      "score": 2.7,
+      "collision": false
+    }
+  ]
 }
