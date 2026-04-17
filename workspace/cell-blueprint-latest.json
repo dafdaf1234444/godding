@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-17T19:27:11.273903+00:00",
+  "timestamp": "2026-04-17T19:29:53.914100+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,19 +26,20 @@
     }
   ],
   "recent_commits": [
+    "0f3942b5 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776453991.log tasks/lanes/lane-1776453991.md tasks/lanes/lane-live.md workspace/cache/head_cache.json workspace/cell-bluep",
     "e8ee6dd1 fix: brain before pick",
     "98906cc0 activate brain",
     "62955a0c swarm: experiments/compact-citation-cache.json experiments/meta/knowledge-state-s546.json memory/logs/lane-live.log tasks/lanes/lane-live.md workspace/cache/head_cache.json workspace/cell",
-    "040ff497 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776449590.log tasks/lanes/lane-1776449590.md workspace/cache/head_cache.json workspace/cell-blueprint-latest.json workspac",
-    "7f08e95f swarm: checkpoint"
+    "040ff497 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776449590.log tasks/lanes/lane-1776449590.md workspace/cache/head_cache.json workspace/cell-blueprint-latest.json workspac"
   ],
   "uncommitted": [
     "M experiments/compact-citation-cache.json",
+    "M memory/logs/lane-1776453991.log",
+    "M tasks/lanes/lane-1776453991.md",
     "M tasks/lanes/lane-live.md",
     "M workspace/cache/head_cache.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? memory/logs/lane-1776453991.log",
-    "?? tasks/lanes/lane-1776453991.md"
+    "?? tasks/lanes/lane-1776454071.md",
+    "?? tasks/lanes/lane-1776454073.md"
   ],
   "untracked_artifacts": [],
   "next_actions": [
@@ -76,21 +77,5 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": [
-    {
-      "domain": "stochastic-processes",
-      "score": 7.1,
-      "collision": false
-    },
-    {
-      "domain": "expert-swarm",
-      "score": 5.9,
-      "collision": false
-    },
-    {
-      "domain": "physics",
-      "score": 2.7,
-      "collision": false
-    }
-  ]
+  "dispatch_top3": []
 }
