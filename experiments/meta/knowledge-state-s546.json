@@ -436,7 +436,11 @@
     },
     {
       "hypothesis": "Knowledge-state profiles change top-5 dispatch in \u22652/5 cases",
+<<<<<<< HEAD
       "result": "5/5 different (gap-ranked: ['protocol-engineering', 'claude-code', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: [])",
+=======
+      "result": "5/5 different (gap-ranked: ['claude-code', 'protocol-engineering', 'cryptocurrency', 'guesstimates', 'dream'], UCB1: [])",
+>>>>>>> 21014366 (auto swarm 06:57:43)
       "pass": true,
       "threshold": "\u22652/5"
     }

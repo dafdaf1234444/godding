@@ -1,0 +1,16 @@
+[2026-04-17 06:51:28] starting root=/data/data/com.termux/files/home/swarm branch=master parallel=3
+[2026-04-17 06:51:28] sync down origin/master
+[2026-04-17 06:51:30] no candidates -> reset seen + sleep
+[2026-04-17 06:51:34] sync down origin/master
+[2026-04-17 06:51:37] no candidates -> reset seen + sleep
+[2026-04-17 06:51:41] sync down origin/master
+[2026-04-17 06:51:42] no candidates -> reset seen + sleep
+[2026-04-17 06:51:47] sync down origin/master
+[2026-04-17 06:56:42] stopping
+[2026-04-17 06:56:42] no candidates -> reset seen + sleep
+[2026-04-17 06:56:42] stopping
+[2026-04-17 06:56:42] stopping
+[06:57:36] START branch=master parallel=3
+[06:57:38] GENERATED L-1776401858
+[06:57:43] BATCH L-1776401858
+[06:57:43] WORK L-1776401858 (k)

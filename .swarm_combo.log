@@ -1,0 +1,14 @@
+[2026-04-17 05:56:17] state sync
+[2026-04-17 05:56:17] no candidate found -> sleep
+[2026-04-17 05:56:22] seen exhausted -> reset
+[2026-04-17 05:56:22] sync down from origin/master
+[2026-04-17 05:56:24] state sync
+[2026-04-17 05:56:24] no candidate found -> sleep
+[2026-04-17 05:56:29] seen exhausted -> reset
+[2026-04-17 05:56:29] sync down from origin/master
+[2026-04-17 05:56:30] state sync
+[2026-04-17 05:56:30] no candidate found -> sleep
+[2026-04-17 05:56:36] seen exhausted -> reset
+[2026-04-17 05:56:36] sync down from origin/master
+[2026-04-17 05:56:55] stopping
+[2026-04-17 05:56:55] stopping
