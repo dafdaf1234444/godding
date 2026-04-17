@@ -12,6 +12,7 @@ if [[ -z "$LANE" ]]; then
 fi
 
 tools/swarm_claim.sh "$LANE" "$OWNER"
+bash tools/swarm_brain.sh
 
 LANE_ID="$(basename "$LANE" .md)"
 STAMP="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
