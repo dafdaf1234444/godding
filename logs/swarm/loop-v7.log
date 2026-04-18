@@ -170,3 +170,12 @@
 [2026-04-18 03:16:55] RUN: swarm
 /data/data/com.termux/files/usr/bin/bash: line 1: swarm: command not found
 [2026-04-18 03:16:55] worker cycle end rc=127
+[2026-04-18 03:16:56] post-worker sync failed
+[2026-04-18 03:16:56] === cycle end ===
+[2026-04-18 03:16:56] sleep 30s
+[2026-04-18 03:16:56] === cycle start branch=can-tablet-fixes remote=origin ===
+[2026-04-18 03:16:57] pre-worker sync failed
+[2026-04-18 03:16:57] worker cycle start
+[2026-04-18 03:16:57] RUN: swarm
+/data/data/com.termux/files/usr/bin/bash: line 1: swarm: command not found
+[2026-04-18 03:16:57] worker cycle end rc=127
