@@ -104,3 +104,7 @@
 [2026-04-18 03:13:21] RUN: swarm
 /data/data/com.termux/files/usr/bin/bash: line 1: swarm: command not found
 [2026-04-18 03:13:21] worker cycle end rc=127
+[2026-04-18 03:13:27] === cycle end ===
+[2026-04-18 03:13:27] sleep 30s
+[2026-04-18 03:13:57] === cycle start branch=can-tablet-fixes remote=origin ===
+[2026-04-18 03:13:58] dirty tree detected -> checkpoint
