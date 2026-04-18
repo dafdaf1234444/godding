@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-17T19:32:55.052194+00:00",
+  "timestamp": "2026-04-18T00:57:17.093661+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,19 +26,18 @@
     }
   ],
   "recent_commits": [
+    "ede66493 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776454071.log tasks/lanes/_TEMPLATE.md tasks/lanes/lane-1776449590.md tasks/lanes/lane-1776454071.md workspace/cache/head_",
     "0c814c70 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776453991.log tasks/lanes/lane-1776453991.md tasks/lanes/lane-1776454071.md tasks/lanes/lane-1776454073.md tasks/lanes/lan",
     "0f3942b5 swarm: experiments/compact-citation-cache.json memory/logs/lane-1776453991.log tasks/lanes/lane-1776453991.md tasks/lanes/lane-live.md workspace/cache/head_cache.json workspace/cell-bluep",
     "e8ee6dd1 fix: brain before pick",
-    "98906cc0 activate brain",
-    "62955a0c swarm: experiments/compact-citation-cache.json experiments/meta/knowledge-state-s546.json memory/logs/lane-live.log tasks/lanes/lane-live.md workspace/cache/head_cache.json workspace/cell"
+    "98906cc0 activate brain"
   ],
   "uncommitted": [
     "M experiments/compact-citation-cache.json",
-    "M tasks/lanes/_TEMPLATE.md",
-    "M tasks/lanes/lane-1776449590.md",
-    "M tasks/lanes/lane-1776454071.md",
+    "M experiments/meta/knowledge-state-s546.json",
     "M workspace/cache/head_cache.json",
-    "?? memory/logs/lane-1776454071.log"
+    "M workspace/maintenance-outcomes.json",
+    "?? swarm_loop_v2.sh"
   ],
   "untracked_artifacts": [],
   "next_actions": [
@@ -76,5 +75,21 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": []
+  "dispatch_top3": [
+    {
+      "domain": "stochastic-processes",
+      "score": 7.1,
+      "collision": false
+    },
+    {
+      "domain": "expert-swarm",
+      "score": 5.9,
+      "collision": false
+    },
+    {
+      "domain": "physics",
+      "score": 2.7,
+      "collision": false
+    }
+  ]
 }
