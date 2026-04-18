@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-18T01:29:25.870911+00:00",
+  "timestamp": "2026-04-18T01:31:45.457969+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,18 +26,14 @@
     }
   ],
   "recent_commits": [
+    "f4f1fbaa auto: swarm loop 2026-04-18 03:29:39",
     "9fcbffbf swarm: auto checkpoint 2026-04-18 03:25:21",
     "4e7edeb2 swarm: auto checkpoint 2026-04-18 03:25:19",
     "56139603 swarm: auto checkpoint 2026-04-18 03:24:43",
-    "d40264d5 swarm: auto checkpoint 2026-04-18 03:24:41",
-    "a7080251 swarm: auto checkpoint 2026-04-18 03:24:04"
+    "d40264d5 swarm: auto checkpoint 2026-04-18 03:24:41"
   ],
   "uncommitted": [
-    "M experiments/compact-citation-cache.json",
-    "M logs/swarm/loop-v7.log",
-    "M workspace/cache/head_cache.json",
-    "M workspace/maintenance-actions.json",
-    "M workspace/maintenance-outcomes.json"
+    "M workspace/cache/head_cache.json"
   ],
   "untracked_artifacts": [],
   "next_actions": [
@@ -75,21 +71,5 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": [
-    {
-      "domain": "stochastic-processes",
-      "score": 7.1,
-      "collision": false
-    },
-    {
-      "domain": "expert-swarm",
-      "score": 5.9,
-      "collision": false
-    },
-    {
-      "domain": "physics",
-      "score": 2.7,
-      "collision": false
-    }
-  ]
+  "dispatch_top3": []
 }
