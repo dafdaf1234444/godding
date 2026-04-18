@@ -2820,7 +2820,7 @@
     },
     {
       "session": 546,
-      "timestamp": "2026-04-18T12:02:23Z",
+      "timestamp": "2026-04-18T12:12:27Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -3131,6 +3131,11 @@
             "NOTICE",
             "NOTICE"
           ]
+        },
+        "check_unpushed": {
+          "fired": false,
+          "count": 0,
+          "severities": []
         }
       },
       "totals": {
