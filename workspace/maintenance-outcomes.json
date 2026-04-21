@@ -2820,7 +2820,7 @@
     },
     {
       "session": 546,
-      "timestamp": "2026-04-21T01:17:08Z",
+      "timestamp": "2026-04-21T01:19:43Z",
       "checks": {
         "check_kill_switch": {
           "fired": false,
@@ -2945,11 +2945,9 @@
           "severities": []
         },
         "check_uncommitted": {
-          "fired": true,
-          "count": 1,
-          "severities": [
-            "NOTICE"
-          ]
+          "fired": false,
+          "count": 0,
+          "severities": []
         },
         "check_handoff_staleness": {
           "fired": false,
@@ -3138,7 +3136,7 @@
       },
       "totals": {
         "DUE": 3,
-        "NOTICE": 22,
+        "NOTICE": 21,
         "PERIODIC": 7
       }
     }
