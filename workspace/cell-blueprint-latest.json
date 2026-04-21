@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-21T01:27:03.901840+00:00",
+  "timestamp": "2026-04-21T01:29:22.992102+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,18 +26,18 @@
     }
   ],
   "recent_commits": [
+    "ee9e151d swarm: loop 2026-04-21 03:27:21",
     "8709e002 swarm loop Tue Apr 21 03:25:11 CEST 2026",
     "ad707fa3 swarm: auto cycle",
     "24d72053 swarm: auto cycle",
-    "a5708a84 swarm: auto cycle",
-    "a944f568 swarm: auto cycle"
+    "a5708a84 swarm: auto cycle"
   ],
   "uncommitted": [
     "M experiments/compact-citation-cache.json",
-    "M swarm.sh",
+    "M experiments/meta/knowledge-state-s546.json",
+    "M swarm-loop.log",
     "M workspace/cell-blueprint-latest.json",
-    "M workspace/maintenance-outcomes.json",
-    "?? swarm-loop.log"
+    "M workspace/maintenance-outcomes.json"
   ],
   "untracked_artifacts": [],
   "next_actions": [
@@ -75,21 +75,5 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": [
-    {
-      "domain": "stochastic-processes",
-      "score": 7.1,
-      "collision": false
-    },
-    {
-      "domain": "expert-swarm",
-      "score": 5.9,
-      "collision": false
-    },
-    {
-      "domain": "physics",
-      "score": 2.7,
-      "collision": false
-    }
-  ]
+  "dispatch_top3": []
 }

@@ -309,3 +309,325 @@ SWARMABILITY: 100/100
 
 Entropy items: 10
 [2026-04-21 03:27:21] no inner runner found; writing heartbeat
+[worktree-s546-principle-health ee9e151d] swarm: loop 2026-04-21 03:27:21
+ 7 files changed, 475 insertions(+), 22 deletions(-)
+ create mode 100644 swarm-loop.log
+[2026-04-21 03:27:22] committed
+remote: This repository moved. Please use the new location:        
+remote:   https://github.com/dafdaf1234444/godding.git        
+To https://github.com/dafdaf1234444/swarm.git
+   8709e002..ee9e151d  worktree-s546-principle-health -> worktree-s546-principle-health
+[2026-04-21 03:27:43] tick
+Already up to date.
+[2026-04-21 03:27:44] run: orient
+=== ORIENT S546 | 1419L 313P 21B 14F ===
+Maintenance: DUE items present
+
+--- Maintenance ---
+    [DUE]
+     !  Missing hook(s): pre-commit, commit-msg -- run: bash tools/install-hooks.sh
+     !  3 frontier(s) below archive threshold: F119, F120, F126
+     !  5 signal(s) >30 sessions without resolution: SIG-84(+31s), SIG-86(+31s), SIG-87(+31s), SIG-88(+31s), SIG-89(+31s). Close or escalate (L-908 TTL).
+    [PERIODIC]
+     ~  [health-check] System health check (memory/HEALTH.md): knowledge growth, accuracy, compactness, belief evolution, task throughput (every ~10 sessions, last: S528)
+     ~  [science-quality-audit] Science quality audit: run `python3 tools/science_quality.py` — score experiment quality on 5 criteria (pre-registration, control, significance, external validation, falsification). Track confirm/discover ratio and falsification lane count. Target: mean quality >40%, falsification lanes >10%, confirm:discover <10:1. (P-243, L-804, SIG-36) (every ~30 sessions, last: S506)
+     ~  [history-integrity] History integrity audit: run python3 tools/history_integrity.py to measure outcome completeness (target 80%), lesson attribution, commit format. L-984: 38% baseline S429. Target: 80% (ongoing). (every ~20 sessions, last: S526)
+     ~  [cascade-monitor] Cross-layer cascade monitor: run python3 tools/cascade_monitor.py to detect correlated filter-layer failures. Alert if >=2 adjacent layers failing simultaneously. T.stale_baselines is highest-yield check (catches C1/C4 type cascades). CONFIRMED: 4/5 retroactive detections within <=3s (F-FLT4, L-1018). Wired S436. (every ~20 sessions, last: S518)
+     ~  [scaling-timelines] Scaling timelines update: refresh docs/SCALING-TIMELINES.md — update Current Position table (N, P, S, K_avg, Zipf α, ECE), retire falsified/confirmed projections, move crossed thresholds to Already Crossed, revise scenario trajectories if actual diverges from base case. Run: python3 tools/scaling_model.py --report + python3 tools/compact.py --dry-run for live metrics. Created S441. (every ~40 sessions, last: S484)
+
+--- Open signals (39 unresolved (25 actionable, 14 triageable)) ---
+  📋 SIG-84 (31s ago): proper math about the swarm or using the swarm for the swarm and as an external swarm — ma
+  📋 SIG-86 (31s ago): Cross-species swarming: run same knowledge base through GPT/Gemini/Llama — inter-model agr
+  📋 SIG-87 (31s ago): Adversarial fork: git clone + independent red-team swarm to break primary. Own git history
+  📋 SIG-88 (31s ago): External dream ingestion: feed dream.py arxiv/market/news data — dream connections between
+  📋 SIG-89 (31s ago): Temporal self-replay: reconstruct knowledge state at S100/S200/S300/S400 via git checkout 
+  ... and 34 more
+  ⚠ BACKLOG: 5 signals >20s old — sensing without acting
+    Oldest: SIG-84 (age 31s): proper math about the swarm or using the swarm for the swarm
+  🧹 Run: python3 tools/swarm_signal.py triage
+
+  NOTICE: INDEX.md dark matter: 71/1419 lessons unthemed (5.0%) — L-581: BELOW 15%% threshold. Pause integration — diversity is being eroded. | INDEX.md bucket overflow (F-BRN4): Meta -- Orient Tooling & Diagnostics=42, Meta -- Session Startup & Handoff=47, Meta -- Task Management & Enforcement=56, Meta -- Tool Adoption & Development=48, Meta -- Cross-Domain Citation & Metrics=59, Meta -- Compaction & Compression=43, Meta -- Knowledge & Lesson Quality=43, Meta -- Belief Testing & Verification=58, Meta -- Evaluation & Mission Scoring=43, Meta -- Challenge & Belief Auditing=43, Swarm Economics -- Dispatch Coverage & Allocation=44, Swarm Economics -- Dispatch Strategy & Effects=68, Coordination -- Concurrency & Safety=60 — split each into sub-themes ≤40L.
+
+--- Open frontiers (critical/important) ---
+  • F119: How can swarm satisfy mission constraints? S544 verification: I9-I13 ZERO DRIFT,
+
+--- Dogma alert (24 ossified claims, score ≥0.6) ---
+  ⚠ PHIL-16      (philosophy)  score=1.2  [AXIOM-STUCK, LOW-EXTERNAL-GROUNDING]
+  ⚠ PHIL-25      (philosophy)  score=1.1  [AXIOM-STUCK, LOW-EXTERNAL-GROUNDING]
+  ⚠ PHIL-28      (philosophy)  score=1.1  [AXIOM-STUCK, CONFIRM-ONLY (axiom), SELF-REFERENTIAL, LOW-EXTERNAL-GROUNDING, RECENCY-DISCOUNT]
+  ⚠ PHIL-21      (philosophy)  score=1.1  [SELF-REFERENTIAL, LOW-EXTERNAL-GROUNDING]
+  ⚠ PHIL-22      (philosophy)  score=1.1  [SELF-REFERENTIAL, LOW-EXTERNAL-GROUNDING]
+  ... and 19 more (run: python3 tools/dogma_finder.py)
+  → Rx for PHIL-16: Define a concrete upgrade path: what observation would move grounding to 'measured'?
+
+  ⟳ Meta-dogma: 4 assumptions in dogma finder itself untested
+
+--- Stale lanes (3 opened in prior session — execute or close) ---
+  ⚠ DOMEX-COL-S544-ENFBACKFILL (S544) — ✓ artifact exists
+  ⚠ COORD-S545-COVERAGE (S545) — ✓ artifact exists
+  ⚠ DOMEX-META-S545-CHECKAGG (S545) — ✓ artifact exists
+
+--- Prescription Gap (L-843) ---
+  ASPIRATIONAL (unimplemented): 24% of rule-bearing lessons (68 actionable, 96 observational)
+  Top gap: L-1190 Sh=10 — Model human-AI co-evolution as mutual swarming between two independent
+  Full report: python3 tools/enforcement_router.py
+
+--- Succession Phase (L-1121) ---
+  Attention carrying capacity: 2.8x past threshold (N=1419, K_threshold=500)
+  Attention per lesson: 0.00070 (threshold: 0.0020)
+  Recent r/K: 16 new / 14 modified = 1.1 (balanced)
+
+--- Grounding Audit (F-GND1) ---
+  45 claims | avg score 0.170 | 8.9% well-grounded
+  34 poorly grounded (<0.2)
+  9 stale (>50 sessions without retest)
+  Worst: PHIL-26 (score 0.000)
+
+
+--- Lesson Grounding Decay (F-GND1 Phase 1) ---
+  Grounded: 458/1419 (32%) | Critical decay: 296 lessons
+  Run: python3 tools/external_grounding_check.py --decay
+--- Knowledge Swarm (S546) ---
+  Revival: 5 DECAYED items with ACTIVE connections
+  Compress: 43 EXPIRED lessons (~3910 tokens)
+  Crosslink: 10 BLIND-SPOT items have ACTIVE neighbors
+
+--- Fairness (PHIL-25, L-1193) ---
+  Score: 0.2 (1/5) — UNFAIR
+  Unfair: ATTENTION, DISPATCH, AUTHORITY, INVESTMENT
+  Run: python3 tools/fairness_audit.py
+  Dispatch diversity: 3 effective / 128 named (Gini 0.673)
+    ⚠ META = 16.0% of lanes — mediocrity selection risk (F-COL1)
+
+--- Complexity Phase (L-1430) ---
+  Phase: ORDERED | k_avg=3.54 | small-world σ=54.8 | C=0.292 | L=3.6
+  Percolation: random=45% targeted=30% vulnerability=1.5x | isolated=303 (21%)
+  Run: python3 tools/complexity_measure.py
+
+--- Principle Health (F-EPIS3, L-1653) ---
+  192/319 healthy (60%) | 6 zombie (2%) | 0 fully dead | 121 orphan
+  Run: python3 tools/principle_health.py
+
+
+--- Human Impact (F-SOUL1, SIG-81) ---
+  29.9% GOOD / 12.2% BAD / 57.9% NEUTRAL | benefit ratio 2.45x CI:[2.06x,2.93x] (target >3.0x)
+    → AMPLIFY: 'external_citation' is the strongest human-good signal (166 hits). Dispatch should weight domains that produce this.
+    → REDUCE: 'self_referential' is the strongest human-bad signal (134 hits). Compact should target these first.
+  Run: python3 tools/human_impact.py
+
+--- Brain (SIG-108, L-1508) ---
+  S1/S2=3.31x (measurement-heavy (System 1 dominant)) | bias=0.028 (HEALTHY) | diversity=2.03 (ADEQUATE)
+  Marr: 5.6% computational / 21.0% algorithmic / 73.4% implementational
+    → IMBALANCE: System 1/System 2 ratio = 3.31x. Swarm measures more than it reasons. Dispatch should weight falsification and synthesis tasks higher.
+  Turing: TQ=0.8 (4P/0M/1F)
+  Run: python3 tools/brain_extractor.py | python3 tools/turing_test.py
+--- Trace Amplification (F-STIG1) ---
+  Hub gap (8 high-cited, not in recent 50 Cites:):
+    L-001 (in-deg=182)
+    L-599 (in-deg=130)
+    L-025 (in-deg=123)
+    L-950 (in-deg=100)
+  Sinks (308 lessons, 22.4% zero incoming — cite these):
+    L-1618 S12 [expert-swarm] # L-1618: Daughter swarms born broken — type annotation
+    L-1644 S11 [ai,] # L-1644: 1/N diversification outperforms optimization 
+    L-1611 S11 [plant-biology,] # L-1611: Nature prescriptions for the swarm — 5 biomim
+    L-1666 S10 [governance] # L-1666: Constitution v1 resolves 90% of tactical conf
+  ACTION: cite undervisible lessons in your Cites: header when relevant
+
+--- Unrun domain experiments (6) ---
+  ○ conflict/F-CON4
+  ○ cryptocurrency/F-CRYPTO2
+  ○ cryptocurrency/F-CRYPTO3
+  ○ governance/F-GOV11
+  ○ human-systems/F-HS3
+  ○ human-systems/F-HS4
+
+--- Underused core tools (28 in S527..S546) ---
+  ○ tools/orient.py
+  ○ tools/maintenance.py
+  ○ tools/sync_state.py
+  ○ tools/validate_beliefs.py
+  ○ tools/check.sh
+  ○ tools/check.ps1
+
+--- Meta-tooler (170 tools, HIGH=0 MEDIUM=42) ---
+  Run: python3 tools/meta_tooler.py
+
+  NOTICE: cascade layers failing (no cascade yet): T:10 stale baselines, 0 zero-firing sensors
+--- Recent commits (avoid repeating) ---
+  ✓ swarm: loop 2026-04-21 03:27:21
+  ✓ swarm loop Tue Apr 21 03:25:11 CEST 2026
+  ✓ swarm: auto cycle
+  ✓ swarm: auto cycle
+  ✓ swarm: auto cycle
+  ✓ swarm: auto cycle
+
+--- Recent sessions (behavioral pattern) ---
+  S535	| 2026-03-24 | +1L (L-1583) +0P | commit orphaned S534 artifacts — 3 lessons, 6 experiments, 1 tool
+  S537	| 2026-03-24 | +1L (L-1593) +0P | handoff — ideal man synthesis (L-1578), PHIL-10 retest (L-1579), session note, s
+  S538	| 2026-03-24 | +2L (L-1598, L-1600) +0P | F-MATH11 CONFIRMED — von Neumann fixed-point achieved, self-reproduction 
+  S539	| 2026-03-24 | +5L (L-1599, L-1604, L-1606, L-1607, L-1611) +0P | F-PLB2/F-PLB4/F-PLB5 nature experiments — vascula
+  S540	| 2026-03-24 | +9L (L-1612, L-1613, L-1614, L-1616, L-1617... +4) +0P | doc dedup — 4 stale docs archived, challeng
+  S541	| 2026-03-24 | +15L (L-1626, L-1630, L-1631, L-1633, L-1634... +10) +0P | handoff — citation quality dispatch (L-16
+  S543	| 2026-03-24 | +1L (L-1648) +0P | commit orphaned artifacts — 2 lessons (L-1626, L-1632), 9 experiments, 4 tools f
+  S544	| 2026-03-24 | +6L (L-1657, L-1658, L-1659, L-1660, L-1662... +1) +0P | restore accidentally deleted S544 artifacts
+  S545	| 2026-03-24 | +1L (L-1665) +0P | commit orphaned S544/S545 experiment artifacts
+  S546	| 2026-04-20 | +1L (L-1674) +0P | principle_health.py archive blindness — 13 false-positive dead principles elimin
+
+
+--- Prediction Deadlines (F-FORE1) ---
+--- ⚡ ε-dispatch fired (F-RAND1, L-601) ---
+  Diversity override: work on **epistemology** instead of physics
+  ε-roll 0.014 < 0.15 — breaking UCB1 concentration (Gini 0.506)
+  (4 domains filtered: active DOMEX lanes)
+  Open a DOMEX lane for epistemology.
+
+
+--- Agent empathy (5 adjustments) ---
+  ↑ Successor empathy: pending critical item '**meta-reflection**: Target `tools/claim.py` — soft claims a'
+  ↑ Successor empathy: pending critical item '**successor**: (1) Commit L-1625+L-1626 artifacts. (2) Apply'
+  → Domain 'empathy' has 1 OPEN frontiers but no active agent
+  → Domain 'mathematics' has 2 OPEN frontiers but no active agent
+  ... and 1 more
+  Run: python3 tools/agent_empathy.py
+
+--- Suggested next action ---
+  DUE: Missing hook(s): pre-commit, commit-msg -- run: bash tools/install-hooks.sh
+  DUE: 3 frontier(s) below archive threshold: F119, F120, F126
+[2026-04-21 03:28:24] run: check
+=== SWARM CHECK ===
+  L-1319 NOTICE: stderr → /dev/null. If retrying git commit, ensure exit codes are checked.
+  Tree-size guard: PASS (4936 files in staged tree)
+  Mass-staging guard: PASS (0 staged files)
+  Mass-deletion guard: PASS (0 staged file deletions)
+  Ghost-lesson guard: PASS
+  FM-18 collision guard: PASS
+  NEVER-REMOVE atom guard: PASS
+  Genesis hash check: PASS (matches genesis-bundle-S545.hash)
+  FM-02 core-file accessibility: PASS
+  Orient re-export integrity: PASS
+  Colony drift check: PASS
+  FM-19 stale-write guard: PASS
+  FM-30 cascade guard: PASS
+  Dependency allowlist: SKIP (no staged tools)
+[2026-04-21 03:28:46] run: sync_state
+sync_state: S546 | 1419L 313P 21B 14F | 2026-04-21
+  all counts in sync — no changes needed
+Blueprint saved: /data/data/com.termux/files/home/swarm/workspace/cell-blueprint-latest.json
+  Session: S546 | {'lessons': 1419, 'principles': 313, 'beliefs': 21, 'frontiers': 14}
+  Active lanes: 3
+  Uncommitted: 4 files
+  Next actions: 6 items
+  Periodics due: 5
+[2026-04-21 03:29:19] run: validate_beliefs
+WARN PHIL: PHIL-12 status not active: 'SUPERSEDED S442 — merged into PHIL-2 as "one-sente'
+WARN PHIL: PHIL-20 status not active: 'SUPERSEDED S442 — absorbed into PHIL-8. L-499.'
+WARN PHIL: PHIL-23 status not active: 'PARTIALLY FALSIFIED S508 (L-1359): cascade propaga'
+WARN PHIL: PHIL-26 status not active: '**DROPPED S520** (L-1466): 2/4 predictions FALSIFI'
+WARN PHIL: PHIL-27 status not active: 'S528 new. S538 CHALLENGED: swarm already has infor'
+WARN PHIL: PHIL-28 status not active: 'S536 new. S537 CHALLENGED, S543 CONFIRMED: externa'
+WARN: confidence tag coverage 77.0% (<90%) — 326/1419 lessons missing Confidence: label. Run tools/confidence_tagger.py or add manually. (L-651)
+WARN CHALLENGE: PHIL-3 OPEN since S423 (123s stale)
+
+Summary: 18 beliefs, 17 observed, 1 theorized | 28 PHIL claims, 12 observed, 16 axiom | 0 errors, 8 warnings
+RESULT: PASS
+
+=== SWARMABILITY SCORE ===
+
+1. Onboarding Clarity: 20/20
+  CLAUDE.md exists and <300 lines: +5
+  INDEX.md updated within last 3 commits: +5
+  FRONTIER.md has 3 open question(s): +5
+  No broken B-ID references: +5
+2. Belief Health: 20/20
+  Validator PASS (0 errors): +10
+  Theorized 6% < 60%: +5
+  At least 1 belief has a Last tested date: +5
+3. Adaptation Rate: 20/20
+  Belief modified in last 5 DEPS.md commits: +10
+  Evidence type changed in history: +10
+4. Context Efficiency: 20/20
+  Mandatory files 157 lines (<450): +10
+  No lessons over 20 lines: +10
+5. Forward Momentum: 20/20
+  3 open frontier questions (>=3): +5
+  At least 1 external-facing frontier question: +5
+  Recent commits touch non-meta files: +10
+
+SWARMABILITY: 100/100
+
+=== ENTROPY DETECTOR ===
+
+  memory/DISTILL.md: not referenced by CLAUDE.md or INDEX.md
+  memory/EXPECT.md: not referenced by CLAUDE.md or INDEX.md
+  memory/HUMAN-SIGNALS.md: not referenced by CLAUDE.md or INDEX.md
+  memory/HUMAN.md: not referenced by CLAUDE.md or INDEX.md
+  memory/NODES.md: not referenced by CLAUDE.md or INDEX.md
+  memory/OBJECTIVE-CHECK.md: not referenced by CLAUDE.md or INDEX.md
+  memory/OPERATIONS.md: not referenced by CLAUDE.md or INDEX.md
+  memory/VERIFY.md: not referenced by CLAUDE.md or INDEX.md
+  memory/get-good-first.md: not referenced by CLAUDE.md or INDEX.md
+  memory/god-above-all.md: not referenced by CLAUDE.md or INDEX.md
+
+Entropy items: 10
+[2026-04-21 03:29:21] run: post-sync_state
+sync_state: S546 | 1419L 313P 21B 14F | 2026-04-21
+  all counts in sync — no changes needed
+Blueprint saved: /data/data/com.termux/files/home/swarm/workspace/cell-blueprint-latest.json
+  Session: S546 | {'lessons': 1419, 'principles': 313, 'beliefs': 21, 'frontiers': 14}
+  Active lanes: 3
+  Uncommitted: 5 files
+  Next actions: 6 items
+  Periodics due: 5
+[2026-04-21 03:29:53] run: post-validate_beliefs
+WARN PHIL: PHIL-12 status not active: 'SUPERSEDED S442 — merged into PHIL-2 as "one-sente'
+WARN PHIL: PHIL-20 status not active: 'SUPERSEDED S442 — absorbed into PHIL-8. L-499.'
+WARN PHIL: PHIL-23 status not active: 'PARTIALLY FALSIFIED S508 (L-1359): cascade propaga'
+WARN PHIL: PHIL-26 status not active: '**DROPPED S520** (L-1466): 2/4 predictions FALSIFI'
+WARN PHIL: PHIL-27 status not active: 'S528 new. S538 CHALLENGED: swarm already has infor'
+WARN PHIL: PHIL-28 status not active: 'S536 new. S537 CHALLENGED, S543 CONFIRMED: externa'
+WARN: confidence tag coverage 77.0% (<90%) — 326/1419 lessons missing Confidence: label. Run tools/confidence_tagger.py or add manually. (L-651)
+WARN CHALLENGE: PHIL-3 OPEN since S423 (123s stale)
+
+Summary: 18 beliefs, 17 observed, 1 theorized | 28 PHIL claims, 12 observed, 16 axiom | 0 errors, 8 warnings
+RESULT: PASS
+
+=== SWARMABILITY SCORE ===
+
+1. Onboarding Clarity: 20/20
+  CLAUDE.md exists and <300 lines: +5
+  INDEX.md updated within last 3 commits: +5
+  FRONTIER.md has 3 open question(s): +5
+  No broken B-ID references: +5
+2. Belief Health: 20/20
+  Validator PASS (0 errors): +10
+  Theorized 6% < 60%: +5
+  At least 1 belief has a Last tested date: +5
+3. Adaptation Rate: 20/20
+  Belief modified in last 5 DEPS.md commits: +10
+  Evidence type changed in history: +10
+4. Context Efficiency: 20/20
+  Mandatory files 157 lines (<450): +10
+  No lessons over 20 lines: +10
+5. Forward Momentum: 20/20
+  3 open frontier questions (>=3): +5
+  At least 1 external-facing frontier question: +5
+  Recent commits touch non-meta files: +10
+
+SWARMABILITY: 100/100
+
+=== ENTROPY DETECTOR ===
+
+  memory/DISTILL.md: not referenced by CLAUDE.md or INDEX.md
+  memory/EXPECT.md: not referenced by CLAUDE.md or INDEX.md
+  memory/HUMAN-SIGNALS.md: not referenced by CLAUDE.md or INDEX.md
+  memory/HUMAN.md: not referenced by CLAUDE.md or INDEX.md
+  memory/NODES.md: not referenced by CLAUDE.md or INDEX.md
+  memory/OBJECTIVE-CHECK.md: not referenced by CLAUDE.md or INDEX.md
+  memory/OPERATIONS.md: not referenced by CLAUDE.md or INDEX.md
+  memory/VERIFY.md: not referenced by CLAUDE.md or INDEX.md
+  memory/get-good-first.md: not referenced by CLAUDE.md or INDEX.md
+  memory/god-above-all.md: not referenced by CLAUDE.md or INDEX.md
+
+Entropy items: 10
+[2026-04-21 03:29:56] no inner runner found; writing heartbeat
