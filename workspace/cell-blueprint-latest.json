@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-21T00:48:20.975169+00:00",
+  "timestamp": "2026-04-21T00:50:25.344532+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,11 +26,11 @@
     }
   ],
   "recent_commits": [
+    "28f46428 swarm: auto cycle",
     "9f40917d swarm: auto cycle",
     "b1fedefa swarm: auto cycle",
     "051aa917 swarm: auto cycle",
-    "3e818ee3 [S546] fix: principle_health.py archive blindness \u2014 13 false-positive dead principles eliminated (L-1674)",
-    "5ce670ec [S545] fix: checkpoint guard integer comparison bug \u2014 find+trim replaces fragile ls|wc"
+    "3e818ee3 [S546] fix: principle_health.py archive blindness \u2014 13 false-positive dead principles eliminated (L-1674)"
   ],
   "uncommitted": [
     "M workspace/maintenance-outcomes.json"
@@ -71,21 +71,5 @@
       "cadence": 10
     }
   ],
-  "dispatch_top3": [
-    {
-      "domain": "stochastic-processes",
-      "score": 7.1,
-      "collision": false
-    },
-    {
-      "domain": "expert-swarm",
-      "score": 5.9,
-      "collision": false
-    },
-    {
-      "domain": "physics",
-      "score": 2.7,
-      "collision": false
-    }
-  ]
+  "dispatch_top3": []
 }
