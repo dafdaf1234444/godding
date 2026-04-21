@@ -1,7 +1,7 @@
 {
   "schema": "cell-blueprint-v2",
   "session": "S546",
-  "timestamp": "2026-04-21T03:46:35.497457+00:00",
+  "timestamp": "2026-04-21T03:50:03.258196+00:00",
   "metrics": {
     "lessons": 1419,
     "principles": 313,
@@ -26,15 +26,14 @@
     }
   ],
   "recent_commits": [
+    "a3da7a45 swarm: loop 2026-04-21 05:47:09",
     "5234a4a3 swarm: loop 2026-04-21 05:43:39",
     "30a0a24b swarm: loop 2026-04-21 05:40:09",
     "80a874b3 swarm: loop 2026-04-21 05:36:39",
-    "47d9feaf swarm: loop 2026-04-21 05:33:07",
-    "8ef3ef78 swarm: loop 2026-04-21 05:29:34"
+    "47d9feaf swarm: loop 2026-04-21 05:33:07"
   ],
   "uncommitted": [
     "M experiments/compact-citation-cache.json",
-    "M experiments/meta/knowledge-state-s546.json",
     "M swarm-loop.log",
     "M workspace/cell-blueprint-latest.json"
   ],
