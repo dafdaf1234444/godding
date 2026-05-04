@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>good vs. bad — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .gb-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:10px 0 14px}
+  .gb-stat{padding:10px 12px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm)}
+  .gb-stat h5{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 4px}
+  .gb-stat .v{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);line-height:1.1}
+  .gb-stat .v small{font-family:var(--mono);font-style:normal;font-size:11px;color:var(--ink-mute);margin-left:4px}
+  .gb-stat.good .v{color:var(--leaf)} .gb-stat.bad .v{color:var(--rose)} .gb-stat.env .v{color:var(--gold)}
+  .preset-row{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 14px;align-items:center}
+  .preset-row span{font-family:var(--mono);font-size:11px;color:var(--ink-mute)}
+  .preset-row button{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:100px;border:1px solid var(--line-2);background:var(--paper);color:var(--ink-2);cursor:pointer;transition:all var(--t)}
+  .preset-row button:hover{border-color:var(--sun);color:var(--sun)}
+  .preset-row button.go{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  canvas#gb{display:block;width:100%;height:520px;background:var(--paper)}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a><a href="ants.html">ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / good vs. bad</p>
+  <p class="kicker">play · the topology of cooperation</p>
+  <h1>good vs. bad — <em>watch the math.</em></h1>
+  <p class="dim">a small live world on a grid. green cells (cooperators) share what they produce with their neighbours and heal the environment. red cells (defectors) take from neighbours, fight each other, and damage the environment. the parameters decide who wins.</p>
+
+  <div class="sim-wrap"><canvas id="gb"></canvas></div>
+
+  <div class="gb-stats">
+    <div class="gb-stat good"><h5>cooperators</h5><div class="v" id="s-good">— <small>cells</small></div></div>
+    <div class="gb-stat bad"><h5>defectors</h5><div class="v" id="s-bad">— <small>cells</small></div></div>
+    <div class="gb-stat env"><h5>environment</h5><div class="v" id="s-env">— <small>avg</small></div></div>
+    <div class="gb-stat"><h5>tick</h5><div class="v" id="s-tick">0 <small>steps</small></div></div>
+    <div class="gb-stat"><h5>winner</h5><div class="v" id="s-win">tbd</div></div>
+  </div>
+
+  <div class="sim-controls">
+    <button id="restart">restart</button>
+    <button id="pause">pause</button>
+    <label>good gain <input id="gG" type="range" min="1" max="20" value="7"></label>
+    <label>bad take <input id="bT" type="range" min="1" max="30" value="18"></label>
+    <label>bad damage <input id="bD" type="range" min="0" max="20" value="10"></label>
+    <label>env regen <input id="reg" type="range" min="1" max="20" value="5"></label>
+  </div>
+
+  <div class="preset-row">
+    <span>presets:</span>
+    <button data-p="balanced" class="go">balanced</button>
+    <button data-p="coop">cooperation wins</button>
+    <button data-p="defect">defection wins</button>
+    <button data-p="boom">boom &amp; bust</button>
+    <button data-p="tragedy">tragedy of the commons</button>
+  </div>
+
+  <h2>what's happening</h2>
+  <ul>
+    <li><strong>cooperators</strong> get a clustering bonus — more good neighbours → more energy. they share with each other and heal the environment around them.</li>
+    <li><strong>defectors</strong> steal from neighbours. but defector neighbours are <em>worse</em> than cooperator neighbours: they fight each other and damage env.</li>
+    <li><strong>empties</strong> regenerate slowly. cells with high energy replicate, cells with low energy die.</li>
+    <li><strong>topology</strong>: cooperator clusters reinforce. defector clusters self-destruct. boundaries are where the action is.</li>
+  </ul>
+
+  <p class="dim">academic basis: spatial prisoner's dilemma (<a href="https://en.wikipedia.org/wiki/Evolutionary_game_theory" target="_blank" rel="noopener">evolutionary game theory</a>). same family as <a href="ants.html">ants on bodies</a> and <a href="swarm.html">swarm</a>.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>controls</h4>
+  <ul><li>click cells to flip</li><li><kbd>g</kbd>/<kbd>b</kbd> = paint</li><li><kbd>space</kbd> = pause</li><li>presets = quick setups</li></ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul><li><a href="ants.html">ants</a></li><li><a href="religion.html">religion</a></li><li><a href="belief.html">belief</a></li><li><a href="vote.html">vote</a></li></ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="vote.html">vote</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">no libraries.</div>
+</footer>
+
+<script>
+(function(){
+  try{const K='godding.profile';const p=JSON.parse(localStorage.getItem(K)||'null')||{id:Math.random().toString(36).slice(2,10),created:new Date().toISOString().slice(0,10),daysActive:[],pagesVisited:[],votes:{},history:[]};const t=new Date().toISOString().slice(0,10);if(!p.daysActive.includes(t))p.daysActive.push(t);if(!p.pagesVisited.includes('good-bad'))p.pagesVisited.push('good-bad');localStorage.setItem(K,JSON.stringify(p));}catch{}
+
+  function start(){
+    const c = document.getElementById('gb'); const ctx = c.getContext('2d');
+    const $ = id => document.getElementById(id);
+    let W=0,H=0,COLS=96,ROWS=42,cw=0,ch=0,tick=0,paused=false,paint='flip';
+    let state, energy, env;
+    const E=0,G=1,B=2;
+
+    function resize(){const r=c.getBoundingClientRect();const dpr=window.devicePixelRatio||1;W=(r.width|0)||900;H=(r.height|0)||460;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cw=W/COLS;ch=H/ROWS;}
+    function init(s){
+      state=new Uint8Array(COLS*ROWS); energy=new Float32Array(COLS*ROWS); env=new Float32Array(COLS*ROWS); tick=0;
+      const cf=(s&&s.cf!==undefined)?s.cf:0.16, bf=(s&&s.bf!==undefined)?s.bf:0.10;
+      for (let i=0;i<state.length;i++){
+        env[i]=0.5+Math.random()*0.3;
+        const r=Math.random();
+        if (r<cf){ state[i]=G; energy[i]=0.7; }
+        else if (r<cf+bf){ state[i]=B; energy[i]=0.7; }
+      }
+    }
+    function step(){
+      const gG=(+$('gG').value)/100, bT=(+$('bT').value)/100, bD=(+$('bD').value)/100, rg=(+$('reg').value)/1000;
+      const ns=new Uint8Array(state), ne=new Float32Array(energy), nv=new Float32Array(env);
+      for (let i=0;i<env.length;i++) nv[i]=Math.min(1, env[i]+rg);
+      function nbrs(i,j){const o=[]; for(let dj=-1;dj<=1;dj++) for(let di=-1;di<=1;di++){if(!di&&!dj)continue;const ni=(i+di+COLS)%COLS,nj=(j+dj+ROWS)%ROWS;o.push(nj*COLS+ni);} return o;}
+      for (let j=0;j<ROWS;j++) for (let i=0;i<COLS;i++){
+        const k=j*COLS+i; if (state[k]===E) continue;
+        const nb=nbrs(i,j); const gN=nb.filter(n=>state[n]===G).length, bN=nb.filter(n=>state[n]===B).length;
+        if (state[k]===G){
+          // cooperators: pull from env, modest clustering bonus, share, light env heal
+          const pull = Math.min(0.05, nv[k]*0.4); nv[k] = Math.max(0, nv[k]-pull); ne[k] += pull;
+          ne[k] += gG * 0.45;            // photosynthesis (was 0.7)
+          ne[k] += 0.010 * gN;           // clustering bonus (was 0.018)
+          if (gN > 0){ const give = Math.min(ne[k]*0.04, 0.05); ne[k] -= give; for (const n of nb) if (state[n]===G) ne[n] += give/gN*0.95; }
+          // light env heal — only own cell, not radius (was 3x3 with 2x rg)
+          const heal = 0.005 + rg*0.8;
+          nv[k] = Math.min(1, nv[k]+heal);
+          ne[k] -= 0.030;                // metabolism cost (was 0.025)
+        } else {
+          // defectors: take more from cooperators, defector-vs-defector still costly but not crushing
+          let stolen = 0;
+          for (const n of nb){
+            if (state[n]===G){ const t = Math.min(bT*0.70, ne[n]); ne[n] -= t; stolen += t; }     // was 0.55
+            else if (state[n]===B){ const t = Math.min(bT*0.18, ne[n]); ne[n] -= t; stolen += t*0.6; } // was 0.10
+            else { const t = Math.min(bT*0.40, nv[n]); nv[n] = Math.max(0, nv[n]-t); stolen += t; }   // was 0.30
+          }
+          ne[k] += stolen;
+          // damage radius
+          const dmg = bD * 0.65;          // was 0.55
+          nv[k] = Math.max(0, nv[k]-dmg);
+          for (const n of nb) nv[n] = Math.max(0, nv[n]-dmg*0.55);
+          // softer competition — defector clusters can persist briefly
+          ne[k] -= 0.025 * bN + 0.038;    // was 0.045 * bN + 0.040
+        }
+        if (ne[k] < 0.04){ ns[k]=E; ne[k]=0; continue; }
+        if (ne[k] > 0.95){
+          const empty=nb.filter(n=>ns[n]===E);
+          if (empty.length){
+            let target;
+            if (state[k]===G){
+              const social = empty.filter(e=>{const ej=(e/COLS)|0,ei=e%COLS; for(const en of nbrs(ei,ej)) if(state[en]===G) return true; return false;});
+              target = (social.length?social:empty)[(Math.random()*(social.length?social.length:empty.length))|0];
+            } else target = empty[(Math.random()*empty.length)|0];
+            ns[target]=state[k]; ne[target]=ne[k]*0.45; ne[k]*=0.55;
+          }
+        }
+        if (ne[k]>1.5) ne[k]=1.5;
+      }
+      state=ns; energy=ne; env=nv; tick++;
+    }
+    function draw(){
+      ctx.fillStyle='#fcf8ee'; ctx.fillRect(0,0,W,H);
+      for (let j=0;j<ROWS;j++) for (let i=0;i<COLS;i++){
+        const k=j*COLS+i;
+        if (state[k]===E){ const v=env[k]; if (v>0.1){ ctx.fillStyle=`rgba(200,154,62,${v*0.18})`; ctx.fillRect(i*cw,j*ch,cw+0.5,ch+0.5); } }
+        else { const e=Math.min(1,energy[k]); const a=0.35+e*0.55;
+          ctx.fillStyle = state[k]===G ? `rgba(93,140,74,${a})` : `rgba(196,87,107,${a})`;
+          ctx.fillRect(i*cw+0.5, j*ch+0.5, cw-1, ch-1);
+        }
+      }
+      let g=0,b=0,es=0;
+      for (let i=0;i<state.length;i++){ if(state[i]===G)g++; else if(state[i]===B)b++; es+=env[i]; }
+      $('s-good').innerHTML=g+' <small>cells</small>';
+      $('s-bad').innerHTML=b+' <small>cells</small>';
+      $('s-env').innerHTML=(es/env.length).toFixed(2)+' <small>avg</small>';
+      $('s-tick').innerHTML=tick+' <small>steps</small>';
+      let w='tbd';
+      if (g+b>0){ if (g===0) w='defectors'; else if (b===0) w='cooperators';
+        else if (g>b*3) w='cooperators'; else if (b>g*3) w='defectors'; else w='mixed'; }
+      else w='collapse';
+      $('s-win').textContent = w;
+    }
+    let painting=false;
+    function pos(e){const r=c.getBoundingClientRect(); const x=e.clientX-r.left, y=e.clientY-r.top;
+      return {i:Math.max(0,Math.min(COLS-1,(x/cw)|0)), j:Math.max(0,Math.min(ROWS-1,(y/ch)|0))};}
+    function flip(i,j){ const k=j*COLS+i;
+      if (paint==='good'){ state[k]=G; energy[k]=0.8; env[k]=0.5; }
+      else if (paint==='bad'){ state[k]=B; energy[k]=0.8; env[k]=0.5; }
+      else { if (state[k]===E){state[k]=G;energy[k]=0.8;} else if (state[k]===G){state[k]=B;energy[k]=0.8;} else {state[k]=E;energy[k]=0;env[k]=0.5;} }
+    }
+    c.addEventListener('mousedown', e => { painting=true; const p=pos(e); flip(p.i,p.j); });
+    c.addEventListener('mousemove', e => { if (painting){ const p=pos(e); flip(p.i,p.j); } });
+    c.addEventListener('mouseup', () => painting=false);
+    c.addEventListener('mouseleave', () => painting=false);
+    document.addEventListener('keydown', e => {
+      if (e.target && (e.target.tagName==='INPUT' || e.target.tagName==='TEXTAREA')) return;
+      if (e.code==='Space'){ paused=!paused; $('pause').textContent=paused?'resume':'pause'; e.preventDefault(); }
+      if (e.key==='g') paint='good'; if (e.key==='b') paint='bad'; if (e.key==='f') paint='flip';
+    });
+    $('pause').addEventListener('click', () => { paused=!paused; $('pause').textContent=paused?'resume':'pause'; });
+    $('restart').addEventListener('click', () => init({}));
+    document.querySelectorAll('.preset-row button').forEach(btn => btn.addEventListener('click', () => {
+      const p=btn.dataset.p;
+      // recalibrated for the new (more contested) math
+      if (p==='balanced'){ $('gG').value=7; $('bT').value=18; $('bD').value=10; $('reg').value=5; init({cf:0.16, bf:0.10}); }
+      if (p==='coop'){    $('gG').value=14; $('bT').value=8; $('bD').value=4;  $('reg').value=9; init({cf:0.22, bf:0.05}); }
+      if (p==='defect'){  $('gG').value=2; $('bT').value=28; $('bD').value=16; $('reg').value=2; init({cf:0.10, bf:0.18}); }
+      if (p==='boom'){    $('gG').value=10;$('bT').value=22; $('bD').value=6;  $('reg').value=12;init({cf:0.25, bf:0.10}); }
+      if (p==='tragedy'){ $('gG').value=4; $('bT').value=20; $('bD').value=18; $('reg').value=2; init({cf:0.08, bf:0.20}); }
+    }));
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt=setTimeout(resize,150); });
+    resize(); init({});
+    function loop(){ if (!paused) step(); draw(); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+  }
+  if (document.readyState !== 'loading') requestAnimationFrame(start);
+  else document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(start));
+})();
+</script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

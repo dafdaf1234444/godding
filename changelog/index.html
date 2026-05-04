@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>changelog — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="../pages/belief.html">belief</a>
+    <a href="../pages/religion.html">religion</a>
+    <a href="../pages/good-bad.html">good vs. bad</a>
+    <a href="../pages/ants.html">ants</a>
+    <a href="../pages/crime.html">crime</a>
+    <a href="../pages/criminals.html">criminals</a>
+    <a href="../pages/politics.html">politics</a>
+    <a href="../pages/now.html">now</a>
+    <a href="../pages/reach.html">reach</a>
+    <a href="../pages/vote.html">vote</a>
+    <a href="../pages/health.html">health</a>
+    <a href="../pages/sustainability.html">sustainability</a>
+    <a href="../pages/swarm.html" class="swarm-link">swarm</a>
+    <a href="../pages/build.html">build</a>
+    <a href="index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page">
+  <p class="crumb"><a href="../index.html">godding</a> / changelog</p>
+  <p class="kicker">changelog · the swarm's receipts</p>
+  <h1>every accepted diff, with a date and a reason.</h1>
+  <p class="dim">
+    auto-generated from <a href="../data/changelog.json"><code>data/changelog.json</code></a>.
+    if a page changes silently, that's a bug.
+  </p>
+  <div id="entries-wrap"><p class="dim">loading…</p></div>
+  <hr>
+  <p class="dim">how the diffs are produced is on <a href="../pages/swarm.html">swarm</a>.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>files</h4>
+  <ul>
+    <li><a href="../data/changelog.json">changelog.json</a></li>
+    <li><a href="../data/metrics.json">metrics.json</a></li>
+    <li><a href="../data/last_run.json">last_run.json</a></li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="../index.html">home</a></li>
+    <li><a href="../pages/swarm.html">swarm</a></li>
+    <li><a href="../pages/belief.html">belief</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="index.html">changelog</a> · <a href="../pages/swarm.html">swarm</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">signed, dated, append-only.</div>
+</footer>
+
+<script>
+(async () => {
+  const wrap = document.getElementById('entries-wrap');
+  try {
+    const r = await fetch('../data/changelog.json', {cache:'no-store'});
+    if(!r.ok) throw new Error('no changelog yet');
+    const data = await r.json();
+    if(!Array.isArray(data) || data.length === 0){
+      wrap.innerHTML = '<p class="dim">no entries yet.</p>'; return;
+    }
+    const html = ['<ul class="entries">'];
+    for(const e of data.slice().reverse()){
+      const t = (e.timestamp||'').replace('T',' ').replace(/\..+/,'') + ' UTC';
+      const pages = (e.pages||[]).map(p=>'<code>'+p+'</code>').join(', ') || '<code>—</code>';
+      const r = e.rationale || '(no rationale)';
+      const run = e.run_id ? '<span style="color:var(--ink-mute)"> · run '+e.run_id+'</span>' : '';
+      const accepted = e.accepted_diffs ?? null;
+      const proposed = e.proposed_diffs ?? null;
+      const stats = (accepted!==null) ? ' · '+accepted+(proposed!==null?'/'+proposed:'')+' diff(s)' : '';
+      html.push('<li><time>'+t+run+stats+'</time><div><strong>pages:</strong> '+pages+'</div><div>'+r+'</div></li>');
+    }
+    html.push('</ul>');
+    wrap.innerHTML = html.join('');
+  } catch (err) {
+    wrap.innerHTML = '<p class="dim">no changelog file yet.</p>';
+  }
+})();
+</script>
+</body>
+</html>

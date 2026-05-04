@@ -1,0 +1,20 @@
+# swarm runtime — last_run is regenerated each run; not the source of truth
+data/last_run.json
+
+# leftover from a sandboxed mount that couldn't be deleted
+._git_broken_mount_owns_it/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+
+# editor
+.vscode/
+.idea/
+.DS_Store
+*~
+
+# OS
+Thumbs.db
+desktop.ini

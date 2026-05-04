@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>now — current claims, votable — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* page-specific (mirrors vote.html) */
+  .vote-block{ background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; margin: 10px 0 24px; }
+  .vote-row-q{
+    display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;
+    padding: 12px 0; border-bottom: 1px dashed var(--line);
+  }
+  .vote-row-q:last-child{ border-bottom: none; }
+  .vote-row-q .q{ font-family: var(--serif); font-size: 16px; line-height: 1.45; color: var(--ink); }
+  .vote-row-q .actions{ display: flex; gap: 6px; align-items: center; }
+  .vote-btn{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 11px; border-radius: 100px;
+    border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2);
+    cursor: pointer; transition: all var(--t);
+  }
+  .vote-btn:hover{ border-color: var(--sun); color: var(--sun); }
+  .vote-btn.up.on{ background: var(--leaf); color: var(--paper); border-color: var(--leaf); }
+  .vote-btn.down.on{ background: var(--rose); color: var(--paper); border-color: var(--rose); }
+  .topic-label{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .14em;
+    text-transform: uppercase; color: var(--ink-mute);
+    margin: 22px 0 4px; display: inline-flex; align-items: center; gap: 12px;
+  }
+  .topic-label::before{ content: ""; width: 24px; height: 1px; background: var(--sun); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a>
+    <a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a>
+    <a href="ants.html">ants</a>
+    <a href="crime.html">crime</a>
+    <a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a>
+    <a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a>
+    <a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / now</p>
+  <p class="kicker">now · current claims · votable</p>
+  <h1>vote on the <em>current situation</em>.</h1>
+  <p class="dim">
+    contestable claims about the world right now. each one is something
+    reasonable people argue about — climate, AI, governance, geopolitics,
+    economics. <strong>agree</strong> = "the claim is true."
+    <strong>disagree</strong> = "the claim is false." you can change either
+    vote any time; the change is recorded with a UTC timestamp on
+    <a href="vote.html">/vote</a>.
+  </p>
+
+  <div class="note" style="border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(200,154,62,.08),transparent)">
+    <strong>why no named living people?</strong>
+    a public site that lets visitors rate named living people up or down
+    becomes a defamation surface and a partisan scoreboard — the opposite of
+    what godding is for. the universal-wrong list (<a href="crime.html">/crime</a>),
+    the historical mass-atrocity bubbles (<a href="criminals.html">/criminals</a>),
+    and these issue-level claims do real political work without any of that.
+    if you privately think a current leader is good or bad, every contested
+    claim they're associated with is on this page. vote those.
+  </div>
+
+  <p class="topic-label">climate &amp; energy</p>
+  <div class="vote-block" id="vote-climate"></div>
+
+  <p class="topic-label">technology &amp; ai</p>
+  <div class="vote-block" id="vote-tech"></div>
+
+  <p class="topic-label">economics &amp; inequality</p>
+  <div class="vote-block" id="vote-econ"></div>
+
+  <p class="topic-label">geopolitics &amp; conflict</p>
+  <div class="vote-block" id="vote-geo"></div>
+
+  <p class="topic-label">institutions &amp; trust</p>
+  <div class="vote-block" id="vote-inst"></div>
+
+  <p class="topic-label">society &amp; daily life</p>
+  <div class="vote-block" id="vote-life"></div>
+
+  <h2>about public tracking</h2>
+  <p>
+    today, votes are stored in your browser's local storage — not on a
+    server, not in a public database. anyone reading this site sees
+    <em>their own</em> votes, not yours. that's an honest limit of a static
+    site with no backend.
+  </p>
+  <p>
+    the federated path is in the
+    <a href="build.html">build</a> roadmap: each vote becomes a small
+    signed commit (or pull request) to the
+    <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github repo</a>,
+    the swarm aggregates them on its scheduled run, and aggregate counts
+    appear on this page on the next deploy. that turns your
+    <em>individual</em> trail into a <em>public</em> one — but only with
+    your explicit consent, only on items you choose to push.
+  </p>
+  <p class="dim">
+    in the meantime: your private trail is real. it accrues reputation. you
+    can copy your <code>godding.profile</code> blob from devtools and post
+    it anywhere you like. that's the rough draft of federation.
+  </p>
+</main>
+
+<aside class="sidebar">
+  <h4>how voting works</h4>
+  <ul>
+    <li>agree = the claim is true</li>
+    <li>disagree = the claim is false</li>
+    <li>flip or remove any time</li>
+    <li>every change timestamped UTC</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="vote.html">your full vote trail</a></li>
+    <li><a href="crime.html">crime — universal list</a></li>
+    <li><a href="criminals.html">criminals — bubbles</a></li>
+    <li><a href="build.html">how it's built</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="vote.html">vote</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">claims, not people. recorded, changeable.</div>
+</footer>
+
+<script>
+(function(){
+  const KEY='godding.profile';
+  function nowUTC(){
+    const d=new Date(),p=n=>String(n).padStart(2,'0');
+    return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds());
+  }
+  function loadProfile(){
+    let p=null; try{ p=JSON.parse(localStorage.getItem(KEY)); }catch{}
+    if(!p||typeof p!=='object'){
+      const a='abcdefghjkmnpqrstuvwxyz23456789';
+      let s=''; for(let i=0;i<8;i++) s+=a[Math.floor(Math.random()*a.length)];
+      p={ id:s, created:new Date().toISOString().slice(0,10) };
+    }
+    p.daysActive=Array.isArray(p.daysActive)?p.daysActive:[];
+    const t=new Date().toISOString().slice(0,10);
+    if(!p.daysActive.includes(t)) p.daysActive.push(t);
+    p.pagesVisited=Array.isArray(p.pagesVisited)?p.pagesVisited:[];
+    if(!p.pagesVisited.includes('now')) p.pagesVisited.push('now');
+    p.votes=p.votes||{}; p.history=Array.isArray(p.history)?p.history:[];
+    return p;
+  }
+  let profile = loadProfile();
+  function save(){ localStorage.setItem(KEY, JSON.stringify(profile)); }
+  save();
+
+  // claims — issues, not named people. each phrased as a definite statement.
+  const ITEMS = {
+    'vote-climate': [
+      {id:'n-climate-urgent', q:'"climate change is the most consequential collective challenge of this century."'},
+      {id:'n-nuclear-yes',    q:'"expanding nuclear power is necessary for fast decarbonisation."'},
+      {id:'n-individual-myth',q:'"focusing on personal carbon footprints is mostly a corporate distraction from systemic change."'},
+      {id:'n-meat-cut',       q:'"a large reduction in beef and lamb consumption is necessary for any serious climate plan."'},
+      {id:'n-fly-less',       q:'"long-haul flights are a luxury that should carry serious carbon pricing."'},
+    ],
+    'vote-tech': [
+      {id:'n-ai-pause',       q:'"frontier AI capability development is currently moving faster than alignment research, and that gap is dangerous."'},
+      {id:'n-social-teens',   q:'"smartphones + social media are net-negative for the mental health of teenagers."'},
+      {id:'n-attention-econ', q:'"the attention economy is the largest unregulated externality in the modern internet."'},
+      {id:'n-encrypt',        q:'"end-to-end encryption is a basic public good and should not be backdoored."'},
+      {id:'n-ai-jobs',        q:'"ai will displace more jobs than it creates within the next 15 years."'},
+    ],
+    'vote-econ': [
+      {id:'n-billionaires',   q:'"the existence of billionaires is a policy choice, not an economic necessity."'},
+      {id:'n-housing',        q:'"the single biggest cause of unaffordability in rich-country cities is restrictive zoning."'},
+      {id:'n-ubi',            q:'"a universal basic income, set at a survivable floor, is the cleanest policy response to automation."'},
+      {id:'n-tax-wealth',     q:'"a meaningful global tax on extreme wealth is achievable and overdue."'},
+      {id:'n-globalization',  q:'"the gains from globalisation since 1990 have outweighed its costs, in aggregate."'},
+    ],
+    'vote-geo': [
+      {id:'n-democracy-decline', q:'"democracy is, on average, in measurable retreat globally over the last decade."'},
+      {id:'n-china-rise',     q:'"china\'s share of global power will keep rising for at least another decade."'},
+      {id:'n-multipolar',     q:'"a multipolar world is more stable than a unipolar one, on net."'},
+      {id:'n-nukes',          q:'"the risk of nuclear weapons being used has increased noticeably since 2022."'},
+    ],
+    'vote-inst': [
+      {id:'n-media-trust',    q:'"trust in mainstream media has fallen because the media earned the loss, not because audiences were tricked."'},
+      {id:'n-courts-pol',     q:'"top courts in many democracies are now meaningfully political, not neutral."'},
+      {id:'n-elections-fair', q:'"in most established democracies, elections are still administered fairly."'},
+      {id:'n-bureau-needed',  q:'"a competent civil service is more important to a functional country than the identity of its elected leaders."'},
+    ],
+    'vote-life': [
+      {id:'n-loneliness',     q:'"loneliness in rich countries is now a public-health problem on the scale of smoking."'},
+      {id:'n-fertility',      q:'"falling birth rates in rich countries are mostly a structural / economic problem, not a values problem."'},
+      {id:'n-religion-decline',q:'"organised religion is in long-term decline in rich countries."'},
+      {id:'n-doom',           q:'"younger generations are right to be more pessimistic than older ones about their material future."'},
+    ],
+  };
+
+  function render(host, items){
+    const el=document.getElementById(host); el.innerHTML='';
+    for(const it of items){
+      const v=profile.votes[it.id];
+      const upL = v==='up'?'✓ agree':'agree';
+      const dnL = v==='down'?'✓ disagree':'disagree';
+      const row=document.createElement('div'); row.className='vote-row-q';
+      row.innerHTML=`<div class="q">${it.q}</div>
+        <div class="actions">
+          <button class="vote-btn up ${v==='up'?'on':''}" data-id="${it.id}" data-dir="up">${upL}</button>
+          <button class="vote-btn down ${v==='down'?'on':''}" data-id="${it.id}" data-dir="down">${dnL}</button>
+        </div>`;
+      el.appendChild(row);
+    }
+    el.querySelectorAll('.vote-btn').forEach(b=>b.addEventListener('click', onClick));
+  }
+  function onClick(e){
+    const b=e.currentTarget, id=b.dataset.id, dir=b.dataset.dir, ts=nowUTC();
+    if(profile.votes[id]===dir){
+      delete profile.votes[id];
+      profile.history.unshift({ ts, kind:'remove', id });
+    } else {
+      profile.votes[id]=dir;
+      profile.history.unshift({ ts, kind:dir, id });
+    }
+    if(profile.history.length>200) profile.history.length=200;
+    save();
+    for(const k in ITEMS) render(k, ITEMS[k]);
+  }
+  for(const k in ITEMS) render(k, ITEMS[k]);
+})();
+</script>
+</body>
+</html>

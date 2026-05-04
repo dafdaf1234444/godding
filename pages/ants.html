@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ants on bodies — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a><a href="ants.html">ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / ants</p>
+  <p class="kicker">play · cooperation on top of physics</p>
+  <h1>ants on <em>bodies</em>.</h1>
+  <p class="dim">several bodies pull on each other under newtonian gravity. on top of that physics, a colony of ants walks each body's surface, leaves pheromone trails, finds food, and hops between bodies when they pass close.</p>
+
+  <div class="sim-wrap"><canvas id="sim"></canvas></div>
+  <div class="sim-controls">
+    <button id="restart">restart</button>
+    <button id="pause">pause</button>
+    <label>ants <input id="nA" type="range" min="40" max="400" value="180"></label>
+    <label>bodies <input id="nB" type="range" min="2" max="6" value="3"></label>
+    <label>gravity <input id="g" type="range" min="0" max="100" value="40"></label>
+    <span id="hud" style="margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--ink-mute)"></span>
+  </div>
+
+  <h2>what you're looking at</h2>
+  <ul>
+    <li><strong>glowing disks</strong> are bodies — pulled by gravity, leaving fading orbital trails. drag them with the mouse.</li>
+    <li><strong>tiny triangles</strong> are ants — orange when carrying food, white otherwise.</li>
+    <li><strong>warm haze</strong> is pheromone. ants strengthen it where they find food; trails decay over time.</li>
+    <li><strong>green dots</strong> are food. drops counter goes up every time an ant returns food to its body's nest mark.</li>
+  </ul>
+
+  <h2>why this is on a site about belief</h2>
+  <p>a body alone is just physics. a single ant is also just physics plus rules. but a few hundred ants reading each other's trails on top of those bodies do something interesting: they <em>collaborate</em>. the colony, taken as a whole, looks like it's thinking — even though no individual ant is.</p>
+  <p>same idea as the rest of the site. drag a body away and watch the colony adapt. same loop the <a href="belief.html">belief</a> page describes, in a few hundred lines of javascript.</p>
+
+  <p class="dim">algorithm refs: <a href="https://en.wikipedia.org/wiki/N-body_simulation" target="_blank" rel="noopener">n-body</a> · <a href="https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms" target="_blank" rel="noopener">ant colony optimisation</a> · <a href="swarm.html">/swarm</a> is the same family at LLM scale.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>controls</h4>
+  <ul><li>drag a body to move it</li><li><kbd>space</kbd> = pause</li><li>sliders adjust live</li></ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul><li><a href="good-bad.html">good vs. bad</a></li><li><a href="belief.html">belief</a></li><li><a href="swarm.html">swarm</a></li><li><a href="vote.html">vote</a></li></ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="vote.html">vote</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">tiny sim. no libraries.</div>
+</footer>
+
+<script>
+(function(){
+  // page-visit
+  try{const K='godding.profile';const p=JSON.parse(localStorage.getItem(K)||'null')||{id:Math.random().toString(36).slice(2,10),created:new Date().toISOString().slice(0,10),daysActive:[],pagesVisited:[],votes:{},history:[]};const t=new Date().toISOString().slice(0,10);if(!p.daysActive.includes(t))p.daysActive.push(t);if(!p.pagesVisited.includes('ants'))p.pagesVisited.push('ants');localStorage.setItem(K,JSON.stringify(p));}catch{}
+
+  function start(){
+    const canvas = document.getElementById('sim');
+    const ctx = canvas.getContext('2d');
+    const hud = document.getElementById('hud');
+    const $ = id => document.getElementById(id);
+    let W=0, H=0; const DPR = window.devicePixelRatio || 1;
+    let bodies=[], ants=[], food=[], paused=false;
+    const GW=120, GH=48; let pher = new Float32Array(GW*GH);
+
+    function resize(){
+      const r = canvas.getBoundingClientRect();
+      W = (r.width|0) || 900; H = (r.height|0) || 460;
+      canvas.width = W*DPR; canvas.height = H*DPR;
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+    }
+    function rand(a,b){return a+Math.random()*(b-a);}
+    function gx(x){return Math.max(0,Math.min(GW-1,(x/W*GW)|0));}
+    function gy(y){return Math.max(0,Math.min(GH-1,(y/H*GH)|0));}
+
+    function build(){
+      const nB = +$('nB').value, nA = +$('nA').value;
+      const cs = [['#ff7e54','rgba(255,126,84,'],['#a978ff','rgba(169,120,255,'],['#4cd2a4','rgba(76,210,164,'],['#62b6ff','rgba(98,182,255,'],['#ff6b9d','rgba(255,107,157,'],['#f1c453','rgba(241,196,83,']];
+      bodies = [];
+      for (let i=0;i<nB;i++){
+        const r=rand(28,52), c=cs[i%cs.length], a=(i/nB)*Math.PI*2;
+        bodies.push({x:W/2+Math.cos(a)*Math.min(W,H)*0.22, y:H/2+Math.sin(a)*Math.min(W,H)*0.22, vx:-Math.sin(a)*0.4, vy:Math.cos(a)*0.4, r, m:r*r/200, color:c[0], glow:c[1], trail:[], nest:a+Math.PI, score:0});
+      }
+      ants = [];
+      for (let i=0;i<nA;i++){
+        const b=bodies[i%bodies.length];
+        ants.push({host:bodies.indexOf(b), th:Math.random()*Math.PI*2, om:(Math.random()<.5?-1:1)*rand(.012,.028), carry:false, flash:0});
+      }
+      food = []; for(let i=0;i<8;i++) food.push({x:rand(40,W-40), y:rand(40,H-40)});
+      pher = new Float32Array(GW*GH);
+    }
+
+    function step(){
+      const G = (+$('g').value)/30;
+      for (const b of bodies){ b.trail.push({x:b.x,y:b.y}); if (b.trail.length>120) b.trail.shift(); }
+      for (let i=0;i<bodies.length;i++) for (let j=i+1;j<bodies.length;j++){
+        const a=bodies[i], b=bodies[j]; let dx=b.x-a.x, dy=b.y-a.y;
+        const d2=dx*dx+dy*dy+80, d=Math.sqrt(d2);
+        let f=G*(a.m*b.m)/d2; const minD=a.r+b.r; if(d<minD) f-=0.7*(minD-d);
+        const fx=f*dx/d, fy=f*dy/d;
+        a.vx+=fx/a.m; a.vy+=fy/a.m; b.vx-=fx/b.m; b.vy-=fy/b.m;
+      }
+      for (const b of bodies){
+        if (!b.dragging){
+          b.x+=b.vx; b.y+=b.vy;
+          if(b.x<b.r){b.x=b.r;b.vx*=-.55;} if(b.x>W-b.r){b.x=W-b.r;b.vx*=-.55;}
+          if(b.y<b.r){b.y=b.r;b.vy*=-.55;} if(b.y>H-b.r){b.y=H-b.r;b.vy*=-.55;}
+          b.vx*=0.9995; b.vy*=0.9995;
+        } else { b.vx=0; b.vy=0; }
+      }
+      for (const ant of ants){
+        const h = bodies[ant.host]; if (!h){ ant.host=0; continue; }
+        if (Math.random()<0.04) ant.om = (Math.random()<.5?-1:1)*rand(.012,.028);
+        ant.th += ant.om;
+        const x = h.x + Math.cos(ant.th)*h.r, y = h.y + Math.sin(ant.th)*h.r;
+        ant.x=x; ant.y=y; ant.head = ant.th + (ant.om>0?Math.PI/2:-Math.PI/2);
+        if (!ant.carry) for (const f of food){ const dx=x-f.x, dy=y-f.y; if(dx*dx+dy*dy<130){ant.carry=true;ant.flash=10;break;} }
+        const k = gy(y)*GW+gx(x); pher[k] = Math.min(1, pher[k] + (ant.carry?0.06:0.005));
+        if (ant.carry){
+          const ang = ((ant.th - h.nest) + Math.PI*5) % (Math.PI*2) - Math.PI;
+          if (Math.abs(ang)<0.10){ ant.carry=false; ant.flash=14; h.score=(h.score||0)+1; }
+        }
+        if (ant.flash>0) ant.flash--;
+        for (let i=0;i<bodies.length;i++){
+          if (i===ant.host) continue; const b=bodies[i]; const dx=x-b.x,dy=y-b.y;
+          if (dx*dx+dy*dy < (b.r+5)*(b.r+5) && Math.random()<0.06){ ant.host=i; ant.th=Math.atan2(y-b.y,x-b.x); break; }
+        }
+      }
+      if (Math.random()<0.006){ const f=food[(Math.random()*food.length)|0]; f.x=rand(40,W-40); f.y=rand(40,H-40); }
+      for (let i=0;i<pher.length;i++) pher[i] *= 0.92;
+    }
+
+    function draw(){
+      const grd = ctx.createRadialGradient(W/2,H/2,30,W/2,H/2,Math.max(W,H)*0.7);
+      grd.addColorStop(0,'#0b0c14'); grd.addColorStop(1,'#04050a');
+      ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
+      const cw=W/GW, ch=H/GH;
+      for (let j=0;j<GH;j++) for (let i=0;i<GW;i++){
+        const v = pher[j*GW+i]; if (v<0.02) continue;
+        ctx.fillStyle = `rgba(255,178,107,${Math.min(0.32,v*0.5)})`;
+        ctx.fillRect(i*cw, j*ch, cw+1, ch+1);
+      }
+      for (const f of food){
+        const g = ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,18);
+        g.addColorStop(0,'rgba(76,210,164,0.95)'); g.addColorStop(1,'rgba(76,210,164,0)');
+        ctx.fillStyle=g; ctx.fillRect(f.x-18,f.y-18,36,36);
+      }
+      for (const b of bodies){
+        if (b.trail.length>=2){
+          ctx.beginPath(); for (let i=0;i<b.trail.length;i++){ const p=b.trail[i]; if(i===0)ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y); }
+          ctx.strokeStyle=b.glow+'0.18)'; ctx.lineWidth=1.4; ctx.stroke();
+        }
+      }
+      for (const b of bodies){
+        const gh = ctx.createRadialGradient(b.x,b.y,b.r*0.3,b.x,b.y,b.r*1.9);
+        gh.addColorStop(0,b.glow+'0.45)'); gh.addColorStop(1,b.glow+'0)');
+        ctx.fillStyle=gh; ctx.fillRect(b.x-b.r*2,b.y-b.r*2,b.r*4,b.r*4);
+        const g = ctx.createRadialGradient(b.x-b.r*0.4,b.y-b.r*0.4,b.r*0.1,b.x,b.y,b.r);
+        g.addColorStop(0,b.glow+'0.85)'); g.addColorStop(1,b.glow+'0.10)');
+        ctx.fillStyle=g; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
+        ctx.lineWidth=1.2; ctx.strokeStyle=b.color; ctx.stroke();
+        const nx=b.x+Math.cos(b.nest)*b.r, ny=b.y+Math.sin(b.nest)*b.r;
+        ctx.fillStyle=b.color; ctx.beginPath(); ctx.arc(nx,ny,2.6,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='#c2c0c4'; ctx.font='11px monospace'; ctx.textAlign='center';
+        ctx.fillText(String(b.score||0), b.x, b.y-b.r-8);
+      }
+      for (const ant of ants){
+        const h = bodies[ant.host]; if (!h) continue;
+        const x = ant.x ?? (h.x+Math.cos(ant.th)*h.r), y = ant.y ?? (h.y+Math.sin(ant.th)*h.r);
+        const sz = ant.carry?3.0:2.4;
+        ctx.save(); ctx.translate(x,y); ctx.rotate(ant.head||ant.th);
+        ctx.fillStyle = ant.flash>0?'#fff':(ant.carry?'#ffb86b':'#e6e6ec');
+        ctx.beginPath(); ctx.moveTo(sz,0); ctx.lineTo(-sz,sz*.7); ctx.lineTo(-sz,-sz*.7); ctx.closePath(); ctx.fill();
+        ctx.restore();
+      }
+      let total=0; for (const b of bodies) total+=(b.score||0);
+      hud.textContent = `bodies ${bodies.length} · ants ${ants.length} · drops ${total}`;
+    }
+
+    let dragging=null;
+    function pos(e){const r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+    canvas.addEventListener('mousedown', e => { const p=pos(e); for (const b of bodies) if ((b.x-p.x)**2+(b.y-p.y)**2 < b.r*b.r){ dragging=b; b.dragging=true; return; } });
+    canvas.addEventListener('mousemove', e => { if (!dragging) return; const p=pos(e); dragging.x=p.x; dragging.y=p.y; });
+    function end(){ if (dragging){ dragging.dragging=false; dragging=null; } }
+    canvas.addEventListener('mouseup', end); canvas.addEventListener('mouseleave', end);
+    document.addEventListener('keydown', e => { if (e.code==='Space'){ paused=!paused; $('pause').textContent = paused?'resume':'pause'; e.preventDefault(); } });
+    $('pause').addEventListener('click', () => { paused=!paused; $('pause').textContent = paused?'resume':'pause'; });
+    $('restart').addEventListener('click', () => { resize(); build(); });
+    $('nA').addEventListener('change', () => { resize(); build(); });
+    $('nB').addEventListener('change', () => { resize(); build(); });
+    let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt=setTimeout(resize,150); });
+
+    resize(); build();
+    function loop(){ if (!paused) step(); draw(); requestAnimationFrame(loop); }
+    requestAnimationFrame(loop);
+  }
+  if (document.readyState !== 'loading') requestAnimationFrame(start);
+  else document.addEventListener('DOMContentLoaded', () => requestAnimationFrame(start));
+})();
+</script>
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

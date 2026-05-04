@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>swarm — the engine — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a>
+    <a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a>
+    <a href="ants.html">ants</a>
+    <a href="crime.html">crime</a>
+    <a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a>
+    <a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a>
+    <a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / swarm</p>
+  <p class="kicker">engine · the knowledge base</p>
+  <h1>godding uses <em>swarm</em>.</h1>
+
+  <h2>what it does — in one paragraph</h2>
+  <p>
+    swarm reads every page on this site, proposes small tightenings, kills the
+    bad ones, and writes the rest into the page itself. every accepted edit
+    is logged to a public file with a timestamp and a one-line reason. the
+    loop runs daily on a schedule. you read the result.
+  </p>
+
+  <h2>what it does — visually</h2>
+  <div style="background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px 14px;margin:10px 0 18px">
+  <svg viewBox="0 0 880 460" xmlns="http://www.w3.org/2000/svg"
+       style="width:100%;height:auto;display:block;font-family:Fraunces,Georgia,serif"
+       role="img" aria-label="swarm flow: pages read by drafter, critic, fact-checker; judge accepts; diff applied; appended to changelog; loop returns to pages">
+    <defs>
+      <marker id="sa" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#6f5f53"/>
+      </marker>
+      <marker id="sb" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#d96936"/>
+      </marker>
+      <marker id="sc" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+        <path d="M0,0 L12,6 L0,12 Z" fill="#5d8c4a"/>
+      </marker>
+      <linearGradient id="boxA" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff8ea"/><stop offset="1" stop-color="#f0e8d4"/>
+      </linearGradient>
+      <linearGradient id="boxB" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#f0e8d4"/>
+      </linearGradient>
+    </defs>
+
+    <!-- 1. pages -->
+    <rect x="240" y="20" width="400" height="76" rx="12" fill="url(#boxA)" stroke="#a39179"/>
+    <text x="440" y="46" text-anchor="middle" font-style="italic" font-size="20" fill="#1f1813">godding pages</text>
+    <text x="440" y="68" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6f5f53">belief · religion · good-bad · ants · crime · politics · now · …</text>
+    <text x="440" y="86" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#6f5f53">↓ read</text>
+
+    <!-- arrow pages → agents -->
+    <line x1="440" y1="98" x2="440" y2="128" stroke="#6f5f53" stroke-width="1.5" marker-end="url(#sa)"/>
+
+    <!-- 2. agents row -->
+    <rect x="60" y="142" width="760" height="100" rx="12" fill="url(#boxB)" stroke="#6b4a8b"/>
+    <text x="440" y="166" text-anchor="middle" font-style="italic" font-size="15" fill="#6b4a8b">three agents propose · critique · check</text>
+
+    <g>
+      <rect x="100" y="184" width="200" height="46" rx="8" fill="#fff8ea" stroke="#a39179"/>
+      <text x="200" y="206" text-anchor="middle" font-style="italic" font-size="14" fill="#1f1813">drafter</text>
+      <text x="200" y="222" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">proposes a tightening</text>
+
+      <rect x="340" y="184" width="200" height="46" rx="8" fill="#fff8ea" stroke="#a39179"/>
+      <text x="440" y="206" text-anchor="middle" font-style="italic" font-size="14" fill="#1f1813">critic</text>
+      <text x="440" y="222" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">tries to kill it</text>
+
+      <rect x="580" y="184" width="200" height="46" rx="8" fill="#fff8ea" stroke="#a39179"/>
+      <text x="680" y="206" text-anchor="middle" font-style="italic" font-size="14" fill="#1f1813">fact-checker</text>
+      <text x="680" y="222" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">no new numbers / names</text>
+
+      <line x1="300" y1="207" x2="340" y2="207" stroke="#6f5f53" stroke-width="1.4" marker-end="url(#sa)"/>
+      <line x1="540" y1="207" x2="580" y2="207" stroke="#6f5f53" stroke-width="1.4" marker-end="url(#sa)"/>
+    </g>
+
+    <!-- 3. judge -->
+    <line x1="440" y1="242" x2="440" y2="270" stroke="#a39179" stroke-width="1.2" stroke-dasharray="3 3"/>
+    <rect x="320" y="276" width="240" height="44" rx="10" fill="#fff8ea" stroke="#d96936" stroke-width="1.5"/>
+    <text x="440" y="304" text-anchor="middle" font-style="italic" font-size="14" fill="#d96936">judge — errs toward "no"</text>
+
+    <!-- 4. accepted diff arrow (clearly to the right of the label so they don't overlap) -->
+    <line x1="440" y1="320" x2="440" y2="358" stroke="#d96936" stroke-width="2" marker-end="url(#sb)"/>
+    <text x="500" y="343" font-family="JetBrains Mono, monospace" font-size="11" fill="#d96936">accepted diff</text>
+
+    <!-- 5. apply -->
+    <rect x="280" y="364" width="320" height="40" rx="10" fill="url(#boxA)" stroke="#a39179"/>
+    <text x="440" y="389" text-anchor="middle" font-style="italic" font-size="13" fill="#1f1813">apply to page (atomic, dated)</text>
+
+    <!-- 6. log -->
+    <line x1="440" y1="404" x2="440" y2="420" stroke="#6f5f53" stroke-width="1.5" marker-end="url(#sa)"/>
+    <rect x="240" y="424" width="400" height="30" rx="8" fill="url(#boxA)" stroke="#a39179"/>
+    <text x="440" y="444" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#1f1813">append to data/changelog.json</text>
+
+    <!-- loop back: from log up the right side back to pages -->
+    <path d="M 640 439 C 830 439 850 60 640 60"
+          fill="none" stroke="#5d8c4a" stroke-width="1.6"
+          stroke-dasharray="5 4" marker-end="url(#sc)"/>
+    <text x="848" y="250" text-anchor="middle"
+          font-family="Fraunces, Georgia, serif" font-style="italic" font-size="13" fill="#5d8c4a"
+          transform="rotate(-90, 848, 250)">back to the pages</text>
+  </svg>
+  </div>
+
+  <h2>guardrails (real, not vague)</h2>
+  <ol>
+    <li>the swarm <strong>can only write diffs</strong>; it cannot rewrite a page wholesale.</li>
+    <li>the swarm <strong>cannot lengthen the site</strong>; word count must stay flat or shrink per run.</li>
+    <li>the swarm <strong>never names specific living people</strong>, never quotes more than a phrase, never adds new numbers.</li>
+    <li>every accepted diff is logged. nothing changes silently.</li>
+  </ol>
+
+  <h2>swarm as a knowledge base</h2>
+  <p>
+    every accepted edit lands in <a href="../data/changelog.json">data/changelog.json</a>
+    with a timestamp, the pages it touched, and a one-line rationale. every
+    run lands in <a href="../data/last_run.json">data/last_run.json</a>. rolling
+    totals live in <a href="../data/metrics.json">data/metrics.json</a>. you can
+    read all three. nothing is hidden. that's the whole "knowledge base" — a
+    public, append-only log of what changed and why. the human-readable view
+    is on <a href="../changelog/index.html">/changelog</a>.
+  </p>
+
+  <h2>how the agents work — details</h2>
+  <table class="table">
+    <thead><tr><th>agent</th><th>job</th><th>typical reject reason</th></tr></thead>
+    <tbody>
+      <tr><td><strong>drafter</strong></td><td>proposes a single tightening per page (one paragraph at a time).</td><td>—</td></tr>
+      <tr><td><strong>critic</strong></td><td>looks for vagueness, drift, growth, unsupported claims.</td><td>"would lengthen the site."</td></tr>
+      <tr><td><strong>fact-checker</strong></td><td>rejects any diff that introduces a new number or named person.</td><td>"introduces a new figure."</td></tr>
+      <tr><td><strong>judge</strong></td><td>accepts only if both critic and fact-checker accept. otherwise: no change.</td><td>"err on the side of leaving the page alone."</td></tr>
+    </tbody>
+  </table>
+
+  <h2>state-of-the-art ingredients we deliberately use</h2>
+  <ul>
+    <li><strong>rationale-based training</strong> — 

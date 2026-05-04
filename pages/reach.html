@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>reach — about + marketing — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .channel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:12px 0 18px}
+  .channel{padding:14px 16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-sm)}
+  .channel h4{font-family:var(--serif);font-style:italic;font-weight:400;margin:0 0 4px;font-size:18px;color:var(--ink)}
+  .channel .cad{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:6px}
+  .channel p{margin:0;color:var(--ink-2);font-size:13.5px;line-height:1.5}
+  .hook{font-family:var(--mono);font-size:12.5px;background:var(--paper);border-left:3px solid var(--sun);padding:10px 14px;border-radius:0 8px 8px 0;margin:8px 0;color:var(--ink-2);line-height:1.55}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a><a href="ants.html">ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="reach.html">reach</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / reach</p>
+  <p class="kicker">reach · about · marketing strategy</p>
+  <h1>reach — <em>how godding gets to people.</em></h1>
+  <p class="dim">a public, automatable plan for reaching the people who want this site to exist. organic only. no paid promotion. the swarm handles most of it on its daily run.</p>
+
+  <h2>about · who's behind this</h2>
+  <p>
+    godding is built and maintained by <strong>Can Acay</strong>, based in
+    <strong>Utrecht, NL</strong>. Can writes, codes, runs the swarm, and signs
+    every commit. the philosophy is in <a href="belief.html">/belief</a>; the
+    engine is on <a href="swarm.html">/swarm</a>; the receipts are in the
+    <a href="../changelog/index.html">changelog</a>. contact and links:
+  </p>
+  <ul>
+    <li><strong>github</strong>: <a href="https://github.com/dafdaf1234444" target="_blank" rel="noopener">github.com/dafdaf1234444</a></li>
+    <li><strong>godding repo</strong>: <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">/godding</a></li>
+    <li><strong>swarm worktree</strong>: <a href="https://github.com/dafdaf1234444/godding/tree/worktree-s546-principle-health" target="_blank" rel="noopener">worktree-s546</a></li>
+  </ul>
+
+  <h2>objective · plain</h2>
+  <ol>
+    <li>reach the maximum number of <em>thoughtful</em> readers, not just clicks. one careful reader who returns is worth fifty drive-bys.</li>
+    <li>every step automated by the swarm where legal and ethical. nothing posted on a person's behalf without consent.</li>
+    <li>compounding, not bursts: ten months of small consistent posts beat one viral spike.</li>
+    <li>honest framing always. no clickbait, no fake controversy, no impersonation.</li>
+  </ol>
+
+  <h2>distribution channels &amp; cadence</h2>
+  <p class="dim">each channel has a different audience and a different rhythm. the swarm produces a share-kit (<code>data/share_kit.json</code>) each daily run with copy-paste-ready text for whatever channels you use that day.</p>
+
+  <div class="channel-grid">
+    <div class="channel"><div class="cad">weekly · long</div><h4>Hacker News</h4><p>"show HN" post for the swarm + godding combo. focus on the static-site + LLM-distiller-as-knowledge-base angle. one careful submission, never resubmit.</p></div>
+    <div class="channel"><div class="cad">weekly · short</div><h4>X / Twitter</h4><p>one short post per week from a single page that landed an interesting diff. always with the link. let the swarm draft it; you press send.</p></div>
+    <div class="channel"><div class="cad">monthly · longform</div><h4>Personal blog / Substack</h4><p>monthly essay drawn from the changelog: "what the swarm flagged this month." longform retention beats spike traffic.</p></div>
+    <div class="channel"><div class="cad">on each diff</div><h4>RSS / Atom feed</h4><p>auto-published from the changelog. anyone subscribed sees every accepted edit. zero work to maintain. high signal per follower.</p></div>
+    <div class="channel"><div class="cad">situational</div><h4>Reddit · niche subs</h4><p>r/philosophy, r/sustainability, r/MachineLearning, r/changemyview. only post a page when it directly addresses the sub's topic. rarely spam.</p></div>
+    <div class="channel"><div class="cad">on demand</div><h4>LinkedIn</h4><p>one post per real product milestone. swarm hits a new metric, a new branch lands, a paper cites the approach.</p></div>
+    <div class="channel"><div class="cad">long-form audio</div><h4>Podcast / interview</h4><p>opt-in only. when invited, lead with the swarm story, not the philosophy. people hire ideas they can re-explain to a colleague.</p></div>
+    <div class="channel"><div class="cad">passive</div><h4>SEO + sitemap</h4><p>each page is one HTML file with a clean title, a meta description, and clean URLs. no JS-only routing. the swarm checks links each run.</p></div>
+  </div>
+
+  <h2>the swarm's marketing job</h2>
+  <p>the swarm is set up to run daily at 09:04 local. on each run it now produces an additional artefact, <code>data/share_kit.json</code>, with:</p>
+  <ul>
+    <li>a one-line tweet (≤ 220 chars) drawn from the most recent accepted diff or page edit</li>
+    <li>a 3-line LinkedIn intro using the same diff</li>
+    <li>a Hacker News title candidate (only if a major page was added)</li>
+    <li>a one-paragraph blog stub for the monthly digest</li>
+    <li>the top 5 unedited pages by visit count, in case you want to focus distribution on what's already working</li>
+  </ul>
+  <p>nothing is posted automatically. the swarm only writes the file. you read it; you press send. that's the boundary.</p>
+
+  <h2>example hooks (auto-generated style)</h2>
+  <div class="hook">"i built a small site with a swarm of language models that prunes its own pages on a schedule. every accepted edit is logged in public. it's running now: dafdaf1234444.github.io/godding"</div>
+  <div class="hook">"every culture, for thousands of years, has agreed on the same short list of wrongs. i pulled it together on one page. 7 items."</div>
+  <div class="hook">"a tiny spatial-prisoner's-dilemma game. cooperators bubble up. defectors burn out. you can change the parameters. that's the moral system."</div>
+
+  <h2>kpis · what we count</h2>
+  <ul>
+    <li><strong>swarm runs</strong> — internal trust signal. should keep climbing daily.</li>
+    <li><strong>accepted diffs</strong> — how much the site is being tightened. ratio of accepted/proposed is the quality signal.</li>
+    <li><strong>page-visit profile</strong> — local-only on each device, but lets you see <em>which</em> pages a returning reader returns to.</li>
+    <li><strong>github stars + forks</strong> — long-tail signal. doesn't matter for a week, matters a lot at twelve months.</li>
+    <li><strong>incoming links</strong> — only thing that compounds. keep an eye on backlink reports.</li>
+  </ul>
+
+  <h2>what we won't do</h2>
+  <ul>
+    <li>buy clicks. not now, not later.</li>
+    <li>name living people on the public site (see <a href="now.html">/now</a> for why).</li>
+    <li>auto-DM, auto-follow, or any growth-hacking that would be embarrassing if quoted back.</li>
+    <li>SEO games that contradict the content. headlines have to be true.</li>
+  </ul>
+
+  <p class="dim">the marketing strategy is itself a page on godding. the swarm can edit it. corrections welcome.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>about</h4>
+  <ul>
+    <li>Can Acay · Utrecht, NL</li>
+    <li><a href="https://github.com/dafdaf1234444" target="_blank" rel="noopener">github</a></li>
+    <li><a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">godding repo</a></li>
+  </ul>
+  <h4 style="margin-top:14px">automation</h4>
+  <ul>
+    <li>scheduled: 09:04 daily</li>
+    <li>output: <code>data/share_kit.json</code></li>
+    <li>read by you, sent by you</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="swarm.html">swarm</a></li>
+    <li><a href="build.html">build</a></li>
+    <li><a href="../changelog/index.html">changelog</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="vote.html">vote</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">organic, automated, honest. no paid promo.</div>
+</footer>
+</body>
+</html>

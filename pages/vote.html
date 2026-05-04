@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>vote &amp; reputation — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* page-specific */
+  .rep-card{
+    background: linear-gradient(135deg, var(--paper) 0%, var(--paper-2) 100%);
+    border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 22px; margin: 14px 0 26px;
+    display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center;
+  }
+  .rep-card h3{ font-family: var(--serif); font-style: italic; font-weight: 400; margin: 0 0 4px; font-size: 22px; color: var(--ink); }
+  .rep-card .you{ font-family: var(--mono); font-size: 12px; color: var(--ink-mute); letter-spacing: .04em; }
+  .rep-score{ text-align: right; }
+  .rep-score .num{
+    font-family: var(--serif); font-style: italic; font-weight: 400;
+    font-size: 48px; color: var(--sun); line-height: 1;
+  }
+  .rep-score .lbl{ font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); margin-top: 4px; }
+  .rep-bars{ display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 4px 0 14px; }
+  .rep-bar{
+    padding: 12px 14px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  }
+  .rep-bar h5{ font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-mute); margin: 0 0 6px; font-weight: 500; }
+  .rep-bar .v{ font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); }
+  .rep-bar .v small{ font-family: var(--mono); font-style: normal; font-size: 11px; color: var(--ink-mute); margin-left: 4px; }
+
+  .badges{ display: flex; gap: 8px; flex-wrap: wrap; margin: 6px 0 18px; }
+  .badge{
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em;
+    text-transform: uppercase; padding: 5px 11px; border-radius: 100px;
+    background: var(--paper); color: var(--ink-2); border: 1px solid var(--line);
+  }
+  .badge.on{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .badge.gold{ background: var(--gold); color: #1f1813; border-color: var(--gold); }
+  .badge.sun{ background: var(--sun); color: var(--paper); border-color: var(--sun); }
+  .badge.leaf{ background: var(--leaf); color: var(--paper); border-color: var(--leaf); }
+
+  .vote-block{ background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; margin: 14px 0; }
+  .vote-block h3{ font-family: var(--serif); font-style: italic; font-weight: 400; margin: 0 0 4px; font-size: 20px; color: var(--ink); }
+  .vote-block p.dim{ margin: 0 0 12px; color: var(--ink-dim); font-size: 14px; line-height: 1.5; }
+  .vote-row-q{
+    display: grid; grid-template-columns: 1fr auto; gap: 14px; align-items: center;
+    padding: 12px 0; border-bottom: 1px dashed var(--line);
+  }
+  .vote-row-q:last-child{ border-bottom: none; }
+  .vote-row-q .q{ font-family: var(--serif); font-size: 16px; line-height: 1.45; color: var(--ink); }
+  .vote-row-q .actions{ display: flex; gap: 6px; align-items: center; }
+  .vote-btn{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 11px; border-radius: 100px;
+    border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2);
+    cursor: pointer; transition: all var(--t);
+    display: inline-flex; align-items: center; gap: 5px;
+  }
+  .vote-btn:hover{ border-color: var(--sun); color: var(--sun); }
+  .vote-btn .count{ color: var(--ink-mute); font-family: var(--mono); }
+  .vote-btn.up.on{ background: var(--leaf); color: var(--paper); border-color: var(--leaf); }
+  .vote-btn.up.on .count{ color: var(--paper); }
+  .vote-btn.down.on{ background: var(--rose); color: var(--paper); border-color: var(--rose); }
+  .vote-btn.down.on .count{ color: var(--paper); }
+
+  .history-box{
+    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 16px; max-height: 300px; overflow: auto; margin: 6px 0 18px;
+  }
+  .history-box .row{
+    padding: 6px 0; font-family: var(--mono); font-size: 11.5px;
+    color: var(--ink-2); display: flex; gap: 14px; border-bottom: 1px dashed var(--line);
+  }
+  .history-box .row:last-child{ border-bottom: none; }
+  .history-box .t{ color: var(--ink-mute); width: 84px; flex-shrink: 0; }
+  .history-box .a{ color: var(--leaf); width: 72px; flex-shrink: 0; }
+  .history-box .a.rev{ color: var(--rose); }
+  .history-box .a.dn{ color: var(--rose); }
+  .history-box .empty{ color: var(--ink-mute); font-style: italic; font-family: var(--serif); }
+
+  .reset-row{ display: flex; gap: 8px; margin-top: 12px; }
+  .reset-row button{
+    font-family: var(--mono); font-size: 10.5px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 7px 12px; border-radius: 100px;
+    border: 1px solid var(--line-2); background: transparent; color: var(--ink-dim);
+    cursor: pointer; transition: all var(--t);
+  }
+  .reset-row button:hover{ border-color: var(--rose); color: var(--rose); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a>
+    <a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a>
+    <a href="ants.html">ants</a>
+    <a href="crime.html">crime</a>
+    <a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a>
+    <a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a>
+    <a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / vote</p>
+  <p class="kicker">vote · recorded · changeable</p>
+  <h1>vote on what you read.<br>every vote is <em>recorded</em>.</h1>
+  <p class="dim">
+    voting is free, anonymous, and <strong>recorded</strong>. you can change
+    your vote at any time — and the change is recorded too. every flip,
+    every removal, every retry shows up in your trail with a UTC timestamp.
+    nothing is hidden. your votes, badges, reputation, and the full edit
+    history all live in your browser's local storage — clearable any time.
+    (the federated version, where the trail becomes signed commits in the
+    <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github repo</a>,
+    is on the <a href="build.html">build</a> roadmap.)
+  </p>
+  <div class="note" style="border-left:3px solid var(--leaf);background:linear-gradient(90deg,rgba(93,140,74,.06),transparent)">
+    <strong>recording rules · the contract:</strong>
+    <ul style="margin:6px 0 2px 0">
+      <li>every vote you cast is logged with a UTC timestamp the second you click.</li>
+      <li>you can flip an upvote to a downvote, or remove either — the change is its <em>own</em> entry.</li>
+      <li>fast flips (vote, then unvote, within 10 seconds) cost reputation. signal, not noise.</li>
+      <li>nothing leaves your device until you choose to push it. nothing is silently overwritten.</li>
+    </ul>
+  </div>
+
+  <div class="rep-card">
+    <div>
+      <h3>your reputation</h3>
+      <div class="you">device id: <code id="userid">…</code> · since <span id="since">—</span></div>
+    </div>
+    <div class="rep-score">
+      <div class="num" id="rep-num">0</div>
+      <div class="lbl">reputation</div>
+    </div>
+  </div>
+
+  <div class="rep-bars">
+    <div class="rep-bar">
+      <h5>votes cast</h5>
+      <div class="v" id="stat-votes">0 <small>total</small></div>
+    </div>
+    <div class="rep-bar">
+      <h5>upvotes</h5>
+      <div class="v" id="stat-up">0 <small>+</small></div>
+    </div>
+    <div class="rep-bar">
+      <h5>downvotes</h5>
+      <div class="v" id="stat-down">0 <small>–</small></div>
+    </div>
+    <div class="rep-bar">
+      <h5>pages visited</h5>
+      <div class="v" id="stat-pages">0 <small>/9</small></div>
+    </div>
+    <div class="rep-bar">
+      <h5>diversity</h5>
+      <div class="v" id="stat-div">0 <small>topics</small></div>
+    </div>
+    <div class="rep-bar">
+      <h5>days active</h5>
+      <div class="v" id="stat-days">0 <small>days</small></div>
+    </div>
+  </div>
+
+  <h2>badges</h2>
+  <p class="dim">earned automatically. boring on purpose — these track real activity, not vibes.</p>
+  <div class="badges" id="badges"></div>
+
+  <h2>vote on the cross-cultural crime list</h2>
+  <p class="dim">
+    each row is one item from the <a href="crime.html">crime</a> page's
+    universal-wrong list. <strong>agree</strong> = "yes, this belongs on the
+    list — every culture should treat it as wrong." <strong>disagree</strong>
+    = "no, this doesn't belong on a universal list." you're voting on
+    <em>the claim</em>, not on the act itself.
+  </p>
+  <div class="vote-block" id="vote-crime"></div>
+
+  <h2>vote on the four questions</h2>
+  <p class="dim">
+    from the <a href="belief.html">belief</a> page. <strong>agree</strong> =
+    "this question resonates / matters to me." <strong>disagree</strong> = "it
+    doesn't." you can agree with more than one.
+  </p>
+  <div class="vote-block" id="vote-questions"></div>
+
+  <h2>which pages helped?</h2>
+  <p class="dim">
+    <strong>agree</strong> = "this page was useful." <strong>disagree</strong>
+    = "this page was not useful." every flip is recorded with a UTC timestamp.
+  </p>
+  <div class="vote-block" id="vote-pages"></div>
+
+  <h2>your activity, dated</h2>
+  <p class="dim">
+    every flip recorded with a UTC timestamp — including ones you
+    later took back. this is the public-style record: append-only, never
+    edited in place. clear it if you want; nothing else can.
+  </p>
+  <div class="history-box" id="history"></div>
+  <div class="reset-row">
+    <button id="reset-history">clear history</button>
+    <button id="reset-all">clear everything (votes + reputation)</button>
+  </div>
+
+  <hr>
+
+  <h2>how reputation works (honestly)</h2>
+  <p>
+    your reputation is computed locally from real activity. the formula:
+  </p>
+  <ul>
+    <li><strong>+2</strong> per vote you cast (up or down — both are signal).</li>
+    <li><strong>+1</strong> per distinct page you visit.</li>
+    <li><strong>+5</strong> per <em>topic</em> you engage with (crime / belief / pages — engaging across topics rewards diversity, not stacking).</li>
+    <li><strong>+3</strong> per distinct day you've returned to the site.</li>
+    <li><strong>−1</strong> per "rapid flip" (vote then unvote within 10 seconds — discourages noise).</li>
+  </ul>
+  <p>
+    badges unlock on simple thresholds. nothing is hidden — open the browser
+    console and run <code>JSON.parse(localStorage.getItem('godding.profile'))</code>
+    to see exactly what's stored.
+  </p>
+  <p class="dim">
+    the limitation is honest too: this is per-device. if you vote on your
+    phone and your laptop, they don't know about each other. the
+    <a href="build.html">build</a> page describes the planned federation —
+    votes as small commits in the swarm repo, with the swarm aggregating
+    them. that turns localStorage into a public trail.
+  </p>
+</main>
+
+<aside class="sidebar">
+  <h4>your profile</h4>
+  <div class="swarm-status" id="profile-mini">
+    <div><strong id="mini-rep">rep —</strong></div>
+    <div style="margin-top:6px" id="mini-stats">—</div>
+  </div>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="belief.html">belief</a></li>
+    <li><a href="crime.html">crime</a></li>
+    <li><a href="criminals.html">criminals</a></li>
+    <li><a href="build.html">how it's built</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="build.html">build</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">free, anonymous, per-device. clear it any time.</div>
+</footer>
+
+<script>
+/* ============================================================
+   GODDING vote + reputation — pure localStorage, no backend.
+   Nothing leaves the browser. Open devtools → Application →
+   Local Storage to see exactly what's stored. Key: 'godding.profile'.
+   ============================================================ */
+(function(){
+  const KEY = 'godding.profile';
+  const TODAY = new Date().toISOString().slice(0,10);
+
+  function genId(){
+    const a = 'abcdefghjkmnpqrstuvwxyz23456789';
+    let s = ''; for (let i=0;i<8;i++) s += a[Math.floor(Math.random()*a.length)];
+    return s;
+  }
+  function nowUTC(){
+    const d = new Date();
+    const pad = n => String(n).padStart(2,'0');
+    return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate())+' '+pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+':'+pad(d.getUTCSeconds());
+  }
+  function loadProfile(){
+    try{ const p = JSON.parse(localStorage.getItem(KEY)); if(p && typeof p === 'object') return ensureFields(p); }catch{}
+    const id = genId();
+    return ensureFields({ id, created: TODAY });
+  }
+  function ensureFields(p){
+    p.id = p.id || genId();
+    p.created = p.created || TODAY;
+    p.daysActive = Array.isArray(p.daysActive) ? p.daysActive : [];
+    if(!p.daysActive.includes(TODAY)) p.daysActive.push(TODAY);
+    p.pagesVisited = Array.isArray(p.pagesVisited) ? p.pagesVisited : [];
+    if(!p.pagesVisited.includes('vote')) p.pagesVisited.push('vote');
+    p.votes = p.votes || {};       // { itemId: 'up' | 'down' }
+    p.history = Array.isArray(p.history) ? p.history : [];
+    return p;
+  }
+  function saveProfile(){ localStorage.setItem(KEY, JSON.stringify(profile)); }
+
+  let profile = loadProfile(); saveProfile();
+
+  /* track page visit on any other page that includes a similar shim */
+  /* (other pages can do: localStorage.getItem('godding.profile')) */
+
+  /* item definitions
+     The `q` text is the claim being voted on. Voting "agree" = "yes, this
+     claim is true". Voting "disagree" = "no, this claim is false". The
+     buttons are labelled 'agree' / 'disagree' explicitly so there's no
+     ambiguity between agreeing with a claim vs. endorsing an act. */
+  const CRIME_ITEMS = [
+    {id:'c-kill',     q:'"killing the innocent" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-theft',    q:'"theft" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-fraud',    q:'"fraud / lying for gain" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-betray',   q:'"betraying trust" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-children', q:'"harming children" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-rape',     q:'"rape" belongs on every culture\'s universal-wrong list.'},
+    {id:'c-cruelty',  q:'"extreme cruelty / torture" belongs on every culture\'s universal-wrong list.'},
+  ];
+  const QUESTIONS = [
+    {id:'q-1', q:'Q1: "if you don\'t think and don\'t act, you\'re not really being human." — does this resonate?'},
+    {id:'q-2', q:'Q2: "thinking the right thing without acting on it isn\'t enough to be good." — does this resonate?'},
+    {id:'q-3', q:'Q3: "acting without thinking can\'t reliably produce good." — does this resonate?'},
+    {id:'q-4', q:'Q4: "taking from the world without giving back means you don\'t deserve more." — does this resonate?'},
+  ];
+  const PAGES = [
+    {id:'p-belief',         q:'"belief" was useful to me.'},
+    {id:'p-religion',       q:'"heaven & hell, simply" was useful to me.'},
+    {id:'p-crime',          q:'"crime" was useful to me.'},
+    {id:'p-criminals',      q:'"godding\'s bubbles" was useful to me.'},
+    {id:'p-politics',       q:'"politics" was useful to me.'},
+    {id:'p-health',         q:'"health" was useful to me.'},
+    {id:'p-sustainability', q:'"sustainability" was useful to me.'},
+    {id:'p-ants',           q:'"ants on bodies" was useful to me.'},
+    {id:'p-swarm',          q:'"swarm" was useful to me.'},
+  ];
+
+  /* render a vote block */
+  function renderBlock(hostId, items){
+    const host = document.getElementById(hostId);
+    host.innerHTML = '';
+    for(const it of items){
+      const v = profile.votes[it.id]; // 'up' | 'down' | undefined
+      const row = document.createElement('div');
+      row.className = 'vote-row-q';
+      const upLabel   = v==='up'   ? '✓ agree'    : 'agree';
+      const downLabel = v==='down' ? '✓ disagree' : 'disagree';
+      row.innerHTML = `
+        <div class="q">${it.q}</div>
+        <div class="actions">
+          <button class="vote-btn up ${v==='up'?'on':''}" data-id="${it.id}" data-dir="up" aria-pressed="${v==='up'}" title="agree with the claim">${upLabel}</button>
+          <button class="vote-btn down ${v==='down'?'on':''}" data-id="${it.id}" data-dir="down" aria-pressed="${v==='down'}" title="disagree with the claim">${downLabel}</button>
+        </div>`;
+      host.appendChild(row);
+    }
+    host.querySelectorAll('.vote-btn').forEach(b => b.addEventListener('click', onVote));
+  }
+
+  function onVote(e){
+    const btn = e.currentTarget;
+    const id = btn.dataset.id, dir = btn.dataset.dir;
+    const prev = profile.votes[id];
+    const ts = nowUTC();
+    if(prev === dir){
+      delete profile.votes[id];
+      profile.history.unshift({ ts, kind:'remove', id, dir });
+    } else {
+      profile.votes[id] = dir;
+      profile.history.unshift({ ts, kind:dir, id });
+      // detect rapid flip (within 10s of an opposite/remove on same id)
+      const pen = profile.history.slice(1, 8).find(h => h.id === id && (h.kind === 'remove' || (h.kind && h.kind !== dir)));
+      if(pen){
+        const dt = (new Date(ts.replace(' ','T')+'Z') - new Date(pen.ts.replace(' ','T')+'Z')) / 1000;
+        if(dt > 0 && dt < 10){
+          profile.history.unshift({ ts, kind:'flip-penalty', id });
+        }
+      }
+    }
+    if(profile.history.length > 200) profile.history.length = 200;
+    saveProfile();
+    renderAll();
+  }
+
+  /* page visit tracking — read from any prior visit */
+  const ALL_PAGE_IDS = ['belief','religion','politics','health','sustainability','crime','criminals','ants','swarm','vote','build'];
+  function rememberPage(p){
+    if(!profile.pagesVisited.includes(p)){ profile.pagesVisited.push(p); saveProfile(); }
+  }
+  rememberPage('vote');
+
+  /* compute reputation */
+  function reputation(){
+    const votes = Object.keys(profile.votes).length;
+    const up = Object.values(profile.votes).filter(v => v === 'up').length;
+    const down = Object.values(profile.votes).filter(v => v === 'down').length;
+    const pages = profile.pagesVisited.filter(p => ALL_PAGE_IDS.includes(p)).length;
+    const topics = uniqueTopics();
+    const days = profile.daysActive.length;
+    const flips = profile.history.filter(h => h.kind === 'flip-penalty').length;
+    const score = (votes * 2) + (pages * 1) + (topics * 5) + (days * 3) - flips;
+    return { votes, up, down, pages, topics, days, flips, score: Math.max(0, score) };
+  }
+  function uniqueTopics(){
+    const t = new Set();
+    for(const id of Object.keys(profile.votes)){
+      if(id.startsWith('c-')) t.add('crime');
+      if(id.startsWith('q-')) t.add('belief');
+      if(id.startsWith('p-')) t.add('pages');
+    }
+    return t.size;
+  }
+  function badges(){
+    const r = reputation();
+    return [
+      { id:'first', name:'first vote',       on: r.votes >= 1,  cls:'on' },
+      { id:'five',  name:'five votes',       on: r.votes >= 5,  cls:'on' },
+      { id:'ten',   name:'ten votes',        on: r.votes >= 10, cls:'on' },
+      { id:'div2',  name:'two topics',       on: r.topics >= 2, cls:'leaf' },
+      { id:'div3',  name:'all three topics', on: r.topics >= 3, cls:'gold' },
+      { id:'half',  name:'half the site',    on: r.pages >= 5,  cls:'leaf' },
+      { id:'all',   name:'all nine pages',   on: r.pages >= 9,  cls:'sun' },
+      { id:'ret',   name:'returning reader', on: r.days >= 2,   cls:'leaf' },
+      { id:'reg',   name:'regular',          on: r.days >= 7,   cls:'gold' },
+    ];
+  }
+
+  /* render everything */
+  function renderAll(){
+    document.getElementById('userid').textContent = profile.id;
+    document.getElementById('since').textContent = profile.created;
+    const r = reputation();
+    document.getElementById('rep-num').textContent = r.score;
+    document.getElementById('stat-votes').innerHTML = r.votes + ' <small>total</small>';
+    document.getElementById('stat-up').innerHTML = r.up + ' <small>+</small>';
+    document.getElementById('stat-down'

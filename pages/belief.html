@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>belief — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* page-specific: inline voting on the four questions */
+  .questions .q{ position: relative; padding: 16px 18px 14px; }
+  .q-vote{ display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; align-items: center; }
+  .q-vote button{
+    font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 11px; border-radius: 100px;
+    border: 1px solid var(--line-2); background: var(--paper); color: var(--ink-2);
+    cursor: pointer; transition: all var(--t);
+  }
+  .q-vote button:hover{ border-color: var(--sun); color: var(--sun); }
+  .q-vote button.up.on{ background: var(--leaf); color: var(--paper); border-color: var(--leaf); }
+  .q-vote button.down.on{ background: var(--rose); color: var(--paper); border-color: var(--rose); }
+  .q-vote .stamp{ font-family: var(--mono); font-size: 11px; color: var(--ink-mute); margin-left: 6px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a>
+    <a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a>
+    <a href="ants.html">ants</a>
+    <a href="crime.html">crime</a>
+    <a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a>
+    <a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a>
+    <a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / belief</p>
+  <p class="kicker">root · the chain</p>
+  <h1>nothing → noise → patterns → life → us.</h1>
+  <p class="dim">
+    a short, warm version of how a universe with no rules ends up with humans
+    arguing about the right thing to do. read it slowly. the rest of the site
+    is footnotes.
+  </p>
+
+  <div class="pill-row">
+    <span class="pill">∅ nothing</span>
+    <span class="pill">⌇ noise</span>
+    <span class="pill">⏚ patterns</span>
+    <span class="pill">🌱 life</span>
+    <span class="pill">🧍 us</span>
+    <span class="pill">↻ loop</span>
+  </div>
+
+  <h2>the chain, in plain words</h2>
+  <p>
+    start with nothing — no objects, no time, no rules. then something flickers.
+    fields fluctuate, a coin lands, a particle pair appears and disappears.
+    that's <em>noise</em>. it's not malicious and it's not designed; it just is.
+  </p>
+  <p>
+    noise repeats long enough that some patterns stick — atoms, chemistry, stars,
+    eventually self-replicating molecules. those patterns are <em>life</em>: the
+    universe's way of persisting itself by copying. life is just noise that
+    learned to keep going.
+  </p>
+  <p>
+    we're at the end of that chain. one of the things life learned to do is
+    <em>think</em>. that turns out to be a big deal: a creature that can think
+    can also choose, and a creature that can choose can either feed the loop or
+    drain it. that's the whole moral question, in two sentences.
+  </p>
+
+  <h2>sense → think → act</h2>
+  <p>
+    your day, simplified, is a loop with three steps. you <em>sense</em> what's
+    around you. you <em>think</em> about it. you <em>act</em>. then the
+    environment changes, and you sense again. every animal does this. only some
+    of us do all three on purpose.
+  </p>
+  <p>
+    a lot of you is on autopilot — reflexes, hormones, habits, the family you
+    were born into, the language you think in. that part runs whether you pay
+    attention or not. the rest — the part that can pause between sense and act —
+    is what we mean by being <em>human</em>. it's small, but it's the part the
+    universe seems to care about.
+  </p>
+
+  <h2>you filter the world; the world filters you back</h2>
+  <p>
+    every action you take leaves a trace. you choose what to put in your mouth,
+    your house, your inbox, your kid's head. that's <em>filtering the
+    environment</em>. and the environment filters you back: your body keeps a
+    record of what you ate, your community keeps a record of how you treated
+    people, the planet keeps a record of what you bought.
+  </p>
+  <p>
+    you don't need a god in the sky for this to work. <em>nature is already
+    keeping score</em>, in the cells you have, the people who'll show up at your
+    funeral, and the carbon in the air. the swarm of feedback loops that
+    surrounds you is doing the math whether you want it to or not.
+  </p>
+  <blockquote>
+    we are all connected because we all came from the same nothing,
+    and we all return to the same loop. that's not mysticism. that's just
+    chemistry running long enough to notice itself.
+  </blockquote>
+
+  <h2>the four questions — vote inline</h2>
+  <p>
+    if you only take one thing from this page, take these. they're meant to be
+    asked of yourself, slowly, not used as ammunition against anyone else.
+    each is a claim. <strong>agree</strong> = it resonates / matters to you.
+    <strong>disagree</strong> = it doesn't. you can change either vote any
+    time; every flip is recorded with a UTC timestamp on
+    <a href="vote.html">/vote</a>.
+  </p>
+  <div class="questions" id="qs">
+    <div class="q" data-id="q-1">
+      <div><strong>1.</strong> if you don't think and don't act, are you really being human, or just being moved through?</div>
+      <div class="q-vote">
+        <button class="up" data-dir="up">agree</button>
+        <button class="down" data-dir="down">disagree</button>
+        <span class="stamp"></span>
+      </div>
+    </div>
+    <div class="q" data-id="q-2">
+      <div><strong>2.</strong> if you think about the right thing but never act on it, does that make you good?</div>
+      <div class="q-vote">
+        <button class="up" data-dir="up">agree</button>
+        <button class="down" data-dir="down">disagree</button>
+        <span class="stamp"></span>
+      </div>
+    </div>
+    <div class="q" data-id="q-3">
+      <div><strong>3.</strong> if you act without thinking, can you trust that you're acting for good?</div>
+      <div class="q-vote">
+        <button class="up" data-dir="up">agree</button>
+        <button class="down" data-dir="down">disagree</button>
+        <span class="stamp"></span>
+      </div>
+    </div>
+    <div class="q" data-id="q-4">
+      <div><strong>4.</strong> if you take from the world but give nothing back, on what grounds do you d

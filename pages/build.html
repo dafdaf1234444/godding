@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>how it's built — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot">.</span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a>
+    <a href="religion.html">religion</a>
+    <a href="good-bad.html">good vs. bad</a>
+    <a href="ants.html">ants</a>
+    <a href="crime.html">crime</a>
+    <a href="criminals.html">criminals</a>
+    <a href="politics.html">politics</a>
+    <a href="now.html">now</a>
+    <a href="reach.html">reach</a>
+    <a href="vote.html">vote</a>
+    <a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / build</p>
+  <p class="kicker">build · how godding and swarm are made</p>
+  <h1>how it's built.</h1>
+  <p class="dim">
+    everything in this project is plain files. no database, no framework, no
+    backend. you can clone it, run it, and edit it. this page walks you through
+    every moving piece, then points to the books and papers behind each idea.
+  </p>
+
+  <h2>file map</h2>
+<pre class="ascii">godding/
+├── index.html              # the home — hero, branches, sidebar
+├── assets/
+│   └── styles.css          # one CSS file. no preprocessor.
+├── pages/
+│   ├── belief.html         # the cosmology + sense/think/act + 4 questions
+│   ├── religion.html       # heaven/hell, plainly
+│   ├── politics.html       # the public/private gap
+│   ├── health.html         # the consensus list
+│   ├── sustainability.html # load-bearing vs. theatre
+│   ├── crime.html          # cross-cultural list of agreed wrongs
+│   ├── criminals.html      # bubble chart of historical mass-atrocity figures
+│   ├── ants.html           # live n-body + ant-colony simulation
+│   ├── swarm.html          # the engine, explained
+│   └── build.html          # this page
+├── changelog/
+│   └── index.html          # human-readable view of data/changelog.json
+├── data/
+│   ├── changelog.json      # every accepted swarm edit, append-only
+│   ├── metrics.json        # rolling totals across all runs
+│   └── last_run.json       # last run, in detail
+└── swarm/
+    ├── loop.py             # the multi-agent loop (offline-safe)
+    ├── scheduler.json      # cron-style config + bounds
+    ├── verify_links.py     # walks every page, fails on broken links
+    └── README.md           # short reference</pre>
+
+  <h2>godding (the front)</h2>
+  <p>
+    godding is a static site. each page is a single HTML file with a sidebar
+    and a layout grid. the only JS is on three pages — the home (reads
+    <code>data/metrics.json</code> and shows live swarm status), the changelog
+    (renders <code>data/changelog.json</code>), and the criminals/ants pages
+    (visualisations). no build step. open <code>index.html</code> in any
+    browser; that's it.
+  </p>
+  <p>
+    the styling is one css file, no preprocessor. all colours are CSS
+    variables in <code>:root</code>; the gradient hero, the per-branch
+    accent colours, and the bubble-chart palette all reference the same
+    handful of tokens. change them once, the whole site moves.
+  </p>
+
+  <h2>swarm (the engine + knowledge base)</h2>
+  <p>
+    swarm is a <code>~350-line</code> python file with no dependencies. it
+    runs four agents in sequence — drafter, critic, fact-checker, judge —
+    against each page in turn, and writes any accepted change directly into
+    the page's HTML. each accepted change becomes one line in
+    <code>data/changelog.json</code>.
+  </p>
+
+  <h3>1 · drafter</h3>
+  <p>
+    walks paragraphs in a deterministic shuffled order (seeded by date + page,
+    so you can reproduce a run) and proposes <em>one</em> tightening per page:
+  </p>
+  <ul>
+    <li>drop a weasel word (<em>very, really, basically, literally, obviously</em>…).</li>
+    <li>soften an unqualified superlative (<em>everyone, never, all</em>) into
+      a quantified equivalent (<em>most people, rarely, most</em>) — but not
+      when the word is acting as a quantifier (<em>"all three"</em> stays).</li>
+    <li>trim the longest sentence in any paragraph longer than 90 words.</li>
+  </ul>
+  <p>
+    if <code>ANTHROPIC_API_KEY</code> is set <em>and</em> the
+    <code>anthropic</code> package is installed, the drafter is upgraded to
+    a Claude Haiku model that's prompted to tighten one paragraph at a time
+    and return JSON — same tightening rule, smarter execution. otherwise the
+    heuristic agent runs and the loop still works.
+  </p>
+
+  <h3>2 · critic</h3>
+  <p>
+    receives the drafter's proposed diff and tries to kill it. rejects on:
+  </p>
+  <ul>
+    <li>any growth in word count.</li>
+    <li>any change &gt; 20% of the paragraph's original length.</li>
+    <li>any new <em>capitalised proper noun pair</em> (rough proxy for
+      "introduces a named person") that wasn't in the original.</li>
+    <li>any quoted string longer than ~40 characters (copyright + quote-policy).</li>
+  </ul>
+
+  <h3>3 · fact-checker</h3>
+  <p>
+    deliberately conservative: it flat-out <strong>rejects any diff that
+    introduces a new number</strong> not in the original paragraph. the drafter
+    isn't supposed to add facts; if it does, the fact-checker stops it. that's
+    why the criminals chart's numbers can't drift — they're not on a page the
+    swarm can rewrite without rejection.
+  </p>
+
+  <h3>4 · judge</h3>
+  <p>
+    accepts only if both critic and fact-checker accept. logs the verdict
+    either way. on accept, writes the new HTML in place and appends one entry
+    to <code>data/changelog.json</code> with a hash before/after.
+  </p>
+
+  <h2>how a run looks, end to end</h2>
+<pre class="ascii">$ python swarm/loop.py
+{
+  "run_id": "20260504T152004",
+  "timestamp": "2026-05-04T15:20:04Z",
+  "proposed_diffs": 4,
+  "accepted_diffs": 3,
+  "pages": ["belief.html", "politics.html", "swarm.html"],
+  "rationale": "soften superlative \"all\" → \"most\"; remove weasel word \"kind of\"; …",
+  "details": [ {…}, {…}, … ]
+}</pre>
+  <p>
+    the same JSON is written to <code>data/last_run.json</code> for diagnostics.
+    a successful run also bumps <code>data/metrics.json</code>: <em>runs_total,
+    diffs_proposed_total, diffs_accepted_total, first_run, last_run</em>.
+  </p>
+
+  <h2>scheduling</h2>
+  <p>
+    the loop runs on a schedule (default: 9:04 AM local, daily) and on
+    demand. <code>swarm/scheduler.json</code> defines bounds the loop must
+    respect:
+  </p>
+  <ul>
+    <li>max 6 pages per run.</li>
+    <li>max 6 accepted diffs per run.</li>
+    <li>max 0 net words added per run (tighten only).</li>
+    <li>max 120 seconds runtime.</li>
+  </ul>
+
+  <h2>link verification</h2>
+  <p>
+    <code>swarm/verify_links.py</code> walks every <code>.html</code> file,
+    extracts every <code>href</code> and <code>src</code>, and confirms the
+    target file exists. exits non-zero if any link is broken. it's run after
+    every restructuring and printed in the changelog. <em>at last check:
+    211 internal links across 10 HTML files, all OK.</em>
+  </p>
+
+  <h2>where the ideas come from</h2>
+  <p class="dim">
+    none of this is invented. each piece of the swarm corresponds to a known
+    technique in the recent literature, deliberately stripped down for a
+    one-person site. these are good places to read further:
+  </p>
+
+  <div class="sources">
+
+    <div class="src">
+      <h4>Knowledge distillation in LLMs (survey)</h4>
+      <p>The umbrella concept: teaching a smaller model with a larger one's reasoning, not just outputs. Reads as the academic ancestor of every "agent that improves a page" loop.</p>
+      <a href="https://arxiv.org/abs/2402.13116" target="_blank" rel="noopener">arXiv:2402.13116 →</a>
+    </div>
+
+    <div class="src">
+      <h4>Distilling step-by-step (Google Research)</h4>
+      <p>Rationale-based training — keep the reasoning, not just the answer. The reason every accepted swarm edit ships with a one-line "why."</p>
+      <a href="https://research.google/blog/distilling-step-by-step-outperforming-larger-language-models-with-less-training-data-and-smaller-model-sizes/" target="_blank" rel="noopener">research.google →</a>
+    </div>
+
+    <div class="src">
+      <h4>Multi-agent LLMs &amp; swarm intelligence (Frontiers, 2025)</h4>
+      <p>Many small agents, simple rules, the smartness lives in the interactions. The exact pattern this site uses — just smaller.</p>
+      <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1593017/full" target="_blank" rel="noopener">frontiersin.org →</a>
+    </div>
+
+    <div class="src">
+      <h4>SuperBrain (arXiv, 2025)</h4>
+      <p>Coordinating multiple specialised "subclass brains" via swarm intelligence and exchanging distilled heuristics.</p>
+      <a href="https://arxiv.org/abs/2509.00510" target="_blank" rel="noopener">arXiv:2509.00510 →</a>
+    </div>
+
+    <div class="src">
+      <h4>AgentArk: process-level distillation</h4>
+      <p>Capturing how an ensemble reasons, not just what it outputs. Why the changelog logs rationales, not just diffs.</p>
+      <a href="https://arxiv.org/html/2602.03955" target="_blank" rel="noopener">arXiv:2602.03955 →</a>
+    </div>
+
+    <div class="src">
+      <h4>"Wisdom of crowds" — diverse personas</h4>
+      <p>Aggregating outputs from agents with distinct priors measurably reduces hallucination. The reason the swarm has a critic separate from a drafter.</p>
+      <a href="https://en.wikipedia.org/wiki/Wisdom_of_the_crowd" target="_blank" rel="noopener">wikipedia →</a>
+    </div>
+
+    <div class="src">
+      <h4>n-body simulation, classical reference</h4>
+      <p>The bodies on the ants page do straight Newtonian gravity with soft repulsion. This is the cleanest one-screen explanation.</p>
+      <a href="https://en.wikipedia.org/wiki/N-body_simulation" target="_blank" rel="noopener">wikipedia →</a>
+    </div>
+
+    <div class="src">
+      <h4>Ant Colony Optimisation</h4>
+      <p>Pheromone-based foraging on the ants page is a tiny live demo of ACO: stigmergic communication, reinforcement of short paths, decay over time.</p>
+      <a href="https://en.wikipedia.org/wiki/Ant_colony_optimization_algorithms" target="_blank" rel="noopener">wikipedia →</a>
+    </div>
+
+    <div class="src">
+      <h4>Comparative religion (afterlife / heaven / hell)</h4>
+      <p>The side-by-side table on /religion uses the encyclopaedia entry as a mainstream baseline; not the only reading.</p>
+      <a href="https://en.wikipedia.org/wiki/Heaven" target="_blank" rel="noopener">wikipedia: Heaven →</a>
+    </div>
+
+    <div class="src">
+      <h4>Preference falsification (Timur Kuran)</h4>
+      <p>The academic frame for the public-vs-private gap on /politics. Why people pretend to agree with the loudest tribe in the room.</p>
+      <a href="https://en.wikipedia.org/wiki/Preference_falsification" target="_blank" rel="noopener">wikipedia →</a>
+    </div>
+
+    <div class="src">
+      <h4>Adam Hochschild — King Leopold's Ghost</h4>
+      <p>The standard popular-academic source for the Congo Free State entry on /criminals. Used as the basis for that bubble's range.</p>
+      <a href="https://en.wikipedia.org/wiki/King_Leopold%27s_Ghost" target="_blank" rel="noopener">wikipedia: book →</a>
+    </div>
+
+    <div class="src">
+      <h4>UN, plastic + climate (2023 report)</h4>
+      <p>Source for the plastic-emissions numbers on /sustainability.</p>
+      <a href="https://www.un.org/en/climatechange/science/climate-issues/plastics" target="_blank" rel="noopener">un.org →</a>
+    </div>
+
+  </div>
+
+  <h2>how to run it locally</h2>
+  <ol>
+    <li>open <code>index.html</code> in any browser. you'll see godding.</li>
+    <li>open a terminal and run <code>python swarm/loop.py</code>. you'll see one swarm run.</li>
+    <li>refresh the page; the sidebar's swarm status updates from <code>data/metrics.json</code>.</li>
+    <li>run <code>python swarm/verify_links.py</code>. you'll see "all internal links OK" or a list of broken ones.</li>
+  </ol>
+  <p>that's the whole thing.</p>
+
+  <h2>license &amp; honesty</h2>
+  <p>
+    everything on this site is one person's opinion structured as a tree of
+    short essays, with a small machine that prunes them. claims are
+    intentionally cited or marked as informed opinion. corrections welcome —
+    open a diff or just send me a paragraph and i'll feed it through the swarm.
+  </p>
+</main>
+
+<aside class="sidebar">
+  <h4>on this page</h4>
+  <ul>
+    <li>file map</li>
+    <li>godding (the front)</li>
+    <li>swarm (the engine)</li>
+    <li>scheduling</li>
+    <li>link verification</li>
+    <li>learning sources</li>
+    <li>how to run it locally</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="swarm.html">swarm</a></li>
+    <li><a href="../changelog/index.html">changelog</a></li>
+    <li><a href="../data/changelog.json">changelog.json</a></li>
+    <li><a href="../data/metrics.json">metrics.json</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">no framework. no build step. one css file.</div>
+</footer>
+</body>
+</html>

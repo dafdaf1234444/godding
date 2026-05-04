@@ -1,0 +1,19 @@
+{
+  "name": "godding-swarm-loop",
+  "description": "Scheduled run of the LLM distiller. Drafts, critiques, fact-checks and judges paragraph-level diffs on godding pages.",
+  "command": "python loop.py",
+  "cwd_relative": "swarm",
+  "interval_hours": 24,
+  "max_runtime_seconds": 120,
+  "bounds": {
+    "max_pages_per_run": 6,
+    "max_accepted_diffs_per_run": 6,
+    "max_words_added_per_run": 0,
+    "tone": "tighten only; never lengthen."
+  },
+  "outputs": [
+    "data/changelog.json",
+    "data/metrics.json",
+    "data/last_run.json"
+  ]
+}
