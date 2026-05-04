@@ -29,7 +29,8 @@
   .controls button:hover{ background:var(--cream); }
   .policy-box{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--rose); border-radius:var(--radius-sm); padding:12px 16px; margin:14px 0 14px; font-size:14px; color:var(--ink-2); }
   .policy-box strong{ color:var(--ink); }
-  .node text{ font-family:var(--mono); font-size:12px; fill:var(--ink); pointer-events:none; font-weight:500 }
+  .node text{ font-family:var(--mono); font-size:11px; fill:var(--ink); pointer-events:none; font-weight:500 }
+  .node rect.label-plate{ fill:#fff8ea; opacity:0.92; stroke-width:0; pointer-events:none }
   .node circle{ stroke:#1f1813; stroke-width:1.4; cursor:pointer; }
   .node:hover circle{ stroke-width:2.4; }
   .edge{ stroke:rgba(31,24,19,.30); stroke-width:1.6; fill:none; cursor:pointer }
@@ -67,7 +68,7 @@
   <p class="dim">A network drawn from convictions, civil verdicts, sentencing memos, indictments, settled lawsuits with disclosed terms, and unsealed flight logs. Each line cites a specific court document. Vote on whether you think the connection is real — your votes are recorded with timestamps on <a href="vote.html">/vote</a>. The layout is force-directed: drag nodes to reorganise.</p>
 
   <div class="policy-box">
-    <strong>defamation policy.</strong> living people are named only when a public document — a verdict, a settlement, a sentencing memo, or an unsealed exhibit — already names them. The category of the edge tells you which: <em>proven</em> = court ruling or settled with disclosed terms; <em>indicted</em> = sworn charge not yet adjudicated; <em>mentioned</em> = appears in unsealed flight log or deposition without any charge attached. godding adds nothing to the public record.
+    <strong>godding's two-track naming rule.</strong> on opinion-vote pages (e.g. <a href="now.html">/now</a>) godding never names living individuals — that becomes a defamation surface. <em>here</em>, the question is different: "is this connection in the public record real?" — and the answer comes from court documents that already name the people. So living people appear by name only when there is a verdict, a sentencing memo, a settlement with disclosed terms, an active indictment, or an unsealed exhibit. The category of the edge tells you which: <em>proven</em> = court ruling or settled-with-disclosed-terms; <em>indicted</em> = sworn charge not yet adjudicated (presumed innocent); <em>mentioned</em> = appears in an unsealed log or deposition without any charge attached.
   </div>
 
   <div class="filters-row" style="display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 8px;align-items:center">
@@ -123,6 +124,19 @@
         <button class="vbtn up"   data-dir="up">agree</button>
         <button class="vbtn down" data-dir="down">disagree</button>
       </div>
+      <div id="evidence-block" hidden style="margin-top:10px; padding-top:10px; border-top:1px solid var(--line)">
+        <div style="font-family:var(--mono); font-size:10.5px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px">evidence (community-submitted, local)</div>
+        <ul id="evidence-list" style="margin:0 0 8px 16px; font-size:12.5px; line-height:1.5"></ul>
+        <details style="margin-top:6px">
+          <summary style="font-family:var(--mono); font-size:11px; cursor:pointer; color:var(--sun)">+ propose evidence</summary>
+          <div style="margin-top:6px; display:flex; flex-direction:column; gap:6px">
+            <input id="ev-url"  type="url" placeholder="public URL (court doc, news, archive)" style="font-family:var(--mono); font-size:12px; padding:5px 8px; border:1px solid var(--line-2); border-radius:6px; background:var(--paper)">
+            <input id="ev-note" type="text" maxlength="160" placeholder="one-line note (≤160 chars)" style="font-family:var(--sans); font-size:12.5px; padding:5px 8px; border:1px solid var(--line-2); border-radius:6px; background:var(--paper)">
+            <button id="ev-submit" style="font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:6px 10px; border-radius:6px; border:1px solid var(--ink); background:var(--ink); color:var(--cream); cursor:pointer">submit (saved locally)</button>
+            <div style="font-family:var(--mono); font-size:10px; color:var(--ink-mute); line-height:1.4">stored in your browser. nothing posted to a server. drop it on the issue tracker if you want it on the public graph.</div>
+          </div>
+        </details>
+      </div>
     </div>
   </div>
 
@@ -177,7 +191,10 @@
   const dBody = detail.querySelector('[data-body]');
   const dSrc  = detail.querySelector('[data-src]');
   const voteRow = document.getElementById('vote-row');
-  document.getElementById('detail-close').onclick = ()=> { detail.hidden = true; voteRow.hidden = true; };
+  document.getElementById('detail-close').onclick = ()=> {
+    detail.hidden = true; voteRow.hidden = true;
+    const eb = document.getElementById('evidence-block'); if (eb) eb.hidden = true;
+  };
 
   // ── profile / voting ────────────────────────────────────────────────
   const KEY='godding.profile';
@@ -434,16 +451,79 @@
     dBody.textContent = n.body;
     dSrc.textContent  = 'source: ' + n.src;
     voteRow.hidden = true;
+    const eb = document.getElementById('evidence-block');
+    if (eb) eb.hidden = true;
     detail.hidden = false;
   }
   function showEdge(e, a, b){
     dName.textContent = `${a.label} ↔ ${b.label}`;
     dMeta.textContent = e.kind + ' · ' + e.label;
-    dBody.textContent = `Connection between ${a.label} and ${b.label} per the public record. Vote agree/disagree if you think the connection is or isn't real.`;
+    dBody.textContent = `Connection between ${a.label} and ${b.label} per the public record. Vote agree/disagree if you think the connection is or isn't real, and propose more evidence below.`;
     dSrc.textContent  = 'source: ' + e.src;
     voteRow.hidden = false;
     bindVote(e.id);
+    bindEvidence(e.id);
     detail.hidden = false;
+  }
+
+  function bindEvidence(edgeId){
+    profile.evidence = profile.evidence || {};
+    const list = profile.evidence[edgeId] || [];
+    const ul = document.getElementById('evidence-list');
+    ul.innerHTML = '';
+    if (!list.length){
+      const li = document.createElement('li');
+      li.style.color = 'var(--ink-mute)';
+      li.style.fontFamily = 'var(--mono)';
+      li.style.fontSize = '11px';
+      li.style.listStyle = 'none';
+      li.style.marginLeft = '-16px';
+      li.textContent = 'no community evidence yet — propose one below.';
+      ul.appendChild(li);
+    } else {
+      for (const ev of list){
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = ev.url; a.target = '_blank'; a.rel = 'noopener';
+        a.textContent = (ev.url.length > 50 ? ev.url.slice(0, 47) + '…' : ev.url);
+        a.style.color = 'var(--sun)';
+        a.style.fontFamily = 'var(--mono)';
+        a.style.fontSize = '12px';
+        const note = document.createElement('div');
+        note.textContent = ev.note;
+        note.style.color = 'var(--ink-2)';
+        note.style.fontSize = '12.5px';
+        const ts = document.createElement('div');
+        ts.textContent = ev.ts;
+        ts.style.fontFamily = 'var(--mono)';
+        ts.style.fontSize = '10px';
+        ts.style.color = 'var(--ink-mute)';
+        li.appendChild(a); li.appendChild(note); li.appendChild(ts);
+        li.style.marginBottom = '6px';
+        ul.appendChild(li);
+      }
+    }
+    document.getElementById('evidence-block').hidden = false;
+
+    const urlEl = document.getElementById('ev-url');
+    const noteEl = document.getElementById('ev-note');
+    const btnEl = document.getElementById('ev-submit');
+    urlEl.value = ''; noteEl.value = '';
+    btnEl.onclick = () => {
+      const url = (urlEl.value||'').trim();
+      const note = (noteEl.value||'').trim();
+      if (!url || !note) return;
+      // accept only http(s) links
+      try { const u = new URL(url); if (!/^https?:$/.test(u.protocol)) return; } catch { return; }
+      profile.evidence = profile.evidence || {};
+      profile.evidence[edgeId] = profile.evidence[edgeId] || [];
+      profile.evidence[edgeId].push({ url, note, ts: nowUTC() });
+      // also append to history so /vote can show the trail
+      profile.history.unshift({ ts: nowUTC(), kind: 'evidence', id: edgeId });
+      if (profile.history.length>200) profile.history.length=200;
+      save();
+      bindEvidence(edgeId);
+    };
   }
 
   function render(){
@@ -484,9 +564,24 @@
       c.setAttribute('fill', COLOR[n.cat] || '#a39179');
       c.setAttribute('opacity', n.cat === 'men' ? 0.78 : 0.92);
       grp.appendChild(c);
+
+      // label plate + text — sits below the bubble for big nodes, above for small ones
+      // so labels alternate vertically and don't crowd horizontally
+      const labelY = (n.r >= 20 ? 1 : -1) * (n.r + 14);
+      const fs = 11;
+      const labelW = Math.max(40, n.label.length * fs * 0.58 + 10);
+      const plate = document.createElementNS('http://www.w3.org/2000/svg','rect');
+      plate.setAttribute('class', 'label-plate');
+      plate.setAttribute('x', -labelW/2);
+      plate.setAttribute('y', labelY - fs/2 - 2);
+      plate.setAttribute('width', labelW);
+      plate.setAttribute('height', fs + 4);
+      plate.setAttribute('rx', 3);
+      grp.appendChild(plate);
+
       const t = document.createElementNS('http://www.w3.org/2000/svg','text');
       t.setAttribute('text-anchor','middle');
-      t.setAttribute('dy', n.r + 16);
+      t.setAttribute('y', labelY + 4);
       t.textContent = n.label;
       grp.appendChild(t);
       grp.addEventListener('click', (ev)=>{ ev.stopPropagation(); showNode(n); });

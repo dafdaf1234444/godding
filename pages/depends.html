@@ -79,7 +79,7 @@
     <span class="tag" style="border-color:#5d8c4a;color:#5d8c4a;background:#dee9d8"><span class="swatch" style="background:#5d8c4a"></span>application · A</span>
   </div>
 
-  <div class="dep-wrap">
+  <div class="dep-wrap" style="position:relative">
     <svg id="depsvg" class="dep-svg" viewBox="0 0 1300 680" preserveAspectRatio="xMidYMid meet" aria-label="dependency graph">
       <defs>
         <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
@@ -89,7 +89,14 @@
           <path d="M0,0 L12,6 L0,12 z" fill="#d96936"/>
         </marker>
       </defs>
+      <g id="dep-viewport"></g>
     </svg>
+    <div style="position:absolute; top:14px; left:14px; display:flex; gap:6px; z-index:5">
+      <button id="dep-in"   title="zoom in"   style="width:30px;height:30px;border:1px solid var(--line-2);background:var(--paper-2);border-radius:8px;font-family:var(--mono);font-size:14px;color:var(--ink-2);cursor:pointer">+</button>
+      <button id="dep-out"  title="zoom out"  style="width:30px;height:30px;border:1px solid var(--line-2);background:var(--paper-2);border-radius:8px;font-family:var(--mono);font-size:14px;color:var(--ink-2);cursor:pointer">−</button>
+      <button id="dep-rst"  title="reset"     style="width:30px;height:30px;border:1px solid var(--line-2);background:var(--paper-2);border-radius:8px;font-family:var(--mono);font-size:14px;color:var(--ink-2);cursor:pointer">⊙</button>
+    </div>
+    <div style="position:absolute; bottom:8px; right:14px; font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); letter-spacing:.10em; text-transform:uppercase">drag = pan · ctrl+wheel = zoom · drag a node = move it</div>
   </div>
 
   <h2 style="margin-top:22px">the index, in topological order</h2>
@@ -151,6 +158,7 @@
 <script>
 (function(){
   const svg = document.getElementById('depsvg');
+  const vp  = document.getElementById('dep-viewport');
   const W = 1300, H = 680;
 
   const NODES = [
@@ -204,36 +212,53 @@
   const NS = 'http://www.w3.org/2000/svg';
   function E(name, attrs){ const el = document.createElementNS(NS, name); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; }
 
+  // give each node mutable position state for dragging
+  for (const n of NODES){
+    const p = pos(n);
+    n._x = p.cx; n._y = p.cy;
+  }
+
   // render edges
   const edgeEls = {};
-  for (const [a, b] of EDGES){
-    const A = pos(byId[a]), B = pos(byId[b]);
-    const ax = A.cx + NODE_W/2, ay = A.cy;
-    const bx = B.cx - NODE_W/2, by = B.cy;
-    const dx = (bx - ax) * 0.5;
-    const d = `M${ax},${ay} C${ax+dx},${ay} ${bx-dx},${by} ${bx},${by}`;
-    const path = E('path', { d, class:'dep-edge', 'data-a':a, 'data-b':b });
-    svg.appendChild(path);
-    edgeEls[a+'->'+b] = path;
+  function drawEdges(){
+    for (const path of Object.values(edgeEls)) path.remove();
+    for (const k in edgeEls) delete edgeEls[k];
+    for (const [a, b] of EDGES){
+      const A = byId[a], B = byId[b];
+      const ax = A._x + NODE_W/2, ay = A._y;
+      const bx = B._x - NODE_W/2, by = B._y;
+      const dx = (bx - ax) * 0.5;
+      const d = `M${ax},${ay} C${ax+dx},${ay} ${bx-dx},${by} ${bx},${by}`;
+      const path = E('path', { d, class:'dep-edge', 'data-a':a, 'data-b':b });
+      vp.appendChild(path);
+      edgeEls[a+'->'+b] = path;
+    }
   }
 
   // render nodes
   const nodeEls = {};
-  for (const n of NODES){
-    const p = pos(n);
-    const g = E('g', { class:'node-group', 'data-id':n.id, transform:`translate(${p.cx-NODE_W/2},${p.cy-NODE_H/2})`});
-    g.style.cursor = 'pointer';
-    g.appendChild(E('rect', { x:0, y:0, width:NODE_W, height:NODE_H, rx:8, class:`node-rect ${n.kind}` }));
-    g.appendChild(Object.assign(E('text', { x:10, y:18, class:'node-id' }), { textContent: n.id }));
-    g.appendChild(Object.assign(E('text', { x:10, y:32, class:'node-kind' }), { textContent: n.kind }));
-    g.appendChild(Object.assign(E('text', { x:10, y:48, class:'node-title' }), { textContent: n.title.length>22 ? n.title.slice(0,21)+'…' : n.title }));
-    const t = E('title', {}); t.textContent = `${n.id} · ${n.kind} — ${n.title}`; g.appendChild(t);
-    g.addEventListener('click', () => location.href = n.href);
-    g.addEventListener('mouseenter', () => light(n.id));
-    g.addEventListener('mouseleave', () => unlight());
-    svg.appendChild(g);
-    nodeEls[n.id] = g;
+  function drawNodes(){
+    for (const n of NODES){
+      const g = E('g', { class:'node-group', 'data-id':n.id, transform:`translate(${n._x-NODE_W/2},${n._y-NODE_H/2})`});
+      g.style.cursor = 'grab';
+      g.appendChild(E('rect', { x:0, y:0, width:NODE_W, height:NODE_H, rx:8, class:`node-rect ${n.kind}` }));
+      g.appendChild(Object.assign(E('text', { x:10, y:18, class:'node-id' }), { textContent: n.id }));
+      g.appendChild(Object.assign(E('text', { x:10, y:32, class:'node-kind' }), { textContent: n.kind }));
+      g.appendChild(Object.assign(E('text', { x:10, y:48, class:'node-title' }), { textContent: n.title.length>22 ? n.title.slice(0,21)+'…' : n.title }));
+      const t = E('title', {}); t.textContent = `${n.id} · ${n.kind} — ${n.title}`; g.appendChild(t);
+      g.addEventListener('mouseenter', () => light(n.id));
+      g.addEventListener('mouseleave', () => unlight());
+      vp.appendChild(g);
+      nodeEls[n.id] = g;
+    }
   }
+  function refresh(){
+    // clear everything in viewport, then redraw
+    while (vp.firstChild) vp.removeChild(vp.firstChild);
+    drawEdges();
+    drawNodes();
+  }
+  refresh();
 
   function transitiveAncestors(id){ const out=new Set(); const stack=[...parents[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const p of parents[x]) stack.push(p); } } return out; }
   function transitiveDescendants(id){ const out=new Set(); const stack=[...children[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const c of children[x]) stack.push(c); } } return out; }
@@ -254,6 +279,63 @@
     for (const k in nodeEls) nodeEls[k].classList.remove('lit');
     for (const key in edgeEls){ edgeEls[key].classList.remove('hot'); edgeEls[key].setAttribute('marker-end', 'url(#arrow)'); }
   }
+
+  /* ── zoom + pan + node drag ──────────────────────────────────── */
+  let scale = 1, tx = 0, ty = 0;
+  function applyView(){ vp.setAttribute('transform', `translate(${tx},${ty}) scale(${scale})`); }
+  document.getElementById('dep-in').onclick  = ()=>{ scale = Math.min(3, scale*1.2); applyView(); };
+  document.getElementById('dep-out').onclick = ()=>{ scale = Math.max(0.4, scale/1.2); applyView(); };
+  document.getElementById('dep-rst').onclick = ()=>{
+    scale = 1; tx = 0; ty = 0; applyView();
+    // also reset node positions
+    for (const n of NODES){ const p = pos(n); n._x = p.cx; n._y = p.cy; }
+    refresh();
+    applyView();
+  };
+
+  let panning = false, dragging = null, sx=0, sy=0, ox=0, oy=0, moved=0;
+  svg.addEventListener('mousedown', (e) => {
+    moved = 0;
+    const target = e.target.closest('.node-group');
+    if (target){
+      const id = target.dataset.id;
+      dragging = byId[id]; sx = e.clientX; sy = e.clientY;
+      target.style.cursor = 'grabbing';
+      e.preventDefault();
+      return;
+    }
+    panning = true; sx = e.clientX; sy = e.clientY; ox = tx; oy = ty;
+    svg.style.cursor = 'grabbing';
+  });
+  window.addEventListener('mouseup', () => {
+    if (dragging) for (const k in nodeEls) nodeEls[k].style.cursor = 'grab';
+    dragging = null; panning = false; svg.style.cursor = '';
+  });
+  window.addEventListener('mousemove', (e) => {
+    moved += Math.abs(e.movementX) + Math.abs(e.movementY);
+    if (dragging){
+      const rect = svg.getBoundingClientRect();
+      const sx = W / rect.width, sy_ = H / rect.height;
+      dragging._x += e.movementX * sx / scale;
+      dragging._y += e.movementY * sy_ / scale;
+      refresh();
+      return;
+    }
+    if (panning){ tx = ox + (e.clientX - sx); ty = oy + (e.clientY - sy); applyView(); }
+  });
+  // suppress click after drag (so node click → page nav doesn't fire)
+  svg.addEventListener('click', (e)=>{
+    if (moved > 4){ e.stopPropagation(); e.preventDefault(); return; }
+    const target = e.target.closest('.node-group');
+    if (target){ const id = target.dataset.id; const n = byId[id]; if (n) location.href = n.href; }
+  });
+  svg.addEventListener('wheel', (e)=>{
+    if (!(e.ctrlKey || e.metaKey)) return;
+    e.preventDefault();
+    const f = e.deltaY < 0 ? 1.15 : 1/1.15;
+    scale = Math.max(0.4, Math.min(3, scale * f));
+    applyView();
+  }, { passive: false });
 })();
 </script>
 </body>

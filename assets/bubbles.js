@@ -30,7 +30,7 @@ const CURRENT_FIGURES = [
   { id:'cur-syria',   name:'Syrian war (post-2020 phase)',years:'2011– ',  n:5.8e5, lo:5e5, hi:6.5e5, century:'21c', region:'Asia',range:'~580k+ cumulative; tens of thousands of "disappearances"', summary:'Long civil war with documented sieges, chemical-weapon use, and detention-system abuses.', src:'SNHR; UN COI; OPCW', tier:0, links:[] },
   { id:'cur-myanmar', name:'Myanmar coup + war',          years:'2021– ',  n:5e4, lo:4e4, hi:8e4, century:'21c', region:'Asia',range:'~50k+ killed; over 3M displaced', summary:'Military junta vs. resistance forces; documented airstrikes on civilians and village burnings.', src:'AAPP Burma; UN OCHA; ACLED', tier:1, links:[] },
   { id:'cur-sudan',   name:'Sudan war (RSF vs SAF)',      years:'2023– ',  n:1.5e5, lo:1.5e5, hi:1.5e5, century:'21c', region:'Africa',range:'~150k killed (UN/Yale est.); largest displacement crisis on record', summary:'Two militaries fighting over the capital with widespread ethnic-targeted killings in Darfur.', src:'Yale Humanitarian Lab; UN OCHA; HRW', tier:0, links:[] },
-  { id:'cur-gaza',    name:'Israel–Gaza war (since Oct 2023)', years:'2023– ', n:5e4, lo:4e4, hi:1.86e5, century:'21c', region:'Asia',range:'~40k–186k Gazan deaths (low: Gaza MoH direct; high: Lancet excess-mortality est.); ~1,200 Israeli on Oct 7', summary:'High civilian-casualty urban war following Hamas-led attack; documented strikes on hospitals, journalists, aid workers.', src:'Lancet correspondence 2024; UN OCHA; HRW; Gaza MoH; IDF briefings', tier:0, links:[] },
+  { id:'cur-gaza',    name:'Israel–Gaza war',                  years:'2023– ', n:5e4, lo:4e4, hi:1.86e5, century:'21c', region:'Asia',range:'~40k–186k Gazan deaths (low: Gaza MoH direct; high: Lancet excess-mortality est.); ~1,200 Israeli on Oct 7', summary:'High civilian-casualty urban war following Hamas-led attack; documented strikes on hospitals, journalists, aid workers.', src:'Lancet correspondence 2024; UN OCHA; HRW; Gaza MoH; IDF briefings', tier:0, links:[] },
   { id:'cur-dprk',    name:'DPRK political-prison system',years:'1990s– ',  n:1.5e5, lo:1e5, hi:2e5, century:'21c', region:'Asia',range:'~100k–200k currently in camps; tens of thousands deaths/decade', summary:'Long-running gulag-style camp system documented by escapee testimony and satellite imagery.', src:'UN COI on DPRK (2014); Committee for Human Rights in North Korea', tier:1, links:[] },
   { id:'cur-uyghur',  name:'Xinjiang internment',         years:'2017– ',  n:1e6, lo:1e6, hi:1.8e6, century:'21c', region:'Asia',range:'~1M+ detained; deaths uncertain, mass forced-labour and family separation', summary:'Documented internment of Uyghur and other Turkic Muslims; coercive birth-control measures.', src:'UN OHCHR (2022) "Xinjiang assessment"; Australian Strategic Policy Institute', tier:1, links:[] },
   { id:'cur-mexico',  name:'Mexico cartel violence',      years:'2006– ',  n:4e5, lo:4e5, hi:5e5, century:'21c', region:'Americas',range:'~400k+ homicides since 2006; ~110k missing', summary:'Cartel-driven mass-homicide pattern with documented massacres and disappearances.', src:'Mexican government statistics; CNDH; HRW', tier:2, links:[] },
@@ -51,17 +51,36 @@ function renderBubbles(opts) {
   const cx = W / 2, cy = H / 2;
   const small = !!opts.small;
 
-  // pick which dataset to draw based on mode
+  // pick which dataset to draw based on mode + century/region filters
   const mode = opts.mode || 'historical';
+  const centuryF = opts.century || 'all';
+  const regionF  = opts.region  || 'all';
   const sourceArrays = (mode === 'current')
     ? [{ arr: CURRENT_FIGURES, kind: 'current' }]
     : (mode === 'both')
       ? [{ arr: FIGURES, kind: 'historical' }, { arr: CURRENT_FIGURES, kind: 'current' }]
       : [{ arr: FIGURES, kind: 'historical' }];
-  const FLAT = sourceArrays.flatMap(s => s.arr.map(f => ({ ...f, _kind: s.kind })));
+  let FLAT = sourceArrays.flatMap(s => s.arr.map(f => ({ ...f, _kind: s.kind })));
+  if (centuryF !== 'all') FLAT = FLAT.filter(f => f.century === centuryF);
+  if (regionF  !== 'all') FLAT = FLAT.filter(f => f.region  === regionF);
 
   // Initial spread on a grid-ish layout so packing has space to work
   const N = FLAT.length;
+  if (N === 0){
+    // empty set — show a neutral message
+    const svg = opts.svgEl;
+    svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', W/2); t.setAttribute('y', H/2);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-family', 'Fraunces, Georgia, serif');
+    t.setAttribute('font-style', 'italic');
+    t.setAttribute('font-size', '20'); t.setAttribute('fill', '#6f5f53');
+    t.textContent = 'no figures match these filters';
+    svg.appendChild(t);
+    return;
+  }
   const cols = Math.ceil(Math.sqrt(N * (W / H)));
   const data = FLAT.map((f, i) => {
     // tighter cap on max bubble radius so the biggest bubbles don't smother neighbours
@@ -373,11 +392,11 @@ function renderBars(opts) {
   if (region  !== 'all') DATA = DATA.filter(f => f.region  === region);
   DATA.sort((a, b) => b.n - a.n);
 
-  const rowH = 32;
+  const rowH = 34;
   const padTop = 64;
   const padBot = 48;
-  const padL = 200;
-  const padR = 110;
+  const padL = 240;     // widened left label gutter
+  const padR = 120;
   const H = padTop + padBot + Math.max(1, DATA.length) * rowH;
 
   const svg = opts.svgEl;
@@ -455,7 +474,7 @@ function renderBars(opts) {
       ? palette.current[f.century] || '#5d8c4a'
       : palette.historical[f.century] || '#d96936';
 
-    // row label (name + years)
+    // row label (name + years) — truncate any name that still won't fit
     const lbl = document.createElementNS(NS, 'text');
     lbl.setAttribute('x', padL - 12);
     lbl.setAttribute('y', yMid + 4);
@@ -463,7 +482,8 @@ function renderBars(opts) {
     lbl.setAttribute('font-family', 'Fraunces, Georgia, serif');
     lbl.setAttribute('font-size', '14');
     lbl.setAttribute('fill', '#1f1813');
-    lbl.textContent = f.name;
+    const nm = f.name.length > 28 ? f.name.slice(0, 26) + '…' : f.name;
+    lbl.textContent = nm;
     svg.appendChild(lbl);
 
     const yrs = document.createElementNS(NS, 'text');
