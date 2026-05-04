@@ -5,18 +5,18 @@
 */
 
 const FIGURES = [
-  { id:'mao',     name:'Mao Zedong',          years:'1893–1976', n:35e6,  range:'~30–45M (Great Leap Forward famine + Cultural Revolution)', summary:'Chairman of the People\'s Republic of China. Excess deaths during the Great Leap Forward famine (1959–61) plus political violence.', src:'mainstream demographic + Frank Dikötter (Mao\'s Great Famine, 2010)', tier:0, links:['stalin','polpot','kim'] },
-  { id:'genghis', name:'Genghis Khan',        years:'c. 1162–1227', n:35e6, range:'~30–40M (estimates of Mongol conquest deaths over the 13th c.)', summary:'Mongol conquest of large parts of Asia and Eastern Europe. Death-toll estimates aggregate decades of warfare and famine.', src:'standard histories of the Mongol Empire', tier:3, links:['tamerlane'] },
-  { id:'taiping', name:'Hong Xiuquan',        years:'1814–1864', n:20e6,  range:'~20M+ (Taiping Rebellion, 1850–64)', summary:'Self-proclaimed brother of Jesus. Led the Taiping Rebellion in Qing China — one of the deadliest civil wars in history.', src:'Jonathan Spence; standard Qing histories', tier:1, links:[] },
-  { id:'hitler',  name:'Adolf Hitler',        years:'1889–1945', n:17e6,  range:'~17M civilian deaths (Holocaust ~6M Jews + ~11M others; WWII total far higher)', summary:'Nazi dictator of Germany. Holocaust + Generalplan Ost + war-crimes against civilians.', src:'Holocaust Encyclopaedia, Yad Vashem, USHMM', tier:0, links:['stalin','tojo'] },
-  { id:'tamerlane', name:'Timur (Tamerlane)', years:'1336–1405', n:17e6,  range:'~15–17M (Central Asian conquests)', summary:'Founder of the Timurid Empire. Documented massacres in cities across Persia, India, the Levant.', src:'standard medieval histories', tier:3, links:['genghis'] },
-  { id:'leopold', name:'Leopold II of Belgium', years:'1835–1909', n:10e6, range:'~5–10M (Congo Free State, 1885–1908)', summary:'Personal owner of the Congo Free State. Forced-labour rubber regime, mutilation, famine.', src:'Adam Hochschild, King Leopold\'s Ghost (1998)', tier:1, links:[] },
-  { id:'stalin',  name:'Joseph Stalin',       years:'1878–1953', n:7e6,   range:'~6–9M (Great Purge, gulag, Holodomor)', summary:'Soviet leader. Forced collectivisation famines, purges, gulag mortality.', src:'Robert Conquest; Wheatcroft & Davies', tier:0, links:['mao','hitler','kim'] },
-  { id:'tojo',    name:'Hideki Tōjō',         years:'1884–1948', n:5e6,   range:'~3–10M (Japanese wartime atrocities, 1937–45)', summary:'Imperial Japanese PM. Nanjing, Unit 731, occupied-territory massacres.', src:'standard WWII Pacific histories', tier:0, links:['hitler'] },
-  { id:'polpot',  name:'Pol Pot',             years:'1925–1998', n:1.8e6, range:'~1.7–2M (Cambodian genocide, 1975–79)', summary:'Khmer Rouge leader. Killing fields, mass starvation, ~25% of Cambodian population.', src:'Yale Cambodian Genocide Program', tier:0, links:['mao'] },
-  { id:'kim',     name:'Kim Il-sung',         years:'1912–1994', n:1.6e6, range:'~1.6M+ (Korean War civilians, post-war repression)', summary:'Founder of the DPRK. Korean War civilian deaths plus decades of repression and famine.', src:'standard DPRK histories', tier:0, links:['mao','stalin'] },
-  { id:'suharto', name:'Suharto',             years:'1921–2008', n:9e5,   range:'~500k–1M+ (Indonesian massacres 1965–66; East Timor)', summary:'Indonesian dictator. Anti-communist purge of 1965–66, occupation of East Timor.', src:'Geoffrey Robinson; CIA/State Dept declassifications', tier:0, links:[] },
-  { id:'idi',     name:'Idi Amin',            years:'c. 1925–2003', n:3e5, range:'~100k–500k (Ugandan repression, 1971–79)', summary:'Ugandan dictator. Mass political killings during his rule.', src:'standard African political histories', tier:0, links:[] },
+  { id:'mao',     name:'Mao Zedong',          years:'1893–1976', n:35e6,  lo:30e6, hi:45e6, century:'20c', region:'Asia',   range:'~30–45M (Great Leap Forward famine + Cultural Revolution)', summary:'Chairman of the People\'s Republic of China. Excess deaths during the Great Leap Forward famine (1959–61) plus political violence.', src:'mainstream demographic + Frank Dikötter (Mao\'s Great Famine, 2010)', tier:0, links:['stalin','polpot','kim'] },
+  { id:'genghis', name:'Genghis Khan',        years:'c. 1162–1227', n:35e6, lo:30e6, hi:40e6, century:'13c', region:'Asia',  range:'~30–40M (estimates of Mongol conquest deaths over the 13th c.)', summary:'Mongol conquest of large parts of Asia and Eastern Europe. Death-toll estimates aggregate decades of warfare and famine.', src:'standard histories of the Mongol Empire', tier:3, links:['tamerlane'] },
+  { id:'taiping', name:'Hong Xiuquan',        years:'1814–1864', n:20e6, lo:20e6, hi:30e6, century:'19c', region:'Asia',  range:'~20–30M (Taiping Rebellion, 1850–64)', summary:'Self-proclaimed brother of Jesus. Led the Taiping Rebellion in Qing China — one of the deadliest civil wars in history.', src:'Jonathan Spence; standard Qing histories', tier:1, links:[] },
+  { id:'hitler',  name:'Adolf Hitler',        years:'1889–1945', n:17e6, lo:11e6, hi:20e6, century:'20c', region:'Europe',range:'~11–20M civilian deaths (Holocaust ~6M Jews + ~5–11M others; WWII total far higher)', summary:'Nazi dictator of Germany. Holocaust + Generalplan Ost + war-crimes against civilians.', src:'Holocaust Encyclopaedia, Yad Vashem, USHMM', tier:0, links:['stalin','tojo'] },
+  { id:'tamerlane', name:'Timur (Tamerlane)', years:'1336–1405', n:17e6, lo:15e6, hi:17e6, century:'14c', region:'Asia',  range:'~15–17M (Central Asian conquests)', summary:'Founder of the Timurid Empire. Documented massacres in cities across Persia, India, the Levant.', src:'standard medieval histories', tier:3, links:['genghis'] },
+  { id:'leopold', name:'Leopold II of Belgium', years:'1835–1909', n:10e6, lo:5e6, hi:15e6, century:'19c', region:'Africa',range:'~5–15M (Congo Free State, 1885–1908)', summary:'Personal owner of the Congo Free State. Forced-labour rubber regime, mutilation, famine.', src:'Adam Hochschild, King Leopold\'s Ghost (1998)', tier:1, links:[] },
+  { id:'stalin',  name:'Joseph Stalin',       years:'1878–1953', n:7e6, lo:6e6, hi:9e6, century:'20c', region:'Europe',range:'~6–9M (Great Purge, gulag, Holodomor)', summary:'Soviet leader. Forced collectivisation famines, purges, gulag mortality.', src:'Robert Conquest; Wheatcroft & Davies', tier:0, links:['mao','hitler','kim'] },
+  { id:'tojo',    name:'Hideki Tōjō',         years:'1884–1948', n:5e6, lo:3e6, hi:10e6, century:'20c', region:'Asia',  range:'~3–10M (Japanese wartime atrocities, 1937–45)', summary:'Imperial Japanese PM. Nanjing, Unit 731, occupied-territory massacres.', src:'standard WWII Pacific histories', tier:0, links:['hitler'] },
+  { id:'polpot',  name:'Pol Pot',             years:'1925–1998', n:1.8e6, lo:1.7e6, hi:2e6, century:'20c', region:'Asia',range:'~1.7–2M (Cambodian genocide, 1975–79)', summary:'Khmer Rouge leader. Killing fields, mass starvation, ~25% of Cambodian population.', src:'Yale Cambodian Genocide Program', tier:0, links:['mao'] },
+  { id:'kim',     name:'Kim Il-sung',         years:'1912–1994', n:1.6e6, lo:1.5e6, hi:3e6, century:'20c', region:'Asia',range:'~1.5–3M (Korean War civilians, post-war repression)', summary:'Founder of the DPRK. Korean War civilian deaths plus decades of repression and famine.', src:'standard DPRK histories', tier:0, links:['mao','stalin'] },
+  { id:'suharto', name:'Suharto',             years:'1921–2008', n:9e5, lo:5e5, hi:1.2e6, century:'20c', region:'Asia',range:'~500k–1.2M (Indonesian massacres 1965–66; East Timor)', summary:'Indonesian dictator. Anti-communist purge of 1965–66, occupation of East Timor.', src:'Geoffrey Robinson; CIA/State Dept declassifications', tier:0, links:[] },
+  { id:'idi',     name:'Idi Amin',            years:'c. 1925–2003', n:3e5, lo:1e5, hi:5e5, century:'20c', region:'Africa',range:'~100k–500k (Ugandan repression, 1971–79)', summary:'Ugandan dictator. Mass political killings during his rule.', src:'standard African political histories', tier:0, links:[] },
 ];
 
 /* CURRENT (2020s) figures — issue-level only, no living people named.
@@ -24,16 +24,16 @@ const FIGURES = [
    is described by role (regime, militia, junta) rather than by personal name to
    avoid defamation. Numbers are mid-points of mainstream estimates with sources. */
 const CURRENT_FIGURES = [
-  { id:'cur-ukraine', name:'invasion of Ukraine',         years:'2022– ',  n:5e5,  range:'~250k–800k civilian + military deaths cumulative (open-source estimates)', summary:'Mass-scale interstate war in Europe; documented strikes on civilian infrastructure, deportations, and mass-grave findings in occupied areas.', src:'UN OHCHR; Mediazona/BBC tally; ICRC reports', tier:0, links:[] },
-  { id:'cur-yemen',   name:'Yemen war + blockade',        years:'2014– ',  n:3.7e5,range:'~370k+ direct + indirect (UNDP, 2021 baseline; growing)', summary:'Coalition + Houthi conflict with naval blockade and famine-level food insecurity.', src:'UNDP "Assessing the Impact of War in Yemen" (2021); ACLED', tier:1, links:[] },
-  { id:'cur-tigray',  name:'Tigray war',                  years:'2020–2022', n:6e5,range:'~300k–800k excess deaths', summary:'Ethiopian federal + Eritrean forces vs. TPLF; widespread civilian massacres and famine documented.', src:'Ghent University estimate; Amnesty + HRW reports', tier:0, links:[] },
-  { id:'cur-syria',   name:'Syrian war (post-2020 phase)',years:'2011– ',  n:5.8e5,range:'~580k+ cumulative; tens of thousands of "disappearances"', summary:'Long civil war with documented sieges, chemical-weapon use, and detention-system abuses.', src:'SNHR; UN COI; OPCW', tier:0, links:[] },
-  { id:'cur-myanmar', name:'Myanmar coup + war',          years:'2021– ',  n:5e4, range:'~50k+ killed; over 3M displaced', summary:'Military junta vs. resistance forces; documented airstrikes on civilians and village burnings.', src:'AAPP Burma; UN OCHA; ACLED', tier:1, links:[] },
-  { id:'cur-sudan',   name:'Sudan war (RSF vs SAF)',      years:'2023– ',  n:1.5e5,range:'~150k killed (UN/Yale est.); largest displacement crisis on record', summary:'Two militaries fighting over the capital with widespread ethnic-targeted killings in Darfur.', src:'Yale Humanitarian Lab; UN OCHA; HRW', tier:0, links:[] },
-  { id:'cur-gaza',    name:'Israel–Gaza war (since Oct 2023)', years:'2023– ', n:5e4,range:'~50k+ Gazan deaths reported (Gaza MoH/Lancet); ~1,200 Israeli on Oct 7', summary:'High civilian-casualty urban war following Hamas-led attack; documented strikes on hospitals, journalists, aid workers.', src:'Lancet correspondence 2024; UN OCHA; HRW; Gaza MoH; IDF briefings', tier:0, links:[] },
-  { id:'cur-dprk',    name:'DPRK political-prison system',years:'1990s– ',  n:1.5e5,range:'~100k–200k currently in camps; tens of thousands deaths/decade', summary:'Long-running gulag-style camp system documented by escapee testimony and satellite imagery.', src:'UN COI on DPRK (2014); Committee for Human Rights in North Korea', tier:1, links:[] },
-  { id:'cur-uyghur',  name:'Xinjiang internment',         years:'2017– ',  n:1e6, range:'~1M+ detained; deaths uncertain, mass forced-labour and family separation', summary:'Documented internment of Uyghur and other Turkic Muslims; coercive birth-control measures.', src:'UN OHCHR (2022) "Xinjiang assessment"; Australian Strategic Policy Institute', tier:1, links:[] },
-  { id:'cur-mexico',  name:'Mexico cartel violence',      years:'2006– ',  n:4e5, range:'~400k+ homicides since 2006; ~110k missing', summary:'Cartel-driven mass-homicide pattern with documented massacres and disappearances.', src:'Mexican government statistics; CNDH; HRW', tier:2, links:[] },
+  { id:'cur-ukraine', name:'invasion of Ukraine',         years:'2022– ',  n:5e5, lo:2.5e5, hi:8e5, century:'21c', region:'Europe',range:'~250k–800k civilian + military deaths cumulative (open-source estimates)', summary:'Mass-scale interstate war in Europe; documented strikes on civilian infrastructure, deportations, and mass-grave findings in occupied areas.', src:'UN OHCHR; Mediazona/BBC tally; ICRC reports', tier:0, links:[] },
+  { id:'cur-yemen',   name:'Yemen war + blockade',        years:'2014– ',  n:3.7e5, lo:3.5e5, hi:5e5, century:'21c', region:'Asia',range:'~370k+ direct + indirect (UNDP, 2021 baseline; growing)', summary:'Coalition + Houthi conflict with naval blockade and famine-level food insecurity.', src:'UNDP "Assessing the Impact of War in Yemen" (2021); ACLED', tier:1, links:[] },
+  { id:'cur-tigray',  name:'Tigray war',                  years:'2020–2022', n:6e5, lo:3e5, hi:8e5, century:'21c', region:'Africa',range:'~300k–800k excess deaths', summary:'Ethiopian federal + Eritrean forces vs. TPLF; widespread civilian massacres and famine documented.', src:'Ghent University estimate; Amnesty + HRW reports', tier:0, links:[] },
+  { id:'cur-syria',   name:'Syrian war (post-2020 phase)',years:'2011– ',  n:5.8e5, lo:5e5, hi:6.5e5, century:'21c', region:'Asia',range:'~580k+ cumulative; tens of thousands of "disappearances"', summary:'Long civil war with documented sieges, chemical-weapon use, and detention-system abuses.', src:'SNHR; UN COI; OPCW', tier:0, links:[] },
+  { id:'cur-myanmar', name:'Myanmar coup + war',          years:'2021– ',  n:5e4, lo:4e4, hi:8e4, century:'21c', region:'Asia',range:'~50k+ killed; over 3M displaced', summary:'Military junta vs. resistance forces; documented airstrikes on civilians and village burnings.', src:'AAPP Burma; UN OCHA; ACLED', tier:1, links:[] },
+  { id:'cur-sudan',   name:'Sudan war (RSF vs SAF)',      years:'2023– ',  n:1.5e5, lo:1.5e5, hi:1.5e5, century:'21c', region:'Africa',range:'~150k killed (UN/Yale est.); largest displacement crisis on record', summary:'Two militaries fighting over the capital with widespread ethnic-targeted killings in Darfur.', src:'Yale Humanitarian Lab; UN OCHA; HRW', tier:0, links:[] },
+  { id:'cur-gaza',    name:'Israel–Gaza war (since Oct 2023)', years:'2023– ', n:5e4, lo:4e4, hi:1.86e5, century:'21c', region:'Asia',range:'~40k–186k Gazan deaths (low: Gaza MoH direct; high: Lancet excess-mortality est.); ~1,200 Israeli on Oct 7', summary:'High civilian-casualty urban war following Hamas-led attack; documented strikes on hospitals, journalists, aid workers.', src:'Lancet correspondence 2024; UN OCHA; HRW; Gaza MoH; IDF briefings', tier:0, links:[] },
+  { id:'cur-dprk',    name:'DPRK political-prison system',years:'1990s– ',  n:1.5e5, lo:1e5, hi:2e5, century:'21c', region:'Asia',range:'~100k–200k currently in camps; tens of thousands deaths/decade', summary:'Long-running gulag-style camp system documented by escapee testimony and satellite imagery.', src:'UN COI on DPRK (2014); Committee for Human Rights in North Korea', tier:1, links:[] },
+  { id:'cur-uyghur',  name:'Xinjiang internment',         years:'2017– ',  n:1e6, lo:1e6, hi:1.8e6, century:'21c', region:'Asia',range:'~1M+ detained; deaths uncertain, mass forced-labour and family separation', summary:'Documented internment of Uyghur and other Turkic Muslims; coercive birth-control measures.', src:'UN OHCHR (2022) "Xinjiang assessment"; Australian Strategic Policy Institute', tier:1, links:[] },
+  { id:'cur-mexico',  name:'Mexico cartel violence',      years:'2006– ',  n:4e5, lo:4e5, hi:5e5, century:'21c', region:'Americas',range:'~400k+ homicides since 2006; ~110k missing', summary:'Cartel-driven mass-homicide pattern with documented massacres and disappearances.', src:'Mexican government statistics; CNDH; HRW', tier:2, links:[] },
 ];
 
 const TIER_COLORS = ['#d96936', '#c89a3e', '#6b4a8b', '#4a7ba8'];
@@ -347,4 +347,187 @@ function renderBubbles(opts) {
 }
 
 /* ESM-friendly export for any future module use */
-if (typeof window !== 'undefined') { window.GoddingBubbles = { FIGURES, CURRENT_FIGURES, renderBubbles }; }
+/* ──────────────────────────────────────────────────────────────────────
+   renderBars — clearer "best-resources" view of the same data.
+   Horizontal bar chart, log-scaled x-axis, sorted by midpoint death toll,
+   with low/high range "whiskers". Filterable by century and region.
+   opts: { svgEl, detailEl, viewBox:[w,h], mode, century, region }
+   ─────────────────────────────────────────────────────────────────────── */
+function renderBars(opts) {
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = (opts.viewBox && opts.viewBox[0]) || 1100;
+  const mode = opts.mode || 'historical';
+  const century = opts.century || 'all';
+  const region  = opts.region  || 'all';
+
+  const sourceArrays = (mode === 'current')
+    ? [{ arr: CURRENT_FIGURES, kind: 'current' }]
+    : (mode === 'both')
+      ? [{ arr: FIGURES, kind: 'historical' }, { arr: CURRENT_FIGURES, kind: 'current' }]
+      : [{ arr: FIGURES, kind: 'historical' }];
+  let DATA = sourceArrays.flatMap(s => s.arr.map(f => ({ ...f, _kind: s.kind })));
+  if (century !== 'all') DATA = DATA.filter(f => f.century === century);
+  if (region  !== 'all') DATA = DATA.filter(f => f.region  === region);
+  DATA.sort((a, b) => b.n - a.n);
+
+  const rowH = 32;
+  const padTop = 64;
+  const padBot = 48;
+  const padL = 200;
+  const padR = 110;
+  const H = padTop + padBot + Math.max(1, DATA.length) * rowH;
+
+  const svg = opts.svgEl;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+  // background
+  const bg = document.createElementNS(NS, 'rect');
+  bg.setAttribute('x', '0'); bg.setAttribute('y', '0');
+  bg.setAttribute('width', String(W)); bg.setAttribute('height', String(H));
+  bg.setAttribute('fill', '#fcf8ee');
+  svg.appendChild(bg);
+
+  if (DATA.length === 0) {
+    const t = document.createElementNS(NS, 'text');
+    t.setAttribute('x', W/2); t.setAttribute('y', H/2);
+    t.setAttribute('text-anchor', 'middle');
+    t.setAttribute('font-family', 'Fraunces, Georgia, serif');
+    t.setAttribute('font-style', 'italic');
+    t.setAttribute('font-size', '18');
+    t.setAttribute('fill', '#6f5f53');
+    t.textContent = 'no entries match these filters';
+    svg.appendChild(t);
+    return;
+  }
+
+  // log scale: 1e4 → 5e7
+  const xMin = 1e4, xMax = 5e7;
+  const x0 = padL, x1 = W - padR;
+  const xScale = v => x0 + (Math.log10(Math.max(xMin, v)) - Math.log10(xMin)) /
+                              (Math.log10(xMax) - Math.log10(xMin)) * (x1 - x0);
+
+  // gridlines + axis ticks at 10k, 100k, 1M, 10M, 50M
+  const ticks = [1e4, 1e5, 1e6, 1e7, 5e7];
+  const fmt = v => v >= 1e6 ? (v/1e6).toFixed(v >= 1e7 ? 0 : 1).replace(/\.0$/, '') + 'M'
+                : v >= 1e3 ? (v/1e3).toFixed(0) + 'k' : String(v);
+  for (const t of ticks) {
+    const xx = xScale(t);
+    const ln = document.createElementNS(NS, 'line');
+    ln.setAttribute('x1', xx); ln.setAttribute('x2', xx);
+    ln.setAttribute('y1', padTop - 8); ln.setAttribute('y2', H - padBot + 4);
+    ln.setAttribute('stroke', 'rgba(31,24,19,.10)');
+    ln.setAttribute('stroke-dasharray', '2 4');
+    svg.appendChild(ln);
+    const lbl = document.createElementNS(NS, 'text');
+    lbl.setAttribute('x', xx); lbl.setAttribute('y', padTop - 16);
+    lbl.setAttribute('text-anchor', 'middle');
+    lbl.setAttribute('font-family', 'JetBrains Mono, monospace');
+    lbl.setAttribute('font-size', '11');
+    lbl.setAttribute('fill', '#a39179');
+    lbl.textContent = fmt(t);
+    svg.appendChild(lbl);
+  }
+
+  // x-axis caption
+  const xcap = document.createElementNS(NS, 'text');
+  xcap.setAttribute('x', (x0 + x1) / 2);
+  xcap.setAttribute('y', H - 14);
+  xcap.setAttribute('text-anchor', 'middle');
+  xcap.setAttribute('font-family', 'JetBrains Mono, monospace');
+  xcap.setAttribute('font-size', '11');
+  xcap.setAttribute('fill', '#6f5f53');
+  xcap.textContent = 'estimated deaths attributed to regime / conflict (log scale)';
+  svg.appendChild(xcap);
+
+  const palette = {
+    historical: { '13c':'#6b4a8b','14c':'#6b4a8b','19c':'#c89a3e','20c':'#d96936' },
+    current:    { '21c':'#5d8c4a' }
+  };
+
+  for (let i = 0; i < DATA.length; i++) {
+    const f = DATA[i];
+    const yMid = padTop + i * rowH + rowH/2;
+    const col = (f._kind === 'current')
+      ? palette.current[f.century] || '#5d8c4a'
+      : palette.historical[f.century] || '#d96936';
+
+    // row label (name + years)
+    const lbl = document.createElementNS(NS, 'text');
+    lbl.setAttribute('x', padL - 12);
+    lbl.setAttribute('y', yMid + 4);
+    lbl.setAttribute('text-anchor', 'end');
+    lbl.setAttribute('font-family', 'Fraunces, Georgia, serif');
+    lbl.setAttribute('font-size', '14');
+    lbl.setAttribute('fill', '#1f1813');
+    lbl.textContent = f.name;
+    svg.appendChild(lbl);
+
+    const yrs = document.createElementNS(NS, 'text');
+    yrs.setAttribute('x', padL - 12);
+    yrs.setAttribute('y', yMid + 18);
+    yrs.setAttribute('text-anchor', 'end');
+    yrs.setAttribute('font-family', 'JetBrains Mono, monospace');
+    yrs.setAttribute('font-size', '10');
+    yrs.setAttribute('fill', '#a39179');
+    yrs.textContent = f.years + ' · ' + f.region;
+    svg.appendChild(yrs);
+
+    // range whisker (low → high)
+    const lo = f.lo || f.n, hi = f.hi || f.n;
+    const xl = xScale(lo), xh = xScale(hi);
+    const whisker = document.createElementNS(NS, 'line');
+    whisker.setAttribute('x1', xl); whisker.setAttribute('x2', xh);
+    whisker.setAttribute('y1', yMid); whisker.setAttribute('y2', yMid);
+    whisker.setAttribute('stroke', col);
+    whisker.setAttribute('stroke-opacity', '0.32');
+    whisker.setAttribute('stroke-width', '8');
+    whisker.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(whisker);
+
+    // midpoint marker
+    const xm = xScale(f.n);
+    const dot = document.createElementNS(NS, 'circle');
+    dot.setAttribute('cx', xm); dot.setAttribute('cy', yMid);
+    dot.setAttribute('r', 6);
+    dot.setAttribute('fill', col);
+    dot.setAttribute('stroke', '#1f1813');
+    dot.setAttribute('stroke-width', '0.8');
+    svg.appendChild(dot);
+
+    // right-side label
+    const num = document.createElementNS(NS, 'text');
+    num.setAttribute('x', x1 + 10);
+    num.setAttribute('y', yMid + 4);
+    num.setAttribute('text-anchor', 'start');
+    num.setAttribute('font-family', 'JetBrains Mono, monospace');
+    num.setAttribute('font-size', '12');
+    num.setAttribute('fill', '#3a302a');
+    num.textContent = fmt(f.n);
+    svg.appendChild(num);
+
+    // hit area for click
+    const hit = document.createElementNS(NS, 'rect');
+    hit.setAttribute('x', '0');
+    hit.setAttribute('y', yMid - rowH/2);
+    hit.setAttribute('width', String(W));
+    hit.setAttribute('height', String(rowH));
+    hit.setAttribute('fill', 'transparent');
+    hit.style.cursor = 'pointer';
+    hit.addEventListener('mouseenter', () => hit.setAttribute('fill', 'rgba(217,105,54,0.05)'));
+    hit.addEventListener('mouseleave', () => hit.setAttribute('fill', 'transparent'));
+    hit.addEventListener('click', () => {
+      const detail = opts.detailEl; if (!detail) return;
+      detail.hidden = false;
+      detail.querySelector('[data-name]').textContent = f.name;
+      detail.querySelector('[data-meta]').textContent = f.years + ' · ' + f.region + ' · est. mid-range ' + (f.n / 1e6).toFixed(2) + 'M deaths';
+      detail.querySelector('[data-body]').innerHTML = '<strong>range:</strong> ' + f.range + '<br><br>' + f.summary;
+      detail.querySelector('[data-source]').textContent = 'sources (representative): ' + f.src;
+    });
+    svg.appendChild(hit);
+  }
+}
+
+if (typeof window !== 'undefined') {
+  window.GoddingBubbles = { FIGURES, CURRENT_FIGURES, renderBubbles, renderBars };
+}

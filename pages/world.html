@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>world — energy, money, demographics, weapons — godding</title>
+<meta name="description" content="A single page on the load-bearing systems: energy, money, demographics, politicians, and weapons. Charts and references that update on the swarm's daily run.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .toc{ position:sticky; top:14px; background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:var(--radius-sm); padding:12px 16px; margin-bottom:18px; font-family:var(--mono); font-size:12px; }
+  .toc a{ display:block; padding:3px 0; color:var(--ink-2); }
+  .toc a:hover{ color:var(--sun); }
+  .toc-cap{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px }
+  .chart-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; margin:10px 0 18px; }
+  .chart-wrap h4{ font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:8px; font-weight:500 }
+  .chart-wrap svg{ width:100%; height:auto; display:block; }
+  .ref-list{ background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:12px 18px; margin:10px 0 14px; font-family:var(--sans); font-size:13px; }
+  .ref-list ul{ margin:6px 0 6px 20px; }
+  .ref-list strong{ color:var(--ink); }
+  .ref-list .ref-cap{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px }
+  .pyramid-row{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin:10px 0 18px }
+  .pyramid{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px 12px }
+  .pyramid h5{ font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin-bottom:6px; font-weight:500 }
+  .pyramid .meta{ font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); margin-top:4px }
+  .quote-jvn{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--plum); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:14px 18px; margin:14px 0; font-family:var(--serif); font-style:italic; font-size:15.5px; line-height:1.6; color:var(--ink-2) }
+  .quote-jvn cite{ display:block; font-family:var(--mono); font-size:11px; font-style:normal; color:var(--ink-mute); margin-top:8px; letter-spacing:.10em; text-transform:uppercase }
+  .pol-row{ display:grid; grid-template-columns:200px 1fr auto; gap:10px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line); font-size:13.5px }
+  .pol-row:last-child{ border-bottom:none }
+  .pol-row .topic{ font-family:var(--mono); font-size:11px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute) }
+  .pol-row .desc{ color:var(--ink-2); font-family:var(--sans); }
+  .pol-row .pill{ font-family:var(--mono); font-size:10.5px; padding:3px 8px; border-radius:100px; border:1px solid; }
+  .pol-row .pill.flip{ color:var(--rose); border-color:var(--rose); }
+  .pol-row .pill.steady{ color:var(--leaf); border-color:var(--leaf); }
+  .pol-row .pill.evolved{ color:var(--gold); border-color:var(--gold); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / world</p>
+  <p class="kicker">world · the load-bearing systems</p>
+  <h1>world — <em>energy, money, people, weapons.</em></h1>
+  <p class="dim">One page on the systems that decide whether the human project keeps running. Each section starts with a chart, ends with a short reading list of <em>real</em> institutions and works (no Wikipedia summaries — primary sources only).</p>
+
+  <div class="toc">
+    <div class="toc-cap">on this page</div>
+    <a href="#energy">1 · energy — generation + distribution</a>
+    <a href="#money">2 · money — distribution + tracking</a>
+    <a href="#politicians">3 · politicians — tracking inconsistency</a>
+    <a href="#demographics">4 · demographics — population pyramids</a>
+    <a href="#weapons">5 · weapons — extreme power, who has it</a>
+    <a href="#timeline">6 · how much time we have</a>
+    <a href="#index">7 · master reading list</a>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="energy">1 · energy — generation + distribution</h2>
+  <p>About 80% of the world's primary energy in the mid-2020s still came from fossil fuels (coal + oil + gas). The transition exists on paper for fifty years; in practice the absolute amount of oil and gas burned has kept rising. The chart below is rough, mid-2020s, IEA &amp; OWiD figures.</p>
+
+  <div class="chart-wrap">
+    <h4>world primary energy mix · ~2024 (% of total, mid-range)</h4>
+    <svg viewBox="0 0 900 240" xmlns="http://www.w3.org/2000/svg">
+      <defs></defs>
+      <!-- Stacked bar: oil 30, coal 27, gas 23, hydro 6, biomass 9, wind 2.5, solar 1.5, nuclear 4 (rounded; sums slightly off due to rounding) -->
+      <g transform="translate(40,80)">
+        <!-- single horizontal stacked bar -->
+        <!-- order: coal, oil, gas, hydro, biomass, nuclear, wind, solar -->
+        <rect x="0"   y="0" width="220" height="60" fill="#3a302a"/>
+        <rect x="220" y="0" width="244" height="60" fill="#1f1813"/>
+        <rect x="464" y="0" width="187" height="60" fill="#a39179"/>
+        <rect x="651" y="0" width="49"  height="60" fill="#4a7ba8"/>
+        <rect x="700" y="0" width="73"  height="60" fill="#5d8c4a"/>
+        <rect x="773" y="0" width="33"  height="60" fill="#6b4a8b"/>
+        <rect x="806" y="0" width="20"  height="60" fill="#c89a3e"/>
+        <rect x="826" y="0" width="14"  height="60" fill="#d96936"/>
+        <!-- labels on top -->
+        <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1f1813">
+          <text x="110" y="-10" text-anchor="middle">coal · 27</text>
+          <text x="342" y="-10" text-anchor="middle">oil · 30</text>
+          <text x="557" y="-10" text-anchor="middle">gas · 23</text>
+          <text x="675" y="-10" text-anchor="middle" font-size="9.5">hydro 6</text>
+          <text x="736" y="-10" text-anchor="middle" font-size="9.5">biomass 9</text>
+          <text x="789" y="-10" text-anchor="middle" font-size="9">nuc 4</text>
+          <text x="816" y="-10" text-anchor="middle" font-size="9">wind</text>
+          <text x="833" y="-10" text-anchor="middle" font-size="9">sol</text>
+        </g>
+        <!-- sums callout -->
+        <text x="0" y="86" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14" fill="#1f1813">fossil fuels: ~80% · low-carbon: ~20%</text>
+        <text x="0" y="108" font-family="JetBrains Mono, monospace" font-size="11" fill="#a39179">sources: IEA World Energy Outlook 2024 · Our World in Data energy</text>
+      </g>
+    </svg>
+  </div>
+
+  <p>The hard problem is not generation but <strong>balancing</strong> — matching variable supply (wind, solar) to a load that doesn't pause. Three load-bearing answers exist: (a) overbuild + curtail, (b) storage (lithium, hydro, hydrogen), (c) firm dispatchable backup (gas peakers, nuclear, geothermal). Most country plans ignore one or two of the three.</p>
+
+  <p>Distribution: the global grid is regional. There is no world grid. Inter-connectors (e.g. Europe ↔ North Africa, China ↔ Central Asia) are political bottlenecks far more than engineering ones.</p>
+
+  <div class="ref-list">
+    <div class="ref-cap">read · energy</div>
+    <ul>
+      <li><strong>IEA — <a href="https://www.iea.org/reports/world-energy-outlook-2024" target="_blank" rel="noopener">World Energy Outlook 2024</a>.</strong> Primary annual reference for what got built and what got burned.</li>
+      <li><strong>Vaclav Smil, <em>Energy and Civilization: A History</em> (MIT Press, 2017).</strong> The book explaining why every "transition" word means decades.</li>
+      <li><strong>OWiD — <a href="https://ourworldindata.org/energy" target="_blank" rel="noopener">Energy</a>.</strong> All charts above are derivable from OWiD's CSVs.</li>
+      <li><strong>David MacKay, <em><a href="https://www.withouthotair.com/" target="_blank" rel="noopener">Sustainable Energy — Without the Hot Air</a></em>.</strong> Free PDF. Numbers, not adjectives.</li>
+    </ul>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="money">2 · money — distribution + tracking</h2>
+  <p>The cleanest single statistic: in 1990 the global top-1% held about 33% of personal wealth; by 2022 they held about 45%. The bottom 50% never crossed 2% in either direction. The shape is in the chart below, rounded to one decimal.</p>
+
+  <div class="chart-wrap">
+    <h4>share of global personal wealth · top 1% vs. bottom 50% · 1990–2024</h4>
+    <svg viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+      <!-- axes -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#a39179">
+        <line x1="60" y1="20"  x2="60" y2="240" stroke="#1f1813" stroke-opacity=".5" stroke-width="1"/>
+        <line x1="60" y1="240" x2="860" y2="240" stroke="#1f1813" stroke-opacity=".5" stroke-width="1"/>
+        <text x="60" y="14"  text-anchor="middle">50%</text>
+        <text x="60" y="56" text-anchor="middle">40%</text>
+        <text x="60" y="100" text-anchor="middle">30%</text>
+        <text x="60" y="144" text-anchor="middle">20%</text>
+        <text x="60" y="188" text-anchor="middle">10%</text>
+        <text x="60" y="244" text-anchor="middle">0%</text>
+        <text x="80" y="258" text-anchor="middle">1990</text>
+        <text x="280" y="258" text-anchor="middle">2000</text>
+        <text x="480" y="258" text-anchor="middle">2010</text>
+        <text x="680" y="258" text-anchor="middle">2020</text>
+        <text x="860" y="258" text-anchor="middle">2024</text>
+      </g>
+      <!-- top 1% line: ~33→45 over the period -->
+      <polyline fill="none" stroke="#c4576b" stroke-width="2.6"
+        points="80,95 180,87 280,77 380,68 480,62 580,58 680,55 780,53 860,52"/>
+      <!-- bottom 50% line: stays close to ~1.5% -->
+      <polyline fill="none" stroke="#5d8c4a" stroke-width="2.6"
+        points="80,235 180,234 280,233 380,232 480,231 580,230 680,230 780,229 860,229"/>
+      <!-- annotations -->
+      <g font-family="JetBrains Mono, monospace" font-size="11">
+        <text x="780" y="48" fill="#c4576b">top 1% · ~45%</text>
+        <text x="780" y="222" fill="#5d8c4a">bottom 50% · ~2%</text>
+      </g>
+      <text x="60" y="276" font-family="JetBrains Mono, monospace" font-size="10.5" fill="#a39179">sources: World Inequality Database (WID.world) · Piketty, Saez, Zucman et al.</text>
+    </svg>
+  </div>
+
+  <p>Tracking it is the harder part. There is no single registry of who owns what, anywhere. The closest things to one are <strong>open-corporate registries</strong> (Companies House UK, OpenCorporates), <strong>beneficial-ownership rules</strong> (EU 4th + 5th AML directives), and <strong>leak-driven journalism</strong> (Panama Papers 2016, Pandora Papers 2021). Each tightened the screws once. The screw keeps loosening between leaks.</p>
+
+  <div class="ref-list">
+    <div class="ref-cap">read · money</div>
+    <ul>
+      <li><strong>WID.world — <a href="https://wid.world/" target="_blank" rel="noopener">World Inequality Database</a>.</strong> Piketty + co-authors. The numbers in the chart above are from here.</li>
+      <li><strong>Thomas Piketty, <em>Capital in the Twenty-First Century</em> (2014)</strong>; <strong>Gabriel Zucman, <em>The Hidden Wealth of Nations</em> (2015)</strong>.</li>
+      <li><strong><a href="https://www.icij.org/" target="_blank" rel="noopener">ICIJ</a></strong> — Panama / Pandora papers. <strong><a href="https://www.opencorporates.com/" target="_blank" rel="noopener">OpenCorporates</a></strong> — the largest open registry.</li>
+      <li><strong><a href="https://www.opensecrets.org/" target="_blank" rel="noopener">OpenSecrets</a></strong> &amp; <strong><a href="https://www.followthemoney.org/" target="_blank" rel="noopener">FollowTheMoney</a></strong> — political money in the U.S.</li>
+      <li><strong><a href="https://www.transparency.org/en/cpi" target="_blank" rel="noopener">Transparency International CPI</a></strong> — corruption perception index, country-level.</li>
+    </ul>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="politicians">3 · politicians — tracking inconsistency over time</h2>
+  <p>godding does not name living politicians on votable pages (see <a href="now.html">/now</a> for why). It does, however, describe the <em>kind</em> of inconsistency to track on issues, year by year. The pattern repeats across democracies; if you want to apply it to a specific official, the data lives at the public sources below.</p>
+
+  <div class="chart-wrap">
+    <h4>typical positional flips — last ~20 years · across western democracies</h4>
+    <div class="pol-row"><span class="topic">marriage equality</span><span class="desc">most centre-left and a majority of centre-right politicians moved from "opposed" to "supportive" between 2004 and 2015. fastest mass-flip in modern democratic record.</span><span class="pill flip">flip</span></div>
+    <div class="pol-row"><span class="topic">cannabis legalisation</span><span class="desc">moved from "drug-war hawk" to "regulate &amp; tax" in roughly the same window. coverage now near-majority.</span><span class="pill flip">flip</span></div>
+    <div class="pol-row"><span class="topic">free-trade orthodoxy</span><span class="desc">post-2016 most centre-right and most populist parties moved away from the post-Cold-War free-trade consensus. centre-left was already mixed.</span><span class="pill evolved">evolved</span></div>
+    <div class="pol-row"><span class="topic">defence spending</span><span class="desc">post-2022 European centre-left moved from suspicious-of-Nato to pro-rearmament. clearest cohort flip in decades.</span><span class="pill flip">flip</span></div>
+    <div class="pol-row"><span class="topic">labour protections</span><span class="desc">most parties' rhetoric stayed pro-worker; legislative votes mostly weakened protections. classic talk-vote gap.</span><span class="pill steady">rhetoric steady, votes drifted</span></div>
+    <div class="pol-row"><span class="topic">surveillance powers</span><span class="desc">across the spectrum: opposition while out of power, expansion when in. the steadiest pattern of all.</span><span class="pill steady">structural</span></div>
+    <div class="pol-row"><span class="topic">debt &amp; deficits</span><span class="desc">"hawk in opposition, dove in office" is true on every continent. measured by the proportion of public-debt growth that happens under self-described fiscal conservatives.</span><span class="pill steady">structural</span></div>
+  </div>
+
+  <p>The point of the table: voters are right to be cynical about positional change, but only if they're tracking it on an axis longer than one election cycle. The single most useful tool is a public, signed roll-call record per chamber. Most countries already publish it; almost no one reads it.</p>
+
+  <div class="ref-list">
+    <div class="ref-cap">read · politicians</div>
+    <ul>
+      <li><strong><a href="https://www.govtrack.us/" target="_blank" rel="noopener">GovTrack</a></strong> (U.S.) · <strong><a href="https://theyworkforyou.com/" target="_blank" rel="noopener">TheyWorkForYou</a></strong> (UK) · <strong><a href="https://www.openparliament.ca/" target="_blank" rel="noopener">OpenParliament</a></strong> (Canada). All voting records, all free, all under-used.</li>
+      <li><strong><a href="https://www.idea.int/" target="_blank" rel="noopener">International IDEA</a></strong> — democracy + voter-turnout indicators.</li>
+      <li><strong><a href="https://www.v-dem.net/" target="_blank" rel="noopener">V-Dem</a></strong> — country-by-country liberal-democracy index, 1789–today.</li>
+      <li><strong><a href="https://www.electionguide.org/" target="_blank" rel="noopener">IFES ElectionGuide</a></strong> — every national election worldwide, scheduled + reported.</li>
+      <li><strong>Larry Bartels, <em>Unequal Democracy</em> (2008/2018).</strong> Standard reference for who legislators actually represent.</li>
+    </ul>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="demographics">4 · demographics — population pyramids</h2>
+  <p>A pyramid where the base is widest is a young, growing country (Nigeria 2024). A pyramid where the middle bulges and the base narrows is a stable or declining country (Japan 2024). The shape determines what the country can build, who it has to support, and how long it has to do it.</p>
+
+  <div class="pyramid-row">
+    <div class="pyramid">
+      <h5>Nigeria · ~2024 · classic young pyramid</h5>
+      <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="JetBrains Mono, monospace" font-size="6.5" fill="#a39179">
+        <!-- 5-yr cohorts; left = male, right = female; widest at base -->
+        <rect x="100" y="0"  width="0"  height="8" fill="#4a7ba8"/><rect x="100" y="0"  width="0"  height="8" fill="#c4576b"/>
+        <rect x="86"  y="10" width="14" height="8" fill="#4a7ba8"/><rect x="100" y="10" width="14" height="8" fill="#c4576b"/>
+        <rect x="78"  y="20" width="22" height="8" fill="#4a7ba8"/><rect x="100" y="20" width="22" height="8" fill="#c4576b"/>
+        <rect x="68"  y="30" width="32" height="8" fill="#4a7ba8"/><rect x="100" y="30" width="32" height="8" fill="#c4576b"/>
+        <rect x="58"  y="40" width="42" height="8" fill="#4a7ba8"/><rect x="100" y="40" width="42" height="8" fill="#c4576b"/>
+        <rect x="48"  y="50" width="52" height="8" fill="#4a7ba8"/><rect x="100" y="50" width="52" height="8" fill="#c4576b"/>
+        <rect x="40"  y="60" width="60" height="8" fill="#4a7ba8"/><rect x="100" y="60" width="60" height="8" fill="#c4576b"/>
+        <rect x="30"  y="70" width="70" height="8" fill="#4a7ba8"/><rect x="100" y="70" width="70" height="8" fill="#c4576b"/>
+        <rect x="18"  y="80" width="82" height="8" fill="#4a7ba8"/><rect x="100" y="80" width="82" height="8" fill="#c4576b"/>
+        <rect x="6"   y="90" width="94" height="8" fill="#4a7ba8"/><rect x="100" y="90" width="94" height="8" fill="#c4576b"/>
+        <text x="100" y="106" text-anchor="middle">M ←   age   → F</text>
+        </g>
+      </svg>
+      <div class="meta">median age ~17. labour boom + investment need</div>
+    </div>
+    <div class="pyramid">
+      <h5>India · ~2024 · plateau</h5>
+      <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="JetBrains Mono, monospace" font-size="6.5" fill="#a39179">
+        <rect x="92"  y="0"  width="8"  height="8" fill="#4a7ba8"/><rect x="100" y="0"  width="8"  height="8" fill="#c4576b"/>
+        <rect x="80"  y="10" width="20" height="8" fill="#4a7ba8"/><rect x="100" y="10" width="20" height="8" fill="#c4576b"/>
+        <rect x="70"  y="20" width="30" height="8" fill="#4a7ba8"/><rect x="100" y="20" width="30" height="8" fill="#c4576b"/>
+        <rect x="60"  y="30" width="40" height="8" fill="#4a7ba8"/><rect x="100" y="30" width="40" height="8" fill="#c4576b"/>
+        <rect x="48"  y="40" width="52" height="8" fill="#4a7ba8"/><rect x="100" y="40" width="52" height="8" fill="#c4576b"/>
+        <rect x="38"  y="50" width="62" height="8" fill="#4a7ba8"/><rect x="100" y="50" width="62" height="8" fill="#c4576b"/>
+        <rect x="32"  y="60" width="68" height="8" fill="#4a7ba8"/><rect x="100" y="60" width="68" height="8" fill="#c4576b"/>
+        <rect x="28"  y="70" width="72" height="8" fill="#4a7ba8"/><rect x="100" y="70" width="72" height="8" fill="#c4576b"/>
+        <rect x="26"  y="80" width="74" height="8" fill="#4a7ba8"/><rect x="100" y="80" width="74" height="8" fill="#c4576b"/>
+        <rect x="28"  y="90" width="72" height="8" fill="#4a7ba8"/><rect x="100" y="90" width="72" height="8" fill="#c4576b"/>
+        <text x="100" y="106" text-anchor="middle">M ←   age   → F</text>
+        </g>
+      </svg>
+      <div class="meta">median ~28. demographic dividend window now</div>
+    </div>
+    <div class="pyramid">
+      <h5>USA · ~2024 · slim pyramid</h5>
+      <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="JetBrains Mono, monospace" font-size="6.5" fill="#a39179">
+        <rect x="76"  y="0"  width="24" height="8" fill="#4a7ba8"/><rect x="100" y="0"  width="24" height="8" fill="#c4576b"/>
+        <rect x="68"  y="10" width="32" height="8" fill="#4a7ba8"/><rect x="100" y="10" width="32" height="8" fill="#c4576b"/>
+        <rect x="60"  y="20" width="40" height="8" fill="#4a7ba8"/><rect x="100" y="20" width="40" height="8" fill="#c4576b"/>
+        <rect x="54"  y="30" width="46" height="8" fill="#4a7ba8"/><rect x="100" y="30" width="46" height="8" fill="#c4576b"/>
+        <rect x="50"  y="40" width="50" height="8" fill="#4a7ba8"/><rect x="100" y="40" width="50" height="8" fill="#c4576b"/>
+        <rect x="48"  y="50" width="52" height="8" fill="#4a7ba8"/><rect x="100" y="50" width="52" height="8" fill="#c4576b"/>
+        <rect x="46"  y="60" width="54" height="8" fill="#4a7ba8"/><rect x="100" y="60" width="54" height="8" fill="#c4576b"/>
+        <rect x="44"  y="70" width="56" height="8" fill="#4a7ba8"/><rect x="100" y="70" width="56" height="8" fill="#c4576b"/>
+        <rect x="46"  y="80" width="54" height="8" fill="#4a7ba8"/><rect x="100" y="80" width="54" height="8" fill="#c4576b"/>
+        <rect x="48"  y="90" width="52" height="8" fill="#4a7ba8"/><rect x="100" y="90" width="52" height="8" fill="#c4576b"/>
+        <text x="100" y="106" text-anchor="middle">M ←   age   → F</text>
+        </g>
+      </svg>
+      <div class="meta">median ~39. supported by immigration</div>
+    </div>
+    <div class="pyramid">
+      <h5>Japan · ~2024 · inverted</h5>
+      <svg viewBox="0 0 200 110" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="JetBrains Mono, monospace" font-size="6.5" fill="#a39179">
+        <rect x="68"  y="0"  width="32" height="8" fill="#4a7ba8"/><rect x="100" y="0"  width="32" height="8" fill="#c4576b"/>
+        <rect x="58"  y="10" width="42" height="8" fill="#4a7ba8"/><rect x="100" y="10" width="42" height="8" fill="#c4576b"/>
+        <rect x="50"  y="20" width="50" height="8" fill="#4a7ba8"/><rect x="100" y="20" width="50" height="8" fill="#c4576b"/>
+        <rect x="46"  y="30" width="54" height="8" fill="#4a7ba8"/><rect x="100" y="30" width="54" height="8" fill="#c4576b"/>
+        <rect x="50"  y="40" width="50" height="8" fill="#4a7ba8"/><rect x="100" y="40" width="50" height="8" fill="#c4576b"/>
+        <rect x="56"  y="50" width="44" height="8" fill="#4a7ba8"/><rect x="100" y="50" width="44" height="8" fill="#c4576b"/>
+        <rect x="62"  y="60" width="38" height="8" fill="#4a7ba8"/><rect x="100" y="60" width="38" height="8" fill="#c4576b"/>
+        <rect x="68"  y="70" width="32" height="8" fill="#4a7ba8"/><rect x="100" y="70" width="32" height="8" fill="#c4576b"/>
+        <rect x="74"  y="80" width="26" height="8" fill="#4a7ba8"/><rect x="100" y="80" width="26" height="8" fill="#c4576b"/>
+        <rect x="78"  y="90" width="22" height="8" fill="#4a7ba8"/><rect x="100" y="90" width="22" height="8" fill="#c4576b"/>
+        <text x="100" y="106" text-anchor="middle">M ←   age   → F</text>
+        </g>
+      </svg>
+      <div class="meta">median ~49. labour shortage, fiscal stress</div>
+    </div>
+  </div>
+
+  <p><strong>What we should strive for.</strong> Not a fixed shape — those are unstable. The healthiest long-run pyramid is a gentle column: replacement-rate fertility (~2.1), low infant mortality, long healthy old age, and free movement when shocks misalign two countries. The countries that pull this off are the ones that fix housing, child-care, and migration as a single integrated problem.</p>
+
+  <div class="ref-list">
+    <div class="ref-cap">read · demographics</div>
+    <ul>
+      <li><strong><a href="https://population.un.org/wpp/" target="_blank" rel="noopener">UN DESA · World Population Prospects</a></strong> — the source for every pyramid above.</li>
+      <li><strong><a href="https://www.prb.org/" target="_blank" rel="noopener">Population Reference Bureau</a></strong> — short, clean explainers per country.</li>
+      <li><strong>Hans Rosling, <em>Factfulness</em> (2018).</strong> If you want one book before reading the data: this one.</li>
+      <li><strong>Charles Goodhart &amp; Manoj Pradhan, <em>The Great Demographic Reversal</em> (2020).</strong> What the inversion does to wages, debt, inflation.</li>
+    </ul>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="weapons">5 · weapons — extreme power, who has it</h2>
+  <p>Nine states have nuclear weapons. The total stockpile is ~12,100 warheads. About 4,000 of those are deployed; about 2,000 are on high-alert "ready in minutes" status. The chart below is rounded, mid-2020s figures.</p>
+
+  <div class="chart-wrap">
+    <h4>nuclear arsenals · ~2024 · total warheads (deployed + reserve, rounded)</h4>
+    <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+      <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1f1813">
+        <!-- Russia ~5580 -->
+        <rect x="160" y="20"  width="558" height="22" fill="#c4576b"/><text x="724" y="36">Russia · 5,580</text><text x="155" y="36" text-anchor="end">Russia</text>
+        <!-- USA ~5044 -->
+        <rect x="160" y="48"  width="504" height="22" fill="#c4576b"/><text x="670" y="64">USA · 5,044</text><text x="155" y="64" text-anchor="end">USA</text>
+        <!-- China ~500 -->
+        <rect x="160" y="76"  width="50"  height="22" fill="#6b4a8b"/><text x="216" y="92">China · 500</text><text x="155" y="92" text-anchor="end">China</text>
+        <!-- France ~290 -->
+        <rect x="160" y="104" width="29"  height="22" fill="#6b4a8b"/><text x="195" y="120">France · 290</text><text x="155" y="120" text-anchor="end">France</text>
+        <!-- UK ~225 -->
+        <rect x="160" y="132" width="22"  height="22" fill="#6b4a8b"/><text x="188" y="148">UK · 225</text><text x="155" y="148" text-anchor="end">UK</text>
+        <!-- Pakistan ~170 -->
+        <rect x="160" y="160" width="17"  height="22" fill="#d99652"/><text x="183" y="176">Pakistan · 170</text><text x="155" y="176" text-anchor="end">Pakistan</text>
+        <!-- India ~172 -->
+        <rect x="160" y="188" width="17"  height="22" fill="#d99652"/><text x="183" y="204">India · 172</text><text x="155" y="204" text-anchor="end">India</text>
+        <!-- Israel ~90 -->
+        <rect x="160" y="216" width="9"   height="22" fill="#d99652"/><text x="175" y="232">Israel · ~90 (undeclared)</text><text x="155" y="232" text-anchor="end">Israel</text>
+        <!-- DPRK ~50 -->
+        <rect x="160" y="244" width="5"   height="22" fill="#d99652"/><text x="171" y="260">N.Korea · ~50</text><text x="155" y="260" text-anchor="end">N.Korea</text>
+      </g>
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#a39179">
+        <text x="160" y="294">0</text>
+        <text x="660" y="294">5,000</text>
+        <text x="160" y="312">sources: FAS Nuclear Notebook 2024 · SIPRI Yearbook 2024</text>
+      </g>
+    </svg>
+  </div>
+
+  <p>The asymmetry is roughly: <strong>two states (USA + Russia) hold 88% of all warheads.</strong> The non-proliferation regime worked partially — many countries that could have built them (S Korea, Japan, Germany, Brazil, Argentina, S Africa, Sweden) chose not to or dismantled what they had. The trend since ~2010 has reversed: every nuclear state except France/UK is now expanding, modernising, or diversifying.</p>
+
+  <p>And the consequence — that the system tolerates no large mistakes — is the part von Neumann saw earliest:</p>
+
+  <div class="quote-jvn">
+    "For the kind of explosion that an atomic bomb will probably be able to produce in the foreseeable future, the most important new fact is its size. Even today, the destruction of the largest cities of the world might be effected at acceptable cost… The crisis will not be resolved by inhibiting this or that apparently obnoxious form of technology. For progress there is no cure. Any attempt to find automatically safe channels for the present explosive variety of progress must lead to frustration. The only safety possible is relative, and it lies in an intelligent exercise of day-to-day judgment."
+    <cite>— John von Neumann, "Can We Survive Technology?", Fortune, June 1955</cite>
+  </div>
+
+  <p>The piece is seventy years old. It still describes the situation with frightening precision: technology compounds; only continuous human judgment is a brake; the brake has to be exercised at planet scale. That is also the reason this site exists.</p>
+
+  <div class="ref-list">
+    <div class="ref-cap">read · weapons + technology risk</div>
+    <ul>
+      <li><strong>John von Neumann, "<a href="https://geosci.uchicago.edu/~kite/doc/von_Neumann_1955.pdf" target="_blank" rel="noopener">Can We Survive Technology?</a>" (Fortune, June 1955).</strong> Direct PDF (U Chicago).</li>
+      <li><strong><a href="https://thebulletin.org/" target="_blank" rel="noopener">Bulletin of the Atomic Scientists</a></strong> — Doomsday Clock, FAS Nuclear Notebook.</li>
+      <li><strong><a href="https://www.sipri.org/yearbook" target="_blank" rel="noopener">SIPRI Yearbook</a></strong> — primary annual reference for every figure on the chart above.</li>
+      <li><strong>Daniel Ellsberg, <em>The Doomsday Machine</em> (2017).</strong> Inside the U.S. nuclear-command chain.</li>
+      <li><strong>Eric Schlosser, <em>Command and Control</em> (2013).</strong> Detailed history of close calls.</li>
+      <li><strong>Toby Ord, <em>The Precipice</em> (2020).</strong> Maps the existential-risk landscape across nukes, bio, AI, climate.</li>
+    </ul>
+  </div>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="timeline">6 · how much time we have</h2>
+  <p>The honest answer is: <em>nobody knows.</em> The serious answer is: timescales for the load-bearing systems above are bounded.</p>
+  <ul>
+    <li><strong>Energy transition.</strong> ≥30 years for fossil-fuel share to drop below 50% on any plausible scenario, per IEA. Faster requires emergency-mode investment in storage + grids the world hasn't done since WWII.</li>
+    <li><strong>Climate budget for 1.5 °C.</strong> Effectively gone by mid-2020s. 2 °C budget runs out ~2045 at current emissions pace.</li>
+    <li><strong>Demographic transition.</strong> 30–60 years before half of OECD countries see workforce contraction outpace productivity. Some already there.</li>
+    <li><strong>Nuclear-risk window.</strong> Rolling. Doomsday Clock at 89 seconds to midnight (2025) — closer than at any point since 1947.</li>
+    <li><strong>AI-capability window.</strong> Highly contested. Frontier-model capability is doubling on a ~6-month doubling time as of mid-2020s; alignment research is not.</li>
+  </ul>
+  <p>The unifying frame — von Neumann's again — is that the time-constant of human institutional learning is roughly a generation, and the time-constant of the technologies we deploy is roughly a year. The gap is the problem. Closing it is the project of the century.</p>
+
+  <!-- ──────────────────────────────────────────────────────── -->
+  <h2 id="index">7 · master reading list</h2>
+  <p>Cross-referenced from each section above. If you read only one item per topic, read this one:</p>
+  <ul>
+    <li><strong>Energy:</strong> Vaclav Smil, <em>Energy and Civilization</em>.</li>
+    <li><strong>Money:</strong> Thomas Piketty, <em>Capital in the Twenty-First Century</em>.</li>
+    <li><strong>Politicians:</strong> Larry Bartels, <em>Unequal Democracy</em>.</li>
+    <li><strong>Demographics:</strong> Hans Rosling, <em>Factfulness</em>.</li>
+    <li><strong>Weapons / risk:</strong> Toby Ord, <em>The Precipice</em>.</li>
+    <li><strong>The single essay above all:</strong> John von Neumann, "Can We Survive Technology?", 1955.</li>
+  </ul>
+
+  <p class="dim" style="margin-top:14px">corrections welcome — open an issue and the swarm reads it on the next run. for the dependency map of how every page on godding rests on which see <a href="depends.html">/depends</a>; for the auto-grouper output see <code>data/groups.json</code>.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>tracks</h4>
+  <ul>
+    <li><a href="#energy">energy</a></li>
+    <li><a href="#money">money</a></li>
+    <li><a href="#politicians">politicians</a></li>
+    <li><a href="#demographics">demographics</a></li>
+    <li><a href="#weapons">weapons</a></li>
+    <li><a href="#timeline">time horizon</a></li>
+    <li><a href="#index">reading list</a></li>
+  </ul>
+  <h4 style="margin-top:14px">related</h4>
+  <ul>
+    <li><a href="now.html">now — current claims</a></li>
+    <li><a href="vote.html">vote</a></li>
+    <li><a href="sustainability.html">sustainability</a></li>
+    <li><a href="health.html">health</a></li>
+    <li><a href="depends.html">dependency map</a></li>
+  </ul>
+  <h4 style="margin-top:14px">primary indices</h4>
+  <ul>
+    <li><a href="https://wid.world/" target="_blank" rel="noopener">WID.world</a></li>
+    <li><a href="https://ourworldindata.org/" target="_blank" rel="noopener">OWiD</a></li>
+    <li><a href="https://www.iea.org/" target="_blank" rel="noopener">IEA</a></li>
+    <li><a href="https://population.un.org/wpp/" target="_blank" rel="noopener">UN DESA</a></li>
+    <li><a href="https://thebulletin.org/" target="_blank" rel="noopener">Bull. Atomic Scientists</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">primary sources only. corrections welcome.</div>
+</footer>
+
+<script>
+(function(){
+  try{const K='godding.profile';const p=JSON.parse(localStorage.getItem(K)||'null')||{id:Math.random().toString(36).slice(2,10),created:new Date().toISOString().slice(0,10),daysActive:[],pagesVisited:[],votes:{},history:[]};const t=new Date().toISOString().slice(0,10);if(!p.daysActive.includes(t))p.daysActive.push(t);if(!p.pagesVisited.includes('world'))p.pagesVisited.push('world');localStorage.setItem(K,JSON.stringify(p));}catch{}
+})();
+</script>
+</body>
+</html>

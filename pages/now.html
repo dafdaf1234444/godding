@@ -44,10 +44,12 @@
     <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
     <a href="justice.html">justice</a>
     <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
     <a href="vote.html">vote</a><a href="health.html">health</a>
     <a href="sustainability.html">sustainability</a>
     <a href="swarm.html" class="swarm-link">swarm</a>
     <a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
     <a href="reach.html">reach</a><a href="build.html">build</a>
     <a href="../changelog/index.html" class="muted">changelog</a>
   </nav>
@@ -200,70 +202,4 @@
       {id:'n-fly-less',       q:'"long-haul flights are a luxury that should carry serious carbon pricing."'},
     ],
     'vote-tech': [
-      {id:'n-ai-pause',       q:'"frontier AI capability development is currently moving faster than alignment research, and that gap is dangerous."'},
-      {id:'n-social-teens',   q:'"smartphones + social media are net-negative for the mental health of teenagers."'},
-      {id:'n-attention-econ', q:'"the attention economy is the largest unregulated externality in the modern internet."'},
-      {id:'n-encrypt',        q:'"end-to-end encryption is a basic public good and should not be backdoored."'},
-      {id:'n-ai-jobs',        q:'"ai will displace more jobs than it creates within the next 15 years."'},
-    ],
-    'vote-econ': [
-      {id:'n-billionaires',   q:'"the existence of billionaires is a policy choice, not an economic necessity."'},
-      {id:'n-housing',        q:'"the single biggest cause of unaffordability in rich-country cities is restrictive zoning."'},
-      {id:'n-ubi',            q:'"a universal basic income, set at a survivable floor, is the cleanest policy response to automation."'},
-      {id:'n-tax-wealth',     q:'"a meaningful global tax on extreme wealth is achievable and overdue."'},
-      {id:'n-globalization',  q:'"the gains from globalisation since 1990 have outweighed its costs, in aggregate."'},
-    ],
-    'vote-geo': [
-      {id:'n-democracy-decline', q:'"democracy is, on average, in measurable retreat globally over the last decade."'},
-      {id:'n-china-rise',     q:'"china\'s share of global power will keep rising for at least another decade."'},
-      {id:'n-multipolar',     q:'"a multipolar world is more stable than a unipolar one, on net."'},
-      {id:'n-nukes',          q:'"the risk of nuclear weapons being used has increased noticeably since 2022."'},
-    ],
-    'vote-inst': [
-      {id:'n-media-trust',    q:'"trust in mainstream media has fallen because the media earned the loss, not because audiences were tricked."'},
-      {id:'n-courts-pol',     q:'"top courts in many democracies are now meaningfully political, not neutral."'},
-      {id:'n-elections-fair', q:'"in most established democracies, elections are still administered fairly."'},
-      {id:'n-bureau-needed',  q:'"a competent civil service is more important to a functional country than the identity of its elected leaders."'},
-    ],
-    'vote-life': [
-      {id:'n-loneliness',     q:'"loneliness in rich countries is now a public-health problem on the scale of smoking."'},
-      {id:'n-fertility',      q:'"falling birth rates in rich countries are mostly a structural / economic problem, not a values problem."'},
-      {id:'n-religion-decline',q:'"organised religion is in long-term decline in rich countries."'},
-      {id:'n-doom',           q:'"younger generations are right to be more pessimistic than older ones about their material future."'},
-    ],
-  };
-
-  function render(host, items){
-    const el=document.getElementById(host); el.innerHTML='';
-    for(const it of items){
-      const v=profile.votes[it.id];
-      const upL = v==='up'?'✓ agree':'agree';
-      const dnL = v==='down'?'✓ disagree':'disagree';
-      const row=document.createElement('div'); row.className='vote-row-q';
-      row.innerHTML=`<div class="q">${it.q}</div>
-        <div class="actions">
-          <button class="vote-btn up ${v==='up'?'on':''}" data-id="${it.id}" data-dir="up">${upL}</button>
-          <button class="vote-btn down ${v==='down'?'on':''}" data-id="${it.id}" data-dir="down">${dnL}</button>
-        </div>`;
-      el.appendChild(row);
-    }
-    el.querySelectorAll('.vote-btn').forEach(b=>b.addEventListener('click', onClick));
-  }
-  function onClick(e){
-    const b=e.currentTarget, id=b.dataset.id, dir=b.dataset.dir, ts=nowUTC();
-    if(profile.votes[id]===dir){
-      delete profile.votes[id];
-      profile.history.unshift({ ts, kind:'remove', id });
-    } else {
-      profile.votes[id]=dir;
-      profile.history.unshift({ ts, kind:dir, id });
-    }
-    if(profile.history.length>200) profile.history.length=200;
-    save();
-    for(const k in ITEMS) render(k, ITEMS[k]);
-  }
-  for(const k in ITEMS) render(k, ITEMS[k]);
-})();
-</script>
-</body>
-</html>
+      {id:'n-ai-pause',       q:'"fro

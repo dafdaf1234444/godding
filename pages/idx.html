@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>index — every page — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .idx-table{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:13px; margin:8px 0 18px }
+  .idx-table th, .idx-table td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top }
+  .idx-table th{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); font-weight:500 }
+  .idx-table td.url a{ color:var(--sun); }
+  .idx-table td.kind{ font-size:10.5px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute) }
+  .idx-table td.summary{ font-family:var(--sans); font-size:13px; color:var(--ink-2); line-height:1.5 }
+  .topic-block{ margin:16px 0 22px; }
+  .topic-cap{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); border-bottom:1px solid var(--line); padding-bottom:5px; margin-bottom:6px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / index</p>
+  <p class="kicker">index · every page · efficient lookup</p>
+  <h1>index — <em>every page on godding.</em></h1>
+  <p class="dim">Topical first, then alphabetical. Each entry has a one-line summary so you can locate the page you want without clicking through. The dependency map (<a href="depends.html">/depends</a>) shows how each page rests on which.</p>
+
+  <div class="topic-block">
+    <div class="topic-cap">root · cosmology &amp; belief</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="belief.html">/belief</a></td><td class="kind">root</td><td class="summary">how nothing becomes us — four root questions, vote inline.</td></tr>
+      <tr><td class="url"><a href="religion.html">/religion</a></td><td class="kind">essay</td><td class="summary">heaven &amp; hell in plain language; why every culture invented the same stories.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">simulations · play with the rules</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="good-bad.html">/good-bad</a></td><td class="kind">sim</td><td class="summary">spatial prisoner's dilemma. cooperators bubble up, defectors burn out.</td></tr>
+      <tr><td class="url"><a href="ants.html">/ants</a></td><td class="kind">sim</td><td class="summary">live n-body gravity + pheromone foraging. emergence in two minutes.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">crime &amp; justice · who did what</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="crime.html">/crime</a></td><td class="kind">cross-cultural</td><td class="summary">the seven items every legal tradition independently arrived at.</td></tr>
+      <tr><td class="url"><a href="criminals.html">/criminals</a></td><td class="kind">visualisation</td><td class="summary">historical + current-state mass-atrocity figures. bar-chart + bubble views, century / region filters.</td></tr>
+      <tr><td class="url"><a href="justice.html">/justice</a></td><td class="kind">network</td><td class="summary">court-record-only network. proven, indicted, mentioned. with per-edge voting.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">vote &amp; current claims</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="now.html">/now</a></td><td class="kind">votable</td><td class="summary">contestable current claims. issue-level, no named living people. with scientific-method box + source compactifier.</td></tr>
+      <tr><td class="url"><a href="vote.html">/vote</a></td><td class="kind">recorded</td><td class="summary">your full vote trail. reputation. every change UTC-timestamped.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">world · the load-bearing systems</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="world.html#energy">/world#energy</a></td><td class="kind">section</td><td class="summary">world energy mix + balancing problem + IEA / Smil / MacKay reading.</td></tr>
+      <tr><td class="url"><a href="world.html#money">/world#money</a></td><td class="kind">section</td><td class="summary">global wealth distribution 1990–2024 + tracking infrastructure (WID.world, OpenCorporates, ICIJ).</td></tr>
+      <tr><td class="url"><a href="world.html#politicians">/world#politicians</a></td><td class="kind">section</td><td class="summary">positional flips over time + roll-call tools (GovTrack, TheyWorkForYou, V-Dem).</td></tr>
+      <tr><td class="url"><a href="world.html#demographics">/world#demographics</a></td><td class="kind">section</td><td class="summary">population pyramids (Nigeria / India / USA / Japan) + what to strive for.</td></tr>
+      <tr><td class="url"><a href="world.html#weapons">/world#weapons</a></td><td class="kind">section</td><td class="summary">nuclear arsenals + von Neumann "Can We Survive Technology?" + reading list.</td></tr>
+      <tr><td class="url"><a href="world.html#timeline">/world#timeline</a></td><td class="kind">section</td><td class="summary">how much time on each system: energy, climate, demographics, nukes, AI.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">essays · the underlying claims</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="politics.html">/politics</a></td><td class="kind">essay</td><td class="summary">public mouth vs. private mind — most disagreement is performance.</td></tr>
+      <tr><td class="url"><a href="health.html">/health</a></td><td class="kind">essay</td><td class="summary">doctors' consensus list — same shape as the crime list.</td></tr>
+      <tr><td class="url"><a href="sustainability.html">/sustainability</a></td><td class="kind">essay</td><td class="summary">load-bearing actions vs. theatre.</td></tr>
+    </table>
+  </div>
+
+  <div class="topic-block">
+    <div class="topic-cap">engine &amp; meta</div>
+    <table class="idx-table">
+      <tr><td class="url"><a href="swarm.html">/swarm</a></td><td class="kind">engine</td><td class="summary">multi-agent LLM loop · drafter → critic → fact-checker → judge.</td></tr>
+      <tr><td class="url"><a href="depends.html">/depends</a></td><td class="kind">map</td><td class="summary">oxford-notes-style dependency graph. which page rests on which claim.</td></tr>
+      <tr><td class="url"><a href="idx.html">/idx</a></td><td class="kind">index</td><td class="summary">this page.</td></tr>
+      <tr><td class="url"><a href="reach.html">/reach</a></td><td class="kind">marketing</td><td class="summary">organic distribution plan; share-kit auto-generated daily.</td></tr>
+      <tr><td class="url"><a href="build.html">/build</a></td><td class="kind">docs</td><td class="summary">file map, agents, sources.</td></tr>
+      <tr><td class="url"><a href="../changelog/index.html">/changelog</a></td><td class="kind">log</td><td class="summary">every accepted swarm edit, UTC-timestamped.</td></tr>
+    </table>
+  </div>
+
+  <h2>alphabetical lookup</h2>
+  <table class="idx-table">
+    <tr><td class="url"><a href="ants.html">/ants</a></td><td class="summary">live n-body + ant-colony foraging.</td></tr>
+    <tr><td class="url"><a href="belief.html">/belief</a></td><td class="summary">root cosmology + four questions.</td></tr>
+    <tr><td class="url"><a href="build.html">/build</a></td><td class="summary">how the site is built.</td></tr>
+    <tr><td class="url"><a href="../changelog/index.html">/changelog</a></td><td class="summary">every accepted swarm edit.</td></tr>
+    <tr><td class="url"><a href="crime.html">/crime</a></td><td class="summary">cross-cultural list of universal wrongs.</td></tr>
+    <tr><td class="url"><a href="criminals.html">/criminals</a></td><td class="summary">mass-atrocity bubbles + bar chart.</td></tr>
+    <tr><td class="url"><a href="depends.html">/depends</a></td><td class="summary">dependency graph (oxford notes style).</td></tr>
+    <tr><td class="url"><a href="good-bad.html">/good-bad</a></td><td class="summary">cooperator-defector spatial sim.</td></tr>
+    <tr><td class="url"><a href="health.html">/health</a></td><td class="summary">doctors' consensus list.</td></tr>
+    <tr><td class="url"><a href="../index.html">/ (home)</a></td><td class="summary">knowledge-farm hero + branches grid.</td></tr>
+    <tr><td class="url"><a href="idx.html">/idx</a></td><td class="summary">this page.</td></tr>
+    <tr><td class="url"><a href="justice.html">/justice</a></td><td class="summary">court-record-only network with voting.</td></tr>
+    <tr><td class="url"><a href="now.html">/now</a></td><td class="summary">contestable current claims, votable.</td></tr>
+    <tr><td class="url"><a href="politics.html">/politics</a></td><td class="summary">public mouth vs. private mind.</td></tr>
+    <tr><td class="url"><a href="reach.html">/reach</a></td><td class="summary">marketing strategy + about.</td></tr>
+    <tr><td class="url"><a href="religion.html">/religion</a></td><td class="summary">heaven &amp; hell, plain.</td></tr>
+    <tr><td class="url"><a href="sustainability.html">/sustainability</a></td><td class="summary">load-bearing vs. theatre.</td></tr>
+    <tr><td class="url"><a href="swarm.html">/swarm</a></td><td class="summary">multi-agent LLM loop.</td></tr>
+    <tr><td class="url"><a href="vote.html">/vote</a></td><td class="summary">vote trail + reputation.</td></tr>
+    <tr><td class="url"><a href="world.html">/world</a></td><td class="summary">energy, money, demographics, weapons.</td></tr>
+  </table>
+</main>
+
+<aside class="sidebar">
+  <h4>auto-grouper output</h4>
+  <ul>
+    <li>raw: <code>data/groups.json</code></li>
+    <li>top similarity pairs:</li>
+    <li class="muted" style="font-size:11.5px">build ↔ swarm 0.43</li>
+    <li class="muted" style="font-size:11.5px">now ↔ vote 0.36</li>
+    <li class="muted" style="font-size:11.5px">belief ↔ religion 0.29</li>
+    <li class="muted" style="font-size:11.5px">crime ↔ criminals 0.23</li>
+  </ul>
+  <h4 style="margin-top:14px">nearby pages</h4>
+  <ul>
+    <li><a href="depends.html">dependencies</a></li>
+    <li><a href="../index.html">home</a></li>
+    <li><a href="../changelog/index.html">changelog</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">topical + alphabetical. one-line summaries.</div>
+</footer>
+</body>
+</html>
