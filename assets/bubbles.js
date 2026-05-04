@@ -45,9 +45,9 @@ function renderBubbles(opts) {
   const NS = 'http://www.w3.org/2000/svg';
   const W = opts.viewBox ? opts.viewBox[0] : 1100;
   const H = opts.viewBox ? opts.viewBox[1] : 560;
-  const SCALE = opts.scale || 0.0010;
-  const ITERS = opts.packIters || 900;
-  const GAP = opts.gap !== undefined ? opts.gap : 9;   // space between bubbles
+  const SCALE = opts.scale || 0.0008;       // smaller area per death so bubbles fit
+  const ITERS = opts.packIters || 2200;     // more packing iterations
+  const GAP = opts.gap !== undefined ? opts.gap : 14; // bigger gap between bubbles
   const cx = W / 2, cy = H / 2;
   const small = !!opts.small;
 
@@ -64,7 +64,10 @@ function renderBubbles(opts) {
   const N = FLAT.length;
   const cols = Math.ceil(Math.sqrt(N * (W / H)));
   const data = FLAT.map((f, i) => {
-    const rr = Math.max(small ? 14 : 20, Math.sqrt(f.n * SCALE / Math.PI) * (small ? 6.5 : 8.5));
+    // tighter cap on max bubble radius so the biggest bubbles don't smother neighbours
+    const rawR = Math.sqrt(f.n * SCALE / Math.PI) * (small ? 5.6 : 7.2);
+    const maxR = small ? Math.min(W, H) * 0.18 : Math.min(W, H) * 0.16;
+    const rr = Math.min(maxR, Math.max(small ? 14 : 22, rawR));
     const col = i % cols, row = Math.floor(i / cols);
     return {
       ...f,

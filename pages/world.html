@@ -23,18 +23,19 @@
   .ref-list .ref-cap{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px }
   .pyramid-row{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin:10px 0 18px }
   .pyramid{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:10px 12px }
-  .pyramid h5{ font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink); margin-bottom:6px; font-weight:500 }
-  .pyramid .meta{ font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); margin-top:4px }
+  .pyramid h5{ font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink); margin-bottom:6px; font-weight:600 }
+  .pyramid .meta{ font-family:var(--mono); font-size:12.5px; color:var(--ink-2); margin-top:6px; font-weight:500 }
   .quote-jvn{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--plum); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:14px 18px; margin:14px 0; font-family:var(--serif); font-style:italic; font-size:15.5px; line-height:1.6; color:var(--ink-2) }
   .quote-jvn cite{ display:block; font-family:var(--mono); font-size:11px; font-style:normal; color:var(--ink-mute); margin-top:8px; letter-spacing:.10em; text-transform:uppercase }
-  .pol-row{ display:grid; grid-template-columns:200px 1fr auto; gap:10px; align-items:center; padding:8px 0; border-bottom:1px dashed var(--line); font-size:13.5px }
+  .pol-row{ display:grid; grid-template-columns:210px 1fr auto; gap:14px; align-items:center; padding:12px 12px; border-bottom:1px dashed var(--line); font-size:14px; border-radius:6px }
+  .pol-row:nth-child(even){ background:rgba(200,154,62,.05) }
   .pol-row:last-child{ border-bottom:none }
-  .pol-row .topic{ font-family:var(--mono); font-size:11px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute) }
-  .pol-row .desc{ color:var(--ink-2); font-family:var(--sans); }
-  .pol-row .pill{ font-family:var(--mono); font-size:10.5px; padding:3px 8px; border-radius:100px; border:1px solid; }
-  .pol-row .pill.flip{ color:var(--rose); border-color:var(--rose); }
-  .pol-row .pill.steady{ color:var(--leaf); border-color:var(--leaf); }
-  .pol-row .pill.evolved{ color:var(--gold); border-color:var(--gold); }
+  .pol-row .topic{ font-family:var(--mono); font-size:12px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink); font-weight:600 }
+  .pol-row .desc{ color:var(--ink-2); font-family:var(--sans); line-height:1.5 }
+  .pol-row .pill{ font-family:var(--mono); font-size:11px; font-weight:600; padding:5px 12px; border-radius:100px; border:1.5px solid; letter-spacing:.06em; text-transform:uppercase }
+  .pol-row .pill.flip{ color:#fff; background:var(--rose); border-color:var(--rose); }
+  .pol-row .pill.steady{ color:#fff; background:var(--leaf); border-color:var(--leaf); }
+  .pol-row .pill.evolved{ color:#fff; background:var(--gold); border-color:var(--gold); }
 </style>
 </head>
 <body>

@@ -9,22 +9,40 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
-  .dep-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
-  #depsvg{ width:100%; height:560px; display:block; }
-  .node-rect{ fill:var(--paper-2); stroke:#1f1813; stroke-width:1; cursor:pointer; transition:transform var(--t); }
-  .node-rect.theorem{ stroke:var(--rose); }
-  .node-rect.lemma{ stroke:var(--gold); }
-  .node-rect.def{ stroke:var(--sky); }
-  .node-rect.application{ stroke:var(--leaf); }
-  .node-label{ font-family:var(--mono); font-size:11px; fill:var(--ink); pointer-events:none; }
-  .node-kind{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-mute); letter-spacing:.1em; text-transform:uppercase; pointer-events:none; }
-  .dep-edge{ stroke:rgba(31,24,19,.40); fill:none; stroke-width:1.4; marker-end:url(#arrow); }
-  .legend2{ display:flex; flex-wrap:wrap; gap:14px; margin:12px 0; font-family:var(--mono); font-size:12px; color:var(--ink-2); }
-  .legend2 span.tag{ display:inline-block; padding:2px 8px; border-radius:6px; border:1px solid; font-size:11px; }
-  .key-table{ width:100%; border-collapse:collapse; margin:12px 0 18px; font-family:var(--mono); font-size:12.5px; }
-  .key-table th, .key-table td{ text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
-  .key-table th{ color:var(--ink-mute); font-weight:500; letter-spacing:.1em; text-transform:uppercase; font-size:10.5px; }
+  .dep-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px 18px 22px; }
+  #depsvg{ width:100%; height:680px; display:block; }
+
+  /* node visuals — bigger, bolder, colored fills */
+  .node-rect{ stroke:#1f1813; stroke-width:1.6; cursor:pointer; transition:filter var(--t), opacity var(--t); }
+  .node-rect.def       { fill:#e8eef5; stroke:#4a7ba8; }
+  .node-rect.lemma     { fill:#f5ecd3; stroke:#c89a3e; }
+  .node-rect.theorem   { fill:#f6dcdf; stroke:#c4576b; }
+  .node-rect.application{ fill:#dee9d8; stroke:#5d8c4a; }
+  .node-id{ font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; fill:#1f1813; pointer-events:none; }
+  .node-kind{ font-family:'JetBrains Mono',monospace; font-size:9.5px; fill:#6f5f53; letter-spacing:.14em; text-transform:uppercase; pointer-events:none; }
+  .node-title{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:13.5px; fill:#1f1813; pointer-events:none; }
+
+  .dep-edge{ stroke:rgba(31,24,19,.42); fill:none; stroke-width:1.6; marker-end:url(#arrow); transition:stroke var(--t), stroke-width var(--t); }
+  .dep-edge.hot{ stroke:var(--sun); stroke-width:2.6; }
+
+  /* dimming when hovering a node */
+  .dep-svg.hover .node-group:not(.lit){ opacity:0.28; }
+  .dep-svg.hover .dep-edge:not(.hot){ opacity:0.16; }
+
+  .legend2{ display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; font-family:var(--mono); font-size:12px; color:var(--ink-2); }
+  .legend2 span.tag{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:6px; border:1.5px solid; font-size:11.5px; font-weight:500; }
+  .legend2 span.tag .swatch{ width:10px; height:10px; border-radius:3px; display:inline-block; }
+
+  .key-table{ width:100%; border-collapse:collapse; margin:12px 0 18px; font-family:var(--mono); font-size:13px; }
+  .key-table th, .key-table td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top }
+  .key-table tr.def      td:first-child{ border-left:3px solid #4a7ba8; }
+  .key-table tr.lemma    td:first-child{ border-left:3px solid #c89a3e; }
+  .key-table tr.theorem  td:first-child{ border-left:3px solid #c4576b; }
+  .key-table tr.app      td:first-child{ border-left:3px solid #5d8c4a; }
+  .key-table th{ color:var(--ink-mute); font-weight:500; letter-spacing:.10em; text-transform:uppercase; font-size:10.5px; }
   .key-table td a{ color:var(--sun); }
+  .key-table td.id{ font-weight:600; color:var(--ink); }
+  .key-table td.kind{ font-size:10.5px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute) }
 </style>
 </head>
 <body>
@@ -52,20 +70,23 @@
   <p class="crumb"><a href="../index.html">godding</a> / dependencies</p>
   <p class="kicker">dependency map · oxford-notes style</p>
   <h1>dependencies — <em>which page rests on which.</em></h1>
-  <p class="dim">Treating each page like a node in a math course: every claim either rests on a definition, builds on a previous result, or is an application. Read in topological order.</p>
+  <p class="dim">Treating each page like a node in a math course. Every claim either rests on a definition (D), builds on a lemma (L), reaches a theorem (T), or is an application (A). Read in topological order. <strong>Hover any node to highlight its dependencies and consequences.</strong> Click a node to jump to that page.</p>
 
   <div class="legend2">
-    <span class="tag" style="border-color:var(--sky); color:var(--sky)">definition</span>
-    <span class="tag" style="border-color:var(--gold); color:var(--gold)">lemma · supporting claim</span>
-    <span class="tag" style="border-color:var(--rose); color:var(--rose)">theorem · main claim</span>
-    <span class="tag" style="border-color:var(--leaf); color:var(--leaf)">application</span>
+    <span class="tag" style="border-color:#4a7ba8;color:#4a7ba8;background:#e8eef5"><span class="swatch" style="background:#4a7ba8"></span>definition · D</span>
+    <span class="tag" style="border-color:#c89a3e;color:#c89a3e;background:#f5ecd3"><span class="swatch" style="background:#c89a3e"></span>lemma · L</span>
+    <span class="tag" style="border-color:#c4576b;color:#c4576b;background:#f6dcdf"><span class="swatch" style="background:#c4576b"></span>theorem · T</span>
+    <span class="tag" style="border-color:#5d8c4a;color:#5d8c4a;background:#dee9d8"><span class="swatch" style="background:#5d8c4a"></span>application · A</span>
   </div>
 
   <div class="dep-wrap">
-    <svg id="depsvg" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" aria-label="dependency graph">
+    <svg id="depsvg" class="dep-svg" viewBox="0 0 1300 680" preserveAspectRatio="xMidYMid meet" aria-label="dependency graph">
       <defs>
-        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-          <path d="M0,0 L10,5 L0,10 z" fill="rgba(31,24,19,.55)"/>
+        <marker id="arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+          <path d="M0,0 L12,6 L0,12 z" fill="rgba(31,24,19,.55)"/>
+        </marker>
+        <marker id="arrowHot" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+          <path d="M0,0 L12,6 L0,12 z" fill="#d96936"/>
         </marker>
       </defs>
     </svg>
@@ -75,22 +96,23 @@
   <table class="key-table">
     <thead><tr><th>id</th><th>kind</th><th>page</th><th>statement</th><th>rests on</th></tr></thead>
     <tbody>
-      <tr><td>D1</td><td>def</td><td><a href="belief.html">belief</a></td><td>universe = compression of itself into compact models</td><td>—</td></tr>
-      <tr><td>D2</td><td>def</td><td><a href="belief.html">belief</a></td><td>life = a compact model that runs itself</td><td>D1</td></tr>
-      <tr><td>D3</td><td>def</td><td><a href="belief.html">belief</a></td><td>consciousness = a model aware it's running</td><td>D2</td></tr>
-      <tr><td>L1</td><td>lemma</td><td><a href="good-bad.html">good vs. bad</a></td><td>cooperators that cluster outlast lone defectors</td><td>D2</td></tr>
-      <tr><td>L2</td><td>lemma</td><td><a href="ants.html">ants</a></td><td>simple agents + stigmergy → emergent route-finding</td><td>D2</td></tr>
-      <tr><td>L3</td><td>lemma</td><td><a href="religion.html">religion</a></td><td>shared moral fictions = compression for cooperation</td><td>D2, L1</td></tr>
-      <tr><td>T1</td><td>theorem</td><td><a href="crime.html">crime</a></td><td>independent cultures converge on the same short list of wrongs</td><td>L1, L3</td></tr>
-      <tr><td>T2</td><td>theorem</td><td><a href="politics.html">politics</a></td><td>"public mouth ≠ private mind" — most disagreement is performance</td><td>L3</td></tr>
-      <tr><td>T3</td><td>theorem</td><td><a href="health.html">health</a></td><td>doctors converge on a small consensus list — same shape as crime list</td><td>T1</td></tr>
-      <tr><td>T4</td><td>theorem</td><td><a href="sustainability.html">sustainability</a></td><td>load-bearing actions ≪ symbolic theatre — same imbalance as politics</td><td>T2</td></tr>
-      <tr><td>A1</td><td>app</td><td><a href="criminals.html">criminals</a></td><td>scale up T1 — the same wrongs at army-and-bureaucracy size</td><td>T1</td></tr>
-      <tr><td>A2</td><td>app</td><td><a href="justice.html">justice</a></td><td>court-record-only network — proof vs. allegation</td><td>T1, A1</td></tr>
-      <tr><td>A3</td><td>app</td><td><a href="now.html">now</a></td><td>contestable current claims, linked to recent science</td><td>T2, T4</td></tr>
-      <tr><td>A4</td><td>app</td><td><a href="vote.html">vote</a></td><td>recorded voting + reputation → public falsifiability</td><td>D3, A3</td></tr>
-      <tr><td>A5</td><td>app</td><td><a href="swarm.html">swarm</a></td><td>multi-agent loop tightens the site itself</td><td>D3, T2, A4</td></tr>
-      <tr><td>A6</td><td>app</td><td><a href="reach.html">reach</a></td><td>organic distribution plan; share-kit auto-generated</td><td>A5</td></tr>
+      <tr class="def"><td class="id">D1</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>universe = compression of itself into compact models</td><td>—</td></tr>
+      <tr class="def"><td class="id">D2</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>life = a compact model that runs itself</td><td>D1</td></tr>
+      <tr class="def"><td class="id">D3</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>consciousness = a model aware it is running</td><td>D2</td></tr>
+      <tr class="lemma"><td class="id">L1</td><td class="kind">lemma</td><td><a href="good-bad.html">good vs. bad</a></td><td>cooperators that cluster outlast lone defectors</td><td>D2</td></tr>
+      <tr class="lemma"><td class="id">L2</td><td class="kind">lemma</td><td><a href="ants.html">ants</a></td><td>simple agents + stigmergy → emergent route-finding</td><td>D2</td></tr>
+      <tr class="lemma"><td class="id">L3</td><td class="kind">lemma</td><td><a href="religion.html">religion</a></td><td>shared moral fictions = compression for cooperation</td><td>D2, L1</td></tr>
+      <tr class="theorem"><td class="id">T1</td><td class="kind">theorem</td><td><a href="crime.html">crime</a></td><td>independent cultures converge on the same short list of wrongs</td><td>L1, L3</td></tr>
+      <tr class="theorem"><td class="id">T2</td><td class="kind">theorem</td><td><a href="politics.html">politics</a></td><td>"public mouth ≠ private mind" — most disagreement is performance</td><td>L3</td></tr>
+      <tr class="theorem"><td class="id">T3</td><td class="kind">theorem</td><td><a href="health.html">health</a></td><td>doctors converge on a small consensus list — same shape as crime</td><td>T1</td></tr>
+      <tr class="theorem"><td class="id">T4</td><td class="kind">theorem</td><td><a href="sustainability.html">sustainability</a></td><td>load-bearing actions ≪ symbolic theatre — same imbalance as politics</td><td>T2</td></tr>
+      <tr class="app"><td class="id">A1</td><td class="kind">app</td><td><a href="criminals.html">criminals</a></td><td>scale up T1 — the same wrongs at army-and-bureaucracy size</td><td>T1</td></tr>
+      <tr class="app"><td class="id">A2</td><td class="kind">app</td><td><a href="justice.html">justice</a></td><td>court-record-only network — proof vs. allegation</td><td>T1, A1</td></tr>
+      <tr class="app"><td class="id">A3</td><td class="kind">app</td><td><a href="now.html">now</a></td><td>contestable current claims, linked to recent science</td><td>T2, T4</td></tr>
+      <tr class="app"><td class="id">A4</td><td class="kind">app</td><td><a href="vote.html">vote</a></td><td>recorded voting + reputation → public falsifiability</td><td>D3, A3</td></tr>
+      <tr class="app"><td class="id">A5</td><td class="kind">app</td><td><a href="swarm.html">swarm</a></td><td>multi-agent loop tightens the site itself</td><td>D3, T2, A4</td></tr>
+      <tr class="app"><td class="id">A6</td><td class="kind">app</td><td><a href="reach.html">reach</a></td><td>organic distribution plan; share-kit auto-generated</td><td>A5</td></tr>
+      <tr class="app"><td class="id">A7</td><td class="kind">app</td><td><a href="world.html">world</a></td><td>load-bearing systems — energy, money, demographics, weapons</td><td>T4, A3</td></tr>
     </tbody>
   </table>
 
@@ -115,6 +137,7 @@
     <li><a href="belief.html">D1–D3 — belief</a></li>
     <li><a href="crime.html">T1 — crime</a></li>
     <li><a href="swarm.html">A5 — swarm</a></li>
+    <li><a href="world.html">A7 — world</a></li>
     <li><a href="../changelog/index.html">changelog</a></li>
   </ul>
 </aside>
@@ -126,87 +149,110 @@
 </footer>
 
 <script>
-/* render dependency graph */
 (function(){
   const svg = document.getElementById('depsvg');
-  // layered DAG: x = layer, y = position within layer
+  const W = 1300, H = 680;
+
   const NODES = [
-    {id:"D1", label:"D1 universe-as-compression", kind:"def",       href:"belief.html",     col:0, row:1},
-    {id:"D2", label:"D2 life = compact runner",   kind:"def",       href:"belief.html",     col:1, row:1},
-    {id:"D3", label:"D3 consciousness",           kind:"def",       href:"belief.html",     col:1, row:2.5},
-    {id:"L1", label:"L1 cooperators cluster",     kind:"lemma",     href:"good-bad.html",   col:2, row:0},
-    {id:"L2", label:"L2 stigmergy",               kind:"lemma",     href:"ants.html",       col:2, row:1},
-    {id:"L3", label:"L3 moral fictions",          kind:"lemma",     href:"religion.html",   col:2, row:2},
-    {id:"T1", label:"T1 universal wrongs",        kind:"theorem",   href:"crime.html",      col:3, row:0},
-    {id:"T2", label:"T2 mouth ≠ mind",            kind:"theorem",   href:"politics.html",   col:3, row:1.4},
-    {id:"T3", label:"T3 health consensus",        kind:"theorem",   href:"health.html",     col:4, row:0},
-    {id:"T4", label:"T4 sustainability theatre",  kind:"theorem",   href:"sustainability.html", col:4, row:1.4},
-    {id:"A1", label:"A1 criminals at scale",      kind:"application", href:"criminals.html", col:4, row:2.6},
-    {id:"A2", label:"A2 justice network",         kind:"application", href:"justice.html",   col:5, row:2.6},
-    {id:"A3", label:"A3 now",                     kind:"application", href:"now.html",       col:5, row:1.4},
-    {id:"A4", label:"A4 vote",                    kind:"application", href:"vote.html",      col:6, row:1.4},
-    {id:"A5", label:"A5 swarm",                   kind:"application", href:"swarm.html",     col:6, row:2.6},
-    {id:"A6", label:"A6 reach",                   kind:"application", href:"reach.html",     col:7, row:2.6},
+    // 8 columns × variable rows
+    {id:"D1", kind:"def",         title:"universe = compression",       href:"belief.html",       col:0, row:1.5},
+    {id:"D2", kind:"def",         title:"life = compact runner",        href:"belief.html",       col:1, row:1.5},
+    {id:"D3", kind:"def",         title:"consciousness = self-aware",   href:"belief.html",       col:1, row:3.0},
+
+    {id:"L1", kind:"lemma",       title:"cooperators cluster",          href:"good-bad.html",     col:2, row:0.4},
+    {id:"L2", kind:"lemma",       title:"stigmergy",                    href:"ants.html",         col:2, row:1.5},
+    {id:"L3", kind:"lemma",       title:"moral fictions",               href:"religion.html",     col:2, row:2.6},
+
+    {id:"T1", kind:"theorem",     title:"universal wrongs",             href:"crime.html",        col:3, row:0.6},
+    {id:"T2", kind:"theorem",     title:"mouth ≠ mind",                 href:"politics.html",     col:3, row:1.9},
+    {id:"T3", kind:"theorem",     title:"health consensus",             href:"health.html",       col:4, row:0.6},
+    {id:"T4", kind:"theorem",     title:"sustainability theatre",       href:"sustainability.html", col:4, row:1.9},
+
+    {id:"A1", kind:"application", title:"criminals at scale",           href:"criminals.html",    col:4, row:3.2},
+    {id:"A2", kind:"application", title:"justice network",              href:"justice.html",      col:5, row:3.2},
+    {id:"A3", kind:"application", title:"now — current claims",         href:"now.html",          col:5, row:1.9},
+    {id:"A7", kind:"application", title:"world — load-bearing",         href:"world.html",        col:5, row:0.6},
+    {id:"A4", kind:"application", title:"vote",                         href:"vote.html",         col:6, row:1.9},
+    {id:"A5", kind:"application", title:"swarm",                        href:"swarm.html",        col:6, row:3.2},
+    {id:"A6", kind:"application", title:"reach",                        href:"reach.html",        col:7, row:3.2},
   ];
   const EDGES = [
     ["D1","D2"], ["D2","D3"], ["D2","L1"], ["D2","L2"], ["D2","L3"],
     ["L1","L3"], ["L1","T1"], ["L3","T1"], ["L3","T2"],
-    ["T1","T3"], ["T2","T4"], ["T1","A1"], ["A1","A2"], ["T1","A2"],
-    ["T2","A3"], ["T4","A3"], ["A3","A4"], ["D3","A4"],
-    ["D3","A5"], ["T2","A5"], ["A4","A5"], ["A5","A6"]
+    ["T1","T3"], ["T2","T4"],
+    ["T1","A1"], ["T1","A2"], ["A1","A2"],
+    ["T2","A3"], ["T4","A3"], ["T4","A7"], ["A3","A7"],
+    ["A3","A4"], ["D3","A4"],
+    ["D3","A5"], ["T2","A5"], ["A4","A5"],
+    ["A5","A6"]
   ];
 
-  const W = 1200, H = 560;
-  const colW = (W - 80) / 7; // 8 columns 0..7
-  const rowH = 110;
+  const NODE_W = 158, NODE_H = 56;
+  const colW = (W - 100) / 7; // 8 cols 0..7
+  const rowH = 130;
 
   function pos(n){
-    return { x: 40 + n.col * colW + colW/2, y: 60 + n.row * rowH };
+    return { cx: 50 + n.col * colW + colW/2, cy: 60 + n.row * rowH };
   }
   const byId = Object.fromEntries(NODES.map(n=>[n.id, n]));
 
-  // edges first
-  for(const [a,b] of EDGES){
+  // build adjacency (parents + children) for highlight
+  const parents = {}, children = {};
+  for (const n of NODES){ parents[n.id] = []; children[n.id] = []; }
+  for (const [a, b] of EDGES){ children[a].push(b); parents[b].push(a); }
+
+  const NS = 'http://www.w3.org/2000/svg';
+  function E(name, attrs){ const el = document.createElementNS(NS, name); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; }
+
+  // render edges
+  const edgeEls = {};
+  for (const [a, b] of EDGES){
     const A = pos(byId[a]), B = pos(byId[b]);
-    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
-    const dx = (B.x - A.x) * 0.5;
-    const d = `M${A.x+62},${A.y} C${A.x+62+dx},${A.y} ${B.x-62-dx},${B.y} ${B.x-62},${B.y}`;
-    path.setAttribute('d', d);
-    path.setAttribute('class','dep-edge');
+    const ax = A.cx + NODE_W/2, ay = A.cy;
+    const bx = B.cx - NODE_W/2, by = B.cy;
+    const dx = (bx - ax) * 0.5;
+    const d = `M${ax},${ay} C${ax+dx},${ay} ${bx-dx},${by} ${bx},${by}`;
+    const path = E('path', { d, class:'dep-edge', 'data-a':a, 'data-b':b });
     svg.appendChild(path);
+    edgeEls[a+'->'+b] = path;
   }
 
-  // nodes
-  for(const n of NODES){
+  // render nodes
+  const nodeEls = {};
+  for (const n of NODES){
     const p = pos(n);
-    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
-    g.setAttribute('transform', `translate(${p.x-62},${p.y-22})`);
+    const g = E('g', { class:'node-group', 'data-id':n.id, transform:`translate(${p.cx-NODE_W/2},${p.cy-NODE_H/2})`});
     g.style.cursor = 'pointer';
-    g.addEventListener('click', ()=> location.href = n.href);
-
-    const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
-    r.setAttribute('class', `node-rect ${n.kind}`);
-    r.setAttribute('width', 124); r.setAttribute('height', 44);
-    r.setAttribute('rx', 6);
-    g.appendChild(r);
-
-    const k = document.createElementNS('http://www.w3.org/2000/svg','text');
-    k.setAttribute('class','node-kind');
-    k.setAttribute('x', 8); k.setAttribute('y', 14);
-    k.textContent = n.kind;
-    g.appendChild(k);
-
-    const l = document.createElementNS('http://www.w3.org/2000/svg','text');
-    l.setAttribute('class','node-label');
-    l.setAttribute('x', 8); l.setAttribute('y', 31);
-    l.textContent = n.label.length > 22 ? n.label.slice(0,21)+"…" : n.label;
-    g.appendChild(l);
-
-    const title = document.createElementNS('http://www.w3.org/2000/svg','title');
-    title.textContent = n.label;
-    g.appendChild(title);
-
+    g.appendChild(E('rect', { x:0, y:0, width:NODE_W, height:NODE_H, rx:8, class:`node-rect ${n.kind}` }));
+    g.appendChild(Object.assign(E('text', { x:10, y:18, class:'node-id' }), { textContent: n.id }));
+    g.appendChild(Object.assign(E('text', { x:10, y:32, class:'node-kind' }), { textContent: n.kind }));
+    g.appendChild(Object.assign(E('text', { x:10, y:48, class:'node-title' }), { textContent: n.title.length>22 ? n.title.slice(0,21)+'…' : n.title }));
+    const t = E('title', {}); t.textContent = `${n.id} · ${n.kind} — ${n.title}`; g.appendChild(t);
+    g.addEventListener('click', () => location.href = n.href);
+    g.addEventListener('mouseenter', () => light(n.id));
+    g.addEventListener('mouseleave', () => unlight());
     svg.appendChild(g);
+    nodeEls[n.id] = g;
+  }
+
+  function transitiveAncestors(id){ const out=new Set(); const stack=[...parents[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const p of parents[x]) stack.push(p); } } return out; }
+  function transitiveDescendants(id){ const out=new Set(); const stack=[...children[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const c of children[x]) stack.push(c); } } return out; }
+
+  function light(id){
+    svg.classList.add('hover');
+    const lit = new Set([id, ...transitiveAncestors(id), ...transitiveDescendants(id)]);
+    for (const k in nodeEls){ nodeEls[k].classList.toggle('lit', lit.has(k)); }
+    for (const key in edgeEls){
+      const [a,b] = key.split('->');
+      edgeEls[key].classList.toggle('hot', lit.has(a) && lit.has(b));
+      if (lit.has(a) && lit.has(b)) edgeEls[key].setAttribute('marker-end', 'url(#arrowHot)');
+      else edgeEls[key].setAttribute('marker-end', 'url(#arrow)');
+    }
+  }
+  function unlight(){
+    svg.classList.remove('hover');
+    for (const k in nodeEls) nodeEls[k].classList.remove('lit');
+    for (const key in edgeEls){ edgeEls[key].classList.remove('hot'); edgeEls[key].setAttribute('marker-end', 'url(#arrow)'); }
   }
 })();
 </script>

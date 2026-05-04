@@ -48,7 +48,7 @@
   <p class="crumb"><a href="../index.html">godding</a> / good vs. bad</p>
   <p class="kicker">play · the topology of cooperation</p>
   <h1>good vs. bad — <em>watch the math.</em></h1>
-  <p class="dim">a small live world on a grid. green cells (cooperators) share what they produce with their neighbours and heal the environment. red cells (defectors) take from neighbours, fight each other, and damage the environment. the parameters decide who wins.</p>
+  <p class="dim">a small live world on a grid. green cells (cooperators) share what they produce with their neighbours. red cells (defectors) take from neighbours, fight each other, and damage the environment. <strong>the environment</strong> regenerates only at its own global rate — that's what creates real boom-and-bust.</p>
 
   <div class="sim-wrap"><canvas id="gb"></canvas></div>
 
@@ -57,33 +57,32 @@
     <div class="gb-stat bad"><h5>defectors</h5><div class="v" id="s-bad">— <small>cells</small></div></div>
     <div class="gb-stat env"><h5>environment</h5><div class="v" id="s-env">— <small>avg</small></div></div>
     <div class="gb-stat"><h5>tick</h5><div class="v" id="s-tick">0 <small>steps</small></div></div>
-    <div class="gb-stat"><h5>winner</h5><div class="v" id="s-win">tbd</div></div>
+    <div class="gb-stat"><h5>regime</h5><div class="v" id="s-win">tbd</div></div>
   </div>
 
   <div class="sim-controls">
     <button id="restart">restart</button>
     <button id="pause">pause</button>
-    <label>good gain <input id="gG" type="range" min="1" max="20" value="7"></label>
-    <label>bad take <input id="bT" type="range" min="1" max="30" value="18"></label>
-    <label>bad damage <input id="bD" type="range" min="0" max="20" value="10"></label>
-    <label>env regen <input id="reg" type="range" min="1" max="20" value="5"></label>
+    <label>good gain <input id="gG" type="range" min="1" max="20" value="8"></label>
+    <label>bad take <input id="bT" type="range" min="1" max="30" value="14"></label>
+    <label>bad damage <input id="bD" type="range" min="0" max="30" value="8"></label>
+    <label>env regen <input id="reg" type="range" min="1" max="20" value="6"></label>
   </div>
 
   <div class="preset-row">
     <span>presets:</span>
-    <button data-p="balanced" class="go">balanced</button>
-    <button data-p="coop">cooperation wins</button>
+    <button data-p="balanced" class="go">balanced (oscillates)</button>
+    <button data-p="coop">cooperation wins (stable)</button>
     <button data-p="defect">defection wins</button>
-    <button data-p="boom">boom &amp; bust</button>
+    <button data-p="boom">boom &amp; bust (cycles)</button>
     <button data-p="tragedy">tragedy of the commons</button>
   </div>
 
   <h2>what's happening</h2>
   <ul>
-    <li><strong>cooperators</strong> get a clustering bonus — more good neighbours → more energy. they share with each other and heal the environment around them.</li>
-    <li><strong>defectors</strong> steal from neighbours. but defector neighbours are <em>worse</em> than cooperator neighbours: they fight each other and damage env.</li>
-    <li><strong>empties</strong> regenerate slowly. cells with high energy replicate, cells with low energy die.</li>
-    <li><strong>topology</strong>: cooperator clusters reinforce. defector clusters self-destruct. boundaries are where the action is.</li>
+    <li><strong>cooperators</strong> get a clustering bonus — more good neighbours → more energy. they share with each other. they pull energy from the environment as they grow; they don't restore it.</li>
+    <li><strong>defectors</strong> steal from neighbours. defector neighbours are <em>worse</em> than cooperator neighbours: they fight each other and damage env in a radius.</li>
+    <li><strong>environment</strong> regenerates only at the global <em>env regen</em> rate. that's the bottleneck. push gG too high and the green crowd grazes the env to nothing — bust.</li>
   </ul>
 
   <p class="dim">academic basis: spatial prisoner's dilemma (<a href="https://en.wikipedia.org/wiki/Evolutionary_game_theory" target="_blank" rel="noopener">evolutionary game theory</a>). same family as <a href="ants.html">ants on bodies</a> and <a href="swarm.html">swarm</a>.</p>
@@ -112,52 +111,61 @@
     let W=0,H=0,COLS=96,ROWS=42,cw=0,ch=0,tick=0,paused=false,paint='flip';
     let state, energy, env;
     const E=0,G=1,B=2;
+    const histG=[], histB=[];
 
     function resize(){const r=c.getBoundingClientRect();const dpr=window.devicePixelRatio||1;W=(r.width|0)||900;H=(r.height|0)||460;c.width=W*dpr;c.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);cw=W/COLS;ch=H/ROWS;}
+
     function init(s){
       state=new Uint8Array(COLS*ROWS); energy=new Float32Array(COLS*ROWS); env=new Float32Array(COLS*ROWS); tick=0;
-      const cf=(s&&s.cf!==undefined)?s.cf:0.16, bf=(s&&s.bf!==undefined)?s.bf:0.10;
+      histG.length=0; histB.length=0;
+      const cf=(s&&s.cf!==undefined)?s.cf:0.22, bf=(s&&s.bf!==undefined)?s.bf:0.10;
       for (let i=0;i<state.length;i++){
-        env[i]=0.5+Math.random()*0.3;
+        env[i]=0.55+Math.random()*0.30;
         const r=Math.random();
         if (r<cf){ state[i]=G; energy[i]=0.7; }
         else if (r<cf+bf){ state[i]=B; energy[i]=0.7; }
       }
     }
+
     function step(){
       const gG=(+$('gG').value)/100, bT=(+$('bT').value)/100, bD=(+$('bD').value)/100, rg=(+$('reg').value)/1000;
       const ns=new Uint8Array(state), ne=new Float32Array(energy), nv=new Float32Array(env);
+      // global env regen — the ONLY way the environment restores. Carrying capacity comes from this.
       for (let i=0;i<env.length;i++) nv[i]=Math.min(1, env[i]+rg);
+
       function nbrs(i,j){const o=[]; for(let dj=-1;dj<=1;dj++) for(let di=-1;di<=1;di++){if(!di&&!dj)continue;const ni=(i+di+COLS)%COLS,nj=(j+dj+ROWS)%ROWS;o.push(nj*COLS+ni);} return o;}
+
       for (let j=0;j<ROWS;j++) for (let i=0;i<COLS;i++){
         const k=j*COLS+i; if (state[k]===E) continue;
         const nb=nbrs(i,j); const gN=nb.filter(n=>state[n]===G).length, bN=nb.filter(n=>state[n]===B).length;
+
         if (state[k]===G){
-          // cooperators: pull from env, modest clustering bonus, share, light env heal
-          const pull = Math.min(0.05, nv[k]*0.4); nv[k] = Math.max(0, nv[k]-pull); ne[k] += pull;
-          ne[k] += gG * 0.45;            // photosynthesis (was 0.7)
-          ne[k] += 0.010 * gN;           // clustering bonus (was 0.018)
-          if (gN > 0){ const give = Math.min(ne[k]*0.04, 0.05); ne[k] -= give; for (const n of nb) if (state[n]===G) ne[n] += give/gN*0.95; }
-          // light env heal — only own cell, not radius (was 3x3 with 2x rg)
-          const heal = 0.005 + rg*0.8;
-          nv[k] = Math.min(1, nv[k]+heal);
-          ne[k] -= 0.030;                // metabolism cost (was 0.025)
+          // cooperators graze env (proportional to env × gG). higher gG → graze harder → boom-bust risk.
+          const graze = Math.min(0.07, nv[k] * (0.30 + gG*1.4));
+          nv[k] = Math.max(0, nv[k] - graze);
+          ne[k] += graze;
+          ne[k] += 0.012 * gN; // clustering bonus
+          if (gN > 0){
+            const give = Math.min(ne[k]*0.05, 0.06);
+            ne[k] -= give;
+            for (const n of nb) if (state[n]===G) ne[n] += give/gN*0.95;
+          }
+          ne[k] -= 0.030; // metabolism
         } else {
-          // defectors: take more from cooperators, defector-vs-defector still costly but not crushing
+          // defectors — steal from coops a lot, defectors a little, env some. damage env in radius.
           let stolen = 0;
           for (const n of nb){
-            if (state[n]===G){ const t = Math.min(bT*0.70, ne[n]); ne[n] -= t; stolen += t; }     // was 0.55
-            else if (state[n]===B){ const t = Math.min(bT*0.18, ne[n]); ne[n] -= t; stolen += t*0.6; } // was 0.10
-            else { const t = Math.min(bT*0.40, nv[n]); nv[n] = Math.max(0, nv[n]-t); stolen += t; }   // was 0.30
+            if (state[n]===G){ const t = Math.min(bT*0.75, ne[n]); ne[n] -= t; stolen += t; }
+            else if (state[n]===B){ const t = Math.min(bT*0.20, ne[n]); ne[n] -= t; stolen += t*0.6; }
+            else { const t = Math.min(bT*0.45, nv[n]); nv[n] = Math.max(0, nv[n]-t); stolen += t; }
           }
           ne[k] += stolen;
-          // damage radius
-          const dmg = bD * 0.65;          // was 0.55
-          nv[k] = Math.max(0, nv[k]-dmg);
-          for (const n of nb) nv[n] = Math.max(0, nv[n]-dmg*0.55);
-          // softer competition — defector clusters can persist briefly
-          ne[k] -= 0.025 * bN + 0.038;    // was 0.045 * bN + 0.040
+          const dmg = bD;
+          nv[k] = Math.max(0, nv[k] - dmg*0.55);
+          for (const n of nb) nv[n] = Math.max(0, nv[n] - dmg*0.35);
+          ne[k] -= 0.030 * bN + 0.038;
         }
+
         if (ne[k] < 0.04){ ns[k]=E; ne[k]=0; continue; }
         if (ne[k] > 0.95){
           const empty=nb.filter(n=>ns[n]===E);
@@ -174,12 +182,13 @@
       }
       state=ns; energy=ne; env=nv; tick++;
     }
+
     function draw(){
       ctx.fillStyle='#fcf8ee'; ctx.fillRect(0,0,W,H);
       for (let j=0;j<ROWS;j++) for (let i=0;i<COLS;i++){
         const k=j*COLS+i;
-        if (state[k]===E){ const v=env[k]; if (v>0.1){ ctx.fillStyle=`rgba(200,154,62,${v*0.18})`; ctx.fillRect(i*cw,j*ch,cw+0.5,ch+0.5); } }
-        else { const e=Math.min(1,energy[k]); const a=0.35+e*0.55;
+        if (state[k]===E){ const v=env[k]; if (v>0.10){ ctx.fillStyle=`rgba(200,154,62,${v*0.20})`; ctx.fillRect(i*cw,j*ch,cw+0.5,ch+0.5); } }
+        else { const e=Math.min(1,energy[k]); const a=0.40+e*0.55;
           ctx.fillStyle = state[k]===G ? `rgba(93,140,74,${a})` : `rgba(196,87,107,${a})`;
           ctx.fillRect(i*cw+0.5, j*ch+0.5, cw-1, ch-1);
         }
@@ -190,12 +199,24 @@
       $('s-bad').innerHTML=b+' <small>cells</small>';
       $('s-env').innerHTML=(es/env.length).toFixed(2)+' <small>avg</small>';
       $('s-tick').innerHTML=tick+' <small>steps</small>';
-      let w='tbd';
-      if (g+b>0){ if (g===0) w='defectors'; else if (b===0) w='cooperators';
-        else if (g>b*3) w='cooperators'; else if (b>g*3) w='defectors'; else w='mixed'; }
-      else w='collapse';
-      $('s-win').textContent = w;
+      histG.push(g); histB.push(b); if (histG.length>60){ histG.shift(); histB.shift(); }
+      let regime='settling';
+      if (histG.length>=30){
+        const hg=histG.slice(-30), hb=histB.slice(-30);
+        const mg=hg.reduce((a,x)=>a+x,0)/hg.length, mb=hb.reduce((a,x)=>a+x,0)/hb.length;
+        const vg=hg.reduce((a,x)=>a+(x-mg)**2,0)/hg.length, vb=hb.reduce((a,x)=>a+(x-mb)**2,0)/hb.length;
+        const sdg=Math.sqrt(vg), sdb=Math.sqrt(vb);
+        if (g+b===0) regime='collapse';
+        else if (g===0 && b>0) regime='defectors';
+        else if (b===0 && g>0) regime='cooperators stable';
+        else if ((sdg/Math.max(1,mg) > 0.35) || (sdb/Math.max(1,mb) > 0.35)) regime='oscillating';
+        else if (g>b*3) regime='cooperators';
+        else if (b>g*3) regime='defectors';
+        else regime='mixed';
+      }
+      $('s-win').textContent = regime;
     }
+
     let painting=false;
     function pos(e){const r=c.getBoundingClientRect(); const x=e.clientX-r.left, y=e.clientY-r.top;
       return {i:Math.max(0,Math.min(COLS-1,(x/cw)|0)), j:Math.max(0,Math.min(ROWS-1,(y/ch)|0))};}
@@ -215,15 +236,21 @@
     });
     $('pause').addEventListener('click', () => { paused=!paused; $('pause').textContent=paused?'resume':'pause'; });
     $('restart').addEventListener('click', () => init({}));
+
+    // ───── presets — each one truly distinct ─────
     document.querySelectorAll('.preset-row button').forEach(btn => btn.addEventListener('click', () => {
       const p=btn.dataset.p;
-      // recalibrated for the new (more contested) math
-      if (p==='balanced'){ $('gG').value=7; $('bT').value=18; $('bD').value=10; $('reg').value=5; init({cf:0.16, bf:0.10}); }
-      if (p==='coop'){    $('gG').value=14; $('bT').value=8; $('bD').value=4;  $('reg').value=9; init({cf:0.22, bf:0.05}); }
-      if (p==='defect'){  $('gG').value=2; $('bT').value=28; $('bD').value=16; $('reg').value=2; init({cf:0.10, bf:0.18}); }
-      if (p==='boom'){    $('gG').value=10;$('bT').value=22; $('bD').value=6;  $('reg').value=12;init({cf:0.25, bf:0.10}); }
-      if (p==='tragedy'){ $('gG').value=4; $('bT').value=20; $('bD').value=18; $('reg').value=2; init({cf:0.08, bf:0.20}); }
+      if (p==='balanced'){ $('gG').value=8;  $('bT').value=14; $('bD').value=8;  $('reg').value=8;  init({cf:0.22, bf:0.10}); }
+      if (p==='coop'){     $('gG').value=10; $('bT').value=4;  $('bD').value=2;  $('reg').value=12; init({cf:0.30, bf:0.05}); }
+      if (p==='defect'){   $('gG').value=3;  $('bT').value=24; $('bD').value=14; $('reg').value=2;  init({cf:0.10, bf:0.22}); }
+      // boom & bust: dense green start, gG=18 (heavy graze), some defectors, low env regen
+      if (p==='boom'){     $('gG').value=18; $('bT').value=20; $('bD').value=6;  $('reg').value=3;  init({cf:0.40, bf:0.08}); }
+      // tragedy: low gG, high bD, very low reg → environment dies, everyone dies
+      if (p==='tragedy'){  $('gG').value=4;  $('bT').value=18; $('bD').value=24; $('reg').value=1;  init({cf:0.18, bf:0.12}); }
+      document.querySelectorAll('.preset-row button').forEach(x => x.classList.remove('go'));
+      btn.classList.add('go');
     }));
+
     let rt; window.addEventListener('resize', () => { clearTimeout(rt); rt=setTimeout(resize,150); });
     resize(); init({});
     function loop(){ if (!paused) step(); draw(); requestAnimationFrame(loop); }
@@ -235,4 +262,3 @@
 </script>
 </body>
 </html>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    

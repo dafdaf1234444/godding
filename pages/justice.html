@@ -9,12 +9,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
-  .justice-wrap{ position:relative; height:620px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  .justice-wrap{ position:relative; height:680px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
   #netsvg{ width:100%; height:100%; display:block; cursor:grab; }
   #netsvg.drag{ cursor:grabbing; }
-  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:10px 0 6px; font-family:var(--mono); font-size:12px; color:var(--ink-2); align-items:center }
-  .legend span.dot{ display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
-  .net-detail{ position:absolute; top:14px; right:14px; max-width:320px; background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--sun); border-radius:var(--radius-sm); padding:14px 16px; box-shadow:0 6px 24px rgba(31,24,19,.10); font-family:var(--sans); font-size:13.5px; color:var(--ink-2); line-height:1.55; }
+  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:10px 0 6px; font-family:var(--mono); font-size:12.5px; color:var(--ink-2); align-items:center }
+  .legend span.dot{ display:inline-block; width:11px; height:11px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .net-detail{ position:absolute; top:14px; right:14px; max-width:340px; background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--sun); border-radius:var(--radius-sm); padding:14px 16px; box-shadow:0 6px 24px rgba(31,24,19,.10); font-family:var(--sans); font-size:13.5px; color:var(--ink-2); line-height:1.55; z-index:5 }
   .net-detail h4{ font-family:var(--serif); font-style:italic; font-weight:400; color:var(--ink); font-size:18px; margin:0 0 4px; }
   .net-detail .meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px; }
   .net-detail .src{ font-family:var(--mono); font-size:11px; color:var(--ink-mute); margin-top:6px; word-break:break-word; }
@@ -24,19 +24,19 @@
   .net-detail .vbtn.up.on{ background:var(--leaf); color:var(--paper); border-color:var(--leaf); }
   .net-detail .vbtn.down.on{ background:var(--rose); color:var(--paper); border-color:var(--rose); }
   .net-detail .close{ position:absolute; top:6px; right:8px; background:none; border:0; font-size:20px; color:var(--ink-mute); cursor:pointer; }
-  .controls{ position:absolute; top:14px; left:14px; display:flex; gap:6px; }
-  .controls button{ width:30px; height:30px; border:1px solid var(--line-2); background:var(--paper-2); border-radius:8px; font-family:var(--mono); font-size:14px; color:var(--ink-2); cursor:pointer; }
+  .controls{ position:absolute; top:14px; left:14px; display:flex; gap:6px; z-index:5 }
+  .controls button{ width:32px; height:32px; border:1px solid var(--line-2); background:var(--paper-2); border-radius:8px; font-family:var(--mono); font-size:14px; color:var(--ink-2); cursor:pointer; }
   .controls button:hover{ background:var(--cream); }
   .policy-box{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--rose); border-radius:var(--radius-sm); padding:12px 16px; margin:14px 0 14px; font-size:14px; color:var(--ink-2); }
   .policy-box strong{ color:var(--ink); }
-  .node text{ font-family:var(--mono); font-size:11px; fill:var(--ink); pointer-events:none; }
-  .node circle{ stroke:#1f1813; stroke-width:1.2; cursor:pointer; }
-  .node:hover circle{ stroke-width:2.2; }
-  .edge{ stroke:rgba(31,24,19,.30); stroke-width:1.4; fill:none; cursor:pointer }
-  .edge.proven{ stroke:rgba(196,87,107,.85); stroke-width:2 }
-  .edge.indicted{ stroke:rgba(217,150,82,.85); stroke-width:1.8; stroke-dasharray:8,3 }
-  .edge.appearance{ stroke:rgba(107,74,139,.50); stroke-dasharray:3,5 }
-  .edge:hover{ stroke-width:3 }
+  .node text{ font-family:var(--mono); font-size:12px; fill:var(--ink); pointer-events:none; font-weight:500 }
+  .node circle{ stroke:#1f1813; stroke-width:1.4; cursor:pointer; }
+  .node:hover circle{ stroke-width:2.4; }
+  .edge{ stroke:rgba(31,24,19,.30); stroke-width:1.6; fill:none; cursor:pointer }
+  .edge.proven{ stroke:rgba(196,87,107,.85); stroke-width:2.2 }
+  .edge.indicted{ stroke:rgba(217,150,82,.85); stroke-width:2; stroke-dasharray:8,3 }
+  .edge.appearance{ stroke:rgba(107,74,139,.55); stroke-width:1.4; stroke-dasharray:3,5 }
+  .edge:hover{ stroke-width:3.5 }
 </style>
 </head>
 <body>
@@ -64,10 +64,10 @@
   <p class="crumb"><a href="../index.html">godding</a> / justice</p>
   <p class="kicker">justice · the network · proven, indicted, mentioned</p>
   <h1>justice — <em>who is connected to whom.</em></h1>
-  <p class="dim">A conservative network drawn from convictions, civil verdicts, sentencing memos, indictments, and unsealed flight logs. Each line cites a specific court document. Vote on whether you think the connection is real — your votes are recorded with timestamps on <a href="vote.html">/vote</a>.</p>
+  <p class="dim">A network drawn from convictions, civil verdicts, sentencing memos, indictments, settled lawsuits with disclosed terms, and unsealed flight logs. Each line cites a specific court document. Vote on whether you think the connection is real — your votes are recorded with timestamps on <a href="vote.html">/vote</a>. The layout is force-directed: drag nodes to reorganise.</p>
 
   <div class="policy-box">
-    <strong>defamation policy.</strong> living people are named only when a public document — a verdict, a settlement, a sentencing memo, or an unsealed exhibit — already names them. The category of the edge tells you which: <em>proven</em> = court ruling, <em>indicted</em> = sworn charge not yet adjudicated, <em>mentioned</em> = appears in unsealed flight log or deposition without any charge attached. godding adds nothing to the public record; the swarm only updates this graph when something new is filed.
+    <strong>defamation policy.</strong> living people are named only when a public document — a verdict, a settlement, a sentencing memo, or an unsealed exhibit — already names them. The category of the edge tells you which: <em>proven</em> = court ruling or settled with disclosed terms; <em>indicted</em> = sworn charge not yet adjudicated; <em>mentioned</em> = appears in unsealed flight log or deposition without any charge attached. godding adds nothing to the public record.
   </div>
 
   <div class="filters-row" style="display:flex;flex-wrap:wrap;gap:14px;margin:6px 0 8px;align-items:center">
@@ -85,6 +85,7 @@
       <button data-cat="liv" class="ft">convicted (living)</button>
       <button data-cat="ind" class="ft">indicted</button>
       <button data-cat="men" class="ft">mentioned only</button>
+      <button data-cat="bank" class="ft">banks (settled)</button>
       <button data-cat="court" class="ft">courts</button>
     </div>
   </div>
@@ -94,10 +95,13 @@
     <span><span class="dot" style="background:#6b4a8b"></span> convicted (living)</span>
     <span><span class="dot" style="background:#d99652"></span> indicted, not convicted</span>
     <span><span class="dot" style="background:#a39179"></span> appears in record only</span>
+    <span><span class="dot" style="background:#4a7ba8"></span> bank · settled</span>
     <span><span class="dot" style="background:#5d8c4a"></span> court / institution</span>
-    <span style="color:var(--rose)">— solid red: proven by ruling</span>
-    <span style="color:#d99652">- - dashed gold: indictment (alleged)</span>
-    <span style="color:var(--plum)">· · · dotted purple: mention without charge</span>
+  </div>
+  <div class="legend" style="margin-top:0">
+    <span style="color:var(--rose)"><strong>—</strong> solid red: proven by ruling or disclosed-term settlement</span>
+    <span style="color:#d99652"><strong>- -</strong> dashed gold: indictment (alleged)</span>
+    <span style="color:var(--plum)"><strong>· · ·</strong> dotted purple: mention without charge</span>
   </div>
 
   <div class="justice-wrap">
@@ -106,6 +110,7 @@
       <button id="zoom-in" title="zoom in">+</button>
       <button id="zoom-out" title="zoom out">−</button>
       <button id="zoom-reset" title="reset">⊙</button>
+      <button id="reflow" title="re-run layout">↻</button>
     </div>
     <div class="net-detail" id="net-detail" hidden>
       <button class="close" id="detail-close" aria-label="close">×</button>
@@ -123,9 +128,9 @@
 
   <h2 style="margin-top:24px">how to read this</h2>
   <ol>
-    <li><strong>solid red lines</strong> are connections established by a court verdict — criminal conviction, civil liability, or settled with admission.</li>
-    <li><strong>dashed gold lines</strong> are connections from an active sworn indictment that has not yet reached verdict. presumed innocent until then.</li>
-    <li><strong>dotted purple lines</strong> are factual appearances in unsealed exhibits (e.g. flight logs, depositions). a name appearing in a list is not an accusation.</li>
+    <li><strong>solid red lines</strong> — connections established by a court verdict (criminal conviction, civil liability, civil settlement with disclosed terms or admission).</li>
+    <li><strong>dashed gold lines</strong> — connections from an active sworn indictment that has not yet reached verdict. presumed innocent until then.</li>
+    <li><strong>dotted purple lines</strong> — factual appearances in unsealed exhibits (flight logs, depositions). a name appearing in a list is not an accusation.</li>
     <li>godding does <strong>not</strong> add to any of these lists. the data only changes when a court does.</li>
   </ol>
 
@@ -138,9 +143,11 @@
 <aside class="sidebar">
   <h4>what's drawn from</h4>
   <ul>
-    <li>SDNY indictments &amp; sentencing memos</li>
-    <li>EDNY indictments &amp; verdicts</li>
+    <li>SDNY indictments + sentencing memos</li>
+    <li>EDNY indictments + verdicts</li>
     <li>NY State Supreme Court verdicts</li>
+    <li>USVI v. JPMorgan / Doe v. JPMorgan (settlements)</li>
+    <li>Doe v. Deutsche Bank (settlement)</li>
     <li>UK High Court civil rulings</li>
     <li>FOIA-released flight logs</li>
     <li>Unsealed deposition exhibits</li>
@@ -161,7 +168,7 @@
 </footer>
 
 <script>
-/* justice network — court-record-only with per-edge voting */
+/* justice network — court-record-only, force-directed, with per-edge voting */
 (function(){
   const svg = document.getElementById('netsvg');
   const detail = document.getElementById('net-detail');
@@ -199,45 +206,354 @@
 
   // ── data ────────────────────────────────────────────────────────────
   // category: dec=convicted-deceased, liv=convicted-living, ind=indicted (not convicted),
-  //           men=mentioned in record only (no charges), court=court/institution
+  //           men=mentioned in record only (no charges), bank=settled financial-institution,
+  //           court=court/institution
   const NODES = [
-    // convicted (deceased) — central historical figures
-    {id:"jeffrey-epstein", label:"Jeffrey Epstein", cat:"dec", x:0, y:0, r:30,
+    // convicted (deceased)
+    {id:"jeffrey-epstein", label:"Jeffrey Epstein", cat:"dec", r:32,
       meta:"financier · died in custody 2019",
       body:"Pleaded guilty 2008 (Florida) to procuring a minor for prostitution. Indicted by SDNY 2019 on sex-trafficking charges. Died in custody before trial.",
       src:"SDNY 19-cr-490; Florida case 08-CF-9381"},
+    {id:"bernie-madoff", label:"Bernie Madoff", cat:"dec", r:18,
+      meta:"convicted · 150y · died 2021",
+      body:"Pleaded guilty SDNY 2009 to running the largest Ponzi scheme on record (~$65B). Sentenced to 150 years.",
+      src:"SDNY 09-cr-213"},
 
     // convicted (living)
-    {id:"ghislaine-maxwell", label:"Ghislaine Maxwell", cat:"liv", x:130,  y:-120, r:24,
+    {id:"ghislaine-maxwell", label:"Ghislaine Maxwell", cat:"liv", r:25,
       meta:"convicted · 20 years (SDNY)",
       body:"Convicted by SDNY jury Dec 2021 on five counts including sex-trafficking of a minor. Sentenced to 240 months. Conviction affirmed on appeal 2024.",
       src:"SDNY 20-cr-330; 2nd Cir. affirmed 2024"},
-    {id:"donald-trump", label:"Donald Trump", cat:"liv", x:-200, y:-130, r:24,
+    {id:"donald-trump", label:"Donald Trump", cat:"liv", r:26,
       meta:"civilly liable + criminally convicted (separate cases)",
-      body:"Civil verdict (E. Jean Carroll v. Trump II, May 2023): SDNY jury found liable for sexual abuse and defamation; second Carroll trial (2024) added $83.3M in defamation damages. Criminal verdict (People v. Trump, May 2024): NY State jury found guilty of 34 counts of falsifying business records. Separately appears in unsealed Epstein flight logs (factual, no charges).",
+      body:"Civil verdict (E. Jean Carroll v. Trump II, May 2023): SDNY jury found liable for sexual abuse and defamation; second Carroll trial added $83.3M defamation damages (2024). Criminal verdict (People v. Trump, May 2024): NY State jury convicted on 34 counts of falsifying business records. Separately appears in unsealed Epstein flight logs (factual, no Epstein-related charges).",
       src:"Carroll v. Trump SDNY 22-cv-10016; People v. Trump NY 71543-23"},
-    {id:"harvey-weinstein", label:"Harvey Weinstein", cat:"liv", x:-300, y:60, r:22,
-      meta:"convicted · NY 23y (overturned 2024, retrial pending) + CA 16y",
-      body:"NY State jury convicted 2020 (overturned by NY Court of Appeals 2024 — retrial scheduled). LA Superior Court convicted 2023 of three sex offences, sentenced to 16 years. Listed for context, not as a court-proven Epstein link.",
+    {id:"harvey-weinstein", label:"Harvey Weinstein", cat:"liv", r:22,
+      meta:"NY 23y (overturned 2024, retrial pending) + CA 16y",
+      body:"NY State jury convicted 2020 (overturned by NY Court of Appeals 2024 — retrial scheduled). LA Superior Court convicted 2023 of three sex offences, sentenced to 16 years. Listed for context.",
       src:"NY Supreme Court 153-2018; LA Superior Court SA-097843"},
-    {id:"r-kelly", label:"R. Kelly", cat:"liv", x:-300, y:-50, r:20,
-      meta:"convicted · 30 years (EDNY) + 20 years (NDIL, partly concurrent)",
+    {id:"r-kelly", label:"R. Kelly", cat:"liv", r:20,
+      meta:"convicted · 30y EDNY + 20y NDIL (partly concurrent)",
       body:"EDNY jury convicted 2021 of racketeering and sex-trafficking. NDIL jury convicted 2022 of child-pornography offences. Listed for context.",
       src:"EDNY 19-cr-286; NDIL 19-cr-567"},
+    {id:"larry-nassar", label:"Larry Nassar", cat:"liv", r:20,
+      meta:"convicted · effectively life (MI + federal)",
+      body:"USA Gymnastics + MSU team doctor. Convicted 2017 (federal child-pornography) and 2017–18 (Michigan, multiple counts of criminal sexual conduct against minors). 175-year MI sentence.",
+      src:"MI 17-2255-FC; W.D. Mich. 16-cr-242"},
+    {id:"allen-stanford", label:"Allen Stanford", cat:"liv", r:16,
+      meta:"convicted · 110y (financial fraud)",
+      body:"Convicted SDTX 2012 of running a ~$7B Ponzi scheme via Stanford International Bank. Sentenced to 110 years.",
+      src:"SDTX 09-cr-342"},
 
     // indicted, not yet convicted
-    {id:"sean-combs", label:"Sean Combs", cat:"ind", x:160, y:120, r:20,
+    {id:"sean-combs", label:"Sean Combs", cat:"ind", r:20,
       meta:"indicted · presumed innocent (SDNY)",
-      body:"Indicted by SDNY in Sept 2024 on RICO conspiracy, sex-trafficking, and transportation for prostitution. Not yet adjudicated. Presumed innocent.",
+      body:"Indicted by SDNY in Sept 2024 on RICO conspiracy, sex-trafficking, and transportation for prostitution. Trial pending. Presumed innocent.",
       src:"SDNY 24-cr-542"},
 
-    // settled (UK civil)
-    {id:"prince-andrew", label:"Prince Andrew", cat:"liv", x:230, y:0, r:18,
-      meta:"civil settlement · no admission of liability",
-      body:"Settled civil suit (Giuffre v. Andrew, SDNY) Feb 2022 reportedly for ~£12M, with no admission of liability. Stripped of military titles + royal patronages by Buckingham Palace. No criminal proceedings.",
+    // settled-with-admission or settled-with-disclosed-terms (treat as proven)
+    {id:"prince-andrew", label:"Prince Andrew", cat:"liv", r:18,
+      meta:"civil settlement · no admission · ~£12M reported",
+      body:"Settled Giuffre v. Andrew (SDNY 21-cv-6702) Feb 2022 reportedly for ~£12M, with no admission of liability. Stripped of military titles + royal patronages by Buckingham Palace. No criminal proceedings.",
       src:"Giuffre v. Andrew SDNY 21-cv-6702 (settled)"},
 
-    // mentioned in record only (no charges) — these are factually-appearing names
-    {id:"bill-clinton", label:"Bill Clinton", cat:"men", x:-80, y:170, r:16,
+    // banks (financial institutions that settled disclosed-term cases)
+    {id:"bank-jpmorgan", label:"JPMorgan Chase", cat:"bank", r:22,
+      meta:"settled · $290M (Doe) + $75M (USVI), 2023",
+      body:"Settled two civil suits brought by Epstein victims and the U.S. Virgin Islands: Doe v. JPMorgan Chase ($290M, June 2023) and USVI v. JPMorgan Chase ($75M, Sept 2023). No admission of wrongdoing in either settlement.",
+      src:"SDNY 22-cv-10019; SDNY 22-cv-10904"},
+    {id:"bank-deutsche", label:"Deutsche Bank", cat:"bank", r:18,
+      meta:"settled · $75M (Doe), 2023",
+      body:"Settled Doe v. Deutsche Bank (SDNY 22-cv-10018) for $75M, May 2023, on claims related to facilitating Epstein's accounts after JPMorgan dropped him.",
+      src:"SDNY 22-cv-10018"},
+
+    // mentioned only — appearances in record without charges
+    {id:"bill-clinton", label:"Bill Clinton", cat:"men", r:18,
       meta:"named in unsealed flight logs · no charges",
-      body:"Appears as a passenger in unsealed Epstein flight logs (multiple flights, late 1990s–early 2000s, principally i
+      body:"Appears as a passenger in unsealed Epstein flight logs (multiple flights, late 1990s–early 2000s). No criminal charges. Spokespeople have denied wrongdoing. Listed as a factual record-appearance, not an accusation.",
+      src:"Unsealed flight log exhibits, Doe v. Maxwell SDNY 15-cv-7433"},
+    {id:"alan-dershowitz", label:"Alan Dershowitz", cat:"men", r:14,
+      meta:"named in deposition · denies · no charges",
+      body:"Named in Virginia Giuffre's depositions (2014/2019); has consistently denied the allegations and won several defamation actions against accusers. No criminal charges.",
+      src:"Doe v. Maxwell deposition exhibits (unsealed 2019, 2024)"},
+    {id:"leslie-wexner", label:"Leslie Wexner", cat:"men", r:14,
+      meta:"former patron · no charges",
+      body:"L Brands founder. Gave Epstein power-of-attorney over much of his finances 1991–2007. Stepped down from L Brands board (2020) amid scrutiny. No criminal charges.",
+      src:"L Brands 2020 disclosures; SDNY 19-cr-490 victim statements"},
+
+    // courts / institutions
+    {id:"court-sdny", label:"SDNY", cat:"court", r:24,
+      meta:"U.S. District Court, Southern District of New York",
+      body:"Filed indictments and tried Maxwell; assigned the Epstein case until his death; venue for Carroll v. Trump civil suits, Combs indictment, JPMorgan + Deutsche Bank settlements, Madoff plea.",
+      src:"PACER docket"},
+    {id:"court-edny", label:"EDNY", cat:"court", r:18,
+      meta:"E. District NY",
+      body:"Tried R. Kelly (racketeering + sex-trafficking conviction).",
+      src:"PACER docket"},
+    {id:"court-ny", label:"NY State Sup. Ct.", cat:"court", r:18,
+      meta:"NY State criminal + civil",
+      body:"Convicted Trump (hush-money case) and Weinstein (NY case, later overturned).",
+      src:"NY State courts"},
+    {id:"court-mi", label:"MI courts", cat:"court", r:14,
+      meta:"Michigan state + W.D. Michigan",
+      body:"Convicted Larry Nassar (MI sexual-conduct charges + federal child-pornography).",
+      src:"MI courts; PACER"},
+    {id:"court-tx", label:"S.D. Texas", cat:"court", r:14,
+      meta:"federal · S. District Texas",
+      body:"Convicted Allen Stanford (financial-fraud Ponzi scheme).",
+      src:"PACER docket"},
+    {id:"court-uk", label:"UK High Court", cat:"court", r:14,
+      meta:"England & Wales",
+      body:"Background venue for Andrew civil settlement (commenced in SDNY but with UK parties).",
+      src:"Royal Courts of Justice"},
+  ];
+
+  // edges — only what a court has filed. each must cite a document.
+  const EDGES = [
+    // proven by ruling or settled with disclosed terms
+    {id:"e-epstein-maxwell", a:"jeffrey-epstein", b:"ghislaine-maxwell", kind:"proven", label:"co-trafficker (Maxwell verdict)", src:"SDNY 20-cr-330"},
+    {id:"e-epstein-sdny",    a:"jeffrey-epstein", b:"court-sdny",        kind:"proven", label:"indicted 2019; FL plea 2008", src:"SDNY 19-cr-490 + FL 08-CF-9381"},
+    {id:"e-maxwell-sdny",    a:"ghislaine-maxwell", b:"court-sdny",      kind:"proven", label:"convicted 2021 (affirmed 2024)", src:"SDNY 20-cr-330"},
+    {id:"e-trump-carroll",   a:"donald-trump",    b:"court-sdny",        kind:"proven", label:"Carroll civil liability (2023+24)", src:"SDNY 22-cv-10016 + 22-cv-10016"},
+    {id:"e-trump-ny",        a:"donald-trump",    b:"court-ny",          kind:"proven", label:"34-count NY conviction (2024)", src:"People v. Trump 71543-23"},
+    {id:"e-andrew-uk",       a:"prince-andrew",   b:"court-uk",          kind:"proven", label:"civil settlement (no admission)", src:"Giuffre v. Andrew 21-cv-6702"},
+    {id:"e-andrew-epstein",  a:"prince-andrew",   b:"jeffrey-epstein",   kind:"proven", label:"public association established in court", src:"Giuffre v. Andrew exhibits"},
+    {id:"e-weinstein-ny",    a:"harvey-weinstein", b:"court-ny",         kind:"proven", label:"NY conviction (overturned, retrial pending)", src:"NY 153-2018"},
+    {id:"e-rkelly-edny",     a:"r-kelly",         b:"court-edny",        kind:"proven", label:"racketeering + sex-trafficking (2021)", src:"EDNY 19-cr-286"},
+    {id:"e-nassar-mi",       a:"larry-nassar",    b:"court-mi",          kind:"proven", label:"MI + federal convictions (2017-18)", src:"MI 17-2255-FC + W.D.Mich 16-cr-242"},
+    {id:"e-stanford-tx",     a:"allen-stanford",  b:"court-tx",          kind:"proven", label:"110y financial fraud (2012)", src:"SDTX 09-cr-342"},
+    {id:"e-madoff-sdny",     a:"bernie-madoff",   b:"court-sdny",        kind:"proven", label:"150y plea (2009)", src:"SDNY 09-cr-213"},
+    {id:"e-jpm-sdny",        a:"bank-jpmorgan",   b:"court-sdny",        kind:"proven", label:"$290M Doe + $75M USVI settlements (2023)", src:"SDNY 22-cv-10019 + 22-cv-10904"},
+    {id:"e-jpm-epstein",     a:"bank-jpmorgan",   b:"jeffrey-epstein",   kind:"proven", label:"client 1998-2013; settled (no admission)", src:"USVI v. JPMorgan filings"},
+    {id:"e-db-sdny",         a:"bank-deutsche",   b:"court-sdny",        kind:"proven", label:"$75M Doe settlement (2023)", src:"SDNY 22-cv-10018"},
+    {id:"e-db-epstein",      a:"bank-deutsche",   b:"jeffrey-epstein",   kind:"proven", label:"client after JPMorgan; settled (no admission)", src:"Doe v. Deutsche filings"},
+
+    // indicted, presumed innocent
+    {id:"e-combs-sdny",      a:"sean-combs",      b:"court-sdny",        kind:"indicted", label:"RICO + sex-trafficking indictment (2024)", src:"SDNY 24-cr-542"},
+
+    // mentioned only — appearances in unsealed exhibits, no charges
+    {id:"e-clinton-flight",  a:"bill-clinton",    b:"jeffrey-epstein",   kind:"appearance", label:"flight-log appearance (no charges)", src:"unsealed exhibits, Doe v. Maxwell 15-cv-7433"},
+    {id:"e-dershowitz-dep",  a:"alan-dershowitz", b:"jeffrey-epstein",   kind:"appearance", label:"named in deposition; denied; defamation suits won", src:"unsealed deposition exhibits"},
+    {id:"e-wexner-record",   a:"leslie-wexner",   b:"jeffrey-epstein",   kind:"appearance", label:"former patron · no charges", src:"L Brands disclosures 2020"},
+    {id:"e-trump-flight",    a:"donald-trump",    b:"jeffrey-epstein",   kind:"appearance", label:"flight-log appearance (no Epstein-related charges)", src:"unsealed flight-log exhibits"},
+  ];
+
+  const COLOR = {dec:"#c4576b", liv:"#6b4a8b", ind:"#d99652", men:"#a39179", bank:"#4a7ba8", court:"#5d8c4a"};
+
+  /* ── force-directed layout ──────────────────────────────────── */
+  const W0 = 1200, H0 = 680;
+  // initial random spread, but seeded so it's stable
+  let seed = 7;
+  function rnd(){ seed = (seed*9301+49297)%233280; return seed/233280; }
+  for (const n of NODES){
+    n.x = (rnd()-0.5) * W0 * 0.7;
+    n.y = (rnd()-0.5) * H0 * 0.7;
+    n.vx = 0; n.vy = 0;
+  }
+  function forceLayout(iters){
+    const REPEL = 4400, LINK = 0.022, DAMP = 0.78, CENTER = 0.0035, IDEAL = 130;
+    for (let it=0; it<iters; it++){
+      // repulsion
+      for (let i=0;i<NODES.length;i++) for (let j=i+1;j<NODES.length;j++){
+        const a = NODES[i], b = NODES[j];
+        let dx = b.x-a.x, dy = b.y-a.y, d2 = dx*dx+dy*dy+10;
+        const f = REPEL/d2;
+        const d = Math.sqrt(d2);
+        const fx = f*dx/d, fy = f*dy/d;
+        a.vx -= fx; a.vy -= fy;
+        b.vx += fx; b.vy += fy;
+      }
+      // attraction along edges
+      for (const e of EDGES){
+        const a = NODES.find(n=>n.id===e.a), b = NODES.find(n=>n.id===e.b);
+        if (!a || !b) continue;
+        const dx = b.x-a.x, dy = b.y-a.y, d = Math.sqrt(dx*dx+dy*dy)+0.1;
+        const f = LINK*(d-IDEAL);
+        const fx = f*dx/d, fy = f*dy/d;
+        a.vx += fx; a.vy += fy;
+        b.vx -= fx; b.vy -= fy;
+      }
+      // gentle pull to center + integrate
+      for (const n of NODES){
+        n.vx -= n.x*CENTER; n.vy -= n.y*CENTER;
+        n.x += n.vx; n.y += n.vy;
+        n.vx *= DAMP; n.vy *= DAMP;
+        // clamp
+        n.x = Math.max(-W0/2+50, Math.min(W0/2-50, n.x));
+        n.y = Math.max(-H0/2+50, Math.min(H0/2-50, n.y));
+      }
+    }
+  }
+  forceLayout(420);
+
+  /* ── render ─────────────────────────────────────────────────── */
+  const state = { kind:'all', cat:'all' };
+  document.querySelectorAll('.filter-group').forEach(g => {
+    const key = g.dataset.group;
+    g.querySelectorAll('.ft').forEach(b => {
+      b.addEventListener('click', () => {
+        g.querySelectorAll('.ft').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        state[key] = b.dataset[key];
+        render();
+      });
+    });
+  });
+
+  function bindVote(edgeId){
+    const upBtn = voteRow.querySelector('.vbtn.up');
+    const dnBtn = voteRow.querySelector('.vbtn.down');
+    function refresh(){
+      const v = profile.votes[edgeId];
+      upBtn.classList.toggle('on', v==='up');
+      dnBtn.classList.toggle('on', v==='down');
+      upBtn.textContent = v==='up'?'✓ agree':'agree';
+      dnBtn.textContent = v==='down'?'✓ disagree':'disagree';
+    }
+    function vote(dir){
+      const ts = nowUTC();
+      if (profile.votes[edgeId]===dir){
+        delete profile.votes[edgeId];
+        profile.history.unshift({ ts, kind:'remove', id:edgeId });
+      } else {
+        profile.votes[edgeId] = dir;
+        profile.history.unshift({ ts, kind:dir, id:edgeId });
+      }
+      if (profile.history.length>200) profile.history.length=200;
+      save();
+      refresh();
+    }
+    upBtn.onclick = ()=> vote('up');
+    dnBtn.onclick = ()=> vote('down');
+    refresh();
+  }
+
+  function showNode(n){
+    dName.textContent = n.label;
+    dMeta.textContent = n.meta;
+    dBody.textContent = n.body;
+    dSrc.textContent  = 'source: ' + n.src;
+    voteRow.hidden = true;
+    detail.hidden = false;
+  }
+  function showEdge(e, a, b){
+    dName.textContent = `${a.label} ↔ ${b.label}`;
+    dMeta.textContent = e.kind + ' · ' + e.label;
+    dBody.textContent = `Connection between ${a.label} and ${b.label} per the public record. Vote agree/disagree if you think the connection is or isn't real.`;
+    dSrc.textContent  = 'source: ' + e.src;
+    voteRow.hidden = false;
+    bindVote(e.id);
+    detail.hidden = false;
+  }
+
+  function render(){
+    const W = svg.clientWidth || 1200, H = svg.clientHeight || 680;
+    svg.setAttribute('viewBox', `${-W/2} ${-H/2} ${W} ${H}`);
+    svg.innerHTML = '';
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('id','viewport'); svg.appendChild(g);
+
+    const visibleNodeIds = new Set();
+    for(const e of EDGES){
+      if (state.kind !== 'all' && e.kind !== state.kind) continue;
+      const a = NODES.find(n=>n.id===e.a), b = NODES.find(n=>n.id===e.b);
+      if(!a || !b) continue;
+      if (state.cat !== 'all' && a.cat !== state.cat && b.cat !== state.cat) continue;
+      visibleNodeIds.add(a.id); visibleNodeIds.add(b.id);
+      const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      ln.setAttribute('class', `edge ${e.kind}`);
+      ln.setAttribute('x1', a.x); ln.setAttribute('y1', a.y);
+      ln.setAttribute('x2', b.x); ln.setAttribute('y2', b.y);
+      ln.addEventListener('click', (ev)=> { ev.stopPropagation(); showEdge(e, a, b); });
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+      t.textContent = `${a.label} ↔ ${b.label}: ${e.label}`;
+      ln.appendChild(t);
+      g.appendChild(ln);
+    }
+
+    const showAllNodes = (state.kind === 'all');
+    for(const n of NODES){
+      if (state.cat !== 'all' && n.cat !== state.cat && !visibleNodeIds.has(n.id)) continue;
+      if (!showAllNodes && !visibleNodeIds.has(n.id)) continue;
+      const grp = document.createElementNS('http://www.w3.org/2000/svg','g');
+      grp.setAttribute('class','node');
+      grp.setAttribute('transform', `translate(${n.x},${n.y})`);
+      grp.dataset.id = n.id;
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('r', n.r);
+      c.setAttribute('fill', COLOR[n.cat] || '#a39179');
+      c.setAttribute('opacity', n.cat === 'men' ? 0.78 : 0.92);
+      grp.appendChild(c);
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('dy', n.r + 16);
+      t.textContent = n.label;
+      grp.appendChild(t);
+      grp.addEventListener('click', (ev)=>{ ev.stopPropagation(); showNode(n); });
+      g.appendChild(grp);
+    }
+  }
+  render();
+  window.addEventListener('resize', render);
+
+  /* zoom + pan + node-drag */
+  let scale = 1, tx = 0, ty = 0;
+  function apply(){
+    const v = document.getElementById('viewport');
+    if(v) v.setAttribute('transform', `translate(${tx},${ty}) scale(${scale})`);
+  }
+  document.getElementById('zoom-in').onclick = ()=>{ scale = Math.min(3, scale*1.2); apply(); };
+  document.getElementById('zoom-out').onclick= ()=>{ scale = Math.max(0.4, scale/1.2); apply(); };
+  document.getElementById('zoom-reset').onclick = ()=>{ scale = 1; tx = 0; ty = 0; apply(); };
+  document.getElementById('reflow').onclick = ()=>{ forceLayout(220); render(); };
+
+  let panning = false, draggingNode = null;
+  let sx=0, sy=0, ox=0, oy=0, moved = 0;
+  svg.addEventListener('mousedown', (e)=>{
+    moved = 0;
+    // detect node under cursor
+    const target = e.target.closest('.node');
+    if (target){
+      const id = target.dataset.id;
+      const node = NODES.find(n=>n.id===id);
+      if (node){ draggingNode = node; sx = e.clientX; sy = e.clientY; }
+      return;
+    }
+    panning = true; sx = e.clientX; sy = e.clientY; ox = tx; oy = ty;
+    svg.classList.add('drag');
+  });
+  window.addEventListener('mouseup', ()=>{ panning = false; draggingNode = null; svg.classList.remove('drag'); });
+  window.addEventListener('mousemove', (e)=>{
+    moved += Math.abs(e.movementX) + Math.abs(e.movementY);
+    if (draggingNode){
+      const W = svg.clientWidth || 1200;
+      const k = (W) / (W) / scale;
+      draggingNode.x += e.movementX / scale;
+      draggingNode.y += e.movementY / scale;
+      render();
+      return;
+    }
+    if (panning){
+      tx = ox + (e.clientX - sx);
+      ty = oy + (e.clientY - sy);
+      apply();
+    }
+  });
+  svg.addEventListener('click', (e)=> { if (moved > 4) { e.stopPropagation(); e.preventDefault(); }}, true);
+  svg.addEventListener('wheel', (e)=>{
+    if(!e.ctrlKey && !e.metaKey) return;
+    e.preventDefault();
+    const f = e.deltaY < 0 ? 1.1 : 1/1.1;
+    scale = Math.max(0.4, Math.min(3, scale*f));
+    apply();
+  }, {passive:false});
+
+  document.body.addEventListener('click', (e)=>{
+    if(detail.contains(e.target)) return;
+    if(svg.contains(e.target)) return;
+    detail.hidden = true; voteRow.hidden = true;
+  });
+})();
+</script>
+</body>
+</html>

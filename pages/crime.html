@@ -53,16 +53,10 @@
 
   <h2>godding's bubbles — who did what, at scale</h2>
   <p class="dim">
-    the same list, but committed by people with armies and bureaucracies
-    behind them. each bubble is a deceased historical figure whose mass
-    civilian-death toll is mainstream scholarship; size = mid-point of the
-    cited range. <strong>scroll = zoom · drag = pan · click any bubble</strong>
-    for the range and a representative source. dashed lines = real historical
-    relationships. full-screen explorer on
-    <a href="criminals.html">criminals</a>.
+    the same list, but committed by people with armies and bureaucracies behind them. each bubble is a deceased historical figure whose mass civilian-death toll is mainstream scholarship; size = mid-point of the cited range. <strong>scroll = zoom · drag = pan · click any bubble</strong> for the range and source. for filters by century / region and a clearer bar-chart view see <a href="criminals.html">criminals</a>.
   </p>
 
-  <div class="bubble-wrap" style="height:480px" id="bubble-wrap">
+  <div class="bubble-wrap" style="height:520px" id="bubble-wrap">
     <svg id="bubbles" preserveAspectRatio="xMidYMid meet" aria-label="bubble chart of historical mass-atrocity figures"></svg>
     <div id="detail" class="bubble-detail" hidden>
       <button class="close" aria-label="close" id="detail-close">×</button>
@@ -108,4 +102,49 @@
 
   <div class="note">
     <strong>have an opinion?</strong> head to <a href="vote.html">vote</a> to
-    agree or disagree with each item on
+    agree or disagree with each item on this list. you can change your vote;
+    the change is recorded with a UTC timestamp.
+  </div>
+</main>
+
+<aside class="sidebar">
+  <h4>read alongside</h4>
+  <ul>
+    <li><a href="criminals.html">criminals — bar + bubble</a></li>
+    <li><a href="justice.html">justice — network</a></li>
+    <li><a href="religion.html">religion</a></li>
+    <li><a href="vote.html">vote</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="swarm.html">swarm</a> · <a href="vote.html">vote</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">universal across cultures.</div>
+</footer>
+
+<script src="../assets/bubbles.js"></script>
+<script>
+  (function(){
+    try{
+      const KEY='godding.profile';
+      const p = JSON.parse(localStorage.getItem(KEY) || 'null') || { id:Math.random().toString(36).slice(2,10), created:new Date().toISOString().slice(0,10), daysActive:[], pagesVisited:[], votes:{}, history:[] };
+      const today = new Date().toISOString().slice(0,10);
+      if(!p.daysActive.includes(today)) p.daysActive.push(today);
+      if(!p.pagesVisited.includes('crime')) p.pagesVisited.push('crime');
+      localStorage.setItem(KEY, JSON.stringify(p));
+    }catch{}
+  })();
+  // inline crime page chart — bigger viewBox, more iters, smaller bubbles
+  GoddingBubbles.renderBubbles({
+    svgEl: document.getElementById('bubbles'),
+    detailEl: document.getElementById('detail'),
+    viewBox:[1300, 720], scale: 0.0008, packIters: 2400, gap: 18, small: false,
+    mode: 'historical'
+  });
+  document.getElementById('detail-close').addEventListener('click', e => {
+    document.getElementById('detail').hidden = true;
+  });
+</script>
+</body>
+</html>
