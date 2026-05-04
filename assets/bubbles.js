@@ -19,10 +19,29 @@ const FIGURES = [
   { id:'idi',     name:'Idi Amin',            years:'c. 1925–2003', n:3e5, range:'~100k–500k (Ugandan repression, 1971–79)', summary:'Ugandan dictator. Mass political killings during his rule.', src:'standard African political histories', tier:0, links:[] },
 ];
 
+/* CURRENT (2020s) figures — issue-level only, no living people named.
+   Each entry tracks a publicly documented humanitarian-toll situation; the actor
+   is described by role (regime, militia, junta) rather than by personal name to
+   avoid defamation. Numbers are mid-points of mainstream estimates with sources. */
+const CURRENT_FIGURES = [
+  { id:'cur-ukraine', name:'invasion of Ukraine',         years:'2022– ',  n:5e5,  range:'~250k–800k civilian + military deaths cumulative (open-source estimates)', summary:'Mass-scale interstate war in Europe; documented strikes on civilian infrastructure, deportations, and mass-grave findings in occupied areas.', src:'UN OHCHR; Mediazona/BBC tally; ICRC reports', tier:0, links:[] },
+  { id:'cur-yemen',   name:'Yemen war + blockade',        years:'2014– ',  n:3.7e5,range:'~370k+ direct + indirect (UNDP, 2021 baseline; growing)', summary:'Coalition + Houthi conflict with naval blockade and famine-level food insecurity.', src:'UNDP "Assessing the Impact of War in Yemen" (2021); ACLED', tier:1, links:[] },
+  { id:'cur-tigray',  name:'Tigray war',                  years:'2020–2022', n:6e5,range:'~300k–800k excess deaths', summary:'Ethiopian federal + Eritrean forces vs. TPLF; widespread civilian massacres and famine documented.', src:'Ghent University estimate; Amnesty + HRW reports', tier:0, links:[] },
+  { id:'cur-syria',   name:'Syrian war (post-2020 phase)',years:'2011– ',  n:5.8e5,range:'~580k+ cumulative; tens of thousands of "disappearances"', summary:'Long civil war with documented sieges, chemical-weapon use, and detention-system abuses.', src:'SNHR; UN COI; OPCW', tier:0, links:[] },
+  { id:'cur-myanmar', name:'Myanmar coup + war',          years:'2021– ',  n:5e4, range:'~50k+ killed; over 3M displaced', summary:'Military junta vs. resistance forces; documented airstrikes on civilians and village burnings.', src:'AAPP Burma; UN OCHA; ACLED', tier:1, links:[] },
+  { id:'cur-sudan',   name:'Sudan war (RSF vs SAF)',      years:'2023– ',  n:1.5e5,range:'~150k killed (UN/Yale est.); largest displacement crisis on record', summary:'Two militaries fighting over the capital with widespread ethnic-targeted killings in Darfur.', src:'Yale Humanitarian Lab; UN OCHA; HRW', tier:0, links:[] },
+  { id:'cur-gaza',    name:'Israel–Gaza war (since Oct 2023)', years:'2023– ', n:5e4,range:'~50k+ Gazan deaths reported (Gaza MoH/Lancet); ~1,200 Israeli on Oct 7', summary:'High civilian-casualty urban war following Hamas-led attack; documented strikes on hospitals, journalists, aid workers.', src:'Lancet correspondence 2024; UN OCHA; HRW; Gaza MoH; IDF briefings', tier:0, links:[] },
+  { id:'cur-dprk',    name:'DPRK political-prison system',years:'1990s– ',  n:1.5e5,range:'~100k–200k currently in camps; tens of thousands deaths/decade', summary:'Long-running gulag-style camp system documented by escapee testimony and satellite imagery.', src:'UN COI on DPRK (2014); Committee for Human Rights in North Korea', tier:1, links:[] },
+  { id:'cur-uyghur',  name:'Xinjiang internment',         years:'2017– ',  n:1e6, range:'~1M+ detained; deaths uncertain, mass forced-labour and family separation', summary:'Documented internment of Uyghur and other Turkic Muslims; coercive birth-control measures.', src:'UN OHCHR (2022) "Xinjiang assessment"; Australian Strategic Policy Institute', tier:1, links:[] },
+  { id:'cur-mexico',  name:'Mexico cartel violence',      years:'2006– ',  n:4e5, range:'~400k+ homicides since 2006; ~110k missing', summary:'Cartel-driven mass-homicide pattern with documented massacres and disappearances.', src:'Mexican government statistics; CNDH; HRW', tier:2, links:[] },
+];
+
 const TIER_COLORS = ['#d96936', '#c89a3e', '#6b4a8b', '#4a7ba8'];
+/* current bubbles use a different palette so the user can tell at a glance */
+const TIER_COLORS_CURRENT = ['#5d8c4a', '#4a7ba8', '#a39179', '#c4576b'];
 
 function renderBubbles(opts) {
-  /* opts: { svgEl, detailEl, viewBox:[w,h], scale, packIters, small, gap } */
+  /* opts: { svgEl, detailEl, viewBox:[w,h], scale, packIters, small, gap, mode } */
   const NS = 'http://www.w3.org/2000/svg';
   const W = opts.viewBox ? opts.viewBox[0] : 1100;
   const H = opts.viewBox ? opts.viewBox[1] : 560;
@@ -32,10 +51,19 @@ function renderBubbles(opts) {
   const cx = W / 2, cy = H / 2;
   const small = !!opts.small;
 
+  // pick which dataset to draw based on mode
+  const mode = opts.mode || 'historical';
+  const sourceArrays = (mode === 'current')
+    ? [{ arr: CURRENT_FIGURES, kind: 'current' }]
+    : (mode === 'both')
+      ? [{ arr: FIGURES, kind: 'historical' }, { arr: CURRENT_FIGURES, kind: 'current' }]
+      : [{ arr: FIGURES, kind: 'historical' }];
+  const FLAT = sourceArrays.flatMap(s => s.arr.map(f => ({ ...f, _kind: s.kind })));
+
   // Initial spread on a grid-ish layout so packing has space to work
-  const N = FIGURES.length;
+  const N = FLAT.length;
   const cols = Math.ceil(Math.sqrt(N * (W / H)));
-  const data = FIGURES.map((f, i) => {
+  const data = FLAT.map((f, i) => {
     const rr = Math.max(small ? 14 : 20, Math.sqrt(f.n * SCALE / Math.PI) * (small ? 6.5 : 8.5));
     const col = i % cols, row = Math.floor(i / cols);
     return {
@@ -256,7 +284,8 @@ function renderBubbles(opts) {
   }
 
   for (const f of data) {
-    const color = TIER_COLORS[f.tier % TIER_COLORS.length];
+    const palette = (f._kind === 'current') ? TIER_COLORS_CURRENT : TIER_COLORS;
+    const color = palette[f.tier % palette.length];
     const g = document.createElementNS(NS, 'g');
     g.setAttribute('style', 'cursor:pointer');
 
@@ -318,4 +347,4 @@ function renderBubbles(opts) {
 }
 
 /* ESM-friendly export for any future module use */
-if (typeof window !== 'undefined') { window.GoddingBubbles = { FIGURES, renderBubbles }; }
+if (typeof window !== 'undefined') { window.GoddingBubbles = { FIGURES, CURRENT_FIGURES, renderBubbles }; }

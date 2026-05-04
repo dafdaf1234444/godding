@@ -1,0 +1,424 @@
+{
+  "generated": "2026-05-04T18:29:10Z",
+  "n_pages": 17,
+  "thresh": 0.42,
+  "groups": [
+    {
+      "pages": [
+        "build",
+        "swarm"
+      ],
+      "label_tokens": [
+        "html",
+        "json",
+        "run"
+      ],
+      "size": 2
+    },
+    {
+      "pages": [
+        "ants"
+      ],
+      "label_tokens": [
+        "const",
+        "ctx",
+        "ant"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "belief"
+      ],
+      "label_tokens": [
+        "noise",
+        "think",
+        "patterns"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "crime"
+      ],
+      "label_tokens": [
+        "list",
+        "modern",
+        "law"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "criminals"
+      ],
+      "label_tokens": [
+        "ranges",
+        "bubble",
+        "historical"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "depends"
+      ],
+      "label_tokens": [
+        "theorem",
+        "app",
+        "lemma"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "good-bad"
+      ],
+      "label_tokens": [
+        "neighbours",
+        "cells",
+        "environment"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "health"
+      ],
+      "label_tokens": [
+        "week",
+        "day",
+        "alcohol"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "justice"
+      ],
+      "label_tokens": [
+        "court",
+        "alleged",
+        "indictments"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "now"
+      ],
+      "label_tokens": [
+        "amp",
+        "claim",
+        "climate"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "politics"
+      ],
+      "label_tokens": [
+        "say",
+        "gap",
+        "political"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "reach"
+      ],
+      "label_tokens": [
+        "marketing",
+        "godding",
+        "accepted"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "religion"
+      ],
+      "label_tokens": [
+        "god",
+        "loop",
+        "heaven"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "sustainability"
+      ],
+      "label_tokens": [
+        "load-bearing",
+        "theatre",
+        "less"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "vote"
+      ],
+      "label_tokens": [
+        "const",
+        "profile",
+        "votes"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
+        "index"
+      ],
+      "label_tokens": [
+        "knowledge",
+        "play",
+        "farm"
+      ],
+      "size": 1
+    }
+  ],
+  "siblings": {
+    "ants": [
+      {
+        "page": "vote",
+        "sim": 0.3138
+      },
+      {
+        "page": "now",
+        "sim": 0.196
+      },
+      {
+        "page": "build",
+        "sim": 0.0645
+      }
+    ],
+    "belief": [
+      {
+        "page": "religion",
+        "sim": 0.2896
+      },
+      {
+        "page": "index",
+        "sim": 0.1736
+      },
+      {
+        "page": "now",
+        "sim": 0.1316
+      }
+    ],
+    "build": [
+      {
+        "page": "swarm",
+        "sim": 0.4291
+      },
+      {
+        "page": "reach",
+        "sim": 0.2817
+      },
+      {
+        "page": "index",
+        "sim": 0.1495
+      }
+    ],
+    "crime": [
+      {
+        "page": "criminals",
+        "sim": 0.2234
+      },
+      {
+        "page": "religion",
+        "sim": 0.1717
+      },
+      {
+        "page": "index",
+        "sim": 0.1465
+      }
+    ],
+    "criminals": [
+      {
+        "page": "crime",
+        "sim": 0.2234
+      },
+      {
+        "page": "index",
+        "sim": 0.1584
+      },
+      {
+        "page": "justice",
+        "sim": 0.1424
+      }
+    ],
+    "depends": [
+      {
+        "page": "index",
+        "sim": 0.1698
+      },
+      {
+        "page": "now",
+        "sim": 0.1214
+      },
+      {
+        "page": "reach",
+        "sim": 0.119
+      }
+    ],
+    "good-bad": [
+      {
+        "page": "index",
+        "sim": 0.1859
+      },
+      {
+        "page": "belief",
+        "sim": 0.1206
+      },
+      {
+        "page": "reach",
+        "sim": 0.0793
+      }
+    ],
+    "health": [
+      {
+        "page": "sustainability",
+        "sim": 0.1086
+      },
+      {
+        "page": "politics",
+        "sim": 0.105
+      },
+      {
+        "page": "reach",
+        "sim": 0.1042
+      }
+    ],
+    "justice": [
+      {
+        "page": "criminals",
+        "sim": 0.1424
+      },
+      {
+        "page": "index",
+        "sim": 0.1356
+      },
+      {
+        "page": "now",
+        "sim": 0.1303
+      }
+    ],
+    "now": [
+      {
+        "page": "vote",
+        "sim": 0.364
+      },
+      {
+        "page": "index",
+        "sim": 0.2077
+      },
+      {
+        "page": "ants",
+        "sim": 0.196
+      }
+    ],
+    "politics": [
+      {
+        "page": "swarm",
+        "sim": 0.1196
+      },
+      {
+        "page": "index",
+        "sim": 0.1175
+      },
+      {
+        "page": "now",
+        "sim": 0.1065
+      }
+    ],
+    "reach": [
+      {
+        "page": "swarm",
+        "sim": 0.2941
+      },
+      {
+        "page": "build",
+        "sim": 0.2817
+      },
+      {
+        "page": "now",
+        "sim": 0.1563
+      }
+    ],
+    "religion": [
+      {
+        "page": "belief",
+        "sim": 0.2896
+      },
+      {
+        "page": "index",
+        "sim": 0.1879
+      },
+      {
+        "page": "crime",
+        "sim": 0.1717
+      }
+    ],
+    "sustainability": [
+      {
+        "page": "health",
+        "sim": 0.1086
+      },
+      {
+        "page": "reach",
+        "sim": 0.093
+      },
+      {
+        "page": "criminals",
+        "sim": 0.0902
+      }
+    ],
+    "swarm": [
+      {
+        "page": "build",
+        "sim": 0.4291
+      },
+      {
+        "page": "reach",
+        "sim": 0.2941
+      },
+      {
+        "page": "index",
+        "sim": 0.184
+      }
+    ],
+    "vote": [
+      {
+        "page": "now",
+        "sim": 0.364
+      },
+      {
+        "page": "ants",
+        "sim": 0.3138
+      },
+      {
+        "page": "belief",
+        "sim": 0.1007
+      }
+    ],
+    "index": [
+      {
+        "page": "now",
+        "sim": 0.2077
+      },
+      {
+        "page": "religion",
+        "sim": 0.1879
+      },
+      {
+        "page": "good-bad",
+        "sim": 0.1859
+      }
+    ]
+  }
+}

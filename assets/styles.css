@@ -294,6 +294,70 @@ kbd{ font-family: var(--mono); font-size: 10px; padding: 2px 6px; border: 1px so
 .branch.swarm .tag-pill  { background: rgba(107,74,139,.10); color: var(--plum); border-color: rgba(107,74,139,.30); }
 .branch.build          { --branch-color: var(--sky); }
 .branch.build .tag-pill { background: rgba(74,123,168,.10); color: var(--sky); border-color: rgba(74,123,168,.30); }
+.branch.sim            { --branch-color: var(--gold); }
+.branch.sim .tag-pill  { background: rgba(200,154,62,.12); color: var(--gold); border-color: rgba(200,154,62,.30); }
+.branch.reach          { --branch-color: var(--sun); }
+.branch.reach .tag-pill{ background: rgba(217,105,54,.10); color: var(--sun); border-color: rgba(217,105,54,.30); }
+
+/* knowledge-farm section on the home page */
+.farm{
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 22px 26px 24px;
+  margin: 22px 0 28px;
+}
+.farm h2{ font-family: var(--serif); font-weight: 400; font-size: 26px; margin: 0 0 12px; color: var(--ink); }
+.farm h2 em{ font-style: italic; color: var(--sun); }
+.farm-list{
+  margin: 6px 0 14px 22px;
+  font-family: var(--serif);
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1.62;
+}
+.farm-list li{ margin: 6px 0; padding-left: 4px; }
+.farm-list strong{ color: var(--ink); font-weight: 600; }
+.examples-intro{
+  font-family: var(--mono);
+  font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-mute); margin: 14px 0 6px;
+}
+.examples{
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  margin-top: 8px;
+}
+.examples .ex{
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+}
+.examples .ex-cap{
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 4px;
+}
+.examples .ex p{ margin: 0; font-family: var(--sans); font-size: 13.5px; color: var(--ink-2); line-height: 1.55; }
+
+/* grid section captions */
+.grid-cap{
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--ink-mute); font-weight: 500;
+  margin: 22px 0 10px; padding-bottom: 6px;
+  border-bottom: 1px solid var(--line);
+}
+.tree-grid.tight{ gap: 12px; margin-bottom: 6px; }
+
+/* dataset-mode toggle (criminals page) */
+.mode-toggle .mt.active{
+  background: var(--ink) !important;
+  color: var(--cream) !important;
+  border-color: var(--ink) !important;
+}
+.mode-toggle .mt:hover{ background: var(--cream); }
 
 /* page (subpage) */
 .page h1{

@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>dependencies — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .dep-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px; }
+  #depsvg{ width:100%; height:560px; display:block; }
+  .node-rect{ fill:var(--paper-2); stroke:#1f1813; stroke-width:1; cursor:pointer; transition:transform var(--t); }
+  .node-rect.theorem{ stroke:var(--rose); }
+  .node-rect.lemma{ stroke:var(--gold); }
+  .node-rect.def{ stroke:var(--sky); }
+  .node-rect.application{ stroke:var(--leaf); }
+  .node-label{ font-family:var(--mono); font-size:11px; fill:var(--ink); pointer-events:none; }
+  .node-kind{ font-family:var(--mono); font-size:9.5px; fill:var(--ink-mute); letter-spacing:.1em; text-transform:uppercase; pointer-events:none; }
+  .dep-edge{ stroke:rgba(31,24,19,.40); fill:none; stroke-width:1.4; marker-end:url(#arrow); }
+  .legend2{ display:flex; flex-wrap:wrap; gap:14px; margin:12px 0; font-family:var(--mono); font-size:12px; color:var(--ink-2); }
+  .legend2 span.tag{ display:inline-block; padding:2px 8px; border-radius:6px; border:1px solid; font-size:11px; }
+  .key-table{ width:100%; border-collapse:collapse; margin:12px 0 18px; font-family:var(--mono); font-size:12.5px; }
+  .key-table th, .key-table td{ text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  .key-table th{ color:var(--ink-mute); font-weight:500; letter-spacing:.1em; text-transform:uppercase; font-size:10.5px; }
+  .key-table td a{ color:var(--sun); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / dependencies</p>
+  <p class="kicker">dependency map · oxford-notes style</p>
+  <h1>dependencies — <em>which page rests on which.</em></h1>
+  <p class="dim">Treating each page like a node in a math course: every claim either rests on a definition, builds on a previous result, or is an application. Read in topological order.</p>
+
+  <div class="legend2">
+    <span class="tag" style="border-color:var(--sky); color:var(--sky)">definition</span>
+    <span class="tag" style="border-color:var(--gold); color:var(--gold)">lemma · supporting claim</span>
+    <span class="tag" style="border-color:var(--rose); color:var(--rose)">theorem · main claim</span>
+    <span class="tag" style="border-color:var(--leaf); color:var(--leaf)">application</span>
+  </div>
+
+  <div class="dep-wrap">
+    <svg id="depsvg" viewBox="0 0 1200 560" preserveAspectRatio="xMidYMid meet" aria-label="dependency graph">
+      <defs>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M0,0 L10,5 L0,10 z" fill="rgba(31,24,19,.55)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+
+  <h2 style="margin-top:22px">the index, in topological order</h2>
+  <table class="key-table">
+    <thead><tr><th>id</th><th>kind</th><th>page</th><th>statement</th><th>rests on</th></tr></thead>
+    <tbody>
+      <tr><td>D1</td><td>def</td><td><a href="belief.html">belief</a></td><td>universe = compression of itself into compact models</td><td>—</td></tr>
+      <tr><td>D2</td><td>def</td><td><a href="belief.html">belief</a></td><td>life = a compact model that runs itself</td><td>D1</td></tr>
+      <tr><td>D3</td><td>def</td><td><a href="belief.html">belief</a></td><td>consciousness = a model aware it's running</td><td>D2</td></tr>
+      <tr><td>L1</td><td>lemma</td><td><a href="good-bad.html">good vs. bad</a></td><td>cooperators that cluster outlast lone defectors</td><td>D2</td></tr>
+      <tr><td>L2</td><td>lemma</td><td><a href="ants.html">ants</a></td><td>simple agents + stigmergy → emergent route-finding</td><td>D2</td></tr>
+      <tr><td>L3</td><td>lemma</td><td><a href="religion.html">religion</a></td><td>shared moral fictions = compression for cooperation</td><td>D2, L1</td></tr>
+      <tr><td>T1</td><td>theorem</td><td><a href="crime.html">crime</a></td><td>independent cultures converge on the same short list of wrongs</td><td>L1, L3</td></tr>
+      <tr><td>T2</td><td>theorem</td><td><a href="politics.html">politics</a></td><td>"public mouth ≠ private mind" — most disagreement is performance</td><td>L3</td></tr>
+      <tr><td>T3</td><td>theorem</td><td><a href="health.html">health</a></td><td>doctors converge on a small consensus list — same shape as crime list</td><td>T1</td></tr>
+      <tr><td>T4</td><td>theorem</td><td><a href="sustainability.html">sustainability</a></td><td>load-bearing actions ≪ symbolic theatre — same imbalance as politics</td><td>T2</td></tr>
+      <tr><td>A1</td><td>app</td><td><a href="criminals.html">criminals</a></td><td>scale up T1 — the same wrongs at army-and-bureaucracy size</td><td>T1</td></tr>
+      <tr><td>A2</td><td>app</td><td><a href="justice.html">justice</a></td><td>court-record-only network — proof vs. allegation</td><td>T1, A1</td></tr>
+      <tr><td>A3</td><td>app</td><td><a href="now.html">now</a></td><td>contestable current claims, linked to recent science</td><td>T2, T4</td></tr>
+      <tr><td>A4</td><td>app</td><td><a href="vote.html">vote</a></td><td>recorded voting + reputation → public falsifiability</td><td>D3, A3</td></tr>
+      <tr><td>A5</td><td>app</td><td><a href="swarm.html">swarm</a></td><td>multi-agent loop tightens the site itself</td><td>D3, T2, A4</td></tr>
+      <tr><td>A6</td><td>app</td><td><a href="reach.html">reach</a></td><td>organic distribution plan; share-kit auto-generated</td><td>A5</td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top:18px">why this layout</h2>
+  <p>
+    The dependency graph is the cheap version of a <em>theorem prover</em>: if you don't believe the leaves you don't have to believe the roots. If you find a definition wrong, every node downstream is suspect — and the swarm should remove or re-derive it. Conversely, when a new theorem is added, the swarm checks that it cites only nodes already in the graph.
+  </p>
+
+  <p class="dim" style="margin-top:14px">corrections welcome. open an issue and the swarm reads it on the next run.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>oxford-notes flavour</h4>
+  <ul>
+    <li>each claim has an id</li>
+    <li>each claim cites its parents</li>
+    <li>cycles are forbidden</li>
+    <li>any leaf can be falsified</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="belief.html">D1–D3 — belief</a></li>
+    <li><a href="crime.html">T1 — crime</a></li>
+    <li><a href="swarm.html">A5 — swarm</a></li>
+    <li><a href="../changelog/index.html">changelog</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">topological order. cycles forbidden.</div>
+</footer>
+
+<script>
+/* render dependency graph */
+(function(){
+  const svg = document.getElementById('depsvg');
+  // layered DAG: x = layer, y = position within layer
+  const NODES = [
+    {id:"D1", label:"D1 universe-as-compression", kind:"def",       href:"belief.html",     col:0, row:1},
+    {id:"D2", label:"D2 life = compact runner",   kind:"def",       href:"belief.html",     col:1, row:1},
+    {id:"D3", label:"D3 consciousness",           kind:"def",       href:"belief.html",     col:1, row:2.5},
+    {id:"L1", label:"L1 cooperators cluster",     kind:"lemma",     href:"good-bad.html",   col:2, row:0},
+    {id:"L2", label:"L2 stigmergy",               kind:"lemma",     href:"ants.html",       col:2, row:1},
+    {id:"L3", label:"L3 moral fictions",          kind:"lemma",     href:"religion.html",   col:2, row:2},
+    {id:"T1", label:"T1 universal wrongs",        kind:"theorem",   href:"crime.html",      col:3, row:0},
+    {id:"T2", label:"T2 mouth ≠ mind",            kind:"theorem",   href:"politics.html",   col:3, row:1.4},
+    {id:"T3", label:"T3 health consensus",        kind:"theorem",   href:"health.html",     col:4, row:0},
+    {id:"T4", label:"T4 sustainability theatre",  kind:"theorem",   href:"sustainability.html", col:4, row:1.4},
+    {id:"A1", label:"A1 criminals at scale",      kind:"application", href:"criminals.html", col:4, row:2.6},
+    {id:"A2", label:"A2 justice network",         kind:"application", href:"justice.html",   col:5, row:2.6},
+    {id:"A3", label:"A3 now",                     kind:"application", href:"now.html",       col:5, row:1.4},
+    {id:"A4", label:"A4 vote",                    kind:"application", href:"vote.html",      col:6, row:1.4},
+    {id:"A5", label:"A5 swarm",                   kind:"application", href:"swarm.html",     col:6, row:2.6},
+    {id:"A6", label:"A6 reach",                   kind:"application", href:"reach.html",     col:7, row:2.6},
+  ];
+  const EDGES = [
+    ["D1","D2"], ["D2","D3"], ["D2","L1"], ["D2","L2"], ["D2","L3"],
+    ["L1","L3"], ["L1","T1"], ["L3","T1"], ["L3","T2"],
+    ["T1","T3"], ["T2","T4"], ["T1","A1"], ["A1","A2"], ["T1","A2"],
+    ["T2","A3"], ["T4","A3"], ["A3","A4"], ["D3","A4"],
+    ["D3","A5"], ["T2","A5"], ["A4","A5"], ["A5","A6"]
+  ];
+
+  const W = 1200, H = 560;
+  const colW = (W - 80) / 7; // 8 columns 0..7
+  const rowH = 110;
+
+  function pos(n){
+    return { x: 40 + n.col * colW + colW/2, y: 60 + n.row * rowH };
+  }
+  const byId = Object.fromEntries(NODES.map(n=>[n.id, n]));
+
+  // edges first
+  for(const [a,b] of EDGES){
+    const A = pos(byId[a]), B = pos(byId[b]);
+    const path = document.createElementNS('http://www.w3.org/2000/svg','path');
+    const dx = (B.x - A.x) * 0.5;
+    const d = `M${A.x+62},${A.y} C${A.x+62+dx},${A.y} ${B.x-62-dx},${B.y} ${B.x-62},${B.y}`;
+    path.setAttribute('d', d);
+    path.setAttribute('class','dep-edge');
+    svg.appendChild(path);
+  }
+
+  // nodes
+  for(const n of NODES){
+    const p = pos(n);
+    const g = document.createElementNS('http://www.w3.org/2000/svg','g');
+    g.setAttribute('transform', `translate(${p.x-62},${p.y-22})`);
+    g.style.cursor = 'pointer';
+    g.addEventListener('click', ()=> location.href = n.href);
+
+    const r = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    r.setAttribute('class', `node-rect ${n.kind}`);
+    r.setAttribute('width', 124); r.setAttribute('height', 44);
+    r.setAttribute('rx', 6);
+    g.appendChild(r);
+
+    const k = document.createElementNS('http://www.w3.org/2000/svg','text');
+    k.setAttribute('class','node-kind');
+    k.setAttribute('x', 8); k.setAttribute('y', 14);
+    k.textContent = n.kind;
+    g.appendChild(k);
+
+    const l = document.createElementNS('http://www.w3.org/2000/svg','text');
+    l.setAttribute('class','node-label');
+    l.setAttribute('x', 8); l.setAttribute('y', 31);
+    l.textContent = n.label.length > 22 ? n.label.slice(0,21)+"…" : n.label;
+    g.appendChild(l);
+
+    const title = document.createElementNS('http://www.w3.org/2000/svg','title');
+    title.textContent = n.label;
+    g.appendChild(title);
+
+    svg.appendChild(g);
+  }
+})();
+</script>
+</body>
+</html>

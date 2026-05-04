@@ -14,14 +14,15 @@
   <a class="logo" href="../index.html">godding<span class="dot"></span></a>
   <nav class="nav">
     <a href="belief.html">belief</a><a href="religion.html">religion</a>
-    <a href="good-bad.html">good vs. bad</a><a href="ants.html">ants</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
     <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
     <a href="politics.html">politics</a><a href="now.html">now</a>
-    <a href="reach.html">reach</a>
     <a href="vote.html">vote</a><a href="health.html">health</a>
     <a href="sustainability.html">sustainability</a>
     <a href="swarm.html" class="swarm-link">swarm</a>
-    <a href="build.html">build</a>
+    <a href="depends.html">depends</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
     <a href="../changelog/index.html" class="muted">changelog</a>
   </nav>
 </header>
@@ -153,48 +154,82 @@
     }
 
     function draw(){
-      const grd = ctx.createRadialGradient(W/2,H/2,30,W/2,H/2,Math.max(W,H)*0.7);
-      grd.addColorStop(0,'#0b0c14'); grd.addColorStop(1,'#04050a');
+      // soft ink-on-parchment night sky (matches the rest of the site's warmth)
+      const grd = ctx.createRadialGradient(W/2,H/2,30,W/2,H/2,Math.max(W,H)*0.75);
+      grd.addColorStop(0,'#1a140f'); grd.addColorStop(1,'#0c0805');
       ctx.fillStyle=grd; ctx.fillRect(0,0,W,H);
+
+      // pheromone — warmer + smoother, with light radial smoothing
       const cw=W/GW, ch=H/GH;
+      ctx.globalCompositeOperation = 'lighter';
       for (let j=0;j<GH;j++) for (let i=0;i<GW;i++){
-        const v = pher[j*GW+i]; if (v<0.02) continue;
-        ctx.fillStyle = `rgba(255,178,107,${Math.min(0.32,v*0.5)})`;
-        ctx.fillRect(i*cw, j*ch, cw+1, ch+1);
+        const v = pher[j*GW+i]; if (v<0.015) continue;
+        ctx.fillStyle = `rgba(217,150,82,${Math.min(0.42, v*0.62)})`;
+        ctx.fillRect(i*cw - 1, j*ch - 1, cw+2, ch+2);
       }
+      ctx.globalCompositeOperation = 'source-over';
+
+      // food — brighter green, halo
       for (const f of food){
-        const g = ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,18);
-        g.addColorStop(0,'rgba(76,210,164,0.95)'); g.addColorStop(1,'rgba(76,210,164,0)');
-        ctx.fillStyle=g; ctx.fillRect(f.x-18,f.y-18,36,36);
+        const g = ctx.createRadialGradient(f.x,f.y,0,f.x,f.y,22);
+        g.addColorStop(0,'rgba(120,232,180,1.0)');
+        g.addColorStop(0.5,'rgba(76,210,164,0.55)');
+        g.addColorStop(1,'rgba(76,210,164,0)');
+        ctx.fillStyle=g; ctx.fillRect(f.x-22,f.y-22,44,44);
+        ctx.fillStyle = 'rgba(255,255,255,0.85)';
+        ctx.beginPath(); ctx.arc(f.x, f.y, 1.6, 0, Math.PI*2); ctx.fill();
       }
+
+      // body trails first (under bodies)
       for (const b of bodies){
         if (b.trail.length>=2){
-          ctx.beginPath(); for (let i=0;i<b.trail.length;i++){ const p=b.trail[i]; if(i===0)ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y); }
-          ctx.strokeStyle=b.glow+'0.18)'; ctx.lineWidth=1.4; ctx.stroke();
+          ctx.beginPath();
+          for (let i=0;i<b.trail.length;i++){ const p=b.trail[i]; if(i===0)ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y); }
+          ctx.strokeStyle = b.glow + '0.22)';
+          ctx.lineWidth = 1.6; ctx.stroke();
         }
       }
+      // bodies
       for (const b of bodies){
-        const gh = ctx.createRadialGradient(b.x,b.y,b.r*0.3,b.x,b.y,b.r*1.9);
-        gh.addColorStop(0,b.glow+'0.45)'); gh.addColorStop(1,b.glow+'0)');
-        ctx.fillStyle=gh; ctx.fillRect(b.x-b.r*2,b.y-b.r*2,b.r*4,b.r*4);
-        const g = ctx.createRadialGradient(b.x-b.r*0.4,b.y-b.r*0.4,b.r*0.1,b.x,b.y,b.r);
-        g.addColorStop(0,b.glow+'0.85)'); g.addColorStop(1,b.glow+'0.10)');
+        const gh = ctx.createRadialGradient(b.x,b.y,b.r*0.3,b.x,b.y,b.r*2.1);
+        gh.addColorStop(0,b.glow+'0.55)'); gh.addColorStop(1,b.glow+'0)');
+        ctx.fillStyle=gh; ctx.fillRect(b.x-b.r*2.2,b.y-b.r*2.2,b.r*4.4,b.r*4.4);
+        const g = ctx.createRadialGradient(b.x-b.r*0.42,b.y-b.r*0.42,b.r*0.08,b.x,b.y,b.r);
+        g.addColorStop(0,b.glow+'0.92)'); g.addColorStop(1,b.glow+'0.12)');
         ctx.fillStyle=g; ctx.beginPath(); ctx.arc(b.x,b.y,b.r,0,Math.PI*2); ctx.fill();
-        ctx.lineWidth=1.2; ctx.strokeStyle=b.color; ctx.stroke();
+        ctx.lineWidth=1.4; ctx.strokeStyle=b.color; ctx.stroke();
+        // nest mark
         const nx=b.x+Math.cos(b.nest)*b.r, ny=b.y+Math.sin(b.nest)*b.r;
-        ctx.fillStyle=b.color; ctx.beginPath(); ctx.arc(nx,ny,2.6,0,Math.PI*2); ctx.fill();
-        ctx.fillStyle='#c2c0c4'; ctx.font='11px monospace'; ctx.textAlign='center';
-        ctx.fillText(String(b.score||0), b.x, b.y-b.r-8);
+        ctx.fillStyle='#fff8ea';
+        ctx.beginPath(); ctx.arc(nx,ny,3.4,0,Math.PI*2); ctx.fill();
+        ctx.strokeStyle = b.color; ctx.lineWidth = 1.2; ctx.stroke();
+        // score in serif italic, bigger
+        ctx.fillStyle='#fff8ea';
+        ctx.font='italic 14px Fraunces, Georgia, serif';
+        ctx.textAlign='center'; ctx.textBaseline='alphabetic';
+        ctx.fillText(String(b.score||0), b.x, b.y - b.r - 10);
       }
+
+      // ants — bigger triangles, clearer color rule
       for (const ant of ants){
         const h = bodies[ant.host]; if (!h) continue;
         const x = ant.x ?? (h.x+Math.cos(ant.th)*h.r), y = ant.y ?? (h.y+Math.sin(ant.th)*h.r);
-        const sz = ant.carry?3.0:2.4;
+        const sz = ant.carry ? 3.6 : 2.8;
         ctx.save(); ctx.translate(x,y); ctx.rotate(ant.head||ant.th);
-        ctx.fillStyle = ant.flash>0?'#fff':(ant.carry?'#ffb86b':'#e6e6ec');
-        ctx.beginPath(); ctx.moveTo(sz,0); ctx.lineTo(-sz,sz*.7); ctx.lineTo(-sz,-sz*.7); ctx.closePath(); ctx.fill();
+        ctx.fillStyle = ant.flash>0 ? '#fff8ea' : (ant.carry ? '#ffd28a' : '#f0e8d4');
+        ctx.beginPath();
+        ctx.moveTo(sz, 0);
+        ctx.lineTo(-sz*0.9, sz*0.75);
+        ctx.lineTo(-sz*0.9, -sz*0.75);
+        ctx.closePath();
+        ctx.fill();
+        if (ant.carry) {
+          ctx.strokeStyle = 'rgba(255,210,138,0.6)';
+          ctx.lineWidth = 0.6; ctx.stroke();
+        }
         ctx.restore();
       }
+
       let total=0; for (const b of bodies) total+=(b.score||0);
       hud.textContent = `bodies ${bodies.length} · ants ${ants.length} · drops ${total}`;
     }

@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>justice — the network — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .justice-wrap{ position:relative; height:560px; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; }
+  #netsvg{ width:100%; height:100%; display:block; cursor:grab; }
+  #netsvg.drag{ cursor:grabbing; }
+  .legend{ display:flex; flex-wrap:wrap; gap:14px; margin:10px 0 18px; font-family:var(--mono); font-size:12px; color:var(--ink-2); }
+  .legend span.dot{ display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+  .net-detail{ position:absolute; top:14px; right:14px; max-width:300px; background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--sun); border-radius:var(--radius-sm); padding:12px 14px; box-shadow:0 6px 24px rgba(31,24,19,.10); font-family:var(--sans); font-size:13.5px; color:var(--ink-2); line-height:1.55; }
+  .net-detail h4{ font-family:var(--serif); font-style:italic; font-weight:400; color:var(--ink); font-size:18px; margin:0 0 4px; }
+  .net-detail .meta{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); margin-bottom:6px; }
+  .net-detail .src{ font-family:var(--mono); font-size:11px; color:var(--ink-mute); margin-top:6px; }
+  .net-detail .close{ position:absolute; top:6px; right:8px; background:none; border:0; font-size:20px; color:var(--ink-mute); cursor:pointer; }
+  .controls{ position:absolute; top:14px; left:14px; display:flex; gap:6px; }
+  .controls button{ width:30px; height:30px; border:1px solid var(--line-2); background:var(--paper-2); border-radius:8px; font-family:var(--mono); font-size:14px; color:var(--ink-2); cursor:pointer; }
+  .controls button:hover{ background:var(--cream); }
+  .policy-box{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--rose); border-radius:var(--radius-sm); padding:12px 16px; margin:14px 0 18px; font-size:14px; color:var(--ink-2); }
+  .policy-box strong{ color:var(--ink); }
+  .node circle{ stroke:#1f1813; stroke-width:1.2; cursor:pointer; transition:transform var(--t); transform-origin:center; }
+  .node:hover circle{ stroke-width:2; }
+  .node text{ font-family:var(--mono); font-size:11px; fill:var(--ink); pointer-events:none; }
+  .edge{ stroke:rgba(31,24,19,.30); stroke-width:1.4; fill:none; }
+  .edge.proven{ stroke:rgba(196,87,107,.85); stroke-width:1.8; }
+  .edge.alleged{ stroke:rgba(107,74,139,.55); stroke-dasharray:4,4; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / justice</p>
+  <p class="kicker">justice · the network · proven and alleged</p>
+  <h1>justice — <em>who is connected to whom.</em></h1>
+  <p class="dim">A small, conservative network drawn entirely from convictions, indictments, sentencing memos, and court records. Each line is a public document, not an opinion.</p>
+
+  <div class="policy-box">
+    <strong>defamation policy.</strong> living people are named only when a court has ruled. unconvicted people appear as <em>generic role nodes</em> ("a sitting head of state at the time", "a billionaire associate") — the public record links to them, but godding does not. for the broader claim space see <a href="now.html">/now</a>.
+  </div>
+
+  <div class="legend">
+    <span><span class="dot" style="background:#c4576b"></span> convicted (deceased)</span>
+    <span><span class="dot" style="background:#6b4a8b"></span> convicted (living)</span>
+    <span><span class="dot" style="background:#a39179"></span> indicted, not yet convicted</span>
+    <span><span class="dot" style="background:#5d8c4a"></span> court / institution</span>
+    <span style="color:var(--rose)">— solid: proven by ruling</span>
+    <span style="color:var(--plum)">- - dashed: alleged in indictment</span>
+  </div>
+
+  <div class="justice-wrap">
+    <svg id="netsvg" preserveAspectRatio="xMidYMid meet" aria-label="justice network"></svg>
+    <div class="controls">
+      <button id="zoom-in" title="zoom in">+</button>
+      <button id="zoom-out" title="zoom out">−</button>
+      <button id="zoom-reset" title="reset">⊙</button>
+    </div>
+    <div class="net-detail" id="net-detail" hidden>
+      <button class="close" id="detail-close" aria-label="close">×</button>
+      <h4 data-name>—</h4>
+      <div class="meta" data-meta></div>
+      <p data-body>—</p>
+      <p class="src" data-src></p>
+    </div>
+  </div>
+
+  <h2 style="margin-top:24px">how to read this</h2>
+  <ol>
+    <li><strong>nodes</strong> are people, courts, or institutions that appear in a public ruling, indictment, or settled civil judgment.</li>
+    <li><strong>solid red lines</strong> are connections established by a court verdict (criminal conviction, civil liability, or settled with admission).</li>
+    <li><strong>dashed purple lines</strong> are connections from sworn indictments or sentencing memos that are not yet adjudicated. they are <em>alleged</em>, not <em>proven</em>.</li>
+    <li>godding does <strong>not</strong> add to either list. the data only changes when a court does.</li>
+  </ol>
+
+  <h2 style="margin-top:18px">what this is not</h2>
+  <p>this is not a conspiracy map. it is the opposite — a deliberately small graph that only grows when something is filed in court. if a name is missing it's because nothing in the public record yet links them. that absence is a feature.</p>
+
+  <p class="dim" style="margin-top:14px">For the universal cross-cultural list of crimes see <a href="crime.html">/crime</a>. For the historical at-scale figures see <a href="criminals.html">/criminals</a>. To vote on contestable current claims see <a href="now.html">/now</a>.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>what's drawn from</h4>
+  <ul>
+    <li>SDNY indictments</li>
+    <li>SDNY sentencing memos</li>
+    <li>UK High Court civil rulings</li>
+    <li>U.S. federal sex-trafficking convictions</li>
+    <li>FOIA-released flight logs</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="crime.html">crime · the list</a></li>
+    <li><a href="criminals.html">historical bubbles</a></li>
+    <li><a href="now.html">now · current claims</a></li>
+    <li><a href="vote.html">vote</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">no name added without a court ruling. corrections via issue.</div>
+</footer>
+
+<script>
+/* justice network — only court-record edges, with role-nodes for unconvicted living people */
+(function(){
+  const svg = document.getElementById('netsvg');
+  const detail = document.getElementById('net-detail');
+  const dName = detail.querySelector('[data-name]');
+  const dMeta = detail.querySelector('[data-meta]');
+  const dBody = detail.querySelector('[data-body]');
+  const dSrc  = detail.querySelector('[data-src]');
+  document.getElementById('detail-close').onclick = ()=> detail.hidden = true;
+
+  // category: deceased-convicted, living-convicted, indicted, role (for unconvicted, anonymised), court
+  const NODES = [
+    // central convicted figures (deceased)
+    {id:"jeffrey-epstein", label:"Jeffrey Epstein", cat:"dec", x:0,   y:0, r:30,
+      meta:"financier · died in custody 2019",
+      body:"Pleaded guilty 2008 (Florida) to procuring a minor for prostitution. Indicted by SDNY in 2019 on sex-trafficking charges; died in custody before trial.",
+      src:"SDNY indictment 19-cr-490; Florida case 08-CF-9381"},
+    {id:"ghislaine-maxwell", label:"Ghislaine Maxwell", cat:"liv", x:140, y:-90, r:24,
+      meta:"convicted · 20 years",
+      body:"Convicted by SDNY jury Dec 2021 on five counts including sex-trafficking of a minor. Sentenced to 240 months.",
+      src:"SDNY 20-cr-330; 2nd Cir. affirmed 2024"},
+
+    // role-nodes for unconvicted living people
+    {id:"role-presidentA", label:"a former U.S. president", cat:"role", x:-150, y:-110, r:18,
+      meta:"role node · unconvicted",
+      body:"Named in publicly-unsealed flight logs and depositions associated with the Epstein case. No criminal charges filed against this person in connection with these matters. godding does not name unconvicted living people; this node represents the role only.",
+      src:"FOIA flight logs; Doe v. Maxwell deposition (unsealed 2024)"},
+    {id:"role-royal", label:"a former royal duke", cat:"role", x:160, y:80, r:18,
+      meta:"role node · civil settlement, no admission",
+      body:"Settled a civil suit brought in the SDNY in 2022 with no admission of liability. No criminal proceedings.",
+      src:"Giuffre v. Roberts, SDNY 21-cv-6702 (settled)"},
+    {id:"role-pmA", label:"a former prime minister", cat:"role", x:-140, y:120, r:16,
+      meta:"role node · unconvicted",
+      body:"Appears in unsealed flight logs as a passenger. No charges. Role node only.",
+      src:"Unsealed flight log exhibits, SDNY 20-cv-484"},
+    {id:"role-academic", label:"a senior academic / fund-manager", cat:"role", x:60, y:170, r:16,
+      meta:"role node · resigned amid scrutiny",
+      body:"Multiple high-profile figures stepped down from institutional roles after associations were reported. None criminally charged. Role node only.",
+      src:"MIT Goodwin Procter report 2020; institutional press releases"},
+
+    // institutions / courts
+    {id:"court-sdny", label:"SDNY", cat:"court", x:-50, y:-200, r:22,
+      meta:"U.S. federal court",
+      body:"Southern District of New York. Filed indictments and tried Maxwell; assigned the Epstein case until his death.",
+      src:"PACER docket"},
+    {id:"court-uk", label:"UK High Court", cat:"court", x:230, y:-10, r:18,
+      meta:"England & Wales",
+      body:"Venue for the civil settlement involving the role-royal node.",
+      src:"Royal Courts of Justice"},
+
+    // adjacent convicted (deceased)
+    {id:"harvey-weinstein", label:"Harvey Weinstein", cat:"liv", x:-260, y:50, r:22,
+      meta:"convicted · 23+16 years",
+      body:"Convicted in New York 2020 (overturned 2024, retrial pending) and California 2023 of sexual offences. Listed for context, not a court-proven Epstein link.",
+      src:"NY Supreme Court 153-2018; LA Superior Court SA-097843"},
+    {id:"r-kelly", label:"R. Kelly", cat:"liv", x:-260, y:-50, r:20,
+      meta:"convicted · 30 years",
+      body:"Convicted by EDNY 2021 of racketeering and sex-trafficking; convicted by NDIL 2022 of child-pornography offences. Listed for context.",
+      src:"EDNY 19-cr-286; NDIL 19-cr-567"},
+  ];
+
+  // edges — only what a court has filed
+  const EDGES = [
+    // proven by ruling
+    {a:"jeffrey-epstein", b:"ghislaine-maxwell", kind:"proven",
+      label:"co-trafficker (Maxwell verdict)"},
+    {a:"jeffrey-epstein", b:"court-sdny",       kind:"proven", label:"indicted 2019"},
+    {a:"ghislaine-maxwell", b:"court-sdny",     kind:"proven", label:"convicted 2021"},
+    {a:"role-royal",     b:"court-uk",          kind:"proven", label:"civil settlement"},
+    {a:"role-royal",     b:"jeffrey-epstein",   kind:"proven", label:"public association"},
+    {a:"harvey-weinstein", b:"court-sdny",      kind:"proven", label:"separate convictions"},
+    {a:"r-kelly",        b:"court-sdny",        kind:"proven", label:"separate conviction (EDNY)"},
+
+    // alleged in unsealed material
+    {a:"role-presidentA", b:"jeffrey-epstein",  kind:"alleged",label:"appears in unsealed exhibits"},
+    {a:"role-pmA",        b:"jeffrey-epstein",  kind:"alleged",label:"flight-log appearance"},
+    {a:"role-academic",   b:"jeffrey-epstein",  kind:"alleged",label:"institutional ties (resigned)"},
+  ];
+
+  const COLOR = {dec:"#c4576b", liv:"#6b4a8b", role:"#a39179", court:"#5d8c4a"};
+
+  function render(){
+    const W = svg.clientWidth, H = svg.clientHeight;
+    svg.setAttribute('viewBox', `${-W/2} ${-H/2} ${W} ${H}`);
+    svg.innerHTML = '';
+    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    g.setAttribute('id','viewport'); svg.appendChild(g);
+
+    // edges first
+    for(const e of EDGES){
+      const a = NODES.find(n=>n.id===e.a), b = NODES.find(n=>n.id===e.b);
+      if(!a || !b) continue;
+      const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      ln.setAttribute('class', `edge ${e.kind}`);
+      ln.setAttribute('x1', a.x); ln.setAttribute('y1', a.y);
+      ln.setAttribute('x2', b.x); ln.setAttribute('y2', b.y);
+      g.appendChild(ln);
+    }
+
+    // nodes
+    for(const n of NODES){
+      const grp = document.createElementNS('http://www.w3.org/2000/svg','g');
+      grp.setAttribute('class','node');
+      grp.setAttribute('transform', `translate(${n.x},${n.y})`);
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('r', n.r);
+      c.setAttribute('fill', COLOR[n.cat] || '#a39179');
+      c.setAttribute('opacity', n.cat === 'role' ? 0.78 : 0.92);
+      grp.appendChild(c);
+      const t = document.createElementNS('http://www.w3.org/2000/svg','text');
+      t.setAttribute('text-anchor','middle');
+      t.setAttribute('dy', n.r + 14);
+      t.textContent = n.label;
+      grp.appendChild(t);
+      grp.addEventListener('click', (ev)=>{
+        ev.stopPropagation();
+        dName.textContent = n.label;
+        dMeta.textContent = n.meta;
+        dBody.textContent = n.body;
+        dSrc.textContent  = 'source: ' + n.src;
+        detail.hidden = false;
+      });
+      g.appendChild(grp);
+    }
+  }
+  render();
+  window.addEventListener('resize', render);
+
+  /* zoom + pan */
+  let scale = 1, tx = 0, ty = 0;
+  function apply(){
+    const v = document.getElementById('viewport');
+    if(v) v.setAttribute('transform', `translate(${tx},${ty}) scale(${scale})`);
+  }
+  document.getElementById('zoom-in').onclick = ()=>{ scale = Math.min(3, scale*1.2); apply(); };
+  document.getElementById('zoom-out').onclick= ()=>{ scale = Math.max(0.4, scale/1.2); apply(); };
+  document.getElementById('zoom-reset').onclick = ()=>{ scale = 1; tx = 0; ty = 0; apply(); };
+
+  let dragging = false, sx=0, sy=0, ox=0, oy=0;
+  svg.addEventListener('mousedown', (e)=>{ dragging=true; sx=e.clientX; sy=e.clientY; ox=tx; oy=ty; svg.classList.add('drag'); });
+  window.addEventListener('mouseup', ()=>{ dragging=false; svg.classList.remove('drag'); });
+  window.addEventListener('mousemove', (e)=>{ if(!dragging) return; tx = ox + (e.clientX-sx); ty = oy + (e.clientY-sy); apply(); });
+  svg.addEventListener('wheel', (e)=>{
+    if(!e.ctrlKey) return;
+    e.preventDefault();
+    const f = e.deltaY < 0 ? 1.1 : 1/1.1;
+    scale = Math.max(0.4, Math.min(3, scale*f));
+    apply();
+  }, {passive:false});
+
+  document.body.addEventListener('click', (e)=>{
+    if(detail.contains(e.target)) return;
+    detail.hidden = true;
+  });
+})();
+</script>
+</body>
+</html>
