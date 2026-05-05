@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-04T20:43:16Z",
+  "generated": "2026-05-05T04:47:41Z",
   "groups": [
     {
       "name": "root",
@@ -329,6 +329,10 @@
             {
               "id": "",
               "text": "how the agents work — details"
+            },
+            {
+              "id": "",
+              "text": "state-of-the-art ingredients we deliberately use"
             }
           ]
         },

@@ -1,5 +1,5 @@
 {
- "generated": "2026-05-04T20:43:16Z",
+ "generated": "2026-05-05T04:47:41Z",
  "n_docs": 21,
  "docs": [
   {
@@ -72,6 +72,46 @@
     {
      "id": "",
      "text": "vote &amp; current claims"
+    },
+    {
+     "id": "",
+     "text": "now"
+    },
+    {
+     "id": "",
+     "text": "vote &amp; reputation"
+    },
+    {
+     "id": "",
+     "text": "engine &amp; meta"
+    },
+    {
+     "id": "",
+     "text": "swarm"
+    },
+    {
+     "id": "",
+     "text": "dependencies"
+    },
+    {
+     "id": "",
+     "text": "reach"
+    },
+    {
+     "id": "",
+     "text": "how it's built"
+    },
+    {
+     "id": "",
+     "text": "simulations · play with the rules — save these for last; they take a minute to play with"
+    },
+    {
+     "id": "",
+     "text": "good vs. bad"
+    },
+    {
+     "id": "",
+     "text": "ants on bodies"
     }
    ],
    "text": "godding — the knowledge farm godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding — the knowledge farm. a small site about the things humans broadly agree on but rarely act on. a swarm of language models reads every page each day, removes weak claims, keeps the strong ones, and logs every change in public. voting is free, anonymous, recorded. every change is kept with a utc timestamp. the loop is the point. start at the root → vote how it works the knowledge farm , in five lines. the universe seems to be doing one thing: compressing itself into smaller models of itself. atoms, cells, brains, languages, this site. a compact model that can run itself is alive. a compact model that knows it's running is conscious. two living models that share predictions are cheaper than two that don't. that is why cooperation wins on every long timescale we have measured. knowledge that doesn't reduce future surprise is wasted energy. so true ideas are call options — small downside if wrong, unbounded upside if right. so the move is: take small falsifiable bets, log them in public, kee"
@@ -310,7 +350,7 @@
      "text": "how it's built."
     }
    ],
-   "text": "demo · godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx search reach build changelog godding / demo demo · auto-generated tour · regenerated daily demo — godding, end to end. this page is built by swarm/docs.py on every run. each card is a page on the site with its kicker and a list of in-page sections you can jump to. use it as a walkthrough. last regenerated: 2026-05-04t20:41:32z root belief.html nothing → noise → patterns → life → us. root · the chain the chain, in plain words sense → think → act you filter the world; the world filters you back the four questions — vote inline religion.html heaven and hell, simply. religion · plainly 1 · how nothing made everything 2 · the rule life learned 3 · what \"heaven\" and \"hell\" really mean 4 · what religions agree on 5 · the side-by-side, kept short 6 · what's automated, and what isn't simulations good-bad.html good vs. bad — watch the math. play · the topology of cooperation what's happening ants.html ants on bodies . play · cooperation on top of physics what you're looking at why this is on a site about belief crime & justice crime.html w"
+   "text": "demo · godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx search reach build changelog godding / demo demo · auto-generated tour · regenerated daily demo — godding, end to end. this page is built by swarm/docs.py on every run. each card is a page on the site with its kicker and a list of in-page sections you can jump to. use it as a walkthrough. last regenerated: 2026-05-04t20:43:16z root belief.html nothing → noise → patterns → life → us. root · the chain the chain, in plain words sense → think → act you filter the world; the world filters you back the four questions — vote inline religion.html heaven and hell, simply. religion · plainly 1 · how nothing made everything 2 · the rule life learned 3 · what \"heaven\" and \"hell\" really mean 4 · what religions agree on 5 · the side-by-side, kept short 6 · what's automated, and what isn't simulations good-bad.html good vs. bad — watch the math. play · the topology of cooperation what's happening ants.html ants on bodies . play · cooperation on top of physics what you're looking at why this is on a site about belief crime & justice crime.html w"
   },
   {
    "url": "pages/depends.html",
@@ -572,6 +612,10 @@
     {
      "id": "",
      "text": "how the agents work — details"
+    },
+    {
+     "id": "",
+     "text": "state-of-the-art ingredients we deliberately use"
     }
    ],
    "text": "swarm — the engine — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / swarm engine · the knowledge base godding uses swarm . what it does — in one paragraph swarm reads every page on this site, proposes small tightenings, kills the bad ones, and writes the rest into the page itself. every accepted edit is logged to a public file with a timestamp and a one-line reason. the loop runs daily on a schedule. you read the result. what it does — visually godding pages belief · religion · good/bad · ants · crime · justice · politics now · world · vote · health · sustainability · … ↓ read three agents propose · critique · check drafter proposes a tightening critic tries to kill it fact-checker no new numbers / names judge — errs toward \"no\" accepted diff apply to page (atomic, dated) append to data/changelog.json back to the pages guardrails (real, not vague) the swarm can only write diffs ; it cannot rewrite a page wholesale. the swarm cannot lengthen the site ; word count must stay flat or shrink per run. the swarm never names specific living people , never quo"

@@ -1,8 +1,8 @@
 {
-  "runs_total": 14,
-  "runs_with_accepted_diffs": 5,
-  "diffs_proposed_total": 35,
-  "diffs_accepted_total": 15,
+  "runs_total": 15,
+  "runs_with_accepted_diffs": 6,
+  "diffs_proposed_total": 38,
+  "diffs_accepted_total": 17,
   "first_run": "2026-05-04T14:37:09Z",
-  "last_run": "2026-05-04T17:18:11Z"
+  "last_run": "2026-05-05T04:47:41Z"
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-05-04T20:43:16Z",
+  "generated": "2026-05-05T04:47:41Z",
   "n_pages": 21,
   "thresh": 0.42,
   "groups": [
@@ -11,7 +11,19 @@
       "label_tokens": [
         "html",
         "run",
-        "page"
+        "json"
+      ],
+      "size": 2
+    },
+    {
+      "pages": [
+        "idx",
+        "index"
+      ],
+      "label_tokens": [
+        "amp",
+        "root",
+        "section"
       ],
       "size": 2
     },
@@ -20,8 +32,8 @@
         "ants"
       ],
       "label_tokens": [
-        "ctx",
         "const",
+        "ctx",
         "ant"
       ],
       "size": 1
@@ -53,9 +65,9 @@
         "criminals"
       ],
       "label_tokens": [
-        "state",
-        "mode",
-        "ranges"
+        "ranges",
+        "bubble",
+        "area"
       ],
       "size": 1
     },
@@ -77,7 +89,7 @@
       "label_tokens": [
         "neighbours",
         "env",
-        "environment"
+        "cells"
       ],
       "size": 1
     },
@@ -94,23 +106,12 @@
     },
     {
       "pages": [
-        "idx"
-      ],
-      "label_tokens": [
-        "section",
-        "essay",
-        "amp"
-      ],
-      "size": 1
-    },
-    {
-      "pages": [
         "justice"
       ],
       "label_tokens": [
         "court",
-        "convicted",
-        "const"
+        "unsealed",
+        "convicted"
       ],
       "size": 1
     },
@@ -132,7 +133,7 @@
       "label_tokens": [
         "say",
         "political",
-        "real"
+        "gap"
       ],
       "size": 1
     },
@@ -212,312 +213,301 @@
         "pyramid"
       ],
       "size": 1
-    },
-    {
-      "pages": [
-        "index"
-      ],
-      "label_tokens": [
-        "farm",
-        "knowledge",
-        "models"
-      ],
-      "size": 1
     }
   ],
   "siblings": {
     "ants": [
       {
         "page": "vote",
-        "sim": 0.2417
-      },
-      {
-        "page": "justice",
-        "sim": 0.1776
+        "sim": 0.3282
       },
       {
         "page": "now",
-        "sim": 0.1594
+        "sim": 0.2079
+      },
+      {
+        "page": "build",
+        "sim": 0.0634
       }
     ],
     "belief": [
       {
         "page": "religion",
-        "sim": 0.2844
+        "sim": 0.2857
       },
       {
         "page": "index",
-        "sim": 0.1814
+        "sim": 0.1962
       },
       {
         "page": "demo",
-        "sim": 0.1648
+        "sim": 0.16
       }
     ],
     "build": [
       {
         "page": "demo",
-        "sim": 0.4353
+        "sim": 0.4574
       },
       {
         "page": "swarm",
-        "sim": 0.4178
+        "sim": 0.4151
       },
       {
         "page": "reach",
-        "sim": 0.2724
+        "sim": 0.2725
       }
     ],
     "crime": [
       {
-        "page": "religion",
-        "sim": 0.177
+        "page": "criminals",
+        "sim": 0.2414
       },
       {
-        "page": "criminals",
-        "sim": 0.1701
+        "page": "religion",
+        "sim": 0.1763
       },
       {
         "page": "index",
-        "sim": 0.1595
+        "sim": 0.1677
       }
     ],
     "criminals": [
       {
-        "page": "vote",
-        "sim": 0.221
+        "page": "crime",
+        "sim": 0.2414
       },
       {
-        "page": "justice",
-        "sim": 0.1946
+        "page": "idx",
+        "sim": 0.1639
       },
       {
-        "page": "now",
-        "sim": 0.194
+        "page": "demo",
+        "sim": 0.1367
       }
     ],
     "demo": [
       {
         "page": "build",
-        "sim": 0.4353
+        "sim": 0.4574
       },
       {
         "page": "idx",
-        "sim": 0.3671
+        "sim": 0.3543
       },
       {
-        "page": "search",
-        "sim": 0.2811
+        "page": "index",
+        "sim": 0.2928
       }
     ],
     "depends": [
       {
         "page": "idx",
-        "sim": 0.1921
-      },
-      {
-        "page": "demo",
-        "sim": 0.1718
+        "sim": 0.2048
       },
       {
         "page": "index",
-        "sim": 0.1587
+        "sim": 0.1892
+      },
+      {
+        "page": "demo",
+        "sim": 0.1535
       }
     ],
     "good-bad": [
       {
         "page": "index",
-        "sim": 0.1459
+        "sim": 0.2058
       },
       {
         "page": "belief",
-        "sim": 0.1307
+        "sim": 0.1265
       },
       {
         "page": "idx",
-        "sim": 0.1073
+        "sim": 0.1068
       }
     ],
     "health": [
       {
         "page": "sustainability",
-        "sim": 0.1107
-      },
-      {
-        "page": "demo",
-        "sim": 0.1069
+        "sim": 0.111
       },
       {
         "page": "index",
-        "sim": 0.1028
+        "sim": 0.11
+      },
+      {
+        "page": "demo",
+        "sim": 0.1044
       }
     ],
     "idx": [
       {
-        "page": "demo",
-        "sim": 0.3671
+        "page": "index",
+        "sim": 0.4374
       },
       {
-        "page": "index",
-        "sim": 0.3649
+        "page": "demo",
+        "sim": 0.3543
       },
       {
         "page": "world",
-        "sim": 0.2633
+        "sim": 0.2652
       }
     ],
     "justice": [
       {
         "page": "now",
-        "sim": 0.2963
+        "sim": 0.164
       },
       {
-        "page": "vote",
-        "sim": 0.2832
+        "page": "index",
+        "sim": 0.1204
       },
       {
-        "page": "criminals",
-        "sim": 0.1946
+        "page": "idx",
+        "sim": 0.1135
       }
     ],
     "now": [
       {
         "page": "vote",
-        "sim": 0.3288
-      },
-      {
-        "page": "justice",
-        "sim": 0.2963
+        "sim": 0.3684
       },
       {
         "page": "idx",
-        "sim": 0.2306
+        "sim": 0.2227
+      },
+      {
+        "page": "index",
+        "sim": 0.215
       }
     ],
     "politics": [
       {
         "page": "demo",
-        "sim": 0.1309
+        "sim": 0.1286
       },
       {
         "page": "index",
-        "sim": 0.1189
+        "sim": 0.1221
       },
       {
         "page": "swarm",
-        "sim": 0.1134
+        "sim": 0.1215
       }
     ],
     "reach": [
       {
         "page": "swarm",
-        "sim": 0.2825
+        "sim": 0.2842
       },
       {
         "page": "build",
-        "sim": 0.2724
+        "sim": 0.2725
       },
       {
         "page": "demo",
-        "sim": 0.2023
+        "sim": 0.1974
       }
     ],
     "religion": [
       {
         "page": "belief",
-        "sim": 0.2844
+        "sim": 0.2857
       },
       {
         "page": "index",
-        "sim": 0.1911
+        "sim": 0.1867
       },
       {
         "page": "crime",
-        "sim": 0.177
+        "sim": 0.1763
       }
     ],
     "search": [
       {
         "page": "demo",
-        "sim": 0.2811
+        "sim": 0.2715
       },
       {
         "page": "idx",
-        "sim": 0.1425
+        "sim": 0.1429
       },
       {
         "page": "reach",
-        "sim": 0.1158
+        "sim": 0.1159
       }
     ],
     "sustainability": [
       {
         "page": "demo",
-        "sim": 0.1482
+        "sim": 0.144
       },
       {
         "page": "idx",
-        "sim": 0.1171
+        "sim": 0.1181
       },
       {
         "page": "health",
-        "sim": 0.1107
+        "sim": 0.111
       }
     ],
     "swarm": [
       {
         "page": "build",
-        "sim": 0.4178
+        "sim": 0.4151
       },
       {
         "page": "reach",
-        "sim": 0.2825
+        "sim": 0.2842
       },
       {
         "page": "index",
-        "sim": 0.2078
+        "sim": 0.2155
       }
     ],
     "vote": [
       {
         "page": "now",
-        "sim": 0.3288
-      },
-      {
-        "page": "justice",
-        "sim": 0.2832
+        "sim": 0.3684
       },
       {
         "page": "ants",
-        "sim": 0.2417
+        "sim": 0.3282
+      },
+      {
+        "page": "index",
+        "sim": 0.1086
       }
     ],
     "world": [
       {
         "page": "idx",
-        "sim": 0.2633
+        "sim": 0.2652
       },
       {
         "page": "now",
-        "sim": 0.1936
+        "sim": 0.1665
       },
       {
         "page": "demo",
-        "sim": 0.166
+        "sim": 0.1604
       }
     ],
     "index": [
       {
         "page": "idx",
-        "sim": 0.3649
+        "sim": 0.4374
       },
       {
         "page": "demo",
-        "sim": 0.2638
+        "sim": 0.2928
       },
       {
         "page": "swarm",
-        "sim": 0.2078
+        "sim": 0.2155
       }
     ]
   }

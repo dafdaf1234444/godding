@@ -1,10 +1,21 @@
 {
-  "generated": "2026-05-04T17:18:11Z",
-  "tweet": "the swarm just tightened /crime on godding — soften unqualified superlative \"all\" → \"most\". every accepted edit is logged in public. dafdaf1234444.github.io/godding",
-  "linkedin": "I'm building godding — a small static site about the things we agree on but rarely act on, paired with a swarm of language models that reads every page, kills the weak claims, keeps the strong ones, and logs every change in public. The loop runs daily; today's accepted edits: 2/4. Source + receipts: github.com/dafdaf1234444/godding",
+  "generated": "2026-05-05T04:47:41Z",
+  "tweet": "the swarm just tightened /build on godding — soften unqualified superlative \"all\" → \"most\". every accepted edit is logged in public. dafdaf1234444.github.io/godding",
+  "linkedin": "I'm building godding — a small static site about the things we agree on but rarely act on, paired with a swarm of language models that reads every page, kills the weak claims, keeps the strong ones, and logs every change in public. The loop runs daily; today's accepted edits: 2/3. Source + receipts: github.com/dafdaf1234444/godding",
   "hn_title": "Show HN: A static site whose pages are pruned daily by a swarm of LLMs (full logs)",
-  "blog_stub": "# the swarm — 2026-05-04\n\nthis run: 2 accepted / 4 proposed. /crime, /reach. rationale: soften unqualified superlative \"all\" → \"most\".; soften unqualified superlative \"never\" → \"rarely\".",
+  "blog_stub": "# the swarm — 2026-05-05\n\nthis run: 2 accepted / 3 proposed. /build, /reach. rationale: soften unqualified superlative \"all\" → \"most\".; soften unqualified superlative \"always\" → \"usually\".",
   "recent_changelog": [
+    {
+      "run_id": "20260505T044741",
+      "timestamp": "2026-05-05T04:47:41Z",
+      "pages": [
+        "build.html",
+        "reach.html"
+      ],
+      "accepted_diffs": 2,
+      "proposed_diffs": 3,
+      "rationale": "soften unqualified superlative \"all\" → \"most\".; soften unqualified superlative \"always\" → \"usually\"."
+    },
     {
       "run_id": "20260504T171811",
       "timestamp": "2026-05-04T17:18:11Z",
@@ -49,21 +60,6 @@
       "accepted_diffs": 2,
       "proposed_diffs": 4,
       "rationale": "remove weasel word \"actually\".; remove weasel word \"really\"."
-    },
-    {
-      "run_id": "20260504T143714",
-      "timestamp": "2026-05-04T14:37:14Z",
-      "pages": [
-        "belief.html",
-        "religion.html",
-        "politics.html",
-        "health.html",
-        "sustainability.html",
-        "swarm.html"
-      ],
-      "accepted_diffs": 6,
-      "proposed_diffs": 6,
-      "rationale": "soften unqualified superlative \"all\" → \"most\".; remove weasel word \"literally\".; remove weasel word \"very\".; remove weasel word \"very\".; remove weasel word \"actually\".; soften unqualified superlative \"never\" → \"rarely\"."
     }
   ],
   "policy": [
