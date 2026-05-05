@@ -20,7 +20,7 @@ The deeper bet: the universe is a *knowledge farm*. It compresses information ab
 2. Living things are compact models that can run themselves.
 3. Self-aware models that **cooperate** are even more compact than ones that don't, because they can share each other's predictions instead of redoing the work.
 4. Knowledge that doesn't reduce future surprise is a thermodynamic loss — wasted energy.
-5. New true ideas are *call options on knowledge*: small downside if wrong, unbounded upside if right. So you build a system whose default move is to take small, falsifiable bets, log them, and keep the ones that work.
+5. New true ideas are bets with a capped downside and an open-ended upside — finding one is a few hours of attention, keeping the right one pays back across a lifetime. So you build a system whose default move is to take small falsifiable bets, log them, and keep the ones that work.
 
 That last sentence is the swarm.
 

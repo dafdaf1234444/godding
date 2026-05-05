@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>brain — the stack — godding</title>
+<meta name="description" content="Each brain is a finite stack. At its best it generates a small ordered set of responses to a topic. Society is a collective stack. Compression tools — books, language, this site — are how one brain trades capacity with another.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .stack-diagram{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px 20px; margin:14px 0 18px }
+  .stack-diagram svg{ width:100%; height:auto; display:block }
+  .principle{ background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:0 var(--radius-sm) var(--radius-sm) 0; padding:14px 18px; margin:12px 0; font-family:var(--serif); font-size:15.5px; line-height:1.6; color:var(--ink-2) }
+  .principle strong{ color:var(--ink) }
+  .principle .label{ font-family:var(--mono); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:6px }
+  .row-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin:14px 0 }
+  .row-grid .cell{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:12px 14px }
+  .row-grid .cell h4{ font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin-bottom:6px }
+  .row-grid .cell p{ font-family:var(--sans); font-size:13.5px; color:var(--ink-2); line-height:1.5; margin:0 }
+  .frozen-table{ width:100%; border-collapse:collapse; font-family:var(--mono); font-size:13px; margin:8px 0 14px }
+  .frozen-table th, .frozen-table td{ text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); vertical-align:top }
+  .frozen-table th{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); font-weight:500 }
+  .frozen-table tr.frozen td:first-child{ border-left:3px solid var(--rose) }
+  .frozen-table tr.flex td:first-child  { border-left:3px solid var(--leaf) }
+  .frozen-table tr.bad td:first-child   { border-left:3px solid var(--ink-2) }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">g<span class="o">⊙</span>dding</a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / brain</p>
+  <p class="kicker">brain · the stack · individual and collective</p>
+  <h1>brain — <em>each one is a finite stack.</em></h1>
+  <p class="dim">Treat a brain as a stack. Slots are limited. At its best, a brain takes a topic in and pops out a small ordered set of responses — its own well-ordering on that topic. Civilisation is the same operation at scale, with extra moves.</p>
+
+  <h2>the picture</h2>
+  <div class="stack-diagram">
+    <svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg" aria-label="brain stack diagram">
+      <defs>
+        <linearGradient id="slotG" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#fff8ea"/><stop offset="1" stop-color="#f0e8d4"/>
+        </linearGradient>
+        <marker id="ar" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+          <path d="M0,0 L12,6 L0,12 z" fill="#6f5f53"/>
+        </marker>
+      </defs>
+
+      <!-- topic input -->
+      <rect x="22" y="40" width="150" height="44" rx="8" fill="#fff8ea" stroke="#a39179"/>
+      <text x="97" y="68" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="16" fill="#1f1813">a topic →</text>
+
+      <!-- arrow into stack -->
+      <line x1="172" y1="62" x2="220" y2="62" stroke="#6f5f53" stroke-width="1.6" marker-end="url(#ar)"/>
+
+      <!-- the stack — labelled slots -->
+      <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1f1813">
+        <rect x="225" y="20" width="280" height="34" rx="6" fill="url(#slotG)" stroke="#5d8c4a"/>
+        <text x="240" y="42">1 · best response (highest weight)</text>
+        <rect x="225" y="60" width="280" height="34" rx="6" fill="url(#slotG)" stroke="#a39179"/>
+        <text x="240" y="82">2 · next best</text>
+        <rect x="225" y="100" width="280" height="34" rx="6" fill="url(#slotG)" stroke="#a39179"/>
+        <text x="240" y="122">3 · …</text>
+        <rect x="225" y="140" width="280" height="34" rx="6" fill="url(#slotG)" stroke="#a39179"/>
+        <text x="240" y="162">k · last viable response</text>
+        <rect x="225" y="180" width="280" height="34" rx="6" fill="#f6dcdf" stroke="#c4576b" stroke-dasharray="4 3"/>
+        <text x="240" y="202" fill="#c4576b">k+1 … · capacity exceeded · forgotten</text>
+        <rect x="225" y="232" width="280" height="44" rx="6" fill="#dee9d8" stroke="#5d8c4a"/>
+        <text x="240" y="252">frozen · breath, heartbeat, fear, hunger</text>
+        <text x="240" y="266" fill="#6f5f53" font-size="9.5">cannot be re-ordered without dying</text>
+      </g>
+
+      <!-- arrow from stack to output -->
+      <line x1="510" y1="80" x2="560" y2="80" stroke="#6f5f53" stroke-width="1.6" marker-end="url(#ar)"/>
+
+      <!-- output: ordered set -->
+      <g font-family="JetBrains Mono, monospace" font-size="11" fill="#1f1813">
+        <rect x="565" y="40" width="240" height="60" rx="8" fill="#fff8ea" stroke="#a39179"/>
+        <text x="685" y="62" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="14">ordered response set</text>
+        <text x="685" y="82" text-anchor="middle" font-size="10" fill="#6f5f53">{r₁, r₂, …, rₖ} · the brain's well-order on this topic</text>
+      </g>
+
+      <!-- compression channels -->
+      <g font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">
+        <text x="20" y="320" font-style="italic" font-family="Fraunces, Georgia, serif" font-size="13" fill="#1f1813">compression channels — how stacks help each other:</text>
+        <rect x="22"  y="328" width="120" height="24" rx="4" fill="#fff8ea" stroke="#a39179"/><text x="82"  y="344" text-anchor="middle">books</text>
+        <rect x="150" y="328" width="120" height="24" rx="4" fill="#fff8ea" stroke="#a39179"/><text x="210" y="344" text-anchor="middle">language</text>
+        <rect x="278" y="328" width="120" height="24" rx="4" fill="#fff8ea" stroke="#a39179"/><text x="338" y="344" text-anchor="middle">internet</text>
+        <rect x="406" y="328" width="120" height="24" rx="4" fill="#fff8ea" stroke="#a39179"/><text x="466" y="344" text-anchor="middle">teaching</text>
+        <rect x="534" y="328" width="120" height="24" rx="4" fill="#fff8ea" stroke="#a39179"/><text x="594" y="344" text-anchor="middle">science</text>
+        <rect x="662" y="328" width="160" height="24" rx="4" fill="#fff8ea" stroke="#d96936"/><text x="742" y="344" text-anchor="middle" fill="#d96936">godding (this site)</text>
+      </g>
+    </svg>
+  </div>
+
+  <h2>the seven principles</h2>
+
+  <div class="principle">
+    <span class="label">principle 1 · finite stack</span>
+    a brain has a fixed cognitive budget. attention, working memory, and long-term recall are all bounded. <strong>treating the brain as if it were infinite is the root error</strong> behind almost every information-overload failure mode.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 2 · well-ordered response</span>
+    given a topic, a brain at its best returns an ordered set: most-likely answer first, second-best next, and so on. mathematically: a partial well-ordering of admissible responses, where the order is built from training data, recent context, and the body's current state. losing the order is what we call <em>confusion</em>.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 3 · compression keeps the stack from overflowing</span>
+    humanity's trick is to <strong>push state out of one brain and into shared structures</strong>: language, writing, schools, libraries, the internet, this website. each compresses many earlier brains' work into a form a single brain can replay cheaply. this is why <a href="religion.html">religion</a>, <a href="crime.html">cross-cultural moral law</a>, and <a href="depends.html">dependency-tracked notes</a> all work — they're external stack extensions.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 4 · some slots must stay frozen</span>
+    not every part of the stack is meant to move. <strong>breath, heartbeat, hunger, fear of falling, attachment to your child</strong> — these are slots evolution glued shut. trying to overwrite them is how addictions, eating disorders, and self-harm work. the rule: re-order anything except the frozen base.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 5 · cooperative stacks compound</span>
+    two brains that share their ordered sets can together produce a larger ordered set than either alone — that's <em>thought as a team sport</em>. the more cooperative the stack, the more society's collective ranking improves. <a href="good-bad.html">play /good-bad</a> for the smallest case: cooperators that cluster outlast lone defectors at every long timescale.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 6 · the more you change, the more you forget</span>
+    capacity is conserved. learn one thing, lose a slot. <strong>this is why deliberate stack-management matters</strong>: a person who reorders slowly and keeps the right things frozen ends up with deeper expertise than someone whose stack is in constant flux. that's also why doom-scrolling burns smart adults — it overwrites slots that took a decade to build.
+  </div>
+
+  <div class="principle">
+    <span class="label">principle 7 · some stacks are bad-ordered</span>
+    a small minority of brains rank cruelty, deceit, or domination above cooperation — not because of an empty stack, but because their order puts harm at the top. whether that's a disease, a deep injury, or an active choice is the open question of the <a href="crime.html">crime</a> and <a href="justice.html">justice</a> pages. the practical move is the same regardless: <strong>record what they do</strong>, take action where the evidence allows, and never assume their stack will fix itself in private.
+  </div>
+
+  <h2>frozen vs flexible vs bad-ordered — short table</h2>
+  <table class="frozen-table">
+    <thead><tr><th>kind</th><th>example slots</th><th>can re-order?</th><th>what happens if you try</th></tr></thead>
+    <tbody>
+      <tr class="frozen"><td>frozen</td><td>breath, heartbeat, hunger, gag reflex, infant attachment, pain</td><td>no</td><td>death or severe pathology</td></tr>
+      <tr class="flex"><td>flexible</td><td>language, skills, beliefs, taste, opinions, social bonds, careers</td><td>yes — one slot at a time</td><td>real change is possible; old slots fade</td></tr>
+      <tr class="bad"><td>bad-ordered</td><td>habitual cruelty, chronic deceit, contempt for cooperation</td><td>only with deep intervention or external constraint</td><td>society absorbs damage until evidence + record forces action</td></tr>
+    </tbody>
+  </table>
+
+  <h2>what this means for godding</h2>
+  <div class="row-grid">
+    <div class="cell"><h4>this whole site is a compression channel</h4><p>godding's job is to tighten the universal short list (crime), expose the load-bearing systems (world), keep public records (justice), and let the swarm prune weak claims (swarm). all of it is collective-stack management.</p></div>
+    <div class="cell"><h4>your brain is the bottleneck</h4><p>every page is short on purpose. every page links to its dependencies. you should be able to load the structure of the site into your stack in an afternoon — not weeks.</p></div>
+    <div class="cell"><h4>the swarm extends your stack</h4><p>multi-agent loops + auto-grouper + dependency map + index → an external slot for things you'd rather not hold in your head. <a href="swarm.html">read /swarm</a>.</p></div>
+    <div class="cell"><h4>where to argue back</h4><p>vote agree/disagree on any contestable claim. on <a href="now.html">/now</a> for current claims; on <a href="vote.html">/vote</a> for everything else. flip when evidence flips.</p></div>
+  </div>
+
+  <h2>references</h2>
+  <ul>
+    <li><strong>Daniel Kahneman, <em>Thinking, Fast and Slow</em> (2011)</strong> — the original two-stack framing in plain language.</li>
+    <li><strong>Karl Friston — <a href="https://www.fil.ion.ucl.ac.uk/~karl/" target="_blank" rel="noopener">free-energy principle</a></strong> — formal version of "predict, store the surprises".</li>
+    <li><strong>Cesar Hidalgo, <em>Why Information Grows</em> (2015)</strong> — a clean version of compression-as-civilisation.</li>
+    <li><strong>James Gleick, <em>The Information</em> (2011)</strong> — long-form history of how humans externalise stacks.</li>
+    <li><strong>Edsger Dijkstra (1968), <em>"The Humble Programmer"</em></strong> — the original "human stack is small, design accordingly" argument.</li>
+    <li><strong>Norbert Wiener, <em>The Human Use of Human Beings</em> (1950)</strong> — what happens when machines extend the stack faster than the rules of cooperation update.</li>
+  </ul>
+
+  <p class="dim" style="margin-top:14px">this page rests on <a href="belief.html">/belief</a> (D2 · life as a compact runner). it is consumed by <a href="religion.html">/religion</a> (compression for cooperation), <a href="good-bad.html">/good-bad</a> (cooperators that cluster), and <a href="swarm.html">/swarm</a> (the same operation at LLM scale). see <a href="depends.html">/depends</a> for the full graph.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>the seven principles</h4>
+  <ul>
+    <li>1 · finite stack</li>
+    <li>2 · well-ordered response</li>
+    <li>3 · compression channels</li>
+    <li>4 · frozen base</li>
+    <li>5 · cooperation compounds</li>
+    <li>6 · change costs slots</li>
+    <li>7 · bad-ordered stacks</li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="belief.html">belief — root</a></li>
+    <li><a href="religion.html">religion — fictions as compression</a></li>
+    <li><a href="good-bad.html">good vs. bad — the smallest case</a></li>
+    <li><a href="swarm.html">swarm — collective stack</a></li>
+    <li><a href="depends.html">dependency map</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">finite. ordered. frozen at the base.</div>
+</footer>
+</body>
+</html>

@@ -47,9 +47,9 @@
 </head>
 <body>
 <header class="topbar">
-  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <a class="logo" href="../index.html">g<span class="o">⊙</span>dding</a>
   <nav class="nav">
-    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
     <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
     <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
     <a href="justice.html">justice</a>
@@ -60,6 +60,7 @@
     <a href="swarm.html" class="swarm-link">swarm</a>
     <a href="depends.html">depends</a>
     <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
     <a href="reach.html">reach</a><a href="build.html">build</a>
     <a href="../changelog/index.html" class="muted">changelog</a>
   </nav>
@@ -106,6 +107,7 @@
       <tr class="def"><td class="id">D1</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>universe = compression of itself into compact models</td><td>—</td></tr>
       <tr class="def"><td class="id">D2</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>life = a compact model that runs itself</td><td>D1</td></tr>
       <tr class="def"><td class="id">D3</td><td class="kind">def</td><td><a href="belief.html">belief</a></td><td>consciousness = a model aware it is running</td><td>D2</td></tr>
+      <tr class="lemma"><td class="id">L0</td><td class="kind">lemma</td><td><a href="brain.html">brain</a></td><td>brain is a finite stack with well-ordered responses + frozen base; compression channels scale it</td><td>D2, D3</td></tr>
       <tr class="lemma"><td class="id">L1</td><td class="kind">lemma</td><td><a href="good-bad.html">good vs. bad</a></td><td>cooperators that cluster outlast lone defectors</td><td>D2</td></tr>
       <tr class="lemma"><td class="id">L2</td><td class="kind">lemma</td><td><a href="ants.html">ants</a></td><td>simple agents + stigmergy → emergent route-finding</td><td>D2</td></tr>
       <tr class="lemma"><td class="id">L3</td><td class="kind">lemma</td><td><a href="religion.html">religion</a></td><td>shared moral fictions = compression for cooperation</td><td>D2, L1</td></tr>
@@ -162,181 +164,3 @@
   const W = 1300, H = 680;
 
   const NODES = [
-    // 8 columns × variable rows
-    {id:"D1", kind:"def",         title:"universe = compression",       href:"belief.html",       col:0, row:1.5},
-    {id:"D2", kind:"def",         title:"life = compact runner",        href:"belief.html",       col:1, row:1.5},
-    {id:"D3", kind:"def",         title:"consciousness = self-aware",   href:"belief.html",       col:1, row:3.0},
-
-    {id:"L1", kind:"lemma",       title:"cooperators cluster",          href:"good-bad.html",     col:2, row:0.4},
-    {id:"L2", kind:"lemma",       title:"stigmergy",                    href:"ants.html",         col:2, row:1.5},
-    {id:"L3", kind:"lemma",       title:"moral fictions",               href:"religion.html",     col:2, row:2.6},
-
-    {id:"T1", kind:"theorem",     title:"universal wrongs",             href:"crime.html",        col:3, row:0.6},
-    {id:"T2", kind:"theorem",     title:"mouth ≠ mind",                 href:"politics.html",     col:3, row:1.9},
-    {id:"T3", kind:"theorem",     title:"health consensus",             href:"health.html",       col:4, row:0.6},
-    {id:"T4", kind:"theorem",     title:"sustainability theatre",       href:"sustainability.html", col:4, row:1.9},
-
-    {id:"A1", kind:"application", title:"criminals at scale",           href:"criminals.html",    col:4, row:3.2},
-    {id:"A2", kind:"application", title:"justice network",              href:"justice.html",      col:5, row:3.2},
-    {id:"A3", kind:"application", title:"now — current claims",         href:"now.html",          col:5, row:1.9},
-    {id:"A7", kind:"application", title:"world — load-bearing",         href:"world.html",        col:5, row:0.6},
-    {id:"A4", kind:"application", title:"vote",                         href:"vote.html",         col:6, row:1.9},
-    {id:"A5", kind:"application", title:"swarm",                        href:"swarm.html",        col:6, row:3.2},
-    {id:"A6", kind:"application", title:"reach",                        href:"reach.html",        col:7, row:3.2},
-  ];
-  const EDGES = [
-    ["D1","D2"], ["D2","D3"], ["D2","L1"], ["D2","L2"], ["D2","L3"],
-    ["L1","L3"], ["L1","T1"], ["L3","T1"], ["L3","T2"],
-    ["T1","T3"], ["T2","T4"],
-    ["T1","A1"], ["T1","A2"], ["A1","A2"],
-    ["T2","A3"], ["T4","A3"], ["T4","A7"], ["A3","A7"],
-    ["A3","A4"], ["D3","A4"],
-    ["D3","A5"], ["T2","A5"], ["A4","A5"],
-    ["A5","A6"]
-  ];
-
-  const NODE_W = 158, NODE_H = 56;
-  const colW = (W - 100) / 7; // 8 cols 0..7
-  const rowH = 130;
-
-  function pos(n){
-    return { cx: 50 + n.col * colW + colW/2, cy: 60 + n.row * rowH };
-  }
-  const byId = Object.fromEntries(NODES.map(n=>[n.id, n]));
-
-  // build adjacency (parents + children) for highlight
-  const parents = {}, children = {};
-  for (const n of NODES){ parents[n.id] = []; children[n.id] = []; }
-  for (const [a, b] of EDGES){ children[a].push(b); parents[b].push(a); }
-
-  const NS = 'http://www.w3.org/2000/svg';
-  function E(name, attrs){ const el = document.createElementNS(NS, name); for (const k in attrs) el.setAttribute(k, attrs[k]); return el; }
-
-  // give each node mutable position state for dragging
-  for (const n of NODES){
-    const p = pos(n);
-    n._x = p.cx; n._y = p.cy;
-  }
-
-  // render edges
-  const edgeEls = {};
-  function drawEdges(){
-    for (const path of Object.values(edgeEls)) path.remove();
-    for (const k in edgeEls) delete edgeEls[k];
-    for (const [a, b] of EDGES){
-      const A = byId[a], B = byId[b];
-      const ax = A._x + NODE_W/2, ay = A._y;
-      const bx = B._x - NODE_W/2, by = B._y;
-      const dx = (bx - ax) * 0.5;
-      const d = `M${ax},${ay} C${ax+dx},${ay} ${bx-dx},${by} ${bx},${by}`;
-      const path = E('path', { d, class:'dep-edge', 'data-a':a, 'data-b':b });
-      vp.appendChild(path);
-      edgeEls[a+'->'+b] = path;
-    }
-  }
-
-  // render nodes
-  const nodeEls = {};
-  function drawNodes(){
-    for (const n of NODES){
-      const g = E('g', { class:'node-group', 'data-id':n.id, transform:`translate(${n._x-NODE_W/2},${n._y-NODE_H/2})`});
-      g.style.cursor = 'grab';
-      g.appendChild(E('rect', { x:0, y:0, width:NODE_W, height:NODE_H, rx:8, class:`node-rect ${n.kind}` }));
-      g.appendChild(Object.assign(E('text', { x:10, y:18, class:'node-id' }), { textContent: n.id }));
-      g.appendChild(Object.assign(E('text', { x:10, y:32, class:'node-kind' }), { textContent: n.kind }));
-      g.appendChild(Object.assign(E('text', { x:10, y:48, class:'node-title' }), { textContent: n.title.length>22 ? n.title.slice(0,21)+'…' : n.title }));
-      const t = E('title', {}); t.textContent = `${n.id} · ${n.kind} — ${n.title}`; g.appendChild(t);
-      g.addEventListener('mouseenter', () => light(n.id));
-      g.addEventListener('mouseleave', () => unlight());
-      vp.appendChild(g);
-      nodeEls[n.id] = g;
-    }
-  }
-  function refresh(){
-    // clear everything in viewport, then redraw
-    while (vp.firstChild) vp.removeChild(vp.firstChild);
-    drawEdges();
-    drawNodes();
-  }
-  refresh();
-
-  function transitiveAncestors(id){ const out=new Set(); const stack=[...parents[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const p of parents[x]) stack.push(p); } } return out; }
-  function transitiveDescendants(id){ const out=new Set(); const stack=[...children[id]]; while(stack.length){ const x = stack.pop(); if(!out.has(x)){ out.add(x); for(const c of children[x]) stack.push(c); } } return out; }
-
-  function light(id){
-    svg.classList.add('hover');
-    const lit = new Set([id, ...transitiveAncestors(id), ...transitiveDescendants(id)]);
-    for (const k in nodeEls){ nodeEls[k].classList.toggle('lit', lit.has(k)); }
-    for (const key in edgeEls){
-      const [a,b] = key.split('->');
-      edgeEls[key].classList.toggle('hot', lit.has(a) && lit.has(b));
-      if (lit.has(a) && lit.has(b)) edgeEls[key].setAttribute('marker-end', 'url(#arrowHot)');
-      else edgeEls[key].setAttribute('marker-end', 'url(#arrow)');
-    }
-  }
-  function unlight(){
-    svg.classList.remove('hover');
-    for (const k in nodeEls) nodeEls[k].classList.remove('lit');
-    for (const key in edgeEls){ edgeEls[key].classList.remove('hot'); edgeEls[key].setAttribute('marker-end', 'url(#arrow)'); }
-  }
-
-  /* ── zoom + pan + node drag ──────────────────────────────────── */
-  let scale = 1, tx = 0, ty = 0;
-  function applyView(){ vp.setAttribute('transform', `translate(${tx},${ty}) scale(${scale})`); }
-  document.getElementById('dep-in').onclick  = ()=>{ scale = Math.min(3, scale*1.2); applyView(); };
-  document.getElementById('dep-out').onclick = ()=>{ scale = Math.max(0.4, scale/1.2); applyView(); };
-  document.getElementById('dep-rst').onclick = ()=>{
-    scale = 1; tx = 0; ty = 0; applyView();
-    // also reset node positions
-    for (const n of NODES){ const p = pos(n); n._x = p.cx; n._y = p.cy; }
-    refresh();
-    applyView();
-  };
-
-  let panning = false, dragging = null, sx=0, sy=0, ox=0, oy=0, moved=0;
-  svg.addEventListener('mousedown', (e) => {
-    moved = 0;
-    const target = e.target.closest('.node-group');
-    if (target){
-      const id = target.dataset.id;
-      dragging = byId[id]; sx = e.clientX; sy = e.clientY;
-      target.style.cursor = 'grabbing';
-      e.preventDefault();
-      return;
-    }
-    panning = true; sx = e.clientX; sy = e.clientY; ox = tx; oy = ty;
-    svg.style.cursor = 'grabbing';
-  });
-  window.addEventListener('mouseup', () => {
-    if (dragging) for (const k in nodeEls) nodeEls[k].style.cursor = 'grab';
-    dragging = null; panning = false; svg.style.cursor = '';
-  });
-  window.addEventListener('mousemove', (e) => {
-    moved += Math.abs(e.movementX) + Math.abs(e.movementY);
-    if (dragging){
-      const rect = svg.getBoundingClientRect();
-      const sx = W / rect.width, sy_ = H / rect.height;
-      dragging._x += e.movementX * sx / scale;
-      dragging._y += e.movementY * sy_ / scale;
-      refresh();
-      return;
-    }
-    if (panning){ tx = ox + (e.clientX - sx); ty = oy + (e.clientY - sy); applyView(); }
-  });
-  // suppress click after drag (so node click → page nav doesn't fire)
-  svg.addEventListener('click', (e)=>{
-    if (moved > 4){ e.stopPropagation(); e.preventDefault(); return; }
-    const target = e.target.closest('.node-group');
-    if (target){ const id = target.dataset.id; const n = byId[id]; if (n) location.href = n.href; }
-  });
-  svg.addEventListener('wheel', (e)=>{
-    if (!(e.ctrlKey || e.metaKey)) return;
-    e.preventDefault();
-    const f = e.deltaY < 0 ? 1.15 : 1/1.15;
-    scale = Math.max(0.4, Math.min(3, scale * f));
-    applyView();
-  }, { passive: false });
-})();
-</script>
-</body>
-</html>

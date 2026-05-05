@@ -81,7 +81,7 @@ DEMO_TEMPLATE = """<!doctype html>
 </style>
 </head><body>
 <header class="topbar">
-  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <a class="logo" href="../index.html">g<span class="o">⊙</span>dding</a>
   <nav class="nav">
     <a href="belief.html">belief</a><a href="religion.html">religion</a>
     <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>

@@ -137,15 +137,28 @@ kbd{ font-family: var(--mono); font-size: 10px; padding: 2px 6px; border: 1px so
   font-family: var(--serif);
   font-style: italic; font-weight: 400;
   font-size: 26px; letter-spacing: -.01em; border: none;
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: baseline; gap: 0;
   color: var(--ink);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
-.logo .dot{
-  width: 14px; height: 14px; border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #ffd066, var(--sun) 60%);
-  box-shadow: 0 0 10px rgba(217,105,54,.4);
+/* the inline circled-O — stylised "godding" brand glyph */
+.logo .o{
   display: inline-block;
+  font-family: var(--serif);
+  font-style: normal;
+  color: var(--sun);
+  font-size: 0.92em;          /* slightly smaller so it sits on the baseline */
+  margin: 0 -0.02em;          /* tighten kerning so it reads as part of the word */
+  text-shadow: 0 0 8px rgba(217,105,54,.35);
+  transition: transform var(--t), color var(--t);
 }
+.logo:hover .o{
+  color: var(--gold);
+  transform: rotate(20deg);
+}
+/* legacy .dot kept for any old markup that still references it */
+.logo .dot{ display: none; }
 .nav{ display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
 .nav a{
   font-family: var(--mono);
