@@ -27,6 +27,38 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: strip NUL bytes (OneDrive sync artefact)
+        id: strip_nul
+        run: |
+          python - <<'PY'
+          import glob, os
+          fixed = []
+          patterns = ['pages/*.html','assets/*.css','assets/*.js','swarm/*.py','index.html']
+          for pat in patterns:
+              for f in sorted(glob.glob(pat)):
+                  with open(f,'rb') as fh: d = fh.read()
+                  if b'\x00' in d:
+                      n = d.count(b'\x00')
+                      with open(f,'wb') as fh: fh.write(d.replace(b'\x00', b''))
+                      fixed.append((f, n))
+          if fixed:
+              print('cleaned NUL bytes from:')
+              for f, n in fixed: print(f'  {f}  ({n} bytes)')
+              with open(os.environ['GITHUB_OUTPUT'],'a') as g: g.write('cleaned=true\n')
+          else:
+              print('no NUL bytes found.')
+              with open(os.environ['GITHUB_OUTPUT'],'a') as g: g.write('cleaned=false\n')
+          PY
+
+      - name: commit NUL-bytes cleanup if any
+        if: steps.strip_nul.outputs.cleaned == 'true'
+        run: |
+          git config user.name  "godding-swarm"
+          git config user.email "swarm@godding.local"
+          git add -A
+          git commit -m "swarm: strip OneDrive NUL-byte corruption" --quiet || true
+          git push --quiet || true
+
       - name: install deps
         run: |
           python -m pip install --upgrade pip
