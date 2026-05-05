@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
-"""
-verify every internal href / src / link target on the godding site actually
-resolves to a file. exits non-zero if any link is broken.
+"""verify every internal href/src on the godding site resolves to a file.
+Exits non-zero on any broken link. Skips JS template-literal placeholders.
 """
 from __future__ import annotations
 import re, sys
@@ -10,15 +9,11 @@ from urllib.parse import urlparse, unquote
 
 ROOT = Path(__file__).resolve().parent.parent
 HTML_FILES = sorted(ROOT.rglob("*.html"))
-
-# capture href="..." and src="..." values
 ATTR_RE = re.compile(r'(?:href|src)\s*=\s*"([^"]+)"', re.IGNORECASE)
 
-def is_internal(url: str) -> bool:
+def is_internal(url):
     p = urlparse(url)
-    if p.scheme and p.scheme not in ("file",):    # http(s), mailto, javascript: → external
-        return False
-    return True
+    return not (p.scheme and p.scheme not in ("file",))
 
 ok, broken = 0, []
 for f in HTML_FILES:
@@ -27,16 +22,15 @@ for f in HTML_FILES:
         url = raw.strip()
         if not url or url.startswith("#") or url.startswith("data:"):
             continue
+        if "${" in url or "`" in url:
+            continue
         if not is_internal(url):
             continue
-        # split off fragment / query
         target_path = unquote(urlparse(url).path)
-        # resolve relative to current file's dir
         candidate = (f.parent / target_path).resolve()
         if candidate.is_file():
             ok += 1
         elif candidate.is_dir():
-            # treat dir/ as dir/index.html
             if (candidate / "index.html").is_file():
                 ok += 1
             else:

@@ -1,15 +1,27 @@
 {
-  "generated": "2026-05-04T19:49:19Z",
-  "n_pages": 19,
+  "generated": "2026-05-04T20:43:16Z",
+  "n_pages": 21,
   "thresh": 0.42,
   "groups": [
+    {
+      "pages": [
+        "build",
+        "demo"
+      ],
+      "label_tokens": [
+        "html",
+        "run",
+        "page"
+      ],
+      "size": 2
+    },
     {
       "pages": [
         "ants"
       ],
       "label_tokens": [
-        "const",
         "ctx",
+        "const",
         "ant"
       ],
       "size": 1
@@ -19,20 +31,9 @@
         "belief"
       ],
       "label_tokens": [
-        "noise",
         "think",
-        "patterns"
-      ],
-      "size": 1
-    },
-    {
-      "pages": [
-        "build"
-      ],
-      "label_tokens": [
-        "html",
-        "run",
-        "json"
+        "noise",
+        "act"
       ],
       "size": 1
     },
@@ -52,9 +53,9 @@
         "criminals"
       ],
       "label_tokens": [
-        "ranges",
-        "bubble",
-        "area"
+        "state",
+        "mode",
+        "ranges"
       ],
       "size": 1
     },
@@ -65,7 +66,7 @@
       "label_tokens": [
         "theorem",
         "app",
-        "lemma"
+        "node"
       ],
       "size": 1
     },
@@ -75,7 +76,7 @@
       ],
       "label_tokens": [
         "neighbours",
-        "cells",
+        "env",
         "environment"
       ],
       "size": 1
@@ -98,7 +99,7 @@
       "label_tokens": [
         "section",
         "essay",
-        "root"
+        "amp"
       ],
       "size": 1
     },
@@ -107,9 +108,9 @@
         "justice"
       ],
       "label_tokens": [
-        "convicted",
         "court",
-        "sdny"
+        "convicted",
+        "const"
       ],
       "size": 1
     },
@@ -118,8 +119,8 @@
         "now"
       ],
       "label_tokens": [
-        "claim",
         "amp",
+        "claim",
         "climate"
       ],
       "size": 1
@@ -130,8 +131,8 @@
       ],
       "label_tokens": [
         "say",
-        "gap",
-        "political"
+        "political",
+        "real"
       ],
       "size": 1
     },
@@ -141,8 +142,8 @@
       ],
       "label_tokens": [
         "godding",
-        "marketing",
-        "post"
+        "post",
+        "signal"
       ],
       "size": 1
     },
@@ -159,11 +160,22 @@
     },
     {
       "pages": [
+        "search"
+      ],
+      "label_tokens": [
+        "sent",
+        "server",
+        "godding"
+      ],
+      "size": 1
+    },
+    {
+      "pages": [
         "sustainability"
       ],
       "label_tokens": [
-        "theatre",
         "less",
+        "theatre",
         "load-bearing"
       ],
       "size": 1
@@ -175,7 +187,7 @@
       "label_tokens": [
         "accepted",
         "proposes",
-        "knowledge"
+        "critic"
       ],
       "size": 1
     },
@@ -197,7 +209,7 @@
       "label_tokens": [
         "energy",
         "primary",
-        "weapons"
+        "pyramid"
       ],
       "size": 1
     },
@@ -206,9 +218,9 @@
         "index"
       ],
       "label_tokens": [
-        "knowledge",
         "farm",
-        "play"
+        "knowledge",
+        "models"
       ],
       "size": 1
     }
@@ -217,267 +229,295 @@
     "ants": [
       {
         "page": "vote",
-        "sim": 0.2953
-      },
-      {
-        "page": "now",
-        "sim": 0.1858
+        "sim": 0.2417
       },
       {
         "page": "justice",
-        "sim": 0.1439
+        "sim": 0.1776
+      },
+      {
+        "page": "now",
+        "sim": 0.1594
       }
     ],
     "belief": [
       {
         "page": "religion",
-        "sim": 0.2876
+        "sim": 0.2844
       },
       {
         "page": "index",
-        "sim": 0.1574
+        "sim": 0.1814
       },
       {
-        "page": "now",
-        "sim": 0.1306
+        "page": "demo",
+        "sim": 0.1648
       }
     ],
     "build": [
       {
+        "page": "demo",
+        "sim": 0.4353
+      },
+      {
         "page": "swarm",
-        "sim": 0.4101
+        "sim": 0.4178
       },
       {
         "page": "reach",
-        "sim": 0.2732
-      },
-      {
-        "page": "idx",
-        "sim": 0.2047
+        "sim": 0.2724
       }
     ],
     "crime": [
       {
-        "page": "criminals",
-        "sim": 0.2085
+        "page": "religion",
+        "sim": 0.177
       },
       {
-        "page": "religion",
-        "sim": 0.1745
+        "page": "criminals",
+        "sim": 0.1701
       },
       {
         "page": "index",
-        "sim": 0.1465
+        "sim": 0.1595
       }
     ],
     "criminals": [
       {
-        "page": "crime",
-        "sim": 0.2085
+        "page": "vote",
+        "sim": 0.221
+      },
+      {
+        "page": "justice",
+        "sim": 0.1946
+      },
+      {
+        "page": "now",
+        "sim": 0.194
+      }
+    ],
+    "demo": [
+      {
+        "page": "build",
+        "sim": 0.4353
       },
       {
         "page": "idx",
-        "sim": 0.1607
+        "sim": 0.3671
       },
       {
-        "page": "index",
-        "sim": 0.1335
+        "page": "search",
+        "sim": 0.2811
       }
     ],
     "depends": [
       {
         "page": "idx",
-        "sim": 0.2108
+        "sim": 0.1921
+      },
+      {
+        "page": "demo",
+        "sim": 0.1718
       },
       {
         "page": "index",
-        "sim": 0.1622
-      },
-      {
-        "page": "now",
-        "sim": 0.1267
+        "sim": 0.1587
       }
     ],
     "good-bad": [
       {
         "page": "index",
-        "sim": 0.1828
+        "sim": 0.1459
       },
       {
         "page": "belief",
-        "sim": 0.121
+        "sim": 0.1307
       },
       {
         "page": "idx",
-        "sim": 0.1068
+        "sim": 0.1073
       }
     ],
     "health": [
       {
         "page": "sustainability",
-        "sim": 0.1109
+        "sim": 0.1107
       },
       {
-        "page": "reach",
-        "sim": 0.104
+        "page": "demo",
+        "sim": 0.1069
       },
       {
-        "page": "politics",
-        "sim": 0.1022
+        "page": "index",
+        "sim": 0.1028
       }
     ],
     "idx": [
       {
+        "page": "demo",
+        "sim": 0.3671
+      },
+      {
         "page": "index",
-        "sim": 0.3583
+        "sim": 0.3649
       },
       {
         "page": "world",
-        "sim": 0.277
-      },
-      {
-        "page": "now",
-        "sim": 0.2297
+        "sim": 0.2633
       }
     ],
     "justice": [
       {
-        "page": "vote",
-        "sim": 0.2061
-      },
-      {
         "page": "now",
-        "sim": 0.1849
+        "sim": 0.2963
       },
       {
-        "page": "ants",
-        "sim": 0.1439
+        "page": "vote",
+        "sim": 0.2832
+      },
+      {
+        "page": "criminals",
+        "sim": 0.1946
       }
     ],
     "now": [
       {
         "page": "vote",
-        "sim": 0.3518
+        "sim": 0.3288
+      },
+      {
+        "page": "justice",
+        "sim": 0.2963
       },
       {
         "page": "idx",
-        "sim": 0.2297
-      },
-      {
-        "page": "index",
-        "sim": 0.1931
+        "sim": 0.2306
       }
     ],
     "politics": [
       {
-        "page": "swarm",
-        "sim": 0.1191
-      },
-      {
-        "page": "now",
-        "sim": 0.1083
+        "page": "demo",
+        "sim": 0.1309
       },
       {
         "page": "index",
-        "sim": 0.1044
+        "sim": 0.1189
+      },
+      {
+        "page": "swarm",
+        "sim": 0.1134
       }
     ],
     "reach": [
       {
         "page": "swarm",
-        "sim": 0.2856
+        "sim": 0.2825
       },
       {
         "page": "build",
-        "sim": 0.2732
+        "sim": 0.2724
       },
       {
-        "page": "idx",
-        "sim": 0.1855
+        "page": "demo",
+        "sim": 0.2023
       }
     ],
     "religion": [
       {
         "page": "belief",
-        "sim": 0.2876
-      },
-      {
-        "page": "crime",
-        "sim": 0.1745
+        "sim": 0.2844
       },
       {
         "page": "index",
-        "sim": 0.1465
+        "sim": 0.1911
+      },
+      {
+        "page": "crime",
+        "sim": 0.177
+      }
+    ],
+    "search": [
+      {
+        "page": "demo",
+        "sim": 0.2811
+      },
+      {
+        "page": "idx",
+        "sim": 0.1425
+      },
+      {
+        "page": "reach",
+        "sim": 0.1158
       }
     ],
     "sustainability": [
       {
+        "page": "demo",
+        "sim": 0.1482
+      },
+      {
         "page": "idx",
-        "sim": 0.1218
+        "sim": 0.1171
       },
       {
         "page": "health",
-        "sim": 0.1109
-      },
-      {
-        "page": "reach",
-        "sim": 0.0937
+        "sim": 0.1107
       }
     ],
     "swarm": [
       {
         "page": "build",
-        "sim": 0.4101
+        "sim": 0.4178
       },
       {
         "page": "reach",
-        "sim": 0.2856
+        "sim": 0.2825
       },
       {
-        "page": "idx",
-        "sim": 0.1945
+        "page": "index",
+        "sim": 0.2078
       }
     ],
     "vote": [
       {
         "page": "now",
-        "sim": 0.3518
-      },
-      {
-        "page": "ants",
-        "sim": 0.2953
+        "sim": 0.3288
       },
       {
         "page": "justice",
-        "sim": 0.2061
+        "sim": 0.2832
+      },
+      {
+        "page": "ants",
+        "sim": 0.2417
       }
     ],
     "world": [
       {
         "page": "idx",
-        "sim": 0.277
+        "sim": 0.2633
       },
       {
         "page": "now",
-        "sim": 0.1696
+        "sim": 0.1936
       },
       {
-        "page": "index",
-        "sim": 0.1484
+        "page": "demo",
+        "sim": 0.166
       }
     ],
     "index": [
       {
         "page": "idx",
-        "sim": 0.3583
+        "sim": 0.3649
       },
       {
-        "page": "now",
-        "sim": 0.1931
+        "page": "demo",
+        "sim": 0.2638
       },
       {
         "page": "swarm",
-        "sim": 0.1834
+        "sim": 0.2078
       }
     ]
   }

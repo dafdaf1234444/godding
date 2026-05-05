@@ -1,0 +1,103 @@
+name: godding-swarm
+
+on:
+  schedule:
+    - cron: '4 8 * * *'   # 08:04 UTC daily ≈ 09:04 UK / 10:04 NL summer
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: godding-swarm
+  cancel-in-progress: false
+
+jobs:
+  loop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests || true
+          # playwright is optional — uncomment to enable visual QA
+          # pip install playwright
+          # python -m playwright install --with-deps chromium
+
+      - name: serve site (background)
+        run: |
+          nohup python serve.py > /tmp/serve.log 2>&1 &
+          # wait for it to be ready
+          for i in {1..20}; do
+            curl -fs http://127.0.0.1:8000/ >/dev/null && break
+            sleep 0.5
+          done
+
+      - name: run loop
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python swarm/loop.py
+
+      - name: run share-kit generator
+        run: python swarm/share.py
+
+      - name: run grouper
+        run: python swarm/group.py
+
+      - name: rebuild search index
+        run: python swarm/indexer.py
+
+      - name: regenerate self-docs + demo
+        run: python swarm/docs.py
+
+      - name: deep audit
+        run: python swarm/audit.py
+
+      - name: verify links
+        run: python swarm/verify_links.py
+
+      # Optional: run visual QA against the local server.
+      # Enable by installing Playwright in the deps step above.
+      - name: visual qa (optional)
+        run: |
+          if python -c "import playwright" 2>/dev/null; then
+            GODDING_BASE=http://127.0.0.1:8000 python swarm/visual_qa.py
+          else
+            echo "playwright not installed, skipping"
+          fi
+
+      - name: commit + push
+        run: |
+          git config user.name  "godding-swarm"
+          git config user.email "swarm@godding.local"
+          git add data/ pages/demo.html pages/ changelog/ || true
+          if git diff --cached --quiet; then
+            echo "no changes this run"
+          else
+            git commit -m "swarm: scheduled run $(date -u +%FT%TZ)" --quiet
+            git push --quiet
+          fi
+
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: swarm-run-${{ github.run_id }}
+          path: |
+            data/audit.json
+            data/share_kit.json
+            data/groups.json
+            data/last_run.json
+            data/visual_qa.json
+          retention-days: 30

@@ -1,0 +1,448 @@
+{
+  "generated": "2026-05-04T20:43:16Z",
+  "groups": [
+    {
+      "name": "root",
+      "items": [
+        {
+          "file": "belief.html",
+          "title": "nothing → noise → patterns → life → us.",
+          "kicker": "root · the chain",
+          "sections": [
+            {
+              "id": "",
+              "text": "the chain, in plain words"
+            },
+            {
+              "id": "",
+              "text": "sense → think → act"
+            },
+            {
+              "id": "",
+              "text": "you filter the world; the world filters you back"
+            },
+            {
+              "id": "",
+              "text": "the four questions — vote inline"
+            }
+          ]
+        },
+        {
+          "file": "religion.html",
+          "title": "heaven and hell, simply.",
+          "kicker": "religion · plainly",
+          "sections": [
+            {
+              "id": "",
+              "text": "1 · how nothing made everything"
+            },
+            {
+              "id": "",
+              "text": "2 · the rule life learned"
+            },
+            {
+              "id": "",
+              "text": "3 · what \"heaven\" and \"hell\" really mean"
+            },
+            {
+              "id": "",
+              "text": "4 · what religions agree on"
+            },
+            {
+              "id": "",
+              "text": "5 · the side-by-side, kept short"
+            },
+            {
+              "id": "",
+              "text": "6 · what's automated, and what isn't"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "simulations",
+      "items": [
+        {
+          "file": "good-bad.html",
+          "title": "good vs. bad — watch the math.",
+          "kicker": "play · the topology of cooperation",
+          "sections": [
+            {
+              "id": "",
+              "text": "what's happening"
+            }
+          ]
+        },
+        {
+          "file": "ants.html",
+          "title": "ants on bodies .",
+          "kicker": "play · cooperation on top of physics",
+          "sections": [
+            {
+              "id": "",
+              "text": "what you're looking at"
+            },
+            {
+              "id": "",
+              "text": "why this is on a site about belief"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "crime & justice",
+      "items": [
+        {
+          "file": "crime.html",
+          "title": "what humans broadly agree is wrong.",
+          "kicker": "crime · the cross-cultural list",
+          "sections": [
+            {
+              "id": "",
+              "text": "the core list"
+            },
+            {
+              "id": "",
+              "text": "godding's bubbles — who did what, at scale"
+            },
+            {
+              "id": "",
+              "text": "why it's the same list"
+            },
+            {
+              "id": "",
+              "text": "what people get wrong about crime"
+            },
+            {
+              "id": "",
+              "text": "the part that connects to the rest of the site"
+            }
+          ]
+        },
+        {
+          "file": "criminals.html",
+          "title": "godding's bubbles .",
+          "kicker": "criminals · the worst of us",
+          "sections": [
+            {
+              "id": "",
+              "text": "why this page exists"
+            }
+          ]
+        },
+        {
+          "file": "justice.html",
+          "title": "justice — who is connected to whom.",
+          "kicker": "justice · the network · proven, indicted, mentioned",
+          "sections": [
+            {
+              "id": "",
+              "text": "how to read this"
+            },
+            {
+              "id": "",
+              "text": "what this is not"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "vote & current claims",
+      "items": [
+        {
+          "file": "now.html",
+          "title": "vote on the current situation .",
+          "kicker": "now · current claims · votable",
+          "sections": [
+            {
+              "id": "",
+              "text": "how to vote on a current claim — the cheap scientific method"
+            },
+            {
+              "id": "",
+              "text": "source compactifier · institutions godding considers credible per topic"
+            },
+            {
+              "id": "",
+              "text": "about public tracking"
+            }
+          ]
+        },
+        {
+          "file": "vote.html",
+          "title": "vote on what you read. every vote is recorded .",
+          "kicker": "vote · recorded · changeable",
+          "sections": [
+            {
+              "id": "",
+              "text": "badges"
+            },
+            {
+              "id": "",
+              "text": "vote on the cross-cultural crime list"
+            },
+            {
+              "id": "",
+              "text": "vote on the four questions"
+            },
+            {
+              "id": "",
+              "text": "which pages helped?"
+            },
+            {
+              "id": "",
+              "text": "your activity, dated"
+            },
+            {
+              "id": "",
+              "text": "how reputation works (honestly)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "world — load-bearing systems",
+      "items": [
+        {
+          "file": "world.html",
+          "title": "world — energy, money, people, weapons.",
+          "kicker": "world · the load-bearing systems",
+          "sections": [
+            {
+              "id": "energy",
+              "text": "1 · energy — generation + distribution"
+            },
+            {
+              "id": "money",
+              "text": "2 · money — distribution + tracking"
+            },
+            {
+              "id": "politicians",
+              "text": "3 · politicians — tracking inconsistency over time"
+            },
+            {
+              "id": "demographics",
+              "text": "4 · demographics — population pyramids"
+            },
+            {
+              "id": "weapons",
+              "text": "5 · weapons — extreme power, who has it"
+            },
+            {
+              "id": "timeline",
+              "text": "6 · how much time we have"
+            },
+            {
+              "id": "index",
+              "text": "7 · master reading list"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "essays",
+      "items": [
+        {
+          "file": "politics.html",
+          "title": "where the public mouth and the private mind disagree.",
+          "kicker": "politics · the gap",
+          "sections": [
+            {
+              "id": "",
+              "text": "the gap is real and measured"
+            },
+            {
+              "id": "",
+              "text": "seven items worth pointing at"
+            },
+            {
+              "id": "",
+              "text": "the test you can run on yourself"
+            }
+          ]
+        },
+        {
+          "file": "health.html",
+          "title": "what every doctor agrees on, that almost nobody does.",
+          "kicker": "health · the short list",
+          "sections": [
+            {
+              "id": "",
+              "text": "the consensus list"
+            },
+            {
+              "id": "",
+              "text": "the gap, and what closes it"
+            }
+          ]
+        },
+        {
+          "file": "sustainability.html",
+          "title": "a clean cut between what moves the numbers and what moves the conscience.",
+          "kicker": "sustainability · load-bearing vs. theatre",
+          "sections": [
+            {
+              "id": "",
+              "text": "the receipts, briefly"
+            },
+            {
+              "id": "",
+              "text": "theatre vs. load-bearing"
+            },
+            {
+              "id": "",
+              "text": "the smallest list that actually matters"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "engine & meta",
+      "items": [
+        {
+          "file": "swarm.html",
+          "title": "godding uses swarm .",
+          "kicker": "engine · the knowledge base",
+          "sections": [
+            {
+              "id": "",
+              "text": "what it does — in one paragraph"
+            },
+            {
+              "id": "",
+              "text": "what it does — visually"
+            },
+            {
+              "id": "",
+              "text": "guardrails (real, not vague)"
+            },
+            {
+              "id": "",
+              "text": "swarm as a knowledge base"
+            },
+            {
+              "id": "",
+              "text": "how the agents work — details"
+            }
+          ]
+        },
+        {
+          "file": "depends.html",
+          "title": "dependencies — which page rests on which.",
+          "kicker": "dependency map · oxford-notes style",
+          "sections": [
+            {
+              "id": "",
+              "text": "the index, in topological order"
+            },
+            {
+              "id": "",
+              "text": "why this layout"
+            }
+          ]
+        },
+        {
+          "file": "idx.html",
+          "title": "index — every page on godding.",
+          "kicker": "index · every page · efficient lookup",
+          "sections": [
+            {
+              "id": "",
+              "text": "alphabetical lookup"
+            }
+          ]
+        },
+        {
+          "file": "search.html",
+          "title": "search — everything godding has on file.",
+          "kicker": "search · across every page · instant, client-side",
+          "sections": []
+        },
+        {
+          "file": "reach.html",
+          "title": "reach — how godding gets to people.",
+          "kicker": "reach · about · marketing strategy",
+          "sections": [
+            {
+              "id": "",
+              "text": "about · who's behind this"
+            },
+            {
+              "id": "",
+              "text": "objective · plain"
+            },
+            {
+              "id": "",
+              "text": "distribution channels &amp; cadence"
+            },
+            {
+              "id": "",
+              "text": "the swarm's marketing job"
+            },
+            {
+              "id": "",
+              "text": "example hooks (auto-generated style)"
+            },
+            {
+              "id": "",
+              "text": "kpis · what we count"
+            },
+            {
+              "id": "",
+              "text": "what we won't do"
+            }
+          ]
+        },
+        {
+          "file": "build.html",
+          "title": "how it's built.",
+          "kicker": "build · how godding and swarm are made",
+          "sections": [
+            {
+              "id": "",
+              "text": "file map"
+            },
+            {
+              "id": "",
+              "text": "godding (the front)"
+            },
+            {
+              "id": "",
+              "text": "swarm (the engine + knowledge base)"
+            },
+            {
+              "id": "",
+              "text": "how a run looks, end to end"
+            },
+            {
+              "id": "",
+              "text": "scheduling"
+            },
+            {
+              "id": "",
+              "text": "link verification"
+            },
+            {
+              "id": "",
+              "text": "where the ideas come from"
+            },
+            {
+              "id": "",
+              "text": "how to run it locally"
+            },
+            {
+              "id": "",
+              "text": "license &amp; honesty"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

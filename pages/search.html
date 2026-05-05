@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>search — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .search-wrap{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:18px; margin:8px 0 18px; }
+  #q{ width:100%; font-family:'Fraunces',Georgia,serif; font-size:24px; padding:10px 14px; border:1px solid var(--line-2); border-radius:var(--radius-sm); background:var(--paper-2); color:var(--ink); }
+  #q:focus{ outline:none; border-color:var(--sun); box-shadow:0 0 0 3px rgba(217,105,54,.15); }
+  .meta{ font-family:var(--mono); font-size:11.5px; color:var(--ink-mute); margin:8px 0 0; letter-spacing:.10em; text-transform:uppercase }
+  .topic-row{ display:flex; flex-wrap:wrap; gap:6px; margin-top:10px }
+  .topic-chip{ font-family:var(--mono); font-size:11px; letter-spacing:.06em; padding:4px 10px; border-radius:100px; border:1px solid var(--line-2); background:var(--paper-2); color:var(--ink-2); cursor:pointer }
+  .topic-chip.active{ background:var(--ink); color:var(--cream); border-color:var(--ink) }
+  .results{ list-style:none; padding:0; margin:0; }
+  .results li{ padding:14px 0; border-bottom:1px solid var(--line); }
+  .results .url{ font-family:var(--mono); font-size:11.5px; color:var(--ink-mute); letter-spacing:.06em }
+  .results .title{ font-family:'Fraunces',Georgia,serif; font-style:italic; font-size:20px; color:var(--ink); margin:2px 0 4px; }
+  .results .title a{ color:var(--ink); text-decoration:none }
+  .results .title a:hover{ color:var(--sun) }
+  .results .topic{ display:inline-block; font-family:var(--mono); font-size:9.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--paper); background:var(--gold); padding:2px 8px; border-radius:100px; margin-right:8px; vertical-align:middle }
+  .results .topic.essays{ background:var(--rose) } .results .topic.sims{ background:var(--gold) }
+  .results .topic.crime{ background:var(--ink-2) } .results .topic.vote{ background:var(--leaf) }
+  .results .topic.world{ background:var(--sky) } .results .topic.engine{ background:var(--plum) }
+  .results .kicker{ font-family:var(--sans); font-size:13px; color:var(--ink-2); }
+  .results .snippet{ font-family:var(--sans); font-size:13.5px; color:var(--ink-2); line-height:1.55; margin-top:6px }
+  .results .snippet mark{ background:rgba(200,154,62,.30); color:var(--ink); padding:0 2px; border-radius:3px; font-weight:500 }
+  .results .anchors{ margin-top:8px; display:flex; flex-wrap:wrap; gap:6px }
+  .results .anchors a{ font-family:var(--mono); font-size:11.5px; padding:3px 8px; border:1px solid var(--line); border-radius:100px; color:var(--ink-2); background:var(--paper-2) }
+  .results .anchors a:hover{ background:var(--cream); color:var(--sun); border-color:var(--sun) }
+  .empty{ font-family:'Fraunces',Georgia,serif; font-style:italic; color:var(--ink-mute); padding:22px; text-align:center }
+  .kbd{ font-family:var(--mono); font-size:10.5px; padding:2px 6px; border:1px solid var(--line-2); border-radius:4px; background:var(--paper-2); color:var(--ink-mute) }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding<span class="dot"></span></a>
+  <nav class="nav">
+    <a href="belief.html">belief</a><a href="religion.html">religion</a>
+    <a href="good-bad.html">sims · good/bad</a><a href="ants.html">sims · ants</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / search</p>
+  <p class="kicker">search · across every page · instant, client-side</p>
+  <h1>search — <em>everything godding has on file.</em></h1>
+  <p class="dim">Index is built daily by <code>swarm/indexer.py</code> and shipped as <code>data/search_index.json</code>. Filtering happens entirely in your browser — nothing sent to a server.</p>
+
+  <div class="search-wrap">
+    <input id="q" type="search" autocomplete="off" placeholder="type to filter — title · kicker · headings · body" autofocus>
+    <p class="meta" id="meta">loading index…</p>
+    <div class="topic-row" id="topic-row" hidden></div>
+  </div>
+
+  <ul class="results" id="results"></ul>
+  <p class="dim" id="empty" style="display:none;text-align:center;padding:22px"><em>no matches.</em></p>
+</main>
+
+<aside class="sidebar">
+  <h4>shortcut</h4>
+  <ul>
+    <li>focus search: <span class="kbd">/</span></li>
+    <li>clear: <span class="kbd">Esc</span></li>
+    <li>open first result: <span class="kbd">Enter</span></li>
+  </ul>
+  <h4 style="margin-top:14px">go to</h4>
+  <ul>
+    <li><a href="idx.html">master index</a></li>
+    <li><a href="depends.html">dependency map</a></li>
+    <li><a href="../changelog/index.html">changelog</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <div>godding · <a href="../changelog/index.html">changelog</a> · <a href="https://github.com/dafdaf1234444/godding" target="_blank" rel="noopener">github</a></div>
+  <div class="muted">browser-only filter. nothing sent to a server.</div>
+</footer>
+
+<script>
+(function(){
+  const Q = document.getElementById('q');
+  const RES = document.getElementById('results');
+  const META = document.getElementById('meta');
+  const EMPTY = document.getElementById('empty');
+  const TOPIC = document.getElementById('topic-row');
+  let docs = [];
+  let topicFilter = 'all';
+
+  // /-key focus
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== Q){ e.preventDefault(); Q.focus(); Q.select(); }
+    if (e.key === 'Escape' && document.activeElement === Q){ Q.value=''; render(); }
+    if (e.key === 'Enter' && document.activeElement === Q){
+      const first = RES.querySelector('a[data-first]');
+      if (first){ location.href = first.href; }
+    }
+  });
+
+  // load index
+  fetch('../data/search_index.json').then(r => r.json()).then(d => {
+    docs = d.docs || [];
+    META.textContent = `indexed ${docs.length} pages · last updated ${d.generated || '—'}`;
+    // build topic chips
+    const counts = {};
+    for (const x of docs) counts[x.topic] = (counts[x.topic]||0) + 1;
+    TOPIC.hidden = false;
+    TOPIC.innerHTML = '';
+    const allChip = document.createElement('button');
+    allChip.className = 'topic-chip active'; allChip.dataset.t = 'all';
+    allChip.textContent = `all · ${docs.length}`;
+    TOPIC.appendChild(allChip);
+    for (const t of ['essays','sims','crime','world','vote','engine','other']){
+      if (!counts[t]) continue;
+      const b = document.createElement('button');
+      b.className = 'topic-chip'; b.dataset.t = t;
+      b.textContent = `${t} · ${counts[t]}`;
+      TOPIC.appendChild(b);
+    }
+    TOPIC.querySelectorAll('.topic-chip').forEach(b => b.addEventListener('click', () => {
+      TOPIC.querySelectorAll('.topic-chip').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      topicFilter = b.dataset.t;
+      render();
+    }));
+    // optional ?q= prefill from URL
+    const url = new URL(location.href);
+    if (url.searchParams.get('q')){ Q.value = url.searchParams.get('q'); }
+    render();
+  }).catch(err => {
+    META.innerHTML = `<span style="color:var(--rose)">index not loaded — run <code>python swarm/indexer.py</code> first.</span>`;
+  });
+
+  Q.addEventListener('input', render);
+
+  function score(doc, q){
+    if (!q) return 1;
+    const tq = q.toLowerCase();
+    let s = 0;
+    if (doc.title && doc.title.toLowerCase().includes(tq)) s += 8;
+    if (doc.kicker && doc.kicker.toLowerCase().includes(tq)) s += 4;
+    for (const h of doc.headings) if (h.text.toLowerCase().includes(tq)) s += 3;
+    if (doc.text && doc.text.includes(tq)) s += 1;
+    return s;
+  }
+  function highlight(text, q){
+    if (!q) return text;
+    const re = new RegExp('(' + q.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\$&') + ')', 'ig');
+    return text.replace(re, '<mark>$1</mark>');
+  }
+  function snippet(doc, q){
+    if (!q || !doc.text) return '';
+    const i = doc.text.indexOf(q.toLowerCase());
+    if (i < 0) return '';
+    const start = Math.max(0, i - 60);
+    const end = Math.min(doc.text.length, i + q.length + 90);
+    let s = doc.text.slice(start, end);
+    if (start > 0) s = '…' + s;
+    if (end < doc.text.length) s = s + '…';
+    return highlight(s, q);
+  }
+
+  function render(){
+    const q = (Q.value || '').trim();
+    let filtered = docs.filter(d => topicFilter==='all' || d.topic===topicFilter);
+    const scored = filtered.map(d => ({ d, s: score(d, q) }))
+                           .filter(x => x.s > 0)
+                           .sort((a,b) => b.s - a.s);
+    RES.innerHTML = '';
+    if (scored.length === 0){
+      EMPTY.style.display = 'block';
+      return;
+    }
+    EMPTY.style.display = 'none';
+    let firstSet = false;
+    for (const {d, s} of scored){
+      const li = document.createElement('li');
+      const url = '../' + d.url;
+      const titleHtml = highlight(d.title, q);
+      const kickerHtml = d.kicker ? highlight(d.kicker, q) : '';
+      const sn = snippet(d, q);
+      const headings = (d.headings || []).filter(h => h.id && (!q || h.text.toLowerCase().includes(q.toLowerCase()))).slice(0, 4);
+      let html = `<div class="url">/${d.url.replace(/^pages\//,'')}</div>
+                  <h3 class="title"><a href="${url}"${firstSet?'':' data-first'}><span class="topic ${d.topic}">${d.topic}</span>${titleHtml}</a></h3>`;
+      if (kickerHtml) html += `<div class="kicker">${kickerHtml}</div>`;
+      if (sn) html += `<div class="snippet">${sn}</div>`;
+      if (headings.length){
+        html += `<div class="anchors">`;
+        for (const h of headings) html += `<a href="${url}#${h.id}">#${h.id} — ${h.text}</a>`;
+        html += `</div>`;
+      }
+      li.innerHTML = html;
+      RES.appendChild(li);
+      firstSet = true;
+    }
+  }
+})();
+</script>
+<script src="../assets/global.js"></script>
+</body>
+</html>

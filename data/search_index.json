@@ -1,0 +1,656 @@
+{
+ "generated": "2026-05-04T20:43:16Z",
+ "n_docs": 21,
+ "docs": [
+  {
+   "url": "index.html",
+   "stem": "index",
+   "topic": "other",
+   "title": "godding — the knowledge farm.",
+   "kicker": "",
+   "headings": [
+    {
+     "id": "",
+     "text": "the knowledge farm , in five lines."
+    },
+    {
+     "id": "",
+     "text": "the branches ."
+    },
+    {
+     "id": "",
+     "text": "essays · the underlying claims"
+    },
+    {
+     "id": "",
+     "text": "belief"
+    },
+    {
+     "id": "",
+     "text": "heaven &amp; hell, simply"
+    },
+    {
+     "id": "",
+     "text": "politics"
+    },
+    {
+     "id": "",
+     "text": "health"
+    },
+    {
+     "id": "",
+     "text": "sustainability"
+    },
+    {
+     "id": "",
+     "text": "world · the load-bearing systems"
+    },
+    {
+     "id": "",
+     "text": "energy, money, people, weapons"
+    },
+    {
+     "id": "",
+     "text": "master index"
+    },
+    {
+     "id": "",
+     "text": "crime &amp; justice · who did what, at scale"
+    },
+    {
+     "id": "",
+     "text": "crime, plainly"
+    },
+    {
+     "id": "",
+     "text": "godding's bubbles"
+    },
+    {
+     "id": "",
+     "text": "justice — network"
+    },
+    {
+     "id": "",
+     "text": "vote &amp; current claims"
+    }
+   ],
+   "text": "godding — the knowledge farm godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding — the knowledge farm. a small site about the things humans broadly agree on but rarely act on. a swarm of language models reads every page each day, removes weak claims, keeps the strong ones, and logs every change in public. voting is free, anonymous, recorded. every change is kept with a utc timestamp. the loop is the point. start at the root → vote how it works the knowledge farm , in five lines. the universe seems to be doing one thing: compressing itself into smaller models of itself. atoms, cells, brains, languages, this site. a compact model that can run itself is alive. a compact model that knows it's running is conscious. two living models that share predictions are cheaper than two that don't. that is why cooperation wins on every long timescale we have measured. knowledge that doesn't reduce future surprise is wasted energy. so true ideas are call options — small downside if wrong, unbounded upside if right. so the move is: take small falsifiable bets, log them in public, kee"
+  },
+  {
+   "url": "pages/ants.html",
+   "stem": "ants",
+   "topic": "sims",
+   "title": "ants on bodies .",
+   "kicker": "play · cooperation on top of physics",
+   "headings": [
+    {
+     "id": "",
+     "text": "what you're looking at"
+    },
+    {
+     "id": "",
+     "text": "why this is on a site about belief"
+    }
+   ],
+   "text": "ants on bodies — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / ants play · cooperation on top of physics ants on bodies . several bodies pull on each other under newtonian gravity. on top of that physics, a colony of ants walks each body's surface, leaves pheromone trails, finds food, and hops between bodies when they pass close. restart pause ants bodies gravity what you're looking at glowing disks are bodies — pulled by gravity, leaving fading orbital trails. drag them with the mouse. tiny triangles are ants — orange when carrying food, white otherwise. warm haze is pheromone. ants strengthen it where they find food; trails decay over time. green dots are food. drops counter goes up every time an ant returns food to its body's nest mark. why this is on a site about belief a body alone is just physics. a single ant is also just physics plus rules. but a few hundred ants reading each other's trails on top of those bodies do something interesting: they collaborate . the colony, taken as a whole, looks like it's thinking — even though no individual ant"
+  },
+  {
+   "url": "pages/belief.html",
+   "stem": "belief",
+   "topic": "essays",
+   "title": "nothing → noise → patterns → life → us.",
+   "kicker": "root · the chain",
+   "headings": [
+    {
+     "id": "",
+     "text": "the chain, in plain words"
+    },
+    {
+     "id": "",
+     "text": "sense → think → act"
+    },
+    {
+     "id": "",
+     "text": "you filter the world; the world filters you back"
+    },
+    {
+     "id": "",
+     "text": "the four questions — vote inline"
+    }
+   ],
+   "text": "belief — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / belief root · the chain nothing → noise → patterns → life → us. a short, warm version of how a universe with no rules ends up with humans arguing about the right thing to do. read it slowly. the rest of the site is footnotes. ∅ nothing ⌇ noise ⏚ patterns 🌱 life 🧍 us ↻ loop the chain, in plain words start with nothing — no objects, no time, no rules. then something flickers. fields fluctuate, a coin lands, a particle pair appears and disappears. that's noise . it's not malicious and it's not designed; it just is. noise repeats long enough that some patterns stick — atoms, chemistry, stars, eventually self-replicating molecules. those patterns are life : the universe's way of persisting itself by copying. life is just noise that learned to keep going. we're at the end of that chain. one of the things life learned to do is think . that turns out to be a big deal: a creature that can think can also choose, and a creature that can choose can either feed the loop or drain it. that's the whole moral que"
+  },
+  {
+   "url": "pages/build.html",
+   "stem": "build",
+   "topic": "engine",
+   "title": "how it's built.",
+   "kicker": "build · how godding and swarm are made",
+   "headings": [
+    {
+     "id": "",
+     "text": "file map"
+    },
+    {
+     "id": "",
+     "text": "godding (the front)"
+    },
+    {
+     "id": "",
+     "text": "swarm (the engine + knowledge base)"
+    },
+    {
+     "id": "",
+     "text": "how a run looks, end to end"
+    },
+    {
+     "id": "",
+     "text": "scheduling"
+    },
+    {
+     "id": "",
+     "text": "link verification"
+    },
+    {
+     "id": "",
+     "text": "where the ideas come from"
+    },
+    {
+     "id": "",
+     "text": "how to run it locally"
+    },
+    {
+     "id": "",
+     "text": "license &amp; honesty"
+    },
+    {
+     "id": "",
+     "text": "1 · drafter"
+    },
+    {
+     "id": "",
+     "text": "2 · critic"
+    },
+    {
+     "id": "",
+     "text": "3 · fact-checker"
+    },
+    {
+     "id": "",
+     "text": "4 · judge"
+    }
+   ],
+   "text": "how it's built — godding godding . belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / build build · how godding and swarm are made how it's built. everything in this project is plain files. no database, no framework, no backend. you can clone it, run it, and edit it. this page walks you through every moving piece, then points to the books and papers behind each idea. file map godding/ ├── index.html # the home — hero, branches, sidebar ├── assets/ │ └── styles.css # one css file. no preprocessor. ├── pages/ │ ├── belief.html # the cosmology + sense/think/act + 4 questions │ ├── religion.html # heaven/hell, plainly │ ├── politics.html # the public/private gap │ ├── health.html # the consensus list │ ├── sustainability.html # load-bearing vs. theatre │ ├── crime.html # cross-cultural list of agreed wrongs │ ├── criminals.html # bubble chart of historical mass-atrocity figures │ ├── ants.html # live n-body + ant-colony simulation │ ├── swarm.html # the engine, explained │ └── build.html # this page ├── changelog/ │ └── index.html # human-readable view of data/changelog.json"
+  },
+  {
+   "url": "pages/crime.html",
+   "stem": "crime",
+   "topic": "crime",
+   "title": "what humans broadly agree is wrong.",
+   "kicker": "crime · the cross-cultural list",
+   "headings": [
+    {
+     "id": "",
+     "text": "the core list"
+    },
+    {
+     "id": "",
+     "text": "godding's bubbles — who did what, at scale"
+    },
+    {
+     "id": "",
+     "text": "why it's the same list"
+    },
+    {
+     "id": "",
+     "text": "what people get wrong about crime"
+    },
+    {
+     "id": "",
+     "text": "the part that connects to the rest of the site"
+    }
+   ],
+   "text": "crime, plainly — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / crime crime · the cross-cultural list what humans broadly agree is wrong. pulled from law codes, scriptures, and modern criminal codes across cultures and centuries. the names change; the list barely moves. the core list here is the short list that nearly every legal and religious tradition, on every continent, has independently arrived at as wrong: killing the innocent. codified in hammurabi (~1750 bce), the ten commandments, the qur'an, the hindu dharma śāstras, every modern criminal code. theft. universal. even in the smallest hunter-gatherer bands, taking another person's tools is a punishable offence. fraud / lying for gain. as old as written contracts. roman law had specific terms for it; islamic law calls it ghish ; modern fraud statutes rebrand it. betraying trust. oath-breaking, treason, abandoning a vulnerable person who relied on you. across every culture the word is roughly translated as \"treachery,\" and is often considered worse than common theft. harming children. universal."
+  },
+  {
+   "url": "pages/criminals.html",
+   "stem": "criminals",
+   "topic": "crime",
+   "title": "godding's bubbles .",
+   "kicker": "criminals · the worst of us",
+   "headings": [
+    {
+     "id": "",
+     "text": "why this page exists"
+    }
+   ],
+   "text": "godding's bubbles — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / criminals criminals · the worst of us godding's bubbles . every bubble is a deceased historical figure widely documented as having caused mass civilian death. area is proportional to the rough scholarly mid-estimate of deaths. all numbers are mainstream consensus ranges. click a bubble to read more. a smaller version of this chart appears inline on /crime , right under the cross-cultural list. view bar chart (clearest) bubbles period historical current (2020s) both century all 13c 14c 19c 20c 21c region all asia europe africa americas bar chart is the cleanest view — sorted by death-toll midpoint, with low/high range as a whisker, log-scaled x-axis. bubbles is the same data packed by area. switch period to current for ongoing 2020s situations (described by situation , not by name). × — — — death-toll ranges are highly contested by historians; the values used for sizing are mid-points of widely-cited ranges. sizing should be read as rough order of magnitude , not as a precision claim. w"
+  },
+  {
+   "url": "pages/demo.html",
+   "stem": "demo",
+   "topic": "other",
+   "title": "demo — godding, end to end.",
+   "kicker": "demo · auto-generated tour · regenerated daily",
+   "headings": [
+    {
+     "id": "",
+     "text": "nothing → noise → patterns → life → us."
+    },
+    {
+     "id": "",
+     "text": "heaven and hell, simply."
+    },
+    {
+     "id": "",
+     "text": "good vs. bad — watch the math."
+    },
+    {
+     "id": "",
+     "text": "ants on bodies ."
+    },
+    {
+     "id": "",
+     "text": "what humans broadly agree is wrong."
+    },
+    {
+     "id": "",
+     "text": "godding's bubbles ."
+    },
+    {
+     "id": "",
+     "text": "justice — who is connected to whom."
+    },
+    {
+     "id": "",
+     "text": "vote on the current situation ."
+    },
+    {
+     "id": "",
+     "text": "vote on what you read. every vote is recorded ."
+    },
+    {
+     "id": "",
+     "text": "world — energy, money, people, weapons."
+    },
+    {
+     "id": "",
+     "text": "where the public mouth and the private mind disagree."
+    },
+    {
+     "id": "",
+     "text": "what every doctor agrees on, that almost nobody does."
+    },
+    {
+     "id": "",
+     "text": "a clean cut between what moves the numbers and what moves the conscience."
+    },
+    {
+     "id": "",
+     "text": "godding uses swarm ."
+    },
+    {
+     "id": "",
+     "text": "dependencies — which page rests on which."
+    },
+    {
+     "id": "",
+     "text": "index — every page on godding."
+    },
+    {
+     "id": "",
+     "text": "search — everything godding has on file."
+    },
+    {
+     "id": "",
+     "text": "reach — how godding gets to people."
+    },
+    {
+     "id": "",
+     "text": "how it's built."
+    }
+   ],
+   "text": "demo · godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx search reach build changelog godding / demo demo · auto-generated tour · regenerated daily demo — godding, end to end. this page is built by swarm/docs.py on every run. each card is a page on the site with its kicker and a list of in-page sections you can jump to. use it as a walkthrough. last regenerated: 2026-05-04t20:41:32z root belief.html nothing → noise → patterns → life → us. root · the chain the chain, in plain words sense → think → act you filter the world; the world filters you back the four questions — vote inline religion.html heaven and hell, simply. religion · plainly 1 · how nothing made everything 2 · the rule life learned 3 · what \"heaven\" and \"hell\" really mean 4 · what religions agree on 5 · the side-by-side, kept short 6 · what's automated, and what isn't simulations good-bad.html good vs. bad — watch the math. play · the topology of cooperation what's happening ants.html ants on bodies . play · cooperation on top of physics what you're looking at why this is on a site about belief crime & justice crime.html w"
+  },
+  {
+   "url": "pages/depends.html",
+   "stem": "depends",
+   "topic": "engine",
+   "title": "dependencies — which page rests on which.",
+   "kicker": "dependency map · oxford-notes style",
+   "headings": [
+    {
+     "id": "",
+     "text": "the index, in topological order"
+    },
+    {
+     "id": "",
+     "text": "why this layout"
+    }
+   ],
+   "text": "dependencies — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / dependencies dependency map · oxford-notes style dependencies — which page rests on which. treating each page like a node in a math course. every claim either rests on a definition (d), builds on a lemma (l), reaches a theorem (t), or is an application (a). read in topological order. hover any node to highlight its dependencies and consequences. click a node to jump to that page. definition · d lemma · l theorem · t application · a + − ⊙ drag = pan · ctrl+wheel = zoom · drag a node = move it the index, in topological order id kind page statement rests on d1 def belief universe = compression of itself into compact models — d2 def belief life = a compact model that runs itself d1 d3 def belief consciousness = a model aware it is running d2 l1 lemma good vs. bad cooperators that cluster outlast lone defectors d2 l2 lemma ants simple agents + stigmergy → emergent route-finding d2 l3 lemma religion shared moral fictions = compression for cooperation d2, l1 t1 theorem crime independent cultures c"
+  },
+  {
+   "url": "pages/good-bad.html",
+   "stem": "good-bad",
+   "topic": "sims",
+   "title": "good vs. bad — watch the math.",
+   "kicker": "play · the topology of cooperation",
+   "headings": [
+    {
+     "id": "",
+     "text": "what's happening"
+    }
+   ],
+   "text": "good vs. bad — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / good vs. bad play · the topology of cooperation good vs. bad — watch the math. a small live world on a grid. green cells (cooperators) share what they produce with their neighbours. red cells (defectors) take from neighbours, fight each other, and damage the environment. the environment regenerates only at its own global rate — that's what creates real boom-and-bust. cooperators — cells defectors — cells environment — avg tick 0 steps regime tbd restart pause good gain bad take bad damage env regen presets: balanced (oscillates) cooperation wins (stable) defection wins boom &amp; bust (cycles) tragedy of the commons what's happening cooperators get a clustering bonus — more good neighbours → more energy. they share with each other. they pull energy from the environment as they grow; they don't restore it. defectors steal from neighbours. defector neighbours are worse than cooperator neighbours: they fight each other and damage env in a radius. environment regenerates only at the global env "
+  },
+  {
+   "url": "pages/health.html",
+   "stem": "health",
+   "topic": "essays",
+   "title": "what every doctor agrees on, that almost nobody does.",
+   "kicker": "health · the short list",
+   "headings": [
+    {
+     "id": "",
+     "text": "the consensus list"
+    },
+    {
+     "id": "",
+     "text": "the gap, and what closes it"
+    }
+   ],
+   "text": "health — godding godding . belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / health health · the short list what every doctor agrees on, that almost nobody does. no superfoods, no hacks, no supplements. the small list of things that, polled across every specialty, would come back nearly unanimous. the consensus list sleep 7–9 hours, dark and cool, on a regular schedule. the biggest free intervention available. the most consistently underdone, because it costs opportunity, not money. move every day. walking counts. lifting things 2–3 times a week counts more. eat mostly plants, mostly unprocessed, stop before stuffed. the disagreements are at the margins; the centre isn't in dispute. see other humans, in person, regularly. social isolation has a mortality effect on the order of smoking. get sun, but not stupidly. 10–20 min outdoor light early in the day. circadian inputs are not optional. drink less alcohol. any alcohol is a small net loss; large amounts, a large net loss. don't smoke. don't vape. handle chronic stress, somehow. meditation, therapy, hobby, dog. modality "
+  },
+  {
+   "url": "pages/idx.html",
+   "stem": "idx",
+   "topic": "engine",
+   "title": "index — every page on godding.",
+   "kicker": "index · every page · efficient lookup",
+   "headings": [
+    {
+     "id": "",
+     "text": "alphabetical lookup"
+    }
+   ],
+   "text": "index — every page — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / index index · every page · efficient lookup index — every page on godding. topical first, then alphabetical. each entry has a one-line summary so you can locate the page you want without clicking through. the dependency map ( /depends ) shows how each page rests on which. root · cosmology &amp; belief /belief root how nothing becomes us — four root questions, vote inline. /religion essay heaven &amp; hell in plain language; why every culture invented the same stories. simulations · play with the rules /good-bad sim spatial prisoner's dilemma. cooperators bubble up, defectors burn out. /ants sim live n-body gravity + pheromone foraging. emergence in two minutes. crime &amp; justice · who did what /crime cross-cultural the seven items every legal tradition independently arrived at. /criminals visualisation historical + current-state mass-atrocity figures. bar-chart + bubble views, century / region filters. /justice network court-record-only network. proven, indicted, mentioned. with per"
+  },
+  {
+   "url": "pages/justice.html",
+   "stem": "justice",
+   "topic": "crime",
+   "title": "justice — who is connected to whom.",
+   "kicker": "justice · the network · proven, indicted, mentioned",
+   "headings": [
+    {
+     "id": "",
+     "text": "how to read this"
+    },
+    {
+     "id": "",
+     "text": "what this is not"
+    }
+   ],
+   "text": "justice — the network — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / justice justice · the network · proven, indicted, mentioned justice — who is connected to whom. a network drawn from convictions, civil verdicts, sentencing memos, indictments, settled lawsuits with disclosed terms, and unsealed flight logs. each line cites a specific court document. vote on whether you think the connection is real — your votes are recorded with timestamps on /vote . the layout is force-directed: drag nodes to reorganise. godding's two-track naming rule. on opinion-vote pages (e.g. /now ) godding never names living individuals — that becomes a defamation surface. here , the question is different: \"is this connection in the public record real?\" — and the answer comes from court documents that already name the people. so living people appear by name only when there is a verdict, a sentencing memo, a settlement with disclosed terms, an active indictment, or an unsealed exhibit. the category of the edge tells you which: proven = court ruling or settled-with-disclosed-t"
+  },
+  {
+   "url": "pages/now.html",
+   "stem": "now",
+   "topic": "vote",
+   "title": "vote on the current situation .",
+   "kicker": "now · current claims · votable",
+   "headings": [
+    {
+     "id": "",
+     "text": "how to vote on a current claim — the cheap scientific method"
+    },
+    {
+     "id": "",
+     "text": "source compactifier · institutions godding considers credible per topic"
+    },
+    {
+     "id": "",
+     "text": "about public tracking"
+    }
+   ],
+   "text": "now — current claims, votable — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / now now · current claims · votable vote on the current situation . contestable claims about the world right now. each one is something reasonable people argue about — climate, ai, governance, geopolitics, economics. agree = \"the claim is true.\" disagree = \"the claim is false.\" you can change either vote any time; the change is recorded with a utc timestamp on /vote . godding's two-track naming rule. on this page (and any other where the question is \"rate this person\") godding does not name living individuals — that becomes a defamation surface and a partisan scoreboard. on the /justice network living people are named only when there is already a public court record (verdict, conviction, civil settlement with disclosed terms, or active indictment); the question there is \"is this connection real,\" not \"is this person bad\". both pages link to the underlying documents. issue-level claims (this page) do the political work without naming anyone. how to vote on a current claim — t"
+  },
+  {
+   "url": "pages/politics.html",
+   "stem": "politics",
+   "topic": "essays",
+   "title": "where the public mouth and the private mind disagree.",
+   "kicker": "politics · the gap",
+   "headings": [
+    {
+     "id": "",
+     "text": "the gap is real and measured"
+    },
+    {
+     "id": "",
+     "text": "seven items worth pointing at"
+    },
+    {
+     "id": "",
+     "text": "the test you can run on yourself"
+    }
+   ],
+   "text": "politics — godding godding . belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / politics politics · the gap where the public mouth and the private mind disagree. a short list. not a side. each item is a place where what people will privately admit and what they'll publicly say differs in ways that quietly shape elections, policy, and conversation. the gap is real and measured on issues from gender to immigration to religion in schools, surveys consistently find a difference between what people say in public and what they say when they think nobody is watching. on lgbtq topics in particular, recent polling finds gaps of 5–25 points, with the largest gaps among political independents. the size of the gap is the data. seven items worth pointing at nation states are godded too. a flag is a god. a constitution is scripture. a passport is a sacrament. say that about a religion you don't belong to and nobody flinches; say it about your own country and watch what happens. that flinch is the point. values often track money. if you predict a person's stance from wallet and neighbo"
+  },
+  {
+   "url": "pages/reach.html",
+   "stem": "reach",
+   "topic": "engine",
+   "title": "reach — how godding gets to people.",
+   "kicker": "reach · about · marketing strategy",
+   "headings": [
+    {
+     "id": "",
+     "text": "about · who's behind this"
+    },
+    {
+     "id": "",
+     "text": "objective · plain"
+    },
+    {
+     "id": "",
+     "text": "distribution channels &amp; cadence"
+    },
+    {
+     "id": "",
+     "text": "the swarm's marketing job"
+    },
+    {
+     "id": "",
+     "text": "example hooks (auto-generated style)"
+    },
+    {
+     "id": "",
+     "text": "kpis · what we count"
+    },
+    {
+     "id": "",
+     "text": "what we won't do"
+    }
+   ],
+   "text": "reach — about + marketing — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / reach reach · about · marketing strategy reach — how godding gets to people. a public, automatable plan for reaching the people who want this site to exist. organic only. no paid promotion. the swarm handles most of it on its daily run. about · who's behind this godding is built and maintained by can acay , based in utrecht, nl . can writes, codes, runs the swarm, and signs every commit. the philosophy is in /belief ; the engine is on /swarm ; the receipts are in the changelog . contact and links: github : github.com/dafdaf1234444 godding repo : /godding swarm worktree : worktree-s546 objective · plain reach the maximum number of thoughtful readers, not just clicks. one careful reader who returns is worth fifty drive-bys. every step automated by the swarm where legal and ethical. nothing posted on a person's behalf without consent. compounding, not bursts: ten months of small consistent posts beat one viral spike. honest framing always. no clickbait, no fake controversy, no imp"
+  },
+  {
+   "url": "pages/religion.html",
+   "stem": "religion",
+   "topic": "essays",
+   "title": "heaven and hell, simply.",
+   "kicker": "religion · plainly",
+   "headings": [
+    {
+     "id": "",
+     "text": "1 · how nothing made everything"
+    },
+    {
+     "id": "",
+     "text": "2 · the rule life learned"
+    },
+    {
+     "id": "",
+     "text": "3 · what \"heaven\" and \"hell\" really mean"
+    },
+    {
+     "id": "",
+     "text": "4 · what religions agree on"
+    },
+    {
+     "id": "",
+     "text": "5 · the side-by-side, kept short"
+    },
+    {
+     "id": "",
+     "text": "6 · what's automated, and what isn't"
+    }
+   ],
+   "text": "heaven &amp; hell, simply — godding godding . belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / religion religion · plainly heaven and hell, simply. not the version with stained glass and fire — a quieter version, in plain words, that doesn't require you to believe anything you can't already see. 1 · how nothing made everything the universe didn't start with a god and a plan. it started with nothing, then a flicker, and the flicker happened to be the flicker that keeps going. atoms found each other. stars cooked heavier elements. one of the elements (carbon) is unusually friendly to chains, and chains that copy themselves became life. so when religion says \"god created us\" and science says \"the universe self-organised into us,\" they're saying nearly the same thing in different jargon. something turned nothing into us. that something is the only \"god\" this site is willing to name. 2 · the rule life learned life kept going by figuring out one rule: cooperate, mostly. cells cooperate to make a body. bodies cooperate to make a family. families to make a tribe. tribes to mak"
+  },
+  {
+   "url": "pages/search.html",
+   "stem": "search",
+   "topic": "engine",
+   "title": "search — everything godding has on file.",
+   "kicker": "search · across every page · instant, client-side",
+   "headings": [
+    {
+     "id": "",
+     "text": "${d.topic} ${titleHtml}"
+    }
+   ],
+   "text": "search — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx search reach build changelog godding / search search · across every page · instant, client-side search — everything godding has on file. index is built daily by swarm/indexer.py and shipped as data/search_index.json . filtering happens entirely in your browser — nothing sent to a server. loading index… no matches. shortcut focus search: / clear: esc open first result: enter go to master index dependency map changelog godding · changelog · github browser-only filter. nothing sent to a server."
+  },
+  {
+   "url": "pages/sustainability.html",
+   "stem": "sustainability",
+   "topic": "essays",
+   "title": "a clean cut between what moves the numbers and what moves the conscience.",
+   "kicker": "sustainability · load-bearing vs. theatre",
+   "headings": [
+    {
+     "id": "",
+     "text": "the receipts, briefly"
+    },
+    {
+     "id": "",
+     "text": "theatre vs. load-bearing"
+    },
+    {
+     "id": "",
+     "text": "the smallest list that actually matters"
+    }
+   ],
+   "text": "sustainability — godding godding . belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / sustainability sustainability · load-bearing vs. theatre a clean cut between what moves the numbers and what moves the conscience. the receipts, briefly plastic recycling. roughly 9% of plastic is actually recycled in the us. the rest is landfill or incineration. plastic and climate. ~1.8 billion tonnes of greenhouse-gas emissions in 2019 (~3.4% of global), set to roughly triple by 2060. energy mix. electricity and heat is the single biggest chunk of human emissions. decarbonising the grid is the dominant lever. diet. beef and lamb are an order of magnitude more carbon-intensive per gram of protein than chicken, fish, eggs, beans or tofu. flying. a single long-haul flight can equal a typical person's annual footprint from everything else combined. theatre vs. load-bearing type example load-bearing clean electricity, less beef, fewer flights, insulation. partly load-bearing cycle/transit, repair-not-replace, buy less. mostly theatre obsessing about straws and paper-vs-plastic bags. worse"
+  },
+  {
+   "url": "pages/swarm.html",
+   "stem": "swarm",
+   "topic": "engine",
+   "title": "godding uses swarm .",
+   "kicker": "engine · the knowledge base",
+   "headings": [
+    {
+     "id": "",
+     "text": "what it does — in one paragraph"
+    },
+    {
+     "id": "",
+     "text": "what it does — visually"
+    },
+    {
+     "id": "",
+     "text": "guardrails (real, not vague)"
+    },
+    {
+     "id": "",
+     "text": "swarm as a knowledge base"
+    },
+    {
+     "id": "",
+     "text": "how the agents work — details"
+    }
+   ],
+   "text": "swarm — the engine — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / swarm engine · the knowledge base godding uses swarm . what it does — in one paragraph swarm reads every page on this site, proposes small tightenings, kills the bad ones, and writes the rest into the page itself. every accepted edit is logged to a public file with a timestamp and a one-line reason. the loop runs daily on a schedule. you read the result. what it does — visually godding pages belief · religion · good/bad · ants · crime · justice · politics now · world · vote · health · sustainability · … ↓ read three agents propose · critique · check drafter proposes a tightening critic tries to kill it fact-checker no new numbers / names judge — errs toward \"no\" accepted diff apply to page (atomic, dated) append to data/changelog.json back to the pages guardrails (real, not vague) the swarm can only write diffs ; it cannot rewrite a page wholesale. the swarm cannot lengthen the site ; word count must stay flat or shrink per run. the swarm never names specific living people , never quo"
+  },
+  {
+   "url": "pages/vote.html",
+   "stem": "vote",
+   "topic": "vote",
+   "title": "vote on what you read. every vote is recorded .",
+   "kicker": "vote · recorded · changeable",
+   "headings": [
+    {
+     "id": "",
+     "text": "badges"
+    },
+    {
+     "id": "",
+     "text": "vote on the cross-cultural crime list"
+    },
+    {
+     "id": "",
+     "text": "vote on the four questions"
+    },
+    {
+     "id": "",
+     "text": "which pages helped?"
+    },
+    {
+     "id": "",
+     "text": "your activity, dated"
+    },
+    {
+     "id": "",
+     "text": "how reputation works (honestly)"
+    },
+    {
+     "id": "",
+     "text": "your reputation"
+    }
+   ],
+   "text": "vote &amp; reputation — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / vote vote · recorded · changeable vote on what you read. every vote is recorded . voting is free, anonymous, and recorded . you can change your vote at any time — and the change is recorded too. every flip, every removal, every retry shows up in your trail with a utc timestamp. nothing is hidden. your votes, badges, reputation, and the full edit history all live in your browser's local storage — clearable any time. (the federated version, where the trail becomes signed commits in the github repo , is on the build roadmap.) recording rules · the contract: every vote you cast is logged with a utc timestamp the second you click. you can flip an upvote to a downvote, or remove either — the change is its own entry. fast flips (vote, then unvote, within 10 seconds) cost reputation. signal, not noise. nothing leaves your device until you choose to push it. nothing is silently overwritten. your reputation device id: … · since — 0 reputation votes cast 0 total upvotes 0 + downvotes 0 – page"
+  },
+  {
+   "url": "pages/world.html",
+   "stem": "world",
+   "topic": "world",
+   "title": "world — energy, money, people, weapons.",
+   "kicker": "world · the load-bearing systems",
+   "headings": [
+    {
+     "id": "energy",
+     "text": "1 · energy — generation + distribution"
+    },
+    {
+     "id": "money",
+     "text": "2 · money — distribution + tracking"
+    },
+    {
+     "id": "politicians",
+     "text": "3 · politicians — tracking inconsistency over time"
+    },
+    {
+     "id": "demographics",
+     "text": "4 · demographics — population pyramids"
+    },
+    {
+     "id": "weapons",
+     "text": "5 · weapons — extreme power, who has it"
+    },
+    {
+     "id": "timeline",
+     "text": "6 · how much time we have"
+    },
+    {
+     "id": "index",
+     "text": "7 · master reading list"
+    }
+   ],
+   "text": "world — energy, money, demographics, weapons — godding godding belief religion sims · good/bad sims · ants crime criminals justice politics now world vote health sustainability swarm depends idx reach build changelog godding / world world · the load-bearing systems world — energy, money, people, weapons. one page on the systems that decide whether the human project keeps running. each section starts with a chart, ends with a short reading list of real institutions and works (no wikipedia summaries — primary sources only). on this page 1 · energy — generation + distribution 2 · money — distribution + tracking 3 · politicians — tracking inconsistency 4 · demographics — population pyramids 5 · weapons — extreme power, who has it 6 · how much time we have 7 · master reading list 1 · energy — generation + distribution about 80% of the world's primary energy in the mid-2020s still came from fossil fuels (coal + oil + gas). the transition exists on paper for fifty years; in practice the absolute amount of oil and gas burned has kept rising. the chart below is rough, mid-2020s, iea &amp; owid figures. world primary energy mix · ~2024 (% of total, mid-range) coal · 27 oil · 30 gas · 23 hydr"
+  }
+ ]
+}
