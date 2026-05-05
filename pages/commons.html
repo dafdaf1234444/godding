@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>commons — alternatives to extractive platforms — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .alt-table{ width:100%; border-collapse:collapse; margin:8px 0 18px; font-family:var(--mono); font-size:13px; }
+  .alt-table th, .alt-table td{ text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top }
+  .alt-table th{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; }
+  .alt-table td.s{ color:var(--ink-2); font-family:var(--sans); font-size:13px; line-height:1.55; }
+  .alt-table td.kind{ font-size:10.5px; letter-spacing:.10em; text-transform:uppercase; color:var(--ink-mute); white-space:nowrap; }
+  .alt-table td.who a{ color:var(--sun); }
+
+  .stance{ background:var(--paper-2); border-left:3px solid var(--leaf); padding:14px 16px; margin:10px 0 18px; font-family:var(--sans); }
+  .stance strong{ color:var(--ink); }
+
+  .price-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; margin:10px 0; }
+  .price-card h3{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin:0 0 6px; }
+  .price-card.std    h3{ color:#4a7ba8; }
+  .price-card.fix    h3{ color:#5d8c4a; }
+  .price-card.share  h3{ color:#c89a3e; }
+
+  .signed{ font-family:var(--mono); font-size:11px; letter-spacing:.10em; color:var(--ink-mute); margin-top:18px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / commons</p>
+  <p class="kicker">platforms · alternatives that don't extract</p>
+  <h1>commons — <em>the platforms had the right idea. then the margin ate it.</em></h1>
+  <p class="dim">
+    the first generation of platforms — Uber, Airbnb, Amazon, Booking,
+    DoorDash — were built on two real insights: <strong>information sharing
+    is cheap</strong>, and <strong>standardised matching beats negotiated
+    matching</strong>. those insights are correct. what came next was the
+    extraction stage: take a 25–35 % cut, lock in users, lock out competitors,
+    push price discovery into a black box, and use the surplus to buy more
+    distribution. this page lays out the alternative that already exists in
+    fragments — and where godding sits inside it.
+  </p>
+
+  <h2>the failure mode in one paragraph</h2>
+  <p>
+    a healthy platform is a <em>matchmaker</em>: low-overhead, transparent,
+    a small fee for keeping the lights on. an extractive platform is a
+    <em>tollbooth</em>: it owns the road and raises the toll until just
+    below the price of building a parallel road. both shapes serve users at
+    first; only one keeps doing it after the network effects lock in. when
+    a platform's take-rate drifts up while its product quality drifts down,
+    you are watching the second shape eat the first.
+  </p>
+
+  <h2>real cooperative + commons-based alternatives</h2>
+  <p>
+    none of these are theoretical. each one is operating today, with users
+    and revenue, on the platform-cooperativism model articulated by
+    Trebor Scholz (New School, 2014). they replace shareholder-extraction
+    with member-ownership. governance scales the same way ant trails do —
+    the rule is short and local, the result is a working network.
+  </p>
+
+  <table class="alt-table">
+    <thead>
+      <tr><th>extractive incumbent</th><th>commons-based alternative</th><th>kind</th><th>how it differs</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="who">Uber / Lyft</td>
+        <td class="who"><a href="https://drivers.coop" target="_blank" rel="noopener">The Drivers Cooperative</a> (NYC) · <a href="https://eva.coop" target="_blank" rel="noopener">Eva</a> (Montréal) · <a href="https://yescab.com.au" target="_blank" rel="noopener">YES Cab</a> (AU)</td>
+        <td class="kind">ride-share co-op</td>
+        <td class="s">drivers own the platform; surplus returned as dividend; take-rate ≈ 10 % vs. 25–35 %; route + fare data published.</td>
+      </tr>
+      <tr>
+        <td class="who">Airbnb / Booking</td>
+        <td class="who"><a href="https://fairbnb.coop" target="_blank" rel="noopener">Fairbnb.coop</a> · <a href="https://wwoof.net" target="_blank" rel="noopener">WWOOF</a> · <a href="https://couchsurfing.com" target="_blank" rel="noopener">Couchsurfing</a></td>
+        <td class="kind">housing co-op</td>
+        <td class="s">15 % fee, half re-invested into local social projects in the host city; one-host-one-home rule cuts speculative listings; no algorithmic-pricing black box.</td>
+      </tr>
+      <tr>
+        <td class="who">DoorDash / Deliveroo</td>
+        <td class="who"><a href="https://upandgo.coop" target="_blank" rel="noopener">Up&amp;Go</a> · <a href="https://coop.cycle" target="_blank" rel="noopener">CoopCycle</a> (EU)</td>
+        <td class="kind">delivery co-op</td>
+        <td class="s">workers own the dispatch software; CoopCycle runs in 80+ cities on a single open-source codebase; couriers earn 80–95 % of customer payment vs. ≈ 60 %.</td>
+      </tr>
+      <tr>
+        <td class="who">Amazon Marketplace</td>
+        <td class="who">EU Digital Product Passport pilots · <a href="https://opencorporates.com" target="_blank" rel="noopener">OpenCorporates</a> · standardised carbon labels (see <a href="economics.html">/economics</a>)</td>
+        <td class="kind">product-graph commons</td>
+        <td class="s">every item ships with its embedded carbon, energy, and supply-chain graph; sellers compete on quality + true cost rather than algorithmic placement.</td>
+      </tr>
+      <tr>
+        <td class="who">Spotify / Apple Music</td>
+        <td class="who"><a href="https://resonate.coop" target="_blank" rel="noopener">Resonate</a> (stream-to-own) · <a href="https://bandcamp.com" target="_blank" rel="noopener">Bandcamp</a> (artist-direct)</td>
+        <td class="kind">music co-op</td>
+        <td class="s">artist owns the recording, listener pays once and owns it; ~ 70 % to artist vs. ≈ 5 % on streaming.</td>
+      </tr>
+      <tr>
+        <td class="who">Getty / Shutterstock</td>
+        <td class="who"><a href="https://stocksy.com" target="_blank" rel="noopener">Stocksy United</a></td>
+        <td class="kind">photo co-op</td>
+        <td class="s">contributors are class-A shareholders, vote on policy, share annual surplus; royalties 50–75 % vs. ≈ 15–30 %.</td>
+      </tr>
+      <tr>
+        <td class="who">Twitter / X</td>
+        <td class="who"><a href="https://joinmastodon.org" target="_blank" rel="noopener">Mastodon</a> · ATProto (Bluesky core) · <a href="https://en.wikipedia.org/wiki/ActivityPub" target="_blank" rel="noopener">ActivityPub</a></td>
+        <td class="kind">protocol-not-platform</td>
+        <td class="s">no single owner; servers federate by open protocol; you can leave with your followers; no single feed-ranking is mandatory.</td>
+      </tr>
+      <tr>
+        <td class="who">Wikipedia (already commons)</td>
+        <td class="who">Wikimedia Foundation</td>
+        <td class="kind">knowledge commons</td>
+        <td class="s">25-year proof of life that the model works at planetary scale: ~250M articles across languages, no ads, donor-funded, free to read and edit.</td>
+      </tr>
+      <tr>
+        <td class="who">platform-of-platforms · meta layer</td>
+        <td class="who"><a href="https://platform.coop" target="_blank" rel="noopener">Platform Cooperativism Consortium</a></td>
+        <td class="kind">research + funding</td>
+        <td class="s">catalogues 500+ co-op platforms; provides governance + tech templates; the missing yellow-pages of the commons economy.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>where godding sits in this picture</h2>
+  <div class="stance">
+    <strong>godding's commitment.</strong> this site is part of the
+    knowledge commons, in the same shape as Wikipedia. it does not run
+    advertising. it does not sell user data. it does not gate any page
+    behind payment. the swarm that maintains it (<a href="swarm.html">/swarm</a>)
+    runs on a public schedule, in a public repo, with every accepted edit
+    logged in a public file. the dependency map (<a href="depends.html">/depends</a>),
+    the likelihood graph (<a href="graph.html">/graph</a>), and the audit
+    log (<a href="../data/audit.json">data/audit.json</a>) are all readable
+    in plain JSON, by anyone, at any time. <em>knowledge is published, not
+    sold.</em> if the project ever needs money to run, that need will be
+    written down on this page, with a number, before money is asked for.
+    until then: free to read, free to fork, free to argue with.
+  </div>
+
+  <h2>the four operational moves the commons model makes</h2>
+  <div class="price-card share">
+    <h3>1 · share information openly, by default</h3>
+    <p>
+      every claim, every method, every dataset is published with an open
+      licence (CC-BY for prose, MIT for code, CC0 for raw data where legal).
+      the original platforms gave us the discovery model — they should not
+      get to own the discoveries. share-by-default also means: the
+      <a href="economics.html">price + carbon labels</a> on every item
+      live in a registry anyone can query, the way nutrition labels work
+      today.
+    </p>
+  </div>
+  <div class="price-card std">
+    <h3>2 · standardise the units the way the metric system standardised mass</h3>
+    <p>
+      the second insight platforms had — that standardised matching beats
+      negotiated matching — is correct, and we should keep it. one ride =
+      one unit of "passenger-km on a regulated vehicle"; one stay = one
+      unit of "person-night in housing meeting code X." everything
+      audited under <strong>ISO 14067</strong> for carbon,
+      <strong>ISO 14040</strong> for life-cycle, <strong>EN 15804</strong>
+      for buildings. the units already exist. what's missing is the
+      requirement to publish them next to the price.
+    </p>
+  </div>
+  <div class="price-card fix">
+    <h3>3 · cap volatility on staples; let signals work where they help</h3>
+    <p>
+      the author's position, stated honestly: <strong>fixed prices on a
+      small list of staples — drinking water, basic grain, vaccines, generic
+      medicines, primary energy — are an achievable goal.</strong> they
+      have been achieved historically (utility-style regulation in the US
+      1935-78; OPEC's reference price; EU CAP for grain) and they prevent
+      the wealth-extraction failure mode that floats up around essentials.
+      this is one of the load-bearing claims this site makes; corrections
+      are welcome on <a href="vote.html">/vote</a>.
+    </p>
+    <p>
+      this is not a call to abolish prices. fluctuating prices remain a
+      useful signal for non-essential goods. it is a call to recognise
+      that <em>the things you cannot say no to should not be priced like
+      the things you can</em>.
+    </p>
+  </div>
+  <div class="price-card share">
+    <h3>4 · track every claim with provenance</h3>
+    <p>
+      every statement on this site is accountable to a source, a time, and
+      a name (where one is given). the <a href="depends.html">dependency
+      map</a> shows which page rests on which. the
+      <a href="../data/changelog.json">changelog</a> records every accepted
+      edit with a UTC timestamp. this is the same model the EU Digital
+      Product Passport tries to apply to physical goods. apply it to ideas
+      first; physical goods will follow.
+    </p>
+  </div>
+
+  <h2>but doesn't a commons need money to run?</h2>
+  <p>
+    yes. eventually. wikipedia runs on ~$180 million / year (financial
+    statements, 2023), about 0.05 % of what google ads earns in the same
+    period. the working precedent: <strong>donations + grants from people
+    who use the thing</strong>, plus a strict rule that the people running
+    the system are paid salaries — not equity, not options, not exit. the
+    platforms-as-tollbooth failure happens when a venture investor needs
+    a 10× return; a commons cannot have one of those in the cap table by
+    construction. <em>support the development of knowledge by funding
+    its maintenance, not its sale.</em>
+  </p>
+
+  <h2>where this slots into the rest of the site</h2>
+  <ul>
+    <li><a href="economics.html">/economics</a> — the carbon-label + dependency-graph backbone the commons proposal stands on.</li>
+    <li><a href="stigmergy.html">/stigmergy</a> — why every platform's design choice is a deposit on the trail.</li>
+    <li><a href="clock.html">/clock</a> — the agency argument for not surrendering inputs to extractive systems.</li>
+    <li><a href="world.html#money">/world#money</a> — the trackers the commons model hooks into.</li>
+    <li><a href="swarm.html">/swarm</a> — the engine that maintains this site, modelled on the same commons stance.</li>
+  </ul>
+
+  <h2>primary sources</h2>
+  <ul>
+    <li>Trebor Scholz, "Platform Cooperativism vs. the Sharing Economy," <em>Medium / New School</em>, 2014.</li>
+    <li>Elinor Ostrom, <em>Governing the Commons</em>, Cambridge UP, 1990 (Nobel 2009) — the eight design principles for successful commons.</li>
+    <li>Yochai Benkler, <em>The Wealth of Networks</em>, Yale UP, 2006 — peer production at scale.</li>
+    <li>Nathan Schneider, <em>Everything for Everyone: The Radical Tradition that is Shaping the Next Economy</em>, Nation Books, 2018.</li>
+    <li>Wikimedia Foundation, audited financial statements, 2023.</li>
+    <li>Platform Cooperativism Consortium directory of 500+ active co-op platforms (platform.coop).</li>
+    <li>Cory Doctorow, "Enshittification: why everything suddenly got worse," <em>Pluralistic</em>, 2023 — the failure-mode mechanism in plain language.</li>
+  </ul>
+
+  <blockquote>
+    every successful platform was built on something it found in the
+    commons (the road, the language, the trust, the protocol). the rent
+    they extract is rent on what was already free. the project is to keep
+    making the next layer free.
+  </blockquote>
+
+  <p class="signed">— posted by Can Acay. corrections welcome on <a href="vote.html">/vote</a>; the swarm reads them on the next run.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>see also · weighted</h4>
+  <div id="related-mount" data-page="commons"><span class="muted" style="font-size:11.5px">loading…</span></div>
+  <h4 style="margin-top:14px">related on this site</h4>
+  <ul>
+    <li><a href="economics.html">economics · price what costs the world</a></li>
+    <li><a href="stigmergy.html">stigmergy · trails &amp; ledgers</a></li>
+    <li><a href="clock.html">clock · agency at the tick</a></li>
+    <li><a href="swarm.html">swarm · the loop</a></li>
+    <li><a href="world.html">world · load-bearing systems</a></li>
+  </ul>
+  <h4 style="margin-top:14px">primary sources</h4>
+  <ul>
+    <li><a href="https://platform.coop" target="_blank" rel="noopener">Platform Cooperativism Consortium</a></li>
+    <li><a href="https://drivers.coop" target="_blank" rel="noopener">The Drivers Cooperative</a></li>
+    <li><a href="https://fairbnb.coop" target="_blank" rel="noopener">Fairbnb.coop</a></li>
+    <li><a href="https://coop.cycle" target="_blank" rel="noopener">CoopCycle</a></li>
+    <li><a href="https://wikimediafoundation.org/about/financial-reports/" target="_blank" rel="noopener">Wikimedia Foundation finances</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · knowledge published, not sold.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script src="../assets/related.js" defer></script>
+</body>
+</html>

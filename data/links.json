@@ -1,0 +1,8505 @@
+{
+  "generated": "2026-05-05T06:03:51Z",
+  "n_pages": 28,
+  "n_edges": 378,
+  "method": "0.55*cosine(tfidf) + 0.45*jaccard(concept_lexicon), min-max normalised",
+  "concepts": [
+    "cooperation",
+    "moral_universals",
+    "atrocity_scale",
+    "religion",
+    "brain_stack",
+    "energy",
+    "demographics",
+    "weapons",
+    "money",
+    "method",
+    "self_govern",
+    "loop",
+    "sustainability",
+    "health",
+    "predator_chain"
+  ],
+  "edges": [
+    {
+      "source": "ants",
+      "target": "belief",
+      "w_cosine": 0.0434,
+      "w_jaccard": 0.5333,
+      "w_blend": 0.2639,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3764
+    },
+    {
+      "source": "ants",
+      "target": "brain",
+      "w_cosine": 0.0283,
+      "w_jaccard": 0.3077,
+      "w_blend": 0.154,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1161
+    },
+    {
+      "source": "ants",
+      "target": "build",
+      "w_cosine": 0.0664,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1565,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.122
+    },
+    {
+      "source": "ants",
+      "target": "clock",
+      "w_cosine": 0.059,
+      "w_jaccard": 0.4444,
+      "w_blend": 0.2325,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.302
+    },
+    {
+      "source": "ants",
+      "target": "commons",
+      "w_cosine": 0.0321,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.1813,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1807
+    },
+    {
+      "source": "ants",
+      "target": "crime",
+      "w_cosine": 0.021,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1401,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0831
+    },
+    {
+      "source": "ants",
+      "target": "criminals",
+      "w_cosine": 0.1559,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.2289,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2935
+    },
+    {
+      "source": "ants",
+      "target": "demo",
+      "w_cosine": 0.0572,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2209,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2745
+    },
+    {
+      "source": "ants",
+      "target": "depends",
+      "w_cosine": 0.0345,
+      "w_jaccard": 0.5,
+      "w_blend": 0.244,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3292
+    },
+    {
+      "source": "ants",
+      "target": "economics",
+      "w_cosine": 0.0291,
+      "w_jaccard": 0.2188,
+      "w_blend": 0.1144,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0223
+    },
+    {
+      "source": "ants",
+      "target": "good-bad",
+      "w_cosine": 0.4325,
+      "w_jaccard": 0.6429,
+      "w_blend": 0.5272,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 1.0
+    },
+    {
+      "source": "ants",
+      "target": "graph",
+      "w_cosine": 0.039,
+      "w_jaccard": 0.6923,
+      "w_blend": 0.333,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.54
+    },
+    {
+      "source": "ants",
+      "target": "health",
+      "w_cosine": 0.0383,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2461,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3342
+    },
+    {
+      "source": "ants",
+      "target": "idx",
+      "w_cosine": 0.0512,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1482,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1023
+    },
+    {
+      "source": "ants",
+      "target": "index",
+      "w_cosine": 0.0348,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2086,
+      "shared": [
+        "cooperation",
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2454
+    },
+    {
+      "source": "ants",
+      "target": "justice",
+      "w_cosine": 0.2008,
+      "w_jaccard": 0.4375,
+      "w_blend": 0.3073,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4792
+    },
+    {
+      "source": "ants",
+      "target": "nothing",
+      "w_cosine": 0.0407,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2119,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2532
+    },
+    {
+      "source": "ants",
+      "target": "now",
+      "w_cosine": 0.1744,
+      "w_jaccard": 0.2917,
+      "w_blend": 0.2271,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2892
+    },
+    {
+      "source": "ants",
+      "target": "politics",
+      "w_cosine": 0.0259,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.1996,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2241
+    },
+    {
+      "source": "ants",
+      "target": "reach",
+      "w_cosine": 0.0418,
+      "w_jaccard": 0.4667,
+      "w_blend": 0.233,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3032
+    },
+    {
+      "source": "ants",
+      "target": "religion",
+      "w_cosine": 0.0534,
+      "w_jaccard": 0.4737,
+      "w_blend": 0.2425,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3257
+    },
+    {
+      "source": "ants",
+      "target": "search",
+      "w_cosine": 0.2719,
+      "w_jaccard": 0.6364,
+      "w_blend": 0.4359,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.7838
+    },
+    {
+      "source": "ants",
+      "target": "stigmergy",
+      "w_cosine": 0.0932,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1798,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1772
+    },
+    {
+      "source": "ants",
+      "target": "sustainability",
+      "w_cosine": 0.0325,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.1929,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2082
+    },
+    {
+      "source": "ants",
+      "target": "swarm",
+      "w_cosine": 0.0445,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.214,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2582
+    },
+    {
+      "source": "ants",
+      "target": "vote",
+      "w_cosine": 0.2602,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.2863,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4294
+    },
+    {
+      "source": "ants",
+      "target": "world",
+      "w_cosine": 0.0237,
+      "w_jaccard": 0.2059,
+      "w_blend": 0.1057,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0017
+    },
+    {
+      "source": "belief",
+      "target": "brain",
+      "w_cosine": 0.1039,
+      "w_jaccard": 0.2759,
+      "w_blend": 0.1813,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1807
+    },
+    {
+      "source": "belief",
+      "target": "build",
+      "w_cosine": 0.093,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1777,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1722
+    },
+    {
+      "source": "belief",
+      "target": "clock",
+      "w_cosine": 0.2607,
+      "w_jaccard": 0.381,
+      "w_blend": 0.3148,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4969
+    },
+    {
+      "source": "belief",
+      "target": "commons",
+      "w_cosine": 0.071,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2641,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3768
+    },
+    {
+      "source": "belief",
+      "target": "crime",
+      "w_cosine": 0.0987,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1893,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1997
+    },
+    {
+      "source": "belief",
+      "target": "criminals",
+      "w_cosine": 0.0613,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1837,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1864
+    },
+    {
+      "source": "belief",
+      "target": "demo",
+      "w_cosine": 0.1641,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2539,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3527
+    },
+    {
+      "source": "belief",
+      "target": "depends",
+      "w_cosine": 0.068,
+      "w_jaccard": 0.4286,
+      "w_blend": 0.2303,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2968
+    },
+    {
+      "source": "belief",
+      "target": "economics",
+      "w_cosine": 0.0768,
+      "w_jaccard": 0.3548,
+      "w_blend": 0.2019,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.2295
+    },
+    {
+      "source": "belief",
+      "target": "good-bad",
+      "w_cosine": 0.053,
+      "w_jaccard": 0.4444,
+      "w_blend": 0.2292,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2942
+    },
+    {
+      "source": "belief",
+      "target": "graph",
+      "w_cosine": 0.0894,
+      "w_jaccard": 0.4706,
+      "w_blend": 0.2609,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3693
+    },
+    {
+      "source": "belief",
+      "target": "health",
+      "w_cosine": 0.0798,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.2292,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2942
+    },
+    {
+      "source": "belief",
+      "target": "idx",
+      "w_cosine": 0.0963,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1795,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1765
+    },
+    {
+      "source": "belief",
+      "target": "index",
+      "w_cosine": 0.1683,
+      "w_jaccard": 0.3043,
+      "w_blend": 0.2295,
+      "shared": [
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2949
+    },
+    {
+      "source": "belief",
+      "target": "justice",
+      "w_cosine": 0.0556,
+      "w_jaccard": 0.3684,
+      "w_blend": 0.1964,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2165
+    },
+    {
+      "source": "belief",
+      "target": "nothing",
+      "w_cosine": 0.1582,
+      "w_jaccard": 0.4286,
+      "w_blend": 0.2798,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.414
+    },
+    {
+      "source": "belief",
+      "target": "now",
+      "w_cosine": 0.1298,
+      "w_jaccard": 0.4167,
+      "w_blend": 0.2589,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3645
+    },
+    {
+      "source": "belief",
+      "target": "politics",
+      "w_cosine": 0.0978,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2788,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4117
+    },
+    {
+      "source": "belief",
+      "target": "reach",
+      "w_cosine": 0.0856,
+      "w_jaccard": 0.5625,
+      "w_blend": 0.3002,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.4623
+    },
+    {
+      "source": "belief",
+      "target": "religion",
+      "w_cosine": 0.2599,
+      "w_jaccard": 0.4762,
+      "w_blend": 0.3572,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5973
+    },
+    {
+      "source": "belief",
+      "target": "search",
+      "w_cosine": 0.0224,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2373,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3134
+    },
+    {
+      "source": "belief",
+      "target": "stigmergy",
+      "w_cosine": 0.1685,
+      "w_jaccard": 0.3448,
+      "w_blend": 0.2478,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.3382
+    },
+    {
+      "source": "belief",
+      "target": "sustainability",
+      "w_cosine": 0.066,
+      "w_jaccard": 0.4,
+      "w_blend": 0.2163,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2636
+    },
+    {
+      "source": "belief",
+      "target": "swarm",
+      "w_cosine": 0.1042,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.221,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2748
+    },
+    {
+      "source": "belief",
+      "target": "vote",
+      "w_cosine": 0.1012,
+      "w_jaccard": 0.3913,
+      "w_blend": 0.2317,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3001
+    },
+    {
+      "source": "belief",
+      "target": "world",
+      "w_cosine": 0.0682,
+      "w_jaccard": 0.1892,
+      "w_blend": 0.1226,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0417
+    },
+    {
+      "source": "brain",
+      "target": "build",
+      "w_cosine": 0.0873,
+      "w_jaccard": 0.2381,
+      "w_blend": 0.1552,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1189
+    },
+    {
+      "source": "brain",
+      "target": "clock",
+      "w_cosine": 0.0954,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2025,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2309
+    },
+    {
+      "source": "brain",
+      "target": "commons",
+      "w_cosine": 0.08,
+      "w_jaccard": 0.2941,
+      "w_blend": 0.1764,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1691
+    },
+    {
+      "source": "brain",
+      "target": "crime",
+      "w_cosine": 0.0681,
+      "w_jaccard": 0.3158,
+      "w_blend": 0.1796,
+      "shared": [
+        "cooperation",
+        "moral_universals",
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1767
+    },
+    {
+      "source": "brain",
+      "target": "criminals",
+      "w_cosine": 0.0592,
+      "w_jaccard": 0.3438,
+      "w_blend": 0.1873,
+      "shared": [
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1949
+    },
+    {
+      "source": "brain",
+      "target": "demo",
+      "w_cosine": 0.1204,
+      "w_jaccard": 0.3226,
+      "w_blend": 0.2114,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.252
+    },
+    {
+      "source": "brain",
+      "target": "depends",
+      "w_cosine": 0.1447,
+      "w_jaccard": 0.4138,
+      "w_blend": 0.2658,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3809
+    },
+    {
+      "source": "brain",
+      "target": "economics",
+      "w_cosine": 0.0454,
+      "w_jaccard": 0.1778,
+      "w_blend": 0.105,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0
+    },
+    {
+      "source": "brain",
+      "target": "good-bad",
+      "w_cosine": 0.0394,
+      "w_jaccard": 0.2759,
+      "w_blend": 0.1458,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0966
+    },
+    {
+      "source": "brain",
+      "target": "graph",
+      "w_cosine": 0.1001,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.205,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2369
+    },
+    {
+      "source": "brain",
+      "target": "health",
+      "w_cosine": 0.0639,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1476,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1009
+    },
+    {
+      "source": "brain",
+      "target": "idx",
+      "w_cosine": 0.1714,
+      "w_jaccard": 0.3,
+      "w_blend": 0.2292,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2942
+    },
+    {
+      "source": "brain",
+      "target": "index",
+      "w_cosine": 0.1289,
+      "w_jaccard": 0.2424,
+      "w_blend": 0.18,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1776
+    },
+    {
+      "source": "brain",
+      "target": "justice",
+      "w_cosine": 0.0413,
+      "w_jaccard": 0.3704,
+      "w_blend": 0.1894,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1999
+    },
+    {
+      "source": "brain",
+      "target": "nothing",
+      "w_cosine": 0.1255,
+      "w_jaccard": 0.3667,
+      "w_blend": 0.234,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3055
+    },
+    {
+      "source": "brain",
+      "target": "now",
+      "w_cosine": 0.1064,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2222,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2776
+    },
+    {
+      "source": "brain",
+      "target": "politics",
+      "w_cosine": 0.0593,
+      "w_jaccard": 0.3103,
+      "w_blend": 0.1722,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1592
+    },
+    {
+      "source": "brain",
+      "target": "reach",
+      "w_cosine": 0.0923,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2007,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2267
+    },
+    {
+      "source": "brain",
+      "target": "religion",
+      "w_cosine": 0.0855,
+      "w_jaccard": 0.3125,
+      "w_blend": 0.1876,
+      "shared": [
+        "cooperation",
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1956
+    },
+    {
+      "source": "brain",
+      "target": "search",
+      "w_cosine": 0.048,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1764,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1691
+    },
+    {
+      "source": "brain",
+      "target": "stigmergy",
+      "w_cosine": 0.1085,
+      "w_jaccard": 0.3158,
+      "w_blend": 0.2018,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2293
+    },
+    {
+      "source": "brain",
+      "target": "sustainability",
+      "w_cosine": 0.0651,
+      "w_jaccard": 0.2188,
+      "w_blend": 0.1343,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0694
+    },
+    {
+      "source": "brain",
+      "target": "swarm",
+      "w_cosine": 0.0813,
+      "w_jaccard": 0.2424,
+      "w_blend": 0.1538,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1156
+    },
+    {
+      "source": "brain",
+      "target": "vote",
+      "w_cosine": 0.0468,
+      "w_jaccard": 0.2647,
+      "w_blend": 0.1449,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0945
+    },
+    {
+      "source": "brain",
+      "target": "world",
+      "w_cosine": 0.0623,
+      "w_jaccard": 0.1702,
+      "w_blend": 0.1109,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.014
+    },
+    {
+      "source": "build",
+      "target": "clock",
+      "w_cosine": 0.115,
+      "w_jaccard": 0.2941,
+      "w_blend": 0.1956,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2146
+    },
+    {
+      "source": "build",
+      "target": "commons",
+      "w_cosine": 0.1231,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2177,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2669
+    },
+    {
+      "source": "build",
+      "target": "crime",
+      "w_cosine": 0.0646,
+      "w_jaccard": 0.2273,
+      "w_blend": 0.1378,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0777
+    },
+    {
+      "source": "build",
+      "target": "criminals",
+      "w_cosine": 0.0903,
+      "w_jaccard": 0.2703,
+      "w_blend": 0.1713,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.157
+    },
+    {
+      "source": "build",
+      "target": "demo",
+      "w_cosine": 0.4365,
+      "w_jaccard": 0.3235,
+      "w_blend": 0.3857,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.6649
+    },
+    {
+      "source": "build",
+      "target": "depends",
+      "w_cosine": 0.0911,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1626,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1364
+    },
+    {
+      "source": "build",
+      "target": "economics",
+      "w_cosine": 0.0548,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1502,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1071
+    },
+    {
+      "source": "build",
+      "target": "good-bad",
+      "w_cosine": 0.0418,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1496,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1056
+    },
+    {
+      "source": "build",
+      "target": "graph",
+      "w_cosine": 0.167,
+      "w_jaccard": 0.2903,
+      "w_blend": 0.2225,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2783
+    },
+    {
+      "source": "build",
+      "target": "health",
+      "w_cosine": 0.0675,
+      "w_jaccard": 0.2188,
+      "w_blend": 0.1356,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0725
+    },
+    {
+      "source": "build",
+      "target": "idx",
+      "w_cosine": 0.2075,
+      "w_jaccard": 0.4737,
+      "w_blend": 0.3273,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5265
+    },
+    {
+      "source": "build",
+      "target": "index",
+      "w_cosine": 0.1592,
+      "w_jaccard": 0.4062,
+      "w_blend": 0.2704,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3918
+    },
+    {
+      "source": "build",
+      "target": "justice",
+      "w_cosine": 0.0586,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1588,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1274
+    },
+    {
+      "source": "build",
+      "target": "nothing",
+      "w_cosine": 0.0804,
+      "w_jaccard": 0.2162,
+      "w_blend": 0.1415,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0865
+    },
+    {
+      "source": "build",
+      "target": "now",
+      "w_cosine": 0.131,
+      "w_jaccard": 0.2895,
+      "w_blend": 0.2023,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2305
+    },
+    {
+      "source": "build",
+      "target": "politics",
+      "w_cosine": 0.095,
+      "w_jaccard": 0.2727,
+      "w_blend": 0.175,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1658
+    },
+    {
+      "source": "build",
+      "target": "reach",
+      "w_cosine": 0.2599,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.293,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.4453
+    },
+    {
+      "source": "build",
+      "target": "religion",
+      "w_cosine": 0.1421,
+      "w_jaccard": 0.3143,
+      "w_blend": 0.2196,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2714
+    },
+    {
+      "source": "build",
+      "target": "search",
+      "w_cosine": 0.0986,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1828,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1843
+    },
+    {
+      "source": "build",
+      "target": "stigmergy",
+      "w_cosine": 0.0879,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1769,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1703
+    },
+    {
+      "source": "build",
+      "target": "sustainability",
+      "w_cosine": 0.0708,
+      "w_jaccard": 0.2647,
+      "w_blend": 0.158,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1255
+    },
+    {
+      "source": "build",
+      "target": "swarm",
+      "w_cosine": 0.4121,
+      "w_jaccard": 0.5517,
+      "w_blend": 0.4749,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.8761
+    },
+    {
+      "source": "build",
+      "target": "vote",
+      "w_cosine": 0.0756,
+      "w_jaccard": 0.2368,
+      "w_blend": 0.1482,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1023
+    },
+    {
+      "source": "build",
+      "target": "world",
+      "w_cosine": 0.0879,
+      "w_jaccard": 0.2292,
+      "w_blend": 0.1515,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1101
+    },
+    {
+      "source": "clock",
+      "target": "commons",
+      "w_cosine": 0.1079,
+      "w_jaccard": 0.3846,
+      "w_blend": 0.2324,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.3018
+    },
+    {
+      "source": "clock",
+      "target": "crime",
+      "w_cosine": 0.1132,
+      "w_jaccard": 0.3548,
+      "w_blend": 0.2219,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2769
+    },
+    {
+      "source": "clock",
+      "target": "criminals",
+      "w_cosine": 0.0563,
+      "w_jaccard": 0.2963,
+      "w_blend": 0.1643,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1405
+    },
+    {
+      "source": "clock",
+      "target": "demo",
+      "w_cosine": 0.1317,
+      "w_jaccard": 0.4348,
+      "w_blend": 0.2681,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3863
+    },
+    {
+      "source": "clock",
+      "target": "depends",
+      "w_cosine": 0.0846,
+      "w_jaccard": 0.4348,
+      "w_blend": 0.2422,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.325
+    },
+    {
+      "source": "clock",
+      "target": "economics",
+      "w_cosine": 0.0964,
+      "w_jaccard": 0.2162,
+      "w_blend": 0.1503,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1073
+    },
+    {
+      "source": "clock",
+      "target": "good-bad",
+      "w_cosine": 0.0315,
+      "w_jaccard": 0.381,
+      "w_blend": 0.1887,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1982
+    },
+    {
+      "source": "clock",
+      "target": "graph",
+      "w_cosine": 0.0751,
+      "w_jaccard": 0.4,
+      "w_blend": 0.2213,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2755
+    },
+    {
+      "source": "clock",
+      "target": "health",
+      "w_cosine": 0.1002,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2446,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.3306
+    },
+    {
+      "source": "clock",
+      "target": "idx",
+      "w_cosine": 0.1154,
+      "w_jaccard": 0.2571,
+      "w_blend": 0.1792,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1757
+    },
+    {
+      "source": "clock",
+      "target": "index",
+      "w_cosine": 0.1205,
+      "w_jaccard": 0.375,
+      "w_blend": 0.235,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3079
+    },
+    {
+      "source": "clock",
+      "target": "justice",
+      "w_cosine": 0.0492,
+      "w_jaccard": 0.381,
+      "w_blend": 0.1985,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2215
+    },
+    {
+      "source": "clock",
+      "target": "nothing",
+      "w_cosine": 0.1689,
+      "w_jaccard": 0.5714,
+      "w_blend": 0.35,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5803
+    },
+    {
+      "source": "clock",
+      "target": "now",
+      "w_cosine": 0.1131,
+      "w_jaccard": 0.3214,
+      "w_blend": 0.2068,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2411
+    },
+    {
+      "source": "clock",
+      "target": "politics",
+      "w_cosine": 0.1293,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2348,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3074
+    },
+    {
+      "source": "clock",
+      "target": "reach",
+      "w_cosine": 0.1052,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2078,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2435
+    },
+    {
+      "source": "clock",
+      "target": "religion",
+      "w_cosine": 0.1763,
+      "w_jaccard": 0.4167,
+      "w_blend": 0.2845,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4252
+    },
+    {
+      "source": "clock",
+      "target": "search",
+      "w_cosine": 0.0198,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.1962,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.216
+    },
+    {
+      "source": "clock",
+      "target": "stigmergy",
+      "w_cosine": 0.2597,
+      "w_jaccard": 0.5,
+      "w_blend": 0.3679,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.6227
+    },
+    {
+      "source": "clock",
+      "target": "sustainability",
+      "w_cosine": 0.0589,
+      "w_jaccard": 0.3478,
+      "w_blend": 0.1889,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1987
+    },
+    {
+      "source": "clock",
+      "target": "swarm",
+      "w_cosine": 0.1201,
+      "w_jaccard": 0.2692,
+      "w_blend": 0.1872,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1947
+    },
+    {
+      "source": "clock",
+      "target": "vote",
+      "w_cosine": 0.0681,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1499,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1063
+    },
+    {
+      "source": "clock",
+      "target": "world",
+      "w_cosine": 0.0934,
+      "w_jaccard": 0.2051,
+      "w_blend": 0.1437,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0917
+    },
+    {
+      "source": "commons",
+      "target": "crime",
+      "w_cosine": 0.0604,
+      "w_jaccard": 0.2778,
+      "w_blend": 0.1582,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.126
+    },
+    {
+      "source": "commons",
+      "target": "criminals",
+      "w_cosine": 0.0541,
+      "w_jaccard": 0.3448,
+      "w_blend": 0.1849,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1892
+    },
+    {
+      "source": "commons",
+      "target": "demo",
+      "w_cosine": 0.1041,
+      "w_jaccard": 0.48,
+      "w_blend": 0.2733,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3986
+    },
+    {
+      "source": "commons",
+      "target": "depends",
+      "w_cosine": 0.0724,
+      "w_jaccard": 0.48,
+      "w_blend": 0.2558,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3572
+    },
+    {
+      "source": "commons",
+      "target": "economics",
+      "w_cosine": 0.2089,
+      "w_jaccard": 0.4412,
+      "w_blend": 0.3134,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4936
+    },
+    {
+      "source": "commons",
+      "target": "good-bad",
+      "w_cosine": 0.021,
+      "w_jaccard": 0.375,
+      "w_blend": 0.1803,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1784
+    },
+    {
+      "source": "commons",
+      "target": "graph",
+      "w_cosine": 0.0814,
+      "w_jaccard": 0.4545,
+      "w_blend": 0.2493,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3418
+    },
+    {
+      "source": "commons",
+      "target": "health",
+      "w_cosine": 0.0684,
+      "w_jaccard": 0.4091,
+      "w_blend": 0.2217,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.2764
+    },
+    {
+      "source": "commons",
+      "target": "idx",
+      "w_cosine": 0.1059,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.2435,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.328
+    },
+    {
+      "source": "commons",
+      "target": "index",
+      "w_cosine": 0.1412,
+      "w_jaccard": 0.4231,
+      "w_blend": 0.2681,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3863
+    },
+    {
+      "source": "commons",
+      "target": "justice",
+      "w_cosine": 0.0381,
+      "w_jaccard": 0.375,
+      "w_blend": 0.1897,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2006
+    },
+    {
+      "source": "commons",
+      "target": "nothing",
+      "w_cosine": 0.0777,
+      "w_jaccard": 0.3704,
+      "w_blend": 0.2094,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2473
+    },
+    {
+      "source": "commons",
+      "target": "now",
+      "w_cosine": 0.1037,
+      "w_jaccard": 0.5185,
+      "w_blend": 0.2904,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4391
+    },
+    {
+      "source": "commons",
+      "target": "politics",
+      "w_cosine": 0.0813,
+      "w_jaccard": 0.4167,
+      "w_blend": 0.2322,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3013
+    },
+    {
+      "source": "commons",
+      "target": "reach",
+      "w_cosine": 0.1178,
+      "w_jaccard": 0.3913,
+      "w_blend": 0.2409,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3219
+    },
+    {
+      "source": "commons",
+      "target": "religion",
+      "w_cosine": 0.0783,
+      "w_jaccard": 0.3571,
+      "w_blend": 0.2038,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.234
+    },
+    {
+      "source": "commons",
+      "target": "search",
+      "w_cosine": 0.0262,
+      "w_jaccard": 0.4,
+      "w_blend": 0.1944,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2117
+    },
+    {
+      "source": "commons",
+      "target": "stigmergy",
+      "w_cosine": 0.1044,
+      "w_jaccard": 0.3939,
+      "w_blend": 0.2347,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.3072
+    },
+    {
+      "source": "commons",
+      "target": "sustainability",
+      "w_cosine": 0.0558,
+      "w_jaccard": 0.4,
+      "w_blend": 0.2107,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.2504
+    },
+    {
+      "source": "commons",
+      "target": "swarm",
+      "w_cosine": 0.1332,
+      "w_jaccard": 0.3214,
+      "w_blend": 0.2179,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2674
+    },
+    {
+      "source": "commons",
+      "target": "vote",
+      "w_cosine": 0.0576,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1667,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1461
+    },
+    {
+      "source": "commons",
+      "target": "world",
+      "w_cosine": 0.1064,
+      "w_jaccard": 0.3077,
+      "w_blend": 0.197,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2179
+    },
+    {
+      "source": "crime",
+      "target": "criminals",
+      "w_cosine": 0.169,
+      "w_jaccard": 0.4062,
+      "w_blend": 0.2758,
+      "shared": [
+        "moral_universals",
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4045
+    },
+    {
+      "source": "crime",
+      "target": "demo",
+      "w_cosine": 0.1404,
+      "w_jaccard": 0.3438,
+      "w_blend": 0.2319,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3006
+    },
+    {
+      "source": "crime",
+      "target": "depends",
+      "w_cosine": 0.0748,
+      "w_jaccard": 0.2286,
+      "w_blend": 0.144,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0924
+    },
+    {
+      "source": "crime",
+      "target": "economics",
+      "w_cosine": 0.0341,
+      "w_jaccard": 0.1957,
+      "w_blend": 0.1068,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0043
+    },
+    {
+      "source": "crime",
+      "target": "good-bad",
+      "w_cosine": 0.02,
+      "w_jaccard": 0.2581,
+      "w_blend": 0.1271,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0523
+    },
+    {
+      "source": "crime",
+      "target": "graph",
+      "w_cosine": 0.0467,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1457,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0964
+    },
+    {
+      "source": "crime",
+      "target": "health",
+      "w_cosine": 0.0857,
+      "w_jaccard": 0.2333,
+      "w_blend": 0.1521,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1116
+    },
+    {
+      "source": "crime",
+      "target": "idx",
+      "w_cosine": 0.1185,
+      "w_jaccard": 0.2,
+      "w_blend": 0.1552,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1189
+    },
+    {
+      "source": "crime",
+      "target": "index",
+      "w_cosine": 0.1558,
+      "w_jaccard": 0.2286,
+      "w_blend": 0.1885,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1978
+    },
+    {
+      "source": "crime",
+      "target": "justice",
+      "w_cosine": 0.0609,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1685,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1504
+    },
+    {
+      "source": "crime",
+      "target": "nothing",
+      "w_cosine": 0.065,
+      "w_jaccard": 0.303,
+      "w_blend": 0.1721,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1589
+    },
+    {
+      "source": "crime",
+      "target": "now",
+      "w_cosine": 0.0858,
+      "w_jaccard": 0.3429,
+      "w_blend": 0.2015,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2286
+    },
+    {
+      "source": "crime",
+      "target": "politics",
+      "w_cosine": 0.0813,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1572,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1236
+    },
+    {
+      "source": "crime",
+      "target": "reach",
+      "w_cosine": 0.0739,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1607,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1319
+    },
+    {
+      "source": "crime",
+      "target": "religion",
+      "w_cosine": 0.1583,
+      "w_jaccard": 0.375,
+      "w_blend": 0.2558,
+      "shared": [
+        "cooperation",
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3572
+    },
+    {
+      "source": "crime",
+      "target": "search",
+      "w_cosine": 0.0147,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.1248,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0469
+    },
+    {
+      "source": "crime",
+      "target": "stigmergy",
+      "w_cosine": 0.0835,
+      "w_jaccard": 0.3684,
+      "w_blend": 0.2117,
+      "shared": [
+        "cooperation",
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2527
+    },
+    {
+      "source": "crime",
+      "target": "sustainability",
+      "w_cosine": 0.0858,
+      "w_jaccard": 0.2059,
+      "w_blend": 0.1398,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0824
+    },
+    {
+      "source": "crime",
+      "target": "swarm",
+      "w_cosine": 0.0603,
+      "w_jaccard": 0.1944,
+      "w_blend": 0.1207,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0372
+    },
+    {
+      "source": "crime",
+      "target": "vote",
+      "w_cosine": 0.0811,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2696,
+      "shared": [
+        "cooperation",
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3899
+    },
+    {
+      "source": "crime",
+      "target": "world",
+      "w_cosine": 0.068,
+      "w_jaccard": 0.1875,
+      "w_blend": 0.1218,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0398
+    },
+    {
+      "source": "criminals",
+      "target": "demo",
+      "w_cosine": 0.1117,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2114,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.252
+    },
+    {
+      "source": "criminals",
+      "target": "depends",
+      "w_cosine": 0.0572,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.16,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1303
+    },
+    {
+      "source": "criminals",
+      "target": "economics",
+      "w_cosine": 0.0348,
+      "w_jaccard": 0.2,
+      "w_blend": 0.1091,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0097
+    },
+    {
+      "source": "criminals",
+      "target": "good-bad",
+      "w_cosine": 0.2169,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2693,
+      "shared": [
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3892
+    },
+    {
+      "source": "criminals",
+      "target": "graph",
+      "w_cosine": 0.0578,
+      "w_jaccard": 0.3478,
+      "w_blend": 0.1883,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1973
+    },
+    {
+      "source": "criminals",
+      "target": "health",
+      "w_cosine": 0.0604,
+      "w_jaccard": 0.3043,
+      "w_blend": 0.1702,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1544
+    },
+    {
+      "source": "criminals",
+      "target": "idx",
+      "w_cosine": 0.1351,
+      "w_jaccard": 0.2368,
+      "w_blend": 0.1809,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1798
+    },
+    {
+      "source": "criminals",
+      "target": "index",
+      "w_cosine": 0.1015,
+      "w_jaccard": 0.2414,
+      "w_blend": 0.1645,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1409
+    },
+    {
+      "source": "criminals",
+      "target": "justice",
+      "w_cosine": 0.1991,
+      "w_jaccard": 0.4545,
+      "w_blend": 0.3141,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4953
+    },
+    {
+      "source": "criminals",
+      "target": "nothing",
+      "w_cosine": 0.0628,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1631,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1376
+    },
+    {
+      "source": "criminals",
+      "target": "now",
+      "w_cosine": 0.21,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2655,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3802
+    },
+    {
+      "source": "criminals",
+      "target": "politics",
+      "w_cosine": 0.0557,
+      "w_jaccard": 0.375,
+      "w_blend": 0.1994,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2236
+    },
+    {
+      "source": "criminals",
+      "target": "reach",
+      "w_cosine": 0.068,
+      "w_jaccard": 0.3478,
+      "w_blend": 0.1939,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2106
+    },
+    {
+      "source": "criminals",
+      "target": "religion",
+      "w_cosine": 0.0767,
+      "w_jaccard": 0.3704,
+      "w_blend": 0.2089,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2461
+    },
+    {
+      "source": "criminals",
+      "target": "search",
+      "w_cosine": 0.1879,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2928,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4448
+    },
+    {
+      "source": "criminals",
+      "target": "stigmergy",
+      "w_cosine": 0.0457,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1376,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0772
+    },
+    {
+      "source": "criminals",
+      "target": "sustainability",
+      "w_cosine": 0.0601,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.1497,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1059
+    },
+    {
+      "source": "criminals",
+      "target": "swarm",
+      "w_cosine": 0.0902,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1782,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1734
+    },
+    {
+      "source": "criminals",
+      "target": "vote",
+      "w_cosine": 0.2153,
+      "w_jaccard": 0.4074,
+      "w_blend": 0.3018,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4661
+    },
+    {
+      "source": "criminals",
+      "target": "world",
+      "w_cosine": 0.089,
+      "w_jaccard": 0.2195,
+      "w_blend": 0.1477,
+      "shared": [
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1011
+    },
+    {
+      "source": "demo",
+      "target": "depends",
+      "w_cosine": 0.1594,
+      "w_jaccard": 0.4783,
+      "w_blend": 0.3029,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4687
+    },
+    {
+      "source": "demo",
+      "target": "economics",
+      "w_cosine": 0.0777,
+      "w_jaccard": 0.3143,
+      "w_blend": 0.1842,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1876
+    },
+    {
+      "source": "demo",
+      "target": "good-bad",
+      "w_cosine": 0.0316,
+      "w_jaccard": 0.4286,
+      "w_blend": 0.2103,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2494
+    },
+    {
+      "source": "demo",
+      "target": "graph",
+      "w_cosine": 0.1137,
+      "w_jaccard": 0.45,
+      "w_blend": 0.2651,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3792
+    },
+    {
+      "source": "demo",
+      "target": "health",
+      "w_cosine": 0.1127,
+      "w_jaccard": 0.4737,
+      "w_blend": 0.2752,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4031
+    },
+    {
+      "source": "demo",
+      "target": "idx",
+      "w_cosine": 0.3636,
+      "w_jaccard": 0.4516,
+      "w_blend": 0.4032,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.7063
+    },
+    {
+      "source": "demo",
+      "target": "index",
+      "w_cosine": 0.2541,
+      "w_jaccard": 0.5455,
+      "w_blend": 0.3852,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.6637
+    },
+    {
+      "source": "demo",
+      "target": "justice",
+      "w_cosine": 0.078,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2065,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2404
+    },
+    {
+      "source": "demo",
+      "target": "nothing",
+      "w_cosine": 0.0964,
+      "w_jaccard": 0.4783,
+      "w_blend": 0.2682,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3865
+    },
+    {
+      "source": "demo",
+      "target": "now",
+      "w_cosine": 0.1742,
+      "w_jaccard": 0.4615,
+      "w_blend": 0.3035,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4702
+    },
+    {
+      "source": "demo",
+      "target": "politics",
+      "w_cosine": 0.134,
+      "w_jaccard": 0.4091,
+      "w_blend": 0.2578,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3619
+    },
+    {
+      "source": "demo",
+      "target": "reach",
+      "w_cosine": 0.1947,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.2503,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3441
+    },
+    {
+      "source": "demo",
+      "target": "religion",
+      "w_cosine": 0.1748,
+      "w_jaccard": 0.4583,
+      "w_blend": 0.3024,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4676
+    },
+    {
+      "source": "demo",
+      "target": "search",
+      "w_cosine": 0.1361,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.2499,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3432
+    },
+    {
+      "source": "demo",
+      "target": "stigmergy",
+      "w_cosine": 0.0843,
+      "w_jaccard": 0.4333,
+      "w_blend": 0.2414,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3231
+    },
+    {
+      "source": "demo",
+      "target": "sustainability",
+      "w_cosine": 0.1408,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2275,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2901
+    },
+    {
+      "source": "demo",
+      "target": "swarm",
+      "w_cosine": 0.1929,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.2228,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.279
+    },
+    {
+      "source": "demo",
+      "target": "vote",
+      "w_cosine": 0.1023,
+      "w_jaccard": 0.3846,
+      "w_blend": 0.2293,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2944
+    },
+    {
+      "source": "demo",
+      "target": "world",
+      "w_cosine": 0.1632,
+      "w_jaccard": 0.2973,
+      "w_blend": 0.2236,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2809
+    },
+    {
+      "source": "depends",
+      "target": "economics",
+      "w_cosine": 0.0788,
+      "w_jaccard": 0.3143,
+      "w_blend": 0.1848,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.189
+    },
+    {
+      "source": "depends",
+      "target": "good-bad",
+      "w_cosine": 0.0297,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2413,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3228
+    },
+    {
+      "source": "depends",
+      "target": "graph",
+      "w_cosine": 0.1156,
+      "w_jaccard": 0.5263,
+      "w_blend": 0.3004,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4628
+    },
+    {
+      "source": "depends",
+      "target": "health",
+      "w_cosine": 0.0625,
+      "w_jaccard": 0.4,
+      "w_blend": 0.2144,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2591
+    },
+    {
+      "source": "depends",
+      "target": "idx",
+      "w_cosine": 0.2141,
+      "w_jaccard": 0.5,
+      "w_blend": 0.3428,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5632
+    },
+    {
+      "source": "depends",
+      "target": "index",
+      "w_cosine": 0.152,
+      "w_jaccard": 0.5455,
+      "w_blend": 0.3291,
+      "shared": [
+        "cooperation",
+        "religion",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5308
+    },
+    {
+      "source": "depends",
+      "target": "justice",
+      "w_cosine": 0.0475,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.1898,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2009
+    },
+    {
+      "source": "depends",
+      "target": "nothing",
+      "w_cosine": 0.1019,
+      "w_jaccard": 0.619,
+      "w_blend": 0.3346,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5438
+    },
+    {
+      "source": "depends",
+      "target": "now",
+      "w_cosine": 0.0938,
+      "w_jaccard": 0.3571,
+      "w_blend": 0.2123,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2541
+    },
+    {
+      "source": "depends",
+      "target": "politics",
+      "w_cosine": 0.0783,
+      "w_jaccard": 0.4091,
+      "w_blend": 0.2271,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2892
+    },
+    {
+      "source": "depends",
+      "target": "reach",
+      "w_cosine": 0.1067,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.2019,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2295
+    },
+    {
+      "source": "depends",
+      "target": "religion",
+      "w_cosine": 0.0787,
+      "w_jaccard": 0.3462,
+      "w_blend": 0.1991,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2229
+    },
+    {
+      "source": "depends",
+      "target": "search",
+      "w_cosine": 0.0282,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.1905,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2025
+    },
+    {
+      "source": "depends",
+      "target": "stigmergy",
+      "w_cosine": 0.0687,
+      "w_jaccard": 0.3871,
+      "w_blend": 0.212,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2534
+    },
+    {
+      "source": "depends",
+      "target": "sustainability",
+      "w_cosine": 0.0721,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1896,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2004
+    },
+    {
+      "source": "depends",
+      "target": "swarm",
+      "w_cosine": 0.0985,
+      "w_jaccard": 0.3077,
+      "w_blend": 0.1927,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2077
+    },
+    {
+      "source": "depends",
+      "target": "vote",
+      "w_cosine": 0.0572,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1815,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1812
+    },
+    {
+      "source": "depends",
+      "target": "world",
+      "w_cosine": 0.0686,
+      "w_jaccard": 0.2632,
+      "w_blend": 0.1561,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.121
+    },
+    {
+      "source": "economics",
+      "target": "good-bad",
+      "w_cosine": 0.0482,
+      "w_jaccard": 0.2727,
+      "w_blend": 0.1492,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1047
+    },
+    {
+      "source": "economics",
+      "target": "graph",
+      "w_cosine": 0.0583,
+      "w_jaccard": 0.2424,
+      "w_blend": 0.1411,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0855
+    },
+    {
+      "source": "economics",
+      "target": "health",
+      "w_cosine": 0.0671,
+      "w_jaccard": 0.2903,
+      "w_blend": 0.1675,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.148
+    },
+    {
+      "source": "economics",
+      "target": "idx",
+      "w_cosine": 0.0921,
+      "w_jaccard": 0.3256,
+      "w_blend": 0.1972,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "weapons",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2184
+    },
+    {
+      "source": "economics",
+      "target": "index",
+      "w_cosine": 0.0834,
+      "w_jaccard": 0.2778,
+      "w_blend": 0.1709,
+      "shared": [
+        "religion",
+        "energy",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1561
+    },
+    {
+      "source": "economics",
+      "target": "justice",
+      "w_cosine": 0.0334,
+      "w_jaccard": 0.2,
+      "w_blend": 0.1084,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0081
+    },
+    {
+      "source": "economics",
+      "target": "nothing",
+      "w_cosine": 0.07,
+      "w_jaccard": 0.3143,
+      "w_blend": 0.1799,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1774
+    },
+    {
+      "source": "economics",
+      "target": "now",
+      "w_cosine": 0.1037,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.232,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "weapons",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3008
+    },
+    {
+      "source": "economics",
+      "target": "politics",
+      "w_cosine": 0.07,
+      "w_jaccard": 0.2647,
+      "w_blend": 0.1576,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1246
+    },
+    {
+      "source": "economics",
+      "target": "reach",
+      "w_cosine": 0.0676,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1637,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.139
+    },
+    {
+      "source": "economics",
+      "target": "religion",
+      "w_cosine": 0.0748,
+      "w_jaccard": 0.2051,
+      "w_blend": 0.1335,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0675
+    },
+    {
+      "source": "economics",
+      "target": "search",
+      "w_cosine": 0.0188,
+      "w_jaccard": 0.2333,
+      "w_blend": 0.1154,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0246
+    },
+    {
+      "source": "economics",
+      "target": "stigmergy",
+      "w_cosine": 0.0915,
+      "w_jaccard": 0.375,
+      "w_blend": 0.2191,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.2703
+    },
+    {
+      "source": "economics",
+      "target": "sustainability",
+      "w_cosine": 0.1104,
+      "w_jaccard": 0.4194,
+      "w_blend": 0.2494,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.342
+    },
+    {
+      "source": "economics",
+      "target": "swarm",
+      "w_cosine": 0.0586,
+      "w_jaccard": 0.1795,
+      "w_blend": 0.113,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0189
+    },
+    {
+      "source": "economics",
+      "target": "vote",
+      "w_cosine": 0.0621,
+      "w_jaccard": 0.2308,
+      "w_blend": 0.138,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0782
+    },
+    {
+      "source": "economics",
+      "target": "world",
+      "w_cosine": 0.1209,
+      "w_jaccard": 0.3953,
+      "w_blend": 0.2444,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "weapons",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3302
+    },
+    {
+      "source": "good-bad",
+      "target": "graph",
+      "w_cosine": 0.0275,
+      "w_jaccard": 0.6667,
+      "w_blend": 0.3151,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4976
+    },
+    {
+      "source": "good-bad",
+      "target": "health",
+      "w_cosine": 0.0304,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.202,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2297
+    },
+    {
+      "source": "good-bad",
+      "target": "idx",
+      "w_cosine": 0.0392,
+      "w_jaccard": 0.3226,
+      "w_blend": 0.1667,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1461
+    },
+    {
+      "source": "good-bad",
+      "target": "index",
+      "w_cosine": 0.0587,
+      "w_jaccard": 0.5,
+      "w_blend": 0.2573,
+      "shared": [
+        "cooperation",
+        "religion",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3607
+    },
+    {
+      "source": "good-bad",
+      "target": "justice",
+      "w_cosine": 0.1908,
+      "w_jaccard": 0.3684,
+      "w_blend": 0.2708,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3927
+    },
+    {
+      "source": "good-bad",
+      "target": "nothing",
+      "w_cosine": 0.0428,
+      "w_jaccard": 0.4286,
+      "w_blend": 0.2164,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2639
+    },
+    {
+      "source": "good-bad",
+      "target": "now",
+      "w_cosine": 0.1715,
+      "w_jaccard": 0.3077,
+      "w_blend": 0.2328,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3027
+    },
+    {
+      "source": "good-bad",
+      "target": "politics",
+      "w_cosine": 0.0306,
+      "w_jaccard": 0.35,
+      "w_blend": 0.1743,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1641
+    },
+    {
+      "source": "good-bad",
+      "target": "reach",
+      "w_cosine": 0.0291,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.191,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2037
+    },
+    {
+      "source": "good-bad",
+      "target": "religion",
+      "w_cosine": 0.0378,
+      "w_jaccard": 0.4091,
+      "w_blend": 0.2049,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2366
+    },
+    {
+      "source": "good-bad",
+      "target": "search",
+      "w_cosine": 0.3003,
+      "w_jaccard": 0.5,
+      "w_blend": 0.3902,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.6755
+    },
+    {
+      "source": "good-bad",
+      "target": "stigmergy",
+      "w_cosine": 0.0329,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1531,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1139
+    },
+    {
+      "source": "good-bad",
+      "target": "sustainability",
+      "w_cosine": 0.0271,
+      "w_jaccard": 0.4737,
+      "w_blend": 0.228,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2913
+    },
+    {
+      "source": "good-bad",
+      "target": "swarm",
+      "w_cosine": 0.0256,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.1777,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1722
+    },
+    {
+      "source": "good-bad",
+      "target": "vote",
+      "w_cosine": 0.2667,
+      "w_jaccard": 0.28,
+      "w_blend": 0.2727,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3972
+    },
+    {
+      "source": "good-bad",
+      "target": "world",
+      "w_cosine": 0.0434,
+      "w_jaccard": 0.2941,
+      "w_blend": 0.1562,
+      "shared": [
+        "atrocity_scale",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1213
+    },
+    {
+      "source": "graph",
+      "target": "health",
+      "w_cosine": 0.0528,
+      "w_jaccard": 0.4375,
+      "w_blend": 0.2259,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2864
+    },
+    {
+      "source": "graph",
+      "target": "idx",
+      "w_cosine": 0.1412,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2276,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2904
+    },
+    {
+      "source": "graph",
+      "target": "index",
+      "w_cosine": 0.1246,
+      "w_jaccard": 0.45,
+      "w_blend": 0.271,
+      "shared": [
+        "cooperation",
+        "religion",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3932
+    },
+    {
+      "source": "graph",
+      "target": "justice",
+      "w_cosine": 0.0621,
+      "w_jaccard": 0.4706,
+      "w_blend": 0.2459,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3337
+    },
+    {
+      "source": "graph",
+      "target": "nothing",
+      "w_cosine": 0.0765,
+      "w_jaccard": 0.45,
+      "w_blend": 0.2446,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3306
+    },
+    {
+      "source": "graph",
+      "target": "now",
+      "w_cosine": 0.1036,
+      "w_jaccard": 0.375,
+      "w_blend": 0.2257,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2859
+    },
+    {
+      "source": "graph",
+      "target": "politics",
+      "w_cosine": 0.0621,
+      "w_jaccard": 0.4444,
+      "w_blend": 0.2342,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.306
+    },
+    {
+      "source": "graph",
+      "target": "reach",
+      "w_cosine": 0.1485,
+      "w_jaccard": 0.5,
+      "w_blend": 0.3067,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4777
+    },
+    {
+      "source": "graph",
+      "target": "religion",
+      "w_cosine": 0.0847,
+      "w_jaccard": 0.4286,
+      "w_blend": 0.2394,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3183
+    },
+    {
+      "source": "graph",
+      "target": "search",
+      "w_cosine": 0.0608,
+      "w_jaccard": 0.6667,
+      "w_blend": 0.3334,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.541
+    },
+    {
+      "source": "graph",
+      "target": "stigmergy",
+      "w_cosine": 0.0604,
+      "w_jaccard": 0.3103,
+      "w_blend": 0.1729,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1608
+    },
+    {
+      "source": "graph",
+      "target": "sustainability",
+      "w_cosine": 0.057,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2208,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2743
+    },
+    {
+      "source": "graph",
+      "target": "swarm",
+      "w_cosine": 0.167,
+      "w_jaccard": 0.45,
+      "w_blend": 0.2944,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4486
+    },
+    {
+      "source": "graph",
+      "target": "vote",
+      "w_cosine": 0.0594,
+      "w_jaccard": 0.2917,
+      "w_blend": 0.1639,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1395
+    },
+    {
+      "source": "graph",
+      "target": "world",
+      "w_cosine": 0.0627,
+      "w_jaccard": 0.2647,
+      "w_blend": 0.1536,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1151
+    },
+    {
+      "source": "health",
+      "target": "idx",
+      "w_cosine": 0.0863,
+      "w_jaccard": 0.2581,
+      "w_blend": 0.1636,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1388
+    },
+    {
+      "source": "health",
+      "target": "index",
+      "w_cosine": 0.1022,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2062,
+      "shared": [
+        "religion",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2397
+    },
+    {
+      "source": "health",
+      "target": "justice",
+      "w_cosine": 0.0358,
+      "w_jaccard": 0.4118,
+      "w_blend": 0.205,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2369
+    },
+    {
+      "source": "health",
+      "target": "nothing",
+      "w_cosine": 0.061,
+      "w_jaccard": 0.4,
+      "w_blend": 0.2135,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.257
+    },
+    {
+      "source": "health",
+      "target": "now",
+      "w_cosine": 0.0689,
+      "w_jaccard": 0.28,
+      "w_blend": 0.1639,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1395
+    },
+    {
+      "source": "health",
+      "target": "politics",
+      "w_cosine": 0.0986,
+      "w_jaccard": 0.4706,
+      "w_blend": 0.266,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3813
+    },
+    {
+      "source": "health",
+      "target": "reach",
+      "w_cosine": 0.1071,
+      "w_jaccard": 0.4375,
+      "w_blend": 0.2558,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3572
+    },
+    {
+      "source": "health",
+      "target": "religion",
+      "w_cosine": 0.0912,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.1933,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2091
+    },
+    {
+      "source": "health",
+      "target": "search",
+      "w_cosine": 0.0333,
+      "w_jaccard": 0.5833,
+      "w_blend": 0.2808,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4164
+    },
+    {
+      "source": "health",
+      "target": "stigmergy",
+      "w_cosine": 0.0765,
+      "w_jaccard": 0.2759,
+      "w_blend": 0.1662,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.145
+    },
+    {
+      "source": "health",
+      "target": "sustainability",
+      "w_cosine": 0.1089,
+      "w_jaccard": 0.4444,
+      "w_blend": 0.2599,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.3669
+    },
+    {
+      "source": "health",
+      "target": "swarm",
+      "w_cosine": 0.0704,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1887,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1982
+    },
+    {
+      "source": "health",
+      "target": "vote",
+      "w_cosine": 0.0561,
+      "w_jaccard": 0.3043,
+      "w_blend": 0.1678,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1487
+    },
+    {
+      "source": "health",
+      "target": "world",
+      "w_cosine": 0.0653,
+      "w_jaccard": 0.2727,
+      "w_blend": 0.1587,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "demographics",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1272
+    },
+    {
+      "source": "idx",
+      "target": "index",
+      "w_cosine": 0.3452,
+      "w_jaccard": 0.4516,
+      "w_blend": 0.3931,
+      "shared": [
+        "religion",
+        "energy",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.6824
+    },
+    {
+      "source": "idx",
+      "target": "justice",
+      "w_cosine": 0.0968,
+      "w_jaccard": 0.2812,
+      "w_blend": 0.1798,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1772
+    },
+    {
+      "source": "idx",
+      "target": "nothing",
+      "w_cosine": 0.1187,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2289,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2935
+    },
+    {
+      "source": "idx",
+      "target": "now",
+      "w_cosine": 0.2229,
+      "w_jaccard": 0.4412,
+      "w_blend": 0.3211,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "weapons",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5118
+    },
+    {
+      "source": "idx",
+      "target": "politics",
+      "w_cosine": 0.0996,
+      "w_jaccard": 0.3125,
+      "w_blend": 0.1954,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2141
+    },
+    {
+      "source": "idx",
+      "target": "reach",
+      "w_cosine": 0.1822,
+      "w_jaccard": 0.25,
+      "w_blend": 0.2127,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2551
+    },
+    {
+      "source": "idx",
+      "target": "religion",
+      "w_cosine": 0.1326,
+      "w_jaccard": 0.2778,
+      "w_blend": 0.1979,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.22
+    },
+    {
+      "source": "idx",
+      "target": "search",
+      "w_cosine": 0.0518,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1571,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1234
+    },
+    {
+      "source": "idx",
+      "target": "stigmergy",
+      "w_cosine": 0.1368,
+      "w_jaccard": 0.35,
+      "w_blend": 0.2328,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3027
+    },
+    {
+      "source": "idx",
+      "target": "sustainability",
+      "w_cosine": 0.1097,
+      "w_jaccard": 0.303,
+      "w_blend": 0.1967,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2172
+    },
+    {
+      "source": "idx",
+      "target": "swarm",
+      "w_cosine": 0.2004,
+      "w_jaccard": 0.4062,
+      "w_blend": 0.2931,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4455
+    },
+    {
+      "source": "idx",
+      "target": "vote",
+      "w_cosine": 0.1017,
+      "w_jaccard": 0.3056,
+      "w_blend": 0.1934,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2094
+    },
+    {
+      "source": "idx",
+      "target": "world",
+      "w_cosine": 0.2629,
+      "w_jaccard": 0.4048,
+      "w_blend": 0.3267,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "weapons",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5251
+    },
+    {
+      "source": "index",
+      "target": "justice",
+      "w_cosine": 0.09,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2131,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.256
+    },
+    {
+      "source": "index",
+      "target": "nothing",
+      "w_cosine": 0.1016,
+      "w_jaccard": 0.36,
+      "w_blend": 0.2179,
+      "shared": [
+        "cooperation",
+        "religion",
+        "energy",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2674
+    },
+    {
+      "source": "index",
+      "target": "now",
+      "w_cosine": 0.1823,
+      "w_jaccard": 0.3103,
+      "w_blend": 0.2399,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3195
+    },
+    {
+      "source": "index",
+      "target": "politics",
+      "w_cosine": 0.1149,
+      "w_jaccard": 0.2917,
+      "w_blend": 0.1945,
+      "shared": [
+        "religion",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.212
+    },
+    {
+      "source": "index",
+      "target": "reach",
+      "w_cosine": 0.1485,
+      "w_jaccard": 0.2609,
+      "w_blend": 0.1991,
+      "shared": [
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2229
+    },
+    {
+      "source": "index",
+      "target": "religion",
+      "w_cosine": 0.1845,
+      "w_jaccard": 0.4583,
+      "w_blend": 0.3077,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4801
+    },
+    {
+      "source": "index",
+      "target": "search",
+      "w_cosine": 0.0262,
+      "w_jaccard": 0.3158,
+      "w_blend": 0.1565,
+      "shared": [
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.122
+    },
+    {
+      "source": "index",
+      "target": "stigmergy",
+      "w_cosine": 0.0924,
+      "w_jaccard": 0.303,
+      "w_blend": 0.1872,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1947
+    },
+    {
+      "source": "index",
+      "target": "sustainability",
+      "w_cosine": 0.0947,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2021,
+      "shared": [
+        "religion",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.23
+    },
+    {
+      "source": "index",
+      "target": "swarm",
+      "w_cosine": 0.2015,
+      "w_jaccard": 0.3077,
+      "w_blend": 0.2493,
+      "shared": [
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3418
+    },
+    {
+      "source": "index",
+      "target": "vote",
+      "w_cosine": 0.0923,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2008,
+      "shared": [
+        "religion",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2269
+    },
+    {
+      "source": "index",
+      "target": "world",
+      "w_cosine": 0.1412,
+      "w_jaccard": 0.2632,
+      "w_blend": 0.1961,
+      "shared": [
+        "religion",
+        "energy",
+        "money",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2158
+    },
+    {
+      "source": "justice",
+      "target": "nothing",
+      "w_cosine": 0.0408,
+      "w_jaccard": 0.3043,
+      "w_blend": 0.1594,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1288
+    },
+    {
+      "source": "justice",
+      "target": "now",
+      "w_cosine": 0.3241,
+      "w_jaccard": 0.5455,
+      "w_blend": 0.4237,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.7549
+    },
+    {
+      "source": "justice",
+      "target": "politics",
+      "w_cosine": 0.0445,
+      "w_jaccard": 0.4211,
+      "w_blend": 0.2139,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2579
+    },
+    {
+      "source": "justice",
+      "target": "reach",
+      "w_cosine": 0.0671,
+      "w_jaccard": 0.4706,
+      "w_blend": 0.2487,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3404
+    },
+    {
+      "source": "justice",
+      "target": "religion",
+      "w_cosine": 0.045,
+      "w_jaccard": 0.3478,
+      "w_blend": 0.1813,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1807
+    },
+    {
+      "source": "justice",
+      "target": "search",
+      "w_cosine": 0.2163,
+      "w_jaccard": 0.6154,
+      "w_blend": 0.3959,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.689
+    },
+    {
+      "source": "justice",
+      "target": "stigmergy",
+      "w_cosine": 0.0614,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1688,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1511
+    },
+    {
+      "source": "justice",
+      "target": "sustainability",
+      "w_cosine": 0.0329,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1681,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1495
+    },
+    {
+      "source": "justice",
+      "target": "swarm",
+      "w_cosine": 0.0686,
+      "w_jaccard": 0.3636,
+      "w_blend": 0.2014,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2283
+    },
+    {
+      "source": "justice",
+      "target": "vote",
+      "w_cosine": 0.2861,
+      "w_jaccard": 0.3913,
+      "w_blend": 0.3335,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5412
+    },
+    {
+      "source": "justice",
+      "target": "world",
+      "w_cosine": 0.0351,
+      "w_jaccard": 0.2571,
+      "w_blend": 0.135,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0711
+    },
+    {
+      "source": "nothing",
+      "target": "now",
+      "w_cosine": 0.086,
+      "w_jaccard": 0.3571,
+      "w_blend": 0.208,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.244
+    },
+    {
+      "source": "nothing",
+      "target": "politics",
+      "w_cosine": 0.0884,
+      "w_jaccard": 0.4762,
+      "w_blend": 0.2629,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.374
+    },
+    {
+      "source": "nothing",
+      "target": "reach",
+      "w_cosine": 0.0938,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.1948,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2127
+    },
+    {
+      "source": "nothing",
+      "target": "religion",
+      "w_cosine": 0.1247,
+      "w_jaccard": 0.3462,
+      "w_blend": 0.2244,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2828
+    },
+    {
+      "source": "nothing",
+      "target": "search",
+      "w_cosine": 0.0225,
+      "w_jaccard": 0.3889,
+      "w_blend": 0.1874,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1952
+    },
+    {
+      "source": "nothing",
+      "target": "stigmergy",
+      "w_cosine": 0.1043,
+      "w_jaccard": 0.4333,
+      "w_blend": 0.2524,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3491
+    },
+    {
+      "source": "nothing",
+      "target": "sustainability",
+      "w_cosine": 0.0664,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.1865,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.193
+    },
+    {
+      "source": "nothing",
+      "target": "swarm",
+      "w_cosine": 0.095,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.1689,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1514
+    },
+    {
+      "source": "nothing",
+      "target": "vote",
+      "w_cosine": 0.0475,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1547,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1177
+    },
+    {
+      "source": "nothing",
+      "target": "world",
+      "w_cosine": 0.0919,
+      "w_jaccard": 0.2632,
+      "w_blend": 0.169,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1516
+    },
+    {
+      "source": "now",
+      "target": "politics",
+      "w_cosine": 0.1092,
+      "w_jaccard": 0.3462,
+      "w_blend": 0.2158,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2624
+    },
+    {
+      "source": "now",
+      "target": "reach",
+      "w_cosine": 0.1603,
+      "w_jaccard": 0.375,
+      "w_blend": 0.2569,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3598
+    },
+    {
+      "source": "now",
+      "target": "religion",
+      "w_cosine": 0.1057,
+      "w_jaccard": 0.3,
+      "w_blend": 0.1931,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2087
+    },
+    {
+      "source": "now",
+      "target": "search",
+      "w_cosine": 0.1488,
+      "w_jaccard": 0.381,
+      "w_blend": 0.2533,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3513
+    },
+    {
+      "source": "now",
+      "target": "stigmergy",
+      "w_cosine": 0.1291,
+      "w_jaccard": 0.4688,
+      "w_blend": 0.2819,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.419
+    },
+    {
+      "source": "now",
+      "target": "sustainability",
+      "w_cosine": 0.0812,
+      "w_jaccard": 0.3846,
+      "w_blend": 0.2177,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2669
+    },
+    {
+      "source": "now",
+      "target": "swarm",
+      "w_cosine": 0.117,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1843,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1878
+    },
+    {
+      "source": "now",
+      "target": "vote",
+      "w_cosine": 0.3498,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.3424,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5623
+    },
+    {
+      "source": "now",
+      "target": "world",
+      "w_cosine": 0.1702,
+      "w_jaccard": 0.3684,
+      "w_blend": 0.2594,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "weapons",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3657
+    },
+    {
+      "source": "politics",
+      "target": "reach",
+      "w_cosine": 0.097,
+      "w_jaccard": 0.4444,
+      "w_blend": 0.2533,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3513
+    },
+    {
+      "source": "politics",
+      "target": "religion",
+      "w_cosine": 0.0943,
+      "w_jaccard": 0.3333,
+      "w_blend": 0.2019,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2295
+    },
+    {
+      "source": "politics",
+      "target": "search",
+      "w_cosine": 0.018,
+      "w_jaccard": 0.5714,
+      "w_blend": 0.267,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3837
+    },
+    {
+      "source": "politics",
+      "target": "stigmergy",
+      "w_cosine": 0.0754,
+      "w_jaccard": 0.2903,
+      "w_blend": 0.1721,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1589
+    },
+    {
+      "source": "politics",
+      "target": "sustainability",
+      "w_cosine": 0.0673,
+      "w_jaccard": 0.3182,
+      "w_blend": 0.1802,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1781
+    },
+    {
+      "source": "politics",
+      "target": "swarm",
+      "w_cosine": 0.1162,
+      "w_jaccard": 0.4091,
+      "w_blend": 0.248,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3387
+    },
+    {
+      "source": "politics",
+      "target": "vote",
+      "w_cosine": 0.0688,
+      "w_jaccard": 0.32,
+      "w_blend": 0.1819,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1821
+    },
+    {
+      "source": "politics",
+      "target": "world",
+      "w_cosine": 0.0829,
+      "w_jaccard": 0.25,
+      "w_blend": 0.1581,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "money",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1258
+    },
+    {
+      "source": "reach",
+      "target": "religion",
+      "w_cosine": 0.0932,
+      "w_jaccard": 0.3043,
+      "w_blend": 0.1882,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1971
+    },
+    {
+      "source": "reach",
+      "target": "search",
+      "w_cosine": 0.0722,
+      "w_jaccard": 0.6667,
+      "w_blend": 0.3397,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.5559
+    },
+    {
+      "source": "reach",
+      "target": "stigmergy",
+      "w_cosine": 0.0682,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1575,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1243
+    },
+    {
+      "source": "reach",
+      "target": "sustainability",
+      "w_cosine": 0.0939,
+      "w_jaccard": 0.35,
+      "w_blend": 0.2092,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2468
+    },
+    {
+      "source": "reach",
+      "target": "swarm",
+      "w_cosine": 0.2903,
+      "w_jaccard": 0.45,
+      "w_blend": 0.3622,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.6092
+    },
+    {
+      "source": "reach",
+      "target": "vote",
+      "w_cosine": 0.0925,
+      "w_jaccard": 0.3478,
+      "w_blend": 0.2074,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2425
+    },
+    {
+      "source": "reach",
+      "target": "world",
+      "w_cosine": 0.0719,
+      "w_jaccard": 0.2286,
+      "w_blend": 0.1424,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0886
+    },
+    {
+      "source": "religion",
+      "target": "search",
+      "w_cosine": 0.025,
+      "w_jaccard": 0.3684,
+      "w_blend": 0.1796,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1767
+    },
+    {
+      "source": "religion",
+      "target": "stigmergy",
+      "w_cosine": 0.168,
+      "w_jaccard": 0.2941,
+      "w_blend": 0.2248,
+      "shared": [
+        "cooperation",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2838
+    },
+    {
+      "source": "religion",
+      "target": "sustainability",
+      "w_cosine": 0.0478,
+      "w_jaccard": 0.32,
+      "w_blend": 0.1703,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1547
+    },
+    {
+      "source": "religion",
+      "target": "swarm",
+      "w_cosine": 0.0901,
+      "w_jaccard": 0.2963,
+      "w_blend": 0.1829,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1845
+    },
+    {
+      "source": "religion",
+      "target": "vote",
+      "w_cosine": 0.0738,
+      "w_jaccard": 0.3704,
+      "w_blend": 0.2073,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2423
+    },
+    {
+      "source": "religion",
+      "target": "world",
+      "w_cosine": 0.0681,
+      "w_jaccard": 0.1667,
+      "w_blend": 0.1125,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0178
+    },
+    {
+      "source": "search",
+      "target": "stigmergy",
+      "w_cosine": 0.0186,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.1269,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0519
+    },
+    {
+      "source": "search",
+      "target": "sustainability",
+      "w_cosine": 0.0167,
+      "w_jaccard": 0.4375,
+      "w_blend": 0.2061,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.2395
+    },
+    {
+      "source": "search",
+      "target": "swarm",
+      "w_cosine": 0.045,
+      "w_jaccard": 0.4706,
+      "w_blend": 0.2365,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.3115
+    },
+    {
+      "source": "search",
+      "target": "vote",
+      "w_cosine": 0.2859,
+      "w_jaccard": 0.35,
+      "w_blend": 0.3147,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.4967
+    },
+    {
+      "source": "search",
+      "target": "world",
+      "w_cosine": 0.0192,
+      "w_jaccard": 0.2581,
+      "w_blend": 0.1267,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0514
+    },
+    {
+      "source": "stigmergy",
+      "target": "sustainability",
+      "w_cosine": 0.0757,
+      "w_jaccard": 0.3226,
+      "w_blend": 0.1868,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health",
+        "predator_chain"
+      ],
+      "w_norm": 0.1937
+    },
+    {
+      "source": "stigmergy",
+      "target": "swarm",
+      "w_cosine": 0.0844,
+      "w_jaccard": 0.1944,
+      "w_blend": 0.1339,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0685
+    },
+    {
+      "source": "stigmergy",
+      "target": "vote",
+      "w_cosine": 0.0526,
+      "w_jaccard": 0.2857,
+      "w_blend": 0.1575,
+      "shared": [
+        "moral_universals",
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1243
+    },
+    {
+      "source": "stigmergy",
+      "target": "world",
+      "w_cosine": 0.0922,
+      "w_jaccard": 0.2667,
+      "w_blend": 0.1707,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "demographics",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1556
+    },
+    {
+      "source": "sustainability",
+      "target": "swarm",
+      "w_cosine": 0.0892,
+      "w_jaccard": 0.28,
+      "w_blend": 0.1751,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.166
+    },
+    {
+      "source": "sustainability",
+      "target": "vote",
+      "w_cosine": 0.0352,
+      "w_jaccard": 0.2593,
+      "w_blend": 0.136,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0734
+    },
+    {
+      "source": "sustainability",
+      "target": "world",
+      "w_cosine": 0.0852,
+      "w_jaccard": 0.2778,
+      "w_blend": 0.1718,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "energy",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1582
+    },
+    {
+      "source": "swarm",
+      "target": "vote",
+      "w_cosine": 0.0821,
+      "w_jaccard": 0.2414,
+      "w_blend": 0.1538,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.1156
+    },
+    {
+      "source": "swarm",
+      "target": "world",
+      "w_cosine": 0.087,
+      "w_jaccard": 0.2,
+      "w_blend": 0.1378,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "method",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0777
+    },
+    {
+      "source": "vote",
+      "target": "world",
+      "w_cosine": 0.0636,
+      "w_jaccard": 0.1905,
+      "w_blend": 0.1207,
+      "shared": [
+        "religion",
+        "brain_stack",
+        "self_govern",
+        "loop",
+        "sustainability",
+        "health"
+      ],
+      "w_norm": 0.0372
+    }
+  ],
+  "neighbours": {
+    "ants": [
+      {
+        "page": "good-bad",
+        "w": 1.0,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.7838,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.54,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "justice",
+        "w": 0.4792,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.4294,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "belief": [
+      {
+        "page": "religion",
+        "w": 0.5973,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "clock",
+        "w": 0.4969,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.4623,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.414,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "politics",
+        "w": 0.4117,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "brain": [
+      {
+        "page": "depends",
+        "w": 0.3809,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.3055,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "idx",
+        "w": 0.2942,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.2776,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.252,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "build": [
+      {
+        "page": "swarm",
+        "w": 0.8761,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.6649,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "idx",
+        "w": 0.5265,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.4453,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.3918,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "clock": [
+      {
+        "page": "stigmergy",
+        "w": 0.6227,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.5803,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "belief",
+        "w": 0.4969,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "religion",
+        "w": 0.4252,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3863,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "commons": [
+      {
+        "page": "economics",
+        "w": 0.4936,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.4391,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3986,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.3863,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "belief",
+        "w": 0.3768,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "crime": [
+      {
+        "page": "criminals",
+        "w": 0.4045,
+        "shared": [
+          "moral_universals",
+          "atrocity_scale",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.3899,
+        "shared": [
+          "cooperation",
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "religion",
+        "w": 0.3572,
+        "shared": [
+          "cooperation",
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3006,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "clock",
+        "w": 0.2769,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "criminals": [
+      {
+        "page": "justice",
+        "w": 0.4953,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.4661,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.4448,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "crime",
+        "w": 0.4045,
+        "shared": [
+          "moral_universals",
+          "atrocity_scale",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "good-bad",
+        "w": 0.3892,
+        "shared": [
+          "atrocity_scale",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "demo": [
+      {
+        "page": "idx",
+        "w": 0.7063,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "build",
+        "w": 0.6649,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.6637,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.4702,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "depends",
+        "w": 0.4687,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "depends": [
+      {
+        "page": "idx",
+        "w": 0.5632,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.5438,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.5308,
+        "shared": [
+          "cooperation",
+          "religion",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.4687,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.4628,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "economics": [
+      {
+        "page": "commons",
+        "w": 0.4936,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "sustainability",
+        "w": 0.342,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "world",
+        "w": 0.3302,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.3008,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "weapons",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "stigmergy",
+        "w": 0.2703,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      }
+    ],
+    "good-bad": [
+      {
+        "page": "ants",
+        "w": 1.0,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.6755,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.4976,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.3972,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "justice",
+        "w": 0.3927,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "graph": [
+      {
+        "page": "search",
+        "w": 0.541,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "ants",
+        "w": 0.54,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "good-bad",
+        "w": 0.4976,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.4777,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "depends",
+        "w": 0.4628,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "health": [
+      {
+        "page": "search",
+        "w": 0.4164,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.4031,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "politics",
+        "w": 0.3813,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "sustainability",
+        "w": 0.3669,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.3572,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "idx": [
+      {
+        "page": "demo",
+        "w": 0.7063,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.6824,
+        "shared": [
+          "religion",
+          "energy",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "depends",
+        "w": 0.5632,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "build",
+        "w": 0.5265,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "world",
+        "w": 0.5251,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "index": [
+      {
+        "page": "idx",
+        "w": 0.6824,
+        "shared": [
+          "religion",
+          "energy",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.6637,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "depends",
+        "w": 0.5308,
+        "shared": [
+          "cooperation",
+          "religion",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "religion",
+        "w": 0.4801,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.3932,
+        "shared": [
+          "cooperation",
+          "religion",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "justice": [
+      {
+        "page": "now",
+        "w": 0.7549,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.689,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.5412,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "criminals",
+        "w": 0.4953,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "ants",
+        "w": 0.4792,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "nothing": [
+      {
+        "page": "clock",
+        "w": 0.5803,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "depends",
+        "w": 0.5438,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "belief",
+        "w": 0.414,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3865,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "politics",
+        "w": 0.374,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "now": [
+      {
+        "page": "justice",
+        "w": 0.7549,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "vote",
+        "w": 0.5623,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "idx",
+        "w": 0.5118,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.4702,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "commons",
+        "w": 0.4391,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "politics": [
+      {
+        "page": "belief",
+        "w": 0.4117,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.3837,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "health",
+        "w": 0.3813,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "money",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.374,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3619,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "reach": [
+      {
+        "page": "swarm",
+        "w": 0.6092,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.5559,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.4777,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "belief",
+        "w": 0.4623,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "build",
+        "w": 0.4453,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      }
+    ],
+    "religion": [
+      {
+        "page": "belief",
+        "w": 0.5973,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.4801,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.4676,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "clock",
+        "w": 0.4252,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "crime",
+        "w": 0.3572,
+        "shared": [
+          "cooperation",
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "search": [
+      {
+        "page": "ants",
+        "w": 0.7838,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "justice",
+        "w": 0.689,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "good-bad",
+        "w": 0.6755,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.5559,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.541,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "stigmergy": [
+      {
+        "page": "clock",
+        "w": 0.6227,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "demographics",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.419,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "nothing",
+        "w": 0.3491,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "belief",
+        "w": 0.3382,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.3231,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "sustainability": [
+      {
+        "page": "health",
+        "w": 0.3669,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health",
+          "predator_chain"
+        ]
+      },
+      {
+        "page": "economics",
+        "w": 0.342,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "good-bad",
+        "w": 0.2913,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.2901,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.2743,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "swarm": [
+      {
+        "page": "build",
+        "w": 0.8761,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "reach",
+        "w": 0.6092,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "graph",
+        "w": 0.4486,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "idx",
+        "w": 0.4455,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "index",
+        "w": 0.3418,
+        "shared": [
+          "religion",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "vote": [
+      {
+        "page": "now",
+        "w": 0.5623,
+        "shared": [
+          "cooperation",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "justice",
+        "w": 0.5412,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "search",
+        "w": 0.4967,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "criminals",
+        "w": 0.4661,
+        "shared": [
+          "moral_universals",
+          "religion",
+          "brain_stack",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "ants",
+        "w": 0.4294,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ],
+    "world": [
+      {
+        "page": "idx",
+        "w": 0.5251,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "now",
+        "w": 0.3657,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "economics",
+        "w": 0.3302,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "weapons",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "demo",
+        "w": 0.2809,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "demographics",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      },
+      {
+        "page": "commons",
+        "w": 0.2179,
+        "shared": [
+          "religion",
+          "brain_stack",
+          "energy",
+          "money",
+          "method",
+          "self_govern",
+          "loop",
+          "sustainability",
+          "health"
+        ]
+      }
+    ]
+  }
+}

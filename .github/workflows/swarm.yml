@@ -59,6 +59,26 @@ jobs:
           git commit -m "swarm: strip OneDrive NUL-byte corruption" --quiet || true
           git push --quiet || true
 
+      - name: restore truncated HTML files from HEAD
+        run: |
+          # OneDrive sync occasionally truncates files mid-tag on the user's
+          # Windows machine. Any HTML file not ending in </html> is restored
+          # from the last committed version so future swarm runs see a
+          # well-formed page.
+          set +e
+          truncated=()
+          for f in pages/*.html index.html; do
+            if [ -f "$f" ] && ! tail -c 50 "$f" | grep -q "</html>"; then
+              echo "restoring truncated $f"
+              git checkout HEAD -- "$f" && truncated+=("$f")
+            fi
+          done
+          if [ ${#truncated[@]} -gt 0 ]; then
+            echo "restored ${#truncated[@]} files"
+          else
+            echo "no truncations detected"
+          fi
+
       - name: install deps
         run: |
           python -m pip install --upgrade pip
@@ -86,6 +106,9 @@ jobs:
 
       - name: run grouper
         run: python swarm/group.py
+
+      - name: build likelihood graph (linker)
+        run: python swarm/linker.py
 
       - name: rebuild search index
         run: python swarm/indexer.py
@@ -130,6 +153,7 @@ jobs:
             data/audit.json
             data/share_kit.json
             data/groups.json
+            data/links.json
             data/last_run.json
             data/visual_qa.json
           retention-days: 30

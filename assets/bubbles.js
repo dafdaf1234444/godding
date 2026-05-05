@@ -265,7 +265,11 @@ function renderBubbles(opts) {
   // Suppress click events that follow a drag so dragging doesn't open a card
   svg.addEventListener('click', (e) => { if (moved > 4){ e.stopPropagation(); e.preventDefault(); moved = 0; } }, true);
 
-  const detail = opts.detailEl;
+  const detail   = opts.detailEl;
+  const hoverEl  = opts.hoverEl || null;
+  const wrapEl   = opts.hoverWrap || (svg && svg.parentElement) || null;
+  let   locked   = false; // once locked via click, hover stops drifting
+
   function showDetail(f) {
     if (!detail) return;
     detail.hidden = false;
@@ -273,7 +277,30 @@ function renderBubbles(opts) {
     detail.querySelector('[data-meta]').textContent = f.years + ' · est. mid-range ' + (f.n / 1e6).toFixed(1) + 'M deaths';
     detail.querySelector('[data-body]').innerHTML = '<strong>range:</strong> ' + f.range + '<br><br>' + f.summary;
     detail.querySelector('[data-source]').textContent = 'sources (representative): ' + f.src;
+    locked = true;
   }
+
+  // hover preview: a small light card that follows the cursor; cheaper than the full detail
+  function showHover(f, evt) {
+    if (!hoverEl || !wrapEl) return;
+    if (locked) return;
+    hoverEl.hidden = false;
+    hoverEl.querySelector('.hc-name').textContent = f.name;
+    hoverEl.querySelector('.hc-meta').textContent = f.years + ' · ' + f.region + ' · ~' + (f.n/1e6).toFixed(1) + 'M (mid)';
+    hoverEl.querySelector('.hc-range').textContent = f.range;
+    if (evt) {
+      const wr = wrapEl.getBoundingClientRect();
+      const px = evt.clientX - wr.left + 12;
+      const py = evt.clientY - wr.top  + 12;
+      hoverEl.style.left = Math.max(8, Math.min(wr.width  - 280, px)) + 'px';
+      hoverEl.style.top  = Math.max(8, Math.min(wr.height - 110, py)) + 'px';
+    }
+  }
+  function hideHover() { if (hoverEl) hoverEl.hidden = true; }
+  // unlock if user clicks empty svg space
+  if (svg) svg.addEventListener('click', (e) => {
+    if (e.target === svg) { locked = false; if (detail) detail.hidden = true; hideHover(); }
+  });
 
   // Draw dependency/relation lines FIRST so bubbles overlay them
   const linkLayer = document.createElementNS(NS, 'g');
@@ -363,7 +390,16 @@ function renderBubbles(opts) {
 
     g.appendChild(title); g.appendChild(halo); g.appendChild(c);
     g.appendChild(plate); g.appendChild(t); g.appendChild(sub);
-    g.addEventListener('click', () => showDetail(f));
+    // multi-platform: pointer events handle mouse + pen + touch uniformly.
+    // hover -> light preview; click -> lock the detail card.
+    g.addEventListener('pointerenter', (e) => {
+      if (e.pointerType !== 'touch') showHover(f, e);
+    });
+    g.addEventListener('pointermove', (e) => {
+      if (e.pointerType !== 'touch') showHover(f, e);
+    });
+    g.addEventListener('pointerleave', () => { hideHover(); });
+    g.addEventListener('click',       (e) => { e.stopPropagation(); showDetail(f); });
     zoomLayer.appendChild(g);
   }
 }

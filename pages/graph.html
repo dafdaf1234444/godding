@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>graph — likelihood links — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .graph-wrap{ position:relative; background:var(--paper); border:1px solid var(--line); border-radius:var(--radius); padding:14px; }
+  #lg{ width:100%; height:680px; display:block; cursor:grab; }
+  #lg.dragging{ cursor:grabbing; }
+  .lg-node{ cursor:pointer; }
+  .lg-node circle{ fill:var(--paper-2); stroke:var(--ink-mute); stroke-width:1.4; transition:filter var(--t); }
+  .lg-node:hover circle{ stroke:var(--sun); stroke-width:2.2; }
+  .lg-node text{ font-family:var(--mono); font-size:11.5px; fill:var(--ink-2); pointer-events:none; }
+  .lg-edge{ fill:none; stroke:var(--ink-mute); transition:stroke var(--t), stroke-opacity var(--t); }
+  .lg-bar{ display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-family:var(--mono); font-size:12px; color:var(--ink-2); margin-bottom:10px; }
+  .lg-bar label{ display:inline-flex; align-items:center; gap:6px; }
+  .lg-bar input[type=range]{ width:140px; }
+  .lg-meta{ font-family:var(--mono); font-size:11px; color:var(--ink-mute); margin-top:8px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / graph</p>
+  <p class="kicker">likelihood graph · how every page is connected</p>
+  <h1>graph — <em>the likelihood links between pages.</em></h1>
+  <p class="dim">
+    each node is a page on this site. each edge is a blended similarity score:
+    <code>0.55·cosine(tf-idf) + 0.45·jaccard(concept lexicon)</code>, then min-max
+    normalised across all pairs. a thicker, more opaque line means the two pages
+    share more wording <em>and</em> more underlying concepts. the swarm rebuilds
+    this graph after every loop run, so the layout drifts with the content.
+  </p>
+
+  <div class="lg-bar">
+    <label>min weight <input id="thresh" type="range" min="0" max="100" value="55"><span id="thval">0.55</span></label>
+    <label>charge <input id="charge" type="range" min="40" max="240" value="120"></label>
+    <button id="reheat" class="vote-btn" style="font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:6px 10px;border:1px solid var(--line-2);background:var(--paper-2);border-radius:6px;cursor:pointer">reheat</button>
+    <span class="lg-meta" id="meta">loading…</span>
+  </div>
+
+  <div class="graph-wrap">
+    <svg id="lg" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid meet"></svg>
+  </div>
+
+  <h2 style="margin-top:18px">how to read it</h2>
+  <ul>
+    <li><strong>cluster of thick lines:</strong> a topic neighbourhood. expect <em>belief–brain–religion</em>, <em>crime–criminals–justice</em>, and <em>world–sustainability–health</em> to cluster.</li>
+    <li><strong>a long thin line</strong> across the graph: a page that touches a far-away topic in passing. usually a sign the swarm could compactify a paragraph.</li>
+    <li><strong>a node with very few thick edges:</strong> an isolated page. either its own neighbourhood, or a candidate for tighter linking.</li>
+    <li><strong>edge weight</strong> is the blended score in [0, 1] — drag the threshold slider to hide weak edges.</li>
+  </ul>
+
+  <h2>why two methods</h2>
+  <p>
+    <strong>cosine of tf-idf</strong> is sensitive to wording. it catches when two
+    pages actually use the same vocabulary. but it's blind to the case where a
+    page uses synonymous words for the same idea.
+  </p>
+  <p>
+    <strong>jaccard on a curated concept lexicon</strong> fixes that. each page is
+    intersected with a small set of tagged tokens (cooperation, energy, gulag, …)
+    and we take <code>|A ∩ B| / |A ∪ B|</code>. this is yes/no on whether the same
+    underlying ideas are present, regardless of wording.
+  </p>
+  <p>
+    blending the two gives a more honest weight than either alone — wording and
+    concepts both have to agree before two pages count as "close."
+  </p>
+</main>
+
+<aside class="sidebar">
+  <h4>data</h4>
+  <ul>
+    <li><a href="../data/links.json">data/links.json</a></li>
+    <li><a href="../data/groups.json">data/groups.json</a></li>
+    <li><a href="../data/changelog.json">data/changelog.json</a></li>
+  </ul>
+  <h4 style="margin-top:14px">related</h4>
+  <ul>
+    <li><a href="depends.html">/depends · oxford-style proof graph</a></li>
+    <li><a href="swarm.html">/swarm · the loop that updates this</a></li>
+    <li><a href="idx.html">/idx · plain index</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · the site rewires itself on a daily schedule.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script>
+(function () {
+  const NS = 'http://www.w3.org/2000/svg';
+  const W = 1200, H = 680;
+  const svg = document.getElementById('lg');
+  const meta = document.getElementById('meta');
+  const thresh = document.getElementById('thresh');
+  const thval = document.getElementById('thval');
+  const charge = document.getElementById('charge');
+  const reheat = document.getElementById('reheat');
+
+  fetch('../data/links.json', { cache: 'no-cache' })
+    .then(r => r.json())
+    .then(j => init(j))
+    .catch(() => { meta.textContent = 'failed to load data/links.json'; });
+
+  function init(j) {
+    const pages = new Set();
+    j.edges.forEach(e => { pages.add(e.source); pages.add(e.target); });
+    const nodes = [...pages].map((id, i) => ({
+      id,
+      x: W/2 + 200 * Math.cos(i / pages.size * Math.PI * 2),
+      y: H/2 + 200 * Math.sin(i / pages.size * Math.PI * 2),
+      vx: 0, vy: 0,
+    }));
+    const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+    let edges = j.edges.map(e => ({ a: byId[e.source], b: byId[e.target], w: e.w_norm || 0, shared: e.shared || [] }));
+
+    const eg = document.createElementNS(NS, 'g'); svg.appendChild(eg);
+    const ng = document.createElementNS(NS, 'g'); svg.appendChild(ng);
+
+    const edgeEls = edges.map(e => {
+      const ln = document.createElementNS(NS, 'line');
+      ln.setAttribute('class', 'lg-edge');
+      eg.appendChild(ln);
+      return ln;
+    });
+
+    const nodeEls = nodes.map(n => {
+      const g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'lg-node');
+      const c = document.createElementNS(NS, 'circle'); c.setAttribute('r', 14);
+      const t = document.createElementNS(NS, 'text');
+      t.setAttribute('text-anchor', 'middle'); t.setAttribute('dy', '4'); t.textContent = n.id;
+      g.appendChild(c); g.appendChild(t);
+      g.addEventListener('click', () => {
+        const href = (n.id === 'index') ? '../index.html' : (n.id + '.html');
+        window.location.href = href;
+      });
+      ng.appendChild(g);
+      return g;
+    });
+
+    let cutoff = 0.55, q = 120;
+    function applyControls() { cutoff = thresh.value / 100; thval.textContent = cutoff.toFixed(2); q = Number(charge.value); }
+    thresh.addEventListener('input', () => { applyControls(); paint(); });
+    charge.addEventListener('input', () => { applyControls(); });
+    reheat.addEventListener('click', () => { for (const n of nodes) { n.vx += (Math.random()-0.5)*8; n.vy += (Math.random()-0.5)*8; } });
+    applyControls();
+    meta.textContent = `${nodes.length} pages · ${edges.length} edges · refreshed ${j.generated || ''}`;
+
+    // force-directed layout
+    function step() {
+      // repulsion
+      for (let i = 0; i < nodes.length; i++) {
+        for (let k = i+1; k < nodes.length; k++) {
+          const a = nodes[i], b = nodes[k];
+          const dx = b.x - a.x, dy = b.y - a.y;
+          let d2 = dx*dx + dy*dy + 0.1;
+          const f = q*q / d2;
+          const d = Math.sqrt(d2);
+          a.vx -= dx / d * f * 0.0006;
+          a.vy -= dy / d * f * 0.0006;
+          b.vx += dx / d * f * 0.0006;
+          b.vy += dy / d * f * 0.0006;
+        }
+      }
+      // edge attraction (weighted)
+      for (const e of edges) {
+        if (e.w < cutoff) continue;
+        const dx = e.b.x - e.a.x, dy = e.b.y - e.a.y;
+        const d = Math.hypot(dx, dy) || 1;
+        const ideal = 200 - e.w * 110;     // higher weight → shorter ideal length
+        const k = (d - ideal) * 0.012 * (0.4 + e.w);
+        e.a.vx += dx/d * k; e.a.vy += dy/d * k;
+        e.b.vx -= dx/d * k; e.b.vy -= dy/d * k;
+      }
+      // pull toward center, integrate, damp
+      for (const n of nodes) {
+        n.vx += (W/2 - n.x) * 0.0009;
+        n.vy += (H/2 - n.y) * 0.0009;
+        n.x += n.vx; n.y += n.vy;
+        n.vx *= 0.78; n.vy *= 0.78;
+        n.x = Math.max(30, Math.min(W - 30, n.x));
+        n.y = Math.max(30, Math.min(H - 30, n.y));
+      }
+      paint();
+      requestAnimationFrame(step);
+    }
+    function paint() {
+      for (let i = 0; i < edges.length; i++) {
+        const e = edges[i], el = edgeEls[i];
+        if (e.w < cutoff) { el.setAttribute('stroke-opacity', '0'); continue; }
+        el.setAttribute('x1', e.a.x); el.setAttribute('y1', e.a.y);
+        el.setAttribute('x2', e.b.x); el.setAttribute('y2', e.b.y);
+        el.setAttribute('stroke-width', (0.4 + e.w * 3.2).toFixed(2));
+        el.setAttribute('stroke-opacity', (0.18 + e.w * 0.65).toFixed(3));
+        const isHot = e.w > 0.78;
+        el.setAttribute('stroke', isHot ? 'var(--sun)' : 'var(--ink-mute)');
+      }
+      for (let i = 0; i < nodes.length; i++) {
+        nodeEls[i].setAttribute('transform', `translate(${nodes[i].x} ${nodes[i].y})`);
+      }
+    }
+    step();
+
+    // pan + drag-node
+    let panning = null, draggingNode = null;
+    svg.addEventListener('mousedown', (ev) => {
+      if (ev.button !== 0) return;
+      const target = ev.target.closest('.lg-node');
+      if (target) {
+        const id = target.querySelector('text').textContent;
+        const n = byId[id];
+        draggingNode = { n, sx: ev.clientX, sy: ev.clientY, ox: n.x, oy: n.y };
+      } else {
+        panning = { x: ev.clientX, y: ev.clientY };
+        svg.classList.add('dragging');
+      }
+    });
+    window.addEventListener('mousemove', (ev) => {
+      if (panning) {
+        const r = svg.getBoundingClientRect();
+        const sx = W/r.width, sy = H/r.height;
+        const dx = (ev.clientX - panning.x) * sx;
+        const dy = (ev.clientY - panning.y) * sy;
+        for (const n of nodes) { n.x += dx; n.y += dy; }
+        panning.x = ev.clientX; panning.y = ev.clientY;
+      } else if (draggingNode) {
+        const r = svg.getBoundingClientRect();
+        const sx = W/r.width, sy = H/r.height;
+        draggingNode.n.x = draggingNode.ox + (ev.clientX - draggingNode.sx) * sx;
+        draggingNode.n.y = draggingNode.oy + (ev.clientY - draggingNode.sy) * sy;
+        draggingNode.n.vx = draggingNode.n.vy = 0;
+      }
+    });
+    window.addEventListener('mouseup', () => { panning = null; draggingNode = null; svg.classList.remove('dragging'); });
+  }
+})();
+</script>
+</body>
+</html>

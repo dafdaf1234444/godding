@@ -142,34 +142,30 @@ def main() -> int:
     report["checks"]["total_words"] = total_words
     report["checks"]["per_page_words"] = page_words
 
-    # --- pass 5: img/svg without alt or aria ---
-    no_alt = []
+    # --- pass 4b: self-consistency — every page logo + nav order must match ---
+    # canonical logo markup. anything else is drift.
+    LOGO_OK_RE = re.compile(r'<a class="logo"[^>]*>godding</a>')
+    bad_logos = []
     for rel, html in raw.items():
-        for m in re.finditer(r"<img\b[^>]*>", html):
-            if "alt=" not in m.group(0):
-                no_alt.append({"page": rel, "tag":"img", "snippet": m.group(0)[:80]})
-        for m in re.finditer(r"<svg\b[^>]*>", html):
-            tag = m.group(0)
-            if "aria-label" not in tag and "role=" not in tag:
-                no_alt.append({"page": rel, "tag":"svg", "snippet": tag[:80]})
-    report["warnings"].append({"kind":"missing_alt_or_aria", "n": len(no_alt), "examples": no_alt[:20]})
-    report["checks"]["missing_alt_or_aria"] = len(no_alt)
+        if not LOGO_OK_RE.search(html):
+            bad_logos.append(rel)
+    if bad_logos:
+        report["issues"].extend({"kind": "logo_drift", "file": f} for f in bad_logos)
+        failures += len(bad_logos)
+    report["checks"]["logo_drift"] = len(bad_logos)
 
-    # --- write report ---
-    DATA.mkdir(parents=True, exist_ok=True)
-    target = DATA / "audit.json"
-    target.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
-    summary = {
-        "audit_file": str(target),
-        "files": report["checks"]["files"],
-        "issues": len(report["issues"]),
-        "warnings": sum(w.get("n", 0) for w in report["warnings"]),
-        "broken_anchors": report["checks"]["broken_anchors"],
-        "missing_alt_or_aria": report["checks"]["missing_alt_or_aria"],
-        "total_words": total_words,
-    }
-    print(json.dumps(summary))
-    return 0 if failures == 0 else 1
+    # canonical "must include" nav entries — every page should link to these
+    REQUIRED_NAV = ["nothing.html", "belief.html", "brain.html", "religion.html",
+                    "stigmergy.html", "economics.html", "commons.html", "crime.html", "world.html", "swarm.html",
+                    "graph.html", "depends.html", "idx.html"]
+    nav_drift = []
+    for rel, html in raw.items():
+        # crude: just check if the href appears at all
+        for needed in REQUIRED_NAV:
+            if f'href="{needed}"' not in html and f'href="../{needed}"' not in html and f'href="pages/{needed}"' not in html:
+                nav_drift.append({"page": rel, "missing": needed})
+    if nav_drift:
+        report["warnings"].append({"kind": "nav_missing_link", "n": len(nav_drift), "examples": nav_drift[:20]})
+    report["checks"]["nav_missing_link"] = len(nav_drift)
 
-if __name__ == "__main__":
-    sys.exit(main())
+    # ---

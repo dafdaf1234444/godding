@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>clock — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .tick-row{ display:flex; gap:14px; align-items:center; margin:14px 0 18px; flex-wrap:wrap; }
+  .tick-pill{
+    font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+    background:var(--paper); color:var(--ink-2); border:1px solid var(--line-2);
+    border-radius:100px; padding:6px 14px;
+  }
+  .clock-svg{ width:100%; max-width:760px; display:block; margin:6px auto 16px; }
+  .actor-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0 18px; }
+  @media (max-width:700px){ .actor-grid{ grid-template-columns:1fr; } }
+  .actor-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .actor-card h3{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin:0 0 6px; }
+  .actor-card.bad  h3{ color:#c4576b; }
+  .actor-card.you  h3{ color:#5d8c4a; }
+  .actor-card p{ font-size:14px; line-height:1.6; }
+  .signed{ font-family:var(--mono); font-size:11px; letter-spacing:.10em; color:var(--ink-mute); margin-top:18px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / clock</p>
+  <p class="kicker">framing · the world runs on a tick</p>
+  <h1>clock — <em>the world is a game engine. you are a player, not a prop.</em></h1>
+  <p class="dim">
+    a short manifesto. read it once. disagree on every line if you like.
+    the page exists because too many people walk through their lives as if
+    they were watching a cut-scene. they are not. the clock is real, the
+    inputs matter, and the credits are nobody else's to write.
+  </p>
+
+  <div class="tick-row">
+    <span class="tick-pill">∆t = real</span>
+    <span class="tick-pill">inputs = limited</span>
+    <span class="tick-pill">agency = small &amp; load-bearing</span>
+    <span class="tick-pill">save-state = the world itself</span>
+  </div>
+
+  <h2>the engine, in one paragraph</h2>
+  <p>
+    every game engine has a frame. each frame, it reads inputs, advances the
+    physics, updates every agent, renders the world. the world we live in is
+    indistinguishable from this — except the frame rate is set by physics,
+    the agents include you, the renderer is the part of your brain that
+    builds an image, and the save-state is the world itself, which doesn't
+    forget. nobody is at the controller for everything. there is no manager
+    process. nothing in physics demanded your existence; nothing in physics
+    is going to ratify what you do with it.
+  </p>
+
+  <h2>the clock is real. so is your agency.</h2>
+  <p>
+    most of you runs on autopilot — see <a href="stigmergy.html">stigmergy</a>
+    and <a href="brain.html">brain</a>. the part that doesn't is small,
+    expensive, and the only part the universe seems to care about. it's the
+    pause between sense and act. inside that pause, you choose what to do
+    with the next frame. not every frame is yours to spend — some go to
+    breathing, the people you love, the boss you signed up for. but enough
+    are yours that the cumulative choice <em>is</em> your life.
+  </p>
+  <p>
+    your environment shapes you. your subconscious shapes you. the family
+    you were born into, the language you think in, the algorithms that
+    decided which faces and headlines you saw before you were ten — all of
+    that is upstream of your "free" choices. that is not a reason to give
+    up on choosing. that is the reason it matters which side of the pause
+    you fall on. <strong>the inputs are loaded; you still get to press
+    a button.</strong>
+  </p>
+
+  <svg class="clock-svg" viewBox="0 0 760 240" aria-label="frame loop diagram">
+    <defs>
+      <marker id="ar" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto">
+        <path d="M0,0 L12,6 L0,12 z" fill="#6f5f53"/>
+      </marker>
+    </defs>
+    <rect x="20"  y="100" rx="14" ry="14" width="140" height="60" fill="#fff8ea" stroke="#a39179"/>
+    <text x="90"  y="130" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#1f1813">read inputs</text>
+    <text x="90"  y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">senses · gradients · trail</text>
+    <line x1="160" y1="130" x2="208" y2="130" stroke="#6f5f53" stroke-width="1.4" marker-end="url(#ar)"/>
+    <rect x="210" y="100" rx="14" ry="14" width="160" height="60" fill="#fff8ea" stroke="#d96936"/>
+    <text x="290" y="130" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#d96936">pause + think</text>
+    <text x="290" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">the load-bearing slot</text>
+    <line x1="370" y1="130" x2="418" y2="130" stroke="#6f5f53" stroke-width="1.4" marker-end="url(#ar)"/>
+    <rect x="420" y="100" rx="14" ry="14" width="140" height="60" fill="#fff8ea" stroke="#a39179"/>
+    <text x="490" y="130" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#1f1813">act</text>
+    <text x="490" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">deposit on the trail</text>
+    <line x1="560" y1="130" x2="608" y2="130" stroke="#6f5f53" stroke-width="1.4" marker-end="url(#ar)"/>
+    <rect x="610" y="100" rx="14" ry="14" width="130" height="60" fill="#fff8ea" stroke="#5d8c4a"/>
+    <text x="675" y="130" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="13" fill="#5d8c4a">world updates</text>
+    <text x="675" y="148" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#6f5f53">save-state changes</text>
+    <path d="M 675 160 C 675 220, 90 220, 90 160" fill="none" stroke="#a39179" stroke-width="1.4" stroke-dasharray="4 5" marker-end="url(#ar)"/>
+    <text x="380" y="218" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="13" fill="#6f5f53">next frame</text>
+  </svg>
+
+  <h2>"you are nothing" — said by people who need you to believe it</h2>
+  <p>
+    you'll be told this often, in nicer language. <em>nobody cares what you
+    think. you can't change anything. you're a drop in the ocean. just keep
+    your head down.</em> these sentences are not neutral observations.
+    they are inputs, deliberately loaded into your environment by people
+    whose business model depends on you not thinking. recognise the rule
+    and refuse to deposit on that trail.
+  </p>
+  <p>
+    the honest reading, drawn out across this site (see
+    <a href="nothing.html">nothing</a> and <a href="belief.html">belief</a>):
+    you are not nothing, you are nothing organised by ~13.8 billion years of
+    physics until it could read this sentence. you are part of everything.
+    if anything in this universe deserves the word "god" in the sense the
+    site uses it — the cooperative substrate that lets a life worth having
+    exist — then <strong>you are part of that thing</strong>. so act like it.
+  </p>
+
+  <h2>two kinds of actor at every tick</h2>
+  <div class="actor-grid">
+    <div class="actor-card you">
+      <h3>you · the small load-bearing kind</h3>
+      <p>
+        thinks before acting, even badly, even slowly. notices when a trail
+        thickens in the wrong direction and refuses to add to it. reads
+        sources before re-posting. votes from the private mind, not the
+        public mouth. takes care of a body and a few people and the small
+        stretch of world they actually touch. boring on the outside; load-
+        bearing in the aggregate.
+      </p>
+    </div>
+    <div class="actor-card bad">
+      <h3>the bad-actor kind · ignorant, greedy, prideful</h3>
+      <p>
+        skipped the pause between sense and act so long ago they no longer
+        believe the pause exists. take what is in front of them. break what
+        is in their way. they will tell you they are realists. they are not
+        — they have only stopped reading inputs that contradict the trail
+        they're already on. left unchecked they will, frame by frame,
+        consume the people who didn't think. that is not a metaphor. that
+        is the dynamic that produced every entry in
+        <a href="criminals.html">criminals</a>.
+      </p>
+    </div>
+  </div>
+
+  <blockquote>
+    if you don't think and don't act and just consume — there is a non-zero
+    probability per frame that the bad-actor kind consumes you, the people
+    you love, and the world you needed in order to have anything to consume
+    at all. the probability per frame is small. integrated over a life, it
+    isn't.
+  </blockquote>
+
+  <h2>what the page is asking you to do</h2>
+  <ol>
+    <li>protect the pause between sense and act. it's small, it's expensive, and it's the only part of you the universe is selecting for.</li>
+    <li>read the inputs you didn't choose. notice which ones were chosen for you. notice who chose them.</li>
+    <li>deposit deliberately. eat, spend, vote, speak as if your action were a pheromone the next person would have to walk on. it is.</li>
+    <li>say something. you have a right to speak even when people work hard to make you believe you are nothing. you are not. they are wrong.</li>
+    <li>find the small group of people who actually pause and act. amplify them. ignore the loud ones who don't. amplification, in a stigmergic system, is the whole game.</li>
+  </ol>
+
+  <h2>links</h2>
+  <ul>
+    <li><a href="nothing.html">nothing</a> — why "you are nothing" is wrong on physics, on theology, and on the cooperation substrate this site cares about.</li>
+    <li><a href="brain.html">brain</a> — the stack inside one head; where the pause lives.</li>
+    <li><a href="stigmergy.html">stigmergy</a> — the biology of trails; why every action you take is read by agents you'll never meet.</li>
+    <li><a href="good-bad.html">good vs. bad sim</a> — the dynamics of a population that lets the bad-actor trail thicken.</li>
+    <li><a href="vote.html">vote</a> — your own trail, on this site, recorded.</li>
+  </ul>
+
+  <p class="signed">— posted by Can Acay. corrections welcome; the swarm reads them on the next run.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>see also · weighted</h4>
+  <div id="related-mount" data-page="clock"><span class="muted" style="font-size:11.5px">loading…</span></div>
+  <h4 style="margin-top:14px">if this resonated</h4>
+  <ul>
+    <li><a href="nothing.html">nothing · why you aren't</a></li>
+    <li><a href="stigmergy.html">stigmergy · trails</a></li>
+    <li><a href="brain.html">brain · the pause</a></li>
+    <li><a href="religion.html">religion · keeping count</a></li>
+    <li><a href="vote.html">vote · your trail</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · the clock is real. you are not nothing.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script src="../assets/related.js" defer></script>
+</body>
+</html>

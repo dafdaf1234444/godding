@@ -125,13 +125,14 @@ kbd{ font-family: var(--mono); font-size: 10px; padding: 2px 6px; border: 1px so
 .status-ribbon a{ border: none; color: var(--ink-dim); }
 .status-ribbon a:hover{ color: var(--sun); }
 
-/* topbar */
+/* topbar — logo anchors top-left, nav wraps to the right without splitting around it */
 .topbar{
-  display: flex; align-items: center; justify-content: space-between;
-  max-width: var(--max); margin: 0 auto; padding: 18px 28px;
+  display: flex; align-items: flex-start; justify-content: space-between;
+  max-width: var(--max); margin: 0 auto; padding: 16px 28px 14px;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
   position: relative; z-index: 3;
+  gap: 28px;
 }
 .logo{
   font-family: var(--serif);
@@ -141,25 +142,17 @@ kbd{ font-family: var(--mono); font-size: 10px; padding: 2px 6px; border: 1px so
   color: var(--ink);
   white-space: nowrap;
   flex-shrink: 0;
+  margin-top: 2px;          /* baseline-align with first nav row */
+  align-self: flex-start;
 }
-/* the inline circled-O — stylised "godding" brand glyph */
-.logo .o{
-  display: inline-block;
-  font-family: var(--serif);
-  font-style: normal;
-  color: var(--sun);
-  font-size: 0.92em;          /* slightly smaller so it sits on the baseline */
-  margin: 0 -0.02em;          /* tighten kerning so it reads as part of the word */
-  text-shadow: 0 0 8px rgba(217,105,54,.35);
-  transition: transform var(--t), color var(--t);
+/* logo is plain text now — any leftover .o or .dot spans are hidden as a safety net */
+.logo .o, .logo .dot{ display: none; }
+.nav{
+  display: flex; gap: 10px 16px; flex-wrap: wrap;
+  align-items: center; justify-content: flex-end;
+  flex: 1; min-width: 0;
+  padding-top: 6px;        /* drop the nav slightly below the logo's italic baseline */
 }
-.logo:hover .o{
-  color: var(--gold);
-  transform: rotate(20deg);
-}
-/* legacy .dot kept for any old markup that still references it */
-.logo .dot{ display: none; }
-.nav{ display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
 .nav a{
   font-family: var(--mono);
   font-size: 12px; letter-spacing: .04em; text-transform: lowercase;
@@ -174,6 +167,57 @@ kbd{ font-family: var(--mono); font-size: 10px; padding: 2px 6px; border: 1px so
 .nav a:hover::after{ transform: scaleX(1); }
 .nav a.swarm-link{ color: var(--plum); }
 .nav a.muted{ color: var(--ink-mute); }
+/* keep grouped sub-links on a single line so "sims: good/bad · ants" never splits */
+.nav-group{
+  display: inline-flex; align-items: baseline; gap: 4px; white-space: nowrap;
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  text-transform: lowercase; color: var(--ink-mute);
+}
+.nav-group a{
+  font-family: var(--mono); font-size: 12px; letter-spacing: .04em;
+  text-transform: lowercase; color: var(--ink-dim); border: none; padding: 2px 0;
+  position: relative;
+}
+.nav-group a:hover{ color: var(--ink); }
+
+/* hover preview card for bubbles — light, follows the cursor */
+.bubble-wrap{ position: relative; }
+.bubble-hover{
+  position: absolute; left: 12px; top: 12px;
+  pointer-events: none;
+  background: var(--paper-2);
+  border: 1px solid var(--line-2);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--ink-2);
+  box-shadow: 0 4px 14px rgba(31,24,19,.12);
+  max-width: 280px;
+  z-index: 5;
+  line-height: 1.45;
+}
+.bubble-hover .hc-name{ font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--ink); margin-bottom: 2px; }
+.bubble-hover .hc-meta{ font-family: var(--mono); font-size: 10.5px; color: var(--ink-mute); margin-bottom: 4px; letter-spacing: .04em; }
+.bubble-hover .hc-range{ font-size: 11.5px; color: var(--ink-2); }
+
+/* "see also · weighted" sidebar block driven by data/links.json */
+.related-block{ display: flex; flex-direction: column; gap: 6px; }
+.related-row{
+  display: grid; grid-template-columns: 1fr 60px; gap: 8px; align-items: center;
+  padding: 5px 0; border-bottom: 1px dashed var(--line);
+}
+.related-row a{
+  font-family: var(--mono); font-size: 12px; color: var(--ink-2); border: none;
+}
+.related-row a:hover{ color: var(--sun); }
+.related-bar{
+  height: 4px; background: var(--bg-2); border-radius: 3px; position: relative; overflow: hidden;
+}
+.related-bar > span{
+  display: block; height: 100%;
+  background: linear-gradient(90deg, var(--sun), var(--gold));
+}
 
 /* layout */
 .layout{

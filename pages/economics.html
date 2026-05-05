@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>economics — energy-backed money + per-item carbon ledger — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .ec-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:16px 0 22px; }
+  @media (max-width:780px){ .ec-grid{ grid-template-columns:1fr; } }
+  .ec-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .ec-card h3{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin:0 0 8px; }
+  .ec-card.kwh    h3{ color:#c89a3e; }
+  .ec-card.use    h3{ color:#5d8c4a; }
+  .ec-card.carbon h3{ color:#c4576b; }
+  .ec-card.depend h3{ color:#4a7ba8; }
+  .ec-card p{ font-size:13.5px; line-height:1.6; }
+
+  .label-card{ background:var(--paper-2); border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:10px 0; font-family:var(--mono); font-size:13px; }
+  .label-card .head{ display:flex; align-items:baseline; justify-content:space-between; padding-bottom:6px; border-bottom:1px dashed var(--line); margin-bottom:8px; }
+  .label-card .item{ font-family:var(--serif); font-style:italic; font-size:15px; color:var(--ink); }
+  .label-card .row{ display:grid; grid-template-columns:160px 1fr; padding:3px 0; }
+  .label-card .k{ color:var(--ink-mute); font-size:11px; letter-spacing:.10em; text-transform:uppercase; }
+  .label-card .v{ color:var(--ink-2); }
+  .label-card .bar{ display:inline-block; height:8px; background:linear-gradient(90deg,#5d8c4a,#c89a3e,#c4576b); border-radius:4px; vertical-align:middle; margin-right:6px; }
+
+  .ec-table{ width:100%; border-collapse:collapse; margin:8px 0 18px; font-family:var(--mono); font-size:13px; }
+  .ec-table th, .ec-table td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top }
+  .ec-table th{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; }
+  .ec-table td.s{ color:var(--ink-2); font-family:var(--sans); font-size:13px; line-height:1.55; }
+  .ec-table td.n{ color:var(--ink); font-weight:500; }
+
+  .formula{ background:var(--paper-2); padding:10px 14px; border-left:3px solid var(--sun); font-family:var(--mono); font-size:13px; margin:8px 0 14px; color:var(--ink-2); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / economics</p>
+  <p class="kicker">price systems · what a market actually measures</p>
+  <h1>economics — <em>price what costs the world, not what crowds will pay.</em></h1>
+  <p class="dim">
+    most prices today track <strong>willingness to pay</strong>. that's a useful
+    signal, but it's not the only one. willingness ignores how much energy a
+    thing took to make, how useful it actually is once made, how much carbon it
+    leaves behind, and which dependencies it dragged along. this page sketches
+    a layered alternative: an <strong>energy-numeraire currency</strong> on top
+    of money, a <strong>usefulness metric</strong> on top of that, and a
+    <strong>per-item carbon &amp; dependency ledger</strong> shipped with every
+    object. the goal isn't to replace markets; it's to give them more honest
+    inputs.
+  </p>
+
+  <h2>why prices fail to track the real cost</h2>
+  <ul>
+    <li><strong>externalities are off-balance-sheet.</strong> CO₂ doesn't show on a sales receipt. neither does river damage, antibiotic resistance, or political instability. classical microecon called these out in the 1920s (Pigou) and we still haven't priced them.</li>
+    <li><strong>willingness ≠ value.</strong> a 60-second video can earn more than a year of farming. that says something about attention, not about which one you'd miss if it stopped.</li>
+    <li><strong>no dependency view.</strong> a "$3 t-shirt" silently drags a cotton field, a dye plant, a container ship, and a landfill bin behind it. the price doesn't know.</li>
+    <li><strong>the unit is arbitrary.</strong> fiat money is whatever the central bank says it is. it's a useful coordination signal, not a fundamental measure of how much world a thing costs.</li>
+  </ul>
+
+  <h2>the four layers — read them in order</h2>
+  <div class="ec-grid">
+    <div class="ec-card kwh">
+      <h3>1 · energy-numeraire currency (kWh-coin)</h3>
+      <p>
+        peg a parallel currency to the kilowatt-hour. one unit = one
+        delivered kWh of low-carbon electricity, audited at a registry of
+        meters and time-stamped on a public ledger. prices in kWh-coin
+        change when the energy mix changes — which is the point. it isn't
+        a replacement for fiat; it's a parallel scale that makes
+        energy-cost legible inside any transaction.
+      </p>
+    </div>
+    <div class="ec-card use">
+      <h3>2 · usefulness metric (joule-per-utility)</h3>
+      <p>
+        for every product class, define a <em>service unit</em> (one
+        passenger-km, one calorie of actual nutrition, one hour of useful
+        compute). divide its lifecycle energy by service units delivered.
+        a sedan vs. a bicycle on the same trip have very different
+        joule-per-passenger-km values. publish the ratio. let buyers see
+        it on the shelf.
+      </p>
+    </div>
+    <div class="ec-card carbon">
+      <h3>3 · per-item carbon label (kgCO₂e shipped with the object)</h3>
+      <p>
+        every item carries an embedded-carbon number computed under
+        ISO 14067 / GHG Protocol Product Standard, attested by a third
+        party, written into a QR code or RFID. supermarkets already do
+        this for some lines (Oatly, Quorn, Unilever pilots); make it the
+        default rather than the exception. the methodology is not new —
+        scaling it is.
+      </p>
+    </div>
+    <div class="ec-card depend">
+      <h3>4 · dependency-tracked supply chain</h3>
+      <p>
+        every item ships with a small, signed graph of the inputs it
+        depended on: where the metal was mined, which farm, which port,
+        which factory. the consumer sees the graph the way they see a
+        nutrition label. systems that already do this exist
+        (EU Digital Product Passport from 2027, Provenance, IBM Food
+        Trust). give them teeth.
+      </p>
+    </div>
+  </div>
+
+  <h2>what the math looks like</h2>
+  <p>this isn't speculative — every variable has a real measurement procedure. here are the load-bearing definitions:</p>
+
+  <div class="formula">
+    energy-cost(item)  =  Σ (joules consumed at each step in the supply chain)<br>
+    carbon-cost(item)  =  Σ (kgCO₂e at each step, scope 1 + 2 + 3, GHG Protocol)<br>
+    usefulness(item)   =  service-units delivered over expected lifetime<br>
+    true-cost-ratio    =  (energy-cost + price-of-carbon × carbon-cost) / usefulness
+  </div>
+
+  <p>
+    none of those terms are new. each one has decades of methodology:
+    <strong>life-cycle assessment</strong> (ISO 14040, since 1997),
+    <strong>energy return on investment</strong> (Hall, 1981; Murphy 2014),
+    <strong>service-unit accounting</strong> (the functional unit in LCA),
+    and <strong>shadow price of carbon</strong> (UK Treasury Green Book; US
+    EPA SCC). the work isn't inventing them — the work is publishing them
+    on every item, on every receipt, in a unit a person can read.
+  </p>
+
+  <h2>what the label could look like</h2>
+
+  <div class="label-card">
+    <div class="head">
+      <span class="item">"basic cotton t-shirt"</span>
+      <span class="k">label v0</span>
+    </div>
+    <div class="row"><span class="k">embedded carbon</span><span class="v">~ 4.5 kgCO₂e per shirt (Carbon Trust avg.)</span></div>
+    <div class="row"><span class="k">embedded energy</span><span class="v">~ 24 kWh from cotton field to retail</span></div>
+    <div class="row"><span class="k">service unit</span><span class="v">≈ 50 wears before disposal (US median)</span></div>
+    <div class="row"><span class="k">joule per wear</span><span class="v">~ 1.7 MJ / wear</span></div>
+    <div class="row"><span class="k">supply chain</span><span class="v">cotton (IN) · spinning (BD) · sewing (BD) · ship → port (NL) · retail (EU)</span></div>
+    <div class="row"><span class="k">red-flag deps</span><span class="v">water-stressed cotton basin · uncertified dye effluent</span></div>
+  </div>
+
+  <div class="label-card">
+    <div class="head">
+      <span class="item">"1 kWh of electricity, 14:00 UTC, NL grid"</span>
+      <span class="k">label v0</span>
+    </div>
+    <div class="row"><span class="k">carbon intensity</span><span class="v">~ 220 gCO₂e / kWh (live: electricitymaps.com)</span></div>
+    <div class="row"><span class="k">source mix (now)</span><span class="v">42% gas · 19% wind · 14% nuclear (FR import) · 13% solar · …</span></div>
+    <div class="row"><span class="k">true-cost</span><span class="v">retail price + €70 / tCO₂ shadow → ~ €0.35 / kWh equivalent</span></div>
+    <div class="row"><span class="k">advice</span><span class="v">defer load 3h → carbon falls to ~150 gCO₂e/kWh (sun rising)</span></div>
+  </div>
+
+  <div class="label-card">
+    <div class="head">
+      <span class="item">"1 kg beef, supermarket NL"</span>
+      <span class="k">label v0</span>
+    </div>
+    <div class="row"><span class="k">embedded carbon</span><span class="v">~ 60 kgCO₂e / kg (Poore &amp; Nemecek, Science 2018)</span></div>
+    <div class="row"><span class="k">land use</span><span class="v">~ 326 m² · year per kg</span></div>
+    <div class="row"><span class="k">water use</span><span class="v">~ 15,400 L / kg (Mekonnen &amp; Hoekstra)</span></div>
+    <div class="row"><span class="k">protein delivered</span><span class="v">~ 260 g protein / kg meat → ~ 230 gCO₂e / g protein</span></div>
+    <div class="row"><span class="k">benchmark</span><span class="v">tofu: ~ 8 gCO₂e / g protein · ~ 30× lower</span></div>
+    <div class="row"><span class="k">trail (see <a href="stigmergy.html">stigmergy</a>)</span><span class="v">cattle → feed crop → land cleared → climate forcing → next generation eats less</span></div>
+  </div>
+
+  <h2>the dependency graph that ships with each thing</h2>
+  <p>
+    every item is the leaf of a tree of upstream items. you cannot see the
+    tree on a price tag. the proposal is the same one this site uses for its
+    own pages (see <a href="depends.html">/depends</a>): each item declares
+    what it rests on, signed and timestamped, and a checker rejects any
+    inconsistency. the model is borrowed from how mathematicians ship
+    proofs.
+  </p>
+
+  <table class="ec-table">
+    <thead><tr><th>node</th><th>kind</th><th>declared inputs</th><th>declared outputs</th></tr></thead>
+    <tbody>
+      <tr><td class="n">cotton bale</td><td>raw</td><td class="s">land · water · seed · fertiliser · diesel · labour</td><td class="s">220 kg lint, 100 kg seed</td></tr>
+      <tr><td class="n">cotton yarn</td><td>process</td><td class="s">cotton bale · electricity · workers</td><td class="s">spool of yarn</td></tr>
+      <tr><td class="n">dyed fabric</td><td>process</td><td class="s">yarn · dye · water · electricity · effluent capture</td><td class="s">fabric · effluent (must equal input mass)</td></tr>
+      <tr><td class="n">finished shirt</td><td>process</td><td class="s">fabric · thread · packaging · cutting · sewing</td><td class="s">shirt · scrap (recyclable / landfill)</td></tr>
+      <tr><td class="n">retail shirt</td><td>delivered</td><td class="s">finished shirt · ship-km · truck-km · store-energy</td><td class="s">delivered shirt with full label</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    each row is auditable. each handover is a signed claim. anyone can
+    re-derive the carbon and energy totals from the graph. when a node lies,
+    every downstream node either notices or has signed off on the lie. that
+    is exactly the property the swarm enforces on this website's own
+    knowledge graph (see <a href="swarm.html">/swarm</a>) — applied to atoms
+    instead of paragraphs.
+  </p>
+
+  <h2>does the market price the right thing?</h2>
+  <p>
+    today: <strong>mostly no.</strong> in textbooks the first welfare
+    theorem proves a competitive market is efficient — but only when prices
+    incorporate every cost. they don't. carbon, water, attention, social
+    trust are all unpriced or radically under-priced.
+  </p>
+  <p>
+    what would it take to fix that without a central planner? three
+    measurable interventions, all already partially deployed somewhere:
+  </p>
+  <ol>
+    <li><strong>publish the energy-cost</strong> alongside the price tag. anyone can already estimate this; the cost of computing and printing it is trivial.</li>
+    <li><strong>publish the carbon-cost</strong> under ISO 14067 with a small audited margin of error. EU's CSRD already requires this for large firms; extend to consumer items.</li>
+    <li><strong>publish the dependency graph.</strong> the EU Digital Product Passport (regulation EU 2023/1542 for batteries; expanding 2027+) is exactly this; let it become the default for every category, not just regulated ones.</li>
+  </ol>
+  <p>
+    none of these abolish willingness to pay. they let willingness compete
+    with information. you decide which signal to weight. the market then
+    converges on something that tracks the world more honestly — because the
+    inputs to the market are more honest.
+  </p>
+
+  <h2>where this slots into the rest of the site</h2>
+  <ul>
+    <li><a href="world.html#energy">/world#energy</a> — the energy mix that an energy-numeraire would pin to.</li>
+    <li><a href="world.html#money">/world#money</a> — current money + tracking infrastructure (WID.world, OpenCorporates, ICIJ).</li>
+    <li><a href="sustainability.html">/sustainability</a> — load-bearing actions vs. theatre; this page formalises the ledger.</li>
+    <li><a href="stigmergy.html">/stigmergy</a> — every item is a deposit on the trail; carbon labels make the deposit legible.</li>
+    <li><a href="clock.html">/clock</a> — agency at the tick; informed buying is one of the small load-bearing levers.</li>
+    <li><a href="depends.html">/depends</a> — the dependency-as-proof model this page borrows.</li>
+  </ul>
+
+  <h2>primary sources, in date order</h2>
+  <ul>
+    <li>Pigou, <em>The Economics of Welfare</em>, 1920 — externalities first formalised.</li>
+    <li>Costanza et al., "The value of the world's ecosystem services," <em>Nature</em>, 1997.</li>
+    <li>Hall, Cleveland, Kaufmann, EROI methodology, 1981 — ; Murphy, <em>Phil. Trans. Roy. Soc. A</em>, 2014.</li>
+    <li>ISO 14040 / 14044 (LCA), 1997 → 2006; ISO 14067 (carbon footprint of products), 2018.</li>
+    <li>Greenhouse Gas Protocol — Product Standard (WRI/WBCSD, 2011).</li>
+    <li>Poore &amp; Nemecek, "Reducing food's environmental impacts through producers and consumers," <em>Science</em>, 2018.</li>
+    <li>UK Treasury, <em>Green Book</em> — Annex on the value of greenhouse gas emissions; US EPA, Social Cost of Carbon (2023 update).</li>
+    <li>EU Digital Product Passport — Reg. (EU) 2023/1542 (batteries); Ecodesign for Sustainable Products, 2024 onward.</li>
+    <li>IPCC AR6 WG3, 2022 — remaining carbon budget for 1.5°C.</li>
+  </ul>
+
+  <blockquote>
+    a market is a calculator. it is only as honest as the numbers fed into
+    it. the project is to feed it the numbers it has been ignoring.
+  </blockquote>
+</main>
+
+<aside class="sidebar">
+  <h4>see also · weighted</h4>
+  <div id="related-mount" data-page="economics"><span class="muted" style="font-size:11.5px">loading…</span></div>
+  <h4 style="margin-top:14px">related on this site</h4>
+  <ul>
+    <li><a href="world.html">world · the load-bearing systems</a></li>
+    <li><a href="sustainability.html">sustainability · load-bearing vs. theatre</a></li>
+    <li><a href="stigmergy.html">stigmergy · trails &amp; ledgers</a></li>
+    <li><a href="depends.html">depends · proof-graph model</a></li>
+  </ul>
+  <h4 style="margin-top:14px">primary sources</h4>
+  <ul>
+    <li><a href="https://ghgprotocol.org/product-standard" target="_blank" rel="noopener">GHG Protocol — Product Standard</a></li>
+    <li><a href="https://www.iso.org/standard/71206.html" target="_blank" rel="noopener">ISO 14067 — Carbon footprint of products</a></li>
+    <li><a href="https://environment.ec.europa.eu/topics/circular-economy/digital-product-passport_en" target="_blank" rel="noopener">EU Digital Product Passport</a></li>
+    <li><a href="https://www.ipcc.ch/report/ar6/wg3/" target="_blank" rel="noopener">IPCC AR6 WG3</a></li>
+    <li><a href="https://app.electricitymaps.com" target="_blank" rel="noopener">electricitymaps · live grid carbon</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · feed honest numbers into the calculator.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script src="../assets/related.js" defer></script>
+</body>
+</html>

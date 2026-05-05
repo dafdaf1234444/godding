@@ -1,0 +1,101 @@
+name: godding-repair-and-deploy
+
+# Phone-friendly: trigger from anywhere (browser, GitHub mobile app, the
+# Claude mobile app via the GitHub MCP connector). No laptop required.
+#
+# What it does, on every dispatch:
+#   1. checkout main
+#   2. strip NUL bytes (OneDrive corruption pattern)
+#   3. restore any truncated HTML files from HEAD
+#   4. run swarm/repair.py + swarm/linker.py + swarm/audit.py
+#   5. commit + push if anything changed
+#
+# It does NOT call the LLM swarm loop. For that, use the daily
+# 'godding-swarm' workflow (which can also be triggered manually).
+
+on:
+  workflow_dispatch:
+    inputs:
+      message:
+        description: 'optional commit message suffix'
+        required: false
+        default: 'repair-and-deploy'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: godding-repair
+  cancel-in-progress: false
+
+jobs:
+  repair:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: strip NUL bytes
+        run: |
+          python - <<'PY'
+          import glob
+          n = 0
+          for pat in ['pages/*.html','assets/*.css','assets/*.js','swarm/*.py','index.html']:
+              for f in sorted(glob.glob(pat)):
+                  with open(f,'rb') as fh: d = fh.read()
+                  if b'\x00' in d:
+                      with open(f,'wb') as fh: fh.write(d.replace(b'\x00', b''))
+                      n += 1
+                      print(f'cleaned {f}')
+          print(f'total cleaned: {n}')
+          PY
+
+      - name: restore truncated files from HEAD
+        run: |
+          set +e
+          n=0
+          for f in pages/*.html index.html; do
+            if [ -f "$f" ] && ! tail -c 50 "$f" | grep -q "</html>"; then
+              echo "restoring $f"
+              git checkout HEAD -- "$f"
+              n=$((n+1))
+            fi
+          done
+          echo "total restored: $n"
+
+      - name: run swarm/repair.py
+        run: python swarm/repair.py || true
+
+      - name: rebuild links.json
+        run: python swarm/linker.py
+
+      - name: rebuild groups.json
+        run: python swarm/group.py || true
+
+      - name: rebuild search index
+        run: python swarm/indexer.py || true
+
+      - name: deep audit (informational)
+        run: python swarm/audit.py || true
+
+      - name: commit + push
+        run: |
+          git config user.name  "godding-mobile"
+          git config user.email "mobile@godding.local"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing to commit"
+          else
+            stamp=$(date -u +%FT%TZ)
+            git commit -m "godding: repair-and-deploy $stamp · ${{ inputs.message }}" --quiet
+            git push --quiet
+            echo "pushed."
+          fi

@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>stigmergy — godding</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .stig-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0 22px; }
+  @media (max-width:780px){ .stig-grid{ grid-template-columns:1fr; } }
+  .stig-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px 14px; }
+  .stig-card h3{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin:0 0 6px; }
+  .stig-card.ant       h3{ color:#c89a3e; }
+  .stig-card.termite   h3{ color:#5d8c4a; }
+  .stig-card.immune    h3{ color:#c4576b; }
+  .stig-card.slime     h3{ color:#6b4a8b; }
+  .stig-card.human     h3{ color:#d96936; }
+  .stig-card p{ font-size:13.5px; line-height:1.6; }
+  .stig-card .src{ font-family:var(--mono); font-size:10.5px; color:var(--ink-mute); margin-top:8px; }
+
+  .ledger{ font-family:var(--mono); font-size:13px; background:var(--paper-2); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; line-height:1.7; color:var(--ink-2); }
+  .ledger .row{ display:grid; grid-template-columns:1fr 2fr; gap:14px; padding:6px 0; border-bottom:1px dashed var(--line); }
+  .ledger .row:last-child{ border-bottom:none; }
+  .ledger .k{ color:var(--ink-mute); }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / stigmergy</p>
+  <p class="kicker">biology · how dumb agents leave smart trails</p>
+  <h1>stigmergy — <em>the world records what you do, and the next agent reads it.</em></h1>
+  <p class="dim">
+    the word is from Pierre-Paul Grassé, 1959, watching termites. it names a
+    pattern that turns out to be everywhere: an agent acts, the environment
+    keeps the trace, the next agent uses the trace as input. cooperation
+    without a manager. a ledger without a god. and — once you see it — a clear
+    explanation for why your habits are not as private as they feel.
+  </p>
+
+  <h2>the biological catalogue</h2>
+  <div class="stig-grid">
+    <div class="stig-card ant">
+      <h3>ants · pheromone trails</h3>
+      <p>
+        a foraging ant dribbles a faint pheromone wherever it walks. the trail
+        evaporates fast unless a second ant reinforces it. shorter paths get
+        reinforced more often per unit time, so the colony converges on the
+        shortest route to a food source — without any ant ever knowing the
+        map. the rule is local. the result is global.
+      </p>
+      <div class="src">Goss et al. 1989; Dorigo &amp; Stützle, <em>Ant Colony Optimization</em>, MIT 2004 · see <a href="ants.html">/ants</a> sim</div>
+    </div>
+    <div class="stig-card termite">
+      <h3>termites · mounds without architects</h3>
+      <p>
+        a termite drops a clay pellet at a spot that already has a slight bump
+        of clay. the bump grows. above some threshold, the bump becomes a
+        column. when two columns are close, the depositing rule curves the
+        tops together into an arch. mounds with chimneys, ventilation, and
+        royal chambers emerge from one rule iterated by millions of agents
+        with no plan in any of their heads.
+      </p>
+      <div class="src">Grassé 1959; Turner, <em>The Extended Organism</em>, Harvard 2000</div>
+    </div>
+    <div class="stig-card immune">
+      <h3>immune cells · cytokine breadcrumbs</h3>
+      <p>
+        a macrophage that finds a pathogen leaks signalling molecules
+        (cytokines + chemokines) into the local tissue. neighbouring cells
+        sense the gradient and migrate up it; T-cells released from lymph
+        nodes follow the same gradient. the body coordinates an immune
+        response without any cell having a global view.
+      </p>
+      <div class="src">Janeway's <em>Immunobiology</em>; chemokine-gradient literature, Cell Press</div>
+    </div>
+    <div class="stig-card slime">
+      <h3>slime moulds · physarum networks</h3>
+      <p>
+        <em>Physarum polycephalum</em> placed on a Tokyo-shaped board with
+        oat-flake "stations" reorganises into a tube network nearly identical
+        to the actual rail map. one rule (thicken tubes that carry more
+        nutrient flow, prune tubes that don't) yields a near-optimal
+        transport network without any cell knowing it.
+      </p>
+      <div class="src">Tero et al., <em>Science</em> 2010, "Rules for biologically inspired adaptive network design"</div>
+    </div>
+  </div>
+
+  <h2>what these systems share</h2>
+  <ol>
+    <li>each agent's <strong>view of the world is local</strong>; nobody sees the whole.</li>
+    <li>the <strong>environment carries the memory</strong> — pheromone, clay, cytokine, tube thickness.</li>
+    <li>the <strong>rule is short</strong>: roughly "do more of what others did here, less of what nobody did here."</li>
+    <li>the <strong>result is global</strong>: shortest paths, ventilated mounds, immune responses, near-optimal networks.</li>
+    <li>nobody is in charge. no agent has the plan. and yet the plan happens.</li>
+  </ol>
+
+  <h2>humans are stigmergic too — that's the part most people miss</h2>
+  <p>
+    most of what you do all day runs on autopilot. your morning route, what's
+    in your fridge, the news you scroll, the words you reach for, the people
+    you greet by reflex — all reinforced by the trail your past selves left
+    behind. that is not a defect. autopilot is what frees the thinking part
+    of the brain (see <a href="brain.html">brain</a>) to do the small number
+    of hard things you actually need to think about. living without it would
+    be exhausting.
+  </p>
+  <p>
+    <strong>but autopilot inherits whatever was last on the trail.</strong> if
+    the trail is "drive everywhere, eat what you can grab, scroll until you
+    fall asleep, vote for whoever shouts loudest," then the autopiloted you
+    walks that trail and reinforces it for the next person. the rule is
+    short and local. the result is global. the global result is a planet.
+  </p>
+
+  <h2>every action is a small deposit on the trail</h2>
+  <div class="ledger">
+    <div class="row"><span class="k">eating without thinking</span><span>shapes farms, water, antibiotics use, soil chemistry, and your own metabolism. cattle alone account for ~6% of human-caused greenhouse gases. cows you eat → cattle farms → feed crops → land cleared → climate shift. a chain you started by ordering a burger.</span></div>
+    <div class="row"><span class="k">spending energy without thinking</span><span>every kilowatt has a source. lights left on, idle screens, heat leaking through old windows — multiplied by ~8 billion people, that is the dominant climate forcing. see <a href="world.html#energy">/world#energy</a>.</span></div>
+    <div class="row"><span class="k">normalising bad behaviour</span><span>you laughing at a cruel joke is one ant's pheromone. it evaporates fast on its own. but a thousand laughs on the same trail and the trail thickens; the next agent finds it easier to walk.</span></div>
+    <div class="row"><span class="k">voting for someone you know is corrupt</span><span>same mechanism, longer half-life. you legitimised a person who will, by office, deposit much heavier marks on the public trail than any private citizen can. responsibility scales with influence; influence scales with office.</span></div>
+    <div class="row"><span class="k">letting your body deteriorate</span><span>not a moralism. it's a load-bearing point. your body is also part of the trail — children of friends look at you and update their priors about what "an adult" looks like. the rule is short. the result is global.</span></div>
+  </div>
+
+  <h2>"god is keeping count" — read carefully</h2>
+  <p>
+    every religion has a version of this claim. judaism: the book of life.
+    christianity: the lamb's book. islam: the kiraman katibin (two recording
+    angels). buddhism + hinduism: karma as a literal causal accounting.
+    egyptian: ma'at, weighing the heart. these are not coincidences. they are
+    independent attempts at the same observation.
+  </p>
+  <p>
+    define god in any of the usual ways and the recording claim survives:
+  </p>
+  <ul>
+    <li><strong>god as a person</strong> — every action is logged in a book somewhere.</li>
+    <li><strong>god as a force / law</strong> — every action perturbs the system; the system remembers in deformations of mass, energy, and information.</li>
+    <li><strong>god as the universe</strong> — every action is, by definition, part of the universe's history; it cannot be unwritten.</li>
+    <li><strong>god as cooperation</strong> (the framing this site prefers) — every action either feeds or drains the cooperative substrate that lets you have a life worth having; the substrate keeps score whether you believe in it or not.</li>
+  </ul>
+  <p>
+    these readings disagree on the <em>mechanism</em>. they agree on the
+    operational claim: <strong>your actions are recorded in more ways than
+    you can imagine, and read by more agents than you will ever meet.</strong>
+    that's stigmergy at the human scale. the religious word for it is "god."
+    the biological word for it is "the environment." the engineering word for
+    it is "feedback." they are the same thing.
+  </p>
+
+  <blockquote>
+    you are leaving pheromone whether you know it or not. the question is
+    only whether the trail you're thickening is one you'd want others to
+    walk.
+  </blockquote>
+
+  <h2>thinking is the birthright. don't surrender it cheaply.</h2>
+  <p>
+    the load-bearing freedom you have, that an ant does not, is the pause
+    between sense and act. that pause is small, expensive, and the first
+    thing to disappear when you are tired, scared, hungry, or in a crowd
+    that's certain. protect it. the world is full of people who would
+    cheerfully let you skip it. some of them sell snacks; some of them sell
+    politicians; some of them sell certainty in books. all of them are
+    asking you to deposit on a trail you didn't choose.
+  </p>
+
+  <h2>links</h2>
+  <ul>
+    <li><a href="brain.html">brain</a> — the stack inside one head, including which slots autopilot uses.</li>
+    <li><a href="ants.html">ants sim</a> — watch stigmergy live in the foraging simulation.</li>
+    <li><a href="good-bad.html">good vs. bad sim</a> — what happens to a population that lets the bad-trail thicken.</li>
+    <li><a href="religion.html">religion</a> — the recording-claim across traditions.</li>
+    <li><a href="sustainability.html">sustainability</a> — the cow-chain example, in detail.</li>
+    <li><a href="world.html">world</a> — the load-bearing systems your trail flows into.</li>
+  </ul>
+</main>
+
+<aside class="sidebar">
+  <h4>see also · weighted</h4>
+  <div id="related-mount" data-page="stigmergy"><span class="muted" style="font-size:11.5px">loading…</span></div>
+  <h4 style="margin-top:14px">primary sources</h4>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Stigmergy" target="_blank" rel="noopener">stigmergy (overview)</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Pheromone_trail" target="_blank" rel="noopener">pheromone trails</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Cytokine" target="_blank" rel="noopener">cytokine signalling</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Physarum_polycephalum" target="_blank" rel="noopener">slime mould networks</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Karma" target="_blank" rel="noopener">karma (causal accounting)</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · the world records what you do.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script src="../assets/related.js" defer></script>
+</body>
+</html>
