@@ -1,0 +1,116 @@
+{
+  "generated": "2026-05-05T00:00:00Z",
+  "schema": "godding-directives-v1",
+  "description": "The author's running directives to the swarm. Each entry distils a chat-message instruction into a small, public, machine-readable claim about what should change on the site. Stored in this file so the swarm reads them on every loop run and the public can see them. NOT the verbatim chat — that's private — but the operating principles each chat produced.",
+  "directives": [
+    {
+      "id": "D-001",
+      "date": "2026-04-28",
+      "title": "Build the godding site as a knowledge commons",
+      "intent": "Static, public, ad-free; every page rests on declared sources; no monetisation.",
+      "applies_to": ["index.html", "all"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-002",
+      "date": "2026-04-28",
+      "title": "Multi-agent swarm tightens pages on a daily schedule",
+      "intent": "Drafter proposes, critic kills bad diffs, fact-checker rejects new numbers, judge accepts the rest. Word count must stay flat or shrink per run.",
+      "applies_to": ["swarm.html", ".github/workflows/swarm.yml"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-003",
+      "date": "2026-04-30",
+      "title": "Every page logs its dependencies",
+      "intent": "Treat each page like a node in a math course — definitions → lemmas → theorems → applications. Cycles forbidden.",
+      "applies_to": ["depends.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-004",
+      "date": "2026-05-02",
+      "title": "Brain as a finite stack",
+      "intent": "Drop the call-option phrasing. Frame the brain as a finite stack with frozen base, well-ordered response, and compression channels.",
+      "applies_to": ["brain.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-005",
+      "date": "2026-05-04",
+      "title": "Site must be self-repairing",
+      "intent": "Recover from OneDrive truncations automatically; every workflow run scans for files not ending in </html> and restores from HEAD; logo + nav consistency enforced by audit.",
+      "applies_to": ["swarm/repair.py", "swarm/audit.py", ".github/workflows/swarm.yml", ".github/workflows/repair-and-deploy.yml"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-006",
+      "date": "2026-05-04",
+      "title": "Likelihood-based linking between pages",
+      "intent": "Every pair of pages gets a blended similarity weight (0.55 · TF-IDF cosine + 0.45 · Jaccard on a curated concept lexicon). Min-max normalised. The 'see also · weighted' sidebar reads it; /graph renders it.",
+      "applies_to": ["swarm/linker.py", "data/links.json", "graph.html", "assets/related.js"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-007",
+      "date": "2026-05-04",
+      "title": "Build /nothing — the unstable starting state",
+      "intent": "Show that physics, religion, and biology all reach the same operational claim: pure absence is not a fixed point. You are not nothing — you are nothing organised by ~13.8B years of physics.",
+      "applies_to": ["nothing.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-008",
+      "date": "2026-05-04",
+      "title": "Build /stigmergy — biology + autopilot + ledger",
+      "intent": "Ants, termites, immune cells, slime moulds. Then humans on autopilot. Then the action-recording argument as a secular reading of 'god as ledger'.",
+      "applies_to": ["stigmergy.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-009",
+      "date": "2026-05-04",
+      "title": "Build /clock — game-engine framing + agency manifesto",
+      "intent": "World ticks. Inputs are loaded. Agency is small and load-bearing. You are not nothing — act like it. If you don't think and don't act, the bad-actor kind eats you and the world.",
+      "applies_to": ["clock.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-010",
+      "date": "2026-05-05",
+      "title": "Build /economics — energy currency + carbon ledger + dependency tracking",
+      "intent": "kWh-coin, joule-per-utility, ISO 14067 per-item carbon, EU Digital Product Passport for supply chains. Markets get more honest inputs, not abolition.",
+      "applies_to": ["economics.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-011",
+      "date": "2026-05-05",
+      "title": "Build /commons — alternatives to extractive platforms",
+      "intent": "Real cooperative replacements (Drivers Coop, Fairbnb, Up&Go, CoopCycle, Resonate, Stocksy, Mastodon, Wikimedia). Fixed prices on staples. Dependency-tracked goods. godding's stance: knowledge published not sold.",
+      "applies_to": ["commons.html"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-012",
+      "date": "2026-05-05",
+      "title": "Make the workflow runnable from a phone",
+      "intent": "GitHub Actions workflow_dispatch trigger so any change can be committed + deployed without a laptop. Browser, GitHub mobile app, or the Claude mobile app via the GitHub MCP connector — all paths work.",
+      "applies_to": [".github/workflows/repair-and-deploy.yml", "push.ps1"],
+      "status": "implemented"
+    },
+    {
+      "id": "D-013",
+      "date": "2026-05-05",
+      "title": "Spell out the godding ideology + record the directives",
+      "intent": "Give 'godding' an ideology page (open, compact, standard, free, makes existing things better). Record author directives as a public log so the swarm has a written corpus of intentions to act on.",
+      "applies_to": ["godding.html", "directives.html", "data/directives.json"],
+      "status": "implemented"
+    }
+  ],
+  "policy": {
+    "verbatim_chat_storage": false,
+    "redaction": "directives are paraphrased, signed by the author, dated, and pointed at the files they apply to. raw chat transcripts are not committed to the repo.",
+    "amendment": "anyone can propose a directive on /vote; accepted directives are added by the swarm on the next loop run."
+  }
+}

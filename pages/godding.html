@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>godding — the ideology, in plain words</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  .verb-noun{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:14px 0 22px; }
+  @media (max-width:780px){ .verb-noun{ grid-template-columns:1fr; } }
+  .vn-card{ background:var(--paper); border:1px solid var(--line); border-radius:var(--radius-sm); padding:14px 16px; }
+  .vn-card h3{ font-family:var(--mono); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--ink-mute); font-weight:500; margin:0 0 6px; }
+  .vn-card.noun h3{ color:#4a7ba8; }
+  .vn-card.verb h3{ color:#5d8c4a; }
+
+  .principles{ list-style:none; padding:0; margin:8px 0 18px; counter-reset:p; }
+  .principles li{ counter-increment:p; position:relative; padding:10px 14px 10px 56px; background:var(--paper-2); border:1px solid var(--line); border-left:3px solid var(--sun); border-radius:8px; margin:8px 0; font-family:var(--sans); font-size:14px; line-height:1.55; }
+  .principles li::before{ content:counter(p); position:absolute; left:14px; top:11px; font-family:var(--mono); font-size:18px; color:var(--sun); font-weight:600; }
+  .principles strong{ color:var(--ink); }
+
+  .signed{ font-family:var(--mono); font-size:11px; letter-spacing:.10em; color:var(--ink-mute); margin-top:18px; }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="../index.html">godding</a>
+  <nav class="nav">
+    <a href="godding.html">godding</a>
+    <a href="nothing.html">nothing</a><a href="belief.html">belief</a><a href="brain.html">brain</a><a href="religion.html">religion</a>
+    <span class="nav-group">sims:&nbsp;<a href="good-bad.html">good/bad</a>&nbsp;·&nbsp;<a href="ants.html">ants</a></span>
+    <a href="stigmergy.html">stigmergy</a><a href="clock.html">clock</a>
+    <a href="economics.html">economics</a><a href="commons.html">commons</a>
+    <a href="directives.html">directives</a>
+    <a href="crime.html">crime</a><a href="criminals.html">criminals</a>
+    <a href="justice.html">justice</a>
+    <a href="politics.html">politics</a><a href="now.html">now</a>
+    <a href="world.html">world</a>
+    <a href="vote.html">vote</a><a href="health.html">health</a>
+    <a href="sustainability.html">sustainability</a>
+    <a href="swarm.html" class="swarm-link">swarm</a>
+    <a href="graph.html">graph</a><a href="depends.html">depends</a>
+    <a href="idx.html">idx</a>
+    <a href="search.html">search</a>
+    <a href="reach.html">reach</a><a href="build.html">build</a>
+    <a href="../changelog/index.html" class="muted">changelog</a>
+  </nav>
+</header>
+
+<div class="layout">
+<main class="content page fade-in">
+  <p class="crumb"><a href="../index.html">godding</a> / godding</p>
+  <p class="kicker">ideology · what this site is, in plain words</p>
+  <h1>godding — <em>both a noun and a verb. mostly a verb.</em></h1>
+  <p class="dim">
+    "godding" is two things at once. the noun is what's already happening when
+    a universe of nothing keeps turning into something more organised. the verb
+    is what a person does when they help that process — make a thing clearer,
+    smaller, freer, more standard, more shared. the site below is one attempt
+    at the verb.
+  </p>
+
+  <h2>the two readings</h2>
+  <div class="verb-noun">
+    <div class="vn-card noun">
+      <h3>godding · noun</h3>
+      <p>
+        the cumulative, no-manager process by which nothing turns into
+        something stable enough to read a sentence about itself. see
+        <a href="nothing.html">/nothing</a> and <a href="belief.html">/belief</a>
+        for the load-bearing claims. it doesn't need believers. it isn't
+        steered by a person in the sky. it is the pattern that keeps
+        running whether anyone notices or not.
+      </p>
+    </div>
+    <div class="vn-card verb">
+      <h3>godding · verb</h3>
+      <p>
+        what one of those readers does when they help the process — by
+        compressing a confused page into a clear one, by removing a dead
+        layer between a person and a fact, by making a private piece of
+        knowledge public. <em>to god</em> is to take a thing that is
+        bigger or murkier than it needs to be and leave it smaller and
+        clearer for the next person.
+      </p>
+    </div>
+  </div>
+
+  <h2>the five operating principles, plain</h2>
+  <ol class="principles">
+    <li><strong>open by default.</strong> every page is free to read, free to fork, free to argue with. nothing on this site is gated. the source repository is public. the swarm log is public. the dependency graph is public. the audit results are public.</li>
+    <li><strong>make existing things better.</strong> godding is not a fresh-start project. there are 4,000 years of moral codes, 200 years of empirical economics, 70 years of computer science, and 25 years of the wikipedia model already doing a lot of the work. the verb here is to compress and link the existing material — not to invent rivals to it.</li>
+    <li><strong>more compact, not more.</strong> the site's word count must stay flat or shrink per swarm run. this is enforced by the loop. growth without compression is the failure mode of every encyclopedia ever; we refuse it on a measurable basis.</li>
+    <li><strong>more knowledge, more free access.</strong> the bottleneck on most lives is not raw information; it is friction between a person and the few things that would help them. every link, every label, every standard the site recommends is chosen to lower that friction.</li>
+    <li><strong>standardisation.</strong> the same units, the same definitions, the same dependency-graph shape across every page. carbon in kgCO₂e. energy in joules or kWh. claims tagged as definition, lemma, theorem, application. nav identical on every page. logo identical on every page. the swarm enforces every one of these on every run.</li>
+  </ol>
+
+  <h2>what godding is not</h2>
+  <ul>
+    <li><strong>not a religion</strong> in the traditional sense — there is no required belief, no clergy, no ritual.</li>
+    <li><strong>not anti-religion</strong> either — religions are themselves long-running compression schemes for cooperation rules; see <a href="religion.html">/religion</a>.</li>
+    <li><strong>not a brand.</strong> there is no logo to license, no trademark to defend. if you find a better name for the verb, use it.</li>
+    <li><strong>not a business.</strong> nothing here is for sale. development is funded by donations and salary, not equity (see <a href="commons.html">/commons</a>).</li>
+    <li><strong>not finished.</strong> the swarm runs daily; corrections are read on the next run; every accepted edit is logged.</li>
+  </ul>
+
+  <h2>how to god something (the verb, applied)</h2>
+  <ol>
+    <li>find a thing that is bigger, murkier, or more gated than it needs to be.</li>
+    <li>strip what isn't load-bearing.</li>
+    <li>link what's left to the existing public sources that already say the same thing.</li>
+    <li>publish the result with provenance — who, when, on what basis.</li>
+    <li>let the next person do the same to your version. that is the loop.</li>
+  </ol>
+
+  <blockquote>
+    the verb predates the noun. people have been godding things for as long
+    as there have been things to compress. the site just gives the activity
+    a name and a place to leave the trail.
+  </blockquote>
+
+  <h2>where this slots in</h2>
+  <ul>
+    <li><a href="directives.html">/directives</a> — the running log of author intentions; the swarm reads it on the next loop.</li>
+    <li><a href="commons.html">/commons</a> — the operating model (knowledge published, not sold).</li>
+    <li><a href="swarm.html">/swarm</a> — the engine (drafter → critic → fact-checker → judge).</li>
+    <li><a href="depends.html">/depends</a> — every claim's dependency in topological order.</li>
+    <li><a href="graph.html">/graph</a> — the live likelihood links between every page.</li>
+  </ul>
+
+  <p class="signed">— posted by Can Acay. corrections welcome on <a href="vote.html">/vote</a>; the swarm reads them on the next run.</p>
+</main>
+
+<aside class="sidebar">
+  <h4>see also · weighted</h4>
+  <div id="related-mount" data-page="godding"><span class="muted" style="font-size:11.5px">loading…</span></div>
+  <h4 style="margin-top:14px">load-bearing pages</h4>
+  <ul>
+    <li><a href="nothing.html">nothing · the unstable starting state</a></li>
+    <li><a href="belief.html">belief · the chain</a></li>
+    <li><a href="commons.html">commons · the operating model</a></li>
+    <li><a href="swarm.html">swarm · the engine</a></li>
+    <li><a href="directives.html">directives · author log</a></li>
+  </ul>
+</aside>
+</div>
+
+<footer class="foot">
+  <span>godding · open · compact · standard · free.</span>
+  <span class="sep">·</span>
+  <a href="../changelog/index.html">changelog</a>
+  <span class="sep">·</span>
+  <a href="idx.html">index</a>
+</footer>
+
+<script src="../assets/related.js" defer></script>
+</body>
+</html>
